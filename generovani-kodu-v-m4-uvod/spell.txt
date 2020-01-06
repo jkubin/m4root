@@ -1,5 +1,5 @@
 # vim:wrap:spell:spelllang=cs,en
-# 0x872bec1	20200106-19:17:16
+# 0x9740070	20200106-22:38:20
 
 6
 Generování kódu v M4: úvod
@@ -499,7 +499,7 @@ Další expanze vrátí číselný terminální symbol a proběhne zvýšení po
  je malý automat.
 
 1129
- Úprava speciálních znaků
+(jak to udělat) Úprava speciálních znaků
 
 1135
 Každý typ výstupního kódu vyžaduje úpravu speciálních znaků.
@@ -571,7 +571,7 @@ Zprávy typu  a  jsou zpracovány stejně jako zprávy typu .
 
 1321
 Příklad ukazuje větvení gramatikou, argumenty maker se ignorují.
-Vstupní neterminály se přepisují na terminály , , .
+Vstupní neterminály se přepisují na terminály (🐛), (🐜), (🐝).
 
 1333
  JSON – generující automat
