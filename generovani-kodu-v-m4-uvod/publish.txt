@@ -1532,7 +1532,7 @@ divert(0)dnl
 
 #endif	/* __HELLO_WORLD_H */</pre>
 <h3 id="m4-awk-priklady-bezpecnejsich-maker"><a href="#m4-awk-priklady-bezpecnejsich-maker" title="⚓">C.4</a>&nbsp;&nbsp;<code>[]</code> AWK – příklady bezpečnějších maker&nbsp;<a href="#m4-toc-awk-priklady-bezpecnejsich-maker" title="Obsah" class="m4-jmp">☰</a></h3>
-<p>Univerzální výstraha <code>DONTE</code> se ignoruje bez závorek, stejně jako <code>LB</code>, <code>RB</code>, <code>BRAC</code>, …
+<p>Univerzální výstraha <code>DONTE</code> se ignoruje bez závorek, stejně jako <code>LB</code>, <code>RB</code>, …
 Taková makra explicitně vytváří vývojář skriptů, prohlédněte si kořenový soubor.</p>
 <pre title="awk.m4"># AWK
 
@@ -1541,7 +1541,7 @@ divert(0)dnl
 #
 [# DONTE()] ---&gt; "DONTE()"
 
-BEGIN { print "DONTE[]() BRAC () LB () LB() SYMBOL ]" }</pre>
+BEGIN { print "DONTE[]() LB () LB() SYMBOL ]" }</pre>
 <table class="table"><tbody><tr><th style="width:100%" title="vstupní soubory"><a href="https://raw.githubusercontent.com/jkubin/m4root/master/gfiles/rootb.m4" title="GitHub">rootb.m4</a>&nbsp;&nbsp;&nbsp;<a href="https://raw.githubusercontent.com/jkubin/m4root/master/hello_world/awk.m4" title="GitHub">awk.m4</a></th><th title="výstupní soubor"><a href="https://raw.githubusercontent.com/jkubin/m4root/master/hello_world/hello_world.awk" title="GitHub">hello_world.awk</a></th></tr></tbody></table>
 <pre title="příkaz">
 ~]$ <strong>m4 -DSYMBOL='Hello, world!' rootb.m4 awk.m4 &gt; hello_world.awk</strong>
@@ -1550,7 +1550,7 @@ BEGIN { print "DONTE[]() BRAC () LB () LB() SYMBOL ]" }</pre>
 #
 # DONTE() ---&gt; "DO NOT EDIT! This file is generated automatically!"
 
-BEGIN { print "DONTE()  () LB () [ Hello, world! ]" }</pre>
+BEGIN { print "DONTE() LB () [ Hello, world! ]" }</pre>
 <h2 id="m4-proc-pouzivat-m4-a-proc-ne"><a href="#m4-proc-pouzivat-m4-a-proc-ne" title="⚓">D</a>&nbsp;&nbsp;Proč používat M4 a proč ne?&nbsp;<a href="#m4-toc-proc-pouzivat-m4-a-proc-ne" title="Obsah" class="m4-jmp">☰</a></h2>
 <p id="m4-toc-proc-generovat-kod-v-m4">&nbsp;&nbsp;&nbsp;<a href="#m4-proc-generovat-kod-v-m4">D.1&nbsp;&nbsp;<code>&#x1f44d;</code> Proč generovat kód v&nbsp;M4</a></p>
 <p id="m4-toc-proc-se-vyhnout-m4">&nbsp;&nbsp;&nbsp;<a href="#m4-proc-se-vyhnout-m4">D.2&nbsp;&nbsp;<code>&#x1f44e;</code> Proč se vyhnout M4</a></p>

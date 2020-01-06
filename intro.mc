@@ -1646,11 +1646,11 @@ dnl english: _next_language_
 ])
 
 PARA([[dnl czech
-Univerzální výstraha CODE_M4([DONTE]) se ignoruje bez závorek, stejně jako CODE_M4([LB]), CODE_M4([RB]), CODE_M4([BRAC]), …
+Univerzální výstraha CODE_M4([DONTE]) se ignoruje bez závorek, stejně jako CODE_M4([LB]), CODE_M4([RB]), …
 Taková makra explicitně vytváří vývojář skriptů, prohlédněte si kořenový soubor.
 ],
 [dnl english: _next_language_
-The universal alert CODE_M4([DONTE]) is ignored without parentheses, like CODE_M4([LB]), CODE_M4([RB]), CODE_M4([BRAC]), …
+The universal alert CODE_M4([DONTE]) is ignored without parentheses, like CODE_M4([LB]), CODE_M4([RB]), …
 Such macros are explicitly created by a script developer, see the root file.
 ]])
 

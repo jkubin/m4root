@@ -1520,7 +1520,7 @@ divert(0)dnl
 
 #endif	/* __HELLO_WORLD_H */</pre>
 <h3 id="m4-awk-examples-of-safer-macros"><a href="#m4-awk-examples-of-safer-macros" title="⚓">C.4</a>&nbsp;&nbsp;<code>[]</code> AWK – examples of safer macros&nbsp;<a href="#m4-toc-awk-examples-of-safer-macros" title="Content" class="m4-jmp">☰</a></h3>
-<p>The universal alert <code>DONTE</code> is ignored without parentheses, like <code>LB</code>, <code>RB</code>, <code>BRAC</code>, …
+<p>The universal alert <code>DONTE</code> is ignored without parentheses, like <code>LB</code>, <code>RB</code>, …
 Such macros are explicitly created by a script developer, see the root file.</p>
 <pre title="awk.m4"># AWK
 
@@ -1529,7 +1529,7 @@ divert(0)dnl
 #
 &#x5b;# DONTE()&#x5d; ---&gt; "DONTE()"
 
-BEGIN { print "DONTE&#x5b;&#x5d;() BRAC () LB () LB() SYMBOL &#x5d;" }</pre>
+BEGIN { print "DONTE&#x5b;&#x5d;() LB () LB() SYMBOL &#x5d;" }</pre>
 <table class="table"><tbody><tr><th style="width:100%" title="input files"><a href="https://raw.githubusercontent.com/jkubin/m4root/master/gfiles/rootb.m4" title="GitHub">rootb.m4</a>&nbsp;&nbsp;&nbsp;<a href="https://raw.githubusercontent.com/jkubin/m4root/master/hello_world/awk.m4" title="GitHub">awk.m4</a></th><th title="output file"><a href="https://raw.githubusercontent.com/jkubin/m4root/master/hello_world/hello_world.awk" title="GitHub">hello_world.awk</a></th></tr></tbody></table>
 <pre title="command">
 ~]$ <strong>m4 -DSYMBOL='Hello, world!' rootb.m4 awk.m4 &gt; hello_world.awk</strong>
@@ -1538,7 +1538,7 @@ BEGIN { print "DONTE&#x5b;&#x5d;() BRAC () LB () LB() SYMBOL &#x5d;" }</pre>
 #
 # DONTE() ---&gt; "DO NOT EDIT! This file is generated automatically!"
 
-BEGIN { print "DONTE()  () LB () &#x5b; Hello, world! &#x5d;" }</pre>
+BEGIN { print "DONTE() LB () &#x5b; Hello, world! &#x5d;" }</pre>
 <h2 id="m4-why-using-m4-and-why-not"><a href="#m4-why-using-m4-and-why-not" title="⚓">D</a>&nbsp;&nbsp;Why using M4 and why not?&nbsp;<a href="#m4-toc-why-using-m4-and-why-not" title="Content" class="m4-jmp">☰</a></h2>
 <p id="m4-toc-why-generate-code-in-m4">&nbsp;&nbsp;&nbsp;<a href="#m4-why-generate-code-in-m4">D.1&nbsp;&nbsp;<code>👍</code> Why generate code in M4</a></p>
 <p id="m4-toc-why-avoid-m4">&nbsp;&nbsp;&nbsp;<a href="#m4-why-avoid-m4">D.2&nbsp;&nbsp;<code>👎</code> Why avoid M4</a></p>

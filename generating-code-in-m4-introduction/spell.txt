@@ -1,5 +1,5 @@
 # vim:wrap:spell:spelllang=en,en
-# 0x9740070	20200106-22:38:20
+# 0x16fffbd	20200106-23:29:53
 
 6
 Generating code in M4: introduction
@@ -702,7 +702,7 @@ These symbols become ordinary terminal symbols without any side effect.
  AWK – examples of safer macros
 
 1648
-The universal alert  is ignored without parentheses, like , , , …
+The universal alert  is ignored without parentheses, like , , …
 Such macros are explicitly created by a script developer, see the root file.
 
 1662
