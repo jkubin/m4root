@@ -17,7 +17,7 @@ define([SRC_REPO_NAME], [GitHub])
 
 m4wrap([
 	divert(0)dnl
-<!-- DONTE() -->
+<!-- DONTE() https://validator.w3.org/#validate_by_upload -->
 <!doctype html>
 <html lang="LANG_CODE">
 <head>

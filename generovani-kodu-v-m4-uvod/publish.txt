@@ -133,7 +133,7 @@ Makro procesor zdrojový kód překládá zpátky do FORTRAN-u, poté kompiláto
 </div>
 <p>Uživatelský manuál<sup><a href="https://wolfram.schneider.org/bsd/7thEdManVol2/m4/m4.pdf" title="The M4 Macro Processor">[4]</a></sup> zmiňuje ještě další, zde neuvedené spoluautory.
 Bylo by tedy značně nespravedlivé napsat, že autory makro procesoru M4 (1977) jsou <em>pouze</em> dva lidé.</p>
-<img src="https://i.iinfo.cz/images/283/authors-of-m4-1.jpg" alt="&#160;" width="960" height="400" id="m4-the-authors" title="Christopher Strachey, Dennis Ritchie, Brian Kernighan" img/authors.jpg, https://i.iinfo.cz/images/283/authors-of-m4-1.jpg>
+<img src="https://i.iinfo.cz/images/283/authors-of-m4-1.jpg" alt="&#160;" width="960" height="400" id="m4-the-authors" title="Christopher Strachey, Dennis Ritchie, Brian Kernighan">
 <p><em>Obrázek <a href="#m4-the-authors" title="⚓">1</a>: Christopher Strachey<sup><a href="https://www.computerhope.com/people/christopher_strachey.htm" title="Christopher Strachey">[5]</a></sup>,
 Dennis Ritchie<sup><a href="https://pc.zoznam.sk/novinka/zomrel-tvorca-unixu-jazyka-c" title="Dennis Ritchie">[6]</a></sup>,
 Brian Kernighan<sup><a href="https://www.cs.cmu.edu/~mihaib/kernighan-interview/" title="Brian Kernighan">[7]</a></sup></em></p>
@@ -298,7 +298,7 @@ Některý z&nbsp;následujících dílů seriálu se podrobněji zaměří na fo
 <h4 id="m4-testovaci-automat"><a href="#m4-testovaci-automat" title="⚓">»</a>&nbsp;Testovací automat</h4>
 <p>Pořadí vstupních symbolů nebo jejich kontext lze otestovat automatem.
 Splňují-li vstupní symboly požadované vlastnosti, automat skončí v&nbsp;uzlu s&nbsp;dvojitým kroužkem (označuje akceptující stav nebo stavy).</p>
-<img src="https://i.iinfo.cz/images/149/dfa-1.png" alt="&#160;" width="274" height="155" id="m4-dfa-img" title="deterministický konečný automat" img/dfa.png, https://i.iinfo.cz/images/149/dfa-1.png>
+<img src="https://i.iinfo.cz/images/149/dfa-1.png" alt="&#160;" width="274" height="155" id="m4-dfa-img" title="deterministický konečný automat">
 <p><em>Obrázek <a href="#m4-dfa-img" title="⚓">2</a>: Příklad automatu<sup><a href="https://cs.wikipedia.org/wiki/Teorie_automat%C5%AF" title="Teorie automatů">[9]</a></sup> akceptující sudý počet (žádný je také sudý) symbolů <code>0</code>, ignorující symboly <code>1</code>.
 Automat je shodný s&nbsp;regulárním výrazem <code>(1*01*01*)*</code>.</em></p>
 <p>Předchozí automat lze zapsat jako ASCII art doprovázející M4 skript:</p>

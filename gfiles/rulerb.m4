@@ -13,7 +13,7 @@ ___USAGE([m4 root.m4 ruler.m4 ...])
 define([📏dec], [ifelse([$1], [1], [1], [indir([$0], decr($1))[]eval($1 % 10)])])
 
 # β
-define([RULER_DEC], defn([#INIT_TEST])[
+define([RULER_DEC], defn([TEST_ATM])[
 
 	# generate ruler and transition to the next node (PRINT)
 	define([$0], indir([📏dec], $1))
@@ -23,7 +23,7 @@ define([RULER_DEC], defn([#INIT_TEST])[
 define([📏hex], [ifelse([$1], [1], [1], [indir([$0], decr($1))[]eval($1 % 16, 16)])])
 
 # β
-define([RULER_HEX], defn([#INIT_TEST])[
+define([RULER_HEX], defn([TEST_ATM])[
 
 	# generate ruler and transition to the next node (PRINT)
 	define([$0], indir([📏hex], $1))

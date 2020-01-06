@@ -365,6 +365,7 @@ IMG([the_authors],dnl id
 [Christopher Strachey, Dennis Ritchie, Brian Kernighan],dnl title
 [],dnl class
 [],dnl style
+[],dnl anything
 [img/authors.jpg, https://i.iinfo.cz/images/283/authors-of-m4-1.jpg],dnl src
 [[dnl czech
 Christopher Strachey[]REF([Christopher Strachey], [Computer Hope – Free computer help since 1998], [https://www.computerhope.com/people/christopher_strachey.htm]),
@@ -894,6 +895,7 @@ IMG([dfa_img],dnl id
 LANG([deterministický konečný automat], [deterministic finite automaton]),dnl title
 [],dnl class
 [],dnl style
+[],dnl anything
 [img/dfa.png, https://i.iinfo.cz/images/149/dfa-1.png],dnl src
 [[dnl czech
 Příklad automatu[]REF([Teorie automatů], [From Wikipedia, the free encyclopedia], [https://cs.wikipedia.org/wiki/Teorie_automat%C5%AF], [Wikipedie]) akceptující sudý počet (žádný je také sudý) symbolů CODE([0]), ignorující symboly CODE([1]).

@@ -287,7 +287,7 @@ define([LINK], [pushdef([CURRQU], divnum)divert(-1)
 pushdef([FIND_IMG_DIM], [
 
 	# find out image dimension (copy of the image is uploaded on server)
-	define([IMAGE_DIM], esyscmd([identify -format "[%w, %h]" ]ARG1($5)))
+	define([IMAGE_DIM], esyscmd([identify -format "[%w, %h]" ]ARG1($6)))
 
 	# test return value from an external commad
 	ifelse(sysval, [0], [], [
@@ -300,22 +300,22 @@ pushdef([FIND_IMG_DIM], [
 define([COUNTER_FOR_IMAGES], defn([COUNT_UP]))
 COUNTER_FOR_IMAGES(1)
 
-# IMG(, [title],, [style], [img.png, http://root.cz/img.png], [[czech], [english]])
-# IMG([ID], [title],, [style], [img.png, http://root.cz/img.png], [[czech], [english]])
-# IMG([ID], [title], [class], [style], [img.png, http://root.cz/img.png], [[czech], [english]])
+# IMG(,,,,, [img.png, http://root.cz/img.png], [[czech], [english]])
+# IMG([ID], [title],,,, [img.png, http://root.cz/img.png], [[czech], [english]])
+# IMG([ID], [title], [class], [style], [anything], [img.png, http://root.cz/img.png], [[czech], [english]])
 # A → β
 define([IMG], [
 
 	# Fixed number of arguments!
-	ifelse([$#], [6], [], [
+	ifelse([$#], [7], [], [
 
-		ROOT_ERROR([$0(…) requires 6 arguments (received $#)])
+		ROOT_ERROR([$0(…) requires 7 arguments (received $#)])
 	])
 
 	]defn([FIND_IMG_DIM])[
 
 	divert(CURRQU)dnl
-<img src="IMG_SRC($5)" alt="[&#160;]" width="ARG1(IMAGE_DIM)" height="ARG2(IMAGE_DIM)"]defn([HTML_GLOBAL_ATTRIBUTES])[>
+<img src="IMG_SRC($6)" alt="[&#160;]" width="ARG1(IMAGE_DIM)" height="ARG2(IMAGE_DIM)"]defn([HTML_GLOBAL_ATTRIBUTES])[>
 <p><em>WORD_IMAGE <a href="[#]NSP()defn(defn([FILE_PREFIX]).anch.[$1])"]defn([ANCHOR_SIGN])[>COUNTER_FOR_IMAGES</a>: EXPAND_LANG_WITHOUT_TRAILING_LF(]defn([EXPAND_LAST])[)</em></p>
 divert(-1)
 ])
