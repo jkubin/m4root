@@ -29,7 +29,7 @@ $(PROJECT).%: rootb.m4 %.m4
 $(PROJECT).branch: rootb.m4 branch.m4
 	m4 -DBRANCH=$$[$$RANDOM % 10] $(filter-out Makefile, $^) > $@
 
-$(PROJECT).java: rootq.m4 java.m4
+$(PROJECT).java: rootq.m4 rulerq.m4 java.m4
 	m4 -DSYMBOL='$(SYMBOL)' $(filter-out Makefile, $^) > $@
 
 $(PROJECT).q.c: rootq.m4 q.c.m4
