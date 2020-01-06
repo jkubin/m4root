@@ -4,13 +4,13 @@
 ```
 # dnf -y install make m4 pinfo
 ```
-2. generate files to generate all other files
+2. generate files to generate other files
 ```
 $ make
 ```
 3. generate all other files
 ```
-$ make all
+$ make
 ```
 4. clear generated files
 ```
