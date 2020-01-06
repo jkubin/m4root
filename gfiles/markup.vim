@@ -54,7 +54,7 @@ iabbrev <buffer> <unique> hh HEADING([dnl czech<cr>[],<cr>dnl english: _next_lan
 iabbrev <buffer> <unique> hm HEADING_MONO([dnl monolingual<cr>[],<cr>])<up><right><c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> hr HORIZONTAL_RULE()<c-r>=Eatchar('.')<cr>
 "iabbrev <buffer> <unique> ii LI([<c-r>"])<esc>
-iabbrev <buffer> <unique> im IMG([],dnl id<cr>[%%%],dnl title<cr>[],dnl class<cr>[],dnl style<cr>[%%%, %%%],dnl [local_src, server_src]<cr>[[dnl czech<cr>%%%<cr>],<cr>[dnl english: _next_language_<cr>%%%<cr>]])<left><c-o>%<right><right><c-r>=Eatchar('.')<cr>
+iabbrev <buffer> <unique> im IMG([],dnl id<cr>[%%%],dnl title<cr>[],dnl class<cr>[],dnl style<cr>[],dnl anything<cr>[%%%, %%%],dnl [local_img, server_img]<cr>[[dnl czech<cr>%%%<cr>],<cr>[dnl english: _next_language_<cr>%%%<cr>]])<left><c-o>%<right><right><c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> ins INS([<c-r>"])<esc>
 iabbrev <buffer> <unique> lan LANG([<c-r>"], [])<left><left><c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> lii LI([<c-r>"])<esc>
