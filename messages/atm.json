@@ -1,0 +1,8 @@
+{"generating_automaton": {
+	"_comment": "DO NOT EDIT! This file is generated automatically!",
+	"error": [
+		{"COMPLEX": "!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~"},
+		{"SUCCESS": "Complex M4 code failed successfully."},
+		{"NOFAULT": "It's not a language fault!"}
+	]
+}}

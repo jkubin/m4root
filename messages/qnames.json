@@ -1,0 +1,15 @@
+{"queue_names": {
+	"_comment": "DO NOT EDIT! This file is generated automatically!",
+	"query": [
+		{"READABLE": "Is badly written M4 code readable [N/y]?"}
+	],
+	"error": [
+		{"COMPLEX": "!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~"},
+		{"SUCCESS": "Complex M4 code failed successfully."},
+		{"NOFAULT": "It's not a language fault!"}
+	],
+	"warning": [
+		{"ADDICTIVE": "Programming in M4 is addictive!"},
+		{"NO_ERRORS": "No other errors detected."}
+	]
+}}

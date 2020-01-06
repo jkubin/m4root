@@ -1,0 +1,11 @@
+m4trace: -1- divert([0])
+m4trace: -1- dnl
+m4trace: -1- SENTENCE -> [NOUN_PHRASE[]VERB_PHRASE]
+m4trace: -1- NOUN_PHRASE -> [DETERM[]NOUN]
+m4trace: -1- DETERM
+m4trace: -1- NOUN -> [hello ]
+m4trace: -1- VERB_PHRASE -> [VERB[]NOUN_PHRASE2]
+m4trace: -1- VERB
+m4trace: -1- NOUN_PHRASE2 -> [DETERM[]NOUN2]
+m4trace: -1- DETERM
+m4trace: -1- NOUN2 -> [world]

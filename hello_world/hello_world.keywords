@@ -1,0 +1,12 @@
+# A → ε
+The keyword ifelse([…]) with multiline text inside has disappeared to ε!
+
+# D → SYMBOL
+D D D D Hello, world! Hello, world! Hello, world! Hello, world!
+
+# A comment	<--- visible to output
+Hello, world!
+
+# how the production rules work
+# ifdef([SYMBOL], [A], [not defined]) → A → B → C → D → SYMBOL → Hello, world!
+Hello, world!

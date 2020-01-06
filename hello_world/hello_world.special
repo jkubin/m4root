@@ -1,0 +1,3 @@
+The keywords define([]), defn([]), … are disabled.
+A sentence with comma, brackets ] or [.
+The # and dnl are not comments in brackets.

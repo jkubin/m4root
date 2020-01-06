@@ -1,0 +1,3 @@
+DO NOT EDIT! This file is generated automatically!
+
+[kb@demon hello_world]$ echo -e '\e[31mHello, world!\e[0m'

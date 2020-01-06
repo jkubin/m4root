@@ -1,0 +1,34 @@
+<!-- DO NOT EDIT! This file is generated automatically! -->
+<?xml version="1.0" encoding="utf-8"?>
+<messages>
+	<query>
+		<item>
+			<name>READABLE</name>
+			<value>Is badly written M4 code readable [N/y]?</value>
+		</item>
+	</query>
+	<error>
+		<item>
+			<name>COMPLEX</name>
+			<value>!"#$%&amp;'()*+,-./:;&lt;=&gt;?@[\]^_`{|}~</value>
+		</item>
+		<item>
+			<name>SUCCESS</name>
+			<value>Complex M4 code failed successfully.</value>
+		</item>
+		<item>
+			<name>NOFAULT</name>
+			<value>It's not a language fault!</value>
+		</item>
+	</error>
+	<warning>
+		<item>
+			<name>ADDICTIVE</name>
+			<value>Programming in M4 is addictive!</value>
+		</item>
+		<item>
+			<name>NO_ERRORS</name>
+			<value>No other errors detected.</value>
+		</item>
+	</warning>
+</messages>
