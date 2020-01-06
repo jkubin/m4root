@@ -251,7 +251,7 @@ define([LINK], [pushdef([CURRQU], divnum)divert(-1)
 		pushdef([NB], [ ])
 
 		# expand title
-		pushdef([TITLE], [ ]title="TITLE")
+		define([TITLE], [ ]title="TITLE")
 
 		# forget previous temporary macros
 		popdef(
