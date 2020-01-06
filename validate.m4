@@ -10,7 +10,7 @@ define([IMG_SRC], [$2])
 define([OTHER_LANGUAGE], defn([OTHER_LANG_PATH]))
 
 # path for generated files
-define([SRC_FILE_PATH], [../])
+define([SRC_FILE_PATH], [https://raw.githubusercontent.com/jkubin/m4root/master/])
 
 # name for repository
 define([SRC_REPO_NAME], [GitHub])
