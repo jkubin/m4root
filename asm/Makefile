@@ -1,6 +1,6 @@
 SYMBOL = Hello, world!
-TARGETS = intel att
-VPATH = ../gfiles/
+TARGETS = intel.s att.s
+VPATH = ../gfiles
 
 .SECONDARY:
 
@@ -18,4 +18,4 @@ all: $(TARGETS)
 #:cl/clean	remove generated files
 .PHONY: clean cl
 clean cl:
-	$(RM) $(DEBUG_FILE) $(TARGETS) *.s
+	$(RM) $(DEBUG_FILE) $(TARGETS)
