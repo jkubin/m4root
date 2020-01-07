@@ -25,3 +25,7 @@ define([LANG], [ifelse([$#], [0], [[$0]], ]BRAC(defn([SELECT_LANG]))[)])
 # select language (without trailing white chars)
 # A → β
 define([LANGW], [ifelse([$#], [0], [[$0]], ]BRAC(defn([SELECT_LANG_WITHOUT_TRAILING_LF]))[)])
+
+# expand language
+# A → β
+define([XLANG], [ifelse([$#], [0], [[$0]], ]BRAC(defn([EXPAND_LANG]))[)])
