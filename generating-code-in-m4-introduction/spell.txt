@@ -1,5 +1,5 @@
 # vim:wrap:spell:spelllang=en,en
-# 0x16fffbd	20200106-23:29:53
+# 0x15f08a2	20200107-04:08:27
 
 6
 Generating code in M4: introduction
@@ -512,10 +512,10 @@ Modified input source code
  XML, HTML – the file for markup languages
 
 1175
- C, JSON, INI – the file for DQ()strings in double quotesDQ()
+ C, JSON, INI – the file for "strings in double quotes"
 
 1184
- Bash – the file for DQ()strings in double quotesDQ()
+ Bash – the file for "strings in double quotes"
 
 1192
  Bash – the file for 'strings in apostrophes'

@@ -1,5 +1,5 @@
 # vim:wrap:spell:spelllang=cs,en
-# 0x16fffbd	20200106-23:29:53
+# 0x15f08a2	20200107-04:08:27
 
 6
 Generování kódu v M4: úvod
@@ -514,10 +514,10 @@ Upravený vstupní zdrojový kód
  XML, HTML – soubor pro značkovací jazyky
 
 1175
- C, JSON, INI – soubor pro DQ()řetězce v uvozovkáchDQ()
+ C, JSON, INI – soubor pro "řetězce v uvozovkách"
 
 1184
- Bash – soubor pro DQ()řetězce v uvozovkáchDQ()
+ Bash – soubor pro "řetězce v uvozovkách"
 
 1192
  Bash – soubor pro 'řetězce v apostrofech'

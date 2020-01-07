@@ -132,11 +132,13 @@ define([QM],		[ifelse([$#], [0], [[$0]], [$2], [], [„$1“], [„$1“ ($2)])]
 # A → ε
 define([ABBR],		defn([BO]))
 define([ACRO],		defn([BO]))
+define([AP],		[ifelse([$#], [0], [[$0]], ['])])
 define([BUTTON],	defn([BO]))
 define([CITE],		defn([BO]))
 define([CODE],		[ifelse([$#], [0], [[$0]], [$2], [], [], [($2)])])
 define([DEL],		defn([BO]))
 define([DFN],		defn([BO]))
+define([DQ],		[ifelse([$#], [0], [[$0]], ["])])
 define([EM],		defn([BO]))
 define([INS],		defn([BO]))
 define([LABEL],		defn([BO]))
@@ -237,7 +239,7 @@ define([UNORDERED_LIST_WRAP],		defn([TITLE], [EXPAND_LAST]))
 
 popdef(
 
-	[TITLE],
 	[PRINT],
+	[TITLE],
 
 )
