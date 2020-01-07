@@ -1,5 +1,5 @@
 # vim:wrap:spell:spelllang=cs,en
-# 0x6aa82ab	20200107-04:30:30
+# 0x0e2360a	20200107-04:33:56
 
 6
 Generování kódu v M4: úvod
