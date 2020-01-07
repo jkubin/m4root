@@ -7,7 +7,7 @@ ___POINT([one place to configure ALL generated web pages])
 # possible chars: 🠑ꜛ↑⇈⇧↾↿↟⤒
 # A → β
 # β
-define([RETURN_TO_TOC], NB()[AD(JUMP_TO_TOC, defn([WORD_CONTENT]), [jmp], [#]ADD_ID_RULE(TOCP-defn([#ID])))])
+define([RETURN_TO_TOC], NB()[AH(JUMP_TO_TOC, defn([WORD_CONTENT]), [jmp], [#]ADD_ID_RULE(TOCP-defn([#ID])))])
 
 define([NOTE_COLOR],	[[[#]]969696])
 define([JUMP_TO_TOC],	[☰])
@@ -24,7 +24,7 @@ define([WARN_SIGN],	[⚠])
 
 # links pointing to the top of the page:ꜛ
 # β
-#define([ESCAPE_FROM_TOC], NBX()[AD(JUMP_TO_TOP, defn([WORD_TOP]), [top], [#])])
+#define([ESCAPE_FROM_TOC], NBX()[AH(JUMP_TO_TOP, defn([WORD_TOP]), [top], [#])])
 
 # TODO: link to other language (not finished yet)
 # β

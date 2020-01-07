@@ -30,21 +30,22 @@ define([NOTE],		[ifelse([$#], [0], [[$0]], ]LB()[<span class="rs-note"]defn([TIT
 define([PERSON],	[ifelse([$#], [0], [[$0]], ]LB()[<span class="rs-person"]defn([TITLE_2])[>$1</span>]RB()[)])
 
 # how to use html tag <a></a>
-# AD([URL])	---> <a href="URL">URL</a>
-# AD([text], [URL])	---> <a href="URL">text</a>
-# AD([text], [title], [URL])		---> <a href="URL" title="title">text</a>
-# AD([text], [title], [class], [URL])	---> <a href="URL" title="title" class="class"></a>
-# AD([text], [], [class], [URL])		---> <a href="URL" class="class">text</a>
-# AD([text], [title], [class], [style], [URL])	---> …
-# AD([text], [title], [class], [style], [id], [URL])
-# AD([text], [title], [class], [style], [id], [rel], [URL])
-# AD([text],,,,, [rel], [URL])	---> <a href="URL" rel="rel">text</a>
+# AH([URL])	---> <a href="URL">URL</a>
+# AH([text], [URL])	---> <a href="URL">text</a>
+# AH([text], [title], [URL])		---> <a href="URL" title="title">text</a>
+# AH([text], [title], [class], [URL])	---> <a href="URL" title="title" class="class">text</a>
+# AH([text], [], [class], [URL])		---> <a href="URL" class="class">text</a>
+# AH([text], [title], [class], [style], [URL])	---> …
+# AH([text], [title], [class], [style], [id], [URL])
+# AH([text], [title], [class], [style], [id], [rel], [URL])
+# AH([text], [title], [class], [style], [id], [rel], [anything], [URL])
+# AH([text],,,,, [rel], [URL])	---> <a href="URL" rel="rel">text</a>
 # β
-pushdef([AD_TITLE_2],	[ifelse([$#], [2], [], [$2], [], [], [ title="[$2]"])])
-pushdef([AD_CLASS_3],	[ifelse([$#], [3], [], [$3], [], [], [ class="ADD_CLASS_RULE_SET([$3])"])])
-pushdef([AD_STYLE_4],	[ifelse([$#], [4], [], [$4], [], [], [ style="[$4]"])])
-pushdef([AD_ID_5],	[ifelse([$#], [5], [], [$5], [], [], [ id="FIND_AND_ADD_ID_RULE_SET([$5])"])])
-pushdef([AD_REL_6],	[ifelse([$#], [6], [], [$6], [], [], [ rel="[$6]"])])
+pushdef([AD_TITLE_2],		[ifelse([$#], [2], [], [$2], [], [], [ title="[$2]"])])
+pushdef([AD_CLASS_3],		[ifelse([$#], [3], [], [$3], [], [], [ class="ADD_CLASS_RULE_SET([$3])"])])
+pushdef([AD_STYLE_4],		[ifelse([$#], [4], [], [$4], [], [], [ style="[$4]"])])
+pushdef([AD_ID_5],		[ifelse([$#], [5], [], [$5], [], [], [ id="FIND_AND_ADD_ID_RULE_SET([$5])"])])
+pushdef([AD_REL_6],		[ifelse([$#], [6], [], [$6], [], [], [ rel="[$6]"])])
 pushdef([AD_ANYTHING_7],	[ifelse([$#], [7], [], [$7], [], [], [ [$7]])])
 
 # group tags
@@ -71,8 +72,8 @@ define([ACRO], defn([SPAN]))
 define([#ACRO>], defn([HTML_INLINE_ELEMENT]))
 define([##ACRO>], [acronym])
 
-define([AD], defn([SPAN]))
-define([#AD>], [<a href="]defn([SELECT_LAST])["]defn([AD_TITLE_2], [AD_CLASS_3], [AD_STYLE_4], [AD_ID_5], [AD_REL_6], [AD_ANYTHING_7])[>$1</a>])
+define([AH], defn([SPAN]))
+define([#AH>], [<a href="]defn([SELECT_LAST])["]defn([AD_TITLE_2], [AD_CLASS_3], [AD_STYLE_4], [AD_ID_5], [AD_REL_6], [AD_ANYTHING_7])[>$1</a>])
 
 define([BUTTON], defn([SPAN]))
 define([#BUTTON>], defn([HTML_INLINE_ELEMENT]))

@@ -111,9 +111,9 @@ divert(CURRQU)popdef([CURRQU])dnl
 
 # HTML5 inline elements
 
-# extracts data from AD(…) which has variable number of parameters
+# extracts data from AH(…) which has variable number of parameters
 # A → β
-define([AD], [ifelse(
+define([AH], [ifelse(
 	[$#], [0], [[$0]],
 	[$#], [1], [],
 	[$2], [], [$1],

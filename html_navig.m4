@@ -56,7 +56,7 @@ ifelse(defn(OTHER_LANG_CODE.[LANG_VERSION]), [], [], [
 divert(START_OF_NAVIGATION)dnl
 <!-- table of content -->
 <h2 id="NSP()TOC_TOP">WORD_CONTENT[]ifdef([ADD_LINKS_TO_ALL_PARTS_OF_THE_SERIES],
-[NB()AD(JUMP_TO_TOC, defn([SENTENCE_ALL_PARTS]), [jmp], [#]NSP()defn([TOC_ALL_PARTS]))])defn([SWITCH_TO_ANOTHER_LANGUAGE])</h2>
+[NB()AH(JUMP_TO_TOC, defn([SENTENCE_ALL_PARTS]), [jmp], [#]NSP()defn([TOC_ALL_PARTS]))])defn([SWITCH_TO_ANOTHER_LANGUAGE])</h2>
 divert(END_OF_NAVIGATION)dnl
 <!-- article content -->
 divert(ANNEX_CONTENT_START)dnl
