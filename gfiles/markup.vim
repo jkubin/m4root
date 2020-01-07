@@ -5,8 +5,8 @@ if exists("b:usr_ftplugin_markup")
 endif
 let b:usr_ftplugin_markup = 1
 
-iabbrev <buffer> <unique> aaa AD([<c-r>"], [%%%], [%%%])<left><c-o>%;;<c-o><c-r>=Eatchar('.')<cr>
-iabbrev <buffer> <unique> aa AD([<c-r>"], [])<left><left><c-r>=Eatchar('.')<cr>
+iabbrev <buffer> <unique> aaa AH([<c-r>"], [%%%], [%%%])<left><c-o>%;;<c-o><c-r>=Eatchar('.')<cr>
+iabbrev <buffer> <unique> aa AH([<c-r>"], [])<left><left><c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> ab ABBR([<c-r>"], [])<c-o>T[<c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> ac ACRO([<c-r>"], [])<c-o>T[<c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> ane <c-l><cr>ANNEX([[dnl czech<cr><cr>],<cr>[dnl english: _next_language_<cr>%%%<cr>]])<left><c-o>%<c-o>0<down><c-r>=Eatchar('.')<cr>
