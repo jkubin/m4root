@@ -59,7 +59,7 @@ iabbrev <buffer> <unique> ins INS([<c-r>"])<esc>
 iabbrev <buffer> <unique> lan LANG([<c-r>"], [])<left><left><c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> lii LI([<c-r>"])<esc>
 iabbrev <buffer> <unique> lim LIST_ITEM_MONO([[dnl monolingual<cr><cr>]])<up><c-r>=Eatchar('.')<cr>
-iabbrev <buffer> <unique> lit LIST_ITEM([[dnl czech<cr><cr>],<cr>[dnl english: _next_language_<cr>%%%<cr>]])<left><c-o>%<c-o>0<down><c-r>=Eatchar('.')<cr>
+iabbrev <buffer> <unique> lit LIST_ITEM([[dnl czech<cr><cr>],<cr>[dnl english: _next_language_<cr>%%%<cr>]])dnl LIST_ITEM<up><up><up><up><c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> lnk LINK([<c-r>"], [])<c-o>T[<c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> lt &lt;<c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> mar MARK([<c-r>"])<esc>
