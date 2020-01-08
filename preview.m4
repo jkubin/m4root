@@ -1,28 +1,50 @@
 __HEADER([Josef Kubin], [2019/07/11], [root_cz])
-___DESCR([create preview html page for development])
-___POINT([preview file])
+___DESCR([creates preview html page for off-line article development])
+___POINT([preview html file])
 
 # A → β
-define([AUTHOR_IMG],	[jkubin.jpg])
+define([AUTHOR_SHORT_DESCRIPTION], LANGW([dnl czech
+PERSON([AUTHOR_NAME]) vystudoval Fakultu[]NB()informatiky Masarykovy univerzity v Brně, zabýval se teoretickou informatikou a[]NB()programováním hardware.
+Pracuje ve společnosti Red[]NB()Hat v[]NB()ABBR([GSS], [Global Support Services]).
+],
+[dnl english: _next_language_
+PERSON([AUTHOR_NAME]) graduated from the Faculty of Informatics, Masaryk University, where he studied theoretical computer science and hardware programming.
+Works at Red[]NB()Hat in[]NB()ABBR([GSS], [Global Support Services]).
+]))
+
+# expand the selected language
+XLANG([
+
+	# czech
+	define([AUTHOR_OF_THE_ARTICLE],		[Autor článku])
+	define([AUTHOR_PROFILE],		[Profil autora])
+	define([READING_DURATION],		[Doba čtení: BO([123 minut])])
+	define([WORD_STICKERS],			[Nálepky])
+
+], [
+
+	# english
+	define([AUTHOR_OF_THE_ARTICLE],		[Author of the article])
+	define([AUTHOR_PROFILE],		[Author's profile])
+	define([READING_DURATION],		[Reading time: BO([123 minutes])])
+	define([WORD_STICKERS],			[Stickers])
+
+])
+
+# A → β
+define([AUTHOR_IMG],	[face.png])
 define([AUTHOR_NAME],	[Josef Kubín])
-define([AUTHOR_PATH],	[/autori/josef-kubin/])
 
-# path for generated files
+# path for files
 define([SRC_FILE_PATH], [../])
-
 define([SRC_REPO_NAME], [localhost])
+define([INDEX_HTML], [preview.html])
 
 # set local image
 # A → β
 define([IMG_SRC], [../$1])
 
-# set target file
-define([INDEX_HTML], [preview.html])
-
-# FIXME: for other language
-#define([RELAT_PATH], [../texty/])
-
-# relative path to other language during development
+# relative path to other language directory during development
 # A → ε
 define([OTHER_LANGUAGE])
 
@@ -59,7 +81,7 @@ m4wrap([
 		<div class=" perex__text--has-reading-duration  perex__text--detail perex__text">
 			<div class="perex__text-content">
 				<div class="perex__impressum">
-						<span class="perex__author"><a href="AUTHOR_PATH">AUTHOR_NAME</a></span>
+						<span class="perex__author">AUTHOR_NAME</span>
 						<span class="perex__date">
 							<svg class="icon icon-time" viewBox="0 0 100 100" width="20" height="20">
 								<use xlink:href="#svg-sprite-time">
@@ -104,14 +126,14 @@ divert(END_OF_ARTICLE)dnl
 		<div id="microdata-authors">
 			<div class="author clearfix" itemprop="author" itemtype="http://schema.org/Person" itemscope="">
 				<div class="author__pic avatar-round">
-					<a class="avatar__wrap" href="AUTHOR_PATH" title="AUTHOR_PROFILE">
+					<a class="avatar__wrap" href="[#]" title="AUTHOR_PROFILE">
 						<img class="avatar__img" src="../img/AUTHOR_IMG" width="70" height="70" alt="AUTHOR_NAME">
 					</a>
 				</div>
 				<div class="author__info">
 					<div class="row">
 						<h3 class="author__name">
-							<a href="AUTHOR_PATH">
+							<a href="[#]">
 								<span itemprop="name">AUTHOR_NAME</span>
 							</a>
 						</h3>
