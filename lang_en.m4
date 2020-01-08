@@ -2,21 +2,9 @@
 
 __HEADER([Josef Kubin], [2019/07/11], [root_cz])
 
-# preview
-define([AUTHOR_SHORT_DESCRIPTION], [dnl
-PERSON([Josef Kubín]) graduated from the Faculty of Informatics, Masaryk University, where he studied theoretical computer science and hardware programming.
-Works at Red[]NB()Hat in[]NB()ABBR([GSS], [Global Support Services]).dnl
-])
-
 # name of the series
 define([SERIES_NAME],			[Generating code in M4])
 define([LANG_VERSION],			[English version])
-
-# preview
-define([AUTHOR_OF_THE_ARTICLE],		[Author of the article])
-define([AUTHOR_PROFILE],		[Author's profile])
-define([READING_DURATION],		[Reading time: BO([123 minutes])])
-define([WORD_STICKERS],			[Stickers])
 
 # preview + publish
 define([SENTENCE_ALL_PARTS],		[Series breakdown])

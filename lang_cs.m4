@@ -2,21 +2,9 @@
 
 __HEADER([Josef Kubin], [2019/07/11], [root_cz])
 
-# preview
-define([AUTHOR_SHORT_DESCRIPTION], [dnl
-PERSON([Josef Kubín]) vystudoval Fakultu[]NB()informatiky Masarykovy univerzity v Brně, zabýval se teoretickou informatikou a[]NB()programováním hardware.
-Pracuje ve společnosti Red[]NB()Hat v[]NB()ABBR([GSS], [Global Support Services]).dnl
-])
-
 # name of the series
 define([SERIES_NAME],			[Generování kódu v M4])
 define([LANG_VERSION],			[Česká verze])
-
-# preview
-define([AUTHOR_OF_THE_ARTICLE],		[Autor článku])
-define([AUTHOR_PROFILE],		[Profil autora])
-define([READING_DURATION],		[Doba čtení: BO([123 minut])])
-define([WORD_STICKERS],			[Nálepky])
 
 # preview + publish
 define([SENTENCE_ALL_PARTS],		[Všechny díly seriálu])
