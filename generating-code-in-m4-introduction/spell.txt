@@ -1,5 +1,5 @@
 # vim:wrap:spell:spelllang=en,en
-# 0xa4428c5	20200108-23:06:18
+# 0x58157cf	20200109-00:51:52
 
 6
 Generating code in M4: introduction
@@ -129,9 +129,9 @@ M4
 
 257
 Brian Kernighan (Wikipedia) has enhanced the M3 macro processor to the FORTRAN 66
-preprocessor (Wikipedia) to create a hybrid language extension named Ratfor (Rational Fortran).
+preprocessor (Wikipedia) to create a hybrid language extension named RATFOR (Rational Fortran).
 The basic program constructions of this extension (conditions, cycles) are the same as in C language.
-Programming in Ratfor is similar to C programming.
+Programming in RATFOR is similar to C programming.
 The macro processor converts the source code back to FORTRAN, then the compiler performs the usual compilation to machine code.
 
 272

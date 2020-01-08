@@ -1,5 +1,5 @@
 # vim:wrap:spell:spelllang=cs,en
-# 0xa4428c5	20200108-23:06:17
+# 0x58157cf	20200109-00:51:52
 
 6
 Generování kódu v M4: úvod
@@ -131,9 +131,9 @@ M4
 
 257
 Brian Kernighan (Wikipedie) makro procesor M3 rozšířil na preprocesor (Wikipedie) jazyka FORTRAN 66,
-aby mohl vytvořit hybridní jazykovou nadstavbu pojmenovanou Ratfor (Rational Fortran).
+aby mohl vytvořit hybridní jazykovou nadstavbu pojmenovanou RATFOR (Rational Fortran).
 Základní programové konstrukce této nadstavby (podmínky, cykly) jsou stejné jako v jazyce C.
-Programování v Ratfor-u se tak podobá programování v „céčku“.
+Programování v RATFOR-u se tak podobá programování v „céčku“.
 Makro procesor zdrojový kód překládá zpátky do FORTRAN-u, poté kompilátor provede překlad do strojového kódu.
 
 272
