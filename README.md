@@ -9,11 +9,11 @@
 ```
 $ make
 ```
-3. generate all other files
+3. generate files from generated files
 ```
 $ make
 ```
-4. clear generated files
+4. delete all generated files
 ```
 $ make cl
 ```
@@ -29,13 +29,14 @@ $ make validate publish
 > or simply
 ```
 $ make cl
-$ make src rules SOURCE=intro.mc exclude=cs
+$ make s r SOURCE=intro.mc ex=cs
 $ make
 ```
-> or generate other `make` rules
+> or generate different rules for `Makefile`
 ```
 $ make cl
-$ make src ice SOURCE=intro.mc exclude=cs
+$ make s i SOURCE=intro.mc ex=cs
 $ make
+$ make h
 ```
 ### Contact (Base64): bTR1bml4QGdtYWlsLmNvbQ
