@@ -26,10 +26,12 @@ define([WBR],		[ifelse([$#], [0], [[$0]], [<wbr>])])
 
 # built-in styles for root.cz
 # A → β
-define([NOTE],		[ifelse([$#], [0], [[$0]], ]LB()[<span class="rs-note"]defn([TITLE_2])[>$1</span>]RB()[)])
-define([PERSON],	[ifelse([$#], [0], [[$0]], ]LB()[<span class="rs-person"]defn([TITLE_2])[>$1</span>]RB()[)])
+define([NOTE],		[ifelse([$#], [0], [[$0]], ]BRAC([<span class="rs-note"]defn([TITLE_2])[>$1</span>])[)])
+define([PERSON],	[ifelse([$#], [0], [[$0]], ]BRAC([<span class="rs-person"]defn([TITLE_2])[>$1</span>])[)])
 
-# how to use html tag <a></a>
+# How to use <a></a> html tag:
+# AH	---> AH
+# AH (…)	---> AH (…)
 # AH([URL])	---> <a href="URL">URL</a>
 # AH([text], [URL])	---> <a href="URL">text</a>
 # AH([text], [title], [URL])		---> <a href="URL" title="title">text</a>
@@ -40,6 +42,7 @@ define([PERSON],	[ifelse([$#], [0], [[$0]], ]LB()[<span class="rs-person"]defn([
 # AH([text], [title], [class], [style], [id], [rel], [URL])
 # AH([text], [title], [class], [style], [id], [rel], [anything], [URL])
 # AH([text],,,,, [rel], [URL])	---> <a href="URL" rel="rel">text</a>
+# AH([text],,,,,, [foo="bar" baz="ham"], [URL])	---> <a href="URL" foo="bar" baz="ham">text</a>
 # β
 pushdef([AD_TITLE_2],		[ifelse([$#], [2], [], [$2], [], [], [ title="[$2]"])])
 pushdef([AD_CLASS_3],		[ifelse([$#], [3], [], [$3], [], [], [ class="ADD_CLASS_RULE_SET([$3])"])])
@@ -48,7 +51,7 @@ pushdef([AD_ID_5],		[ifelse([$#], [5], [], [$5], [], [], [ id="FIND_AND_ADD_ID_R
 pushdef([AD_REL_6],		[ifelse([$#], [6], [], [$6], [], [], [ rel="[$6]"])])
 pushdef([AD_ANYTHING_7],	[ifelse([$#], [7], [], [$7], [], [], [ [$7]])])
 
-# group tags
+# html tag attributes group
 # β
 pushdef([HTML_GLOBAL_ATTRIBUTES],	defn([TITLE_2], [CLASS_3], [STYLE_4], [ID_5], [ANYTHING_6]))
 pushdef([HTML_INLINE_ELEMENT],		[<defn([#$0])]defn([HTML_GLOBAL_ATTRIBUTES])[>$1</defn([#$0])>])
