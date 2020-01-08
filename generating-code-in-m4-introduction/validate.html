@@ -30,7 +30,7 @@
 <hr>
 <p id="m4-toc-code-generation-examples"><a href="#m4-code-generation-examples">A&nbsp;&nbsp;Code generation examples</a></p>
 <p id="m4-toc-preprocessor-examples"><a href="#m4-preprocessor-examples">B&nbsp;&nbsp;Preprocessor examples</a></p>
-<p id="m4-toc-m4-examples"><a href="#m4-m4-examples">C&nbsp;&nbsp;M4: examples</a></p>
+<p id="m4-toc-m4-examples"><a href="#m4-m4-examples">C&nbsp;&nbsp;M4 – examples</a></p>
 <p id="m4-toc-why-using-m4-and-why-not"><a href="#m4-why-using-m4-and-why-not">D&nbsp;&nbsp;Why using M4 and why not?</a></p>
 <!-- article content -->
 <h2 id="m4-introduction"><a href="#m4-introduction" title="⚓">1</a>&nbsp;&nbsp;Introduction&nbsp;<a href="#m4-toc-introduction" title="Content" class="m4-jmp">☰</a></h2>
@@ -57,7 +57,7 @@ Each part can be read in any order.</p>
 <ul>
 <li><a href="#m4-code-generation-examples" title="Code generation examples">Code generation examples</a></li>
 <li><a href="#m4-preprocessor-examples" title="Preprocessor examples">Preprocessor examples</a></li>
-<li><a href="#m4-m4-examples" title="M4: examples">M4: examples</a></li>
+<li><a href="#m4-m4-examples" title="M4 – examples">M4 – examples</a></li>
 <li><a href="#m4-why-using-m4-and-why-not" title="Why using M4 and why not?">Why using M4 and why not?</a></li>
 <li><a href="http://github.com/jkubin/m4root" title="Generating code in M4">http://github.com/jkubin/m4root</a> – a&nbsp;project generating HTML of this series</li>
 </ul>
@@ -251,7 +251,7 @@ The leaf file <code>leaf.m4</code> contains transformation rule definitions alon
 <pre title="how to learn M4">
 ~]$ <strong>m4 root.m4 leaf.m4</strong>
 </pre>
-<p>Try: <a href="#m4-m4-examples" title="M4: examples">M4: examples</a></p>
+<p>Try: <a href="#m4-m4-examples" title="M4 – examples">M4 – examples</a></p>
 <h2 id="m4-prerequisites-for-mastering-m4"><a href="#m4-prerequisites-for-mastering-m4" title="⚓">5</a>&nbsp;&nbsp;Prerequisites for mastering M4&nbsp;<a href="#m4-toc-prerequisites-for-mastering-m4" title="Content" class="m4-jmp">☰</a></h2>
 <p>To successfully master this macro-language it is important to fulfill several prerequisites.
 M4 is not a&nbsp;simple language because it is not possible to think and program in it like a&nbsp;regular programming language.
@@ -437,8 +437,7 @@ ERR_3	NOFAULT	It's not a language fault!</pre>
 <h3 id="m4-modification-of-special-characte"><a href="#m4-modification-of-special-characte" title="⚓">A.3</a>&nbsp;&nbsp;<code title="how to do it">💡</code> Modification of special characters&nbsp;<a href="#m4-toc-modification-of-special-characte" title="Content" class="m4-jmp">☰</a></h3>
 <p>Each type of output code requires modification of special characters.
 Using the keyword <code>patsubst()</code> is inappropriate for this type of task.
-Therefore, the input source code should be modified by regular expression and all special characters will be hidden in macros.
-The file for conversion of special characters to the target code is added at the command line.</p>
+Therefore, the input source code should be modified by regular expression and all special characters will be hidden in macros.</p>
 <h4 id="m4-modified-input-source-code"><a href="#m4-modified-input-source-code" title="⚓">»</a>&nbsp;Modified input source code</h4>
 <pre title="messages.mc (special characters are hidden to macros)"># 2018/05/15 Josef Kubin
 
@@ -448,6 +447,8 @@ ERROR(&#x5b;SUCCESS&#x5d;,     &#x5b;Complex M4 code failed successfully.&#x5d;)
 WARNING(&#x5b;ADDICTIVE&#x5d;, &#x5b;Programming in M4 is addictive&#x5b;&#x5d;EX()&#x5d;)
 ERROR(&#x5b;NOFAULT&#x5d;,     &#x5b;It&#x5b;&#x5d;AP()s not a language fault!&#x5d;)
 WARNING(&#x5b;NO_ERRORS&#x5d;, &#x5b;No other errors detected.&#x5d;)</pre>
+<p>We create several files that convert macros into special characters according to the type of target code generated.
+This file is one of the command line files.</p>
 <h4 id="m4-xml-html-the-file-for-markup-lan"><a href="#m4-xml-html-the-file-for-markup-lan" title="⚓">»</a>&nbsp;<code>[]</code> XML, HTML – the file for markup languages</h4>
 <pre title="markup.m4"># A → β
 define(&#x5b;AMP&#x5d;, &#x5b;&amp;amp;&#x5d;)
@@ -1399,7 +1400,7 @@ if &#x5b;&#x5b; $# -eq 0 &#x5d;&#x5d;
 then
 	echo $HELLO
 fi</pre>
-<h2 id="m4-m4-examples"><a href="#m4-m4-examples" title="⚓">C</a>&nbsp;&nbsp;M4: examples&nbsp;<a href="#m4-toc-m4-examples" title="Content" class="m4-jmp">☰</a></h2>
+<h2 id="m4-m4-examples"><a href="#m4-m4-examples" title="⚓">C</a>&nbsp;&nbsp;M4 – examples&nbsp;<a href="#m4-toc-m4-examples" title="Content" class="m4-jmp">☰</a></h2>
 <div class="rs-tip-major m4-tip">Chars. {<code>`'</code>, <code>[]</code>, <strong><code>␂␆</code></strong>, <code>〖〗</code>} in the name controls the <a href="#m4-nonterminal-expansion-control" title="Nonterminal expansion control">expansion of nonterminals</a>.</div>
 <p id="m4-toc-json-left-bracket-b">&nbsp;&nbsp;&nbsp;<a href="#m4-json-left-bracket-b">C.1&nbsp;&nbsp;<code>[]</code> JSON – left bracket <code>[</code></a></p>
 <p id="m4-toc-bash-counters">&nbsp;&nbsp;&nbsp;<a href="#m4-bash-counters">C.2&nbsp;&nbsp;<code>[]</code> Bash – counters</a></p>

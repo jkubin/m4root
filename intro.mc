@@ -1136,23 +1136,19 @@ PARA([[dnl czech
 Každý typ výstupního kódu vyžaduje úpravu speciálních znaků.
 Použití klíčového slova CODE_M4([patsubst()]) je nevhodné pro tento úkol.
 Vstupní zdrojový kód proto napřed upravíme regulárním výrazem a[]NB()všechny speciální znaky schováme do maker.
-Soubor pro převod speciálních znaků do cílového kódu přidáme na příkazovou řádku.
 ],
 [dnl english: _next_language_
 Each type of output code requires modification of special characters.
 Using the keyword CODE_M4([patsubst()]) is inappropriate for this type of task.
 Therefore, the input source code should be modified by regular expression and all special characters will be hidden in macros.
-The file for conversion of special characters to the target code is added at the command line.
 ]])
 
-ifelse([
-PARA([[dnl czech
+_PARA([[dnl czech
 Generování různých typů souborů obvykle vyžaduje méně úsilí, protože je možné použít předchozí hotové soubory.
 ],
 [dnl english: _next_language_
 Generating different file types usually requires less effort because the previous finished files can be used.
 ]])
-])dnl comment
 
 
 HEADING([modified_input_source_code], [dnl czech
@@ -1162,6 +1158,15 @@ dnl english: _next_language_
 ])
 
 INSERT_FILE([messages/messages.mc], [ (]LANG([speciální znaky jsou skryty do maker], [special characters are hidden to macros])[)], [])
+
+PARA([[dnl czech
+Vytvoříme několik souborů, které převádí makra na speciální znaky podle typu generovaného cílového kódu.
+Tento soubor je jedním ze souborů na příkazové řádce.
+],
+[dnl english: _next_language_
+We create several files that convert macros into special characters according to the type of target code generated.
+This file is one of the command line files.
+]])
 
 HEADING([dnl czech
 [CODE_M4([[]]) XML[,] HTML – soubor pro značkovací jazyky],
@@ -1573,9 +1578,9 @@ INSERT_FILES_PREPROC([n], [file.sh])
 
 
 ANNEX([m4_on_examples], [dnl czech
-[Jazyk M4 na příkladech],
+[M4 – příklady],
 dnl english: _next_language_
-[M4: examples],
+[M4 – examples],
 ])
 
 

@@ -30,7 +30,7 @@
 <hr>
 <p id="m4-toc-priklady-generovani-kodu"><a href="#m4-priklady-generovani-kodu">A&nbsp;&nbsp;Příklady generování kódu</a></p>
 <p id="m4-toc-priklady-preprocesoru"><a href="#m4-priklady-preprocesoru">B&nbsp;&nbsp;Příklady preprocesoru</a></p>
-<p id="m4-toc-jazyk-m4-na-prikladech"><a href="#m4-jazyk-m4-na-prikladech">C&nbsp;&nbsp;Jazyk M4 na příkladech</a></p>
+<p id="m4-toc-m4-priklady"><a href="#m4-m4-priklady">C&nbsp;&nbsp;M4 – příklady</a></p>
 <p id="m4-toc-proc-pouzivat-m4-a-proc-ne"><a href="#m4-proc-pouzivat-m4-a-proc-ne">D&nbsp;&nbsp;Proč používat M4 a proč ne?</a></p>
 <!-- article content -->
 <h2 id="m4-uvod"><a href="#m4-uvod" title="⚓">1</a>&nbsp;&nbsp;Úvod&nbsp;<a href="#m4-toc-uvod" title="Obsah" class="m4-jmp">☰</a></h2>
@@ -57,7 +57,7 @@ Každý díl je možné číst v&nbsp;libovolném pořadí.</p>
 <ul>
 <li><a href="#m4-priklady-generovani-kodu" title="Příklady generování kódu">Příklady generování kódu</a></li>
 <li><a href="#m4-priklady-preprocesoru" title="Příklady preprocesoru">Příklady preprocesoru</a></li>
-<li><a href="#m4-jazyk-m4-na-prikladech" title="Jazyk M4 na příkladech">Jazyk M4 na příkladech</a></li>
+<li><a href="#m4-m4-priklady" title="M4 – příklady">M4 – příklady</a></li>
 <li><a href="#m4-proc-pouzivat-m4-a-proc-ne" title="Proč používat M4 a proč ne?">Proč používat M4 a proč ne?</a></li>
 <li><a href="http://github.com/jkubin/m4root" title="Generování kódu v M4">http://github.com/jkubin/m4root</a> – složitější projekt generující HTML tohoto seriálu</li>
 </ul>
@@ -253,7 +253,7 @@ Listový soubor <code>leaf.m4</code> obsahuje definice těchto pravidel spolu se
 <pre title="jak se naučit M4">
 ~]$ <strong>m4 root.m4 leaf.m4</strong>
 </pre>
-<p>Vyzkoušejte: <a href="#m4-jazyk-m4-na-prikladech" title="Jazyk M4 na příkladech">Jazyk M4 na příkladech</a></p>
+<p>Vyzkoušejte: <a href="#m4-m4-priklady" title="M4 – příklady">M4 – příklady</a></p>
 <h2 id="m4-predpoklady-pro-zvladnuti-m4"><a href="#m4-predpoklady-pro-zvladnuti-m4" title="⚓">5</a>&nbsp;&nbsp;Předpoklady pro zvládnutí M4&nbsp;<a href="#m4-toc-predpoklady-pro-zvladnuti-m4" title="Obsah" class="m4-jmp">☰</a></h2>
 <p>Pro úspěšné zvládnutí tohoto makro-jazyka je důležité splnit několik předpokladů.
 M4 není jednoduchý jazyk, protože není možné v&nbsp;něm myslet a&nbsp;programovat jako v&nbsp;běžném programovacím jazyce.
@@ -439,8 +439,7 @@ ERR_3	NOFAULT	It's not a language fault!</pre>
 <h3 id="m4-uprava-specialnich-znaku"><a href="#m4-uprava-specialnich-znaku" title="⚓">A.3</a>&nbsp;&nbsp;<code title="jak to udělat">💡</code> Úprava speciálních znaků&nbsp;<a href="#m4-toc-uprava-specialnich-znaku" title="Obsah" class="m4-jmp">☰</a></h3>
 <p>Každý typ výstupního kódu vyžaduje úpravu speciálních znaků.
 Použití klíčového slova <code>patsubst()</code> je nevhodné pro tento úkol.
-Vstupní zdrojový kód proto napřed upravíme regulárním výrazem a&nbsp;všechny speciální znaky schováme do maker.
-Soubor pro převod speciálních znaků do cílového kódu přidáme na příkazovou řádku.</p>
+Vstupní zdrojový kód proto napřed upravíme regulárním výrazem a&nbsp;všechny speciální znaky schováme do maker.</p>
 <h4 id="m4-upraveny-vstupni-zdrojovy-kod"><a href="#m4-upraveny-vstupni-zdrojovy-kod" title="⚓">»</a>&nbsp;Upravený vstupní zdrojový kód</h4>
 <pre title="messages.mc (speciální znaky jsou skryty do maker)"># 2018/05/15 Josef Kubin
 
@@ -450,6 +449,8 @@ ERROR(&#x5b;SUCCESS&#x5d;,     &#x5b;Complex M4 code failed successfully.&#x5d;)
 WARNING(&#x5b;ADDICTIVE&#x5d;, &#x5b;Programming in M4 is addictive&#x5b;&#x5d;EX()&#x5d;)
 ERROR(&#x5b;NOFAULT&#x5d;,     &#x5b;It&#x5b;&#x5d;AP()s not a language fault!&#x5d;)
 WARNING(&#x5b;NO_ERRORS&#x5d;, &#x5b;No other errors detected.&#x5d;)</pre>
+<p>Vytvoříme několik souborů, které převádí makra na speciální znaky podle typu generovaného cílového kódu.
+Tento soubor je jedním ze souborů na příkazové řádce.</p>
 <h4 id="m4-xml-html-soubor-pro-znackovaci-j"><a href="#m4-xml-html-soubor-pro-znackovaci-j" title="⚓">»</a>&nbsp;<code>[]</code> XML, HTML – soubor pro značkovací jazyky</h4>
 <pre title="markup.m4"># A → β
 define(&#x5b;AMP&#x5d;, &#x5b;&amp;amp;&#x5d;)
@@ -1400,7 +1401,7 @@ if &#x5b;&#x5b; $# -eq 0 &#x5d;&#x5d;
 then
 	echo $HELLO
 fi</pre>
-<h2 id="m4-jazyk-m4-na-prikladech"><a href="#m4-jazyk-m4-na-prikladech" title="⚓">C</a>&nbsp;&nbsp;Jazyk M4 na příkladech&nbsp;<a href="#m4-toc-jazyk-m4-na-prikladech" title="Obsah" class="m4-jmp">☰</a></h2>
+<h2 id="m4-m4-priklady"><a href="#m4-m4-priklady" title="⚓">C</a>&nbsp;&nbsp;M4 – příklady&nbsp;<a href="#m4-toc-m4-priklady" title="Obsah" class="m4-jmp">☰</a></h2>
 <div class="rs-tip-major m4-tip">Znaky {<code>`'</code>, <code>[]</code>, <strong><code>␂␆</code></strong>, <code>〖〗</code>} v&nbsp;názvu příkladu <a href="#m4-rizeni-expanze-neterminalu" title="Řízení expanze neterminálů">řídí expanzi neterminálů</a>.</div>
 <p id="m4-toc-json-leva-zavorka-b">&nbsp;&nbsp;&nbsp;<a href="#m4-json-leva-zavorka-b">C.1&nbsp;&nbsp;<code>[]</code> JSON – levá závorka <code>[</code></a></p>
 <p id="m4-toc-bash-pocitadla">&nbsp;&nbsp;&nbsp;<a href="#m4-bash-pocitadla">C.2&nbsp;&nbsp;<code>[]</code> Bash – počítadla</a></p>
