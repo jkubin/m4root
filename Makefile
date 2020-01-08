@@ -26,7 +26,7 @@ SPACE = $(EMPTY) $(EMPTY)
 COMMA = ,
 
 LANG_CODES = $(patsubst lang_%.m4,%,$(wildcard lang_*.m4))
-MAKE_CODES = $(filter-out $(exclude), $(LANG_CODES))
+MAKE_CODES = $(filter-out $(ex)$(exclude), $(LANG_CODES))
 RULES_MAKE = $(patsubst %,rules_%.mk,$(MAKE_CODES))
 MAKE_ICE   = $(patsubst %,ice_%.mk,$(MAKE_CODES))
 REFS_MAKE  = $(patsubst %,refs_%.m4,$(MAKE_CODES))
@@ -38,40 +38,40 @@ CLSUBDIRS  = $(SUBDIRS:%=clean-%)
 -include $(wildcard *.mk)
 
 
-#:all	make all files
+#:all	creates all files
 .PHONY: all
 all: src rules $(TARGETS)
 
 
-#:rules	this is target which makes additional Makefile rules
-.PHONY: rules
-rules: $(RULES_MAKE)
+#:r/ru/rules	creates ordinary Makefile rules
+.PHONY: r ru rules
+r ru rules: $(RULES_MAKE)
 
 
-#:ice	this is an experimental target which makes additional Makefile rules for M4 frozen files
-.PHONY: ice
-ice: $(MAKE_ICE)
+#:i/ice	experimentally creates Makefile rules for frozen M4 files
+.PHONY: i ice
+i ice: $(MAKE_ICE)
 
 
-#:src	make source files in folders with examples
-.PHONY: src
-src: $(SUBDIRS)
+#:s/src	generates files in all example folders
+.PHONY: s src
+s src: $(SUBDIRS)
 
 
-#:debug	truncate debug file for M4 script development
-.PHONY: debug
-debug:
+#:d/dbg/debug/trunc	truncates the debug file for M4 script development
+.PHONY: d dbg debug trunc
+d dbg debug trunc:
 	> $(DEBUG_FILE)
 
 
-#:test	this target is for M4 script development
-.PHONY: test
-test: debug dev
+#:t/te/test	this target is for M4 script development
+.PHONY: t te test
+t te test: debug dev
 
 
-#:dev	this target is for M4 script development
-.PHONY: dev
-dev: rootb.m4
+#:dev/devel	this target is for M4 script development
+.PHONY: dev devel
+dev devel: rootb.m4
 	m4 $< test.m4
 
 $(ORDER_FILE): rootb.m4 toc.m4 toc_list.m4
@@ -95,18 +95,18 @@ $(CLSUBDIRS):
 	$(MAKE) -C $(@:clean-%=%) clean
 
 
-#:cl/clean	delete generated files
+#:cl/clean	deletes all generated files
 .PHONY: cl clean
 cl clean:
 	$(RM) -r $(DEBUG_FILE) $(ORDER_FILE) $(REFS_ALL) $(FOLDERS) *.{mk,m4f}
 
-#:cld/dcl/distclean	delete generated files also in sub-directories
+#:cld/dcl/distclean	also deletes generated files also in all example folders
 .PHONY: cld dcl distclean
 cld dcl distclean: clean $(CLSUBDIRS)
 
-#:cll/clm/mcl/mostlyclean	delete subset of generated files
-.PHONY: cll clm mcl mostlyclean
-cll clm mcl mostlyclean:
+#:c/cll/clm/mc/mcl/mostlyclean	deletes only a subset of the generated files
+.PHONY: c cll clm mc mcl mostlyclean
+c cll clm mc mcl mostlyclean:
 	$(RM) -r $(FOLDERS)
 
 

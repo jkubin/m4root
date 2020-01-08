@@ -1,6 +1,6 @@
 __HEADER([Josef Kubin], [2020/01/05], [root_cz])
 ___DESCR([the script creates experimental additional rules extending the handwritten Makefile])
-___POINT([create additional by configuration from command line; the rules utilise M4 frozen files])
+___POINT([additional rules by configuration from command line; the rules utilise M4 frozen files])
 
 # A → β
 define([TABLE_OF_CONTENT_ITEM], [
@@ -33,15 +33,15 @@ TABLE_OF_CONTENT(LANG_CODE)
 
 # define Makefile names
 # A → β
-define([ALL_LOCAL],		[all]LANG_CODE [all_]LANG_CODE)
-define([CLEAN_LOCAL],		[cl]LANG_CODE [cl_]LANG_CODE [clean_]LANG_CODE)
+define([ALL_SUBTARGETS],	LANG_CODE [all]LANG_CODE [all_]LANG_CODE)
+define([CLEAN_SUBTARGETS],	[c]LANG_CODE [cl]LANG_CODE [cl_]LANG_CODE [clean_]LANG_CODE)
 define([PUBLISH_FILES],		[PUBLISH_]LANG_CODE)
 define([PREVIEW_FILES],		[PREVIEW_]LANG_CODE)
 define([SPCHECK_FILES],		[SPCHECK_]LANG_CODE)
 define([VALIDATE_FILES],	[VALIDATE_]LANG_CODE)
 define([FOLDER_NAMES],		[FOLDERS_]LANG_CODE)
 define([FROZEN_FILE],		[markup_]LANG_CODE.m4f)
-define([TARGETS_LOCAL],		$(FOLDER_NAMES) $(PREVIEW_FILES) $(VALIDATE_FILES) $(PUBLISH_FILES) $(SPCHECK_FILES))
+define([SUBTARGETS],		$(FOLDER_NAMES) $(PREVIEW_FILES) $(VALIDATE_FILES) $(PUBLISH_FILES) $(SPCHECK_FILES))
 
 # create the final output
 divert(0)dnl
@@ -58,38 +58,38 @@ PREVIEW    += $(FOLDER_NAMES) $(PREVIEW_FILES)
 VALIDATE   += $(FOLDER_NAMES) $(VALIDATE_FILES)
 PUBLISH    += $(FOLDER_NAMES) $(PUBLISH_FILES)
 SPCHECK    += $(FOLDER_NAMES) $(SPCHECK_FILES)
-TARGETS    += TARGETS_LOCAL
+TARGETS    += SUBTARGETS
 
-#:subtargets	generate all targets from the file included into Makefile
-.PHONY: subtargets
-subtargets: $(TARGETS)
+#:su/sub/subtargets	creates all files from generated rules
+.PHONY: su sub subtargets
+su sub subtargets: $(TARGETS)
 
-#:preview	make html files for preview
-.PHONY: preview
-preview: $(PREVIEW)
+#:p/pr/pre/preview	for off-line article development
+.PHONY: p pr pre preview
+p pr pre preview: $(PREVIEW)
 
-#:spell	make spell checking files
-.PHONY: spell
-spell: $(SPCHECK)
+#:sp/spell	creates files for checking jargon and typos
+.PHONY: sp spell
+sp spell: $(SPCHECK)
 
-#:publish	make txt files to publish
-.PHONY: publish
-publish: $(PUBLISH)
+#:pu/pub/publish	creates files in a format suitable for CMS
+.PHONY: pu pub publish
+pu pub publish: $(PUBLISH)
 
-#:validate	make html files for validator
-.PHONY: validate
-validate: $(VALIDATE)
+#:v/va/val/validate	creates files for testing in HTML validator
+.PHONY: v va val validate
+v va val validate: $(VALIDATE)
 
-[#]:patsubst(defn([ALL_LOCAL]), [ ], [/])	make local targets for the ‘LANG_CODE’ language
-.PHONY: ALL_LOCAL
-ALL_LOCAL: TARGETS_LOCAL
+[#]:patsubst(defn([ALL_SUBTARGETS]), [ ], [/])	creates files in ‘LANG_CODE’ language
+.PHONY: ALL_SUBTARGETS
+ALL_SUBTARGETS: SUBTARGETS
 
-[#]:patsubst(defn([CLEAN_LOCAL]), [ ], [/])	delete generated files for the ‘LANG_CODE’ language
-.PHONY: CLEAN_LOCAL
-CLEAN_LOCAL:
+[#]:patsubst(defn([CLEAN_SUBTARGETS]), [ ], [/])	deletes ‘LANG_CODE’ files
+.PHONY: CLEAN_SUBTARGETS
+CLEAN_SUBTARGETS:
 	$(RM) -r $(FOLDER_NAMES) FROZEN_FILE
 
-[#]:rules	for the ‘LANG_CODE’ language is turned off
+[#]:rules	files in ‘LANG_CODE’ are disabled
 rules_[]LANG_CODE.mk: ;
 
 $(FOLDER_NAMES):
