@@ -14,11 +14,11 @@ pushdef([CLASS_3_TILE_BOX],	[ class="rs-tile[]ifelse([$#], [3], [], [$3], [], []
 pushdef([STYLE_4],		[ifelse([$#], [4], [], [$4], [], [], [ style="[$4]"])])
 pushdef([ANYTHING_5],		[ifelse([$#], [5], [], [$5], [], [], [ [$5]])])
 
-# html attributes groups
+# html tag attributes groups
 # β
 pushdef([HTML_GLOBAL_ATTRIBUTES],	defn([ID_1], [TITLE_2], [CLASS_3], [STYLE_4], [ANYTHING_5]))
-pushdef([HTML_HEADING_ATTRIBUTES],	[ id="ADD_ID_RULE(defn([#ID]))"]defn([TITLE_2], [CLASS_3], [STYLE_4]))
-pushdef([HTML_TIP_BOX_ATTRIBUTES],	defn([ID_1], [TITLE_2], [CLASS_3_TIP_BOX], [STYLE_4]))
+pushdef([HTML_HEADING_ATTRIBUTES],	[ id="ADD_ID_RULE(defn([#ID]))"]defn([TITLE_2], [CLASS_3], [STYLE_4], [ANYTHING_5]))
+pushdef([HTML_TIP_BOX_ATTRIBUTES],	defn([ID_1], [TITLE_2], [CLASS_3_TIP_BOX], [STYLE_4], [ANYTHING_5]))
 
 # β
 pushdef([SET_ANCHOR], [
