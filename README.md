@@ -1,6 +1,6 @@
 # Generating code in M4
 [![unfinished](img/unfinished.gif "The project is under development, anything can change!")](#generating-code-in-m4)
-**/!\ anything can change /!\**
+/!\ **anything can change** /!\
 1. install packages
 ```
 # dnf -y install make m4 pinfo
