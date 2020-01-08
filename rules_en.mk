@@ -56,5 +56,5 @@ generating-code-in-m4-introduction/publish.txt: rootb.m4 queues.m4 aux.m4 html_c
 	m4 -DLANG_CODE='en' $^ | sed -f publish.sed > $@
 
 generating-code-in-m4-introduction/spell.txt: rootb.m4 include.m4 version.m4 lang_en.m4 refs_cs.m4 refs_en.m4 order.m4 lang.m4 headings.m4 spell.m4 intro.mc
-	m4 -DLANG_CODE='en' $^ > $@
+	m4 -DLANG_CODE='en' -DSOURCE='intro.mc' $^ > $@
 

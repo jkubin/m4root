@@ -56,5 +56,5 @@ generovani-kodu-v-m4-uvod/publish.txt: rootb.m4 queues.m4 aux.m4 html_config.m4 
 	m4 -DLANG_CODE='cs' $^ | sed -f publish.sed > $@
 
 generovani-kodu-v-m4-uvod/spell.txt: rootb.m4 include.m4 version.m4 lang_cs.m4 refs_cs.m4 refs_en.m4 order.m4 lang.m4 headings.m4 spell.m4 intro.mc
-	m4 -DLANG_CODE='cs' $^ > $@
+	m4 -DLANG_CODE='cs' -DSOURCE='intro.mc' $^ > $@
 
