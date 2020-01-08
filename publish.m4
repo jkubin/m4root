@@ -1,6 +1,6 @@
 __HEADER([Josef Kubin], [2019/12/12], [root_cz])
 ___DESCR([creates final html code for CMS])
-___POINT([separated template for CMS and preview])
+___POINT([separated template for CMS])
 
 # A → β
 define([PEREX_IMG], defn([TEST_ATM])[
