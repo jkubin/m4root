@@ -23,7 +23,7 @@ TARGET_FOLDER/publish.txt: rootb.m4 queues.m4 aux.m4 html_config.m4 html_inline.
 	m4 -DLANG_CODE='$2' $^ | sed -f publish.sed > $[@]
 
 TARGET_FOLDER/spell.txt: rootb.m4 include.m4 version.m4 lang_$2.m4 REFS_FILES order.m4 lang.m4 headings.m4 spell.m4 $1
-	m4 -DLANG_CODE='$2' $^ > $[@]
+	m4 -DLANG_CODE='$2' -DSOURCE='$1' $^ > $[@]
 
 divert(-1)
 ])

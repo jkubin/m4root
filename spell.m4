@@ -6,7 +6,7 @@ ___POINT([plain text for spell checking and suggestions])
 # The second line: git revision and creation time
 divert(0)dnl
 [#] vim:wrap:spell:spelllang=LANG_CODE,en
-[#] FST(esyscmd([git log -1 --format='[0x%h],']))	FST(esyscmd([date '+[%Y%m%d-%R:%S],']))
+[#] FST(esyscmd([git log -1 --format='[0x%h],' ]defn([SOURCE])))	FST(esyscmd([date '+[%Y%m%d-%R:%S],']))
 
 divert(1)dnl
 ---
