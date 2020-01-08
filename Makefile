@@ -53,9 +53,9 @@ r ru rules: $(RULES_MAKE)
 i ice: $(MAKE_ICE)
 
 
-#:s/src	generates files in all example folders
-.PHONY: s src
-s src: $(SUBDIRS)
+#:sr/src	generates files in all example folders
+.PHONY: sr src
+sr src: $(SUBDIRS)
 
 
 #:d/dbg/debug/trunc	truncates the debug file for M4 script development
@@ -100,9 +100,9 @@ $(CLSUBDIRS):
 cl clean:
 	$(RM) -r $(DEBUG_FILE) $(ORDER_FILE) $(REFS_ALL) $(FOLDERS) *.{mk,m4f}
 
-#:cld/dcl/distclean	also deletes generated files also in all example folders
-.PHONY: cld dcl distclean
-cld dcl distclean: clean $(CLSUBDIRS)
+#:dc/cld/dcl/distclean	also deletes generated files also in all example folders
+.PHONY: dc cld dcl distclean
+dc cld dcl distclean: clean $(CLSUBDIRS)
 
 #:c/cll/clm/mc/mcl/mostlyclean	deletes only a subset of the generated files
 .PHONY: c cll clm mc mcl mostlyclean

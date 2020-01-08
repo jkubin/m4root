@@ -29,14 +29,14 @@ $ make validate publish
 > or simply
 ```
 $ make cl
-$ make s r SOURCE=intro.mc ex=cs
+$ make sr r SOURCE=intro.mc ex=cs
 $ make
 ```
 > or generate different rules for `Makefile`
 ```
 $ make cl
-$ make s i SOURCE=intro.mc ex=cs
-$ make
+$ make sr i SOURCE=intro.mc ex=cs
 $ make h
+$ make
 ```
 ### Contact (Base64): bTR1bml4QGdtYWlsLmNvbQ
