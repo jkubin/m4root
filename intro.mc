@@ -148,9 +148,7 @@ However, the basic idea of the original proposal remained the same.
 ]])
 
 
-HEADING([dnl czech
-[M3],
-dnl english: _next_language_
+HEADING_MONO([dnl monolingual
 [M3],
 ])
 
@@ -252,9 +250,7 @@ Argument CODE([0]) switches output to CODE([stdout]).
 ]])
 
 
-HEADING([dnl czech
-[M4],
-dnl english: _next_language_
+HEADING_MONO([dnl monolingual
 [M4],
 ])
 
@@ -379,9 +375,7 @@ Brian Kernighan[]REF([Brian Kernighan], [An Interview with Brian Kernighan], [ht
 ]])
 
 
-HEADING([dnl czech
-[GNU M4],
-dnl english: _next_language_
+HEADING_MONO([dnl monolingual
 [GNU M4],
 ])
 
@@ -508,7 +502,7 @@ dnl english: _next_language_
 ])
 
 PARA([[dnl czech
-Výchozí dvojice znaků CODE([LQ()']) v[]NB()M4 řídí expanzi neterminálů.
+Výchozí dvojice znaků CODE([`']) v[]NB()M4 řídí expanzi neterminálů.
 Klíčové slovo CODE_M4([changequote()]) je může změnit na jiné znaky, například {CODE_M4([[]]), BO([CODE([␂␆])]), CODE([〖〗])}.
 Neterminály, které nechceme (ihned) expandovat, jsou obklopeny touto dvojicí znaků.
 Při průchodu makro procesorem jsou všechny symboly mezi touto dvojicí znaků BUN([terminálními symboly]) a dvojice znaků je odstraněna.
@@ -516,7 +510,7 @@ Další průchod již způsobí expanzi původně chráněných neterminálů.
 Dvojice řídících znaků se nastavují na začátku kořenového souboru.
 ],
 [dnl english: _next_language_
-The default character pair CODE([LQ()']) in M4 controls the expansion of nonterminals.
+The default character pair CODE([`']) in M4 controls the expansion of nonterminals.
 The keyword CODE_M4([changequote()]) can change them to other characters, for example {CODE_M4([[]]), BO([CODE([␂␆])]), CODE([〖〗])}.
 Nonterminals that we do not want to (immediately) expand are surrounded by this pair of characters.
 When passing through a macro processor, all the symbols between this character pair are BUN([terminal symbols]) and the character pair is removed.

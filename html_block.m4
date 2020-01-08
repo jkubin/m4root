@@ -399,14 +399,10 @@ divert(-1)
 # A → β
 define([REF], [pushdef([CURRQU], divnum)divert(-1)
 
-	# set and init reference counter
-	define([REF_COUNTER], defn([COUNT_UP]))
-	REF_COUNTER(1)
-
 	# set reference index, create symbol and an unique tuple
-	define([REF_VALUE], REF_COUNTER)
-	define([REF_SYMBOL], NSP()[ref]REF_VALUE)
-	define([{$1$2$3}], REF_VALUE)
+	define([REF_COUNTER], [1])
+	define([REF_SYMBOL], NSP()[ref]REF_COUNTER)
+	define([{$1$2$3}], REF_COUNTER)
 
 	# transition to the next node
 	define([$0], defn([REF_NEXT]))
@@ -419,7 +415,7 @@ define([REF], [pushdef([CURRQU], divnum)divert(-1)
 divert(END_OF_REFERENCES)dnl
 </ol>
 divert(CURRQU)popdef([CURRQU])dnl
-<sup><a href="[$3]" title="$1">BRAC(REF_VALUE)</a></sup>dnl
+<sup><a href="[$3]" title="$1">BRAC(REF_COUNTER)</a></sup>dnl
 ])
 
 # β
@@ -433,7 +429,7 @@ define([REF_NEXT], [pushdef([CURRQU], divnum)divert(-1)
 		define([REF_SYMBOL], NSP()[ref]REF_VALUE)
 	], [
 		# increment counter for new ref value
-		define([REF_VALUE], REF_COUNTER)
+		define([REF_VALUE], define([REF_COUNTER], incr(REF_COUNTER))REF_COUNTER)
 		define([REF_SYMBOL], NSP()[ref]REF_VALUE)
 		define([{$1$2$3}], REF_VALUE)
 
