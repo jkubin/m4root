@@ -14,36 +14,36 @@ PUBLISH  += $(FOLDERS_cs) $(PUBLISH_cs)
 SPCHECK  += $(FOLDERS_cs) $(SPCHECK_cs)
 TARGETS  += $(FOLDERS_cs) $(PREVIEW_cs) $(VALIDATE_cs) $(PUBLISH_cs) $(SPCHECK_cs)
 
-#:subtargets	generate all targets from the file included into Makefile
-.PHONY: subtargets
-subtargets: $(TARGETS)
+#:su/sub/subtargets	creates all files from generated rules
+.PHONY: su sub subtargets
+su sub subtargets: $(TARGETS)
 
-#:preview	make html files for preview
-.PHONY: preview
-preview: $(PREVIEW)
+#:p/pr/pre/preview	for off-line article development
+.PHONY: p pr pre preview
+p pr pre preview: $(PREVIEW)
 
-#:spell	make spell checking files
-.PHONY: spell
-spell: $(SPCHECK)
+#:sp/spell	creates files for checking jargon and typos
+.PHONY: sp spell
+sp spell: $(SPCHECK)
 
-#:publish	make txt files to publish
-.PHONY: publish
-publish: $(PUBLISH)
+#:pu/pub/publish	creates files in a format suitable for CMS
+.PHONY: pu pub publish
+pu pub publish: $(PUBLISH)
 
-#:validate	make html files for validator
-.PHONY: validate
-validate: $(VALIDATE)
+#:v/va/val/validate	creates files for testing in HTML validator
+.PHONY: v va val validate
+v va val validate: $(VALIDATE)
 
-#:allcs/all_cs	make local targets for the ‘cs’ language
-.PHONY: allcs all_cs
-allcs all_cs: $(FOLDERS_cs) $(PREVIEW_cs) $(VALIDATE_cs) $(PUBLISH_cs) $(SPCHECK_cs)
+#:cs/allcs/all_cs	creates files in ‘cs’ language
+.PHONY: cs allcs all_cs
+cs allcs all_cs: $(FOLDERS_cs) $(PREVIEW_cs) $(VALIDATE_cs) $(PUBLISH_cs) $(SPCHECK_cs)
 
-#:clcs/cl_cs/clean_cs	delete generated files for the ‘cs’ language
-.PHONY: clcs cl_cs clean_cs
-clcs cl_cs clean_cs:
+#:ccs/clcs/cl_cs/clean_cs	deletes ‘cs’ files
+.PHONY: ccs clcs cl_cs clean_cs
+ccs clcs cl_cs clean_cs:
 	$(RM) -r $(FOLDERS_cs)
 
-#:ice	for the ‘cs’ language is turned off
+#:ice	files in ‘cs’ are disabled
 ice_cs.mk: ;
 
 $(FOLDERS_cs):

@@ -14,36 +14,36 @@ PUBLISH  += $(FOLDERS_en) $(PUBLISH_en)
 SPCHECK  += $(FOLDERS_en) $(SPCHECK_en)
 TARGETS  += $(FOLDERS_en) $(PREVIEW_en) $(VALIDATE_en) $(PUBLISH_en) $(SPCHECK_en)
 
-#:subtargets	generate all targets from the file included into Makefile
-.PHONY: subtargets
-subtargets: $(TARGETS)
+#:su/sub/subtargets	creates all files from generated rules
+.PHONY: su sub subtargets
+su sub subtargets: $(TARGETS)
 
-#:preview	make html files for preview
-.PHONY: preview
-preview: $(PREVIEW)
+#:p/pr/pre/preview	for off-line article development
+.PHONY: p pr pre preview
+p pr pre preview: $(PREVIEW)
 
-#:spell	make spell checking files
-.PHONY: spell
-spell: $(SPCHECK)
+#:sp/spell	creates files for checking jargon and typos
+.PHONY: sp spell
+sp spell: $(SPCHECK)
 
-#:publish	make txt files to publish
-.PHONY: publish
-publish: $(PUBLISH)
+#:pu/pub/publish	creates files in a format suitable for CMS
+.PHONY: pu pub publish
+pu pub publish: $(PUBLISH)
 
-#:validate	make html files for validator
-.PHONY: validate
-validate: $(VALIDATE)
+#:v/va/val/validate	creates files for testing in HTML validator
+.PHONY: v va val validate
+v va val validate: $(VALIDATE)
 
-#:allen/all_en	make local targets for the ‘en’ language
-.PHONY: allen all_en
-allen all_en: $(FOLDERS_en) $(PREVIEW_en) $(VALIDATE_en) $(PUBLISH_en) $(SPCHECK_en)
+#:en/allen/all_en	creates files in ‘en’ language
+.PHONY: en allen all_en
+en allen all_en: $(FOLDERS_en) $(PREVIEW_en) $(VALIDATE_en) $(PUBLISH_en) $(SPCHECK_en)
 
-#:clen/cl_en/clean_en	delete generated files for the ‘en’ language
-.PHONY: clen cl_en clean_en
-clen cl_en clean_en:
+#:cen/clen/cl_en/clean_en	deletes ‘en’ files
+.PHONY: cen clen cl_en clean_en
+cen clen cl_en clean_en:
 	$(RM) -r $(FOLDERS_en)
 
-#:ice	for the ‘en’ language is turned off
+#:ice	files in ‘en’ are disabled
 ice_en.mk: ;
 
 $(FOLDERS_en):
