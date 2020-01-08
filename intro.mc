@@ -256,16 +256,16 @@ HEADING_MONO([dnl monolingual
 
 PARA([[dnl czech
 AH([PERSON([Brian Kernighan])], [Wikipedie], [https://cs.wikipedia.org/wiki/Brian_Kernighan]) makro procesor M3 rozšířil na AH([preprocesor], [Wikipedie], [https://cs.wikipedia.org/wiki/Preprocesor]) jazyka FORTRAN 66,
-aby mohl vytvořit hybridní jazykovou nadstavbu pojmenovanou ABBR([BO([Ratfor])], [Rational Fortran])[]REF([RATFOR — A Preprocessor for a Rational Fortran], [Brian W. Kernighan], [https://wolfram.schneider.org/bsd/7thEdManVol2/ratfor/ratfor.pdf]).
+aby mohl vytvořit hybridní jazykovou nadstavbu pojmenovanou ABBR([BO([RATFOR])], [Rational Fortran])[]REF([RATFOR — A Preprocessor for a Rational Fortran], [Brian W. Kernighan], [https://wolfram.schneider.org/bsd/7thEdManVol2/ratfor/ratfor.pdf]).
 Základní programové konstrukce této nadstavby (podmínky, cykly) jsou stejné jako v[]NB()jazyce C.
-Programování v[]NB()Ratfor-u se tak podobá programování v[]NB()QUOTE([céčku]).
+Programování v[]NB()RATFOR-u se tak podobá programování v[]NB()QUOTE([céčku]).
 Makro procesor zdrojový kód překládá zpátky do FORTRAN-u, poté kompilátor provede překlad do strojového kódu.
 ],
 [dnl english: _next_language_
 AH([PERSON([Brian Kernighan])], [Wikipedia], [https://en.wikipedia.org/wiki/Brian_Kernighan]) has enhanced the M3 macro processor to the FORTRAN 66
-AH([preprocessor], [Wikipedia], [https://en.wikipedia.org/wiki/Preprocessor]) to create a[]NB()hybrid language extension named ABBR([BO([Ratfor])], [Rational Fortran])[]REF([RATFOR — A Preprocessor for a Rational Fortran], [Brian W. Kernighan], [https://wolfram.schneider.org/bsd/7thEdManVol2/ratfor/ratfor.pdf]).
+AH([preprocessor], [Wikipedia], [https://en.wikipedia.org/wiki/Preprocessor]) to create a[]NB()hybrid language extension named ABBR([BO([RATFOR])], [Rational Fortran])[]REF([RATFOR — A Preprocessor for a Rational Fortran], [Brian W. Kernighan], [https://wolfram.schneider.org/bsd/7thEdManVol2/ratfor/ratfor.pdf]).
 The basic program constructions of this extension (conditions, cycles) are the same as in C[]NB()language.
-Programming in Ratfor is similar to C[]NB()programming.
+Programming in RATFOR is similar to C[]NB()programming.
 The macro processor converts the source code back to FORTRAN, then the compiler performs the usual compilation to machine code.
 ]])
 
