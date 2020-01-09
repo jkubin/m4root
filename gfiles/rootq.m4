@@ -57,12 +57,11 @@ define(`ARG7',	`$7')
 define(`ARG8',	`$8')
 define(`ARG9',	`$9')
 
-define(`ARG1_WITHOUT_TRAILING_LF', `patsubst(`$1', `\s*')')
-
 # select an argument
 # A(`$1', `$2', …, `$n'') → `$1'
 define(`SELECT_ARG1',	``$1'')
 define(`SELECT_ARG1_WITHOUT_TRAILING_LF', `patsubst(``$1'', `\s*')')
+define(`EXPAND_ARG1_WITHOUT_TRAILING_LF', `patsubst(`$1', `\s*')')
 
 # puts number of arguments
 define(`NAR', `ifelse(`$#', `0', ``$0'', `$#')')
