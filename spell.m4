@@ -2,6 +2,11 @@ __HEADER([Josef Kubin], [2019/12/23], [root_cz])
 ___DESCR([converts inline and block-level elements into a plain text file for checking jargon and typos])
 ___POINT([plain text for spell checking and suggestions from other people])
 
+ifelse(defn([SOURCE]), [], [
+
+	ROOT_ERROR([the source file name is missing])
+])
+
 # The first line: https://vim.fandom.com/wiki/Modeline_magic
 # The second line: git revision and creation time
 divert(0)dnl
