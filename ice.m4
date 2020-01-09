@@ -61,8 +61,8 @@ SPCHECK    += $(FOLDER_NAMES) $(SPCHECK_FILES)
 TARGETS    += SUBTARGETS
 
 #:su/sub/subtargets	creates all files from generated rules
-.PHONY: su sub subtargets
-su sub subtargets: $(TARGETS)
+.PHONY: subtargets su sub
+subtargets su sub: $(TARGETS)
 
 #:p/pr/pre/preview	for off-line article development
 .PHONY: p pr pre preview
