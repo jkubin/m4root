@@ -17,10 +17,10 @@ divert(1)dnl
 defn([TARGET_FOLDER]) \
 divert(2)dnl
 TARGET_FOLDER/%.html: rootb.m4 queues.m4 aux.m4 html_config.m4 html_inline.m4 headings.m4 html_block.m4 html_insert.m4 version.m4 style.m4 lang_$2.m4 css.m4 REFS_FILES order.m4 lang.m4 include.m4 $(wildcard $1.d/*.m4) %.m4 $1 html_navig.m4
-	m4 -DLANG_CODE='$2' $^ > $[@]
+	m4 -DLANG_CODE='$2' $^ | sed -f brackets.sed > $[@]
 
 TARGET_FOLDER/publish.txt: rootb.m4 queues.m4 aux.m4 html_config.m4 html_inline.m4 headings.m4 html_block.m4 html_insert.m4 version.m4 style.m4 lang_$2.m4 css.m4 REFS_FILES order.m4 lang.m4 include.m4 $(wildcard $1.d/*.m4) publish.m4 $1 html_navig.m4
-	m4 -DLANG_CODE='$2' $^ | sed -f publish.sed > $[@]
+	m4 -DLANG_CODE='$2' $^ | sed -f publish.sed -f brackets.sed > $[@]
 
 TARGET_FOLDER/spell.txt: rootb.m4 include.m4 version.m4 lang_$2.m4 REFS_FILES order.m4 lang.m4 headings.m4 spell.m4 $1
 	m4 -DLANG_CODE='$2' -DSOURCE='$1' $^ > $[@]
@@ -88,7 +88,7 @@ ALL_SUBTARGETS: SUBTARGETS
 CLEAN_SUBTARGETS:
 	$(RM) -r $(FOLDER_NAMES)
 
-[#]:ice	files in ‘LANG_CODE’ are disabled
+[#]:ice	is disabled for ‘LANG_CODE’ language
 ice_[]LANG_CODE.mk: ;
 
 $(FOLDER_NAMES):

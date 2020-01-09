@@ -15,7 +15,3 @@ s/🠑/\&#x1f811;/g
 s/🡅/\&#x1f845;/g
 
 #s/❕/\&#x2755;/g
-
-# square brackets conversion slightly reduces file size
-s/&#x5b;/[/g
-s/&#x5d;/]/g
