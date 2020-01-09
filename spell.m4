@@ -1,6 +1,6 @@
 __HEADER([Josef Kubin], [2019/12/23], [root_cz])
-___DESCR([converts inline and block-level elements into a plain text file to spell check words])
-___POINT([plain text for spell checking and suggestions])
+___DESCR([converts inline and block-level elements into a plain text file for checking jargon and typos])
+___POINT([plain text for spell checking and suggestions from other people])
 
 # The first line: https://vim.fandom.com/wiki/Modeline_magic
 # The second line: git revision and creation time
@@ -33,7 +33,7 @@ pushdef([PRINT_MONO], defn([TITLE])[
 
 	divert(0)dnl
 __line__
-ARG1_WITHOUT_TRAILING_LF(]defn([EXPAND_LAST])[)
+EXPAND_ARG1_WITHOUT_TRAILING_LF(]defn([EXPAND_LAST])[)
 
 divert(-1)
 ])

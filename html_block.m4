@@ -52,7 +52,7 @@ pushdef([COUNTERS], [
 pushdef([HTML_MONOLINGUAL], [
 
 	divert(CURRQU)dnl
-<defn([##$0>])]defn([HTML_GLOBAL_ATTRIBUTES])[>ARG1_WITHOUT_TRAILING_LF(]defn([EXPAND_LAST])[)</defn([##$0>])>
+<defn([##$0>])]defn([HTML_GLOBAL_ATTRIBUTES])[>EXPAND_ARG1_WITHOUT_TRAILING_LF(]defn([EXPAND_LAST])[)</defn([##$0>])>
 divert(-1)
 ])
 
@@ -324,7 +324,7 @@ divert(-1)
 define([PLAIN_TEXT_MONO], [
 
 	divert(CURRQU)dnl
-ARG1_WITHOUT_TRAILING_LF(]defn([EXPAND_LAST])[)[]dnl
+EXPAND_ARG1_WITHOUT_TRAILING_LF(]defn([EXPAND_LAST])[)[]dnl
 divert(-1)
 ])
 
@@ -340,7 +340,7 @@ divert(-1)
 define([COMMENT_MONO], [
 
 	divert(CURRQU)dnl
-<!-- ARG1_WITHOUT_TRAILING_LF(]defn([EXPAND_LAST])[) -->
+<!-- EXPAND_ARG1_WITHOUT_TRAILING_LF(]defn([EXPAND_LAST])[) -->
 divert(-1)
 ])
 
@@ -362,7 +362,7 @@ divert(-1)
 define([TIP_BOX_MONO], [
 
 	divert(CURRQU)dnl
-<div[]]defn([HTML_TIP_BOX_ATTRIBUTES])[>ARG1_WITHOUT_TRAILING_LF(]defn([EXPAND_LAST])[)</div>
+<div[]]defn([HTML_TIP_BOX_ATTRIBUTES])[>EXPAND_ARG1_WITHOUT_TRAILING_LF(]defn([EXPAND_LAST])[)</div>
 divert(-1)
 ])
 
