@@ -1,5 +1,5 @@
 # vim:wrap:spell:spelllang=cs,en
-# 0x58157cf	20200109-01:08:56
+# 0x58157cf	20200109-09:48:43
 
 6
 Generování kódu v M4: úvod

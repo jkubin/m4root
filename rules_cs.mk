@@ -15,8 +15,8 @@ SPCHECK  += $(FOLDERS_cs) $(SPCHECK_cs)
 TARGETS  += $(FOLDERS_cs) $(PREVIEW_cs) $(VALIDATE_cs) $(PUBLISH_cs) $(SPCHECK_cs)
 
 #:su/sub/subtargets	creates all files from generated rules
-.PHONY: su sub subtargets
-su sub subtargets: $(TARGETS)
+.PHONY: subtargets su sub
+subtargets su sub: $(TARGETS)
 
 #:p/pr/pre/preview	for off-line article development
 .PHONY: p pr pre preview
