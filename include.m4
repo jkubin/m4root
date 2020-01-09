@@ -1,5 +1,5 @@
 __HEADER([Josef Kubin], [2019/12/10], [root_cz])
-___DESCR([Repeated text patterns for ALL parts should be written here. Modified files from `include' are invisible for make.])
+___DESCR([Repeated text patterns for ALL parts should be written here. Modified files from the `include' keyword are invisible for make.])
 ___POINT([how to avoid `include' keyword])
 
 # common tip box
