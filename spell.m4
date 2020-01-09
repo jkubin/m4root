@@ -1,6 +1,6 @@
 __HEADER([Josef Kubin], [2019/12/23], [root_cz])
 ___DESCR([converts inline and block-level elements into a plain text file for checking jargon and typos])
-___POINT([plain text for spell checking and suggestions from other people])
+___POINT([plain text file for spell checking and for suggestions from other people (they can edit)])
 
 ifelse(defn([SOURCE]), [], [
 
@@ -8,15 +8,16 @@ ifelse(defn([SOURCE]), [], [
 ])
 
 # The first line: https://vim.fandom.com/wiki/Modeline_magic
-# The second line: git revision and creation time
+# The second line: source_file	git_revision_of_source_file	creation_time
 divert(0)dnl
 [#] vim:wrap:spell:spelllang=LANG_CODE,en
-[#] FST(esyscmd([git log -1 --format='[0x%h],' ]defn([SOURCE])))	FST(esyscmd([date '+[%Y%m%d-%R:%S],']))
+[#] defn([SOURCE])	FST(esyscmd([git log -1 --format='[0x%h],' ]defn([SOURCE])))	FST(esyscmd([date '+[%Y%m%d-%R:%S],']))
 
 divert(1)dnl
 ---
 divert(-1)
 
+# extracts title="the text" if defined
 # β
 pushdef([TITLE], [
 
@@ -126,15 +127,16 @@ define([AH], [ifelse(
 ])
 
 # A → β
-# β
 define([BR], [
 ])
 
+# A → β
+# β
 define([BO],		[ifelse([$#], [0], [[$0]], [$2], [], [$1], [$1 ($2)])])
 define([QM],		[ifelse([$#], [0], [[$0]], [$2], [], [„$1“], [„$1“ ($2)])])
 
 # A → β
-# A → ε
+# β
 define([ABBR],		defn([BO]))
 define([ACRO],		defn([BO]))
 define([AP],		[ifelse([$#], [0], [[$0]], ['])])
@@ -167,12 +169,11 @@ define([WBR])
 # custom HTML5 inline elements for convenience
 
 # A → β
-# A → ε
-#define([CODE_BLUE])
-#define([CODE_UND])
 define([BUN],		defn([BO]))
+define([CODE_BLUE],	defn([CODE]))
 define([CODE_M4U],	defn([CODE]))
 define([CODE_M4],	defn([CODE]))
+define([CODE_UND],	defn([CODE]))
 define([NOTE],		defn([BO]))
 define([PERSON],	defn([BO]))
 
