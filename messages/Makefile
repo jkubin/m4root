@@ -44,7 +44,7 @@ $(MARKUP_LANG): markup.m4
 
 $(SOURCE_CODE): code.m4
 
-$(INTACT): none.m4
+$(INTACT): unchanged.m4
 
 $(APOSTROPHE): apost.m4
 
