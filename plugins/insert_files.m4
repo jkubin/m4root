@@ -2,6 +2,8 @@ __HEADER([Josef Kubin], [2019/12/28], [root_cz])
 ___DESCR([specific definitions for each part of the series to avoid repeating the code])
 ___POINT([how to avoid keyword "include" (Makefile can't see included files)])
 
+ifdef([SPELLCHECK], [], [
+
 # A → β
 define([INSERT_FILES_MESSAGES_QUEUES_MARKUP], [
 	CONFIGURE_COMMAND_LINE(
@@ -85,3 +87,5 @@ define([INSERT_FILES_RAW_MESSAGES], [
 )
 	INSERT_LIST_OF_FILES($@)
 ])
+
+])dnl !SPELLCHECK

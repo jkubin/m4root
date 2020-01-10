@@ -17,6 +17,21 @@ divert(1)dnl
 ---
 divert(-1)
 
+# for plugins
+# β
+define([SPELLCHECK_FILE_TITLE], [
+
+	ifelse(
+		[$#], [1], [], [
+
+		divert(0)dnl
+__line__
+LB()$2[]RB()
+
+divert(-1)
+	])
+])
+
 # extracts title="the text" if defined
 # β
 pushdef([TITLE], [
