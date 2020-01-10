@@ -47,16 +47,16 @@ PARA([[dnl czech
 Seriál je zaměřen na praktické použití BO([univerzálního makro procesoru M4]) (dále jen M4) pomocí malých, ukázkových příkladů.
 Popisuje též teoretický základ všech implementací.
 Cílem seriálu je seznámit čtenáře s[]NB()tímto ABBR([nástrojem], [m4 – je program příkazové řádky]) a také programovacím ABBR([jazykem], [M4 – je programovací jazyk]).[]BR()
-LINK([Na co se používá], [main_use_of_m4]), jak se v něm programuje a jaké jsou jeho LINK([výhody], [why_to_use_m4]) a[]NB()LINK([nevýhody], [why_not_use]).
+LINK([Na co se používá], [main_uses_of_m4]), jak se v něm programuje a jaké jsou jeho LINK([výhody], [why_to_use_m4]) a[]NB()LINK([nevýhody], [why_not_use]).
 ],
 [dnl english: _next_language_
 The series focus on the practical use of the BO([universal macro processor M4]) (hereafter M4) using small examples.
 It also describes the theoretical part of all its implementations.
 The aim of the series is to acquaint the reader with this ABBR([tool], [m4 – is a command line program]) and also the programming ABBR([language], [M4 – is a programming language]).
-LINK([What its main use], [main_use_of_m4]), how to program in it, what are LINK([advantages], [why_to_use_m4]) and what are LINK([disadvantages], [why_not_use]).
+LINK([What its main use], [main_uses_of_m4]), how to program in it, what are LINK([advantages], [why_to_use_m4]) and what are LINK([disadvantages], [why_not_use]).
 ]])
 preformulovat
-LINK([What its main use], [main_use_of_m4]), how to program in it, what are LINK([advantages], [why_to_use_m4]) and what are LINK([disadvantages], [why_not_use]).
+LINK([What its main use], [main_uses_of_m4]), how to program in it, what are LINK([advantages], [why_to_use_m4]) and what are LINK([disadvantages], [why_not_use]).
 
 # same tip box for each part
 the_series_is_generated()
@@ -114,17 +114,19 @@ dnl english: _next_language_
 
 
 CHAPTER([dnl czech
-[Historie M4],
+[Historie makro jazyků],
 dnl english: _next_language_
-[History of M4],
+[History of macro languages],
 ])
 
 PARA([[dnl czech
-Makro jazyky byly vynalezeny v době, kdy dominoval jazyk symbolických instrukcí (assembler).
+Makro jazyky byly vynalezeny v době, kdy dominoval jazyk symbolických instrukcí (ABBR([JSA], [Jazyk Symbolických Adres (assembler)]), assembler).
+Zápis kódu ABBR([JSA], [Jazyk Symbolických Adres (assembler)]) už nebyl tak pracný, protože bylo možné seskupit opakované sekvence instrukcí do jednoho slova, do jedné BO([makro instrukce]) s parametry.
 Později byly použity k rozšíření kompilovaných programovacích jazyků, protože umožnily psát zdrojový kód na vyšší úrovni abstrakce než samotný programovací jazyk.
 ],
 [dnl english: _next_language_
-Macro languages were invented at a time when the assembly language dominated.
+Macro languages were invented at a time when the assembly language (ASM) dominated.
+Writing ASM code was no longer so laborious because it was possible to group repeated instruction sequences into one word, into one BO([macro instruction]) with parameters.
 Later they were used to extend compiled programming languages because they made it possible to write source code at a higher level of abstraction than the programming language itself.
 ]])
 
@@ -256,14 +258,14 @@ HEADING_MONO([dnl monolingual
 
 PARA([[dnl czech
 AH([PERSON([Brian Kernighan])], [Wikipedie], [https://cs.wikipedia.org/wiki/Brian_Kernighan]) makro procesor M3 rozšířil na AH([preprocesor], [Wikipedie], [https://cs.wikipedia.org/wiki/Preprocesor]) jazyka FORTRAN 66,
-aby mohl vytvořit hybridní jazykovou nadstavbu pojmenovanou ABBR([BO([RATFOR])], [Rational Fortran])[]REF([RATFOR — A Preprocessor for a Rational Fortran], [Brian W. Kernighan], [https://wolfram.schneider.org/bsd/7thEdManVol2/ratfor/ratfor.pdf]).
+aby mohl vytvořit hybridní jazykovou nadstavbu pojmenovanou ABBR([BO([RATFOR])], [RATional FORtran])[]REF([RATFOR — A Preprocessor for a Rational Fortran], [Brian W. Kernighan], [https://wolfram.schneider.org/bsd/7thEdManVol2/ratfor/ratfor.pdf]).
 Základní programové konstrukce této nadstavby (podmínky, cykly) jsou stejné jako v[]NB()jazyce C.
 Programování v[]NB()RATFOR-u se tak podobá programování v[]NB()QUOTE([céčku]).
 Makro procesor zdrojový kód překládá zpátky do FORTRAN-u, poté kompilátor provede překlad do strojového kódu.
 ],
 [dnl english: _next_language_
 AH([PERSON([Brian Kernighan])], [Wikipedia], [https://en.wikipedia.org/wiki/Brian_Kernighan]) has enhanced the M3 macro processor to the FORTRAN 66
-AH([preprocessor], [Wikipedia], [https://en.wikipedia.org/wiki/Preprocessor]) to create a[]NB()hybrid language extension named ABBR([BO([RATFOR])], [Rational Fortran])[]REF([RATFOR — A Preprocessor for a Rational Fortran], [Brian W. Kernighan], [https://wolfram.schneider.org/bsd/7thEdManVol2/ratfor/ratfor.pdf]).
+AH([preprocessor], [Wikipedia], [https://en.wikipedia.org/wiki/Preprocessor]) to create a[]NB()hybrid language extension named ABBR([BO([RATFOR])], [RATional FORtran])[]REF([RATFOR — A Preprocessor for a Rational Fortran], [Brian W. Kernighan], [https://wolfram.schneider.org/bsd/7thEdManVol2/ratfor/ratfor.pdf]).
 The basic program constructions of this extension (conditions, cycles) are the same as in C[]NB()language.
 Programming in RATFOR is similar to C[]NB()programming.
 The macro processor converts the source code back to FORTRAN, then the compiler performs the usual compilation to machine code.
@@ -569,7 +571,7 @@ BO([Stacks]) will be described later.
 ]])
 
 
-CHAPTER([main_use_of_m4], [dnl czech
+CHAPTER([main_uses_of_m4], [dnl czech
 [Hlavní použití M4],
 dnl english: _next_language_
 [Main uses of M4],
@@ -988,7 +990,7 @@ dnl english: _next_language_
 ])
 
 PARA([[dnl czech
-Zvládnutí editoru Vim[]REF([Vim – všudypřítomný textový editor], [editující text rychlostí myšlenky], [https://www.vim.org/]) je důležitým předpokladem pro pohodlí a[]NB()rychlost psaní kódu M4.
+Zvládnutí editoru Vim[]REF([Vim – všudypřítomný textový editor], [editujíce text rychlostí myšlenky], [https://www.vim.org/]) je důležitým předpokladem pro pohodlí a[]NB()rychlost psaní kódu M4.
 Vim zkratky, definované klíčovým slovem CODE([iabbrev]), ušetří velké množství zbytečně napsaného textu.
 Tyto zkratky také významně snižují výskyt téměř neviditelných chyb způsobených nepárovou závorkou, čímž šetří ztracený čas vynaložený na ladění kódu.
 ],
@@ -1072,7 +1074,7 @@ The input source code is similar to ABBR([CSV], [Comma Separated Values]), which
 Stacks in the examples are not used.
 ]])
 
-INSERT_FILE([messages/messages_raw.mc], [  ⚠ ]LANG([obsahuje speciální znaky], [contains special characters])[ ⚠], [])
+INSERT_FILE([messages/messages_raw.mc], [  ⚠ ]LANG([obsahuje speciální znaky], [contains special characters])[ ⚠])
 
 TIP_BOX([[dnl czech
 Vstupní soubor může obsahovat poznámky, které nemusí být skryté v[]NB()komentářích CODE_M4([#]), CODE_M4([dnl]), CODE_M4([ifelse([…])]) nebo CODE_M4([[… někde uvnitř závorek …]]).
@@ -1121,9 +1123,9 @@ INSERT_FILES_RAW_MESSAGES([counter.csv.m4], [counter.csv])
 
 
 SUB_ANNEX([dnl czech
-[CODE([💡], [jak to udělat]) Úprava speciálních znaků],
+[CODE([💡], [řešení]) Speciální znaky výstupního kódu],
 dnl english: _next_language_
-[CODE([💡], [how to do it]) Modification of special characters],
+[CODE([💡], [solution]) Special characters of output code],
 ])
 
 PARA([[dnl czech
@@ -1146,55 +1148,60 @@ Generating different file types usually requires less effort because the previou
 
 
 HEADING([modified_input_source_code], [dnl czech
-[Upravený vstupní zdrojový kód],
+[Upravený vstupní kód],
 dnl english: _next_language_
-[Modified input source code],
+[Modified input code],
 ])
 
-INSERT_FILE([messages/messages.mc], [ (]LANG([speciální znaky jsou skryty do maker], [special characters are hidden to macros])[)], [])
+LINK_FILE([messages/messages.mc], LANG([speciální znaky vstupního kódu jsou skryty do maker], [special characters of the input code are hidden in macros]))
+INSERT_FILE([messages/messages.mc])
 
 PARA([[dnl czech
-Vytvoříme několik souborů, které převádí makra na speciální znaky podle typu generovaného cílového kódu.
-Tento soubor je jedním ze souborů na příkazové řádce.
+Vytvoříme soubory převádějící makra na speciální znaky podle typu cílového kódu.
 ],
 [dnl english: _next_language_
-We create several files that convert macros into special characters according to the type of target code generated.
-This file is one of the command line files.
+We create files converting macros to special characters based on the target code type.
 ]])
 
-HEADING([dnl czech
-[CODE_M4([[]]) XML[,] HTML – soubor pro značkovací jazyky],
-dnl english: _next_language_
-[CODE_M4([[]]) XML[,] HTML – the file for markup languages],
+HEADING_MONO([dnl
+[CODE_M4([[]]) XML[,] XSLT[,] HTML],
 ])
 
+LINK_FILE([messages/markup.m4], LANG([převodní soubor pro značkovací jazyky], [conversion file for markup languages]))
 INSERT_FILE([messages/markup.m4])
 
-# hide ‘"’ → DQ(), because of title="… &quot; … &quot; …"
-HEADING([dnl czech
-[CODE_M4([[]]) C[,] JSON[,] INI – soubor pro DQ()řetězce v uvozovkách[]DQ()],
-dnl english: _next_language_
-[CODE_M4([[]]) C[,] JSON[,] INI – the file for DQ()strings in double quotes[]DQ()],
+# hide  ‘"’ → DQ(), because of title="… &quot; … &quot; …"
+HEADING([dnl
+[CODE_M4([[]]) C[,] JSON[,] INI – CODE([DQ()řetězec[]DQ()])],
+[CODE_M4([[]]) C[,] JSON[,] INI – CODE([DQ()string[]DQ()])],
 ])
 
+LINK_FILE([messages/code.m4], LANG([převodní soubor], [conversion file]))
 INSERT_FILE([messages/code.m4])
 
-# hide  ‘"’ → DQ(), because of title="… &quot; … &quot; …"
-HEADING([dnl czech
-[CODE_M4([[]]) Bash – soubor pro DQ()řetězce v uvozovkách[]DQ()],
-dnl english: _next_language_
-[CODE_M4([[]]) Bash – the file for DQ()strings in double quotes[]DQ()],
+# hide ‘"’ → DQ(), because of title="… &quot; … &quot; …"
+HEADING([dnl
+[CODE_M4([[]]) Bash CODE([CMD() echo []DQ()řetězec[]DQ()])],
+[CODE_M4([[]]) Bash CODE([CMD() echo []DQ()string[]DQ()])],
 ])
 
+LINK_FILE([messages/doubleq.m4], LANG([převodní soubor], [conversion file]))
 INSERT_FILE([messages/doubleq.m4])
 
-HEADING([dnl czech
-[CODE_M4([[]]) Bash – soubor pro 'řetězce v apostrofech'],
-dnl english: _next_language_
-[CODE_M4([[]]) Bash – the file for 'strings in apostrophes'],
+HEADING([dnl
+[CODE_M4([[]]) Bash CODE([CMD() echo 'řetězec'])],
+[CODE_M4([[]]) Bash CODE([CMD() echo 'string'])],
 ])
 
+LINK_FILE([messages/apost.m4], LANG([převodní soubor], [conversion file]))
 INSERT_FILE([messages/apost.m4])
+
+HEADING_MONO([dnl monolingual
+[CODE_M4([[]]) CSV[,] M4],
+])
+
+LINK_FILE([messages/unchanged.m4], LANG([převodní soubor nezmění speciální znaky], [the conversion file does not change special characters]))
+INSERT_FILE([messages/unchanged.m4])
 
 
 SUB_ANNEX([dnl czech
@@ -1675,11 +1682,11 @@ dnl english: _next_language_
 UNORDERED_LIST_WRAP([
 
 LIST_ITEM([[dnl czech
-přímé použití LINK([bezkontextové gramatiky], [context_free_grammar])
+přímé použití LINK([bezkontextové gramatiky], [context_free_grammar]) (rekurze zdarma)
 UL([LI([k transformaci dat stačí napsat minimum M4 kódu])])
 ],
 [dnl english: _next_language_
-direct use of LINK([context-free grammar], [context_free_grammar])
+direct use of LINK([context-free grammar], [context_free_grammar]) (recursion for free)
 UL([LI([a minimum M4 code is required for data transformation])])
 ]])
 
