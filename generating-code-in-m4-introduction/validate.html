@@ -12,7 +12,7 @@
 <h2 id="m4-toc-capt">Content&nbsp;(<a href="../../clanky/generovani-kodu-v-m4-uvod/">Česká verze</a>)</h2>
 <p id="m4-toc-introduction"><a href="#m4-introduction">1&nbsp;&nbsp;Introduction</a></p>
 <p id="m4-toc-examples-for-readers">&nbsp;&nbsp;&nbsp;<a href="#m4-examples-for-readers">1.1&nbsp;&nbsp;Examples for readers</a></p>
-<p id="m4-toc-history-of-m4"><a href="#m4-history-of-m4">2&nbsp;&nbsp;History of M4</a></p>
+<p id="m4-toc-history-of-macro-languages"><a href="#m4-history-of-macro-languages">2&nbsp;&nbsp;History of macro languages</a></p>
 <p id="m4-toc-basics-of-m4"><a href="#m4-basics-of-m4">3&nbsp;&nbsp;Basics of M4</a></p>
 <p id="m4-toc-context-free-grammar">&nbsp;&nbsp;&nbsp;<a href="#m4-context-free-grammar">3.1&nbsp;&nbsp;Context-free grammar</a></p>
 <p id="m4-toc-automata">&nbsp;&nbsp;&nbsp;<a href="#m4-automata">3.2&nbsp;&nbsp;Automata</a></p>
@@ -61,8 +61,9 @@ Each part can be read in any order.</p>
 <li><a href="#m4-why-using-m4-and-why-not" title="Why using M4 and why not?">Why using M4 and why not?</a></li>
 <li><a href="http://github.com/jkubin/m4root" title="Generating code in M4">http://github.com/jkubin/m4root</a> – a&nbsp;project generating HTML of this series</li>
 </ul>
-<h2 id="m4-history-of-m4"><a href="#m4-history-of-m4" title="⚓">2</a>&nbsp;&nbsp;History of M4&nbsp;<a href="#m4-toc-history-of-m4" title="Content" class="m4-jmp">☰</a></h2>
-<p>Macro languages were invented at a time when the assembly language dominated.
+<h2 id="m4-history-of-macro-languages"><a href="#m4-history-of-macro-languages" title="⚓">2</a>&nbsp;&nbsp;History of macro languages&nbsp;<a href="#m4-toc-history-of-macro-languages" title="Content" class="m4-jmp">☰</a></h2>
+<p>Macro languages were invented at a time when the assembly language (ASM) dominated.
+Writing ASM code was no longer so laborious because it was possible to group repeated instruction sequences into one word, into one <strong>macro instruction</strong> with parameters.
 Later they were used to extend compiled programming languages because they made it possible to write source code at a higher level of abstraction than the programming language itself.</p>
 <h3 id="m4-gpm-general-purpose-macro-genera"><a href="#m4-gpm-general-purpose-macro-genera" title="⚓">»</a>&nbsp;GPM (General Purpose Macro-generator)</h3>
 <p><a href="https://en.wikipedia.org/wiki/Christopher_Strachey" title="Wikipedia"><span class="rs-person">Christopher Strachey</span></a> introduced the basic idea of rewritable strings with arguments which recursively rewrite to other strings in his
@@ -97,7 +98,7 @@ Argument <code>-1</code> completely disables any text output.
 Argument <code>0</code> switches output to <code>stdout</code>.</div>
 <h3 id="m4-m4"><a href="#m4-m4" title="⚓">»</a>&nbsp;M4</h3>
 <p><a href="https://en.wikipedia.org/wiki/Brian_Kernighan" title="Wikipedia"><span class="rs-person">Brian Kernighan</span></a> has enhanced the M3 macro processor to the FORTRAN 66
-<a href="https://en.wikipedia.org/wiki/Preprocessor" title="Wikipedia">preprocessor</a> to create a&nbsp;hybrid language extension named <abbr title="Rational Fortran"><strong>RATFOR</strong></abbr><sup><a href="https://wolfram.schneider.org/bsd/7thEdManVol2/ratfor/ratfor.pdf" title="RATFOR — A Preprocessor for a Rational Fortran">[3]</a></sup>.
+<a href="https://en.wikipedia.org/wiki/Preprocessor" title="Wikipedia">preprocessor</a> to create a&nbsp;hybrid language extension named <abbr title="RATional FORtran"><strong>RATFOR</strong></abbr><sup><a href="https://wolfram.schneider.org/bsd/7thEdManVol2/ratfor/ratfor.pdf" title="RATFOR — A Preprocessor for a Rational Fortran">[3]</a></sup>.
 The basic program constructions of this extension (conditions, cycles) are the same as in C&nbsp;language.
 Programming in RATFOR is similar to C&nbsp;programming.
 The macro processor converts the source code back to FORTRAN, then the compiler performs the usual compilation to machine code.</p>
@@ -363,7 +364,7 @@ In this way it is possible to gradually gain some practice.</p>
 <div class="rs-tip-major m4-tip">Chars. {<code>`'</code>, <code>[]</code>, <strong><code>␂␆</code></strong>, <code>〖〗</code>} in the name controls the <a href="#m4-nonterminal-expansion-control" title="Nonterminal expansion control">expansion of nonterminals</a>.</div>
 <p id="m4-toc-csv-simplest-example">&nbsp;&nbsp;&nbsp;<a href="#m4-csv-simplest-example">A.1&nbsp;&nbsp;<code>[]</code> CSV – simplest example</a></p>
 <p id="m4-toc-csv-counter">&nbsp;&nbsp;&nbsp;<a href="#m4-csv-counter">A.2&nbsp;&nbsp;<code>[]</code> CSV – counter</a></p>
-<p id="m4-toc-modification-of-special-characte">&nbsp;&nbsp;&nbsp;<a href="#m4-modification-of-special-characte">A.3&nbsp;&nbsp;<code title="how to do it">💡</code> Modification of special characters</a></p>
+<p id="m4-toc-special-characters-of-output-cod">&nbsp;&nbsp;&nbsp;<a href="#m4-special-characters-of-output-cod">A.3&nbsp;&nbsp;<code title="solution">💡</code> Special characters of output code</a></p>
 <p id="m4-toc-c-output-queue">&nbsp;&nbsp;&nbsp;<a href="#m4-c-output-queue">A.4&nbsp;&nbsp;<code>[]</code> C – output queue</a></p>
 <p id="m4-toc-ini-an-external-command">&nbsp;&nbsp;&nbsp;<a href="#m4-ini-an-external-command">A.5&nbsp;&nbsp;<code>[]</code> INI – an external command</a></p>
 <p id="m4-toc-h-hex-counter">&nbsp;&nbsp;&nbsp;<a href="#m4-h-hex-counter">A.6&nbsp;&nbsp;<code>[]</code> .h – hex counter</a></p>
@@ -386,27 +387,27 @@ They will be explained in more detail later.</div>
 Stacks in the examples are not used.</p>
 <pre title="messages_raw.mc  ⚠ contains special characters ⚠"># 2018/05/15 Josef Kubin
 
-ERROR(&#x5b;COMPLEX&#x5d;,     &#x5b;!"#$%&amp;'()*+ ,-./:;&lt;=&gt;?@&#x5b;\&#x5d;^_`{|}~&#x5d;)
-QUERY(&#x5b;READABLE&#x5d;,    &#x5b;Is badly written M4 code readable &#x5b;N/y&#x5d;?&#x5d;)
-ERROR(&#x5b;SUCCESS&#x5d;,     &#x5b;Complex M4 code failed successfully.&#x5d;)
-WARNING(&#x5b;ADDICTIVE&#x5d;, &#x5b;Programming in M4 is addictive!&#x5d;)
-ERROR(&#x5b;NOFAULT&#x5d;,     &#x5b;It's not a language fault!&#x5d;)
-WARNING(&#x5b;NO_ERRORS&#x5d;, &#x5b;No other errors detected.&#x5d;)</pre>
+ERROR([COMPLEX],     [!"#$%&amp;'()*+ ,-./:;&lt;=&gt;?@[\]^_`{|}~])
+QUERY([READABLE],    [Is badly written M4 code readable [N/y]?])
+ERROR([SUCCESS],     [Complex M4 code failed successfully.])
+WARNING([ADDICTIVE], [Programming in M4 is addictive!])
+ERROR([NOFAULT],     [It's not a language fault!])
+WARNING([NO_ERRORS], [No other errors detected.])</pre>
 <div class="rs-tip-major m4-tip">The input file may contain notes that may not be hidden in the comments <code>#</code>, <code>dnl</code>, <code>ifelse([…])</code> or <code>[… somewhere inside brackets …]</code>.</div>
 <h3 id="m4-csv-simplest-example"><a href="#m4-csv-simplest-example" title="⚓">A.1</a>&nbsp;&nbsp;<code>[]</code> CSV – simplest example&nbsp;<a href="#m4-toc-csv-simplest-example" title="Content" class="m4-jmp">☰</a></h3>
 <p>This example does not use output queues, it only generates <abbr title="Comma Separated Values">CSV</abbr> separated by <code>TAB</code>.</p>
 <pre title="hello.csv.m4"># A → β
-define(&#x5b;ERROR&#x5d;, &#x5b;
+define([ERROR], [
 
 	divert(0)dnl
-&#x5b;$1&#x5d;	$2
+[$1]	$2
 divert(-1)
-&#x5d;)</pre>
+])</pre>
 <table class="table"><tbody><tr><th style="width:100%" title="input files"><a href="https://raw.githubusercontent.com/jkubin/m4root/master/gfiles/rootb.m4" title="GitHub">rootb.m4</a>&nbsp;&nbsp;&nbsp;<a href="https://raw.githubusercontent.com/jkubin/m4root/master/messages/hello.csv.m4" title="GitHub">hello.csv.m4</a>&nbsp;&nbsp;&nbsp;<a href="https://raw.githubusercontent.com/jkubin/m4root/master/messages/messages_raw.mc" title="GitHub">messages_raw.mc</a></th><th title="output file"><a href="https://raw.githubusercontent.com/jkubin/m4root/master/messages/hello.csv" title="GitHub">hello.csv</a></th></tr></tbody></table>
 <pre title="command">
 ~]$ <strong>m4 rootb.m4 hello.csv.m4 messages_raw.mc &gt; hello.csv</strong>
 </pre>
-<pre title="hello.csv">COMPLEX	!"#$%&amp;'()*+,-./:;&lt;=&gt;?@&#x5b;\&#x5d;^_`{|}~
+<pre title="hello.csv">COMPLEX	!"#$%&amp;'()*+,-./:;&lt;=&gt;?@[\]^_`{|}~
 SUCCESS	Complex M4 code failed successfully.
 NOFAULT	It's not a language fault!</pre>
 <h3 id="m4-csv-counter"><a href="#m4-csv-counter" title="⚓">A.2</a>&nbsp;&nbsp;<code>[]</code> CSV – counter&nbsp;<a href="#m4-toc-csv-counter" title="Content" class="m4-jmp">☰</a></h3>
@@ -415,96 +416,111 @@ During the first expansion of <code>COUNTER</code> its initial value is initiali
 Further expansion returns the numeric terminal symbol and increases the auxiliary (global) symbol by one.
 <code>COUNTER</code> is a&nbsp;small automaton.</p>
 <pre title="counter.csv.m4"># A → β
-define(&#x5b;COUNTER&#x5d;, defn(&#x5b;COUNT_UP&#x5d;))
+define([COUNTER], defn([COUNT_UP]))
 
 # init counter
 COUNTER(1)
 
 # A → β
-define(&#x5b;ERROR&#x5d;, &#x5b;
+define([ERROR], [
 
 	divert(0)dnl
-ERR_&#x5b;&#x5d;COUNTER	&#x5b;$1&#x5d;	$2
+ERR_[]COUNTER	[$1]	$2
 divert(-1)
-&#x5d;)</pre>
+])</pre>
 <table class="table"><tbody><tr><th style="width:100%" title="input files"><a href="https://raw.githubusercontent.com/jkubin/m4root/master/gfiles/rootb.m4" title="GitHub">rootb.m4</a>&nbsp;&nbsp;&nbsp;<a href="https://raw.githubusercontent.com/jkubin/m4root/master/messages/counter.csv.m4" title="GitHub">counter.csv.m4</a>&nbsp;&nbsp;&nbsp;<a href="https://raw.githubusercontent.com/jkubin/m4root/master/messages/messages_raw.mc" title="GitHub">messages_raw.mc</a></th><th title="output file"><a href="https://raw.githubusercontent.com/jkubin/m4root/master/messages/counter.csv" title="GitHub">counter.csv</a></th></tr></tbody></table>
 <pre title="command">
 ~]$ <strong>m4 rootb.m4 counter.csv.m4 messages_raw.mc &gt; counter.csv</strong>
 </pre>
-<pre title="counter.csv">ERR_1	COMPLEX	!"#$%&amp;'()*+,-./:;&lt;=&gt;?@&#x5b;\&#x5d;^_`{|}~
+<pre title="counter.csv">ERR_1	COMPLEX	!"#$%&amp;'()*+,-./:;&lt;=&gt;?@[\]^_`{|}~
 ERR_2	SUCCESS	Complex M4 code failed successfully.
 ERR_3	NOFAULT	It's not a language fault!</pre>
-<h3 id="m4-modification-of-special-characte"><a href="#m4-modification-of-special-characte" title="⚓">A.3</a>&nbsp;&nbsp;<code title="how to do it">💡</code> Modification of special characters&nbsp;<a href="#m4-toc-modification-of-special-characte" title="Content" class="m4-jmp">☰</a></h3>
+<h3 id="m4-special-characters-of-output-cod"><a href="#m4-special-characters-of-output-cod" title="⚓">A.3</a>&nbsp;&nbsp;<code title="solution">💡</code> Special characters of output code&nbsp;<a href="#m4-toc-special-characters-of-output-cod" title="Content" class="m4-jmp">☰</a></h3>
 <p>Each type of output code requires modification of special characters.
 Using the keyword <code>patsubst()</code> is inappropriate for this type of task.
 Therefore, the input source code should be modified by regular expression and all special characters will be hidden in macros.</p>
-<h4 id="m4-modified-input-source-code"><a href="#m4-modified-input-source-code" title="⚓">»</a>&nbsp;Modified input source code</h4>
-<pre title="messages.mc (special characters are hidden to macros)"># 2018/05/15 Josef Kubin
+<h4 id="m4-modified-input-code"><a href="#m4-modified-input-code" title="⚓">»</a>&nbsp;Modified input code</h4>
+<table class="table"><tbody><tr><th><a href="https://raw.githubusercontent.com/jkubin/m4root/master/messages/messages.mc" title="GitHub">messages.mc</a></th><th style="width:100%">special characters of the input code are hidden in macros</th></tr></tbody></table>
+<pre title="messages.mc"># 2018/05/15 Josef Kubin
 
-ERROR(&#x5b;COMPLEX&#x5d;,     &#x5b;&#x5b;&#x5d;EX()&#x5b;&#x5d;DQ()&#x5b;#&#x5d;$%&#x5b;&#x5d;AMP()&#x5b;&#x5d;AP()()*+&#x5b;,&#x5d;-./:;&#x5b;&#x5d;LT()=&#x5b;&#x5d;GT()?@&#x5b;&#x5d;LB()&#x5b;&#x5d;BS()&#x5b;&#x5d;RB()^_&#x5b;&#x5d;BQ(){|}~&#x5d;)
-QUERY(&#x5b;READABLE&#x5d;,    &#x5b;Is badly written M4 code readable &#x5b;&#x5d;LB()N/y&#x5b;&#x5d;RB()?&#x5d;)
-ERROR(&#x5b;SUCCESS&#x5d;,     &#x5b;Complex M4 code failed successfully.&#x5d;)
-WARNING(&#x5b;ADDICTIVE&#x5d;, &#x5b;Programming in M4 is addictive&#x5b;&#x5d;EX()&#x5d;)
-ERROR(&#x5b;NOFAULT&#x5d;,     &#x5b;It&#x5b;&#x5d;AP()s not a language fault!&#x5d;)
-WARNING(&#x5b;NO_ERRORS&#x5d;, &#x5b;No other errors detected.&#x5d;)</pre>
-<p>We create several files that convert macros into special characters according to the type of target code generated.
-This file is one of the command line files.</p>
-<h4 id="m4-xml-html-the-file-for-markup-lan"><a href="#m4-xml-html-the-file-for-markup-lan" title="⚓">»</a>&nbsp;<code>[]</code> XML, HTML – the file for markup languages</h4>
+ERROR([COMPLEX],     [[]EX()[]DQ()[#]$%[]AMP()[]AP()()*+[,]-./:;[]LT()=[]GT()?@[]LB()[]BS()[]RB()^_[]BQ(){|}~])
+QUERY([READABLE],    [Is badly written M4 code readable []LB()N/y[]RB()?])
+ERROR([SUCCESS],     [Complex M4 code failed successfully.])
+WARNING([ADDICTIVE], [Programming in M4 is addictive[]EX()])
+ERROR([NOFAULT],     [It[]AP()s not a language fault[]EX()])
+WARNING([NO_ERRORS], [No other errors detected.])</pre>
+<p>We create files converting macros to special characters based on the target code type.</p>
+<h4 id="m4-xml-xslt-html"><a href="#m4-xml-xslt-html" title="⚓">»</a>&nbsp;<code>[]</code> XML, XSLT, HTML</h4>
+<table class="table"><tbody><tr><th><a href="https://raw.githubusercontent.com/jkubin/m4root/master/messages/markup.m4" title="GitHub">markup.m4</a></th><th style="width:100%">conversion file for markup languages</th></tr></tbody></table>
 <pre title="markup.m4"># A → β
-define(&#x5b;AMP&#x5d;, &#x5b;&amp;amp;&#x5d;)
-define(&#x5b;AP&#x5d;, &#x5b;'&#x5d;)
-define(&#x5b;BQ&#x5d;, &#x5b;`&#x5d;)
-define(&#x5b;BS&#x5d;, &#x5b;\&#x5d;)
-define(&#x5b;DQ&#x5d;, &#x5b;"&#x5d;)
-define(&#x5b;EX&#x5d;, &#x5b;!&#x5d;)
-define(&#x5b;GT&#x5d;, &#x5b;&amp;gt;&#x5d;)
-define(&#x5b;LT&#x5d;, &#x5b;&amp;lt;&#x5d;)</pre>
-<h4 id="m4-c-json-ini-the-file-for-strings"><a href="#m4-c-json-ini-the-file-for-strings" title="⚓">»</a>&nbsp;<code>[]</code> C, JSON, INI – the file for &quot;strings in double quotes&quot;</h4>
+define([AMP], [&amp;amp;])
+define([AP], ['])
+define([BQ], [`])
+define([BS], [\])
+define([DQ], ["])
+define([EX], [!])
+define([GT], [&amp;gt;])
+define([LT], [&amp;lt;])</pre>
+<h4 id="m4-c-json-ini-string"><a href="#m4-c-json-ini-string" title="⚓">»</a>&nbsp;<code>[]</code> C, JSON, INI – <code>&quot;string&quot;</code></h4>
+<table class="table"><tbody><tr><th><a href="https://raw.githubusercontent.com/jkubin/m4root/master/messages/code.m4" title="GitHub">code.m4</a></th><th style="width:100%">conversion file</th></tr></tbody></table>
 <pre title="code.m4"># A → β
-define(&#x5b;AMP&#x5d;, &#x5b;&amp;&#x5d;)
-define(&#x5b;AP&#x5d;, &#x5b;'&#x5d;)
-define(&#x5b;BQ&#x5d;, &#x5b;`&#x5d;)
-define(&#x5b;BS&#x5d;, &#x5b;\\&#x5d;)
-define(&#x5b;DQ&#x5d;, &#x5b;\"&#x5d;)
-define(&#x5b;EX&#x5d;, &#x5b;!&#x5d;)
-define(&#x5b;GT&#x5d;, &#x5b;&gt;&#x5d;)
-define(&#x5b;LT&#x5d;, &#x5b;&lt;&#x5d;)</pre>
-<h4 id="m4-bash-the-file-for-strings-in-dou"><a href="#m4-bash-the-file-for-strings-in-dou" title="⚓">»</a>&nbsp;<code>[]</code> Bash – the file for &quot;strings in double quotes&quot;</h4>
+define([AMP], [&amp;])
+define([AP], ['])
+define([BQ], [`])
+define([BS], [\\])
+define([DQ], [\"])
+define([EX], [!])
+define([GT], [&gt;])
+define([LT], [&lt;])</pre>
+<h4 id="m4-bash-cmd-echo-string"><a href="#m4-bash-cmd-echo-string" title="⚓">»</a>&nbsp;<code>[]</code> Bash <code>~]$ echo &quot;string&quot;</code></h4>
+<table class="table"><tbody><tr><th><a href="https://raw.githubusercontent.com/jkubin/m4root/master/messages/doubleq.m4" title="GitHub">doubleq.m4</a></th><th style="width:100%">conversion file</th></tr></tbody></table>
 <pre title="doubleq.m4"># A → β
-define(&#x5b;AMP&#x5d;, &#x5b;&amp;&#x5d;)
-define(&#x5b;AP&#x5d;, &#x5b;'&#x5d;)
-define(&#x5b;BQ&#x5d;, &#x5b;\`&#x5d;)
-define(&#x5b;BS&#x5d;, &#x5b;\\&#x5d;)
-define(&#x5b;DQ&#x5d;, &#x5b;\"&#x5d;)
-define(&#x5b;EX&#x5d;, &#x5b;"\!"&#x5d;)
-define(&#x5b;GT&#x5d;, &#x5b;&gt;&#x5d;)
-define(&#x5b;LT&#x5d;, &#x5b;&lt;&#x5d;)</pre>
-<h4 id="m4-bash-the-file-for-astrings-in-ap"><a href="#m4-bash-the-file-for-astrings-in-ap" title="⚓">»</a>&nbsp;<code>[]</code> Bash – the file for 'strings in apostrophes'</h4>
+define([AMP], [&amp;])
+define([AP], ['])
+define([BQ], [\`])
+define([BS], [\\])
+define([DQ], [\"])
+define([EX], ["\!"])
+define([GT], [&gt;])
+define([LT], [&lt;])</pre>
+<h4 id="m4-bash-cmd-echo-astringa"><a href="#m4-bash-cmd-echo-astringa" title="⚓">»</a>&nbsp;<code>[]</code> Bash <code>~]$ echo 'string'</code></h4>
+<table class="table"><tbody><tr><th><a href="https://raw.githubusercontent.com/jkubin/m4root/master/messages/apost.m4" title="GitHub">apost.m4</a></th><th style="width:100%">conversion file</th></tr></tbody></table>
 <pre title="apost.m4"># A → β
-define(&#x5b;AMP&#x5d;, &#x5b;&amp;&#x5d;)
-define(&#x5b;AP&#x5d;, &#x5b;'\''&#x5d;)
-define(&#x5b;BQ&#x5d;, &#x5b;`&#x5d;)
-define(&#x5b;BS&#x5d;, &#x5b;\&#x5d;)
-define(&#x5b;DQ&#x5d;, &#x5b;"&#x5d;)
-define(&#x5b;EX&#x5d;, &#x5b;!&#x5d;)
-define(&#x5b;GT&#x5d;, &#x5b;&gt;&#x5d;)
-define(&#x5b;LT&#x5d;, &#x5b;&lt;&#x5d;)</pre>
+define([AMP], [&amp;])
+define([AP], ['\''])
+define([BQ], [`])
+define([BS], [\])
+define([DQ], ["])
+define([EX], [!])
+define([GT], [&gt;])
+define([LT], [&lt;])</pre>
+<h4 id="m4-csv-m4"><a href="#m4-csv-m4" title="⚓">»</a>&nbsp;<code>[]</code> CSV, M4</h4>
+<table class="table"><tbody><tr><th><a href="https://raw.githubusercontent.com/jkubin/m4root/master/messages/unchanged.m4" title="GitHub">unchanged.m4</a></th><th style="width:100%">the conversion file does not change special characters</th></tr></tbody></table>
+<pre title="unchanged.m4"># A → β
+define([AMP], [&amp;])
+define([AP], ['])
+define([BQ], [`])
+define([BS], [\])
+define([DQ], ["])
+define([EX], [!])
+define([GT], [&gt;])
+define([LT], [&lt;])</pre>
 <h3 id="m4-c-output-queue"><a href="#m4-c-output-queue" title="⚓">A.4</a>&nbsp;&nbsp;<code>[]</code> C – output queue&nbsp;<a href="#m4-toc-c-output-queue" title="Content" class="m4-jmp">☰</a></h3>
 <p>The example uses one output queue for characters <code>};</code> to close the array at the end.</p>
 <pre title="array.c.m4"># A → β
-define(&#x5b;ERROR&#x5d;, &#x5b;
+define([ERROR], [
 
 	divert(0)dnl
 	"$2",
 divert(-1)
-&#x5d;)
+])
 
 divert(0)dnl
 /*
  * DONTE()
  */
 
-char *error&#x5b;&#x5b;&#x5d;&#x5d; = {
+char *error[[]] = {
 divert(1)dnl
 };
 divert(-1)</pre>
@@ -516,8 +532,8 @@ divert(-1)</pre>
  * DO NOT EDIT! This file is generated automatically!
  */
 
-char *error&#x5b;&#x5d; = {
-	"!\"#$%&amp;'()*+,-./:;&lt;=&gt;?@&#x5b;\\&#x5d;^_`{|}~",
+char *error[] = {
+	"!\"#$%&amp;'()*+,-./:;&lt;=&gt;?@[\\]^_`{|}~",
 	"Complex M4 code failed successfully.",
 	"It's not a language fault!",
 };</pre>
@@ -526,17 +542,17 @@ char *error&#x5b;&#x5d; = {
 The output of an external command are two comma-separated items.
 The <code>FST()</code> macro selects the first item because the second item contains an unwanted <code>LF</code> (<samp>0x0a</samp>) new line character.</p>
 <pre title="hello.ini.m4"># A → β
-define(&#x5b;ERROR&#x5d;, &#x5b;
+define([ERROR], [
 
 	divert(0)dnl
-&#x5b;$1&#x5d;="$2"
+[$1]="$2"
 divert(-1)
-&#x5d;)
+])
 
 divert(0)dnl
 ; DONTE()
 
-BRAC(FST(esyscmd(&#x5b;date '+&#x5b;hello_%Y%m%d&#x5d;,'&#x5d;)))
+BRAC(FST(esyscmd([date '+[hello_%Y%m%d],'])))
 divert(-1)</pre>
 <table class="table"><tbody><tr><th style="width:100%" title="input files"><a href="https://raw.githubusercontent.com/jkubin/m4root/master/gfiles/rootb.m4" title="GitHub">rootb.m4</a>&nbsp;&nbsp;&nbsp;<a href="https://raw.githubusercontent.com/jkubin/m4root/master/messages/hello.ini.m4" title="GitHub">hello.ini.m4</a>&nbsp;&nbsp;&nbsp;<a href="https://raw.githubusercontent.com/jkubin/m4root/master/messages/code.m4" title="GitHub">code.m4</a>&nbsp;&nbsp;&nbsp;<a href="https://raw.githubusercontent.com/jkubin/m4root/master/messages/messages.mc" title="GitHub">messages.mc</a></th><th title="output file"><a href="https://raw.githubusercontent.com/jkubin/m4root/master/messages/hello.ini" title="GitHub">hello.ini</a></th></tr></tbody></table>
 <pre title="command">
@@ -544,8 +560,8 @@ divert(-1)</pre>
 </pre>
 <pre title="hello.ini">; DO NOT EDIT! This file is generated automatically!
 
-&#x5b;hello_20200109&#x5d;
-COMPLEX="!\"#$%&amp;'()*+,-./:;&lt;=&gt;?@&#x5b;\\&#x5d;^_`{|}~"
+[hello_20200110]
+COMPLEX="!\"#$%&amp;'()*+,-./:;&lt;=&gt;?@[\\]^_`{|}~"
 SUCCESS="Complex M4 code failed successfully."
 NOFAULT="It's not a language fault!"</pre>
 <h3 id="m4-h-hex-counter"><a href="#m4-h-hex-counter" title="⚓">A.6</a>&nbsp;&nbsp;<code>[]</code> .h – hex counter&nbsp;<a href="#m4-toc-h-hex-counter" title="Content" class="m4-jmp">☰</a></h3>
@@ -553,18 +569,18 @@ NOFAULT="It's not a language fault!"</pre>
 The queue number <code>1</code> contains the preprocessor directive <code>#endif</code> to terminate the header file.
 The decimal value of the counter is converted to the two-digit hex digit by keyword <code>eval()</code>.</p>
 <pre title="messages.h.m4"># A → β
-define(&#x5b;COUNTER&#x5d;, defn(&#x5b;COUNT_UP&#x5d;))
+define([COUNTER], defn([COUNT_UP]))
 
 # init counter
 COUNTER(0)
 
 # A → β
-define(&#x5b;ERROR&#x5d;, &#x5b;
+define([ERROR], [
 
 	divert(0)dnl
-&#x5b;#define $1		0x&#x5d;eval(COUNTER, 16, 2)
+[#define $1		0x]eval(COUNTER, 16, 2)
 divert(-1)
-&#x5d;)
+])
 
 divert(0)dnl
 /*
@@ -602,21 +618,21 @@ For the first time the <code>NEW_LINE</code> is rewritten to <abbr title="epsilo
 #     \___/    \____/&lt;--'
 
 # A → β
-define(&#x5b;NEW_LINE&#x5d;, &#x5b;define(&#x5b;$0&#x5d;, &#x5b;\n&#x5d;)&#x5d;)
+define([NEW_LINE], [define([$0], [\n])])
 
 # A → β
-define(&#x5b;ERROR&#x5d;, &#x5b;
+define([ERROR], [
 
-	divert(0)NEW_LINE&#x5b;&#x5d;$2&#x5b;&#x5d;dnl
+	divert(0)NEW_LINE[]$2[]dnl
 divert(-1)
-&#x5d;)
+])
 
 divert(0)dnl
 /*
  * DONTE()
  */
 
-char error&#x5b;&#x5b;&#x5d;&#x5d; =
+char error[[]] =
 "divert(1)";
 divert(-1)</pre>
 <table class="table"><tbody><tr><th style="width:100%" title="input files"><a href="https://raw.githubusercontent.com/jkubin/m4root/master/gfiles/rootb.m4" title="GitHub">rootb.m4</a>&nbsp;&nbsp;&nbsp;<a href="https://raw.githubusercontent.com/jkubin/m4root/master/messages/stringl.c.m4" title="GitHub">stringl.c.m4</a>&nbsp;&nbsp;&nbsp;<a href="https://raw.githubusercontent.com/jkubin/m4root/master/messages/code.m4" title="GitHub">code.m4</a>&nbsp;&nbsp;&nbsp;<a href="https://raw.githubusercontent.com/jkubin/m4root/master/messages/messages.mc" title="GitHub">messages.mc</a></th><th title="output file"><a href="https://raw.githubusercontent.com/jkubin/m4root/master/messages/stringl.c" title="GitHub">stringl.c</a></th></tr></tbody></table>
@@ -627,8 +643,8 @@ divert(-1)</pre>
  * DO NOT EDIT! This file is generated automatically!
  */
 
-char error&#x5b;&#x5d; =
-"!\"#$%&amp;'()*+,-./:;&lt;=&gt;?@&#x5b;\\&#x5d;^_`{|}~\nComplex M4 code failed successfully.\nIt's not a language fault!";</pre>
+char error[] =
+"!\"#$%&amp;'()*+,-./:;&lt;=&gt;?@[\\]^_`{|}~\nComplex M4 code failed successfully.\nIt's not a language fault!";</pre>
 <h3 id="m4-c-small-automaton-2"><a href="#m4-c-small-automaton-2" title="⚓">A.8</a>&nbsp;&nbsp;<code>[]</code> C – small automaton 2&nbsp;<a href="#m4-toc-c-small-automaton-2" title="Content" class="m4-jmp">☰</a></h3>
 <p>This example is similar to the previous one, but each string is on a&nbsp;new line.</p>
 <pre title="string.c.m4">#      NEW_LINE automaton
@@ -637,22 +653,22 @@ char error&#x5b;&#x5d; =
 #     \___/    \________/&lt;--'
 
 # A → β
-define(&#x5b;NEW_LINE&#x5d;, &#x5b;define(&#x5b;$0&#x5d;, &#x5b;\n"
-"&#x5d;)&#x5d;)
+define([NEW_LINE], [define([$0], [\n"
+"])])
 
 # A → β
-define(&#x5b;ERROR&#x5d;, &#x5b;
+define([ERROR], [
 
-	divert(0)NEW_LINE&#x5b;&#x5d;$2&#x5b;&#x5d;dnl
+	divert(0)NEW_LINE[]$2[]dnl
 divert(-1)
-&#x5d;)
+])
 
 divert(0)dnl
 /*
  * DONTE()
  */
 
-char error&#x5b;&#x5b;&#x5d;&#x5d; =
+char error[[]] =
 "divert(1)";
 divert(-1)</pre>
 <table class="table"><tbody><tr><th style="width:100%" title="input files"><a href="https://raw.githubusercontent.com/jkubin/m4root/master/gfiles/rootb.m4" title="GitHub">rootb.m4</a>&nbsp;&nbsp;&nbsp;<a href="https://raw.githubusercontent.com/jkubin/m4root/master/messages/string.c.m4" title="GitHub">string.c.m4</a>&nbsp;&nbsp;&nbsp;<a href="https://raw.githubusercontent.com/jkubin/m4root/master/messages/code.m4" title="GitHub">code.m4</a>&nbsp;&nbsp;&nbsp;<a href="https://raw.githubusercontent.com/jkubin/m4root/master/messages/messages.mc" title="GitHub">messages.mc</a></th><th title="output file"><a href="https://raw.githubusercontent.com/jkubin/m4root/master/messages/string.c" title="GitHub">string.c</a></th></tr></tbody></table>
@@ -663,8 +679,8 @@ divert(-1)</pre>
  * DO NOT EDIT! This file is generated automatically!
  */
 
-char error&#x5b;&#x5d; =
-"!\"#$%&amp;'()*+,-./:;&lt;=&gt;?@&#x5b;\\&#x5d;^_`{|}~\n"
+char error[] =
+"!\"#$%&amp;'()*+,-./:;&lt;=&gt;?@[\\]^_`{|}~\n"
 "Complex M4 code failed successfully.\n"
 "It's not a language fault!";</pre>
 <h3 id="m4-html-output-queues"><a href="#m4-html-output-queues" title="⚓">A.9</a>&nbsp;&nbsp;<code>[]</code> HTML – output queues&nbsp;<a href="#m4-toc-html-output-queues" title="Content" class="m4-jmp">☰</a></h3>
@@ -677,18 +693,18 @@ The <code>QUERY</code> and <code>WARNING</code> messages are treated in the same
 
 # A → β
 # β
-define(&#x5b;ERROR&#x5d;, &#x5b;
+define([ERROR], [
 
 	divert(0)dnl
-		&#x5b;&lt;li&gt;$0: &lt;a href="#$1"&gt;$1&lt;/a&gt;&lt;/li&gt;&#x5d;
+		[&lt;li&gt;$0: &lt;a href="#$1"&gt;$1&lt;/a&gt;&lt;/li&gt;]
 divert(1)dnl
-	&lt;p id="&#x5b;$1&#x5d;"&gt;$2&lt;/p&gt;
+	&lt;p id="[$1]"&gt;$2&lt;/p&gt;
 divert(-1)
-&#x5d;)
+])
 
 # A → β
-define(&#x5b;QUERY&#x5d;, defn(&#x5b;ERROR&#x5d;))
-define(&#x5b;WARNING&#x5d;, defn(&#x5b;ERROR&#x5d;))
+define([QUERY], defn([ERROR]))
+define([WARNING], defn([ERROR]))
 
 divert(0)dnl
 &lt;!-- DONTE() --&gt;
@@ -724,8 +740,8 @@ divert(-1)</pre>
 		&lt;li&gt;ERROR: &lt;a href="#NOFAULT"&gt;NOFAULT&lt;/a&gt;&lt;/li&gt;
 		&lt;li&gt;WARNING: &lt;a href="#NO_ERRORS"&gt;NO_ERRORS&lt;/a&gt;&lt;/li&gt;
 	&lt;/ul&gt;
-	&lt;p id="COMPLEX"&gt;!"#$%&amp;amp;'()*+,-./:;&amp;lt;=&amp;gt;?@&#x5b;\&#x5d;^_`{|}~&lt;/p&gt;
-	&lt;p id="READABLE"&gt;Is badly written M4 code readable &#x5b;N/y&#x5d;?&lt;/p&gt;
+	&lt;p id="COMPLEX"&gt;!"#$%&amp;amp;'()*+,-./:;&amp;lt;=&amp;gt;?@[\]^_`{|}~&lt;/p&gt;
+	&lt;p id="READABLE"&gt;Is badly written M4 code readable [N/y]?&lt;/p&gt;
 	&lt;p id="SUCCESS"&gt;Complex M4 code failed successfully.&lt;/p&gt;
 	&lt;p id="ADDICTIVE"&gt;Programming in M4 is addictive!&lt;/p&gt;
 	&lt;p id="NOFAULT"&gt;It's not a language fault!&lt;/p&gt;
@@ -737,19 +753,19 @@ divert(-1)</pre>
 Input nonterminals are rewritten to terminals <code title="🐛">ERROR → 🐛</code>, <code title="🐜">QUERY → 🐜</code>, <code title="🐝">WARNING → 🐝</code>.</p>
 <pre title="insect.txt.m4"># A → β
 # β
-define(&#x5b;ERROR&#x5d;, &#x5b;
+define([ERROR], [
 
 	divert(0)dnl
-$0_INSECT&#x5b;&#x5d;dnl
+$0_INSECT[]dnl
 divert(-1)
-&#x5d;)
+])
 
 # A → β
-define(&#x5b;QUERY&#x5d;,   defn(&#x5b;ERROR&#x5d;))
-define(&#x5b;WARNING&#x5d;, defn(&#x5b;ERROR&#x5d;))
-define(&#x5b;ERROR_INSECT&#x5d;,   &#x5b;🐛&#x5d;)
-define(&#x5b;QUERY_INSECT&#x5d;,   &#x5b;🐜&#x5d;)
-define(&#x5b;WARNING_INSECT&#x5d;, &#x5b;🐝&#x5d;)</pre>
+define([QUERY],   defn([ERROR]))
+define([WARNING], defn([ERROR]))
+define([ERROR_INSECT],   [🐛])
+define([QUERY_INSECT],   [🐜])
+define([WARNING_INSECT], [🐝])</pre>
 <table class="table"><tbody><tr><th style="width:100%" title="input files"><a href="https://raw.githubusercontent.com/jkubin/m4root/master/gfiles/rootb.m4" title="GitHub">rootb.m4</a>&nbsp;&nbsp;&nbsp;<a href="https://raw.githubusercontent.com/jkubin/m4root/master/messages/insect.txt.m4" title="GitHub">insect.txt.m4</a>&nbsp;&nbsp;&nbsp;<a href="https://raw.githubusercontent.com/jkubin/m4root/master/messages/messages.mc" title="GitHub">messages.mc</a></th><th title="output file"><a href="https://raw.githubusercontent.com/jkubin/m4root/master/messages/insect.txt" title="GitHub">insect.txt</a></th></tr></tbody></table>
 <pre title="command">
 ~]$ <strong>m4 rootb.m4 insect.txt.m4 messages.mc &gt; insect.txt</strong>
@@ -766,26 +782,26 @@ At the end the output queue number <code>1</code> and number <code>2</code> prin
 #     \_______/    \___________/&lt;--'
 
 # A → β
-define(&#x5b;ERROR&#x5d;, &#x5b;
+define([ERROR], [
 
 	# transition to the next node
-	define(&#x5b;$0&#x5d;, defn(&#x5b;NEXT_ITEM&#x5d;))
+	define([$0], defn([NEXT_ITEM]))
 
 	divert(0),
 	"error": LB()
-		{"&#x5b;$1&#x5d;": "$2"}dnl
+		{"[$1]": "$2"}dnl
 divert(1)
 	RB()
 divert(-1)
-&#x5d;)
+])
 
 # β
-define(&#x5b;NEXT_ITEM&#x5d;, &#x5b;
+define([NEXT_ITEM], [
 
 	divert(0),
-		{"&#x5b;$1&#x5d;": "$2"}dnl
+		{"[$1]": "$2"}dnl
 divert(-1)
-&#x5d;)
+])
 
 divert(0)dnl
 {"generating_automaton": {
@@ -799,11 +815,11 @@ divert(-1)</pre>
 </pre>
 <pre title="atm.json">{"generating_automaton": {
 	"_comment": "DO NOT EDIT! This file is generated automatically!",
-	"error": &#x5b;
-		{"COMPLEX": "!\"#$%&amp;'()*+,-./:;&lt;=&gt;?@&#x5b;\\&#x5d;^_`{|}~"},
+	"error": [
+		{"COMPLEX": "!\"#$%&amp;'()*+,-./:;&lt;=&gt;?@[\\]^_`{|}~"},
 		{"SUCCESS": "Complex M4 code failed successfully."},
 		{"NOFAULT": "It's not a language fault!"}
-	&#x5d;
+	]
 }}</pre>
 <h4 id="m4-json-named-queues"><a href="#m4-json-named-queues" title="⚓">A.11.1</a>&nbsp;&nbsp;<code>[]</code> JSON – named queues&nbsp;<a href="#m4-toc-json-named-queues" title="Content" class="m4-jmp">☰</a></h4>
 <p>The example processes other types of messages <code>QUERY</code> and <code>WARNING</code>.
@@ -824,18 +840,18 @@ $0_NAME → QUERY_NAME → query
 …
 </pre>
 <pre title="qnames.json.m4"># DO NOT WRITE INDEXES MANUALLY, use counter!
-define(&#x5b;QUERY_QU&#x5d;,     0)
-define(&#x5b;QUERY_END&#x5d;,    1)
-define(&#x5b;ERROR_QU&#x5d;,     2)
-define(&#x5b;ERROR_END&#x5d;,    3)
-define(&#x5b;WARNING_QU&#x5d;,   4)
-define(&#x5b;WARNING_END&#x5d;,  5)
-define(&#x5b;LAST_QUEUE&#x5d;,   6)
+define([QUERY_QU],     0)
+define([QUERY_END],    1)
+define([ERROR_QU],     2)
+define([ERROR_END],    3)
+define([WARNING_QU],   4)
+define([WARNING_END],  5)
+define([LAST_QUEUE],   6)
 
 # names of message types
-define(&#x5b;WARNING_NAME&#x5d;, &#x5b;warning&#x5d;)
-define(&#x5b;ERROR_NAME&#x5d;,   &#x5b;error&#x5d;)
-define(&#x5b;QUERY_NAME&#x5d;,   &#x5b;query&#x5d;)
+define([WARNING_NAME], [warning])
+define([ERROR_NAME],   [error])
+define([QUERY_NAME],   [query])
 
 #      _________      ___________
 # ---&gt;/  ERROR  \---&gt;/ NEXT_ITEM \---.
@@ -844,30 +860,30 @@ define(&#x5b;QUERY_NAME&#x5d;,   &#x5b;query&#x5d;)
 
 # A → β
 # β
-define(&#x5b;ERROR&#x5d;, &#x5b;
+define([ERROR], [
 
 	# transition to the next node
-	define(&#x5b;$0&#x5d;, defn(&#x5b;NEXT_ITEM&#x5d;))
+	define([$0], defn([NEXT_ITEM]))
 
 	divert($0_QU),
 	"$0_NAME": LB()
-		{"&#x5b;$1&#x5d;": "$2"}dnl
+		{"[$1]": "$2"}dnl
 divert($0_END)
 	RB()dnl
 divert(-1)
-&#x5d;)
+])
 
 # β
-define(&#x5b;NEXT_ITEM&#x5d;, &#x5b;
+define([NEXT_ITEM], [
 
 	divert($0_QU),
-		{"&#x5b;$1&#x5d;": "$2"}dnl
+		{"[$1]": "$2"}dnl
 divert(-1)
-&#x5d;)
+])
 
 # A → β
-define(&#x5b;QUERY&#x5d;,        defn(&#x5b;ERROR&#x5d;))
-define(&#x5b;WARNING&#x5d;,      defn(&#x5b;ERROR&#x5d;))
+define([QUERY],        defn([ERROR]))
+define([WARNING],      defn([ERROR]))
 
 divert(0)dnl
 {"queue_names": {
@@ -881,18 +897,18 @@ divert(-1)</pre>
 </pre>
 <pre title="qnames.json">{"queue_names": {
 	"_comment": "DO NOT EDIT! This file is generated automatically!",
-	"query": &#x5b;
-		{"READABLE": "Is badly written M4 code readable &#x5b;N/y&#x5d;?"}
-	&#x5d;,
-	"error": &#x5b;
-		{"COMPLEX": "!\"#$%&amp;'()*+,-./:;&lt;=&gt;?@&#x5b;\\&#x5d;^_`{|}~"},
+	"query": [
+		{"READABLE": "Is badly written M4 code readable [N/y]?"}
+	],
+	"error": [
+		{"COMPLEX": "!\"#$%&amp;'()*+,-./:;&lt;=&gt;?@[\\]^_`{|}~"},
 		{"SUCCESS": "Complex M4 code failed successfully."},
 		{"NOFAULT": "It's not a language fault!"}
-	&#x5d;,
-	"warning": &#x5b;
+	],
+	"warning": [
 		{"ADDICTIVE": "Programming in M4 is addictive!"},
 		{"NO_ERRORS": "No other errors detected."}
-	&#x5d;
+	]
 }}</pre>
 <h4 id="m4-json-generated-queue-indexes"><a href="#m4-json-generated-queue-indexes" title="⚓">A.11.2</a>&nbsp;&nbsp;<code>[]</code> JSON – generated queue indexes&nbsp;<a href="#m4-toc-json-generated-queue-indexes" title="Content" class="m4-jmp">☰</a></h4>
 <p>During development, the order and number of output queues often change, which also requires frequent changes of their indexes.
@@ -901,27 +917,27 @@ We can then use a&nbsp;virtually unlimited number of queues.
 The following example shows how these indexes are generated.</p>
 <pre title="queues.m4"># defines a counter for output queues
 # A → β
-define(&#x5b;QUEUE_INDEX&#x5d;, defn(&#x5b;COUNT_UP&#x5d;))
+define([QUEUE_INDEX], defn([COUNT_UP]))
 
 # initial index of the first output queue
 QUEUE_INDEX(0)
 
 # symbolic names for indices of output queues
 # A → β
-define(&#x5b;QUERY_QU&#x5d;,     QUEUE_INDEX)
-define(&#x5b;QUERY_END&#x5d;,    QUEUE_INDEX)
-define(&#x5b;ERROR_QU&#x5d;,     QUEUE_INDEX)
-define(&#x5b;ERROR_END&#x5d;,    QUEUE_INDEX)
-define(&#x5b;WARNING_QU&#x5d;,   QUEUE_INDEX)
-define(&#x5b;WARNING_END&#x5d;,  QUEUE_INDEX)
+define([QUERY_QU],     QUEUE_INDEX)
+define([QUERY_END],    QUEUE_INDEX)
+define([ERROR_QU],     QUEUE_INDEX)
+define([ERROR_END],    QUEUE_INDEX)
+define([WARNING_QU],   QUEUE_INDEX)
+define([WARNING_END],  QUEUE_INDEX)
 # Keep it last!
-define(&#x5b;LAST_QUEUE&#x5d;,   QUEUE_INDEX)
+define([LAST_QUEUE],   QUEUE_INDEX)
 
 # names of message types
 # A → β
-define(&#x5b;WARNING_NAME&#x5d;, &#x5b;warning&#x5d;)
-define(&#x5b;ERROR_NAME&#x5d;,   &#x5b;error&#x5d;)
-define(&#x5b;QUERY_NAME&#x5d;,   &#x5b;query&#x5d;)</pre>
+define([WARNING_NAME], [warning])
+define([ERROR_NAME],   [error])
+define([QUERY_NAME],   [query])</pre>
 <pre title="messages.json.m4">#      _________      ___________
 # ---&gt;/  ERROR  \---&gt;/ NEXT_ITEM \---.
 #     |  QUERY  |    \___________/&lt;--'
@@ -929,30 +945,30 @@ define(&#x5b;QUERY_NAME&#x5d;,   &#x5b;query&#x5d;)</pre>
 
 # A → β
 # β
-define(&#x5b;ERROR&#x5d;, &#x5b;
+define([ERROR], [
 
 	# transition to the next node
-	define(&#x5b;$0&#x5d;, defn(&#x5b;NEXT_ITEM&#x5d;))
+	define([$0], defn([NEXT_ITEM]))
 
 	divert($0_QU),
 	"$0_NAME": LB()
-		{"&#x5b;$1&#x5d;": "$2"}dnl
+		{"[$1]": "$2"}dnl
 divert($0_END)
 	RB()dnl
 divert(-1)
-&#x5d;)
+])
 
 # β
-define(&#x5b;NEXT_ITEM&#x5d;, &#x5b;
+define([NEXT_ITEM], [
 
 	divert($0_QU),
-		{"&#x5b;$1&#x5d;": "$2"}dnl
+		{"[$1]": "$2"}dnl
 divert(-1)
-&#x5d;)
+])
 
 # A → β
-define(&#x5b;QUERY&#x5d;,   defn(&#x5b;ERROR&#x5d;))
-define(&#x5b;WARNING&#x5d;, defn(&#x5b;ERROR&#x5d;))
+define([QUERY],   defn([ERROR]))
+define([WARNING], defn([ERROR]))
 
 divert(0)dnl
 {"messages": {
@@ -966,18 +982,18 @@ divert(-1)</pre>
 </pre>
 <pre title="messages.json">{"messages": {
 	"_comment": "DO NOT EDIT! This file is generated automatically!",
-	"query": &#x5b;
-		{"READABLE": "Is badly written M4 code readable &#x5b;N/y&#x5d;?"}
-	&#x5d;,
-	"error": &#x5b;
-		{"COMPLEX": "!\"#$%&amp;'()*+,-./:;&lt;=&gt;?@&#x5b;\\&#x5d;^_`{|}~"},
+	"query": [
+		{"READABLE": "Is badly written M4 code readable [N/y]?"}
+	],
+	"error": [
+		{"COMPLEX": "!\"#$%&amp;'()*+,-./:;&lt;=&gt;?@[\\]^_`{|}~"},
 		{"SUCCESS": "Complex M4 code failed successfully."},
 		{"NOFAULT": "It's not a language fault!"}
-	&#x5d;,
-	"warning": &#x5b;
+	],
+	"warning": [
 		{"ADDICTIVE": "Programming in M4 is addictive!"},
 		{"NO_ERRORS": "No other errors detected."}
-	&#x5d;
+	]
 }}</pre>
 <h3 id="m4-ini-discontinuous-queue-index"><a href="#m4-ini-discontinuous-queue-index" title="⚓">A.12</a>&nbsp;&nbsp;<code>[]</code> INI – discontinuous queue index&nbsp;<a href="#m4-toc-ini-discontinuous-queue-index" title="Content" class="m4-jmp">☰</a></h3>
 <p>The example uses three automata and two output queues number <code>2</code> and <code>4</code> defined in a separate file.
@@ -990,28 +1006,28 @@ The example uses the same file for output queues as the <a href="#m4-json-genera
 
 # A → β
 # β
-define(&#x5b;ERROR&#x5d;, &#x5b;
+define([ERROR], [
 
 	divert($0_QU)
 BRAC($0_NAME)
-&#x5b;$1&#x5d;="$2"
+[$1]="$2"
 divert(-1)
 
 	# transition to the next node
-	define(&#x5b;$0&#x5d;, defn(&#x5b;NEXT_ITEM&#x5d;))
-&#x5d;)
+	define([$0], defn([NEXT_ITEM]))
+])
 
 # A → β
-define(&#x5b;QUERY&#x5d;,   defn(&#x5b;ERROR&#x5d;))
-define(&#x5b;WARNING&#x5d;, defn(&#x5b;ERROR&#x5d;))
+define([QUERY],   defn([ERROR]))
+define([WARNING], defn([ERROR]))
 
 # A → β
-define(&#x5b;NEXT_ITEM&#x5d;, &#x5b;
+define([NEXT_ITEM], [
 
 	divert($0_QU)dnl
-&#x5b;$1&#x5d;="$2"
+[$1]="$2"
 divert(-1)
-&#x5d;)
+])
 
 divert(0)dnl
 ; DONTE()
@@ -1022,34 +1038,34 @@ divert(-1)</pre>
 </pre>
 <pre title="messages.ini">; DO NOT EDIT! This file is generated automatically!
 
-&#x5b;query&#x5d;
-READABLE="Is badly written M4 code readable &#x5b;N/y&#x5d;?"
+[query]
+READABLE="Is badly written M4 code readable [N/y]?"
 
-&#x5b;error&#x5d;
-COMPLEX="!\"#$%&amp;'()*+,-./:;&lt;=&gt;?@&#x5b;\\&#x5d;^_`{|}~"
+[error]
+COMPLEX="!\"#$%&amp;'()*+,-./:;&lt;=&gt;?@[\\]^_`{|}~"
 SUCCESS="Complex M4 code failed successfully."
 NOFAULT="It's not a language fault!"
 
-&#x5b;warning&#x5d;
+[warning]
 ADDICTIVE="Programming in M4 is addictive!"
 NO_ERRORS="No other errors detected."</pre>
 <h3 id="m4-xml-mixed-messages"><a href="#m4-xml-mixed-messages" title="⚓">A.13</a>&nbsp;&nbsp;<code>[]</code> XML – mixed messages&nbsp;<a href="#m4-toc-xml-mixed-messages" title="Content" class="m4-jmp">☰</a></h3>
 <p>The example uses one output queue number <code>1</code> for the <code>&lt;/messages&gt;</code> closing tag.</p>
 <pre title="mixed.xml.m4"># A → β
 # β
-define(&#x5b;ERROR&#x5d;, &#x5b;
+define([ERROR], [
 
 	divert(0)dnl
 	&lt;$0_NAME&gt;
-		&lt;name&gt;&#x5b;$1&#x5d;&lt;/name&gt;
+		&lt;name&gt;[$1]&lt;/name&gt;
 		&lt;value&gt;$2&lt;/value&gt;
 	&lt;/$0_NAME&gt;
 divert(-1)
-&#x5d;)
+])
 
 # A → β
-define(&#x5b;QUERY&#x5d;, defn(&#x5b;ERROR&#x5d;))
-define(&#x5b;WARNING&#x5d;, defn(&#x5b;ERROR&#x5d;))
+define([QUERY], defn([ERROR]))
+define([WARNING], defn([ERROR]))
 
 divert(0)dnl
 &lt;!-- DONTE() --&gt;
@@ -1067,11 +1083,11 @@ divert(-1)</pre>
 &lt;messages&gt;
 	&lt;error&gt;
 		&lt;name&gt;COMPLEX&lt;/name&gt;
-		&lt;value&gt;!"#$%&amp;amp;'()*+,-./:;&amp;lt;=&amp;gt;?@&#x5b;\&#x5d;^_`{|}~&lt;/value&gt;
+		&lt;value&gt;!"#$%&amp;amp;'()*+,-./:;&amp;lt;=&amp;gt;?@[\]^_`{|}~&lt;/value&gt;
 	&lt;/error&gt;
 	&lt;query&gt;
 		&lt;name&gt;READABLE&lt;/name&gt;
-		&lt;value&gt;Is badly written M4 code readable &#x5b;N/y&#x5d;?&lt;/value&gt;
+		&lt;value&gt;Is badly written M4 code readable [N/y]?&lt;/value&gt;
 	&lt;/query&gt;
 	&lt;error&gt;
 		&lt;name&gt;SUCCESS&lt;/name&gt;
@@ -1094,36 +1110,36 @@ divert(-1)</pre>
 <p>The example groups messages by their type using output queues.</p>
 <pre title="messages.xml.m4"># A → β
 # β
-define(&#x5b;ERROR&#x5d;, &#x5b;
+define([ERROR], [
 
 	# transition to the next node
-	define(&#x5b;$0&#x5d;, defn(&#x5b;NEXT_ITEM&#x5d;))
+	define([$0], defn([NEXT_ITEM]))
 
 	divert($0_QU)dnl
 	&lt;$0_NAME&gt;
 		&lt;item&gt;
-			&lt;name&gt;&#x5b;$1&#x5d;&lt;/name&gt;
+			&lt;name&gt;[$1]&lt;/name&gt;
 			&lt;value&gt;$2&lt;/value&gt;
 		&lt;/item&gt;
 divert($0_END)dnl
 	&lt;/$0_NAME&gt;
 divert(-1)
-&#x5d;)
+])
 
 # β
-define(&#x5b;NEXT_ITEM&#x5d;, &#x5b;
+define([NEXT_ITEM], [
 
 	divert($0_QU)dnl
 		&lt;item&gt;
-			&lt;name&gt;&#x5b;$1&#x5d;&lt;/name&gt;
+			&lt;name&gt;[$1]&lt;/name&gt;
 			&lt;value&gt;$2&lt;/value&gt;
 		&lt;/item&gt;
 divert(-1)
-&#x5d;)
+])
 
 # A → β
-define(&#x5b;QUERY&#x5d;,        defn(&#x5b;ERROR&#x5d;))
-define(&#x5b;WARNING&#x5d;,      defn(&#x5b;ERROR&#x5d;))
+define([QUERY],        defn([ERROR]))
+define([WARNING],      defn([ERROR]))
 
 divert(0)dnl
 &lt;!-- DONTE() --&gt;
@@ -1142,13 +1158,13 @@ divert(-1)</pre>
 	&lt;query&gt;
 		&lt;item&gt;
 			&lt;name&gt;READABLE&lt;/name&gt;
-			&lt;value&gt;Is badly written M4 code readable &#x5b;N/y&#x5d;?&lt;/value&gt;
+			&lt;value&gt;Is badly written M4 code readable [N/y]?&lt;/value&gt;
 		&lt;/item&gt;
 	&lt;/query&gt;
 	&lt;error&gt;
 		&lt;item&gt;
 			&lt;name&gt;COMPLEX&lt;/name&gt;
-			&lt;value&gt;!"#$%&amp;amp;'()*+,-./:;&amp;lt;=&amp;gt;?@&#x5b;\&#x5d;^_`{|}~&lt;/value&gt;
+			&lt;value&gt;!"#$%&amp;amp;'()*+,-./:;&amp;lt;=&amp;gt;?@[\]^_`{|}~&lt;/value&gt;
 		&lt;/item&gt;
 		&lt;item&gt;
 			&lt;name&gt;SUCCESS&lt;/name&gt;
@@ -1173,21 +1189,21 @@ divert(-1)</pre>
 <h3 id="m4-bash-echo-string"><a href="#m4-bash-echo-string" title="⚓">A.15</a>&nbsp;&nbsp;<code>[]</code> Bash – <code>echo "string"</code>&nbsp;<a href="#m4-toc-bash-echo-string" title="Content" class="m4-jmp">☰</a></h3>
 <pre title="doubleq.sh.m4"># A → β
 # β
-define(&#x5b;ERROR&#x5d;, &#x5b;
+define([ERROR], [
 
 	divert(0)dnl
 echo "$2"
 divert(-1)
-&#x5d;)
+])
 
 # A → β
-define(&#x5b;QUERY&#x5d;, defn(&#x5b;ERROR&#x5d;))
-define(&#x5b;WARNING&#x5d;, defn(&#x5b;ERROR&#x5d;))
+define([QUERY], defn([ERROR]))
+define([WARNING], defn([ERROR]))
 
 divert(0)dnl
 #!/bin/bash
 #
-&#x5b;#&#x5d; DONTE()
+[#] DONTE()
 
 divert(-1)</pre>
 <table class="table"><tbody><tr><th style="width:100%" title="input files"><a href="https://raw.githubusercontent.com/jkubin/m4root/master/gfiles/rootb.m4" title="GitHub">rootb.m4</a>&nbsp;&nbsp;&nbsp;<a href="https://raw.githubusercontent.com/jkubin/m4root/master/messages/doubleq.sh.m4" title="GitHub">doubleq.sh.m4</a>&nbsp;&nbsp;&nbsp;<a href="https://raw.githubusercontent.com/jkubin/m4root/master/messages/doubleq.m4" title="GitHub">doubleq.m4</a>&nbsp;&nbsp;&nbsp;<a href="https://raw.githubusercontent.com/jkubin/m4root/master/messages/messages.mc" title="GitHub">messages.mc</a></th><th title="output file"><a href="https://raw.githubusercontent.com/jkubin/m4root/master/messages/doubleq.sh" title="GitHub">doubleq.sh</a></th></tr></tbody></table>
@@ -1198,30 +1214,30 @@ divert(-1)</pre>
 #
 # DO NOT EDIT! This file is generated automatically!
 
-echo ""\!"\"#$%&amp;'()*+,-./:;&lt;=&gt;?@&#x5b;\\&#x5d;^_\`{|}~"
-echo "Is badly written M4 code readable &#x5b;N/y&#x5d;?"
+echo ""\!"\"#$%&amp;'()*+,-./:;&lt;=&gt;?@[\\]^_\`{|}~"
+echo "Is badly written M4 code readable [N/y]?"
 echo "Complex M4 code failed successfully."
 echo "Programming in M4 is addictive"\!""
-echo "It's not a language fault!"
+echo "It's not a language fault"\!""
 echo "No other errors detected."</pre>
 <h3 id="m4-bash-echo-astringa"><a href="#m4-bash-echo-astringa" title="⚓">A.16</a>&nbsp;&nbsp;<code>[]</code> Bash – <code>echo 'string'</code>&nbsp;<a href="#m4-toc-bash-echo-astringa" title="Content" class="m4-jmp">☰</a></h3>
 <pre title="apost.sh.m4"># A → β
 # β
-define(&#x5b;ERROR&#x5d;, &#x5b;
+define([ERROR], [
 
 	divert(0)dnl
 echo '$2'
 divert(-1)
-&#x5d;)
+])
 
 # A → β
-define(&#x5b;QUERY&#x5d;, defn(&#x5b;ERROR&#x5d;))
-define(&#x5b;WARNING&#x5d;, defn(&#x5b;ERROR&#x5d;))
+define([QUERY], defn([ERROR]))
+define([WARNING], defn([ERROR]))
 
 divert(0)dnl
 #!/bin/bash
 #
-&#x5b;#&#x5d; DONTE()
+[#] DONTE()
 
 divert(-1)</pre>
 <table class="table"><tbody><tr><th style="width:100%" title="input files"><a href="https://raw.githubusercontent.com/jkubin/m4root/master/gfiles/rootb.m4" title="GitHub">rootb.m4</a>&nbsp;&nbsp;&nbsp;<a href="https://raw.githubusercontent.com/jkubin/m4root/master/messages/apost.sh.m4" title="GitHub">apost.sh.m4</a>&nbsp;&nbsp;&nbsp;<a href="https://raw.githubusercontent.com/jkubin/m4root/master/messages/apost.m4" title="GitHub">apost.m4</a>&nbsp;&nbsp;&nbsp;<a href="https://raw.githubusercontent.com/jkubin/m4root/master/messages/messages.mc" title="GitHub">messages.mc</a></th><th title="output file"><a href="https://raw.githubusercontent.com/jkubin/m4root/master/messages/apost.sh" title="GitHub">apost.sh</a></th></tr></tbody></table>
@@ -1232,8 +1248,8 @@ divert(-1)</pre>
 #
 # DO NOT EDIT! This file is generated automatically!
 
-echo '!"#$%&amp;'\''()*+,-./:;&lt;=&gt;?@&#x5b;\&#x5d;^_`{|}~'
-echo 'Is badly written M4 code readable &#x5b;N/y&#x5d;?'
+echo '!"#$%&amp;'\''()*+,-./:;&lt;=&gt;?@[\]^_`{|}~'
+echo 'Is badly written M4 code readable [N/y]?'
 echo 'Complex M4 code failed successfully.'
 echo 'Programming in M4 is addictive!'
 echo 'It'\''s not a language fault!'
@@ -1271,8 +1287,8 @@ divert(0)dnl</pre>
 int a = SAF (1 + 1);	/* CPP */
 int b = SAF(2 + 2);	/* M4 */
 char chr = 'x';
-char foo&#x5b;&#x5d; = "Let's say: 'SYMBOL'";
-char bar&#x5b;&#x5d; = "ORD (args, are, ignored)";
+char foo[] = "Let's say: 'SYMBOL'";
+char bar[] = "ORD (args, are, ignored)";
 
 static void define (char *s) { puts(s);}
 static void ifelse (char *s) { puts(s);}
@@ -1306,8 +1322,8 @@ int main(void)
 int a = SAF (1 + 1);	/* CPP */
 int b = (2 + 2) * (2 + 2)	/* SAF_M4 Hello, world! */;	/* M4 */
 char chr = 'x';
-char foo&#x5b;&#x5d; = "Let's say: 'Hello, world!'";
-char bar&#x5b;&#x5d; = "ORD_M4 'Hello, world!' (args, are, ignored)";
+char foo[] = "Let's say: 'Hello, world!'";
+char bar[] = "ORD_M4 'Hello, world!' (args, are, ignored)";
 
 static void define (char *s) { puts(s);}
 static void ifelse (char *s) { puts(s);}
@@ -1382,7 +1398,7 @@ divert(0)dnl</pre>
 
 HELLO=`echo 'SYMBOL'`
 
-if &#x5b;&#x5b; LEFT OP RIGHT &#x5d;&#x5d;
+if [[ LEFT OP RIGHT ]]
 then
 	echo $HELLO
 fi</pre>
@@ -1396,7 +1412,7 @@ fi</pre>
 
 HELLO=`echo 'Hello, world!'`
 
-if &#x5b;&#x5b; $# -eq 0 &#x5d;&#x5d;
+if [[ $# -eq 0 ]]
 then
 	echo $HELLO
 fi</pre>
@@ -1416,7 +1432,7 @@ divert(0)dnl
 	"_comment": "DONTE()",
 	"bar": LB()
 		{"baz": "SYMBOL"}
-	&#x5d;
+	]
 }}</pre>
 <table class="table"><tbody><tr><th style="width:100%" title="input files"><a href="https://raw.githubusercontent.com/jkubin/m4root/master/gfiles/rootb.m4" title="GitHub">rootb.m4</a>&nbsp;&nbsp;&nbsp;<a href="https://raw.githubusercontent.com/jkubin/m4root/master/hello_world/json.m4" title="GitHub">json.m4</a></th><th title="output file"><a href="https://raw.githubusercontent.com/jkubin/m4root/master/hello_world/hello_world.json" title="GitHub">hello_world.json</a></th></tr></tbody></table>
 <pre title="command">
@@ -1424,23 +1440,23 @@ divert(0)dnl
 </pre>
 <pre title="hello_world.json">{"foo": {
 	"_comment": "DO NOT EDIT! This file is generated automatically!",
-	"bar": &#x5b;
+	"bar": [
 		{"baz": "Hello, world!"}
-	&#x5d;
+	]
 }}</pre>
 <h3 id="m4-bash-counters"><a href="#m4-bash-counters" title="⚓">C.2</a>&nbsp;&nbsp;<code>[]</code> Bash – counters&nbsp;<a href="#m4-toc-bash-counters" title="Content" class="m4-jmp">☰</a></h3>
 <p>The <code>COUNT_UP</code> and <code>COUNT_DOWN</code> counters are defined in the root file.
 The <code>[… nonterminals inside brackets …]</code> will not be expanded, only the outer brackets will be removed.
 The <code>LB()</code> macro defined in the root file must be used.</p>
 <pre title="sh.m4"># A → β
-define(&#x5b;LEFT&#x5d;, &#x5b;$&#x5b;#&#x5d;&#x5d;)
-define(&#x5b;OP&#x5d;, &#x5b;-eq&#x5d;)
-define(&#x5b;RIGHT&#x5d;, &#x5b;0&#x5d;)
+define([LEFT], [$[#]])
+define([OP], [-eq])
+define([RIGHT], [0])
 
 # define two counters
 # A → β
-define(&#x5b;__COUNTUP__&#x5d;, defn(&#x5b;COUNT_UP&#x5d;))
-define(&#x5b;__COUNTDN__&#x5d;, defn(&#x5b;COUNT_DOWN&#x5d;))
+define([__COUNTUP__], defn([COUNT_UP]))
+define([__COUNTDN__], defn([COUNT_DOWN]))
 
 # init counters
 __COUNTUP__(10)
@@ -1449,21 +1465,21 @@ __COUNTDN__(10)
 divert(0)dnl
 #!/bin/bash
 #
-&#x5b;#&#x5d; DONTE()
+[#] DONTE()
 
-if &#x5b; LEFT OP RIGHT &#x5d;
+if [ LEFT OP RIGHT ]
 then
-	echo '__COUNTUP__&#x5d; SYMBOL LB()__COUNTDN__'
+	echo '__COUNTUP__] SYMBOL LB()__COUNTDN__'
 fi
 
 if test LEFT OP RIGHT
 then
-	echo '__COUNTUP__&#x5d; SYMBOL LB()__COUNTDN__'
+	echo '__COUNTUP__] SYMBOL LB()__COUNTDN__'
 fi
 
-if LB()LB() LEFT OP RIGHT &#x5d;&#x5d;
+if LB()LB() LEFT OP RIGHT ]]
 then
-	echo '__COUNTUP__&#x5d; SYMBOL LB()__COUNTDN__'
+	echo '__COUNTUP__] SYMBOL LB()__COUNTDN__'
 fi</pre>
 <table class="table"><tbody><tr><th style="width:100%" title="input files"><a href="https://raw.githubusercontent.com/jkubin/m4root/master/gfiles/rootb.m4" title="GitHub">rootb.m4</a>&nbsp;&nbsp;&nbsp;<a href="https://raw.githubusercontent.com/jkubin/m4root/master/hello_world/sh.m4" title="GitHub">sh.m4</a></th><th title="output file"><a href="https://raw.githubusercontent.com/jkubin/m4root/master/hello_world/hello_world.sh" title="GitHub">hello_world.sh</a></th></tr></tbody></table>
 <pre title="command">
@@ -1475,17 +1491,17 @@ fi</pre>
 
 if  LEFT OP RIGHT 
 then
-	echo '10&#x5d; Hello, world! &#x5b;10'
+	echo '10] Hello, world! [10'
 fi
 
 if test $# -eq 0
 then
-	echo '11&#x5d; Hello, world! &#x5b;9'
+	echo '11] Hello, world! [9'
 fi
 
-if &#x5b;&#x5b; $# -eq 0 &#x5d;&#x5d;
+if [[ $# -eq 0 ]]
 then
-	echo '12&#x5d; Hello, world! &#x5b;8'
+	echo '12] Hello, world! [8'
 fi</pre>
 <h3 id="m4-h-brackets-h-dnl"><a href="#m4-h-brackets-h-dnl" title="⚓">C.3</a>&nbsp;&nbsp;<code>[]</code> .h – brackets <code>[]</code>, <code>[,]</code>, <code>[#]</code>, <code>[dnl]</code>&nbsp;<a href="#m4-toc-h-brackets-h-dnl" title="Content" class="m4-jmp">☰</a></h3>
 <p>The empty pair <code>[]</code> (or empty symbol in brackets <code>[ε]</code>) serves as a&nbsp;symbol separator.
@@ -1493,19 +1509,19 @@ Brackets around the comment character <code>[#]</code> turn off its original mea
 They also turn off the original meaning of the comma <code>[,]</code> as a&nbsp;macro argument delimiter.
 These symbols become ordinary terminal symbols without any side effect.</p>
 <pre title="h.m4"># A → β
-define(&#x5b;HELLO&#x5d;, &#x5b;HELLO_WORLD&#x5d;)
+define([HELLO], [HELLO_WORLD])
 
 divert(0)dnl
 /*
- * &#x5b;dnl&#x5d; DONTE()
+ * [dnl] DONTE()
  */
 
-&#x5b;#&#x5d;ifndef __&#x5b;&#x5d;HELLO&#x5b;&#x5d;_H
-&#x5b;#&#x5d;define __&#x5b;&#x5d;HELLO&#x5b;&#x5d;_H
+[#]ifndef __[]HELLO[]_H
+[#]define __[]HELLO[]_H
 
-&#x5b;#&#x5d;define HELLO	SYMBOL
+[#]define HELLO	SYMBOL
 
-&#x5b;#endif	/* __&#x5d;HELLO&#x5b;_H */&#x5d;</pre>
+[#endif	/* __]HELLO[_H */]</pre>
 <table class="table"><tbody><tr><th style="width:100%" title="input files"><a href="https://raw.githubusercontent.com/jkubin/m4root/master/gfiles/rootb.m4" title="GitHub">rootb.m4</a>&nbsp;&nbsp;&nbsp;<a href="https://raw.githubusercontent.com/jkubin/m4root/master/hello_world/h.m4" title="GitHub">h.m4</a></th><th title="output file"><a href="https://raw.githubusercontent.com/jkubin/m4root/master/hello_world/hello_world.h" title="GitHub">hello_world.h</a></th></tr></tbody></table>
 <pre title="command">
 ~]$ <strong>m4 -DSYMBOL='Hello, world!' rootb.m4 h.m4 &gt; hello_world.h</strong>
@@ -1528,9 +1544,9 @@ Such macros are explicitly created by a script developer, see the root file.</p>
 divert(0)dnl
 #!/bin/awk -f
 #
-&#x5b;# DONTE()&#x5d; ---&gt; "DONTE()"
+[# DONTE()] ---&gt; "DONTE()"
 
-BEGIN { print "DONTE&#x5b;&#x5d;() LB () LB() SYMBOL &#x5d;" }</pre>
+BEGIN { print "DONTE[]() LB () LB() SYMBOL ]" }</pre>
 <table class="table"><tbody><tr><th style="width:100%" title="input files"><a href="https://raw.githubusercontent.com/jkubin/m4root/master/gfiles/rootb.m4" title="GitHub">rootb.m4</a>&nbsp;&nbsp;&nbsp;<a href="https://raw.githubusercontent.com/jkubin/m4root/master/hello_world/awk.m4" title="GitHub">awk.m4</a></th><th title="output file"><a href="https://raw.githubusercontent.com/jkubin/m4root/master/hello_world/hello_world.awk" title="GitHub">hello_world.awk</a></th></tr></tbody></table>
 <pre title="command">
 ~]$ <strong>m4 -DSYMBOL='Hello, world!' rootb.m4 awk.m4 &gt; hello_world.awk</strong>
@@ -1539,13 +1555,13 @@ BEGIN { print "DONTE&#x5b;&#x5d;() LB () LB() SYMBOL &#x5d;" }</pre>
 #
 # DONTE() ---&gt; "DO NOT EDIT! This file is generated automatically!"
 
-BEGIN { print "DONTE() LB () &#x5b; Hello, world! &#x5d;" }</pre>
+BEGIN { print "DONTE() LB () [ Hello, world! ]" }</pre>
 <h2 id="m4-why-using-m4-and-why-not"><a href="#m4-why-using-m4-and-why-not" title="⚓">D</a>&nbsp;&nbsp;Why using M4 and why not?&nbsp;<a href="#m4-toc-why-using-m4-and-why-not" title="Content" class="m4-jmp">☰</a></h2>
 <p id="m4-toc-why-generate-code-in-m4">&nbsp;&nbsp;&nbsp;<a href="#m4-why-generate-code-in-m4">D.1&nbsp;&nbsp;<code>👍</code> Why generate code in M4</a></p>
 <p id="m4-toc-why-avoid-m4">&nbsp;&nbsp;&nbsp;<a href="#m4-why-avoid-m4">D.2&nbsp;&nbsp;<code>👎</code> Why avoid M4</a></p>
 <h3 id="m4-why-generate-code-in-m4"><a href="#m4-why-generate-code-in-m4" title="⚓">D.1</a>&nbsp;&nbsp;<code>👍</code> Why generate code in M4&nbsp;<a href="#m4-toc-why-generate-code-in-m4" title="Content" class="m4-jmp">☰</a></h3>
 <ul>
-<li>direct use of <a href="#m4-context-free-grammar" title="Context-free grammar">context-free grammar</a>
+<li>direct use of <a href="#m4-context-free-grammar" title="Context-free grammar">context-free grammar</a> (recursion for free)
 <ul><li>a minimum M4 code is required for data transformation</li></ul></li>
 <li>direct use of automata
 <ul><li>possibility to model necessary algorithms (M4 does not need versions)</li></ul></li>

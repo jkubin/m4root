@@ -23,7 +23,7 @@ https://cesta/nekam.png
 <h2 id="m4-toc-capt">Content&nbsp;(<a href="../../clanky/generovani-kodu-v-m4-uvod/">Česká verze</a>)</h2>
 <p id="m4-toc-introduction"><a href="#m4-introduction">1&nbsp;&nbsp;Introduction</a></p>
 <p id="m4-toc-examples-for-readers">&nbsp;&nbsp;&nbsp;<a href="#m4-examples-for-readers">1.1&nbsp;&nbsp;Examples for readers</a></p>
-<p id="m4-toc-history-of-m4"><a href="#m4-history-of-m4">2&nbsp;&nbsp;History of M4</a></p>
+<p id="m4-toc-history-of-macro-languages"><a href="#m4-history-of-macro-languages">2&nbsp;&nbsp;History of macro languages</a></p>
 <p id="m4-toc-basics-of-m4"><a href="#m4-basics-of-m4">3&nbsp;&nbsp;Basics of M4</a></p>
 <p id="m4-toc-context-free-grammar">&nbsp;&nbsp;&nbsp;<a href="#m4-context-free-grammar">3.1&nbsp;&nbsp;Context-free grammar</a></p>
 <p id="m4-toc-automata">&nbsp;&nbsp;&nbsp;<a href="#m4-automata">3.2&nbsp;&nbsp;Automata</a></p>
@@ -72,8 +72,9 @@ Each part can be read in any order.</p>
 <li><a href="#m4-why-using-m4-and-why-not" title="Why using M4 and why not?">Why using M4 and why not?</a></li>
 <li><a href="http://github.com/jkubin/m4root" title="Generating code in M4">http://github.com/jkubin/m4root</a> – a&nbsp;project generating HTML of this series</li>
 </ul>
-<h2 id="m4-history-of-m4"><a href="#m4-history-of-m4" title="⚓">2</a>&nbsp;&nbsp;History of M4&nbsp;<a href="#m4-toc-history-of-m4" title="Content" class="m4-jmp">☰</a></h2>
-<p>Macro languages were invented at a time when the assembly language dominated.
+<h2 id="m4-history-of-macro-languages"><a href="#m4-history-of-macro-languages" title="⚓">2</a>&nbsp;&nbsp;History of macro languages&nbsp;<a href="#m4-toc-history-of-macro-languages" title="Content" class="m4-jmp">☰</a></h2>
+<p>Macro languages were invented at a time when the assembly language (ASM) dominated.
+Writing ASM code was no longer so laborious because it was possible to group repeated instruction sequences into one word, into one <strong>macro instruction</strong> with parameters.
 Later they were used to extend compiled programming languages because they made it possible to write source code at a higher level of abstraction than the programming language itself.</p>
 <h3 id="m4-gpm-general-purpose-macro-genera"><a href="#m4-gpm-general-purpose-macro-genera" title="⚓">»</a>&nbsp;GPM (General Purpose Macro-generator)</h3>
 <p><a href="https://en.wikipedia.org/wiki/Christopher_Strachey" title="Wikipedia"><span class="rs-person">Christopher Strachey</span></a> introduced the basic idea of rewritable strings with arguments which recursively rewrite to other strings in his
@@ -108,7 +109,7 @@ Argument <code>-1</code> completely disables any text output.
 Argument <code>0</code> switches output to <code>stdout</code>.</div>
 <h3 id="m4-m4"><a href="#m4-m4" title="⚓">»</a>&nbsp;M4</h3>
 <p><a href="https://en.wikipedia.org/wiki/Brian_Kernighan" title="Wikipedia"><span class="rs-person">Brian Kernighan</span></a> has enhanced the M3 macro processor to the FORTRAN 66
-<a href="https://en.wikipedia.org/wiki/Preprocessor" title="Wikipedia">preprocessor</a> to create a&nbsp;hybrid language extension named <abbr title="Rational Fortran"><strong>RATFOR</strong></abbr><sup><a href="https://wolfram.schneider.org/bsd/7thEdManVol2/ratfor/ratfor.pdf" title="RATFOR — A Preprocessor for a Rational Fortran">[3]</a></sup>.
+<a href="https://en.wikipedia.org/wiki/Preprocessor" title="Wikipedia">preprocessor</a> to create a&nbsp;hybrid language extension named <abbr title="RATional FORtran"><strong>RATFOR</strong></abbr><sup><a href="https://wolfram.schneider.org/bsd/7thEdManVol2/ratfor/ratfor.pdf" title="RATFOR — A Preprocessor for a Rational Fortran">[3]</a></sup>.
 The basic program constructions of this extension (conditions, cycles) are the same as in C&nbsp;language.
 Programming in RATFOR is similar to C&nbsp;programming.
 The macro processor converts the source code back to FORTRAN, then the compiler performs the usual compilation to machine code.</p>
@@ -374,7 +375,7 @@ In this way it is possible to gradually gain some practice.</p>
 <div class="rs-tip-major m4-tip">Chars. {<code>`'</code>, <code>[]</code>, <strong><code>␂␆</code></strong>, <code>〖〗</code>} in the name controls the <a href="#m4-nonterminal-expansion-control" title="Nonterminal expansion control">expansion of nonterminals</a>.</div>
 <p id="m4-toc-csv-simplest-example">&nbsp;&nbsp;&nbsp;<a href="#m4-csv-simplest-example">A.1&nbsp;&nbsp;<code>[]</code> CSV – simplest example</a></p>
 <p id="m4-toc-csv-counter">&nbsp;&nbsp;&nbsp;<a href="#m4-csv-counter">A.2&nbsp;&nbsp;<code>[]</code> CSV – counter</a></p>
-<p id="m4-toc-modification-of-special-characte">&nbsp;&nbsp;&nbsp;<a href="#m4-modification-of-special-characte">A.3&nbsp;&nbsp;<code title="how to do it">&#x1f4a1;</code> Modification of special characters</a></p>
+<p id="m4-toc-special-characters-of-output-cod">&nbsp;&nbsp;&nbsp;<a href="#m4-special-characters-of-output-cod">A.3&nbsp;&nbsp;<code title="solution">&#x1f4a1;</code> Special characters of output code</a></p>
 <p id="m4-toc-c-output-queue">&nbsp;&nbsp;&nbsp;<a href="#m4-c-output-queue">A.4&nbsp;&nbsp;<code>[]</code> C – output queue</a></p>
 <p id="m4-toc-ini-an-external-command">&nbsp;&nbsp;&nbsp;<a href="#m4-ini-an-external-command">A.5&nbsp;&nbsp;<code>[]</code> INI – an external command</a></p>
 <p id="m4-toc-h-hex-counter">&nbsp;&nbsp;&nbsp;<a href="#m4-h-hex-counter">A.6&nbsp;&nbsp;<code>[]</code> .h – hex counter</a></p>
@@ -445,22 +446,23 @@ divert(-1)
 <pre title="counter.csv">ERR_1	COMPLEX	!"#$%&amp;'()*+,-./:;&lt;=&gt;?@[\]^_`{|}~
 ERR_2	SUCCESS	Complex M4 code failed successfully.
 ERR_3	NOFAULT	It's not a language fault!</pre>
-<h3 id="m4-modification-of-special-characte"><a href="#m4-modification-of-special-characte" title="⚓">A.3</a>&nbsp;&nbsp;<code title="how to do it">&#x1f4a1;</code> Modification of special characters&nbsp;<a href="#m4-toc-modification-of-special-characte" title="Content" class="m4-jmp">☰</a></h3>
+<h3 id="m4-special-characters-of-output-cod"><a href="#m4-special-characters-of-output-cod" title="⚓">A.3</a>&nbsp;&nbsp;<code title="solution">&#x1f4a1;</code> Special characters of output code&nbsp;<a href="#m4-toc-special-characters-of-output-cod" title="Content" class="m4-jmp">☰</a></h3>
 <p>Each type of output code requires modification of special characters.
 Using the keyword <code>patsubst()</code> is inappropriate for this type of task.
 Therefore, the input source code should be modified by regular expression and all special characters will be hidden in macros.</p>
-<h4 id="m4-modified-input-source-code"><a href="#m4-modified-input-source-code" title="⚓">»</a>&nbsp;Modified input source code</h4>
-<pre title="messages.mc (special characters are hidden to macros)"># 2018/05/15 Josef Kubin
+<h4 id="m4-modified-input-code"><a href="#m4-modified-input-code" title="⚓">»</a>&nbsp;Modified input code</h4>
+<table class="table"><tbody><tr><th><a href="https://raw.githubusercontent.com/jkubin/m4root/master/messages/messages.mc" title="GitHub">messages.mc</a></th><th style="width:100%">special characters of the input code are hidden in macros</th></tr></tbody></table>
+<pre title="messages.mc"># 2018/05/15 Josef Kubin
 
 ERROR([COMPLEX],     [[]EX()[]DQ()[#]$%[]AMP()[]AP()()*+[,]-./:;[]LT()=[]GT()?@[]LB()[]BS()[]RB()^_[]BQ(){|}~])
 QUERY([READABLE],    [Is badly written M4 code readable []LB()N/y[]RB()?])
 ERROR([SUCCESS],     [Complex M4 code failed successfully.])
 WARNING([ADDICTIVE], [Programming in M4 is addictive[]EX()])
-ERROR([NOFAULT],     [It[]AP()s not a language fault!])
+ERROR([NOFAULT],     [It[]AP()s not a language fault[]EX()])
 WARNING([NO_ERRORS], [No other errors detected.])</pre>
-<p>We create several files that convert macros into special characters according to the type of target code generated.
-This file is one of the command line files.</p>
-<h4 id="m4-xml-html-the-file-for-markup-lan"><a href="#m4-xml-html-the-file-for-markup-lan" title="⚓">»</a>&nbsp;<code>[]</code> XML, HTML – the file for markup languages</h4>
+<p>We create files converting macros to special characters based on the target code type.</p>
+<h4 id="m4-xml-xslt-html"><a href="#m4-xml-xslt-html" title="⚓">»</a>&nbsp;<code>[]</code> XML, XSLT, HTML</h4>
+<table class="table"><tbody><tr><th><a href="https://raw.githubusercontent.com/jkubin/m4root/master/messages/markup.m4" title="GitHub">markup.m4</a></th><th style="width:100%">conversion file for markup languages</th></tr></tbody></table>
 <pre title="markup.m4"># A → β
 define([AMP], [&amp;amp;])
 define([AP], ['])
@@ -470,7 +472,8 @@ define([DQ], ["])
 define([EX], [!])
 define([GT], [&amp;gt;])
 define([LT], [&amp;lt;])</pre>
-<h4 id="m4-c-json-ini-the-file-for-strings"><a href="#m4-c-json-ini-the-file-for-strings" title="⚓">»</a>&nbsp;<code>[]</code> C, JSON, INI – the file for &quot;strings in double quotes&quot;</h4>
+<h4 id="m4-c-json-ini-string"><a href="#m4-c-json-ini-string" title="⚓">»</a>&nbsp;<code>[]</code> C, JSON, INI – <code>&quot;string&quot;</code></h4>
+<table class="table"><tbody><tr><th><a href="https://raw.githubusercontent.com/jkubin/m4root/master/messages/code.m4" title="GitHub">code.m4</a></th><th style="width:100%">conversion file</th></tr></tbody></table>
 <pre title="code.m4"># A → β
 define([AMP], [&amp;])
 define([AP], ['])
@@ -480,7 +483,8 @@ define([DQ], [\"])
 define([EX], [!])
 define([GT], [&gt;])
 define([LT], [&lt;])</pre>
-<h4 id="m4-bash-the-file-for-strings-in-dou"><a href="#m4-bash-the-file-for-strings-in-dou" title="⚓">»</a>&nbsp;<code>[]</code> Bash – the file for &quot;strings in double quotes&quot;</h4>
+<h4 id="m4-bash-cmd-echo-string"><a href="#m4-bash-cmd-echo-string" title="⚓">»</a>&nbsp;<code>[]</code> Bash <code>~]$ echo &quot;string&quot;</code></h4>
+<table class="table"><tbody><tr><th><a href="https://raw.githubusercontent.com/jkubin/m4root/master/messages/doubleq.m4" title="GitHub">doubleq.m4</a></th><th style="width:100%">conversion file</th></tr></tbody></table>
 <pre title="doubleq.m4"># A → β
 define([AMP], [&amp;])
 define([AP], ['])
@@ -490,10 +494,22 @@ define([DQ], [\"])
 define([EX], ["\!"])
 define([GT], [&gt;])
 define([LT], [&lt;])</pre>
-<h4 id="m4-bash-the-file-for-astrings-in-ap"><a href="#m4-bash-the-file-for-astrings-in-ap" title="⚓">»</a>&nbsp;<code>[]</code> Bash – the file for 'strings in apostrophes'</h4>
+<h4 id="m4-bash-cmd-echo-astringa"><a href="#m4-bash-cmd-echo-astringa" title="⚓">»</a>&nbsp;<code>[]</code> Bash <code>~]$ echo 'string'</code></h4>
+<table class="table"><tbody><tr><th><a href="https://raw.githubusercontent.com/jkubin/m4root/master/messages/apost.m4" title="GitHub">apost.m4</a></th><th style="width:100%">conversion file</th></tr></tbody></table>
 <pre title="apost.m4"># A → β
 define([AMP], [&amp;])
 define([AP], ['\''])
+define([BQ], [`])
+define([BS], [\])
+define([DQ], ["])
+define([EX], [!])
+define([GT], [&gt;])
+define([LT], [&lt;])</pre>
+<h4 id="m4-csv-m4"><a href="#m4-csv-m4" title="⚓">»</a>&nbsp;<code>[]</code> CSV, M4</h4>
+<table class="table"><tbody><tr><th><a href="https://raw.githubusercontent.com/jkubin/m4root/master/messages/unchanged.m4" title="GitHub">unchanged.m4</a></th><th style="width:100%">the conversion file does not change special characters</th></tr></tbody></table>
+<pre title="unchanged.m4"># A → β
+define([AMP], [&amp;])
+define([AP], ['])
 define([BQ], [`])
 define([BS], [\])
 define([DQ], ["])
@@ -555,7 +571,7 @@ divert(-1)</pre>
 </pre>
 <pre title="hello.ini">; DO NOT EDIT! This file is generated automatically!
 
-[hello_20200109]
+[hello_20200110]
 COMPLEX="!\"#$%&amp;'()*+,-./:;&lt;=&gt;?@[\\]^_`{|}~"
 SUCCESS="Complex M4 code failed successfully."
 NOFAULT="It's not a language fault!"</pre>
@@ -1213,7 +1229,7 @@ echo ""\!"\"#$%&amp;'()*+,-./:;&lt;=&gt;?@[\\]^_\`{|}~"
 echo "Is badly written M4 code readable [N/y]?"
 echo "Complex M4 code failed successfully."
 echo "Programming in M4 is addictive"\!""
-echo "It's not a language fault!"
+echo "It's not a language fault"\!""
 echo "No other errors detected."</pre>
 <h3 id="m4-bash-echo-astringa"><a href="#m4-bash-echo-astringa" title="⚓">A.16</a>&nbsp;&nbsp;<code>[]</code> Bash – <code>echo 'string'</code>&nbsp;<a href="#m4-toc-bash-echo-astringa" title="Content" class="m4-jmp">☰</a></h3>
 <pre title="apost.sh.m4"># A → β
@@ -1556,7 +1572,7 @@ BEGIN { print "DONTE() LB () [ Hello, world! ]" }</pre>
 <p id="m4-toc-why-avoid-m4">&nbsp;&nbsp;&nbsp;<a href="#m4-why-avoid-m4">D.2&nbsp;&nbsp;<code>&#x1f44e;</code> Why avoid M4</a></p>
 <h3 id="m4-why-generate-code-in-m4"><a href="#m4-why-generate-code-in-m4" title="⚓">D.1</a>&nbsp;&nbsp;<code>&#x1f44d;</code> Why generate code in M4&nbsp;<a href="#m4-toc-why-generate-code-in-m4" title="Content" class="m4-jmp">☰</a></h3>
 <ul>
-<li>direct use of <a href="#m4-context-free-grammar" title="Context-free grammar">context-free grammar</a>
+<li>direct use of <a href="#m4-context-free-grammar" title="Context-free grammar">context-free grammar</a> (recursion for free)
 <ul><li>a minimum M4 code is required for data transformation</li></ul></li>
 <li>direct use of automata
 <ul><li>possibility to model necessary algorithms (M4 does not need versions)</li></ul></li>

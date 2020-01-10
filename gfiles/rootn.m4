@@ -138,18 +138,18 @@ define(TEST_ATM, 
 define(COUNT_UP, defn(TEST_ATM)
 
 	# INIT node defines a unique symbol with an initial value
-	define(#+$0+#, $1)
+	define(#v$0v#, $1)
 
 	# transition to the INCREMENT node
-	define($0, defn(#+$0+#)define(#+$0+#, incr(defn(#+$0+#))))
+	define($0, defn(#v$0v#)define(#v$0v#, incr(defn(#v$0v#))))
 )
 
 # β₁β₂
 define(COUNT_DOWN, defn(TEST_ATM)
 
 	# INIT node defines a unique symbol with an initial value
-	define(#-$0-#, $1)
+	define(#v$0v#, $1)
 
 	# transition to the DECREMENT node
-	define($0, defn(#-$0-#)define(#-$0-#, decr(defn(#-$0-#))))
+	define($0, defn(#v$0v#)define(#v$0v#, decr(defn(#v$0v#))))
 )
