@@ -33,8 +33,8 @@ TABLE_OF_CONTENT(LANG_CODE)
 
 # define Makefile names
 # A → β
-define([ALL_SUBTARGETS],	LANG_CODE [all]LANG_CODE [all_]LANG_CODE)
-define([CLEAN_SUBTARGETS],	[c]LANG_CODE [cl]LANG_CODE [cl_]LANG_CODE [clean_]LANG_CODE)
+define([ALL_SUBTARGETS],	[all_]LANG_CODE [all]LANG_CODE LANG_CODE)
+define([CLEAN_SUBTARGETS],	[clean_]LANG_CODE [cl_]LANG_CODE [cl]LANG_CODE [c]LANG_CODE)
 define([PUBLISH_FILES],		[PUBLISH_]LANG_CODE)
 define([PREVIEW_FILES],		[PREVIEW_]LANG_CODE)
 define([SPCHECK_FILES],		[SPCHECK_]LANG_CODE)
@@ -60,25 +60,25 @@ PUBLISH    += $(FOLDER_NAMES) $(PUBLISH_FILES)
 SPCHECK    += $(FOLDER_NAMES) $(SPCHECK_FILES)
 TARGETS    += SUBTARGETS
 
-#:su/sub/subtargets	creates all files from generated rules
-.PHONY: subtargets su sub
-subtargets su sub: $(TARGETS)
+#:subtargets/sub/su	creates all files from generated rules
+.PHONY: subtargets sub su
+subtargets sub su: $(TARGETS)
 
-#:p/pr/pre/preview	for off-line article development
-.PHONY: p pr pre preview
-p pr pre preview: $(PREVIEW)
+#:preview/pre/pr/p	for off-line article development
+.PHONY: preview pre pr p
+preview pre pr p: $(PREVIEW)
 
-#:sp/spell	creates files for checking jargon and typos
-.PHONY: sp spell
-sp spell: $(SPCHECK)
+#:spell/sp	creates files for checking jargon and typos
+.PHONY: spell sp
+spell sp: $(SPCHECK)
 
-#:pu/pub/publish	creates files in a format suitable for CMS
-.PHONY: pu pub publish
-pu pub publish: $(PUBLISH)
+#:publish/pub/pu	creates files in a format suitable for CMS
+.PHONY: publish pub pu
+publish pub pu: $(PUBLISH)
 
-#:v/va/val/validate	creates files for testing in HTML validator
-.PHONY: v va val validate
-v va val validate: $(VALIDATE)
+#:validate/val/va/v	creates files for testing in HTML validator
+.PHONY: validate val va v
+validate val va v: $(VALIDATE)
 
 [#]:patsubst(defn([ALL_SUBTARGETS]), [ ], [/])	creates files in ‘LANG_CODE’ language
 .PHONY: ALL_SUBTARGETS
@@ -89,7 +89,7 @@ ALL_SUBTARGETS: SUBTARGETS
 CLEAN_SUBTARGETS:
 	$(RM) -r $(FOLDER_NAMES) FROZEN_FILE
 
-[#]:rules	is disabled for ‘LANG_CODE’ language
+[#]:rules	disabled for ‘LANG_CODE’
 rules_[]LANG_CODE.mk: ;
 
 $(FOLDER_NAMES):
