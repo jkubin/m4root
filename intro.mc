@@ -241,12 +241,12 @@ divert(0)dnl
 ]])dnl PRE
 
 TIP_BOX(, [divert(-1), divert(0), divert(1), …, divert(2147483647)], [[dnl czech
-Klíčové slovo CODE_M4([divert(ℤ)]) přepíná výstupní fronty.
+Klíčové slovo CODE([[divert](AH([ℤ], [celé číslo], [https://cs.wikipedia.org/wiki/Cel%C3%A9_%C4%8D%C3%ADslo]))]) přepíná výstupní fronty.
 Argument CODE([-1]) zcela vypne jakýkoliv textový výstup.
 Argument CODE([0]) přepne výstup na CODE_M4([stdout]).
 ],
 [dnl english: _next_language_
-The CODE_M4([divert(ℤ)]) keyword switches output queues.
+The CODE([[divert](AH([ℤ], [integer], [https://en.wikipedia.org/wiki/Integer]))]) keyword switches output queues.
 Argument CODE([-1]) completely disables any text output.
 Argument CODE([0]) switches output to CODE([stdout]).
 ]])
@@ -507,15 +507,15 @@ PARA([[dnl czech
 Výchozí dvojice znaků CODE([`']) v[]NB()M4 řídí expanzi neterminálů.
 Klíčové slovo CODE_M4([changequote()]) je může změnit na jiné znaky, například {CODE_M4([[]]), BO([CODE([␂␆])]), CODE([〖〗])}.
 Neterminály, které nechceme (ihned) expandovat, jsou obklopeny touto dvojicí znaků.
-Při průchodu makro procesorem jsou všechny symboly mezi touto dvojicí znaků BUN([terminálními symboly]) a dvojice znaků je odstraněna.
+Při průchodu makro procesorem jsou všechny symboly mezi touto dvojicí znaků BUN([terminálními symboly]) a vnější dvojice znaků je odstraněna.
 Další průchod již způsobí expanzi původně chráněných neterminálů.
-Dvojice řídících znaků se nastavují na začátku kořenového souboru.
+Dvojice řídících znaků se nastavuje na začátku kořenového souboru.
 ],
 [dnl english: _next_language_
 The default character pair CODE([`']) in M4 controls the expansion of nonterminals.
 The keyword CODE_M4([changequote()]) can change them to other characters, for example {CODE_M4([[]]), BO([CODE([␂␆])]), CODE([〖〗])}.
 Nonterminals that we do not want to (immediately) expand are surrounded by this pair of characters.
-When passing through a macro processor, all the symbols between this character pair are BUN([terminal symbols]) and the character pair is removed.
+When passing through a macro processor, all the symbols between this character pair are BUN([terminal symbols]) and the outer character pair is removed.
 The next pass will cause the expansion of the originally protected nonterminals.
 Control character pair is set at the beginning of the root file.
 ]])
@@ -648,7 +648,7 @@ CMD() BO([cat input.mc | m4 root.m4 stem.m4 branch.m4 leaf.m4 - > output.file])
 ])dnl PRE
 
 PRE(, LANG([vstupní kód → generování zdrojového kódu → kompilace], [input code → source code generation → compilation]), [
-CMD() BO([cat input.mc | m4 root.m4 stem.m4 branch.m4 leaf.m4 - | gcc -x c -o prg -])
+CMD() BO([cat input.mc | m4 root.m4 stem.m4 branch.m4 leaf.m4 - | gcc -x c -o progr -])
 ])dnl PRE
 
 PARA([[dnl czech
@@ -687,7 +687,7 @@ CMD() BO([m4 root.m4 stem.m4 branch.m4 leaf.m4 file.c > preproc.file.c])
 ])dnl PRE
 
 PRE(, LANG([M4 jako preprocesor – bez dočasného souboru], [M4 as preprocessor – without intermediate file]), [
-CMD() BO([m4 root.m4 stem.m4 branch.m4 leaf.m4 file.c | gcc -x c -o prg -])
+CMD() BO([m4 root.m4 stem.m4 branch.m4 leaf.m4 file.c | gcc -x c -o progr -])
 ])dnl PRE
 
 PARA([[dnl czech
@@ -1154,7 +1154,6 @@ dnl english: _next_language_
 ])
 
 LINK_FILE([messages/messages.mc], LANG([speciální znaky vstupního kódu jsou skryty do maker], [special characters of the input code are hidden in macros]))
-INSERT_FILE([messages/messages.mc])
 
 PARA([[dnl czech
 Vytvoříme soubory převádějící makra na speciální znaky podle typu cílového kódu.
@@ -1168,7 +1167,6 @@ HEADING_MONO([dnl
 ])
 
 LINK_FILE([messages/markup.m4], LANG([převodní soubor pro značkovací jazyky], [conversion file for markup languages]))
-INSERT_FILE([messages/markup.m4])
 
 # hide  ‘"’ → DQ(), because of title="… &quot; … &quot; …"
 HEADING([dnl
@@ -1177,31 +1175,27 @@ HEADING([dnl
 ])
 
 LINK_FILE([messages/code.m4], LANG([převodní soubor], [conversion file]))
-INSERT_FILE([messages/code.m4])
 
 # hide ‘"’ → DQ(), because of title="… &quot; … &quot; …"
 HEADING([dnl
-[CODE_M4([[]]) Bash CODE([CMD() echo []DQ()řetězec[]DQ()])],
-[CODE_M4([[]]) Bash CODE([CMD() echo []DQ()string[]DQ()])],
+[CODE_M4([[]]) Bash – CODE([[]DQ()řetězec[]DQ()])],
+[CODE_M4([[]]) Bash – CODE([[]DQ()string[]DQ()])],
 ])
 
 LINK_FILE([messages/doubleq.m4], LANG([převodní soubor], [conversion file]))
-INSERT_FILE([messages/doubleq.m4])
 
 HEADING([dnl
-[CODE_M4([[]]) Bash CODE([CMD() echo 'řetězec'])],
-[CODE_M4([[]]) Bash CODE([CMD() echo 'string'])],
+[CODE_M4([[]]) Bash – CODE(['řetězec'])],
+[CODE_M4([[]]) Bash – CODE(['string'])],
 ])
 
 LINK_FILE([messages/apost.m4], LANG([převodní soubor], [conversion file]))
-INSERT_FILE([messages/apost.m4])
 
 HEADING_MONO([dnl monolingual
 [CODE_M4([[]]) CSV[,] M4],
 ])
 
 LINK_FILE([messages/unchanged.m4], LANG([převodní soubor nezmění speciální znaky], [the conversion file does not change special characters]))
-INSERT_FILE([messages/unchanged.m4])
 
 
 SUB_ANNEX([dnl czech
@@ -1489,18 +1483,18 @@ INSERT_FILES_MESSAGES_QUEUES_MARKUP([messages.xml.m4], [messages.xml])
 
 
 SUB_ANNEX([dnl czech
-[CODE_M4([[]]) Bash – CODE([echo "řetězec"])],
+[CODE_M4([[]]) Bash CODE([CMD() echo []DQ()řetězec[]DQ()])],
 dnl english: _next_language_
-[CODE_M4([[]]) Bash – CODE([echo "string"])],
+[CODE_M4([[]]) Bash CODE([CMD() echo []DQ()string[]DQ()])],
 ])
 
 INSERT_FILES_MESSAGES_DOUBLEQ([doubleq.sh.m4], [doubleq.sh])
 
 
 SUB_ANNEX([dnl czech
-[CODE_M4([[]]) Bash – CODE([echo 'řetězec'])],
+[CODE_M4([[]]) Bash CODE([CMD() echo 'řetězec'])],
 dnl english: _next_language_
-[CODE_M4([[]]) Bash – CODE([echo 'string'])],
+[CODE_M4([[]]) Bash CODE([CMD() echo 'string'])],
 ])
 
 INSERT_FILES_MESSAGES_APOSTROPHE([apost.sh.m4], [apost.sh])
