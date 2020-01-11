@@ -6,7 +6,7 @@ ___POINT([HTML5 inline elements])
 
 # html global attributes for most tags
 # β
-pushdef([TITLE_2],	[ifelse([$2], [], [], [ title="[$2]"])])
+pushdef([TITLE_2],	[[]ifelse([$2], [], [], [ title="[$2]"])])
 pushdef([CLASS_3],	[ifelse([$3], [], [], [ class="ADD_CLASS_RULE_SET([$3])"])])
 pushdef([STYLE_4],	[ifelse([$4], [], [], [ style="[$4]"])])
 pushdef([ID_5],		[ifelse([$5], [], [], [ id="FIND_AND_ADD_ID_RULE_SET([$5])"])])
@@ -29,7 +29,7 @@ define([WBR],		[ifelse([$#], [0], [[$0]], [<wbr>])])
 define([NOTE],		[ifelse([$#], [0], [[$0]], ]BRAC([<span class="rs-note"]defn([TITLE_2])[>$1</span>])[)])
 define([PERSON],	[ifelse([$#], [0], [[$0]], ]BRAC([<span class="rs-person"]defn([TITLE_2])[>$1</span>])[)])
 
-# How to use <a></a> html tag:
+# How to use <a href=""></a> html tag:
 # AH	---> AH
 # AH (…)	---> AH (…)
 # AH([URL])	---> <a href="URL">URL</a>
@@ -44,12 +44,12 @@ define([PERSON],	[ifelse([$#], [0], [[$0]], ]BRAC([<span class="rs-person"]defn(
 # AH([text],,,,, [rel], [URL])	---> <a href="URL" rel="rel">text</a>
 # AH([text],,,,,, [foo="bar" baz="ham"], [URL])	---> <a href="URL" foo="bar" baz="ham">text</a>
 # β
-pushdef([AD_TITLE_2],		[ifelse([$#], [2], [], [$2], [], [], [ title="[$2]"])])
-pushdef([AD_CLASS_3],		[ifelse([$#], [3], [], [$3], [], [], [ class="ADD_CLASS_RULE_SET([$3])"])])
-pushdef([AD_STYLE_4],		[ifelse([$#], [4], [], [$4], [], [], [ style="[$4]"])])
-pushdef([AD_ID_5],		[ifelse([$#], [5], [], [$5], [], [], [ id="FIND_AND_ADD_ID_RULE_SET([$5])"])])
-pushdef([AD_REL_6],		[ifelse([$#], [6], [], [$6], [], [], [ rel="[$6]"])])
-pushdef([AD_ANYTHING_7],	[ifelse([$#], [7], [], [$7], [], [], [ [$7]])])
+pushdef([AH_TITLE_2],		[ifelse([$#], [2], [], [$2], [], [], [ title="[$2]"])])
+pushdef([AH_CLASS_3],		[ifelse([$#], [3], [], [$3], [], [], [ class="ADD_CLASS_RULE_SET([$3])"])])
+pushdef([AH_STYLE_4],		[ifelse([$#], [4], [], [$4], [], [], [ style="[$4]"])])
+pushdef([AH_ID_5],		[ifelse([$#], [5], [], [$5], [], [], [ id="FIND_AND_ADD_ID_RULE_SET([$5])"])])
+pushdef([AH_REL_6],		[ifelse([$#], [6], [], [$6], [], [], [ rel="[$6]"])])
+pushdef([AH_ANYTHING_7],	[ifelse([$#], [7], [], [$7], [], [], [ [$7]])])
 
 # html tag attributes group
 # β
@@ -70,13 +70,13 @@ define([##SPAN>], [span])
 define([ABBR], defn([SPAN]))
 define([#ABBR>], defn([HTML_INLINE_ELEMENT]))
 define([##ABBR>], [abbr])
-
+ 
 define([ACRO], defn([SPAN]))
 define([#ACRO>], defn([HTML_INLINE_ELEMENT]))
 define([##ACRO>], [acronym])
-
+ 
 define([AH], defn([SPAN]))
-define([#AH>], [<a href="]defn([SELECT_LAST])["]defn([AD_TITLE_2], [AD_CLASS_3], [AD_STYLE_4], [AD_ID_5], [AD_REL_6], [AD_ANYTHING_7])[>$1</a>])
+define([#AH>], [<a href="]defn([SELECT_LAST])["]defn([AH_TITLE_2], [AH_CLASS_3], [AH_STYLE_4], [AH_ID_5], [AH_REL_6], [AH_ANYTHING_7])[>$1</a>])
 
 define([BUTTON], defn([SPAN]))
 define([#BUTTON>], defn([HTML_INLINE_ELEMENT]))
@@ -95,7 +95,7 @@ define([#CODE>], defn([HTML_INLINE_ELEMENT]))
 define([##CODE>], [code])
 
 define([CODE_M4], defn([SPAN]))
-define([#CODE_M4>], [<code[]]defn([HTML_GLOBAL_ATTRIBUTES])[>[$1]</code>])
+define([#CODE_M4>], [<code]defn([HTML_GLOBAL_ATTRIBUTES])[>[$1]</code>])
 
 define([DEL], defn([SPAN]))
 define([#DEL>], defn([HTML_INLINE_ELEMENT]))
@@ -173,13 +173,13 @@ define([##VAR>], [var])
 # forget local β rules (good for frozen files)
 popdef(
 
+	[AH_ANYTHING_7],
+	[AH_CLASS_3],
+	[AH_ID_5],
+	[AH_REL_6],
+	[AH_STYLE_4],
+	[AH_TITLE_2],
 	[ANYTHING_6],
-	[AD_ANYTHING_7],
-	[AD_CLASS_3],
-	[AD_ID_5],
-	[AD_REL_6],
-	[AD_STYLE_4],
-	[AD_TITLE_2],
 	[CLASS_3],
 	[HTML_GLOBAL_ATTRIBUTES],
 	[HTML_INLINE_ELEMENT],
