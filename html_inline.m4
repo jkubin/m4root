@@ -4,7 +4,7 @@ ___POINT([HTML5 inline elements])
 
 # WARNING: keep all HTML tags with spell.m4 file 1:1
 
-# html global attributes for most tags
+# global attributes for most tags
 # β
 pushdef([TITLE_2],	[[]ifelse([$2], [], [], [ title="[$2]"])])
 pushdef([CLASS_3],	[ifelse([$3], [], [], [ class="ADD_CLASS_RULE_SET([$3])"])])
@@ -12,9 +12,13 @@ pushdef([STYLE_4],	[ifelse([$4], [], [], [ style="[$4]"])])
 pushdef([ID_5],		[ifelse([$5], [], [], [ id="FIND_AND_ADD_ID_RULE_SET([$5])"])])
 pushdef([ANYTHING_6],	[ifelse([$6], [], [], [ [$6]])])
 
-# custom macros for convenience
-# A → β
+# global attributes group
+# β
+pushdef([HTML_GLOBAL_ATTRIBUTES],	defn([TITLE_2], [CLASS_3], [STYLE_4], [ID_5], [ANYTHING_6]))
 
+# custom macros for convenience
+
+# A → β
 # define([TIP_BOX_NOTE],	[ifelse([$#], [0], [[$0]], [SPAN([WORD_NOTE:],, [note])])])
 define([BR],		[ifelse([$#], [0], [[$0]], [<br>])])
 define([BUN],		[BO([$1],, [un])])
@@ -29,19 +33,20 @@ define([WBR],		[ifelse([$#], [0], [[$0]], [<wbr>])])
 define([NOTE],		[ifelse([$#], [0], [[$0]], ]BRAC([<span class="rs-note"]defn([TITLE_2])[>$1</span>])[)])
 define([PERSON],	[ifelse([$#], [0], [[$0]], ]BRAC([<span class="rs-person"]defn([TITLE_2])[>$1</span>])[)])
 
-# How to use <a href=""></a> html tag:
+# how to use AH(…) ---> <a href="…">…</a> html tag:
+#
 # AH	---> AH
 # AH (…)	---> AH (…)
 # AH([URL])	---> <a href="URL">URL</a>
 # AH([text], [URL])	---> <a href="URL">text</a>
-# AH([text], [title], [URL])		---> <a href="URL" title="title">text</a>
-# AH([text], [title], [class], [URL])	---> <a href="URL" title="title" class="class">text</a>
-# AH([text], [], [class], [URL])		---> <a href="URL" class="class">text</a>
-# AH([text], [title], [class], [style], [URL])	---> …
-# AH([text], [title], [class], [style], [id], [URL])
-# AH([text], [title], [class], [style], [id], [rel], [URL])
-# AH([text], [title], [class], [style], [id], [rel], [anything], [URL])
-# AH([text],,,,, [rel], [URL])	---> <a href="URL" rel="rel">text</a>
+# AH([text], [my_title], [URL])		---> <a href="URL" title="my_title">text</a>
+# AH([text], [my_title], [my_class], [URL])	---> <a href="URL" title="my_title" class="my_class">text</a>
+# AH([text], [], [my_class], [URL])		---> <a href="URL" class="my_class">text</a>
+# AH([text], [my_title], [my_class], [my_style], [URL])	---> …
+# AH([text], [my_title], [], [my_style], [my_id], [URL])	---> <a href="URL" title="my_title" style="my_style" id="my_id">text</a>
+# AH([text], [my_title], [my_class], [my_style], [my_id], [rel], [URL])
+# AH([text], [my_title], [my_class], [my_style], [my_id], [rel], [anything], [URL])
+# AH([text],,,,, [my_rel], [URL])	---> <a href="URL" rel="my_rel">text</a>
 # AH([text],,,,,, [foo="bar" baz="ham"], [URL])	---> <a href="URL" foo="bar" baz="ham">text</a>
 # β
 pushdef([AH_TITLE_2],		[ifelse([$#], [2], [], [$2], [], [], [ title="[$2]"])])
@@ -51,124 +56,37 @@ pushdef([AH_ID_5],		[ifelse([$#], [5], [], [$5], [], [], [ id="FIND_AND_ADD_ID_R
 pushdef([AH_REL_6],		[ifelse([$#], [6], [], [$6], [], [], [ rel="[$6]"])])
 pushdef([AH_ANYTHING_7],	[ifelse([$#], [7], [], [$7], [], [], [ [$7]])])
 
-# html tag attributes group
-# β
-pushdef([HTML_GLOBAL_ATTRIBUTES],	defn([TITLE_2], [CLASS_3], [STYLE_4], [ID_5], [ANYTHING_6]))
-pushdef([HTML_INLINE_ELEMENT],		[<defn([#$0])]defn([HTML_GLOBAL_ATTRIBUTES])[>$1</defn([#$0])>])
-
 # A → β
-# β
-define([SPAN], [ifelse([$#], [0], [[$0]], [indir([#$0>], $@)])])
-define([#SPAN>], defn([HTML_INLINE_ELEMENT]))
-define([##SPAN>], [span])
+pushdef([CREATE_INLINE_ELEMENT], [define([$1], [ifelse($][#, 0, ]BRAC(BRAC($[0]))[, ]BRAC([<$2]defn([HTML_GLOBAL_ATTRIBUTES])[>$][1</$2>])[)])])
+pushdef([CREATE_INLINE_ELEMENT_SPECIAL], [define([$1], [ifelse($][#, 0, ]BRAC(BRAC($[0]))[, ]BRAC([$2])[)])])
 
-# scripts to sort tags
-# :'<,'>! sed ':a;N;/\n$/\!ba;s/\n//g'
-# :'<,'>! sort
-# :'<,'>! sed 's/)define/)\ndefine/g; s/$/\n/'
-
-define([ABBR], defn([SPAN]))
-define([#ABBR>], defn([HTML_INLINE_ELEMENT]))
-define([##ABBR>], [abbr])
- 
-define([ACRO], defn([SPAN]))
-define([#ACRO>], defn([HTML_INLINE_ELEMENT]))
-define([##ACRO>], [acronym])
- 
-define([AH], defn([SPAN]))
-define([#AH>], [<a href="]defn([SELECT_LAST])["]defn([AH_TITLE_2], [AH_CLASS_3], [AH_STYLE_4], [AH_ID_5], [AH_REL_6], [AH_ANYTHING_7])[>$1</a>])
-
-define([BUTTON], defn([SPAN]))
-define([#BUTTON>], defn([HTML_INLINE_ELEMENT]))
-define([##BUTTON>], [button])
-
-define([BO], defn([SPAN]))
-define([#BO>], defn([HTML_INLINE_ELEMENT]))
-define([##BO>], [strong])
-
-define([CITE], defn([SPAN]))
-define([#CITE>], defn([HTML_INLINE_ELEMENT]))
-define([##CITE>], [cite])
-
-define([CODE], defn([SPAN]))
-define([#CODE>], defn([HTML_INLINE_ELEMENT]))
-define([##CODE>], [code])
-
-define([CODE_M4], defn([SPAN]))
-define([#CODE_M4>], [<code]defn([HTML_GLOBAL_ATTRIBUTES])[>[$1]</code>])
-
-define([DEL], defn([SPAN]))
-define([#DEL>], defn([HTML_INLINE_ELEMENT]))
-define([##DEL>], [del])
-
-define([DFN], defn([SPAN]))
-define([#DFN>], defn([HTML_INLINE_ELEMENT]))
-define([##DFN>], [dfn])
-
-define([EM], defn([SPAN]))
-define([#EM>], defn([HTML_INLINE_ELEMENT]))
-define([##EM>], [em])
-
-define([INS], defn([SPAN]))
-define([#INS>], defn([HTML_INLINE_ELEMENT]))
-define([##INS>], [ins])
-
-define([LABEL], defn([SPAN]))
-define([#LABEL>], defn([HTML_INLINE_ELEMENT]))
-define([##LABEL>], [label])
-
-define([LI], defn([SPAN]))
-define([#LI>], defn([HTML_INLINE_ELEMENT]))
-define([##LI>], [li])
-
-define([MARK], defn([SPAN]))
-define([#MARK>], defn([HTML_INLINE_ELEMENT]))
-define([##MARK>], [mark])
-
-define([METER], defn([SPAN]))
-define([#METER>], defn([HTML_INLINE_ELEMENT]))
-define([##METER>], [meter])
-
-define([OL], defn([SPAN]))
-define([#OL>], defn([HTML_INLINE_ELEMENT]))
-define([##OL>], [ol])
-
-define([PROGRESS], defn([SPAN]))
-define([#PROGRESS>], defn([HTML_INLINE_ELEMENT]))
-define([##PROGRESS>], [progress])
-
-define([QM], defn([SPAN]))
-define([#QM>], defn([HTML_INLINE_ELEMENT]))
-define([##QM>], [q])
-
-define([SAMP], defn([SPAN]))
-define([#SAMP>], defn([HTML_INLINE_ELEMENT]))
-define([##SAMP>], [samp])
-
-define([SMALL], defn([SPAN]))
-define([#SMALL>], defn([HTML_INLINE_ELEMENT]))
-define([##SMALL>], [small])
-
-define([SUB], defn([SPAN]))
-define([#SUB>], defn([HTML_INLINE_ELEMENT]))
-define([##SUB>], [sub])
-
-define([SUP], defn([SPAN]))
-define([#SUP>], defn([HTML_INLINE_ELEMENT]))
-define([##SUP>], [sup])
-
-define([TIME], defn([SPAN]))
-define([#TIME>], defn([HTML_INLINE_ELEMENT]))
-define([##TIME>], [time])
-
-define([UL], defn([SPAN]))
-define([#UL>], defn([HTML_INLINE_ELEMENT]))
-define([##UL>], [ul])
-
-define([VAR], defn([SPAN]))
-define([#VAR>], defn([HTML_INLINE_ELEMENT]))
-define([##VAR>], [var])
-
+CREATE_INLINE_ELEMENT([ABBR],		[abbr])
+CREATE_INLINE_ELEMENT([ACRO],		[acronym])
+CREATE_INLINE_ELEMENT([BO],		[strong])
+CREATE_INLINE_ELEMENT([BUTTON],		[button])
+CREATE_INLINE_ELEMENT([CITE],		[cite])
+CREATE_INLINE_ELEMENT([CODE],		[code])
+CREATE_INLINE_ELEMENT([DEL],		[del])
+CREATE_INLINE_ELEMENT([DFN],		[dfn])
+CREATE_INLINE_ELEMENT([EM],		[em])
+CREATE_INLINE_ELEMENT([INS],		[ins])
+CREATE_INLINE_ELEMENT([LABEL],		[label])
+CREATE_INLINE_ELEMENT([LI],		[li])
+CREATE_INLINE_ELEMENT([MARK],		[mark])
+CREATE_INLINE_ELEMENT([METER],		[meter])
+CREATE_INLINE_ELEMENT([OL],		[ol])
+CREATE_INLINE_ELEMENT([PROGRESS],	[progress])
+CREATE_INLINE_ELEMENT([QM],		[q])
+CREATE_INLINE_ELEMENT([SAMP],		[samp])
+CREATE_INLINE_ELEMENT([SMALL],		[small])
+CREATE_INLINE_ELEMENT([SPAN],		[span])
+CREATE_INLINE_ELEMENT([SUB],		[sub])
+CREATE_INLINE_ELEMENT([SUP],		[sup])
+CREATE_INLINE_ELEMENT([TIME],		[time])
+CREATE_INLINE_ELEMENT([UL],		[ul])
+CREATE_INLINE_ELEMENT([VAR],		[var])
+CREATE_INLINE_ELEMENT_SPECIAL([AH],		[<a href="]defn([SELECT_LAST])["]defn([AH_TITLE_2], [AH_CLASS_3], [AH_STYLE_4], [AH_ID_5], [AH_REL_6], [AH_ANYTHING_7])[>$1</a>])
+CREATE_INLINE_ELEMENT_SPECIAL([CODE_M4],	[<code]defn([HTML_GLOBAL_ATTRIBUTES])[>[$1]</code>])
 
 # forget local β rules (good for frozen files)
 popdef(
@@ -181,8 +99,9 @@ popdef(
 	[AH_TITLE_2],
 	[ANYTHING_6],
 	[CLASS_3],
+	[CREATE_INLINE_ELEMENT],
+	[CREATE_INLINE_ELEMENT_SPECIAL],
 	[HTML_GLOBAL_ATTRIBUTES],
-	[HTML_INLINE_ELEMENT],
 	[ID_5],
 	[STYLE_4],
 	[TITLE_2],
