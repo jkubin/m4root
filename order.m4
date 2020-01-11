@@ -15,5 +15,5 @@ define([LANG_INDEX], [
 
 # map language codes to indexes
 # A → β
-define([LANG_INDEX_cs], 1)
 define([LANG_INDEX_en], 2)
+define([LANG_INDEX_cs], 1)
