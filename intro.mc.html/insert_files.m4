@@ -1,1 +1,1 @@
-../html_plugins/insert_files.m4
+../html/insert_files.m4
