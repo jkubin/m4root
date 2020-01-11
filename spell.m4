@@ -1,3 +1,5 @@
+# vim:ts=16:sw=16
+
 __HEADER([Josef Kubin], [2019/12/23], [root_cz])
 ___DESCR([converts inline and block-level elements into a plain text file for checking jargon and typos])
 ___POINT([plain text file for spell checking and for suggestions from other people (they can edit)])
@@ -16,21 +18,6 @@ divert(0)dnl
 divert(1)dnl
 ---
 divert(-1)
-
-# for plugins
-# β
-define([SPELLCHECK_FILE_TITLE], [
-
-	ifelse(
-		[$#], [1], [], [
-
-		divert(0)dnl
-__line__
-LB()$2[]RB()
-
-divert(-1)
-	])
-])
 
 # extracts title="the text" if defined
 # β
@@ -196,72 +183,91 @@ define([PERSON],	defn([BO]))
 # HTML5 block-level elements
 
 # A → β
-define([ADDRESS_WRAP],			defn([TITLE], [EXPAND_LAST]))
-define([ANNEX],				defn([PRINT_LANG], [ANNEX_APPEND_CODE]))
-define([ARTICLE_WRAP],			defn([TITLE], [EXPAND_LAST]))
-define([ASIDE_WRAP],			defn([TITLE], [EXPAND_LAST]))
-define([BLOCKQUOTE],			defn([PRINT_LANG]))
+define([ADDRESS_WRAP],		defn([TITLE], [EXPAND_LAST]))
+define([ANNEX],			defn([PRINT_LANG], [ANNEX_APPEND_CODE]))
+define([ARTICLE_WRAP],		defn([TITLE], [EXPAND_LAST]))
+define([ASIDE_WRAP],		defn([TITLE], [EXPAND_LAST]))
+define([BLOCKQUOTE],		defn([PRINT_LANG]))
 define([BLOCKQUOTE_MONO],		defn([PRINT_MONO]))
-define([CHAPTER],			defn([PRINT_LANG]))
-define([COMMENT_MONO],			defn([PRINT_MONO]))
+define([CHAPTER],		defn([PRINT_LANG]))
+define([COMMENT_MONO],		defn([PRINT_MONO]))
 define([DESCRIPTION_LIST_DESC],		defn([PRINT_LANG]))
 define([DESCRIPTION_LIST_DESC_MONO],	defn([PRINT_MONO]))
 define([DESCRIPTION_LIST_TERM],		defn([PRINT_LANG]))
 define([DESCRIPTION_LIST_TERM_MONO],	defn([PRINT_MONO]))
 define([DESCRIPTION_LIST_WRAP],		defn([TITLE], [EXPAND_LAST]))
-define([DETAILS_WRAP],			defn([TITLE], [EXPAND_LAST]))
-define([DIV],				defn([PRINT_LANG]))
-define([DIV_MONO],			defn([PRINT_MONO]))
-define([DIV_WRAP],			defn([TITLE], [EXPAND_LAST]))
-define([FIGCAPTION],			defn([PRINT_LANG]))
+define([DETAILS_WRAP],		defn([TITLE], [EXPAND_LAST]))
+define([DIV],			defn([PRINT_LANG]))
+define([DIV_MONO],		defn([PRINT_MONO]))
+define([DIV_WRAP],		defn([TITLE], [EXPAND_LAST]))
+define([FIGCAPTION],		defn([PRINT_LANG]))
 define([FIGCAPTION_MONO],		defn([PRINT_MONO]))
-define([FIGURE_WRAP],			defn([TITLE], [EXPAND_LAST]))
-define([FOOTER_WRAP],			defn([TITLE], [EXPAND_LAST]))
-define([FORM_WRAP],			defn([TITLE], [EXPAND_LAST]))
-define([HEADER_WRAP],			defn([TITLE], [EXPAND_LAST]))
-define([HEADING],			defn([PRINT_LANG]))
-define([HEADING_MONO],			defn([PRINT_MONO]))
+define([FIGURE_WRAP],		defn([TITLE], [EXPAND_LAST]))
+define([FOOTER_WRAP],		defn([TITLE], [EXPAND_LAST]))
+define([FORM_WRAP],		defn([TITLE], [EXPAND_LAST]))
+define([HEADER_WRAP],		defn([TITLE], [EXPAND_LAST]))
+define([HEADING],		defn([PRINT_LANG]))
+define([HEADING_MONO],		defn([PRINT_MONO]))
 define([INSERT_PROCESSED_FILE],		defn([TITLE]))
-define([LIST_ITEM],			defn([PRINT_LANG]))
+define([LIST_ITEM],		defn([PRINT_LANG]))
 define([LIST_ITEM_MONO],		defn([PRINT_MONO]))
-define([MAIN_WRAP],			defn([TITLE], [EXPAND_LAST]))
-define([NAV],				defn([PRINT_LANG]))
-define([NAV_MONO],			defn([PRINT_MONO]))
+define([MAIN_WRAP],		defn([TITLE], [EXPAND_LAST]))
+define([NAV],			defn([PRINT_LANG]))
+define([NAV_MONO],		defn([PRINT_MONO]))
 define([ORDERED_LIST_WRAP],		defn([TITLE], [EXPAND_LAST]))
-define([PARA],				defn([PRINT_LANG]))
-define([PARA_MONO],			defn([PRINT_MONO]))
-define([PEREX],				defn([PRINT_LANG]))
-define([PLAIN_TEXT],			defn([PRINT_LANG]))
+define([PARA],			defn([PRINT_LANG]))
+define([PARA_MONO],		defn([PRINT_MONO]))
+define([PEREX],			defn([PRINT_LANG]))
+define([PLAIN_TEXT],		defn([PRINT_LANG]))
 define([PLAIN_TEXT_MONO],		defn([PRINT_MONO]))
-define([PRE], 				defn([TITLE]))
-define([SECTION_WRAP],			defn([TITLE], [EXPAND_LAST]))
-define([SUB_ANNEX],			defn([PRINT_LANG]))
-define([SUB_CHAPTER],			defn([PRINT_LANG]))
-define([SUB_SUB_ANNEX],			defn([PRINT_LANG]))
+define([PRE], 			defn([TITLE]))
+define([SECTION_WRAP],		defn([TITLE], [EXPAND_LAST]))
+define([SUB_ANNEX],		defn([PRINT_LANG]))
+define([SUB_CHAPTER],		defn([PRINT_LANG]))
+define([SUB_SUB_ANNEX],		defn([PRINT_LANG]))
 define([SUB_SUB_CHAPTER],		defn([PRINT_LANG]))
-define([SUMMARY],			defn([PRINT_LANG]))
-define([SUMMARY_MONO],			defn([PRINT_MONO]))
-define([TABLE_CAPTION],			defn([PRINT_LANG]))
+define([SUMMARY],		defn([PRINT_LANG]))
+define([SUMMARY_MONO],		defn([PRINT_MONO]))
+define([TABLE_CAPTION],		defn([PRINT_LANG]))
 define([TABLE_CAPTION_MONO],		defn([PRINT_MONO]))
 define([TABLE_COLGROUP_WRAP],		defn([TITLE], [EXPAND_LAST]))
-define([TABLE_DATA],			defn([PRINT_LANG]))
+define([TABLE_DATA],		defn([PRINT_LANG]))
 define([TABLE_DATA_MONO],		defn([PRINT_MONO]))
-define([TABLE_HEAD],			defn([PRINT_LANG]))
+define([TABLE_HEAD],		defn([PRINT_LANG]))
 define([TABLE_HEAD_MONO],		defn([PRINT_MONO]))
 define([TABLE_ROW_WRAP],		defn([TITLE], [EXPAND_LAST]))
-define([TABLE_WRAP],			defn([TITLE], [EXPAND_LAST]))
-define([TBODY_WRAP],			defn([TITLE], [EXPAND_LAST]))
-define([TFOOT_WRAP],			defn([TITLE], [EXPAND_LAST]))
-define([THEAD_WRAP],			defn([TITLE], [EXPAND_LAST]))
-define([TILE_BOX],			defn([PRINT_LANG]))
-define([TIP_BOX],			defn([PRINT_LANG]))
-define([TIP_BOX_MONO],			defn([PRINT_MONO]))
-define([TIP_BOX_WRAP],			defn([TITLE], [EXPAND_LAST]))
+define([TABLE_WRAP],		defn([TITLE], [EXPAND_LAST]))
+define([TBODY_WRAP],		defn([TITLE], [EXPAND_LAST]))
+define([TFOOT_WRAP],		defn([TITLE], [EXPAND_LAST]))
+define([THEAD_WRAP],		defn([TITLE], [EXPAND_LAST]))
+define([TILE_BOX],		defn([PRINT_LANG]))
+define([TIP_BOX],		defn([PRINT_LANG]))
+define([TIP_BOX_MONO],		defn([PRINT_MONO]))
+define([TIP_BOX_WRAP],		defn([TITLE], [EXPAND_LAST]))
 define([UNORDERED_LIST_WRAP],		defn([TITLE], [EXPAND_LAST]))
+
+# for plugins
+# β
+pushdef([SPELLCHECK_FILE_TITLE], [
+
+	ifelse(
+		[$#], [1], [], [
+
+		divert(0)dnl
+__line__
+LB()$2[]RB()
+
+divert(-1)
+	])
+])
+
+# A → β
+define([LINK_FILE], defn([SPELLCHECK_FILE_TITLE]))
 
 popdef(
 
 	[PRINT],
+	[SPELLCHECK_FILE_TITLE],
 	[TITLE],
 
 )
