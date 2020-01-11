@@ -14,36 +14,36 @@ PUBLISH  += $(FOLDERS_en) $(PUBLISH_en)
 SPCHECK  += $(FOLDERS_en) $(SPCHECK_en)
 TARGETS  += $(FOLDERS_en) $(PREVIEW_en) $(VALIDATE_en) $(PUBLISH_en) $(SPCHECK_en)
 
-#:su/sub/subtargets	creates all files from generated rules
-.PHONY: subtargets su sub
-subtargets su sub: $(TARGETS)
+#:subtargets/sub/su	creates all files from generated rules
+.PHONY: subtargets sub su
+subtargets sub su: $(TARGETS)
 
-#:p/pr/pre/preview	for off-line article development
-.PHONY: p pr pre preview
-p pr pre preview: $(PREVIEW)
+#:preview/pre/pr/p	for off-line article development
+.PHONY: preview pre pr p
+preview pre pr p: $(PREVIEW)
 
-#:sp/spell	creates files for checking jargon and typos
-.PHONY: sp spell
-sp spell: $(SPCHECK)
+#:spell/sp	creates files for checking jargon and typos
+.PHONY: spell sp
+spell sp: $(SPCHECK)
 
-#:pu/pub/publish	creates files in a format suitable for CMS
-.PHONY: pu pub publish
-pu pub publish: $(PUBLISH)
+#:publish/pub/pu	creates files in a format suitable for CMS
+.PHONY: publish pub pu
+publish pub pu: $(PUBLISH)
 
-#:v/va/val/validate	creates files for testing in HTML validator
-.PHONY: v va val validate
-v va val validate: $(VALIDATE)
+#:validate/val/va/v	creates files for testing in HTML validator
+.PHONY: validate val va v
+validate val va v: $(VALIDATE)
 
-#:en/allen/all_en	creates files in ‘en’ language
-.PHONY: en allen all_en
-en allen all_en: $(FOLDERS_en) $(PREVIEW_en) $(VALIDATE_en) $(PUBLISH_en) $(SPCHECK_en)
+#:all_en/allen/en	creates files in ‘en’ language
+.PHONY: all_en allen en
+all_en allen en: $(FOLDERS_en) $(PREVIEW_en) $(VALIDATE_en) $(PUBLISH_en) $(SPCHECK_en)
 
-#:cen/clen/cl_en/clean_en	deletes ‘en’ files
-.PHONY: cen clen cl_en clean_en
-cen clen cl_en clean_en:
+#:clean_en/cl_en/clen/cen	deletes ‘en’ files
+.PHONY: clean_en cl_en clen cen
+clean_en cl_en clen cen:
 	$(RM) -r $(FOLDERS_en)
 
-#:ice	is disabled for ‘en’ language
+#:ice	disabled for ‘en’
 ice_en.mk: ;
 
 $(FOLDERS_en):
@@ -55,6 +55,6 @@ generating-code-in-m4-introduction/%.html: rootb.m4 queues.m4 aux.m4 html_config
 generating-code-in-m4-introduction/publish.txt: rootb.m4 queues.m4 aux.m4 html_config.m4 html_inline.m4 headings.m4 html_block.m4 html_insert.m4 version.m4 style.m4 lang_en.m4 css.m4 refs_cs.m4 refs_en.m4 order.m4 lang.m4 include.m4 $(wildcard intro.mc.d/*.m4 intro.mc.d/*/*.m4) publish.m4 intro.mc html_navig.m4
 	m4 -DLANG_CODE='en' $^ | sed -f publish.sed -f brackets.sed > $@
 
-generating-code-in-m4-introduction/spell.txt: rootb.m4 include.m4 version.m4 lang_en.m4 refs_cs.m4 refs_en.m4 order.m4 lang.m4 headings.m4 spell.m4 $(wildcard intro.mc.d/*.m4 intro.mc.d/*/*.m4) intro.mc
-	m4 -DLANG_CODE='en' -DSOURCE='intro.mc' -DSPELLCHECK $^ > $@
+generating-code-in-m4-introduction/spell.txt: rootb.m4 include.m4 version.m4 lang_en.m4 refs_cs.m4 refs_en.m4 order.m4 lang.m4 headings.m4 spell.m4 intro.mc
+	m4 -DLANG_CODE='en' -DSOURCE='intro.mc' $^ > $@
 

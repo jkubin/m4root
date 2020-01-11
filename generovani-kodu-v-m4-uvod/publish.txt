@@ -105,7 +105,7 @@ define(…)
 divert(0)dnl
 …
 </pre>
-<div title="divert(-1), divert(0), divert(1), …, divert(2147483647)" class="rs-tip-major m4-tip">Klíčové slovo <code>divert(ℤ)</code> přepíná výstupní fronty.
+<div title="divert(-1), divert(0), divert(1), …, divert(2147483647)" class="rs-tip-major m4-tip">Klíčové slovo <code>divert(<a href="https://cs.wikipedia.org/wiki/Cel%C3%A9_%C4%8D%C3%ADslo" title="celé číslo">ℤ</a>)</code> přepíná výstupní fronty.
 Argument <code>-1</code> zcela vypne jakýkoliv textový výstup.
 Argument <code>0</code> přepne výstup na <code>stdout</code>.</div>
 <h3 id="m4-m4"><a href="#m4-m4" title="⚓">»</a>&nbsp;M4</h3>
@@ -190,9 +190,9 @@ ifelse(`', `', `yes', `no') → yes
 <p>Výchozí dvojice znaků <code>`'</code> v&nbsp;M4 řídí expanzi neterminálů.
 Klíčové slovo <code>changequote()</code> je může změnit na jiné znaky, například {<code>[]</code>, <strong><code>␂␆</code></strong>, <code>〖〗</code>}.
 Neterminály, které nechceme (ihned) expandovat, jsou obklopeny touto dvojicí znaků.
-Při průchodu makro procesorem jsou všechny symboly mezi touto dvojicí znaků <strong class="m4-un">terminálními symboly</strong> a dvojice znaků je odstraněna.
+Při průchodu makro procesorem jsou všechny symboly mezi touto dvojicí znaků <strong class="m4-un">terminálními symboly</strong> a vnější dvojice znaků je odstraněna.
 Další průchod již způsobí expanzi původně chráněných neterminálů.
-Dvojice řídících znaků se nastavují na začátku kořenového souboru.</p>
+Dvojice řídících znaků se nastavuje na začátku kořenového souboru.</p>
 <h4 id="m4-automaty"><a href="#m4-automaty" title="⚓">3.2</a>&nbsp;&nbsp;Automaty&nbsp;<a href="#m4-toc-automaty" title="Obsah" class="m4-jmp">☰</a></h4>
 <p>Automaty používají přepisovací pravidla gramatiky jako uzly a&nbsp;mění své stavy podle vstupních symbolů.
 Aktuálně používané přepisovací pravidlo produkuje do výstupní fronty (nebo do několika výstupních front)
@@ -225,7 +225,7 @@ Datové soubory <code>.mc</code> obvykle neobsahují žádná transformační pr
 ~]$ <strong>cat input.mc | m4 root.m4 stem.m4 branch.m4 leaf.m4 - &gt; output.file</strong>
 </pre>
 <pre title="vstupní kód → generování zdrojového kódu → kompilace">
-~]$ <strong>cat input.mc | m4 root.m4 stem.m4 branch.m4 leaf.m4 - | gcc -x c -o prg -</strong>
+~]$ <strong>cat input.mc | m4 root.m4 stem.m4 branch.m4 leaf.m4 - | gcc -x c -o progr -</strong>
 </pre>
 <p>Vyzkoušejte: <a href="#m4-priklady-generovani-kodu" title="Příklady generování kódu">Příklady generování kódu</a></p>
 <h4 id="m4-preprocesor"><a href="#m4-preprocesor" title="⚓">4.2</a>&nbsp;&nbsp;Preprocesor&nbsp;<a href="#m4-toc-preprocesor" title="Obsah" class="m4-jmp">☰</a></h4>
@@ -239,7 +239,7 @@ Kolize znaku je ale snadno řešitelná.</p>
 ~]$ <strong>m4 root.m4 stem.m4 branch.m4 leaf.m4 file.c &gt; preproc.file.c</strong>
 </pre>
 <pre title="M4 jako preprocesor – bez dočasného souboru">
-~]$ <strong>m4 root.m4 stem.m4 branch.m4 leaf.m4 file.c | gcc -x c -o prg -</strong>
+~]$ <strong>m4 root.m4 stem.m4 branch.m4 leaf.m4 file.c | gcc -x c -o progr -</strong>
 </pre>
 <p>M4 v&nbsp;režimu preprocesoru může být součástí kolony.
 Konfliktní znak <code>`</code> ze vstupního zdrojového kódu je skryt do makra, například <code>`'LQ()</code>.
@@ -391,8 +391,8 @@ Tímto způsobem je možné postupně získat určitou praxi.</p>
 <p id="m4-toc-ini-nespojity-index-front">&nbsp;&nbsp;&nbsp;<a href="#m4-ini-nespojity-index-front">A.12&nbsp;&nbsp;<code>[]</code> INI – nespojitý index front</a></p>
 <p id="m4-toc-xml-smisene-zpravy">&nbsp;&nbsp;&nbsp;<a href="#m4-xml-smisene-zpravy">A.13&nbsp;&nbsp;<code>[]</code> XML – smíšené zprávy</a></p>
 <p id="m4-toc-xml-oddelene-zpravy">&nbsp;&nbsp;&nbsp;<a href="#m4-xml-oddelene-zpravy">A.14&nbsp;&nbsp;<code>[]</code> XML – oddělené zprávy</a></p>
-<p id="m4-toc-bash-echo-retezec">&nbsp;&nbsp;&nbsp;<a href="#m4-bash-echo-retezec">A.15&nbsp;&nbsp;<code>[]</code> Bash – <code>echo "řetězec"</code></a></p>
-<p id="m4-toc-bash-echo-aretezeca">&nbsp;&nbsp;&nbsp;<a href="#m4-bash-echo-aretezeca">A.16&nbsp;&nbsp;<code>[]</code> Bash – <code>echo 'řetězec'</code></a></p>
+<p id="m4-toc-bash-cmd-echo-retezec">&nbsp;&nbsp;&nbsp;<a href="#m4-bash-cmd-echo-retezec">A.15&nbsp;&nbsp;<code>[]</code> Bash <code>~]$ echo &quot;řetězec&quot;</code></a></p>
+<p id="m4-toc-bash-cmd-echo-aretezeca">&nbsp;&nbsp;&nbsp;<a href="#m4-bash-cmd-echo-aretezeca">A.16&nbsp;&nbsp;<code>[]</code> Bash <code>~]$ echo 'řetězec'</code></a></p>
 <div class="rs-tip-major m4-tip">Příklady v&nbsp;této příloze jsou složitější a&nbsp;jejich cílem je ukázat praktické použití jazyka M4.
 Podrobněji budou vysvětleny později.</div>
 <h3 id="m4-vstupni-zdrojovy-kod"><a href="#m4-vstupni-zdrojovy-kod" title="⚓">»</a>&nbsp;Vstupní zdrojový kód</h3>
@@ -485,7 +485,7 @@ define([DQ], [\"])
 define([EX], [!])
 define([GT], [&gt;])
 define([LT], [&lt;])</pre>
-<h4 id="m4-bash-cmd-echo-retezec"><a href="#m4-bash-cmd-echo-retezec" title="⚓">»</a>&nbsp;<code>[]</code> Bash <code>~]$ echo &quot;řetězec&quot;</code></h4>
+<h4 id="m4-bash-retezec"><a href="#m4-bash-retezec" title="⚓">»</a>&nbsp;<code>[]</code> Bash – <code>&quot;řetězec&quot;</code></h4>
 <table class="table"><tbody><tr><th><a href="https://raw.githubusercontent.com/jkubin/m4root/master/messages/doubleq.m4" title="GitHub">doubleq.m4</a></th><th style="width:100%">převodní soubor</th></tr></tbody></table>
 <pre title="doubleq.m4"># A → β
 define([AMP], [&amp;])
@@ -496,7 +496,7 @@ define([DQ], [\"])
 define([EX], ["\!"])
 define([GT], [&gt;])
 define([LT], [&lt;])</pre>
-<h4 id="m4-bash-cmd-echo-aretezeca"><a href="#m4-bash-cmd-echo-aretezeca" title="⚓">»</a>&nbsp;<code>[]</code> Bash <code>~]$ echo 'řetězec'</code></h4>
+<h4 id="m4-bash-aretezeca"><a href="#m4-bash-aretezeca" title="⚓">»</a>&nbsp;<code>[]</code> Bash – <code>'řetězec'</code></h4>
 <table class="table"><tbody><tr><th><a href="https://raw.githubusercontent.com/jkubin/m4root/master/messages/apost.m4" title="GitHub">apost.m4</a></th><th style="width:100%">převodní soubor</th></tr></tbody></table>
 <pre title="apost.m4"># A → β
 define([AMP], [&amp;])
@@ -573,7 +573,7 @@ divert(-1)</pre>
 </pre>
 <pre title="hello.ini">; DO NOT EDIT! This file is generated automatically!
 
-[hello_20200110]
+[hello_20200111]
 COMPLEX="!\"#$%&amp;'()*+,-./:;&lt;=&gt;?@[\\]^_`{|}~"
 SUCCESS="Complex M4 code failed successfully."
 NOFAULT="It's not a language fault!"</pre>
@@ -1198,7 +1198,7 @@ divert(-1)</pre>
 		&lt;/item&gt;
 	&lt;/warning&gt;
 &lt;/messages&gt;</pre>
-<h3 id="m4-bash-echo-retezec"><a href="#m4-bash-echo-retezec" title="⚓">A.15</a>&nbsp;&nbsp;<code>[]</code> Bash – <code>echo "řetězec"</code>&nbsp;<a href="#m4-toc-bash-echo-retezec" title="Obsah" class="m4-jmp">☰</a></h3>
+<h3 id="m4-bash-cmd-echo-retezec"><a href="#m4-bash-cmd-echo-retezec" title="⚓">A.15</a>&nbsp;&nbsp;<code>[]</code> Bash <code>~]$ echo &quot;řetězec&quot;</code>&nbsp;<a href="#m4-toc-bash-cmd-echo-retezec" title="Obsah" class="m4-jmp">☰</a></h3>
 <pre title="doubleq.sh.m4"># A → β
 # β
 define([ERROR], [
@@ -1232,7 +1232,7 @@ echo "Complex M4 code failed successfully."
 echo "Programming in M4 is addictive"\!""
 echo "It's not a language fault"\!""
 echo "No other errors detected."</pre>
-<h3 id="m4-bash-echo-aretezeca"><a href="#m4-bash-echo-aretezeca" title="⚓">A.16</a>&nbsp;&nbsp;<code>[]</code> Bash – <code>echo 'řetězec'</code>&nbsp;<a href="#m4-toc-bash-echo-aretezeca" title="Obsah" class="m4-jmp">☰</a></h3>
+<h3 id="m4-bash-cmd-echo-aretezeca"><a href="#m4-bash-cmd-echo-aretezeca" title="⚓">A.16</a>&nbsp;&nbsp;<code>[]</code> Bash <code>~]$ echo 'řetězec'</code>&nbsp;<a href="#m4-toc-bash-cmd-echo-aretezeca" title="Obsah" class="m4-jmp">☰</a></h3>
 <pre title="apost.sh.m4"># A → β
 # β
 define([ERROR], [

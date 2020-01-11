@@ -104,7 +104,7 @@ define(…)
 divert(0)dnl
 …
 </pre>
-<div title="divert(-1), divert(0), divert(1), …, divert(2147483647)" class="rs-tip-major m4-tip">The <code>divert(ℤ)</code> keyword switches output queues.
+<div title="divert(-1), divert(0), divert(1), …, divert(2147483647)" class="rs-tip-major m4-tip">The <code>divert(<a href="https://en.wikipedia.org/wiki/Integer" title="integer">ℤ</a>)</code> keyword switches output queues.
 Argument <code>-1</code> completely disables any text output.
 Argument <code>0</code> switches output to <code>stdout</code>.</div>
 <h3 id="m4-m4"><a href="#m4-m4" title="⚓">»</a>&nbsp;M4</h3>
@@ -189,7 +189,7 @@ ifelse(`', `', `yes', `no') → yes
 <p>The default character pair <code>`'</code> in M4 controls the expansion of nonterminals.
 The keyword <code>changequote()</code> can change them to other characters, for example {<code>[]</code>, <strong><code>␂␆</code></strong>, <code>〖〗</code>}.
 Nonterminals that we do not want to (immediately) expand are surrounded by this pair of characters.
-When passing through a macro processor, all the symbols between this character pair are <strong class="m4-un">terminal symbols</strong> and the character pair is removed.
+When passing through a macro processor, all the symbols between this character pair are <strong class="m4-un">terminal symbols</strong> and the outer character pair is removed.
 The next pass will cause the expansion of the originally protected nonterminals.
 Control character pair is set at the beginning of the root file.</p>
 <h4 id="m4-automata"><a href="#m4-automata" title="⚓">3.2</a>&nbsp;&nbsp;Automata&nbsp;<a href="#m4-toc-automata" title="Content" class="m4-jmp">☰</a></h4>
@@ -223,7 +223,7 @@ The data <code>.mc</code> files usually do not contain any transformation rules.
 ~]$ <strong>cat input.mc | m4 root.m4 stem.m4 branch.m4 leaf.m4 - &gt; output.file</strong>
 </pre>
 <pre title="input code → source code generation → compilation">
-~]$ <strong>cat input.mc | m4 root.m4 stem.m4 branch.m4 leaf.m4 - | gcc -x c -o prg -</strong>
+~]$ <strong>cat input.mc | m4 root.m4 stem.m4 branch.m4 leaf.m4 - | gcc -x c -o progr -</strong>
 </pre>
 <p>Try: <a href="#m4-code-generation-examples" title="Code generation examples">Code generation examples</a></p>
 <h4 id="m4-the-preprocessor"><a href="#m4-the-preprocessor" title="⚓">4.2</a>&nbsp;&nbsp;The preprocessor&nbsp;<a href="#m4-toc-the-preprocessor" title="Content" class="m4-jmp">☰</a></h4>
@@ -237,7 +237,7 @@ However the character collision is easy to solve.</p>
 ~]$ <strong>m4 root.m4 stem.m4 branch.m4 leaf.m4 file.c &gt; preproc.file.c</strong>
 </pre>
 <pre title="M4 as preprocessor – without intermediate file">
-~]$ <strong>m4 root.m4 stem.m4 branch.m4 leaf.m4 file.c | gcc -x c -o prg -</strong>
+~]$ <strong>m4 root.m4 stem.m4 branch.m4 leaf.m4 file.c | gcc -x c -o progr -</strong>
 </pre>
 <p>M4 in preprocessor mode can be part of a&nbsp;pipeline.
 The conflicting character from the input source code is hidden into a&nbsp;macro, for example <code>`'LQ()</code>.
@@ -389,8 +389,8 @@ In this way it is possible to gradually gain some practice.</p>
 <p id="m4-toc-ini-discontinuous-queue-index">&nbsp;&nbsp;&nbsp;<a href="#m4-ini-discontinuous-queue-index">A.12&nbsp;&nbsp;<code>[]</code> INI – discontinuous queue index</a></p>
 <p id="m4-toc-xml-mixed-messages">&nbsp;&nbsp;&nbsp;<a href="#m4-xml-mixed-messages">A.13&nbsp;&nbsp;<code>[]</code> XML – mixed messages</a></p>
 <p id="m4-toc-xml-separated-messages">&nbsp;&nbsp;&nbsp;<a href="#m4-xml-separated-messages">A.14&nbsp;&nbsp;<code>[]</code> XML – separated messages</a></p>
-<p id="m4-toc-bash-echo-string">&nbsp;&nbsp;&nbsp;<a href="#m4-bash-echo-string">A.15&nbsp;&nbsp;<code>[]</code> Bash – <code>echo "string"</code></a></p>
-<p id="m4-toc-bash-echo-astringa">&nbsp;&nbsp;&nbsp;<a href="#m4-bash-echo-astringa">A.16&nbsp;&nbsp;<code>[]</code> Bash – <code>echo 'string'</code></a></p>
+<p id="m4-toc-bash-cmd-echo-string">&nbsp;&nbsp;&nbsp;<a href="#m4-bash-cmd-echo-string">A.15&nbsp;&nbsp;<code>[]</code> Bash <code>~]$ echo &quot;string&quot;</code></a></p>
+<p id="m4-toc-bash-cmd-echo-astringa">&nbsp;&nbsp;&nbsp;<a href="#m4-bash-cmd-echo-astringa">A.16&nbsp;&nbsp;<code>[]</code> Bash <code>~]$ echo 'string'</code></a></p>
 <div class="rs-tip-major m4-tip">The examples in this annex are more complex and are intended to demonstrate the practical use of M4.
 They will be explained in more detail later.</div>
 <h3 id="m4-input-source-code"><a href="#m4-input-source-code" title="⚓">»</a>&nbsp;Input source code</h3>
@@ -483,7 +483,7 @@ define([DQ], [\"])
 define([EX], [!])
 define([GT], [&gt;])
 define([LT], [&lt;])</pre>
-<h4 id="m4-bash-cmd-echo-string"><a href="#m4-bash-cmd-echo-string" title="⚓">»</a>&nbsp;<code>[]</code> Bash <code>~]$ echo &quot;string&quot;</code></h4>
+<h4 id="m4-bash-string"><a href="#m4-bash-string" title="⚓">»</a>&nbsp;<code>[]</code> Bash – <code>&quot;string&quot;</code></h4>
 <table class="table"><tbody><tr><th><a href="https://raw.githubusercontent.com/jkubin/m4root/master/messages/doubleq.m4" title="GitHub">doubleq.m4</a></th><th style="width:100%">conversion file</th></tr></tbody></table>
 <pre title="doubleq.m4"># A → β
 define([AMP], [&amp;])
@@ -494,7 +494,7 @@ define([DQ], [\"])
 define([EX], ["\!"])
 define([GT], [&gt;])
 define([LT], [&lt;])</pre>
-<h4 id="m4-bash-cmd-echo-astringa"><a href="#m4-bash-cmd-echo-astringa" title="⚓">»</a>&nbsp;<code>[]</code> Bash <code>~]$ echo 'string'</code></h4>
+<h4 id="m4-bash-astringa"><a href="#m4-bash-astringa" title="⚓">»</a>&nbsp;<code>[]</code> Bash – <code>'string'</code></h4>
 <table class="table"><tbody><tr><th><a href="https://raw.githubusercontent.com/jkubin/m4root/master/messages/apost.m4" title="GitHub">apost.m4</a></th><th style="width:100%">conversion file</th></tr></tbody></table>
 <pre title="apost.m4"># A → β
 define([AMP], [&amp;])
@@ -571,7 +571,7 @@ divert(-1)</pre>
 </pre>
 <pre title="hello.ini">; DO NOT EDIT! This file is generated automatically!
 
-[hello_20200110]
+[hello_20200111]
 COMPLEX="!\"#$%&amp;'()*+,-./:;&lt;=&gt;?@[\\]^_`{|}~"
 SUCCESS="Complex M4 code failed successfully."
 NOFAULT="It's not a language fault!"</pre>
@@ -1197,7 +1197,7 @@ divert(-1)</pre>
 		&lt;/item&gt;
 	&lt;/warning&gt;
 &lt;/messages&gt;</pre>
-<h3 id="m4-bash-echo-string"><a href="#m4-bash-echo-string" title="⚓">A.15</a>&nbsp;&nbsp;<code>[]</code> Bash – <code>echo "string"</code>&nbsp;<a href="#m4-toc-bash-echo-string" title="Content" class="m4-jmp">☰</a></h3>
+<h3 id="m4-bash-cmd-echo-string"><a href="#m4-bash-cmd-echo-string" title="⚓">A.15</a>&nbsp;&nbsp;<code>[]</code> Bash <code>~]$ echo &quot;string&quot;</code>&nbsp;<a href="#m4-toc-bash-cmd-echo-string" title="Content" class="m4-jmp">☰</a></h3>
 <pre title="doubleq.sh.m4"># A → β
 # β
 define([ERROR], [
@@ -1231,7 +1231,7 @@ echo "Complex M4 code failed successfully."
 echo "Programming in M4 is addictive"\!""
 echo "It's not a language fault"\!""
 echo "No other errors detected."</pre>
-<h3 id="m4-bash-echo-astringa"><a href="#m4-bash-echo-astringa" title="⚓">A.16</a>&nbsp;&nbsp;<code>[]</code> Bash – <code>echo 'string'</code>&nbsp;<a href="#m4-toc-bash-echo-astringa" title="Content" class="m4-jmp">☰</a></h3>
+<h3 id="m4-bash-cmd-echo-astringa"><a href="#m4-bash-cmd-echo-astringa" title="⚓">A.16</a>&nbsp;&nbsp;<code>[]</code> Bash <code>~]$ echo 'string'</code>&nbsp;<a href="#m4-toc-bash-cmd-echo-astringa" title="Content" class="m4-jmp">☰</a></h3>
 <pre title="apost.sh.m4"># A → β
 # β
 define([ERROR], [
