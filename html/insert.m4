@@ -8,7 +8,7 @@ define([INSERT_FILE], [
 
 	# ARG1 removes unwanted trailing newline character
 	divert(CURRQU)dnl
-<pre title="patsubst([$1], [.*/])[$2]">ARG1(esyscmd([sed -f html/process_src_for_html.sed $1]))</pre>
+<pre title="patsubst([$1], [.*/])[$2]">ARG1(esyscmd([sed -f html/process_src.sed $1]))</pre>
 divert(-1)
 
 	# test return value from sed
