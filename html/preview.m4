@@ -56,7 +56,7 @@ m4wrap([
 <head>
 <meta charset="utf-8">
 <title>CAPTION</title>
-<link rel="stylesheet" type="text/css" href="../preview.css">
+<link rel="stylesheet" type="text/css" href="../html/preview.css">
 <meta name="description" content="PEREX">
 <meta name="author" content="AUTHOR_NAME">
 </head>
