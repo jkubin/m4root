@@ -19,24 +19,24 @@ $ make cl
 ```
 # For developers
 ```
-$ make h
+$ make he
 $ make cl
-$ make src rules SOURCE=intro.mc exclude=cs
-$ make h	<--- the generated file for Makefile provides additional help
+$ make src html SOURCE=intro.mc exclude=cs
+$ make he	<--- the generated file for Makefile provides additional help
 $ make spell preview
 $ make validate publish
 ```
 > or simply
 ```
 $ make cl
-$ make sr r SOURCE=intro.mc ex=cs
+$ make src html SOURCE=intro.mc ex=cs
 $ make
 ```
 > or generate different rules for `Makefile`
 ```
 $ make cl
-$ make sr i SOURCE=intro.mc ex=cs
-$ make h
+$ make src fhtml SOURCE=intro.mc ex=cs
+$ make he
 $ make
 ```
 ### Contact (Base64): bTR1bml4QGdtYWlsLmNvbQ
