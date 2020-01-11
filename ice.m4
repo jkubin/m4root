@@ -22,8 +22,8 @@ TARGET_FOLDER/%.html: markup_$2.m4f $(wildcard $1.d/*.m4 $1.d/*/*.m4) %.m4 $1 ht
 TARGET_FOLDER/publish.txt: markup_$2.m4f $(wildcard $1.d/*.m4 $1.d/*/*.m4) publish.m4 $1 html_navig.m4
 	m4 -R $^ | sed -f publish.sed -f brackets.sed > $[@]
 
-TARGET_FOLDER/spell.txt: rootb.m4 version.m4 include.m4 lang_$2.m4 REFS_FILES order.m4 lang.m4 headings.m4 spell.m4 $(wildcard $1.d/*.m4 $1.d/*/*.m4) $1
-	m4 -DLANG_CODE='$2' -DSOURCE='$1' -DSPELLCHECK $^ > $[@]
+TARGET_FOLDER/spell.txt: rootb.m4 version.m4 include.m4 lang_$2.m4 REFS_FILES order.m4 lang.m4 headings.m4 spell.m4 $1
+	m4 -DLANG_CODE='$2' -DSOURCE='$1' $^ > $[@]
 
 divert(-1)
 ])

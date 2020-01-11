@@ -22,8 +22,8 @@ TARGET_FOLDER/%.html: rootb.m4 queues.m4 aux.m4 html_config.m4 html_inline.m4 he
 TARGET_FOLDER/publish.txt: rootb.m4 queues.m4 aux.m4 html_config.m4 html_inline.m4 headings.m4 html_block.m4 html_insert.m4 version.m4 style.m4 lang_$2.m4 css.m4 REFS_FILES order.m4 lang.m4 include.m4 $(wildcard $1.d/*.m4 $1.d/*/*.m4) publish.m4 $1 html_navig.m4
 	m4 -DLANG_CODE='$2' $^ | sed -f publish.sed -f brackets.sed > $[@]
 
-TARGET_FOLDER/spell.txt: rootb.m4 include.m4 version.m4 lang_$2.m4 REFS_FILES order.m4 lang.m4 headings.m4 spell.m4 $(wildcard $1.d/*.m4 $1.d/*/*.m4) $1
-	m4 -DLANG_CODE='$2' -DSOURCE='$1' -DSPELLCHECK $^ > $[@]
+TARGET_FOLDER/spell.txt: rootb.m4 include.m4 version.m4 lang_$2.m4 REFS_FILES order.m4 lang.m4 headings.m4 spell.m4 $1
+	m4 -DLANG_CODE='$2' -DSOURCE='$1' $^ > $[@]
 
 divert(-1)
 ])
