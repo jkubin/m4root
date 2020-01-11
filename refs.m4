@@ -1,6 +1,6 @@
 __HEADER([Josef Kubin], [2019/12/11], [root_cz])
-___DESCR([tests chapter logic flow test (chapter → sub-chapter → sub-sub-chatper) and generates references for anchors])
-___POINT([find all ID in HTML tags])
+___DESCR([tests chapter logic flow (chapter → sub-chapter → sub-sub-chatper) and generates references for anchors])
+___POINT([extracts all IDs from files])
 
 # create aliases to existing macros
 # A → β
