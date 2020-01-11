@@ -63,7 +63,13 @@ trunc:
 	> $(DEBUG_FILE)
 
 
-#:cl/clean	remove generated files
+#:clean/cl	remove generated files
 .PHONY: clean cl
 clean cl:
 	$(RM) $(TARGETS) $(DEBUG_FILE)
+
+
+#:help/he	prints help for this Makefile
+.PHONY: help he
+help he:
+	@sed -n '/^#:/{s//\x1b[7mmake /;s/\t/\x1b[m /;p}' Makefile $(wildcard *.mk) | sort -u	# ]]	<--- square brackets for M4 preprocessor

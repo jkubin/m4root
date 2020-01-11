@@ -58,7 +58,13 @@ $(TARGETS): messages.mc Makefile
 	m4 $(filter-out Makefile, $^) > $@
 
 
-#:cl/clean	remove generated files
+#:clean/cl	remove generated files
 .PHONY: clean cl
 clean cl:
 	$(RM) $(TARGETS)
+
+
+#:help/he	print this text
+.PHONY: help he
+help he:
+	@sed -n '/^#:/{s//\x1b[7mmake /;s/\t/\x1b[m /;p}' Makefile | sort	# ]]	<--- square brackets for M4 preprocessor

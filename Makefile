@@ -72,7 +72,7 @@ test t: debug dev
 #:devel/dev	this target is for M4 script development
 .PHONY: devel dev
 devel dev: rootb.m4
-	m4 $< html_inline.m4 test.m4
+	m4 $< test.m4
 
 $(ORDER_FILE): rootb.m4 toc.m4 toc_list.m4
 	m4 -DALL_LANGS='$(LANGS_ALL)' -DFILE_LIST='$(FILE_LIST)' $^ > $@
@@ -104,13 +104,13 @@ clean cle del cl:
 .PHONY: distclean dcl cld dc
 distclean dcl cld dc: clean $(CLSUBDIRS)
 
-#:mostlyclean/mcl/clm/cll/mc/c	deletes only a subset of the generated files
-.PHONY: mostlyclean mcl clm cll mc c
-mostlyclean mcl clm cll mc c:
+#:mostlyclean/mcl/clm/cll/mc	deletes only a subset of the generated files
+.PHONY: mostlyclean mcl clm cll mc
+mostlyclean mcl clm cll mc:
 	$(RM) -r $(FOLDERS)
 
 
-#:help/h	prints help for this Makefile
-.PHONY: help h
-help h:
+#:help/he	prints help for this Makefile
+.PHONY: help he
+help he:
 	@sed -n '/^#:/{s//\x1b[7mmake /;s/\t/\x1b[m /;p}' Makefile $(wildcard *.mk) | sort -u	# ]]	<--- square brackets for M4 preprocessor
