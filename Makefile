@@ -26,10 +26,10 @@ SPACE = $(EMPTY) $(EMPTY)
 COMMA = ,
 
 LANG_CODES = $(patsubst lang_%.m4,%,$(wildcard lang_*.m4))
-MAKE_CODES = $(filter-out $(ex)$(exclude), $(LANG_CODES))
-MAKE_RULES = $(patsubst %,rules_%.mk,$(MAKE_CODES))
-MAKE_ICE   = $(patsubst %,ice_%.mk,$(MAKE_CODES))
-MAKE_REFS  = $(patsubst %,refs_%.m4,$(MAKE_CODES))
+REQ_LANGS  = $(filter-out $(ex)$(exclude), $(LANG_CODES))
+MAKE_HTML  = $(patsubst %,html_%.mk,$(REQ_LANGS))
+MAKE_FHTML = $(patsubst %,fhtml_%.mk,$(REQ_LANGS))
+MAKE_REFS  = $(patsubst %,refs_%.m4,$(REQ_LANGS))
 REFS_ALL   = $(patsubst %,refs_%.m4,$(LANG_CODES))
 LANGS_ALL  = $(subst $(SPACE),$(COMMA),$(LANG_CODES))
 FILE_LIST  = $(subst $(SPACE),$(COMMA),$(SOURCE))
@@ -40,17 +40,17 @@ CLSUBDIRS  = $(SUBDIRS:%=clean-%)
 
 #:all	creates all files
 .PHONY: all
-all: src rules $(TARGETS)
+all: src html $(TARGETS)
 
 
-#:rules/rul/r	creates ordinary Makefile rules
-.PHONY: rules rul r
-rules rul r: $(MAKE_RULES)
+#:html	creates ordinary Makefile rules
+.PHONY: html
+html: $(MAKE_HTML)
 
 
-#:ice/i	experimentally creates Makefile rules for frozen M4 files
-.PHONY: ice i
-ice i: $(MAKE_ICE)
+#:fhtml	experimentally creates Makefile rules for frozen M4 files
+.PHONY: fhtml
+fhtml: $(MAKE_FHTML)
 
 
 #:src	generates files in all example folders
@@ -80,10 +80,10 @@ $(ORDER_FILE): rootb.m4 toc.m4 toc_list.m4
 refs_%.m4: rootb.m4 lang_%.m4 toc.m4 $(ORDER_FILE) lang.m4 headings.m4 include.m4 refs.m4
 	m4 -DLANG_CODE='$*' $^ $(SOURCE) > $@
 
-rules_%.mk: rootb.m4 $(ORDER_FILE) refs_%.m4 lang.m4 headings.m4 rules.m4
+html_%.mk: rootb.m4 $(ORDER_FILE) refs_%.m4 lang.m4 headings.m4 make/html.m4
 	m4 -DREFS_FILES='$(MAKE_REFS)' -DLANG_CODE='$*' $^ > $@
 
-ice_%.mk: rootb.m4 $(ORDER_FILE) refs_%.m4 lang.m4 headings.m4 ice.m4
+fhtml_%.mk: rootb.m4 $(ORDER_FILE) refs_%.m4 lang.m4 headings.m4 make/fhtml.m4
 	m4 -DREFS_FILES='$(MAKE_REFS)' -DLANG_CODE='$*' $^ > $@
 
 .PHONY: $(SUBDIRS)
@@ -107,7 +107,7 @@ distclean dcl cld dc: clean $(CLSUBDIRS)
 #:mostlyclean/mcl/clm/cll/mc	deletes only a subset of the generated files
 .PHONY: mostlyclean mcl clm cll mc
 mostlyclean mcl clm cll mc:
-	$(RM) -r $(FOLDERS)
+	$(RM) -r $(FOLDERS) *.{mk,m4f}
 
 
 #:help/he	prints help for this Makefile

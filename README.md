@@ -29,7 +29,7 @@ $ make validate publish
 > or simply
 ```
 $ make cl
-$ make src html SOURCE=intro.mc ex=cs
+$ make SOURCE=intro.mc ex=cs
 $ make
 ```
 > or generate different rules for `Makefile`
