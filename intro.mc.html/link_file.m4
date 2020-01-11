@@ -1,1 +1,1 @@
-../plugins/link_file.m4
+../html_plugins/link_file.m4

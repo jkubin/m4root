@@ -80,10 +80,10 @@ $(ORDER_FILE): rootb.m4 toc.m4 toc_list.m4
 refs_%.m4: rootb.m4 lang_%.m4 toc.m4 $(ORDER_FILE) lang.m4 headings.m4 include.m4 refs.m4
 	m4 -DLANG_CODE='$*' $^ $(SOURCE) > $@
 
-html_%.mk: rootb.m4 $(ORDER_FILE) refs_%.m4 lang.m4 headings.m4 make/html.m4
+html_%.mk: rootb.m4 $(ORDER_FILE) refs_%.m4 lang.m4 headings.m4 mk/html.m4
 	m4 -DREFS_FILES='$(MAKE_REFS)' -DLANG_CODE='$*' $^ > $@
 
-fhtml_%.mk: rootb.m4 $(ORDER_FILE) refs_%.m4 lang.m4 headings.m4 make/fhtml.m4
+fhtml_%.mk: rootb.m4 $(ORDER_FILE) refs_%.m4 lang.m4 headings.m4 mk/fhtml.m4
 	m4 -DREFS_FILES='$(MAKE_REFS)' -DLANG_CODE='$*' $^ > $@
 
 .PHONY: $(SUBDIRS)
