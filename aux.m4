@@ -16,11 +16,11 @@ define([NB], [ifelse([$#], [0], [[$0]], [&nbsp;])])
 
 # quot
 # A → β
-define([DQ], [ifelse([$#], [0], [[$0]], [&quot;])])
+define([DQ], [ifelse([$#], [0], [[$0]], ["])])
 
 # apos
 # A → β
-define([AP], [ifelse([$#], [0], [[$0]], [&apos;])])
+define([AP], [ifelse([$#], [0], [[$0]], ['])])
 
 # offset level in TOC
 # A → β

@@ -245,10 +245,12 @@ define([LINK], [pushdef([CURRQU], divnum)divert(-1)
 	ifelse(defn([TITLE]), [], [], [
 
 		# temporarily redefine macros
+		pushdef([AP], [ifelse([$#], [0], [[$0]], [&apos;])])
 		pushdef([BO], defn([FST]))
 		pushdef([CODE], defn([SELECT_ARG1]))
 		pushdef([CODE_M4], defn([SELECT_ARG1]))
-		pushdef([NB], [ ])
+		pushdef([DQ], [ifelse([$#], [0], [[$0]], [&quot;])])
+		pushdef([NB], [ifelse([$#], [0], [[$0]], [ ])])
 
 		# expand title
 		define([TITLE], [ ]title="TITLE")
@@ -256,9 +258,11 @@ define([LINK], [pushdef([CURRQU], divnum)divert(-1)
 		# forget previous temporary macros
 		popdef(
 
+			[AP],
 			[BO],
 			[CODE],
 			[CODE_M4],
+			[DQ],
 			[NB],
 
 		)
@@ -285,6 +289,12 @@ define([LINK], [pushdef([CURRQU], divnum)divert(-1)
 
 # β
 pushdef([FIND_IMG_DIM], [
+
+	# the "identify" program has a bug (silent if missing file)
+	ifelse(ARG1($6), [], [
+
+		ROOT_ERROR([missing image name])
+	])
 
 	# find out image dimension (copy of the image is uploaded on server)
 	define([IMAGE_DIM], esyscmd([identify -format "[%w, %h]" ]ARG1($6)))
