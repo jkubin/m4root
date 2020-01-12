@@ -1,23 +1,8 @@
 __HEADER([Josef Kubin], [2019/12/15], [root_cz])
-___DESCR([source files contains M4 keywords and forbidden characters, therefore must be processed])
-___POINT([any input files must be processed first])
+___DESCR([processes one simple macro with files to complex block of html code])
+___POINT([converts list of files from command line to html code])
 
-# processes file and puts result to html
-# A → β
-define([INSERT_FILE], [
-
-	# ARG1 removes unwanted trailing newline character
-	divert(CURRQU)dnl
-<pre title="patsubst([$1], [.*/])[$2]">ARG1(esyscmd([sed -f html/process_src.sed $1]))</pre>
-divert(-1)
-
-	# test return value from sed
-	ifelse(sysval, [0], [], [
-
-		ROOT_ERROR([‘$1’])
-	])
-])
-
+# auxiliary macro to configure command line
 # A → β
 define([CONFIGURE_COMMAND_LINE], [
 
@@ -36,7 +21,7 @@ define([ADD_LINKS_TO_INSERTED_FILES], [ifelse([$1], [], [], [NB()AH([$1], defn([
 define([ADD_FILES_TO_COMMAND_LINE], [ifelse([$1], [], [], [ $1[]$0(shift($@))])])
 
 # processes variable number of files, the last file is _ALWAYS_ output.file
-# INSERT_LIST_OF_FILES([file1.src], [file2.src], [file3.src], …, [output.file])
+# INSERT_LIST_OF_FILES([input_file1.src], [input_file2.src], [input_file3.src], …, [output.file])
 # A → β
 define([INSERT_LIST_OF_FILES], [
 
@@ -102,39 +87,4 @@ define([INSERT_FILES_MACRO], [
 [root$3.m4],dnl				root file
 )
 	INSERT_LIST_OF_FILES([$4.m4], [$1.$4])
-])
-
-# INSERT_FILES_HELLO_WORLD([q], [qnames])
-# A → β
-define([INSERT_FILES_HELLO_WORLD], [
-	CONFIGURE_COMMAND_LINE(
-[hello_world/],dnl			common sub-folder name (or use absolute paths)
-[m4 -DSYMBOL='Hello, world!' ],dnl	command and its options
-[root$1.m4],dnl				root file
-)
-	INSERT_LIST_OF_FILES([$2.m4], [hello_world.$2])
-])
-
-# INSERT_FILES_PREPROC([b], [file.c])
-# A → β
-define([INSERT_FILES_PREPROC], [
-	CONFIGURE_COMMAND_LINE(
-[preproc/],dnl				common sub-folder name (or use absolute paths)
-[m4 -DSYMBOL='Hello, world!' ],dnl	command and its options
-[root$1.m4],dnl				root file
-)
-	INSERT_LIST_OF_FILES([$2.m4], [$2], [preproc.$2])
-])
-
-# INSERT_FILES_MESSAGES([one.m4], [two.m4], [three.m4], …, [output.file])
-# A → β
-define([INSERT_FILES_MESSAGES], [
-	CONFIGURE_COMMAND_LINE(
-[messages/],dnl				common sub-folder name (or use absolute paths)
-[m4 ],dnl				command and its options
-[rootb.m4],dnl				root file
-[],dnl					prefix files
-[messages.mc],dnl			source file or comma separated source files
-)
-	INSERT_LIST_OF_FILES($@)
 ])

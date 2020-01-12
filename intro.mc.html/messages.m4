@@ -1,6 +1,6 @@
 __HEADER([Josef Kubin], [2019/12/28], [root_cz])
-___DESCR([specific definitions for each part of the series to avoid repeating the code])
-___POINT([how to avoid keyword "include" (Makefile can't see included files)])
+___DESCR([inserts files for messages])
+___POINT([inserts files for messages])
 
 # A → β
 define([INSERT_FILES_MESSAGES_QUEUES_MARKUP], [
