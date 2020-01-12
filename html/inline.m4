@@ -87,7 +87,7 @@ CREATE_INLINE_ELEMENT([SUP],	[sup])
 CREATE_INLINE_ELEMENT([TIME],	[time])
 CREATE_INLINE_ELEMENT([UL],	[ul])
 CREATE_INLINE_ELEMENT([VAR],	[var])
-CREATE_INLINE_ELEMENT_SPECIAL([AH],	[<a href="]defn([SELECT_LAST])["]defn([AH_TITLE_2], [AH_CLASS_3], [AH_STYLE_4], [AH_ID_5], [AH_REL_6], [AH_ANYTHING_7])[>$1</a>])
+CREATE_INLINE_ELEMENT_SPECIAL([AH],	[<a href="]defn([SELECT_LAST])"defn([AH_TITLE_2], [AH_CLASS_3], [AH_STYLE_4], [AH_ID_5], [AH_REL_6], [AH_ANYTHING_7])[>$1</a>])
 CREATE_INLINE_ELEMENT_SPECIAL([CODE_M4],	[<code]defn([HTML_GLOBAL_ATTRIBUTES])[>[$1]</code>])
 
 # forget local β rules (good for frozen files)
