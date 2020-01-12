@@ -1,6 +1,6 @@
 __HEADER([Josef Kubin], [2019/12/11], [root_cz])
 ___DESCR([tests chapter logic flow (chapter → sub-chapter → sub-sub-chatper) and generates references for anchors])
-___POINT([extracts all IDs from files])
+___POINT([extracts all IDs from files and create associative pair])
 
 # create aliases to existing macros
 # A → β
@@ -9,9 +9,9 @@ define([RBR], defn([RB]))
 
 # re-define problematic macros used in captions
 # A → β
-define([AP], [ifelse([$#], [0], [[$0]], ['])])
+define([AP], [ifelse([$#], [0], [[$0]], [a])])
 define([BO], [ifelse([$#], [0], [[$0]], [$1])])
-define([DQ], [ifelse([$#], [0], [[$0]], ["])])
+define([DQ], [ifelse([$#], [0], [[$0]], [d])])
 define([NB], [ifelse([$#], [0], [[$0]], [ ])])
 define([CODE], defn([BO]))
 define([CODE_M4], [ifelse([$#], [0], [[$0]], [[$1]])])
