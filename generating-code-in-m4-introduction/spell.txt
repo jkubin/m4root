@@ -1,5 +1,5 @@
 # vim:wrap:spell:spelllang=en,en
-# intro.mc	0x5297431	20200111-21:56:52
+# intro.mc	0x40f534a	20200112-15:57:44
 
 6
 Generating code in M4: introduction
@@ -209,7 +209,7 @@ The nonterminal  is rewritten to an arbitrarily long  (the right side of the rew
 Kleene star (Wikipedia)  means that the resulting string can be rewritten to  (epsilon – empty symbol).
 
 455
-[format of rewriting context-free grammar rules]
+[context-free grammar rewriting rules]
 
 461
 M4 rewriting rules
@@ -218,14 +218,14 @@ M4 rewriting rules
 The M4 rewriting rules are the same as context-free grammar rewriting rules.
 
 474
-[format M4 rewriting rules]
+[M4 rewriting rules]
 
 483
 All M4 keywords are nonterminals (macros), they take some action (changes the internal state of the macro processor) and rewrite to  (epsilon – empty symbol).
 Keywords can be renamed.
 
 492
-[all M4 keywords are nonterminals]
+[M4 keywords are nonterminals]
 
 500
 Nonterminal expansion control
@@ -292,10 +292,10 @@ The data  files usually do not contain any transformation rules.
 Input data may also come from the pipeline:
 
 646
-[input code → source code generation → file]
+[input code → source code generation → output file]
 
 650
-[input code → source code generation → compilation]
+[input code → source code generation → program]
 
 654
 Try: Code generation examples
@@ -363,7 +363,7 @@ Prerequisites for mastering M4
 To successfully master this macro-language it is important to fulfill several prerequisites.
 M4 is not a simple language because it is not possible to think and program in it like a regular programming language.
 The most important thing to realize is that it is used to program grammar rewriting rules.
-Each string is either a terminal or a nonterminal symbol, including all language keywords ( and  are special cases of nonterminals).
+Each string is either a terminal or a nonterminal symbol, including all language keywords (characters  and  are special cases of nonterminals).
 
 784
 M4 intentionally does not have keywords for cycles (/) because its basis is quite different from procedural or functional languages.
@@ -524,25 +524,25 @@ We create files converting macros to special characters based on the target code
  C, JSON, INI – 
 
 1177
-[conversion file]
+[conversion file for strings in source code]
 
 1180
  Bash – 
 
 1185
-[conversion file]
+[conversion file for strings inside quotation marks]
 
 1187
  Bash – 
 
 1192
-[conversion file]
+[conversion file for strings inside apostrophes]
 
 1194
  CSV, M4
 
 1198
-[the conversion file does not change special characters]
+[conversion file returns special characters intact]
 
 1201
  C – output queue

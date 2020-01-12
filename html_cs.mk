@@ -45,8 +45,8 @@ all_cs allcs cs: $(FOLDERS_cs) $(PREVIEW_cs) $(VALIDATE_cs) $(PUBLISH_cs) $(SPCH
 clean_cs cl_cs clcs ccs:
 	$(RM) -r $(FOLDERS_cs)
 
-#:ice	disabled for ‘cs’
-ice_cs.mk: ;
+#:fhtml	disabled for ‘cs’
+fhtml_cs.mk: ;
 
 $(FOLDERS_cs):
 	mkdir -p $@

@@ -45,8 +45,8 @@ all_en allen en: $(FOLDERS_en) $(PREVIEW_en) $(VALIDATE_en) $(PUBLISH_en) $(SPCH
 clean_en cl_en clen cen:
 	$(RM) -r $(FOLDERS_en)
 
-#:ice	disabled for ‘en’
-ice_en.mk: ;
+#:fhtml	disabled for ‘en’
+fhtml_en.mk: ;
 
 $(FOLDERS_en):
 	mkdir -p $@

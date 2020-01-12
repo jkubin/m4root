@@ -1,5 +1,5 @@
 # vim:wrap:spell:spelllang=cs,en
-# intro.mc	0x5297431	20200111-21:56:52
+# intro.mc	0x40f534a	20200112-15:57:43
 
 6
 Generování kódu v M4: úvod
@@ -210,7 +210,7 @@ Neterminál  se přepíše na libovolně dlouhý řetězec  (pravá strana přep
 Kleene hvězda (Wikipedie)  znamená, že se neterminál  může přepsat na  (epsilon – prázdný symbol).
 
 455
-[formát přepisovacích pravidel bezkontextové gramatiky]
+[přepisovací pravidla bezkontextové gramatiky]
 
 461
 Přepisovací pravidla M4
@@ -219,14 +219,14 @@ Přepisovací pravidla M4
 Přepisovací pravidla M4 jsou stejná jako přepisovací pravidla bezkontextové gramatiky.
 
 474
-[formát přepisovacích pravidel M4]
+[přepisovací pravidla M4]
 
 483
 Všechna klíčová slova M4 jsou neterminály (makra), provedou nějakou akci (změní vnitřní stav makro procesoru) a přepíší se na  (epsilon – prázdný symbol).
 Klíčová slova mohou být přejmenována.
 
 492
-[všechna klíčová slova jazyka M4 jsou neterminály]
+[klíčová slova M4 jsou neterminály]
 
 500
 Řízení expanze neterminálů
@@ -297,7 +297,7 @@ Vstupní data mohou také přicházet z kolony:
 [vstupní kód → generování zdrojového kódu → soubor]
 
 650
-[vstupní kód → generování zdrojového kódu → kompilace]
+[vstupní kód → generování zdrojového kódu → program]
 
 654
 Vyzkoušejte: Příklady generování kódu
@@ -362,10 +362,10 @@ Vyzkoušejte: M4 – příklady
 Předpoklady pro zvládnutí M4
 
 771
-Pro úspěšné zvládnutí tohoto makro-jazyka je důležité splnit několik předpokladů.
+Pro úspěšné zvládnutí tohoto makro jazyka je důležité splnit několik předpokladů.
 M4 není jednoduchý jazyk, protože není možné v něm myslet a programovat jako v běžném programovacím jazyce.
 Nejdůležitější je uvědomit si, že se v něm programují přepisovací pravidla gramatiky.
-Každý řetězec je buď terminální nebo neterminální symbol včetně všech klíčových slov jazyka ( a  jsou speciální případy neterminálů).
+Každý řetězec je buď terminální nebo neterminální symbol včetně všech klíčových slov jazyka (znaky  a  jsou speciální případy neterminálů).
 
 784
 M4 záměrně nemá klíčová slova pro cykly (/), protože jeho základ je zcela jiný, než jaký mají procedurální nebo funkcionální jazyky.
@@ -526,25 +526,25 @@ Vytvoříme soubory převádějící makra na speciální znaky podle typu cílo
  C, JSON, INI – 
 
 1177
-[převodní soubor]
+[převodní soubor pro řetězce ve zdrojovém kódu]
 
 1180
  Bash – 
 
 1185
-[převodní soubor]
+[převodní soubor pro řetězce uvnitř uvozovek]
 
 1187
  Bash – 
 
 1192
-[převodní soubor]
+[převodní soubor pro řetězce uvnitř apostrofů]
 
 1194
  CSV, M4
 
 1198
-[převodní soubor nezmění speciální znaky]
+[převodní soubor vrátí speciální znaky beze změny]
 
 1201
  C – výstupní fronta
