@@ -1,3 +1,5 @@
+# vim:ft=m4
+
 __HEADER([Josef Kubin], [2019/09/01], [root_cz])
 ___DESCR([the script creates additional rules extending the handwritten Makefile])
 ___POINT([additional rules by configuration from command line])
@@ -90,8 +92,8 @@ ALL_SUBTARGETS: SUBTARGETS
 CLEAN_SUBTARGETS:
 	$(RM) -r $(FOLDER_NAMES)
 
-[#]:ice	disabled for ‘LANG_CODE’
-ice_[]LANG_CODE.mk: ;
+[#]:fhtml	disabled for ‘LANG_CODE’
+fhtml_[]LANG_CODE.mk: ;
 
 $(FOLDER_NAMES):
 	mkdir -p $@

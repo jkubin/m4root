@@ -1,3 +1,5 @@
+# vim:ft=m4
+
 __HEADER([Josef Kubin], [2020/01/05], [root_cz])
 ___DESCR([the script creates experimental additional rules extending the handwritten Makefile])
 ___POINT([additional rules by configuration from command line; the rules utilise M4 frozen files])
@@ -16,10 +18,10 @@ define([TABLE_OF_CONTENT_ITEM], [
 divert(1)dnl
 defn([TARGET_FOLDER]) \
 divert(2)dnl
-TARGET_FOLDER/%.html: markup_$2.m4f $(wildcard $1.html/*.m4 $1.html/*/*.m4) %.m4 $1 navig.m4
+TARGET_FOLDER/%.html: html_$2.m4f $(wildcard $1.html/*.m4 $1.html/*/*.m4) %.m4 $1 navig.m4
 	m4 -R $^ | sed -f brackets.sed > $[@]
 
-TARGET_FOLDER/publish.txt: markup_$2.m4f $(wildcard $1.html/*.m4 $1.html/*/*.m4) publish.m4 $1 navig.m4
+TARGET_FOLDER/publish.txt: html_$2.m4f $(wildcard $1.html/*.m4 $1.html/*/*.m4) publish.m4 $1 navig.m4
 	m4 -R $^ | sed -f html/publish.sed -f brackets.sed > $[@]
 
 TARGET_FOLDER/spell.txt: rootb.m4 version.m4 include.m4 lang_$2.m4 REFS_FILES order.m4 lang.m4 headings.m4 spell.m4 $1
@@ -40,7 +42,7 @@ define([PREVIEW_FILES],		[PREVIEW_]LANG_CODE)
 define([SPCHECK_FILES],		[SPCHECK_]LANG_CODE)
 define([VALIDATE_FILES],	[VALIDATE_]LANG_CODE)
 define([FOLDER_NAMES],		[FOLDERS_]LANG_CODE)
-define([FROZEN_FILE],		[markup_]LANG_CODE.m4f)
+define([FROZEN_FILE],		[html_]LANG_CODE.m4f)
 define([SUBTARGETS],		$(FOLDER_NAMES) $(PREVIEW_FILES) $(VALIDATE_FILES) $(PUBLISH_FILES) $(SPCHECK_FILES))
 
 # create the final output
@@ -91,8 +93,8 @@ ALL_SUBTARGETS: SUBTARGETS
 CLEAN_SUBTARGETS:
 	$(RM) -r $(FOLDER_NAMES) FROZEN_FILE
 
-[#]:rules	disabled for ‘LANG_CODE’
-rules_[]LANG_CODE.mk: ;
+[#]:html	disabled for ‘LANG_CODE’
+html_[]LANG_CODE.mk: ;
 
 $(FOLDER_NAMES):
 	mkdir -p $@
