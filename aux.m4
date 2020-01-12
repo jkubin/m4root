@@ -22,6 +22,14 @@ define([DQ], [ifelse([$#], [0], [[$0]], ["])])
 # A → β
 define([AP], [ifelse([$#], [0], [[$0]], ['])])
 
+# html problematic character '<'
+# A → β
+define([LT], [ifelse([$#], [0], [[$0]], [&lt;])])
+
+# html problematic character '>'
+# A → β
+define([GT], [ifelse([$#], [0], [[$0]], [&gt;])])
+
 # offset level in TOC
 # A → β
 define([NBX], [&nbsp;&nbsp;])

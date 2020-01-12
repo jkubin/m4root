@@ -48,7 +48,7 @@ iabbrev <buffer> <unique> emm EM([<c-r>"])<esc>
 iabbrev <buffer> <unique> fig FIGCAPTION([[dnl czech<cr><cr>],<cr>[dnl english: _next_language_<cr>%%%<cr>]])<left><c-o>%<c-o>0<down><c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> fim FIGCAPTION_MONO([[dnl monolingual<cr><cr>]])dnl FIGCAPTION_MONO<up><c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> fw FIGURE_WRAP([<cr><cr><cr><cr>])dnl FIGURE_WRAP<up><up><c-r>=Eatchar('.')<cr>
-iabbrev <buffer> <unique> gt &gt;<c-r>=Eatchar('.')<cr>
+iabbrev <buffer> <unique> gt []GT()<c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> hew HEADER_WRAP([<cr><cr><cr><cr>])dnl HEADER_WRAP<up><up><c-r>=Eatchar('.')<cr>
 "iabbrev <buffer> <unique> hh H1([])<left><left><c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> hh HEADING([dnl czech<cr>[],<cr>dnl english: _next_language_<cr><c-u>[%%%],<cr>])<left><c-o>%<c-o>0<down><right><c-r>=Eatchar('.')<cr>
@@ -62,7 +62,7 @@ iabbrev <buffer> <unique> lii LI([<c-r>"])<esc>
 iabbrev <buffer> <unique> lim LIST_ITEM_MONO([[dnl monolingual<cr><cr>]])<up><c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> lit LIST_ITEM([[dnl czech<cr><cr>],<cr>[dnl english: _next_language_<cr>%%%<cr>]])dnl LIST_ITEM<up><up><up><up><c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> lnk LINK([<c-r>"], [])<c-o>T[<c-r>=Eatchar('.')<cr>
-iabbrev <buffer> <unique> lt &lt;<c-r>=Eatchar('.')<cr>
+iabbrev <buffer> <unique> lt []LT()<c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> mar MARK([<c-r>"])<esc>
 iabbrev <buffer> <unique> maw MAIN_WRAP([<cr><cr><cr><cr>])dnl MAIN_WRAP<up><up><c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> met METER([60%],,,,, [value="0.6"])<c-r>=Eatchar('.')<cr>
