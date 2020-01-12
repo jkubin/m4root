@@ -43,12 +43,12 @@ CLSUBDIRS  = $(SUBDIRS:%=clean-%)
 all: src html $(TARGETS)
 
 
-#:html	creates ordinary Makefile rules
+#:html	creates rules to generate html
 .PHONY: html
 html: $(MAKE_HTML)
 
 
-#:fhtml	experimentally creates Makefile rules for frozen M4 files
+#:fhtml	creates rules to generate html from frozen M4 files
 .PHONY: fhtml
 fhtml: $(MAKE_FHTML)
 
