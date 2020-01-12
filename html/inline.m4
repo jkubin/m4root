@@ -23,10 +23,10 @@ pushdef([HTML_GLOBAL_ATTRIBUTES],	defn([TITLE_2], [CLASS_3], [STYLE_4], [ID_5], 
 # A → β
 # define([TIP_BOX_NOTE],	[ifelse([$#], [0], [[$0]], [SPAN([WORD_NOTE:],, [note])])])
 define([BR],	[ifelse([$#], [0], [[$0]], [<br>])])
-define([BUN],	[BO([$1],, [un])])
-define([CODE_BLUE],	[CODE([$1],, [bl])])
-define([CODE_M4U],	[CODE_M4([$1],, [un])])
-define([CODE_UND],	[CODE([$1],, [un])])
+define([BUN],	[BO([$1], [$2], [un])])
+define([CODE_BLUE],	[CODE([$1], [$2], [bl])])
+define([CODE_M4U],	[CODE_M4([$1], [$2], [un])])
+define([CODE_UND],	[CODE([$1], [$2], [un])])
 define([QUOTE],	[ifelse([$#], [0], [[$0]], [„$1“])])
 define([WBR],	[ifelse([$#], [0], [[$0]], [<wbr>])])
 
@@ -57,6 +57,15 @@ pushdef([AH_STYLE_4],	[ifelse([$#], [4], [], [$4], [], [], [ style="[$4]"])])
 pushdef([AH_ID_5],	[ifelse([$#], [5], [], [$5], [], [], [ id="FIND_AND_ADD_ID_RULE_SET([$5])"])])
 pushdef([AH_REL_6],	[ifelse([$#], [6], [], [$6], [], [], [ rel="[$6]"])])
 pushdef([AH_ANYTHING_7],	[ifelse([$#], [7], [], [$7], [], [], [ [$7]])])
+
+# A → β
+# <a href="URL" title="" rel="">…</a>	<--- a reduced version (Address-Hyperlink Title Rel)
+define([AHTR],	[AH([$1], ifelse([$#], [2], [], [[$2]]),,,, ifelse([$#], [3], [], [[$3]]), ]defn([SELECT_LAST])[)])
+# AHTR([URL])	---> <a href="URL">URL</a>
+# AHTR([text], [URL])	---> <a href="URL">text</a>
+# AHTR([text], [my_title], [URL])	---> <a href="URL" title="my_title">text</a>
+# AHTR([text], [my_title], [my_rel], [URL])	---> <a href="URL" title="my_title" rel="my_rel">text</a>
+# AHTR([text],, [my_rel], [URL])	---> <a href="URL" rel="my_rel">text</a>
 
 # A → β
 pushdef([CREATE_INLINE_ELEMENT], [define([$1], [ifelse($][#, 0, ]BRAC(BRAC($[0]))[, ]BRAC([<$2]defn([HTML_GLOBAL_ATTRIBUTES])[>$][1</$2>])[)])])
