@@ -35,21 +35,21 @@ define([WBR],	[ifelse([$#], [0], [[$0]], [<wbr>])])
 define([NOTE],	[ifelse([$#], [0], [[$0]], ]BRAC([<span class="rs-note"]defn([TITLE_2])[>$1</span>])[)])
 define([PERSON],	[ifelse([$#], [0], [[$0]], ]BRAC([<span class="rs-person"]defn([TITLE_2])[>$1</span>])[)])
 
-# how to use AH(…) ---> <a href="…">…</a> html tag:
+# how to use AH(…) ---> <a href="…"…>…</a> html tag:
 #
 # AH	---> AH
 # AH (…)	---> AH (…)
 # AH([URL])	---> <a href="URL">URL</a>
 # AH([text], [URL])	---> <a href="URL">text</a>
-# AH([text], [my_title], [URL])		---> <a href="URL" title="my_title">text</a>
+# AH([text], [my_title], [URL])	---> <a href="URL" title="my_title">text</a>
+# AH([text], [my_title],,,, [my_rel], [URL])	---> <a href="URL" title="my_title" rel="my_rel">text</a>
 # AH([text], [my_title], [my_class], [URL])	---> <a href="URL" title="my_title" class="my_class">text</a>
 # AH([text], [], [my_class], [URL])	---> <a href="URL" class="my_class">text</a>
-# AH([text], [my_title], [my_class], [my_style], [URL])	---> …
-# AH([text], [my_title], [], [my_style], [my_id], [URL])	---> <a href="URL" title="my_title" style="my_style" id="my_id">text</a>
-# AH([text], [my_title], [my_class], [my_style], [my_id], [rel], [URL])
-# AH([text], [my_title], [my_class], [my_style], [my_id], [rel], [anything], [URL])
 # AH([text],,,,, [my_rel], [URL])	---> <a href="URL" rel="my_rel">text</a>
 # AH([text],,,,,, [foo="bar" baz="ham"], [URL])	---> <a href="URL" foo="bar" baz="ham">text</a>
+# AH([text], [my_title], [my_class], [my_style], [URL])	---> <a href="URL" title="my_title" class="my_class" style="my_style">text</a>
+# AH([text], [my_title], [my_class],, [my_id], [URL])	---> <a href="URL" title="my_title" class="my_class" id="my_id">text</a>
+# AH([text], [my_title], [my_class],,, [my_rel], [URL])	---> <a href="URL" title="my_title" class="my_class" rel="my_rel">text</a>
 # β
 pushdef([AH_TITLE_2],	[ifelse([$#], [2], [], [$2], [], [], [ title="[$2]"])])
 pushdef([AH_CLASS_3],	[ifelse([$#], [3], [], [$3], [], [], [ class="ADD_CLASS_RULE_SET([$3])"])])
