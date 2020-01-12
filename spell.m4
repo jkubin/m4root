@@ -262,7 +262,7 @@ divert(-1)
 ])
 
 # A → β
-define([LINK_FILE], defn([SPELLCHECK_FILE_TITLE]))
+define([INSERT_FILE_AND_LINK], defn([SPELLCHECK_FILE_TITLE]))
 
 popdef(
 
