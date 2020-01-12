@@ -4,7 +4,7 @@ ___POINT([define necessary styles for an article or series])
 
 CSS_RULE_SET([.urs .NSP()tip::before], [
 content:"WORD_NOTE: ";
-color:NOTE_COLOR;
+color:#969696;
 ])
 
 CSS_RULE_SET([.urs .NSP()top], [
