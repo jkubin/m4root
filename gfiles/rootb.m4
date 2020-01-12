@@ -1,6 +1,6 @@
 divert(-1)changequote([,])
 
-__HEADER([Josef Kubin], [2018/10/15], [M4 series for www.root.cz])
+__HEADER([Josef Kubin], [2018/10/15], [https://github.com/jkubin/m4root])
 ___DESCR([the most general (root) rules for all scripts])
 ___POINT([script decomposition; NO repeated information anywhere else])
 ___USAGE([m4 root.m4 stem.m4 branch.m4 sub_branch.m4 leaf.m4 data.mc > output.file])
@@ -134,18 +134,18 @@ define([TEST_ATM], [
 define([COUNT_UP], defn([TEST_ATM])[
 
 	# INIT node defines a unique symbol with an initial value
-	define([#v$0v#], $1)
+	define([$0iv], $1)
 
 	# transition to the INCREMENT node
-	define([$0], [defn([#v$0v#])define([#v$0v#], incr(defn([#v$0v#])))])
+	define([$0], [$0iv[]define([$0iv], incr($0iv))])
 ])
 
 # β₁β₂
 define([COUNT_DOWN], defn([TEST_ATM])[
 
 	# INIT node defines a unique symbol with an initial value
-	define([#v$0v#], $1)
+	define([$0iv], $1)
 
 	# transition to the DECREMENT node
-	define([$0], [defn([#v$0v#])define([#v$0v#], decr(defn([#v$0v#])))])
+	define([$0], [$0iv[]define([$0iv], decr($0iv))])
 ])
