@@ -59,9 +59,15 @@ src: $(SUBDIRS)
 
 
 #:debug/dbg/trunc/d	truncates the debug file for M4 script development
-.PHONY:debug dbg trunc d
+.PHONY: debug dbg trunc d
 debug dbg trunc d:
 	> $(DEBUG_FILE)
+
+
+#:refs	regenerate references according to previous configuration
+.PHONY: refs
+refs: $(eval MAKE_REFS = $(wildcard refs_*.m4))
+refs: $(MAKE_REFS)
 
 
 #:test/t	this target is for M4 script development
