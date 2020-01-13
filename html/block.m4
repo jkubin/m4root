@@ -26,7 +26,7 @@ pushdef([SET_ANCHOR], [
 	# if a unique symbol is not defined
 	ifdef(defn([FILE_PREFIX]).uniq.defn([SELITM]), [], [
 
-		ROOT_WARNING([unknown $0(]BRAC(defn([SELITM]))[) found; run ‘make -B rules’ to regenerate])
+		ROOT_WARNING([unknown $0(]BRAC(defn([SELITM]))[) found; run ‘make -B refs …’ to regenerate])
 	])
 
 	# set html anchor
@@ -236,7 +236,7 @@ define([LINK], [pushdef([CURRQU], divnum)divert(-1)
 
 	ifelse(defn([ANCH]), [], [
 
-		ROOT_WARNING([$0([$1], [‘$2’ not found], [$3], [$4]); run ‘make -B refs’ to regenerate reference list])
+		ROOT_WARNING([$0([$1], [‘$2’ not found], [$3], [$4]); run ‘make -B refs …’ to regenerate reference list])
 	])
 
 	# find caption for title

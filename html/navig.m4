@@ -41,7 +41,7 @@ define([CURRENT_INDEX], defn([#].LANG_CODE.defn([CAPTION])))
 # empty index means no input document (without CAPTION)
 ifelse(defn([CURRENT_INDEX]), [], [
 
-	ROOT_ERROR([unknown caption; run ‘make -B rules’ to regenerate])
+	ROOT_ERROR([unknown caption; run ‘make -B refs …’ to regenerate])
 ])
 
 # if multilingual pages are generated

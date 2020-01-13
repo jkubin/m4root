@@ -64,9 +64,8 @@ debug dbg trunc d:
 	> $(DEBUG_FILE)
 
 
-#:refs	regenerate references according to previous configuration
+#:refs	regenerate references
 .PHONY: refs
-refs: $(eval MAKE_REFS = $(wildcard refs_*.m4))
 refs: $(MAKE_REFS)
 
 
