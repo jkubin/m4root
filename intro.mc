@@ -9,7 +9,7 @@ dnl english: _next_language_
 [SERIES_NAME: introduction],
 ])
 
-PEREX_IMG([img/m4tux.png], [https://cesta/nekam.png])
+PEREX_IMG([img/m4tux.png], [https://i.iinfo.cz/images/73/m4tux-1-prev.png])
 
 
 PEREX([defn([PEREX_CS])[dnl czech
@@ -119,7 +119,7 @@ PARA([[dnl czech
 Makro jazyky byly vynalezeny v[]NB()době, kdy dominoval jazyk symbolických instrukcí – ABBR([JSA], [Jazyk Symbolických Adres – assembler]).
 Zdrojový kód JSA velmi často obsahuje shodné sekvence instrukcí odlišující se pouze hodnotami operandů.
 Shodné sekvence instrukcí je možné seskupit do jednoho SPAN([slova], [makra], [dot]), nebo-li BO([makro instrukce]), které ve svém jménu přímo popisuje účel skryté sekvence instrukcí.
-Makro instrukce se přeloží makro procesorem na původní sekvenci instrukcí, které se posléze přeloží do spustitelného strojového kódu.
+Makro instrukce se přeloží makro procesorem na původní sekvenci instrukcí, která se posléze přeloží do spustitelného strojového kódu.
 Programování v[]NB()JSA pomocí makro instrukcí je jednodušší, rychlejší a[]NB()méně náchylné k[]NB()lidským chybám.
 ],
 [dnl english: _next_language_
