@@ -1,5 +1,5 @@
 # vim:wrap:spell:spelllang=cs,en
-# intro.mc	0xffedce8	20200113-03:52:30
+# intro.mc	0xffedce8	20200113-04:29:00
 
 6
 Generování kódu v M4: úvod
@@ -69,7 +69,7 @@ Historie makro jazyků
 Makro jazyky byly vynalezeny v době, kdy dominoval jazyk symbolických instrukcí – JSA (Jazyk Symbolických Adres – assembler).
 Zdrojový kód JSA velmi často obsahuje shodné sekvence instrukcí odlišující se pouze hodnotami operandů.
 Shodné sekvence instrukcí je možné seskupit do jednoho slova (makra), nebo-li makro instrukce, které ve svém jménu přímo popisuje účel skryté sekvence instrukcí.
-Makro instrukce se přeloží makro procesorem na původní sekvenci instrukcí, které se posléze přeloží do spustitelného strojového kódu.
+Makro instrukce se přeloží makro procesorem na původní sekvenci instrukcí, která se posléze přeloží do spustitelného strojového kódu.
 Programování v JSA pomocí makro instrukcí je jednodušší, rychlejší a méně náchylné k lidským chybám.
 
 133

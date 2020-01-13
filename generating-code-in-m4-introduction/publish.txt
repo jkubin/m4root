@@ -13,7 +13,7 @@ The introductory part of the series contains its history, the basic principles o
 
 # perex image
 
-https://cesta/nekam.png
+https://i.iinfo.cz/images/73/m4tux-1-prev.png
 
 # article body
 
@@ -197,12 +197,12 @@ Nonterminals that we do not want to (immediately) expand are surrounded by this 
 When passing through a&nbsp;macro processor, all the symbols between this character pair are <strong class="m4-un">terminal symbols</strong> and the outer character pair is removed.
 The next pass will cause the expansion of the originally protected nonterminals.
 Control character pair is set at the beginning of the root file.</p>
-<h4 id="m4-automata"><a href="#m4-automata" title="⚓">3.2</a>&nbsp;&nbsp;Automata&nbsp;<a href="#m4-toc-automata" title="Content" class="m4-jmp">☰</a></h4>
+<h3 id="m4-automata"><a href="#m4-automata" title="⚓">3.2</a>&nbsp;&nbsp;Automata&nbsp;<a href="#m4-toc-automata" title="Content" class="m4-jmp">☰</a></h3>
 <p>Automata use grammar rewriting rules as nodes and change their states according to input symbols.
 The currently used rewriting rule produces specific code to the output queue (or several output queues) until the automaton transition to another node with a&nbsp;different rewriting rule.
 Automata serve as „switches“ of grammar rules.
 Examples of <a href="#m4-generating-automaton" title="Generating automaton">generating automata</a> are in annex.</p>
-<h4 id="m4-output-queues"><a href="#m4-output-queues" title="⚓">3.3</a>&nbsp;&nbsp;Output queues&nbsp;<a href="#m4-toc-output-queues" title="Content" class="m4-jmp">☰</a></h4>
+<h3 id="m4-output-queues"><a href="#m4-output-queues" title="⚓">3.3</a>&nbsp;&nbsp;Output queues&nbsp;<a href="#m4-toc-output-queues" title="Content" class="m4-jmp">☰</a></h3>
 <p>Output queues are temporary storage for portions of the resulting code.
 These parts of the resulting code are created by rewriting rules of grammar that rewrite input symbols.
 The <code>divert(ℤ)</code> keyword sets the current output queue.
@@ -231,7 +231,7 @@ The data <code>.mc</code> files usually do not contain any transformation rules.
 ~]$ <strong>cat input.mc | m4 root.m4 stem.m4 branch.m4 leaf.m4 - | gcc -x c -o progr -</strong>
 </pre>
 <p>Try: <a href="#m4-code-generation-examples" title="Code generation examples">Code generation examples</a></p>
-<h4 id="m4-the-preprocessor"><a href="#m4-the-preprocessor" title="⚓">4.2</a>&nbsp;&nbsp;The preprocessor&nbsp;<a href="#m4-toc-the-preprocessor" title="Content" class="m4-jmp">☰</a></h4>
+<h3 id="m4-the-preprocessor"><a href="#m4-the-preprocessor" title="⚓">4.2</a>&nbsp;&nbsp;The preprocessor&nbsp;<a href="#m4-toc-the-preprocessor" title="Content" class="m4-jmp">☰</a></h3>
 <p>M4 can operate in preprocessor mode.
 The input source code passes through it unchanged except for nonterminal symbols.
 The nonterminals found are expanded to terminals and output along with the source code.
@@ -297,7 +297,7 @@ S: is the start symbol
 One of the subsets is named <a href="https://en.wikipedia.org/wiki/Context-free_grammar" title="Wikipedia">context-free grammar</a>, shortly <abbr title="Context-Free Grammar">CFG</abbr>.
 The CFG rewriting rules work the same as M4 rewriting rules.
 Some of the following episodes of this series will focuses in more detail on formal grammars.</p>
-<h4 id="m4-fundamentals-of-automata"><a href="#m4-fundamentals-of-automata" title="⚓">5.2</a>&nbsp;&nbsp;Fundamentals of automata&nbsp;<a href="#m4-toc-fundamentals-of-automata" title="Content" class="m4-jmp">☰</a></h4>
+<h3 id="m4-fundamentals-of-automata"><a href="#m4-fundamentals-of-automata" title="⚓">5.2</a>&nbsp;&nbsp;Fundamentals of automata&nbsp;<a href="#m4-toc-fundamentals-of-automata" title="Content" class="m4-jmp">☰</a></h3>
 <p>The ability to use predominantly two-state automata is an essential thing for writing simple M4 scripts because the vast majority of scripts use <a href="#m4-c-small-automaton" title="[] C – small automaton">small automata</a>.</p>
 <h4 id="m4-testing-automaton"><a href="#m4-testing-automaton" title="⚓">»</a>&nbsp;Testing automaton</h4>
 <p>Order of input symbols or their context can be tested by the automaton.
@@ -325,18 +325,18 @@ See the annex for <a href="#m4-json-generating-automaton" title="[] JSON – gen
 <p>The first error message generates a&nbsp;header and inserts the first item.
 Then automaton make transition to <code>NEXT_ITEM</code> state in which only next items are added.
 The automaton remains in this state until all data has been processed.</p>
-<h4 id="m4-gnu-make"><a href="#m4-gnu-make" title="⚓">5.3</a>&nbsp;&nbsp;(GNU) make&nbsp;<a href="#m4-toc-gnu-make" title="Content" class="m4-jmp">☰</a></h4>
+<h3 id="m4-gnu-make"><a href="#m4-gnu-make" title="⚓">5.3</a>&nbsp;&nbsp;(GNU) make&nbsp;<a href="#m4-toc-gnu-make" title="Content" class="m4-jmp">☰</a></h3>
 <p>A&nbsp;well-designed code generator usually consists of several smaller files whose order, dependencies and parameters are written to the <code>Makefile</code> file.
 Good knowledge of <code>Makefile</code> writing is therefore a&nbsp;prerequisite for mastering M4.
 Reading and maintaining source code generally takes more time than creating it.
 A&nbsp;well-structured <code>Makefile</code> therefore significantly contributes to the overall clarity of the resulting code generator.</p>
 <div title="more in the chapter: „Workflow“" class="rs-tip-major m4-tip">Executing <code>make</code><sup><a href="https://www.gnu.org/software/make/manual/make.html" title="GNU Make Manual">[10]</a></sup> from the code editor with a&nbsp;shortcut key will significantly speed up M4 code development.
 The file <code>~/.vimrc</code> contains <code>nnoremap &lt;c-j&gt; :make&lt;cr&gt;</code>.</div>
-<h4 id="m4-vim"><a href="#m4-vim" title="⚓">5.4</a>&nbsp;&nbsp;Vim&nbsp;<a href="#m4-toc-vim" title="Content" class="m4-jmp">☰</a></h4>
+<h3 id="m4-vim"><a href="#m4-vim" title="⚓">5.4</a>&nbsp;&nbsp;Vim&nbsp;<a href="#m4-toc-vim" title="Content" class="m4-jmp">☰</a></h3>
 <p>Mastering the Vim<sup><a href="https://www.vim.org/" title="Vim – the ubiquitous text editor">[11]</a></sup> editor is an important prerequisite for the convenience and speed of writing M4 code.
 Vim shortcuts, defined by the <code>iabbrev</code> keyword, will save large amounts of unnecessary typing.
 These shortcuts also significantly reduce the occurrence of almost invisible errors caused by an unpaired bracket, thus saving the lost time spent on debugging.</p>
-<h4 id="m4-talent-and-time"><a href="#m4-talent-and-time" title="⚓">5.5</a>&nbsp;&nbsp;Talent and time&nbsp;<a href="#m4-toc-talent-and-time" title="Content" class="m4-jmp">☰</a></h4>
+<h3 id="m4-talent-and-time"><a href="#m4-talent-and-time" title="⚓">5.5</a>&nbsp;&nbsp;Talent and time&nbsp;<a href="#m4-toc-talent-and-time" title="Content" class="m4-jmp">☰</a></h3>
 <p>M4 cannot be mastered over the weekend, especially when the fundamentals<sup><a href="https://is.muni.cz/elportal/estud/fi/js06/ib005/Formalni_jazyky_a_automaty_I.pdf" title="Automaty a&nbsp;formální jazyky I">[12]</a></sup> of
 <a href="https://en.wikipedia.org/wiki/Automata_theory" title="Wikipedia">automata theory</a> and <a href="https://en.wikipedia.org/wiki/Formal_grammar" title="Wikipedia">formal&nbsp;grammars</a> are lacking.
 To master the M4, you need to spend a&nbsp;longer period of time and write a&nbsp;lot of bad (complex) M4 code that you rewrite for a&nbsp;better idea.

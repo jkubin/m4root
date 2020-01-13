@@ -114,7 +114,7 @@ Každý díl je možné číst v&nbsp;libovolném pořadí.</p>
 <p>Makro jazyky byly vynalezeny v&nbsp;době, kdy dominoval jazyk symbolických instrukcí – <abbr title="Jazyk Symbolických Adres – assembler">JSA</abbr>.
 Zdrojový kód JSA velmi často obsahuje shodné sekvence instrukcí odlišující se pouze hodnotami operandů.
 Shodné sekvence instrukcí je možné seskupit do jednoho <span title="makra" class="m4-dot">slova</span>, nebo-li <strong>makro instrukce</strong>, které ve svém jménu přímo popisuje účel skryté sekvence instrukcí.
-Makro instrukce se přeloží makro procesorem na původní sekvenci instrukcí, které se posléze přeloží do spustitelného strojového kódu.
+Makro instrukce se přeloží makro procesorem na původní sekvenci instrukcí, která se posléze přeloží do spustitelného strojového kódu.
 Programování v&nbsp;JSA pomocí makro instrukcí je jednodušší, rychlejší a&nbsp;méně náchylné k&nbsp;lidským chybám.</p>
 <p>Později byly makro jazyky použity k&nbsp;rozšíření kompilovaných programovacích jazyků, protože umožnily psát zdrojový kód na vyšší úrovni abstrakce než jakou poskytuje samotný programovací jazyk.
 Rychlost, výkonnost a efektivita složitého programovacího jazyka nižší úrovně je zachována díky makro jazykům.
@@ -236,13 +236,13 @@ Neterminály, které nechceme (ihned) expandovat, jsou obklopeny touto dvojicí 
 Při průchodu makro procesorem jsou všechny symboly mezi touto dvojicí znaků <strong class="m4-un">terminálními symboly</strong> a&nbsp;vnější dvojice znaků je odstraněna.
 Další průchod již způsobí expanzi původně chráněných neterminálů.
 Dvojice řídících znaků se nastavuje na začátku kořenového souboru.</p>
-<h4 id="m4-automaty"><a href="#m4-automaty" title="⚓">3.2</a>&nbsp;&nbsp;Automaty&nbsp;<a href="#m4-toc-automaty" title="Obsah" class="m4-jmp">☰</a></h4>
+<h3 id="m4-automaty"><a href="#m4-automaty" title="⚓">3.2</a>&nbsp;&nbsp;Automaty&nbsp;<a href="#m4-toc-automaty" title="Obsah" class="m4-jmp">☰</a></h3>
 <p>Automaty používají přepisovací pravidla gramatiky jako uzly a&nbsp;mění své stavy podle vstupních symbolů.
 Aktuálně používané přepisovací pravidlo produkuje do výstupní fronty (nebo do několika výstupních front)
 specifický kód, dokud automat nepřejde do jiného uzlu s&nbsp;jiným přepisovacím pravidlem.
 Automaty slouží jako „přepínače“ pravidel gramatiky.
 <a href="#m4-generujici-automat" title="Generující automat">Generující automat</a> je v&nbsp;příloze.</p>
-<h4 id="m4-vystupni-fronty"><a href="#m4-vystupni-fronty" title="⚓">3.3</a>&nbsp;&nbsp;Výstupní fronty&nbsp;<a href="#m4-toc-vystupni-fronty" title="Obsah" class="m4-jmp">☰</a></h4>
+<h3 id="m4-vystupni-fronty"><a href="#m4-vystupni-fronty" title="⚓">3.3</a>&nbsp;&nbsp;Výstupní fronty&nbsp;<a href="#m4-toc-vystupni-fronty" title="Obsah" class="m4-jmp">☰</a></h3>
 <p>Výstupní fronty jsou dočasné úložiště pro části výsledného kódu.
 Tyto části výsledného kódu jsou produkovány přepisovacími pravidly gramatiky, které přepisují vstupní symboly.
 Klíčové slovo <code>divert(ℤ)</code> nastavuje aktuální výstupní frontu.
@@ -271,7 +271,7 @@ Datové soubory <code>.mc</code> obvykle neobsahují žádná transformační pr
 ~]$ <strong>cat input.mc | m4 root.m4 stem.m4 branch.m4 leaf.m4 - | gcc -x c -o progr -</strong>
 </pre>
 <p>Vyzkoušejte: <a href="#m4-priklady-generovani-kodu" title="Příklady generování kódu">Příklady generování kódu</a></p>
-<h4 id="m4-preprocesor"><a href="#m4-preprocesor" title="⚓">4.2</a>&nbsp;&nbsp;Preprocesor&nbsp;<a href="#m4-toc-preprocesor" title="Obsah" class="m4-jmp">☰</a></h4>
+<h3 id="m4-preprocesor"><a href="#m4-preprocesor" title="⚓">4.2</a>&nbsp;&nbsp;Preprocesor&nbsp;<a href="#m4-toc-preprocesor" title="Obsah" class="m4-jmp">☰</a></h3>
 <p>M4 může pracovat v&nbsp;režimu preprocesoru.
 Vstupní zdrojový kód jím prochází beze změny s&nbsp;výjimkou neterminálních symbolů.
 Nalezené neterminály jsou expandovány na terminály a&nbsp;odchází spolu se zdrojovým kódem na výstup.
@@ -337,7 +337,7 @@ S: je počáteční (startovací) symbol
 Jedna z&nbsp;podmnožin se jmenuje <a href="https://cs.wikipedia.org/wiki/Bezkontextov%C3%A1_gramatika" title="Wikipedie">bezkontextová gramatika</a>, krátce <abbr title="Context-Free Grammar – bezkontextová gramatika">CFG</abbr>.
 Přepisovací pravidla CFG pracují stejně jako přepisovací pravidla jazyka M4.
 Některý z&nbsp;následujících dílů seriálu se podrobněji zaměří na formální gramatiky.</p>
-<h4 id="m4-zaklady-automatu"><a href="#m4-zaklady-automatu" title="⚓">5.2</a>&nbsp;&nbsp;Základy automatů&nbsp;<a href="#m4-toc-zaklady-automatu" title="Obsah" class="m4-jmp">☰</a></h4>
+<h3 id="m4-zaklady-automatu"><a href="#m4-zaklady-automatu" title="⚓">5.2</a>&nbsp;&nbsp;Základy automatů&nbsp;<a href="#m4-toc-zaklady-automatu" title="Obsah" class="m4-jmp">☰</a></h3>
 <p>Schopnost používat převážně dvoustavové automaty je zásadní věc pro psaní jednoduchých M4 skriptů, protože převážná většina skriptů používá <a href="#m4-c-maly-automat" title="[] C – malý automat">malé automaty</a>.</p>
 <h4 id="m4-testovaci-automat"><a href="#m4-testovaci-automat" title="⚓">»</a>&nbsp;Testovací automat</h4>
 <p>Pořadí vstupních symbolů nebo jejich kontext lze otestovat automatem.
@@ -365,18 +365,18 @@ Automat je shodný s&nbsp;regulárním výrazem <code>(1*01*01*)*</code>.</em></
 <p>První symbol ve stavu <code>ERROR</code> vygeneruje záhlaví a&nbsp;první položku.
 Poté automat přejde do stavu <code>NEXT_ITEM</code>, ve kterém se přidávají další položky.
 Automat zůstává v&nbsp;tomto stavu, dokud nejsou zpracována všechna data.</p>
-<h4 id="m4-gnu-make"><a href="#m4-gnu-make" title="⚓">5.3</a>&nbsp;&nbsp;(GNU) make&nbsp;<a href="#m4-toc-gnu-make" title="Obsah" class="m4-jmp">☰</a></h4>
+<h3 id="m4-gnu-make"><a href="#m4-gnu-make" title="⚓">5.3</a>&nbsp;&nbsp;(GNU) make&nbsp;<a href="#m4-toc-gnu-make" title="Obsah" class="m4-jmp">☰</a></h3>
 <p>Dobře navržený generátor kódu se obvykle skládá z&nbsp;několika menších souborů, jejichž pořadí, závislosti a&nbsp;parametry se zapisují do souboru <code>Makefile</code>.
 Dobrá znalost tvorby <code>Makefile</code> je proto základním předpokladem pro zvládnutí M4.
 Čtení a údržba zdrojového kódu celkově zabere vždy více času než jeho tvorba.
 Dobře strukturovaný <code>Makefile</code> proto zásadním způsobem přispívá k&nbsp;celkové přehlednosti výsledného generátoru kódu.</p>
 <div title="více v kapitole: „Pracovní postup“" class="rs-tip-major m4-tip">Spouštění <code>make</code><sup><a href="https://www.gnu.org/software/make/manual/make.html" title="GNU Make Manual">[10]</a></sup> z&nbsp;editoru kódu pomocí vhodné klávesové zkratky zásadně urychluje vývoj M4 kódu.
 Soubor <code>~/.vimrc</code> obsahuje <code>nnoremap &lt;c-j&gt; :make&lt;cr&gt;</code>.</div>
-<h4 id="m4-vim"><a href="#m4-vim" title="⚓">5.4</a>&nbsp;&nbsp;Vim&nbsp;<a href="#m4-toc-vim" title="Obsah" class="m4-jmp">☰</a></h4>
+<h3 id="m4-vim"><a href="#m4-vim" title="⚓">5.4</a>&nbsp;&nbsp;Vim&nbsp;<a href="#m4-toc-vim" title="Obsah" class="m4-jmp">☰</a></h3>
 <p>Zvládnutí editoru Vim<sup><a href="https://www.vim.org/" title="Vim – všudypřítomný textový editor">[11]</a></sup> je důležitým předpokladem pro pohodlí a&nbsp;rychlost psaní kódu M4.
 Vim zkratky, definované klíčovým slovem <code>iabbrev</code>, ušetří velké množství zbytečně napsaného textu.
 Tyto zkratky také významně snižují výskyt téměř neviditelných chyb způsobených nepárovou závorkou, čímž šetří ztracený čas vynaložený na ladění kódu.</p>
-<h4 id="m4-talent-a-cas"><a href="#m4-talent-a-cas" title="⚓">5.5</a>&nbsp;&nbsp;Talent a čas&nbsp;<a href="#m4-toc-talent-a-cas" title="Obsah" class="m4-jmp">☰</a></h4>
+<h3 id="m4-talent-a-cas"><a href="#m4-talent-a-cas" title="⚓">5.5</a>&nbsp;&nbsp;Talent a čas&nbsp;<a href="#m4-toc-talent-a-cas" title="Obsah" class="m4-jmp">☰</a></h3>
 <p>M4 nejde zvládnout přes víkend, zvláště chybí-li základy<sup><a href="https://is.muni.cz/elportal/estud/fi/js06/ib005/Formalni_jazyky_a_automaty_I.pdf" title="Automaty a&nbsp;formální jazyky I">[12]</a></sup>
 <a href="https://cs.wikipedia.org/wiki/Teorie_automat%C5%AF" title="Wikipedie">teorie&nbsp;automatů</a> a&nbsp;<a href="https://cs.wikipedia.org/wiki/Form%C3%A1ln%C3%AD_gramatika" title="Wikipedie">formálních&nbsp;gramatik</a>.
 Pro zvládnutí M4 je nutné „odpřemýšlet si“ delší období a&nbsp;napsat velké množství špatného (složitého) M4 kódu, který z&nbsp;vlastní vůle přepíšete kvůli lepšímu nápadu.
