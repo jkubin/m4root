@@ -984,7 +984,7 @@ Reading and maintaining source code generally takes more time than creating it.
 A[]NB()well-structured CODE([Makefile]) therefore significantly contributes to the overall clarity of the resulting code generator.
 ]])
 
-TIP_BOX(, LANG([více v kapitole: „Pracovní postup“], [more in the chapter: „Workflow“]), [[dnl czech
+TIP_BOX(, LANG([více v jiné části seriálu: „Pracovní postup“], [more in another part of the series: „Workflow“]), [[dnl czech
 Spouštění CODE([make])[]REF([GNU Make Manual], [Free Software Foundation], [https://www.gnu.org/software/make/manual/make.html]) z[]NB()editoru kódu pomocí vhodné klávesové zkratky zásadně urychluje vývoj M4 kódu.
 Soubor CODE([~/.vimrc]) obsahuje CODE([nnoremap []LT()c-j[]GT() :make[]LT()cr[]GT()]).
 ],
