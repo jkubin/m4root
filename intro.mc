@@ -132,12 +132,12 @@ Programming in ASM using macro instructions is simpler, faster and less prone to
 
 PARA([[dnl czech
 Později byly makro jazyky použity k[]NB()rozšíření kompilovaných programovacích jazyků, protože umožnily psát zdrojový kód na vyšší úrovni abstrakce než jakou poskytuje samotný programovací jazyk.
-Rychlost, výkonnost a efektivita složitého programovacího jazyka nižší úrovně je zachována díky makro jazykům, protože zdrojový kód jazyka vyšší úrovně není tak pracný na zápis.
+Rychlost, výkonnost a efektivita složitého programovacího jazyka nižší úrovně je zachována díky makro jazykům.
 Avšak je důležité dobře rozumět všem vrstvám kódu.
 ],
 [dnl english: _next_language_
 Later, macro languages were used to extend compiled programming languages because they made it possible to write source code at a[]NB()higher level of abstraction than offers the programming language itself.
-The speed, performance and efficiency of a complex low-level programming language is preserved through macro languages, because the high-level source code is not so laborious to write.
+The speed, performance and efficiency of a[]NB()complex lower-level programming language is maintained through macro languages.
 However, it is important to understand all layers of code well.
 ]])
 
@@ -1377,7 +1377,7 @@ PARA([[dnl czech
 Příklad zpracovává další zprávy typu CODE_M4([QUERY]) a[]NB()CODE_M4([WARNING]).
 Používá tři automaty a[]NB()šest výstupních front.
 Generujeme-li složitější zdrojový kód, brzy narazíme na problém udržení konzistence indexů pro výstupní fronty.
-Abychom se vyhnuli zmatku, fronty si pojmenujeme a[]NB()místo čísel používáme jména.
+Abychom se vyhnuli zmatku, pojmenujeme si fronty a[]NB()místo čísel používáme jména.
 ],
 [dnl english: _next_language_
 The example processes other types of messages CODE_M4([QUERY]) and CODE_M4([WARNING]).
