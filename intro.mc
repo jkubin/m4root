@@ -118,7 +118,7 @@ dnl english: _next_language_
 PARA([[dnl czech
 Makro jazyky byly vynalezeny v[]NB()době, kdy dominoval jazyk symbolických instrukcí – ABBR([JSA], [Jazyk Symbolických Adres – assembler]).
 Zdrojový kód JSA velmi často obsahuje shodné sekvence instrukcí odlišující se pouze hodnotami operandů.
-Shodné sekvence instrukcí je možné seskupit do jednoho SPAN([slova], [makra], [dot]), nebo-li BO([makro instrukce]), které ve svém jménu přímo popisuje účel skryté sekvence instrukcí.
+Shodné sekvence instrukcí je možné seskupit do jednoho SPAN([slova], [makra], [dot]), nebo-li BO([makro instrukce]), která ve svém jménu přímo popisuje účel skryté sekvence instrukcí.
 Makro instrukce se přeloží makro procesorem na původní sekvenci instrukcí, která se posléze přeloží do spustitelného strojového kódu.
 Programování v[]NB()JSA pomocí makro instrukcí je jednodušší, rychlejší a[]NB()méně náchylné k[]NB()lidským chybám.
 ],
@@ -1003,7 +1003,7 @@ dnl english: _next_language_
 ])
 
 PARA([[dnl czech
-Zvládnutí editoru Vim[]REF([Vim – všudypřítomný textový editor], [editujíce text rychlostí myšlenky], [https://www.vim.org/]) je důležitým předpokladem pro pohodlí a[]NB()rychlost psaní kódu M4.
+Zvládnutí editoru Vim[]REF([Vim – všudypřítomný textový editor], [který edituje text rychlostí myšlenky], [https://www.vim.org/]) je důležitým předpokladem pro pohodlí a[]NB()rychlost psaní kódu M4.
 Vim zkratky, definované klíčovým slovem CODE([iabbrev]), ušetří velké množství zbytečně napsaného textu.
 Tyto zkratky také významně snižují výskyt téměř neviditelných chyb způsobených nepárovou závorkou, čímž šetří ztracený čas vynaložený na ladění kódu.
 ],
