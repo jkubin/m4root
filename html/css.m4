@@ -11,6 +11,10 @@ CSS_RULE_SET([.urs .NSP()top], [
 text-decoration:none;
 ])
 
+CSS_RULE_SET([.urs .NSP()dot], [
+border-bottom:1px dotted #000;
+])
+
 CSS_RULE_SET([.urs .NSP()jmp], [
 text-decoration:none;
 font-size:.5em;
