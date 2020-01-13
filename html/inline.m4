@@ -22,6 +22,7 @@ pushdef([HTML_GLOBAL_ATTRIBUTES],	defn([TITLE_2], [CLASS_3], [STYLE_4], [ID_5], 
 
 # A → β
 # define([TIP_BOX_NOTE],	[ifelse([$#], [0], [[$0]], [SPAN([WORD_NOTE:],, [note])])])
+define([AHTR],	[AH([$1], ifelse([$#], [2], [], [[$2]]),,,, ifelse([$#], [3], [], [[$3]]), ]defn([SELECT_LAST])[)])
 define([BR],	[ifelse([$#], [0], [[$0]], [<br>])])
 define([BUN],	[BO([$1], [$2], [un])])
 define([CODE_BLUE],	[CODE([$1], [$2], [bl])])
@@ -58,9 +59,8 @@ pushdef([AH_ID_5],	[ifelse([$#], [5], [], [$5], [], [], [ id="FIND_AND_ADD_ID_RU
 pushdef([AH_REL_6],	[ifelse([$#], [6], [], [$6], [], [], [ rel="[$6]"])])
 pushdef([AH_ANYTHING_7],	[ifelse([$#], [7], [], [$7], [], [], [ [$7]])])
 
-# A → β
-# <a href="URL" title="" rel="">…</a>	<--- a reduced version (Address-Hyperlink Title Rel)
-define([AHTR],	[AH([$1], ifelse([$#], [2], [], [[$2]]),,,, ifelse([$#], [3], [], [[$3]]), ]defn([SELECT_LAST])[)])
+# how to use AHTR(…)	(an example of how to reduce the amount of commas)
+#
 # AHTR([URL])	---> <a href="URL">URL</a>
 # AHTR([text], [URL])	---> <a href="URL">text</a>
 # AHTR([text], [my_title], [URL])	---> <a href="URL" title="my_title">text</a>
