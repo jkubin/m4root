@@ -115,7 +115,7 @@ mostlyclean mcl clm cll mc:
 	$(RM) -r $(FOLDERS) *.{mk,m4f}
 
 
-#:help/he	prints help for this Makefile
-.PHONY: help he
-help he:
+#:help/he/hl/h	prints help for this Makefile
+.PHONY: help he hl h
+help he hl h:
 	@sed -n '/^#:/{s//\x1b[7mmake /;s/\t/\x1b[m /;p}' Makefile $(wildcard *.mk) | sort -u	# ]]	<--- square brackets for M4 preprocessor

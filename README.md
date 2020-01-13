@@ -19,10 +19,10 @@ $ make cl
 ```
 # For developers
 ```
-$ make he
+$ make h
 $ make cl
 $ make src html SOURCE=intro.mc exclude=cs
-$ make he	<--- the generated file for Makefile provides additional help
+$ make h	<--- the generated file for Makefile provides additional help
 $ make spell preview
 $ make validate publish
 ```
@@ -36,7 +36,7 @@ $ make
 ```
 $ make cl
 $ make src fhtml SOURCE=intro.mc ex=cs
-$ make he
+$ make h
 $ make
 ```
 ### Contact (Base64): bTR1bml4QGdtYWlsLmNvbQ

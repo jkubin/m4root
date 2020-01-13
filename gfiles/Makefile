@@ -44,3 +44,9 @@ all: $(TARGETS)
 .PHONY: clean cl
 clean cl:
 	$(RM) $(TARGETS)
+
+
+#:help/he/hl/h	print this text
+.PHONY: help he hl h
+help he hl h:
+	@sed -n '/^#:/{s//\x1b[7mmake /;s/\t/\x1b[m /;p}' Makefile | sort	# ]]	<--- square brackets for M4 preprocessor

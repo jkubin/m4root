@@ -35,7 +35,7 @@ clean cl:
 	$(RM) $(DEBUG_FILE) $(TARGETS)
 
 
-#:help/he	print this text
-.PHONY: help he
-help he:
+#:help/he/hl/h	print this text
+.PHONY: help he hl h
+help he hl h:
 	@sed -n '/^#:/{s//\x1b[7mmake /;s/\t/\x1b[m /;p}' Makefile | sort	# ]]	<--- square brackets for M4 preprocessor
