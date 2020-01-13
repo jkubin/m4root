@@ -79,7 +79,7 @@ Shodné sekvence instrukcí je možné seskupit do jednoho <span title="makra" c
 Makro instrukce se přeloží makro procesorem na původní sekvenci instrukcí, které se posléze přeloží do spustitelného strojového kódu.
 Programování v&nbsp;JSA pomocí makro instrukcí je jednodušší, rychlejší a&nbsp;méně náchylné k&nbsp;lidským chybám.</p>
 <p>Později byly makro jazyky použity k&nbsp;rozšíření kompilovaných programovacích jazyků, protože umožnily psát zdrojový kód na vyšší úrovni abstrakce než jakou poskytuje samotný programovací jazyk.
-Rychlost, výkonnost a efektivita složitého programovacího jazyka nižší úrovně je zachována díky makro jazykům, protože zdrojový kód jazyka vyšší úrovně není tak pracný na zápis.
+Rychlost, výkonnost a efektivita složitého programovacího jazyka nižší úrovně je zachována díky makro jazykům.
 Avšak je důležité dobře rozumět všem vrstvám kódu.</p>
 <h3 id="m4-gpm-general-purpose-macro-genera"><a href="#m4-gpm-general-purpose-macro-genera" title="⚓">»</a>&nbsp;GPM (General Purpose Macro-generator)</h3>
 <p>Základní myšlenku přepisování textových řetězců s&nbsp;argumenty, které se přepíší do dalších rekurzivně přepisovatelných řetězců, představil
@@ -842,7 +842,7 @@ divert(-1)</pre>
 <p>Příklad zpracovává další zprávy typu <code>QUERY</code> a&nbsp;<code>WARNING</code>.
 Používá tři automaty a&nbsp;šest výstupních front.
 Generujeme-li složitější zdrojový kód, brzy narazíme na problém udržení konzistence indexů pro výstupní fronty.
-Abychom se vyhnuli zmatku, fronty si pojmenujeme a&nbsp;místo čísel používáme jména.</p>
+Abychom se vyhnuli zmatku, pojmenujeme si fronty a&nbsp;místo čísel používáme jména.</p>
 <p>Abychom nemuseli definovat podobná pravidla, zkopírujeme si pravou stranu <code>ERROR</code><br>(je to také <abbr title="takové pravidlo se používá jako pravá strana jiného přepisovacího pravidla"><code>β</code> pravidlo</abbr>) do pravé strany pravidel <code>QUERY</code> a&nbsp;<code>WARNING</code>.
 Proměnná <code>$0</code> se přepíše na jméno makra a&nbsp;zřetězí se s&nbsp;dalším symbolem.
 Nově vzniklý neterminál se přepíše na odpovídající terminální symbol.

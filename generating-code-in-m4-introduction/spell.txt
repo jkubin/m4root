@@ -1,5 +1,5 @@
 # vim:wrap:spell:spelllang=en,en
-# intro.mc	0x40f534a	20200113-02:56:55
+# intro.mc	0xffedce8	20200113-03:52:30
 
 6
 Generating code in M4: introduction
@@ -73,7 +73,7 @@ Programming in ASM using macro instructions is simpler, faster and less prone to
 
 133
 Later, macro languages were used to extend compiled programming languages because they made it possible to write source code at a higher level of abstraction than offers the programming language itself.
-The speed, performance and efficiency of a complex low-level programming language is preserved through macro languages, because the high-level source code is not so laborious to write.
+The speed, performance and efficiency of a complex lower-level programming language is maintained through macro languages.
 However, it is important to understand all layers of code well.
 
 145

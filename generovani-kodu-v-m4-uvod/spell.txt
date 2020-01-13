@@ -1,5 +1,5 @@
 # vim:wrap:spell:spelllang=cs,en
-# intro.mc	0x40f534a	20200113-02:56:54
+# intro.mc	0xffedce8	20200113-03:52:30
 
 6
 Generování kódu v M4: úvod
@@ -74,7 +74,7 @@ Programování v JSA pomocí makro instrukcí je jednodušší, rychlejší a m�
 
 133
 Později byly makro jazyky použity k rozšíření kompilovaných programovacích jazyků, protože umožnily psát zdrojový kód na vyšší úrovni abstrakce než jakou poskytuje samotný programovací jazyk.
-Rychlost, výkonnost a efektivita složitého programovacího jazyka nižší úrovně je zachována díky makro jazykům, protože zdrojový kód jazyka vyšší úrovně není tak pracný na zápis.
+Rychlost, výkonnost a efektivita složitého programovacího jazyka nižší úrovně je zachována díky makro jazykům.
 Avšak je důležité dobře rozumět všem vrstvám kódu.
 
 145
@@ -618,7 +618,7 @@ Na závěr výstupní fronty číslo  a  vypíšou znaky  a  čímž zakončí v
 Příklad zpracovává další zprávy typu  a .
 Používá tři automaty a šest výstupních front.
 Generujeme-li složitější zdrojový kód, brzy narazíme na problém udržení konzistence indexů pro výstupní fronty.
-Abychom se vyhnuli zmatku, fronty si pojmenujeme a místo čísel používáme jména.
+Abychom se vyhnuli zmatku, pojmenujeme si fronty a místo čísel používáme jména.
 
 1398
 Abychom nemuseli definovat podobná pravidla, zkopírujeme si pravou stranu 
