@@ -251,7 +251,6 @@ divert(0)dnl
 …
 ]])dnl PRE
 
-debugfile([debug.m4])debugmode([taeq])
 TIP_BOX([[dnl czech
 Klíčové slovo CODE([[divert](AH([ℤ], [celé číslo], [https://cs.wikipedia.org/wiki/Cel%C3%A9_%C4%8D%C3%ADslo]))], [divert(-1), divert(0), divert(1), …, divert(2147483647)], [dot]) přepíná výstupní fronty.
 Argument CODE([-1]) zcela vypne jakýkoliv textový výstup.
@@ -262,7 +261,6 @@ The CODE([[divert](AH([ℤ], [integer], [https://en.wikipedia.org/wiki/Integer])
 Argument CODE([-1]) completely disables any text output.
 Argument CODE([0]) switches output to CODE([stdout]) (standard output).
 ]])
-debugmode
 
 
 HEADING_MONO([dnl monolingual
