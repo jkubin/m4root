@@ -93,7 +93,7 @@ iabbrev <buffer> <unique> san <c-l><cr>SUB_ANNEX([dnl czech<cr>[],<cr>dnl englis
 iabbrev <buffer> <unique> sa SAMP([<c-r>"])<esc>
 iabbrev <buffer> <unique> sch <c-l><cr>SUB_CHAPTER([dnl czech<cr>[],<cr>dnl english: _next_language_<cr><c-u>[%%%],<cr>])<left><c-o>%<c-o>0<down><right><c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> sm SMALL([<c-r>"])<esc>
-iabbrev <buffer> <unique> sp SPAN([<c-r>"], [%%%], [%%%], [%%%])<left><c-o>%;;<c-r>=Eatchar('.')<cr>
+iabbrev <buffer> <unique> sp SPAN([<c-r>"], [%%%], [%%%])<left><c-o>%;;<c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> ssan <c-l><cr>SUB_SUB_ANNEX([dnl czech<cr>[],<cr>dnl english: _next_language_<cr><c-u>[%%%],<cr>])<left><c-o>%<c-o>0<down><right><c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> ssch <c-l><cr>SUB_SUB_CHAPTER([dnl czech<cr>[],<cr>dnl english: _next_language_<cr><c-u>[%%%],<cr>])<left><c-o>%<c-o>0<down><right><c-r>=Eatchar('.')<cr>
 "iabbrev <buffer> <unique> st STRONG([])%%%<c-o>T(<right><c-r>=Eatchar('.')<cr>
