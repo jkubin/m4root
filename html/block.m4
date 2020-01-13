@@ -124,6 +124,7 @@ define([SUB_CHAPTER], defn([MULTILINGUAL_HEADINGS], [SET_ANCHOR], [COUNTERS])[
 	define([#L2], .SUB_CHAPTER_IDX)
 	define([#L3])
 	define([INDENT_LEVEL], NBY)
+	define([HEADING_TAG], [h3])
 
 	]defn([CHAPTER_COMMON_CODE])[
 
@@ -136,6 +137,7 @@ define([SUB_SUB_CHAPTER], defn([MULTILINGUAL_HEADINGS], [SET_ANCHOR], [COUNTERS]
 	define([#L2], .SUB_CHAPTER_IDX)
 	define([#L3], .SUB_SUB_CHAPTER_IDX)
 	define([INDENT_LEVEL], NBZ)
+	define([HEADING_TAG], [h4])
 
 	]defn([CHAPTER_COMMON_CODE])[
 
