@@ -1,5 +1,5 @@
 # vim:wrap:spell:spelllang=cs,en
-# intro.mc	0xffedce8	20200113-04:29:00
+# intro.mc	0x65bb8f1	20200113-04:44:08
 
 6
 Generování kódu v M4: úvod
@@ -68,7 +68,7 @@ Historie makro jazyků
 118
 Makro jazyky byly vynalezeny v době, kdy dominoval jazyk symbolických instrukcí – JSA (Jazyk Symbolických Adres – assembler).
 Zdrojový kód JSA velmi často obsahuje shodné sekvence instrukcí odlišující se pouze hodnotami operandů.
-Shodné sekvence instrukcí je možné seskupit do jednoho slova (makra), nebo-li makro instrukce, které ve svém jménu přímo popisuje účel skryté sekvence instrukcí.
+Shodné sekvence instrukcí je možné seskupit do jednoho slova (makra), nebo-li makro instrukce, která ve svém jménu přímo popisuje účel skryté sekvence instrukcí.
 Makro instrukce se přeloží makro procesorem na původní sekvenci instrukcí, která se posléze přeloží do spustitelného strojového kódu.
 Programování v JSA pomocí makro instrukcí je jednodušší, rychlejší a méně náchylné k lidským chybám.
 
@@ -809,7 +809,7 @@ GNU M4 - GNU macro processor	Free Software Foundation
 GNU Make Manual	Free Software Foundation
 
 1005
-Vim – všudypřítomný textový editor	editujíce text rychlostí myšlenky
+Vim – všudypřítomný textový editor	který edituje text rychlostí myšlenky
 
 1031
 Automaty a formální jazyky I	Učební text FI MU
