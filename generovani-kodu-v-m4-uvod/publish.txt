@@ -18,7 +18,7 @@ https://cesta/nekam.png
 # article body
 
 <!-- subordinate style sheet -->
-<style>.urs .m4-tip::before{content:"Pozn: ";color:#969696;}.urs .m4-top{text-decoration:none;}.urs .m4-jmp{text-decoration:none;font-size:.5em;vertical-align:super;}.urs .m4-un{text-decoration:underline;}.urs .m4-bl{color:blue;}</style>
+<style>.urs .m4-tip::before{content:"Pozn: ";color:#969696;}.urs .m4-top{text-decoration:none;}.urs .m4-dot{border-bottom:1px dotted #000;}.urs .m4-jmp{text-decoration:none;font-size:.5em;vertical-align:super;}.urs .m4-un{text-decoration:underline;}.urs .m4-bl{color:blue;}</style>
 <!-- table of content -->
 <h2 id="m4-toc-capt">Obsah&nbsp;(<a href="../../texty/generating-code-in-m4-introduction/">English version</a>)</h2>
 <p id="m4-toc-uvod"><a href="#m4-uvod">1&nbsp;&nbsp;Úvod</a></p>
@@ -48,11 +48,11 @@ https://cesta/nekam.png
 <p>Čtenáři tohoto seriálu se naučí psát skripty pro strojové generování kódu.
 Strojově generovaný kód může být libovolně složitý a&nbsp;může obsahovat další vnitřní závislosti.
 Vzájemně závislé soubory se složitým kódem jsou pro člověka jen těžce udržitelné v&nbsp;konzistentním stavu.
-Proto je vhodné použít nějaký mechanismus pro generování kódu.
+Je už nutné použít nějaký mechanismus pro generování kódu.
 Generování kódu provádí nástroj určený pro transformaci textu – <strong>makro procesor</strong>.</p>
-<p>Seriál je zaměřen na praktické použití <strong>univerzálního makro procesoru M4</strong> (dále jen M4) pomocí malých, ukázkových příkladů.
-Popisuje též teoretický základ všech implementací.
-Cílem seriálu je seznámit čtenáře s&nbsp;tímto <abbr title="m4 – je program příkazové řádky">nástrojem</abbr> a&nbsp;také programovacím <abbr title="M4 – je programovací jazyk">jazykem</abbr>.<br>
+<p>Seriál je zaměřen na praktické použití <strong>univerzálního makro procesoru M4</strong> (dále jen M4) pomocí malých příkladů.
+Popisuje také teoretický základ všech implementací.
+Cílem seriálu je seznámit čtenáře s&nbsp;tímto <span title="m4 – je program příkazové řádky" class="m4-dot">nástrojem</span> a&nbsp;také programovacím <span title="M4 – je programovací jazyk" class="m4-dot">jazykem</span>.<br>
 <a href="#m4-hlavni-pouziti-m4" title="Hlavní použití M4">Na co se používá</a>, jak se v&nbsp;něm programuje a&nbsp;jaké jsou jeho <a href="#m4-proc-generovat-kod-v-m4" title="&#x1f44d; Proč generovat kód v M4">výhody</a> a&nbsp;<a href="#m4-proc-se-vyhnout-m4" title="&#x1f44e; Proč se vyhnout M4">nevýhody</a>.</p>
 <div title="výsledkem seriálu je šablona napsaná v M4" class="rs-tip-major m4-tip">Vícejazyčný seriál „<strong>Generování kódu v M4</strong>“ je generován M4 skripty<sup><a href="http://github.com/jkubin/m4root" title="Generování kódu v M4">[1]</a></sup>,
 které (možná) usnadní psaní článků a&nbsp;seriálů pro <a href="https://www.root.cz/" title="Root.cz – informace nejen ze světa Linuxu">www.root.cz</a> také jiným autorům.</div>
@@ -73,11 +73,16 @@ Každý díl je možné číst v&nbsp;libovolném pořadí.</p>
 <li><a href="http://github.com/jkubin/m4root" title="Generování kódu v M4">http://github.com/jkubin/m4root</a> – složitější projekt generující HTML tohoto seriálu</li>
 </ul>
 <h2 id="m4-historie-makro-jazyku"><a href="#m4-historie-makro-jazyku" title="⚓">2</a>&nbsp;&nbsp;Historie makro jazyků&nbsp;<a href="#m4-toc-historie-makro-jazyku" title="Obsah" class="m4-jmp">☰</a></h2>
-<p>Makro jazyky byly vynalezeny v&nbsp;době, kdy dominoval jazyk symbolických instrukcí (<abbr title="Jazyk Symbolických Adres (assembler)">JSA</abbr>, assembler).
-Zápis kódu <abbr title="Jazyk Symbolických Adres (assembler)">JSA</abbr> už nebyl tak pracný, protože bylo možné seskupit opakované sekvence instrukcí do jednoho slova, do jedné <strong>makro instrukce</strong> s&nbsp;parametry.
-Později byly použity k&nbsp;rozšíření kompilovaných programovacích jazyků, protože umožnily psát zdrojový kód na vyšší úrovni abstrakce než samotný programovací jazyk.</p>
+<p>Makro jazyky byly vynalezeny v&nbsp;době, kdy dominoval jazyk symbolických instrukcí – <abbr title="Jazyk Symbolických Adres – assembler">JSA</abbr>.
+Zdrojový kód JSA velmi často obsahuje shodné sekvence instrukcí odlišující se pouze hodnotami operandů.
+Shodné sekvence instrukcí je možné seskupit do jednoho <span title="makra" class="m4-dot">slova</span>, nebo-li <strong>makro instrukce</strong>, které ve svém jménu přímo popisuje účel skryté sekvence instrukcí.
+Makro instrukce se přeloží makro procesorem na původní sekvenci instrukcí, které se posléze přeloží do spustitelného strojového kódu.
+Programování v&nbsp;JSA pomocí makro instrukcí je jednodušší, rychlejší a&nbsp;méně náchylné k&nbsp;lidským chybám.</p>
+<p>Později byly makro jazyky použity k&nbsp;rozšíření kompilovaných programovacích jazyků, protože umožnily psát zdrojový kód na vyšší úrovni abstrakce než jakou poskytuje samotný programovací jazyk.
+Rychlost, výkonnost a efektivita složitého programovacího jazyka nižší úrovně je zachována díky makro jazykům, protože zdrojový kód jazyka vyšší úrovně není tak pracný na zápis.
+Avšak je důležité dobře rozumět všem vrstvám kódu.</p>
 <h3 id="m4-gpm-general-purpose-macro-genera"><a href="#m4-gpm-general-purpose-macro-genera" title="⚓">»</a>&nbsp;GPM (General Purpose Macro-generator)</h3>
-<p>Základní myšlenku přepisování textových řetězců s&nbsp;argumenty, které se přepíší do dalších rekurzivně přepisovatelných řetězců představil
+<p>Základní myšlenku přepisování textových řetězců s&nbsp;argumenty, které se přepíší do dalších rekurzivně přepisovatelných řetězců, představil
 <a href="https://en.wikipedia.org/wiki/Christopher_Strachey" title="Wikipedie"><span class="rs-person">Christopher Strachey</span></a> ve svém
 <abbr title="General Purpose Macro-generator">GPM</abbr><sup><a href="http://dx.doi.org/10.1093/comjnl/8.3.225" title="A&nbsp;General Purpose Macro-generator">[2]</a></sup> v&nbsp;roce 1965.
 Další generace makro procesorů M3 a&nbsp;M4 původní <abbr title="General Purpose Macro-generator">GPM</abbr> v&nbsp;podstatě už jen rozšiřovaly.
@@ -105,16 +110,16 @@ define(…)
 divert(0)dnl
 …
 </pre>
-<div title="divert(-1), divert(0), divert(1), …, divert(2147483647)" class="rs-tip-major m4-tip">Klíčové slovo <code>divert(<a href="https://cs.wikipedia.org/wiki/Cel%C3%A9_%C4%8D%C3%ADslo" title="celé číslo">ℤ</a>)</code> přepíná výstupní fronty.
+<div class="rs-tip-major m4-tip">Klíčové slovo <code title="divert(-1), divert(0), divert(1), …, divert(2147483647)" class="m4-dot">divert(<a href="https://cs.wikipedia.org/wiki/Cel%C3%A9_%C4%8D%C3%ADslo" title="celé číslo">ℤ</a>)</code> přepíná výstupní fronty.
 Argument <code>-1</code> zcela vypne jakýkoliv textový výstup.
-Argument <code>0</code> přepne výstup na <code>stdout</code>.</div>
+Argument <code>0</code> přepne výstup na <code>stdout</code> (standardní výstup).</div>
 <h3 id="m4-m4"><a href="#m4-m4" title="⚓">»</a>&nbsp;M4</h3>
 <p><a href="https://cs.wikipedia.org/wiki/Brian_Kernighan" title="Wikipedie"><span class="rs-person">Brian Kernighan</span></a> makro procesor M3 rozšířil na <a href="https://cs.wikipedia.org/wiki/Preprocesor" title="Wikipedie">preprocesor</a> jazyka FORTRAN 66,
 aby mohl vytvořit hybridní jazykovou nadstavbu pojmenovanou <abbr title="RATional FORtran"><strong>RATFOR</strong></abbr><sup><a href="https://wolfram.schneider.org/bsd/7thEdManVol2/ratfor/ratfor.pdf" title="RATFOR — A Preprocessor for a Rational Fortran">[3]</a></sup>.
 Základní programové konstrukce této nadstavby (podmínky, cykly) jsou stejné jako v&nbsp;jazyce C.
 Programování v&nbsp;RATFOR-u se tak podobá programování v&nbsp;„céčku“.
 Makro procesor zdrojový kód překládá zpátky do FORTRAN-u, poté kompilátor provede překlad do strojového kódu.</p>
-<div title="M4 doplňuje jazyk C" class="rs-tip-major m4-tip">Všimněte si <a href="#m4-ba-preprocesor-jazyka-c-a-m4" title="`' Preprocesor jazyka C a M4">téměř dokonalé symbiózy</a> s&nbsp;jazykem C<ul>
+<div title="jazyk M4 doplňuje jazyk C" class="rs-tip-major m4-tip">Všimněte si <a href="#m4-ba-preprocesor-jazyka-c-a-m4" title="`' Preprocesor jazyka C a M4">téměř dokonalé symbiózy</a> s&nbsp;jazykem C<ul>
 <li>direktivy <abbr title="Preprocesor jazyka C">CPP</abbr> <code>#define</code>, <code>#include</code>, <code>#ifdef</code>, … jsou pro M4 komentáře</li>
 <li>klíčová slova oddělená od závorek mezerou, ztrácí svůj původní význam
 <ul>
@@ -143,8 +148,8 @@ Brian Kernighan<sup><a href="https://www.cs.cmu.edu/~mihaib/kernighan-interview/
 Nejrozšířenější implementace M4 je <strong>GNU M4</strong> používaná pro <a href="https://en.wikipedia.org/wiki/GNU_Build_System" title="Wikipedie">Autotools</a>
 a&nbsp;pro překlad jednoduchého konfiguračního souboru <code>sendmail.mc</code> na složitý <code>sendmail.cf</code>.
 Autorem této implementace z&nbsp;roku 1990 je <a href="https://www.seindal.dk/rene/gnu/"><span class="rs-person">René Seindal</span></a>.
-<abbr title="m4 s malým „m“ je nástroj"><strong>m4</strong></abbr> nainstalujeme následujícím příkazem:</p>
-<pre id="m4-install" title="příkaz nainstaluje také další balíčky">
+<strong title="m4 s malým „m“ je nástroj" class="m4-dot">m4</strong> nainstalujeme následujícím příkazem:</p>
+<pre id="m4-install" title="příkaz nainstaluje také další důležité balíčky">
 ~]# <strong>dnf -y install make m4 pinfo</strong>
 </pre>
 <p>Podrobný popis klíčových slov naleznete v&nbsp;dokumentaci<sup><a href="https://www.gnu.org/software/m4/manual/" title="GNU M4 - GNU macro processor">[8]</a></sup>:</p>
@@ -155,8 +160,8 @@ Autorem této implementace z&nbsp;roku 1990 je <a href="https://www.seindal.dk/r
 </pre>
 <h2 id="m4-zaklady-jazyka-m4"><a href="#m4-zaklady-jazyka-m4" title="⚓">3</a>&nbsp;&nbsp;Základy jazyka M4&nbsp;<a href="#m4-toc-zaklady-jazyka-m4" title="Obsah" class="m4-jmp">☰</a></h2>
 <p>Základem jazyka M4 je <strong>bezkontextová gramatika</strong>, <strong>automaty</strong>, <strong>zásobníky</strong> a&nbsp;<strong>výstupní fronty</strong>.
-Pro pochopení jazyka M4 je proto velmi důležité rozumět základním pojmům teorie formálních jazyků.
-Co jsou <a href="https://cs.wikipedia.org/wiki/Termin%C3%A1ln%C3%AD_a_netermin%C3%A1ln%C3%AD_symbol" title="Wikipedie">terminální symboly</a> (stručně <strong>terminály</strong>) a&nbsp;neterminální symboly (stručně <strong>neterminály</strong>).
+Pro pochopení jazyka M4 je proto velmi důležité rozumět základním pojmům teorie formálních jazyků –
+co jsou <a href="https://cs.wikipedia.org/wiki/Termin%C3%A1ln%C3%AD_a_netermin%C3%A1ln%C3%AD_symbol" title="Wikipedie">terminální symboly</a> (stručně <strong>terminály</strong>) a&nbsp;neterminální symboly (stručně <strong>neterminály</strong>).
 Zmíněné pojmy si podrobněji vysvětlíme někdy později.
 Cílem tohoto úvodního dílu je hlavně ukázat praktické použití M4 na příkladech.</p>
 <h3 id="m4-bezkontextova-gramatika"><a href="#m4-bezkontextova-gramatika" title="⚓">3.1</a>&nbsp;&nbsp;Bezkontextová gramatika&nbsp;<a href="#m4-toc-bezkontextova-gramatika" title="Obsah" class="m4-jmp">☰</a></h3>
@@ -221,10 +226,10 @@ Na závěr jsou všechny neprázdné fronty vypsány ve vzestupném pořadí na 
 <p>Soubory <code>input1.mc</code> a&nbsp;<code>input2.mc</code> obsahují <strong>vstupní data</strong> ve specifickém formátu, který umožňuje jejich transformaci na <strong>výstupní data</strong> podle pravidel v&nbsp;předchozích <code>.m4</code> souborech.
 Datové soubory <code>.mc</code> obvykle neobsahují žádná transformační pravidla.</p>
 <p>Vstupní data mohou také přicházet z&nbsp;kolony:</p>
-<pre title="vstupní kód → generování zdrojového kódu → soubor">
+<pre title="vstupní kód → generování kódu → výstupní kód">
 ~]$ <strong>cat input.mc | m4 root.m4 stem.m4 branch.m4 leaf.m4 - &gt; output.file</strong>
 </pre>
-<pre title="vstupní kód → generování zdrojového kódu → program">
+<pre title="vstupní kód → generování kódu → program">
 ~]$ <strong>cat input.mc | m4 root.m4 stem.m4 branch.m4 leaf.m4 - | gcc -x c -o progr -</strong>
 </pre>
 <p>Vyzkoušejte: <a href="#m4-priklady-generovani-kodu" title="Příklady generování kódu">Příklady generování kódu</a></p>
@@ -290,7 +295,7 @@ P: konečná množina přepisovacích pravidel
 S: je počáteční (startovací) symbol
    S ∈ N
 </pre>
-<p><a href="https://cs.wikipedia.org/wiki/Formální_gramatika" title="Wikipedie">Formální gramatika</a> popisuje <a href="https://cs.wikipedia.org/wiki/Chomsk%C3%A9ho_hierarchie" title="Chomského hierarchie">podmnožiny</a> přepisovacích pravidel <a href="https://cs.wikipedia.org/wiki/Form%C3%A1ln%C3%AD_jazyk" title="Wikipedie">formálního jazyka</a>.
+<p><a href="https://cs.wikipedia.org/wiki/Formální_gramatika" title="Wikipedie">Formální gramatika</a> popisuje <a href="https://cs.wikipedia.org/wiki/Chomsk%C3%A9ho_hierarchie" title="Wikipedie – Chomského hierarchie">podmnožiny</a> přepisovacích pravidel <a href="https://cs.wikipedia.org/wiki/Form%C3%A1ln%C3%AD_jazyk" title="Wikipedie">formálního jazyka</a>.
 Jedna z&nbsp;podmnožin se jmenuje <a href="https://cs.wikipedia.org/wiki/Bezkontextov%C3%A1_gramatika" title="Wikipedie">bezkontextová gramatika</a>, krátce <abbr title="Context-Free Grammar – bezkontextová gramatika">CFG</abbr>.
 Přepisovací pravidla CFG pracují stejně jako přepisovací pravidla jazyka M4.
 Některý z&nbsp;následujících dílů seriálu se podrobněji zaměří na formální gramatiky.</p>
@@ -303,7 +308,7 @@ Splňují-li vstupní symboly požadované vlastnosti, automat skončí v&nbsp;u
 <p><em>Obrázek <a href="#m4-dfa-img" title="⚓">2</a>: Příklad automatu<sup><a href="https://cs.wikipedia.org/wiki/Teorie_automat%C5%AF" title="Teorie automatů">[9]</a></sup> akceptující sudý počet (žádný je také sudý) symbolů <code>0</code>, ignorující symboly <code>1</code>.
 Automat je shodný s&nbsp;regulárním výrazem <code>(1*01*01*)*</code>.</em></p>
 <p>Předchozí automat lze zapsat jako ASCII art doprovázející M4 skript:</p>
-<pre title="jak dokumentovat M4 kód">
+<pre title="ASCII-art jako dokumentace uvnitř M4 kódu">
 #          ____1
 #         |   /
 #      ___V__/   0    ____
@@ -453,7 +458,7 @@ ERR_3	NOFAULT	It's not a language fault!</pre>
 Použití klíčového slova <code>patsubst()</code> je nevhodné pro tento úkol.
 Vstupní zdrojový kód proto napřed upravíme regulárním výrazem a&nbsp;všechny speciální znaky schováme do maker.</p>
 <h4 id="m4-upraveny-vstupni-kod"><a href="#m4-upraveny-vstupni-kod" title="⚓">»</a>&nbsp;Upravený vstupní kód</h4>
-<p><code><a href="https://raw.githubusercontent.com/jkubin/m4root/master/messages/messages.mc" title="GitHub">messages.mc</a></code> – speciální znaky vstupního kódu jsou skryty do maker</p>
+<p><code><a href="https://raw.githubusercontent.com/jkubin/m4root/master/messages/messages.mc" title="GitHub">messages.mc</a></code> – speciální znaky vstupního kódu jsou skryty do <strong class="m4-un">obyčejných</strong> maker</p>
 <pre title="messages.mc"># 2018/05/15 Josef Kubin
 
 ERROR([COMPLEX],     [[]EX()[]DQ()[#]$%[]AMP()[]AP()()*+[,]-./:;[]LT()=[]GT()?@[]LB()[]BS()[]RB()^_[]BQ(){|}~])
@@ -486,7 +491,7 @@ define([EX], [!])
 define([GT], [&gt;])
 define([LT], [&lt;])</pre>
 <h4 id="m4-bash-dretezecd"><a href="#m4-bash-dretezecd" title="⚓">»</a>&nbsp;<code>[]</code> Bash – <code>"řetězec"</code></h4>
-<p><code><a href="https://raw.githubusercontent.com/jkubin/m4root/master/messages/doubleq.m4" title="GitHub">doubleq.m4</a></code> – převodní soubor pro řetězce uvnitř uvozovek</p>
+<p><code><a href="https://raw.githubusercontent.com/jkubin/m4root/master/messages/doubleq.m4" title="GitHub">doubleq.m4</a></code> – převodní soubor pro Bash řetězce v uvozovkách</p>
 <pre title="doubleq.m4"># A → β
 define([AMP], [&amp;])
 define([AP], ['])
@@ -497,7 +502,7 @@ define([EX], ["\!"])
 define([GT], [&gt;])
 define([LT], [&lt;])</pre>
 <h4 id="m4-bash-aretezeca"><a href="#m4-bash-aretezeca" title="⚓">»</a>&nbsp;<code>[]</code> Bash – <code>'řetězec'</code></h4>
-<p><code><a href="https://raw.githubusercontent.com/jkubin/m4root/master/messages/apost.m4" title="GitHub">apost.m4</a></code> – převodní soubor pro řetězce uvnitř apostrofů</p>
+<p><code><a href="https://raw.githubusercontent.com/jkubin/m4root/master/messages/apost.m4" title="GitHub">apost.m4</a></code> – převodní soubor pro Bash řetězce v apostrofech</p>
 <pre title="apost.m4"># A → β
 define([AMP], [&amp;])
 define([AP], ['\''])
@@ -1574,7 +1579,7 @@ BEGIN { print "DONTE() LB () [ Hello, world! ]" }</pre>
 <h3 id="m4-proc-generovat-kod-v-m4"><a href="#m4-proc-generovat-kod-v-m4" title="⚓">D.1</a>&nbsp;&nbsp;<code>&#x1f44d;</code> Proč generovat kód v&nbsp;M4&nbsp;<a href="#m4-toc-proc-generovat-kod-v-m4" title="Obsah" class="m4-jmp">☰</a></h3>
 <ul>
 <li>přímé použití <a href="#m4-bezkontextova-gramatika" title="Bezkontextová gramatika">bezkontextové gramatiky</a> (rekurze zdarma)
-<ul><li>k&nbsp;transformaci dat stačí napsat minimum M4 kódu</li></ul></li>
+<ul><li>pro transformaci dat stačí napsat minimum M4 kódu</li></ul></li>
 <li>přímé použití automatů
 <ul><li>možnost vymodelovat si potřebné algoritmy (M4 nepotřebuje verze)</li></ul></li>
 <li>přímé použití zásobníků
