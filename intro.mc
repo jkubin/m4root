@@ -30,33 +30,29 @@ PARA([[dnl czech
 Čtenáři tohoto seriálu se naučí psát skripty pro strojové generování kódu.
 Strojově generovaný kód může být libovolně složitý a[]NB()může obsahovat další vnitřní závislosti.
 Vzájemně závislé soubory se složitým kódem jsou pro člověka jen těžce udržitelné v[]NB()konzistentním stavu.
-Proto je vhodné použít nějaký mechanismus pro generování kódu.
+Je už nutné použít nějaký mechanismus pro generování kódu.
 Generování kódu provádí nástroj určený pro transformaci textu – BO([makro procesor]).
 ],
 [dnl english: _next_language_
 Readers of this series will learn how to write scripts for machine code generation.
 The machine-generated code can be arbitrarily complex and can contain other internal dependencies.
 Interdependent files with complex code are hardly sustainable for humans in a[]NB()consistent state.
-Therefore, it is advisable to use some code generation mechanisms.
+It is necessary to use some code generation mechanism.
 The code generation is performed by a[]NB()tool for text transformation – BO([a[]NB()macro processor]).
 ]])
 
-Therefore, it is advisable to use some code generation mechanisms such as ...
-
 PARA([[dnl czech
-Seriál je zaměřen na praktické použití BO([univerzálního makro procesoru M4]) (dále jen M4) pomocí malých, ukázkových příkladů.
-Popisuje též teoretický základ všech implementací.
-Cílem seriálu je seznámit čtenáře s[]NB()tímto ABBR([nástrojem], [m4 – je program příkazové řádky]) a[]NB()také programovacím ABBR([jazykem], [M4 – je programovací jazyk]).[]BR()
+Seriál je zaměřen na praktické použití BO([univerzálního makro procesoru M4]) (dále jen M4) pomocí malých příkladů.
+Popisuje také teoretický základ všech implementací.
+Cílem seriálu je seznámit čtenáře s[]NB()tímto SPAN([nástrojem], [m4 – je program příkazové řádky], [dot]) a[]NB()také programovacím SPAN([jazykem], [M4 – je programovací jazyk], [dot]).[]BR()
 LINK([Na co se používá], [main_uses_of_m4]), jak se v[]NB()něm programuje a[]NB()jaké jsou jeho LINK([výhody], [why_to_use_m4]) a[]NB()LINK([nevýhody], [why_not_use]).
 ],
 [dnl english: _next_language_
 The series focus on the practical use of the BO([universal macro processor M4]) (hereafter M4) using small examples.
 It also describes the theoretical part of all its implementations.
-The aim of the series is to acquaint the reader with this ABBR([tool], [m4 – is a command line program]) and also the programming ABBR([language], [M4 – is a programming language]).
-LINK([What its main use], [main_uses_of_m4]), how to program in it, what are LINK([advantages], [why_to_use_m4]) and what are LINK([disadvantages], [why_not_use]).
+The aim of the series is to acquaint the reader with this SPAN([tool], [m4 – is a command line program], [dot]) and also the programming SPAN([language], [M4 – is a programming language], [dot]).
+LINK([What is it used for], [main_uses_of_m4]), how to program in it and its LINK([advantages], [why_to_use_m4]) and LINK([disadvantages], [why_not_use]).
 ]])
-preformulovat
-LINK([What its main use], [main_uses_of_m4]), how to program in it, what are LINK([advantages], [why_to_use_m4]) and what are LINK([disadvantages], [why_not_use]).
 
 # same tip box for each part
 the_series_is_generated()
@@ -120,14 +116,29 @@ dnl english: _next_language_
 ])
 
 PARA([[dnl czech
-Makro jazyky byly vynalezeny v[]NB()době, kdy dominoval jazyk symbolických instrukcí (ABBR([JSA], [Jazyk Symbolických Adres (assembler)]), assembler).
-Zápis kódu ABBR([JSA], [Jazyk Symbolických Adres (assembler)]) už nebyl tak pracný, protože bylo možné seskupit opakované sekvence instrukcí do jednoho slova, do jedné BO([makro instrukce]) s[]NB()parametry.
-Později byly použity k[]NB()rozšíření kompilovaných programovacích jazyků, protože umožnily psát zdrojový kód na vyšší úrovni abstrakce než samotný programovací jazyk.
+Makro jazyky byly vynalezeny v[]NB()době, kdy dominoval jazyk symbolických instrukcí – ABBR([JSA], [Jazyk Symbolických Adres – assembler]).
+Zdrojový kód JSA velmi často obsahuje shodné sekvence instrukcí odlišující se pouze hodnotami operandů.
+Shodné sekvence instrukcí je možné seskupit do jednoho SPAN([slova], [makra], [dot]), nebo-li BO([makro instrukce]), které ve svém jménu přímo popisuje účel skryté sekvence instrukcí.
+Makro instrukce se přeloží makro procesorem na původní sekvenci instrukcí, které se posléze přeloží do spustitelného strojového kódu.
+Programování v[]NB()JSA pomocí makro instrukcí je jednodušší, rychlejší a[]NB()méně náchylné k[]NB()lidským chybám.
 ],
 [dnl english: _next_language_
 Macro languages were invented at a[]NB()time when the assembly language (ASM) dominated.
-Writing ASM code was no longer so laborious because it was possible to group repeated instruction sequences into one word, into one BO([macro instruction]) with parameters.
-Later they were used to extend compiled programming languages because they made it possible to write source code at a[]NB()higher level of abstraction than the programming language itself.
+ASM source code usually contains identical instruction sequences that differ only in operand values.
+Identical instruction sequences can be grouped into one SPAN([word], [macro], [dot]), or a[]NB()BO([macro instruction]) that directly describes the purpose of the hidden instruction sequence in its name.
+These macro instructions are translated by the macro processor to the original instruction sequences, which are then translated into executable machine code.
+Programming in ASM using macro instructions is simpler, faster and less prone to human errors.
+]])
+
+PARA([[dnl czech
+Později byly makro jazyky použity k[]NB()rozšíření kompilovaných programovacích jazyků, protože umožnily psát zdrojový kód na vyšší úrovni abstrakce než jakou poskytuje samotný programovací jazyk.
+Rychlost, výkonnost a efektivita složitého programovacího jazyka nižší úrovně je zachována díky makro jazykům, protože zdrojový kód jazyka vyšší úrovně není tak pracný na zápis.
+Avšak je důležité dobře rozumět všem vrstvám kódu.
+],
+[dnl english: _next_language_
+Later, macro languages were used to extend compiled programming languages because they made it possible to write source code at a[]NB()higher level of abstraction than offers the programming language itself.
+The speed, performance and efficiency of a complex low-level programming language is preserved through macro languages, because the high-level source code is not so laborious to write.
+However, it is important to understand all layers of code well.
 ]])
 
 
@@ -136,7 +147,7 @@ HEADING_MONO([dnl monolingual
 ])
 
 PARA([[dnl czech
-Základní myšlenku přepisování textových řetězců s[]NB()argumenty, které se přepíší do dalších rekurzivně přepisovatelných řetězců představil
+Základní myšlenku přepisování textových řetězců s[]NB()argumenty, které se přepíší do dalších rekurzivně přepisovatelných řetězců, představil
 AH([PERSON([Christopher Strachey])], [Wikipedie], [https://en.wikipedia.org/wiki/Christopher_Strachey]) ve svém
 ABBR([GPM], [General Purpose Macro-generator])[]REF([A[]NB()General Purpose Macro-generator], [Computer Journal 8, 3 (1965), 225–41], [http://dx.doi.org/10.1093/comjnl/8.3.225]) v[]NB()roce 1965.
 Další generace makro procesorů M3 a[]NB()M4 původní ABBR([GPM], [General Purpose Macro-generator]) v[]NB()podstatě už jen rozšiřovaly.
@@ -146,7 +157,7 @@ Základní myšlenka původního návrhu ale zůstala stejná.
 AH([PERSON([Christopher Strachey])], [Wikipedia], [https://en.wikipedia.org/wiki/Christopher_Strachey]) introduced the basic idea of rewritable strings with arguments which recursively rewrite to other strings in his
 ABBR([GPM], [General Purpose Macro-generator])[]REF([A[]NB()General Purpose Macro-generator], [Computer Journal 8, 3 (1965), 225–41], [http://dx.doi.org/10.1093/comjnl/8.3.225]) in 1965.
 The next generation of M3 and M4 macro processors basically just expanded the original ABBR([GPM], [General Purpose Macro-generator]).
-However, the basic idea of the original proposal remained the same.
+The basic idea of the original proposal remained the same.
 ]])
 
 
@@ -240,16 +251,18 @@ divert(0)dnl
 …
 ]])dnl PRE
 
-TIP_BOX(, [divert(-1), divert(0), divert(1), …, divert(2147483647)], [[dnl czech
-Klíčové slovo CODE([[divert](AH([ℤ], [celé číslo], [https://cs.wikipedia.org/wiki/Cel%C3%A9_%C4%8D%C3%ADslo]))]) přepíná výstupní fronty.
+debugfile([debug.m4])debugmode([taeq])
+TIP_BOX([[dnl czech
+Klíčové slovo CODE([[divert](AH([ℤ], [celé číslo], [https://cs.wikipedia.org/wiki/Cel%C3%A9_%C4%8D%C3%ADslo]))], [divert(-1), divert(0), divert(1), …, divert(2147483647)], [dot]) přepíná výstupní fronty.
 Argument CODE([-1]) zcela vypne jakýkoliv textový výstup.
-Argument CODE([0]) přepne výstup na CODE_M4([stdout]).
+Argument CODE([0]) přepne výstup na CODE_M4([stdout]) (standardní výstup).
 ],
 [dnl english: _next_language_
-The CODE([[divert](AH([ℤ], [integer], [https://en.wikipedia.org/wiki/Integer]))]) keyword switches output queues.
+The CODE([[divert](AH([ℤ], [integer], [https://en.wikipedia.org/wiki/Integer]))], [divert(-1), divert(0), divert(1), …, divert(2147483647)], [dot]) keyword switches output queues.
 Argument CODE([-1]) completely disables any text output.
-Argument CODE([0]) switches output to CODE([stdout]).
+Argument CODE([0]) switches output to CODE([stdout]) (standard output).
 ]])
+debugmode
 
 
 HEADING_MONO([dnl monolingual
@@ -271,7 +284,7 @@ Programming in RATFOR is similar to C[]NB()programming.
 The macro processor converts the source code back to FORTRAN, then the compiler performs the usual compilation to machine code.
 ]])
 
-TIP_BOX_WRAP([], LANG([M4 doplňuje jazyk C], [M4 complements C language]), [
+TIP_BOX_WRAP([], LANG([jazyk M4 doplňuje jazyk C], [M4 language complements C language]), [
 
 PLAIN_TEXT([[dnl czech
 Všimněte si LINK([téměř dokonalé symbiózy], [cpp_and_m4]) s[]NB()jazykem C
@@ -386,17 +399,17 @@ Dnes existuje několik implementací lišící se od původní implementace spí
 Nejrozšířenější implementace M4 je BO([GNU M4]) používaná pro AH([Autotools], [Wikipedie], [https://en.wikipedia.org/wiki/GNU_Build_System])
 a[]NB()pro překlad jednoduchého konfiguračního souboru CODE([sendmail.mc]) na složitý CODE([sendmail.cf]).
 Autorem této implementace z[]NB()roku 1990 je AH([PERSON([René Seindal])], [https://www.seindal.dk/rene/gnu/]).
-ABBR([BO([m4])], [m4 s malým „m“ je nástroj]) nainstalujeme následujícím příkazem:
+BO([m4], [m4 s malým „m“ je nástroj], [dot]) nainstalujeme následujícím příkazem:
 ],
 [dnl english: _next_language_
 Today, there are several implementations that differ from the original implementation rather by small details.
 The most common implementation of M4 is the BO([GNU M4])[]REF([GNU M4 - GNU macro processor], [Free Software Foundation], [https://www.gnu.org/software/m4/manual/]) used for AH([Autotools], [Wikipedia], [https://en.wikipedia.org/wiki/GNU_Build_System])
 and for translating the simple CODE([sendmail.mc]) configuration file to complex CODE([sendmail.cf]).
 The author of this implementation (1990) is AH([PERSON([René Seindal])], [https://www.seindal.dk/rene/gnu/]).
-To install ABBR([BO([m4])], [m4 with small letter „m“ is a tool]), type the following command:
+To install BO([m4], [m4 with small letter „m“ is a tool], [dot]), type the following command:
 ]])
 
-PRE([install], LANG([příkaz nainstaluje také další balíčky], [the command also installs additional packages]), [
+PRE([install], LANG([příkaz nainstaluje také další důležité balíčky], [the command also installs other important packages]), [
 ROO() BO([dnf -y install make m4 pinfo])
 ])dnl PRE
 
@@ -422,15 +435,15 @@ dnl english: _next_language_
 
 PARA([[dnl czech
 Základem jazyka M4 je BO([bezkontextová gramatika]), BO([automaty]), BO([zásobníky]) a[]NB()BO([výstupní fronty]).
-Pro pochopení jazyka M4 je proto velmi důležité rozumět základním pojmům teorie formálních jazyků.
-Co jsou AH([terminální symboly], [Wikipedie], [https://cs.wikipedia.org/wiki/Termin%C3%A1ln%C3%AD_a_netermin%C3%A1ln%C3%AD_symbol]) (stručně BO([terminály])) a[]NB()neterminální symboly (stručně BO([neterminály])).
+Pro pochopení jazyka M4 je proto velmi důležité rozumět základním pojmům teorie formálních jazyků –
+co jsou AH([terminální symboly], [Wikipedie], [https://cs.wikipedia.org/wiki/Termin%C3%A1ln%C3%AD_a_netermin%C3%A1ln%C3%AD_symbol]) (stručně BO([terminály])) a[]NB()neterminální symboly (stručně BO([neterminály])).
 Zmíněné pojmy si podrobněji vysvětlíme někdy později.
 Cílem tohoto úvodního dílu je hlavně ukázat praktické použití M4 na příkladech.
 ],
 [dnl english: _next_language_
-M4 is based on LINK([context-free grammar], [context_free_grammar]), BO([automata]), BO([stacks]) and BO([output queues]).
-To understand M4, it is therefore very important to understand the basic concepts of formal language theory.
-What are AH([terminal symbols], [Wikipedia], [https://en.wikipedia.org/wiki/Terminal_and_nonterminal_symbols]) (briefly BO([terminals])) and nonterminal symbols (briefly BO([nonterminals])).
+M4 is based on BO([context-free grammar]), BO([automata]), BO([stacks]) and BO([output queues]).
+To understand M4, it is therefore very important to understand the basic concepts of formal language theory –
+what are AH([terminal symbols], [Wikipedia], [https://en.wikipedia.org/wiki/Terminal_and_nonterminal_symbols]) (briefly BO([terminals])) and nonterminal symbols (briefly BO([nonterminals])).
 These terms will be explained later in more detail.
 The aim of this introductory part is mainly to show the basic practical use of M4 language on examples.
 ]])
@@ -485,7 +498,7 @@ Všechna klíčová slova M4 jsou neterminály (makra), provedou nějakou akci (
 Klíčová slova mohou být přejmenována.
 ],
 [dnl english: _next_language_
-All M4 keywords are nonterminals (macros), they take some action (changes the internal state of the macro processor) and rewrite to ABBR([CODE([ε])], [epsilon – empty symbol]).
+All M4 keywords are nonterminals (macros), they take some action (change the internal state of the macro processor) and rewrite to ABBR([CODE([ε])], [epsilon – empty symbol]).
 Keywords can be renamed.
 ]])
 
@@ -643,11 +656,11 @@ Vstupní data mohou také přicházet z[]NB()kolony:
 Input data may also come from the pipeline:
 ]])
 
-PRE(, LANG([vstupní kód → generování zdrojového kódu → soubor], [input code → source code generation → output file]), [
+PRE(, LANG([vstupní kód → generování kódu → výstupní kód], [input code → code generation → output code]), [
 CMD() BO([cat input.mc | m4 root.m4 stem.m4 branch.m4 leaf.m4 - > output.file])
 ])dnl PRE
 
-PRE(, LANG([vstupní kód → generování zdrojového kódu → program], [input code → source code generation → program]), [
+PRE(, LANG([vstupní kód → generování kódu → program], [input code → code generation → program]), [
 CMD() BO([cat input.mc | m4 root.m4 stem.m4 branch.m4 leaf.m4 - | gcc -x c -o progr -])
 ])dnl PRE
 
@@ -697,7 +710,7 @@ Prázdný pár řídících znaků CODE_M4([`']) před makrem slouží jako LINK
 ],
 [dnl english: _next_language_
 M4 in preprocessor mode can be part of a[]NB()pipeline.
-The conflicting character from the input source code is hidden into a[]NB()macro, for example CODE_M4([`'LQ()]).
+The conflicting character CODE([LQ()]) from the input source code is hidden into a[]NB()macro, for example CODE_M4([`'LQ()]).
 An empty pair of control characters CODE_M4([`']) before the macro serves as a[]NB()LINK([symbol separator], [symbols_in_brackets]).
 ]])
 
@@ -710,7 +723,7 @@ Při průchodu zdrojového kódu makro procesorem se makro CODE_M4([`'LQ()]) př
 Použijeme-li pro řízení expanze neterminálů hranaté závorky, skryjeme stejným způsobem levou CODE([LB()]) hranatou závorku.
 ],
 [dnl english: _next_language_
-When the source code is passed through the macro processor, the CODE_M4([LQ()]) macro is rewritten back to the original CODE([LQ()]) character and the empty pair CODE_M4([`']) is removed.
+When the source code is passed through the macro processor, the CODE_M4([`'LQ()]) macro is rewritten back to the original CODE([LQ()]) character and the empty pair CODE_M4([`']) is removed.
 Using square brackets to control the expansion of nonterminals, we hide the left CODE([LB()]) square bracket in the same way.
 ]])
 
@@ -775,8 +788,8 @@ Nejdůležitější je uvědomit si, že se v[]NB()něm programují přepisovac�
 Každý řetězec je buď terminální nebo neterminální symbol včetně všech klíčových slov jazyka (znaky CODE_M4([#]) a[]NB()CODE_M4([,]) jsou speciální případy neterminálů).
 ],
 [dnl english: _next_language_
-To successfully master this macro-language it is important to fulfill several prerequisites.
-M4 is not a[]NB()simple language because it is not possible to think and program in it like a[]NB()regular programming language.
+To successfully master this macro language it is important to fulfill several prerequisites.
+M4 is not a[]NB()simple language because it is not possible to think and program in it like an ordinary programming language.
 The most important thing to realize is that it is used to program grammar rewriting rules.
 Each string is either a[]NB()terminal or a[]NB()nonterminal symbol, including all language keywords (characters CODE_M4([#]) and CODE_M4([,]) are special cases of nonterminals).
 ]])
@@ -845,14 +858,14 @@ S: LANG([je počáteční (startovací) symbol], [is the start symbol])
 ])dnl PRE
 
 PARA([[dnl czech
-AH([Formální gramatika], [Wikipedie], [https://cs.wikipedia.org/wiki/Formální_gramatika]) popisuje AH([podmnožiny], [Chomského hierarchie], [https://cs.wikipedia.org/wiki/Chomsk%C3%A9ho_hierarchie]) přepisovacích pravidel AH([formálního jazyka], [Wikipedie], [https://cs.wikipedia.org/wiki/Form%C3%A1ln%C3%AD_jazyk]).
+AH([Formální gramatika], [Wikipedie], [https://cs.wikipedia.org/wiki/Formální_gramatika]) popisuje AH([podmnožiny], [Wikipedie – Chomského hierarchie], [https://cs.wikipedia.org/wiki/Chomsk%C3%A9ho_hierarchie]) přepisovacích pravidel AH([formálního jazyka], [Wikipedie], [https://cs.wikipedia.org/wiki/Form%C3%A1ln%C3%AD_jazyk]).
 Jedna z[]NB()podmnožin se jmenuje AH([bezkontextová gramatika], [Wikipedie], [https://cs.wikipedia.org/wiki/Bezkontextov%C3%A1_gramatika]), krátce ABBR([CFG], [Context-Free Grammar – bezkontextová gramatika]).
 Přepisovací pravidla CFG pracují stejně jako přepisovací pravidla jazyka M4.
 Některý z[]NB()následujících dílů seriálu se podrobněji zaměří na formální gramatiky.
 ],
 [dnl english: _next_language_
-AH([Formal grammar], [Wikipedia], [https://en.wikipedia.org/wiki/Formal_grammar]) describes AH([subsets], [Chomsky hierarchy], [https://en.wikipedia.org/wiki/Chomsky_hierarchy]) of AH([formal language], [Wikipedia], [https://en.wikipedia.org/wiki/Formal_language]) rewriting rules.
-One of the subsets is called AH([context-free grammar], [Wikipedia], [https://en.wikipedia.org/wiki/Context-free_grammar]), shortly ABBR([CFG], [Context-Free Grammar]).
+AH([Formal grammar], [Wikipedia], [https://en.wikipedia.org/wiki/Formal_grammar]) describes AH([subsets], [Wikipedia – Chomsky hierarchy], [https://en.wikipedia.org/wiki/Chomsky_hierarchy]) of AH([formal language], [Wikipedia], [https://en.wikipedia.org/wiki/Formal_language]) rewriting rules.
+One of the subsets is named AH([context-free grammar], [Wikipedia], [https://en.wikipedia.org/wiki/Context-free_grammar]), shortly ABBR([CFG], [Context-Free Grammar]).
 The CFG rewriting rules work the same as M4 rewriting rules.
 Some of the following episodes of this series will focuses in more detail on formal grammars.
 ]])
@@ -909,7 +922,7 @@ Předchozí automat lze zapsat jako ASCII art doprovázející M4 skript:
 Previous automaton can be written as an ASCII art accompanying the M4 script:
 ]])
 
-PRE(, LANG([jak dokumentovat M4 kód], [how to document M4 code]), [
+PRE(, [ASCII-art ]LANG([jako dokumentace uvnitř M4 kódu], [as documentation inside the M4 code]), [
 #          ____1
 #         |   /
 #      ___V__/   0    ____
@@ -975,11 +988,11 @@ A[]NB()well-structured CODE([Makefile]) therefore significantly contributes to t
 
 TIP_BOX(, LANG([více v kapitole: „Pracovní postup“], [more in the chapter: „Workflow“]), [[dnl czech
 Spouštění CODE([make])[]REF([GNU Make Manual], [Free Software Foundation], [https://www.gnu.org/software/make/manual/make.html]) z[]NB()editoru kódu pomocí vhodné klávesové zkratky zásadně urychluje vývoj M4 kódu.
-Soubor CODE([~/.vimrc]) obsahuje CODE_M4([nnoremap &lt;c-j&gt; :make&lt;cr&gt;]).
+Soubor CODE([~/.vimrc]) obsahuje CODE([nnoremap []LT()c-j[]GT() :make[]LT()cr[]GT()]).
 ],
 [dnl english: _next_language_
 Executing CODE([make])[]REF([GNU Make Manual], [Free Software Foundation], [https://www.gnu.org/software/make/manual/make.html]) from the code editor with a[]NB()shortcut key will significantly speed up M4 code development.
-The file CODE([~/.vimrc]) contains CODE_M4([nnoremap &lt;c-j&gt; :make&lt;cr&gt;]).
+The file CODE([~/.vimrc]) contains CODE([nnoremap []LT()c-j[]GT() :make[]LT()cr[]GT()]).
 ]])
 
 
@@ -1153,7 +1166,7 @@ dnl english: _next_language_
 [Modified input code],
 ])
 
-LINK_FILE([messages/messages.mc], LANG([speciální znaky vstupního kódu jsou skryty do maker], [special characters of the input code are hidden in macros]))
+INSERT_FILE_AND_LINK([messages/messages.mc], LANG([speciální znaky vstupního kódu jsou skryty do BUN([obyčejných]) maker], [special characters of the input code are hidden in BUN([ordinary]) macros]))
 
 PARA([[dnl czech
 Vytvoříme soubory převádějící makra na speciální znaky podle typu cílového kódu.
@@ -1166,7 +1179,7 @@ HEADING_MONO([dnl
 [CODE_M4([[]]) XML[,] XSLT[,] HTML],
 ])
 
-LINK_FILE([messages/markup.m4], LANG([převodní soubor pro značkovací jazyky], [conversion file for markup languages]))
+INSERT_FILE_AND_LINK([messages/markup.m4], LANG([převodní soubor pro značkovací jazyky], [conversion file for markup languages]))
 
 # hide  ‘"’ → DQ(), because of title="… &quot; … &quot; …"
 HEADING([dnl
@@ -1174,7 +1187,7 @@ HEADING([dnl
 [CODE_M4([[]]) C[,] JSON[,] INI – CODE([DQ()string[]DQ()])],
 ])
 
-LINK_FILE([messages/code.m4], LANG([převodní soubor pro řetězce ve zdrojovém kódu], [conversion file for strings in source code]))
+INSERT_FILE_AND_LINK([messages/code.m4], LANG([převodní soubor pro řetězce ve zdrojovém kódu], [conversion file for strings in source code]))
 
 # hide ‘"’ → DQ(), because of title="… &quot; … &quot; …"
 HEADING([dnl
@@ -1182,20 +1195,20 @@ HEADING([dnl
 [CODE_M4([[]]) Bash – CODE([DQ()string[]DQ()])],
 ])
 
-LINK_FILE([messages/doubleq.m4], LANG([převodní soubor pro řetězce uvnitř uvozovek], [conversion file for strings inside quotation marks]))
+INSERT_FILE_AND_LINK([messages/doubleq.m4], LANG([převodní soubor pro Bash řetězce v uvozovkách], [conversion file for Bash strings in quotation marks]))
 
 HEADING([dnl
 [CODE_M4([[]]) Bash – CODE([AP()řetězec[]AP()])],
 [CODE_M4([[]]) Bash – CODE([AP()string[]AP()])],
 ])
 
-LINK_FILE([messages/apost.m4], LANG([převodní soubor pro řetězce uvnitř apostrofů], [conversion file for strings inside apostrophes]))
+INSERT_FILE_AND_LINK([messages/apost.m4], LANG([převodní soubor pro Bash řetězce v apostrofech], [conversion file for Bash strings in apostrophes]))
 
 HEADING_MONO([dnl monolingual
 [CODE_M4([[]]) CSV[,] M4],
 ])
 
-LINK_FILE([messages/unchanged.m4], LANG([převodní soubor vrátí speciální znaky beze změny], [conversion file returns special characters intact]))
+INSERT_FILE_AND_LINK([messages/unchanged.m4], LANG([převodní soubor vrátí speciální znaky beze změny], [conversion file returns special characters intact]))
 
 
 SUB_ANNEX([dnl czech
@@ -1306,7 +1319,7 @@ The example uses two output queues.
 The queue number CODE([1]) contains paragraphs.
 The queue number CODE([2]) contains closing HTML tags.
 Navigation links do not have to be stored anywhere, they go straight to the output.
-The CODE([QUERY]) and CODE([WARNING]) messages are treated in the same way as CODE([ERROR]) messages.
+The CODE([QUERY]) and CODE([WARNING]) messages are processed in the same way as CODE([ERROR]) messages.
 ]])
 
 INSERT_FILES_MESSAGES_MARKUP([messages.html.m4], [messages.html])
@@ -1348,7 +1361,7 @@ The example uses two output queues and one generating automaton.
 The first CODE_M4([ERROR([…])]) error message in the CODE([ERROR]) state generates a[]NB()header with brackets and outputs the first record.
 The automaton goes to the state CODE([NEXT_ITEM]) which is a[]NB()ABBR([CODE([β]) rule], [rule is used as the right side of another rewriting rule]).
 The following error messages in the CODE([NEXT_ITEM]) state only output individual records.
-At the end the output queue number CODE([1]) and number CODE([2]) print the characters CODE([RB()]) and CODE([}}]) to end the resulting JSON.
+At the end the output queue number CODE([1]) and number CODE([2]) print the characters CODE([RB()]) and CODE([}}]) to close the resulting JSON.
 ]])
 
 INSERT_FILES_MESSAGES_CODE([atm.json.m4], [atm.json])
@@ -1457,10 +1470,10 @@ dnl english: _next_language_
 ])
 
 PARA([[dnl czech
-Příklad používá jednu výstupní frontu číslo CODE([1]) pro uzavírací značku CODE([&lt;/messages&gt;]).
+Příklad používá jednu výstupní frontu číslo CODE([1]) pro uzavírací značku CODE([[]LT()/messages[]GT()]).
 ],
 [dnl english: _next_language_
-The example uses one output queue number CODE([1]) for the CODE([&lt;/messages&gt;]) closing tag.
+The example uses one output queue number CODE([1]) for the CODE([[]LT()/messages[]GT()]) closing tag.
 ]])
 
 INSERT_FILES_MESSAGES_QUEUES_MARKUP([mixed.xml.m4], [mixed.xml])
@@ -1548,7 +1561,7 @@ Komentáře se vypínají stejným klíčovým slovem CODE_M4([changecom]) bez p
 [dnl english: _next_language_
 CSS uses the CODE_M4([#]) character for color codes, which is also the beginning of a[]NB()one-line M4 comment.
 The CODE_M4([changecom(/*,*/)]) keyword sets a[]NB()multiline CODE([/* … */]) comment and rewrites into ABBR([CODE([ε])], [epsilon – empty symbol]).
-The comment can be turned off with the same CODE_M4([changecom]) keyword without parameters.
+The comments can be turned off with the same CODE_M4([changecom]) keyword without parameters.
 ]])
 
 INSERT_FILES_PREPROC([q], [file.css])
@@ -1566,7 +1579,7 @@ Nechceme-li je skrývat do makra CODE_M4([LQ()]) nebo CODE_M4([LB()]), můžeme 
 ],
 [dnl english: _next_language_
 Bash uses both characters CODE([LQ()]) CODE([LB()]).
-If we do not want to hide them in an CODE_M4([LQ()]) or CODE_M4([LB()]) macro, we can use nonprintable characters as in the following example:
+If we do not want to hide them in an CODE_M4([LQ()]) or CODE_M4([LB()]) macro, we can use nonprintable characters for LINK([expansion control], [expansion_control]) see example:
 ]])
 
 INSERT_FILES_PREPROC([n], [file.sh])
@@ -1677,7 +1690,7 @@ UNORDERED_LIST_WRAP([
 
 LIST_ITEM([[dnl czech
 přímé použití LINK([bezkontextové gramatiky], [context_free_grammar]) (rekurze zdarma)
-UL([LI([k[]NB()transformaci dat stačí napsat minimum M4 kódu])])
+UL([LI([pro transformaci dat stačí napsat minimum M4 kódu])])
 ],
 [dnl english: _next_language_
 direct use of LINK([context-free grammar], [context_free_grammar]) (recursion for free)
@@ -1707,7 +1720,7 @@ přímé použití výstupních front pro dočasné uložení výsledných čás
 UL([LI([jednotlivé fronty jsou na závěr vypsány na výstup ve vzestupném pořadí])])
 ],
 [dnl english: _next_language_
-direct use of output queues to temporarily store the resulting code pieces
+direct use of output queues to temporarily store the resulting pieces of code
 UL([LI([the individual queues are finally dumped to output in ascending order])])
 ]])
 
