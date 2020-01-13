@@ -654,11 +654,11 @@ Vstupní data mohou také přicházet z[]NB()kolony:
 Input data may also come from the pipeline:
 ]])
 
-PRE(, LANG([vstupní kód → generování kódu → výstupní kód], [input code → code generation → output code]), [
+PRE(, LANG([vstupní kód → generování zdrojového kódu → soubor], [input code → source code generation → file]), [
 CMD() BO([cat input.mc | m4 root.m4 stem.m4 branch.m4 leaf.m4 - > output.file])
 ])dnl PRE
 
-PRE(, LANG([vstupní kód → generování kódu → program], [input code → code generation → program]), [
+PRE(, LANG([vstupní kód → generování zdrojového kódu → program], [input code → source code generation → program]), [
 CMD() BO([cat input.mc | m4 root.m4 stem.m4 branch.m4 leaf.m4 - | gcc -x c -o progr -])
 ])dnl PRE
 
@@ -1085,7 +1085,7 @@ The input source code is similar to ABBR([CSV], [Comma Separated Values]), which
 Stacks in the examples are not used.
 ]])
 
-INSERT_FILE([messages/messages_raw.mc], [  ⚠ ]LANG([obsahuje speciální znaky], [contains special characters])[ ⚠])
+INSERT_FILE_AND_LINK([messages/messages_raw.mc], [⚠ ]LANG([obsahuje speciální znaky], [contains special characters])[ ⚠])
 
 TIP_BOX([[dnl czech
 Vstupní soubor může obsahovat poznámky, které nemusí být skryté v[]NB()komentářích CODE_M4([#]), CODE_M4([dnl]), CODE_M4([ifelse([…])]) nebo CODE_M4([[… někde uvnitř závorek …]]).
