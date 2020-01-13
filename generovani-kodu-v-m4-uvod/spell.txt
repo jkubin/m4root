@@ -1,5 +1,5 @@
 # vim:wrap:spell:spelllang=cs,en
-# intro.mc	0xc2d9796	20200113-10:39:06
+# intro.mc	0xd867062	20200113-16:34:10
 
 6
 Generování kódu v M4: úvod
@@ -298,10 +298,10 @@ Datové soubory  obvykle neobsahují žádná transformační pravidla.
 Vstupní data mohou také přicházet z kolony:
 
 657
-[vstupní kód → generování kódu → výstupní kód]
+[vstupní kód → generování zdrojového kódu → soubor]
 
 661
-[vstupní kód → generování kódu → program]
+[vstupní kód → generování zdrojového kódu → program]
 
 665
 Vyzkoušejte: Příklady generování kódu
@@ -484,6 +484,9 @@ Vstupní zdrojový kód
 1079
 Vstupní zdrojový kód je podobný CSV (Comma Separated Values), který se převede na libovolně složitý cílový kód jiného jazyka pomocí CFG (Context-Free Grammar – bezkontextová gramatika), automatů a výstupních front.
 Zásobníky v příkladech nejsou použity.
+
+1088
+[⚠ obsahuje speciální znaky ⚠]
 
 1090
 Vstupní soubor může obsahovat poznámky, které nemusí být skryté v komentářích , ,  nebo .

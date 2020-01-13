@@ -224,10 +224,10 @@ Examples of <a href="#m4-html-output-queues" title="[] HTML – output queues">o
 <p>The <code>input1.mc</code> and <code>input2.mc</code> files contain the <strong>input data</strong> in a&nbsp;format that allows them to be transformed into <strong>output data</strong> according to the rules in the previous <code>.m4</code> files.
 The data <code>.mc</code> files usually do not contain any transformation rules.</p>
 <p>Input data may also come from the pipeline:</p>
-<pre title="input code → code generation → output code">
+<pre title="input code → source code generation → file">
 ~]$ <strong>cat input.mc | m4 root.m4 stem.m4 branch.m4 leaf.m4 - &gt; output.file</strong>
 </pre>
-<pre title="input code → code generation → program">
+<pre title="input code → source code generation → program">
 ~]$ <strong>cat input.mc | m4 root.m4 stem.m4 branch.m4 leaf.m4 - | gcc -x c -o progr -</strong>
 </pre>
 <p>Try: <a href="#m4-code-generation-examples" title="Code generation examples">Code generation examples</a></p>
@@ -401,7 +401,8 @@ They will be explained in more detail later.</div>
 <h3 id="m4-input-source-code"><a href="#m4-input-source-code" title="⚓">»</a>&nbsp;Input source code</h3>
 <p>The input source code is similar to <abbr title="Comma Separated Values">CSV</abbr>, which is converted to arbitrarily complex target code of another language using <abbr title="Context-Free Grammar">CFG</abbr>, automata and output queues.
 Stacks in the examples are not used.</p>
-<pre title="messages_raw.mc  ⚠ contains special characters ⚠"># 2018/05/15 Josef Kubin
+<p><code><a href="https://raw.githubusercontent.com/jkubin/m4root/master/messages/messages_raw.mc" title="GitHub">messages_raw.mc</a></code> – ⚠ contains special characters ⚠</p>
+<pre title="messages_raw.mc"># 2018/05/15 Josef Kubin
 
 ERROR([COMPLEX],     [!"#$%&amp;'()*+ ,-./:;&lt;=&gt;?@[\]^_`{|}~])
 QUERY([READABLE],    [Is badly written M4 code readable [N/y]?])

@@ -226,10 +226,10 @@ Na závěr jsou všechny neprázdné fronty vypsány ve vzestupném pořadí na 
 <p>Soubory <code>input1.mc</code> a&nbsp;<code>input2.mc</code> obsahují <strong>vstupní data</strong> ve specifickém formátu, který umožňuje jejich transformaci na <strong>výstupní data</strong> podle pravidel v&nbsp;předchozích <code>.m4</code> souborech.
 Datové soubory <code>.mc</code> obvykle neobsahují žádná transformační pravidla.</p>
 <p>Vstupní data mohou také přicházet z&nbsp;kolony:</p>
-<pre title="vstupní kód → generování kódu → výstupní kód">
+<pre title="vstupní kód → generování zdrojového kódu → soubor">
 ~]$ <strong>cat input.mc | m4 root.m4 stem.m4 branch.m4 leaf.m4 - &gt; output.file</strong>
 </pre>
-<pre title="vstupní kód → generování kódu → program">
+<pre title="vstupní kód → generování zdrojového kódu → program">
 ~]$ <strong>cat input.mc | m4 root.m4 stem.m4 branch.m4 leaf.m4 - | gcc -x c -o progr -</strong>
 </pre>
 <p>Vyzkoušejte: <a href="#m4-priklady-generovani-kodu" title="Příklady generování kódu">Příklady generování kódu</a></p>
@@ -403,7 +403,8 @@ Podrobněji budou vysvětleny později.</div>
 <h3 id="m4-vstupni-zdrojovy-kod"><a href="#m4-vstupni-zdrojovy-kod" title="⚓">»</a>&nbsp;Vstupní zdrojový kód</h3>
 <p>Vstupní zdrojový kód je podobný <abbr title="Comma Separated Values">CSV</abbr>, který se převede na libovolně složitý cílový kód jiného jazyka pomocí <abbr title="Context-Free Grammar – bezkontextová gramatika">CFG</abbr>, automatů a&nbsp;výstupních front.
 Zásobníky v&nbsp;příkladech nejsou použity.</p>
-<pre title="messages_raw.mc  ⚠ obsahuje speciální znaky ⚠"># 2018/05/15 Josef Kubin
+<p><code><a href="https://raw.githubusercontent.com/jkubin/m4root/master/messages/messages_raw.mc" title="GitHub">messages_raw.mc</a></code> – ⚠ obsahuje speciální znaky ⚠</p>
+<pre title="messages_raw.mc"># 2018/05/15 Josef Kubin
 
 ERROR([COMPLEX],     [!"#$%&amp;'()*+ ,-./:;&lt;=&gt;?@[\]^_`{|}~])
 QUERY([READABLE],    [Is badly written M4 code readable [N/y]?])

@@ -1,5 +1,5 @@
 # vim:wrap:spell:spelllang=en,en
-# intro.mc	0xc2d9796	20200113-10:39:07
+# intro.mc	0xd867062	20200113-16:34:10
 
 6
 Generating code in M4: introduction
@@ -296,10 +296,10 @@ The data  files usually do not contain any transformation rules.
 Input data may also come from the pipeline:
 
 657
-[input code → code generation → output code]
+[input code → source code generation → file]
 
 661
-[input code → code generation → program]
+[input code → source code generation → program]
 
 665
 Try: Code generation examples
@@ -482,6 +482,9 @@ Input source code
 1079
 The input source code is similar to CSV (Comma Separated Values), which is converted to arbitrarily complex target code of another language using CFG (Context-Free Grammar), automata and output queues.
 Stacks in the examples are not used.
+
+1088
+[⚠ contains special characters ⚠]
 
 1090
 The input file may contain notes that may not be hidden in the comments , ,  or .
