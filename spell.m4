@@ -85,7 +85,7 @@ define([LINK], [pushdef([CURRQU], divnum)divert(-1)
 	# find link in refs
 	ifelse(defn(defn([PREF]).anch.[$2]), [], [
 
-		ROOT_WARNING([$0([$1], [‘$2’ not found], [$3], [$4]); run ‘make -B rules’ to regenerate])
+		ROOT_WARNING([$0([$1], [‘$2’ not found], [$3], [$4]); run ‘make -B refs …’ to regenerate])
 	])
 
 	# find caption in refs
@@ -126,7 +126,7 @@ define([AH], [ifelse(
 	[$#], [1], [],
 	[$#], [2], [$1],
 	[$2], [], [$1],
-	[$1 ($2)])[]dnl
+	[$1 ([$2])])[]dnl
 ])
 
 # A → β
@@ -135,8 +135,8 @@ define([BR], [
 
 # A → β
 # β
-define([BO],		[ifelse([$#], [0], [[$0]], [$2], [], [$1], [$1 ($2)])])
-define([QM],		[ifelse([$#], [0], [[$0]], [$2], [], [„$1“], [„$1“ ($2)])])
+define([BO],		[ifelse([$#], [0], [[$0]], [$2], [], [$1], [$1 ([$2])])])
+define([QM],		[ifelse([$#], [0], [[$0]], [$2], [], [„$1“], [„$1“ ([$2])])])
 
 # A → β
 # β
@@ -145,7 +145,7 @@ define([ACRO],		defn([BO]))
 define([AP],		[ifelse([$#], [0], [[$0]], ['])])
 define([BUTTON],	defn([BO]))
 define([CITE],		defn([BO]))
-define([CODE],		[ifelse([$#], [0], [[$0]], [$2], [], [], [($2)])])
+define([CODE],		[ifelse([$#], [0], [[$0]], [$2], [], [], [([$2])])])
 define([DEL],		defn([BO]))
 define([DFN],		defn([BO]))
 define([DQ],		[ifelse([$#], [0], [[$0]], ["])])
