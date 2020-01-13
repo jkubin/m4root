@@ -1,5 +1,5 @@
 # vim:wrap:spell:spelllang=cs,en
-# intro.mc	0xd867062	20200113-16:34:10
+# intro.mc	0x672e27d	20200114-00:25:59
 
 6
 Generování kódu v M4: úvod
@@ -439,7 +439,7 @@ Dobrá znalost tvorby  je proto základním předpokladem pro zvládnutí M4.
 Dobře strukturovaný  proto zásadním způsobem přispívá k celkové přehlednosti výsledného generátoru kódu.
 
 987
-[více v kapitole: „Pracovní postup“]
+[více v jiné části seriálu: „Pracovní postup“]
 
 987
 Spouštění  z editoru kódu pomocí vhodné klávesové zkratky zásadně urychluje vývoj M4 kódu.

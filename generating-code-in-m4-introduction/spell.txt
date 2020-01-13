@@ -1,5 +1,5 @@
 # vim:wrap:spell:spelllang=en,en
-# intro.mc	0xd867062	20200113-16:34:10
+# intro.mc	0x672e27d	20200114-00:25:59
 
 6
 Generating code in M4: introduction
@@ -437,7 +437,7 @@ Reading and maintaining source code generally takes more time than creating it.
 A well-structured  therefore significantly contributes to the overall clarity of the resulting code generator.
 
 987
-[more in the chapter: „Workflow“]
+[more in another part of the series: „Workflow“]
 
 987
 Executing  from the code editor with a shortcut key will significantly speed up M4 code development.

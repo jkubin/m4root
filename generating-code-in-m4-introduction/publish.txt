@@ -330,7 +330,7 @@ The automaton remains in this state until all data has been processed.</p>
 Good knowledge of <code>Makefile</code> writing is therefore a&nbsp;prerequisite for mastering M4.
 Reading and maintaining source code generally takes more time than creating it.
 A&nbsp;well-structured <code>Makefile</code> therefore significantly contributes to the overall clarity of the resulting code generator.</p>
-<div title="more in the chapter: „Workflow“" class="rs-tip-major m4-tip">Executing <code>make</code><sup><a href="https://www.gnu.org/software/make/manual/make.html" title="GNU Make Manual">[10]</a></sup> from the code editor with a&nbsp;shortcut key will significantly speed up M4 code development.
+<div title="more in another part of the series: „Workflow“" class="rs-tip-major m4-tip">Executing <code>make</code><sup><a href="https://www.gnu.org/software/make/manual/make.html" title="GNU Make Manual">[10]</a></sup> from the code editor with a&nbsp;shortcut key will significantly speed up M4 code development.
 The file <code>~/.vimrc</code> contains <code>nnoremap &lt;c-j&gt; :make&lt;cr&gt;</code>.</div>
 <h3 id="m4-vim"><a href="#m4-vim" title="⚓">5.4</a>&nbsp;&nbsp;Vim&nbsp;<a href="#m4-toc-vim" title="Content" class="m4-jmp">☰</a></h3>
 <p>Mastering the Vim<sup><a href="https://www.vim.org/" title="Vim – the ubiquitous text editor">[11]</a></sup> editor is an important prerequisite for the convenience and speed of writing M4 code.
