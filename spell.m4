@@ -63,9 +63,9 @@ define([CAPTION], defn([PRINT_LANG])[
 	define([FILE_PREFIX], __file__.LANG_CODE)
 ])
 
-# write link text or dereference link address
+# write hyperlink text or dereference link address
 # A → β
-define([LINK], [pushdef([CURRQU], divnum)divert(-1)
+define([HYLN], [pushdef([CURRQU], divnum)divert(-1)
 
 	# the more arguments the more link capabilities
 	ifelse(
@@ -93,7 +93,7 @@ define([LINK], [pushdef([CURRQU], divnum)divert(-1)
 
 	ifelse(defn([CAPT]), [], [
 
-			# CAPT in refs not found, use the first LINK argument
+			# CAPT in refs not found, use the first HYLN argument
 			define([CAPT], [$1])
 		],
 		[$1], [$2], [], [
@@ -208,7 +208,6 @@ define([FORM_WRAP],		defn([TITLE], [EXPAND_LAST]))
 define([HEADER_WRAP],		defn([TITLE], [EXPAND_LAST]))
 define([HEADING],		defn([PRINT_LANG]))
 define([HEADING_MONO],		defn([PRINT_MONO]))
-define([INSERT_PROCESSED_FILE],		defn([TITLE]))
 define([LIST_ITEM],		defn([PRINT_LANG]))
 define([LIST_ITEM_MONO],		defn([PRINT_MONO]))
 define([MAIN_WRAP],		defn([TITLE], [EXPAND_LAST]))
