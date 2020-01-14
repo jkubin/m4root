@@ -99,6 +99,6 @@ html_[]LANG_CODE.mk: ;
 $(FOLDER_NAMES):
 	mkdir -p $@
 
-FROZEN_FILE: rootb.m4 queues.m4 aux.m4 config.m4 inline.m4 headings.m4 block.m4 version.m4 style.m4 lang_[]LANG_CODE.m4 css.m4 REFS_FILES order.m4 lang.m4 include.m4
+FROZEN_FILE: rootb.m4 queues.m4 aux.m4 entities.m4 config.m4 inline.m4 headings.m4 block.m4 version.m4 style.m4 lang_[]LANG_CODE.m4 css.m4 REFS_FILES order.m4 lang.m4 include.m4
 	m4 -F $@ -DLANG_CODE='LANG_CODE' $^
 
