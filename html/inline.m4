@@ -59,7 +59,7 @@ pushdef([AH_ID_5],	[ifelse([$#], [5], [], [$5], [], [], [ id="FIND_AND_ADD_ID_RU
 pushdef([AH_REL_6],	[ifelse([$#], [6], [], [$6], [], [], [ rel="[$6]"])])
 pushdef([AH_ANYTHING_7],	[ifelse([$#], [7], [], [$7], [], [], [ [$7]])])
 
-# how to use AHTR(…)	(an example of how to reduce the amount of commas)
+# how to use AHTR(…), an example how to reduce the amount of commas
 #
 # AHTR([URL])	---> <a href="URL">URL</a>
 # AHTR([text], [URL])	---> <a href="URL">text</a>
@@ -68,8 +68,8 @@ pushdef([AH_ANYTHING_7],	[ifelse([$#], [7], [], [$7], [], [], [ [$7]])])
 # AHTR([text],, [my_rel], [URL])	---> <a href="URL" rel="my_rel">text</a>
 
 # A → β
-pushdef([CREATE_INLINE_ELEMENT], [define([$1], [ifelse($][#, 0, ]BRAC(BRAC($[0]))[, ]BRAC([<$2]defn([HTML_GLOBAL_ATTRIBUTES])[>$][1</$2>])[)])])
-pushdef([CREATE_INLINE_ELEMENT_SPECIAL], [define([$1], [ifelse($][#, 0, ]BRAC(BRAC($[0]))[, ]BRAC([$2])[)])])
+pushdef([CREATE_INLINE_ELEMENT],	[define([$1], [ifelse($][#, 0, ]BRAC(BRAC($[0]))[, ]BRAC([<$2]defn([HTML_GLOBAL_ATTRIBUTES])[>$][1</$2>])[)])])
+pushdef([CREATE_INLINE_ELEMENT_SPECIAL],	[define([$1], [ifelse($][#, 0, ]BRAC(BRAC($[0]))[, ]BRAC([$2])[)])])
 
 CREATE_INLINE_ELEMENT([ABBR],	[abbr])
 CREATE_INLINE_ELEMENT([ACRO],	[acronym])
