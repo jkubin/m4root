@@ -13,6 +13,7 @@ define([ROO], [ifelse([$#], [0], [[$0]], [$1], [], [~RB()[#]], [[$1]RB()[#]])])
 # nbsp
 # A → β
 define([NB], [ifelse([$#], [0], [[$0]], [&nbsp;])])
+define([NB2], [&nbsp;&nbsp;])
 
 # quot
 # A → β
@@ -29,10 +30,3 @@ define([LT], [ifelse([$#], [0], [[$0]], [&lt;])])
 # html problematic character '>'
 # A → β
 define([GT], [ifelse([$#], [0], [[$0]], [&gt;])])
-
-# offset level in TOC
-# A → β
-define([NBX], [&nbsp;&nbsp;])
-define([NBY], [&nbsp;&nbsp;&nbsp;])
-define([NBZ], [&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;])
-

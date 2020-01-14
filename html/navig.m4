@@ -76,10 +76,10 @@ ifelse(defn([REF]), defn([REF_NEXT]), [
 	# add item to navigation and below the page
 	# it have to be here because it is the last but one index, it can not be in the REF automaton
 	divert(CHAPTER_NAVIG_DATA)dnl
-<p id="NSP()TOCP-defn([#ID])"><a href="[#]NSP()defn([#ID])">CHAPTER_IDX()NBX()WORD_REFERENCES</a></p>
+<p id="NSP()TOCP-defn([#ID])"><a href="[#]NSP()defn([#ID])">CHAPTER_IDX()NB2()WORD_REFERENCES</a></p>
 divert(ARTICLE_REFER_CAPT)
 <!-- article references -->
-<h2 id="NSP()defn([#ID])"><a href="[#]NSP()defn([#ID])"defn([ANCHOR_SIGN])>CHAPTER_IDX</a>NBX()WORD_REFERENCES[]RETURN_TO_TOC</h2>
+<h2 id="NSP()defn([#ID])"><a href="[#]NSP()defn([#ID])"defn([ANCHOR_SIGN])>CHAPTER_IDX</a>NB2()WORD_REFERENCES[]RETURN_TO_TOC</h2>
 divert(-1)
 ])
 
@@ -93,9 +93,9 @@ ifdef([ADD_LINKS_TO_ALL_PARTS_OF_THE_SERIES], [
 
 	# add item to navigation and below the page
 	divert(CHAPTER_NAVIG_DATA)dnl
-<p id="NSP()TOCP-defn([#ID])"><a href="[#]NSP()defn([#ID])">CHAPTER_IDX()NBX()SENTENCE_ALL_PARTS</a></p>
+<p id="NSP()TOCP-defn([#ID])"><a href="[#]NSP()defn([#ID])">CHAPTER_IDX()NB2()SENTENCE_ALL_PARTS</a></p>
 divert(ALL_PARTS_LIST)dnl
-<h2 id="NSP()defn([#ID])"><a href="[#]NSP()defn([#ID])"defn([ANCHOR_SIGN])>CHAPTER_IDX</a>NBX()SENTENCE_ALL_PARTS[]RETURN_TO_TOC</h2>
+<h2 id="NSP()defn([#ID])"><a href="[#]NSP()defn([#ID])"defn([ANCHOR_SIGN])>CHAPTER_IDX</a>NB2()SENTENCE_ALL_PARTS[]RETURN_TO_TOC</h2>
 <ol>
 divert(ALL_PARTS_LIST_END)dnl
 </ol>

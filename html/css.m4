@@ -28,3 +28,11 @@ text-decoration:underline;
 CSS_RULE_SET([.urs .NSP()bl], [
 color:blue;
 ])
+
+CSS_RULE_SET([.urs p.NSP()level2], [
+padding-left:1em;
+])
+
+CSS_RULE_SET([.urs p.NSP()level3], [
+padding-left:2em;
+])

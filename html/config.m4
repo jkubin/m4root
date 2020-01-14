@@ -23,7 +23,7 @@ define([RETURN_TO_TOC], NB()[AH(]JUMP_TO_TOC[, defn([WORD_CONTENT]), [jmp], [#]A
 
 # links pointing to the top of the page
 # β
-#define([ESCAPE_FROM_TOC], NBX()[AH(]JUMP_TO_TOP[, defn([WORD_TOP]), [top], [#])])
+#define([ESCAPE_FROM_TOC], NB2()[AH(]JUMP_TO_TOP[, defn([WORD_TOP]), [top], [#])])
 
 # TODO: link to other language (not finished yet, if finished ever)
 # β

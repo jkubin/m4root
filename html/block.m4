@@ -99,9 +99,9 @@ pushdef([CHAPTER_COMMON_CODE], [
 	define([CURRQU], ARTICLE_CONTENT)
 
 	divert(CHAPTER_NAVIG_DATA)dnl
-<p id="NSP()TOCP-defn([#ID])">defn([INDENT_LEVEL])<a href="[#]NSP()defn([#ID])">defn([CHAPTER_IDX], [#L2], [#L3], [NBX])SELITM</a></p>
+<p id="NSP()TOCP-defn([#ID])"defn([INDENT_LEVEL])><a href="[#]NSP()defn([#ID])">defn([CHAPTER_IDX], [#L2], [#L3], [NB2])SELITM</a></p>
 divert(CURRQU)dnl
-<HEADING_TAG]defn([HTML_HEADING_ATTRIBUTES])[><a href="[#]NSP()defn([#ID])"]defn([ANCHOR_SIGN])[>defn([CHAPTER_IDX], [#L2], [#L3])</a>NBX()SELITM]defn([RETURN_TO_TOC], [SWITCH_LANG])[</HEADING_TAG>
+<HEADING_TAG]defn([HTML_HEADING_ATTRIBUTES])[><a href="[#]NSP()defn([#ID])"]defn([ANCHOR_SIGN])[>defn([CHAPTER_IDX], [#L2], [#L3])</a>NB2()SELITM]defn([RETURN_TO_TOC], [SWITCH_LANG])[</HEADING_TAG>
 divert(-1)
 ])
 
@@ -123,7 +123,7 @@ define([SUB_CHAPTER], defn([MULTILINGUAL_HEADINGS], [SET_ANCHOR], [COUNTERS])[
 
 	define([#L2], .SUB_CHAPTER_IDX)
 	define([#L3])
-	define([INDENT_LEVEL], NBY)
+	define([INDENT_LEVEL], [ ]class="NSP()level2")
 	define([HEADING_TAG], [h3])
 
 	]defn([CHAPTER_COMMON_CODE])[
@@ -136,7 +136,7 @@ define([SUB_SUB_CHAPTER], defn([MULTILINGUAL_HEADINGS], [SET_ANCHOR], [COUNTERS]
 
 	define([#L2], .SUB_CHAPTER_IDX)
 	define([#L3], .SUB_SUB_CHAPTER_IDX)
-	define([INDENT_LEVEL], NBZ)
+	define([INDENT_LEVEL], [ ]class="NSP()level3")
 	define([HEADING_TAG], [h4])
 
 	]defn([CHAPTER_COMMON_CODE])[
@@ -162,10 +162,10 @@ define([ANNEX], defn([MULTILINGUAL_HEADINGS], [SET_ANCHOR], [COUNTERS])[
 	define([CURRQU], ANNEX_CONTENT)
 
 	divert(ANNEX_NAVIG_DATA)dnl
-ANNEX_SEPARATOR<p id="NSP()TOCP-defn([#ID])"><a href="[#]NSP()defn([#ID])">ANNEX_LETTER[]NBX()SELITM</a></p>
+ANNEX_SEPARATOR<p id="NSP()TOCP-defn([#ID])"><a href="[#]NSP()defn([#ID])">ANNEX_LETTER[]NB2()SELITM</a></p>
 divert(ANNEX_NAVIGATION)dnl
 undivert(CURRQU)dnl
-<h2]defn([HTML_HEADING_ATTRIBUTES])[><a href="[#]NSP()defn([#ID])"]defn([ANCHOR_SIGN])[>ANNEX_LETTER</a>NBX()SELITM]defn([RETURN_TO_TOC], [SWITCH_LANG])[</h2>
+<h2]defn([HTML_HEADING_ATTRIBUTES])[><a href="[#]NSP()defn([#ID])"]defn([ANCHOR_SIGN])[>ANNEX_LETTER</a>NB2()SELITM]defn([RETURN_TO_TOC], [SWITCH_LANG])[</h2>
 divert(-1)
 
 	# size of the following headings
@@ -182,9 +182,9 @@ divert(-1)
 define([SUB_ANNEX], defn([MULTILINGUAL_HEADINGS], [SET_ANCHOR], [COUNTERS])[
 
 	divert(ANNEX_NAVIGATION)dnl
-<p id="NSP()TOCP-defn([#ID])">NBY()<a href="[#]NSP()defn([#ID])">ANNEX_LETTER.SUB_ANNEX_IDX[]NBX()SELITM</a></p>
+<p id="NSP()TOCP-defn([#ID])" class="NSP()level2"><a href="[#]NSP()defn([#ID])">ANNEX_LETTER.SUB_ANNEX_IDX[]NB2()SELITM</a></p>
 divert(CURRQU)dnl
-<h3]defn([HTML_HEADING_ATTRIBUTES])[><a href="[#]NSP()defn([#ID])"]defn([ANCHOR_SIGN])[>ANNEX_LETTER.SUB_ANNEX_IDX</a>NBX()SELITM]defn([RETURN_TO_TOC], [SWITCH_LANG])[</h3>
+<h3]defn([HTML_HEADING_ATTRIBUTES])[><a href="[#]NSP()defn([#ID])"]defn([ANCHOR_SIGN])[>ANNEX_LETTER.SUB_ANNEX_IDX</a>NB2()SELITM]defn([RETURN_TO_TOC], [SWITCH_LANG])[</h3>
 divert(-1)
 
 	# size of the following headings
@@ -195,9 +195,9 @@ divert(-1)
 define([SUB_SUB_ANNEX], defn([MULTILINGUAL_HEADINGS], [SET_ANCHOR], [COUNTERS])[
 
 	divert(ANNEX_NAVIGATION)dnl
-<p id="NSP()TOCP-defn([#ID])">NBZ()<a href="[#]NSP()defn([#ID])">ANNEX_LETTER.SUB_ANNEX_IDX.SUB_SUB_ANNEX_IDX[]NBX()SELITM</a></p>
+<p id="NSP()TOCP-defn([#ID])" class="NSP()level3"><a href="[#]NSP()defn([#ID])">ANNEX_LETTER.SUB_ANNEX_IDX.SUB_SUB_ANNEX_IDX[]NB2()SELITM</a></p>
 divert(CURRQU)dnl
-<h4]defn([HTML_HEADING_ATTRIBUTES])[><a href="[#]NSP()defn([#ID])"]defn([ANCHOR_SIGN])[>ANNEX_LETTER.SUB_ANNEX_IDX.SUB_SUB_ANNEX_IDX</a>NBX()SELITM]defn([RETURN_TO_TOC], [SWITCH_LANG])[</h4>
+<h4]defn([HTML_HEADING_ATTRIBUTES])[><a href="[#]NSP()defn([#ID])"]defn([ANCHOR_SIGN])[>ANNEX_LETTER.SUB_ANNEX_IDX.SUB_SUB_ANNEX_IDX</a>NB2()SELITM]defn([RETURN_TO_TOC], [SWITCH_LANG])[</h4>
 divert(-1)
 
 	# size of the following headings
