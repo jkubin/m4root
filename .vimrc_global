@@ -45,14 +45,12 @@ nnoremap <c-m> :w<cr>:source .vimrc<cr>
 nnoremap <c-s> <esc>:update<cr>
 nnoremap <c-w>C :tabclose<cr>
 nnoremap <c-w><leader> <c-w>30-
-nnoremap <leader>4 :tabedit m4/
 nnoremap <leader>b :buffers<cr>
 nnoremap <leader>c :changes<cr>
 nnoremap <leader><c-t> :echo "Ctrl-t"<cr>
 nnoremap <leader>d ciw<c-r>=<c-r>"<cr><esc>
 nnoremap <leader>h ciw<c-r>=printf('0x%x', <c-r>")<cr><esc>
 nnoremap <leader>i :tabedit include/
-nnoremap <leader>I :tabedit inmat/
 nnoremap <leader>j :jumps<cr>
 nnoremap <leader><leader><leader>v :source $MYVIMRC<cr>
 nnoremap <leader><leader>s :split 
