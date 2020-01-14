@@ -19,10 +19,10 @@ which will make it easier (maybe) for other authors to write articles on AH([www
 # A → β
 define([ANNEX_APPEND_CODE], [
 	TIP_BOX([[dnl czech
-Znaky {CODE([`']), CODE_M4([[]]), BO([CODE([␂␆])]), CODE([〖〗])} v[]NB()názvu příkladu LINK([řídí expanzi neterminálů], [expansion_control]).
+Znaky {CODE([`']), CODE_M4([[]]), BO([CODE([␂␆])]), CODE([〖〗])} v[]NB()názvu příkladu HYLN([řídí expanzi neterminálů], [expansion_control]).
 ],
 [dnl english: _next_language_
-Chars. {CODE([`']), CODE_M4([[]]), BO([CODE([␂␆])]), CODE([〖〗])} in the name controls the LINK([expansion of nonterminals], [expansion_control]).
+Chars. {CODE([`']), CODE_M4([[]]), BO([CODE([␂␆])]), CODE([〖〗])} in the name controls the HYLN([expansion of nonterminals], [expansion_control]).
 ]])
 ])
 

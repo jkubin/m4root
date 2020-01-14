@@ -204,16 +204,17 @@ divert(-1)
 	define([HEADING_TAG], [h5])
 ])
 
-# LINK([text to link], [INTERNAL_ID])
-# LINK([text to link], [EXTERNAL_ID], src.mc)
-# LINK([text to link to another language], [EXTERNAL_ID], source.mc, en)
+# a hyperlink to a paragraph, code, headline, …, even into other html page in different language
+# HYLN([hyperlink], [INTERNAL_ID])
+# HYLN([hyperlink], [EXTERNAL_ID], src.mc)
+# HYLN([hyperlink to another language], [EXTERNAL_ID], source.mc, en)
 #
 # both IDs must be the same
-# LINK([INTERNAL_ID], [INTERNAL_ID])
-# LINK([EXTERNAL_ID], [EXTERNAL_ID], source.mc)
-# LINK([EXTERNAL_ID], [EXTERNAL_ID], source.mc, en)
+# HYLN([INTERNAL_ID], [INTERNAL_ID])
+# HYLN([EXTERNAL_ID], [EXTERNAL_ID], source.mc)
+# HYLN([EXTERNAL_ID], [EXTERNAL_ID], source.mc, en)
 # A → β
-define([LINK], [pushdef([CURRQU], divnum)divert(-1)
+define([HYLN], [pushdef([CURRQU], divnum)divert(-1)
 
 	# the more arguments the more link capabilities
 	ifelse(
@@ -275,7 +276,7 @@ define([LINK], [pushdef([CURRQU], divnum)divert(-1)
 
 	ifelse(defn([CAPT]), [], [
 
-			# CAPT in refs not found, use the first LINK argument
+			# CAPT in refs not found, use the first HYLN argument
 			define([CAPT], [$1])
 		],
 		[$1], [$2], [], [
