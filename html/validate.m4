@@ -17,16 +17,19 @@ define([SRC_REPO_NAME], [GitHub])
 
 m4wrap([
 	divert(0)dnl
-<!-- DONTE() https://validator.w3.org/#validate_by_upload -->
+<!-- DONTE() https://validator.w3.org/[#]validate_by_upload -->
 <!doctype html>
 <html lang="LANG_CODE">
 <head>
 <meta charset="utf-8">
 <title>CAPTION</title>
+<link rel="stylesheet" type="text/css" href="../html/preview.css">
 undivert(INTERNAL_STYLE_DATA, INTERNAL_STYLE_END)dnl
 </head>
-<body>
+<body class="design-tile layout-article-content">
+<div class="urs">
 divert(END_OF_ARTICLE)dnl
+</div>
 </body>
 </html>
 ])
