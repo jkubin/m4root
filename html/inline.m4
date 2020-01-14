@@ -21,7 +21,6 @@ pushdef([HTML_GLOBAL_ATTRIBUTES],	defn([TITLE_2], [CLASS_3], [STYLE_4], [ID_5], 
 # custom macros for convenience
 
 # A → β
-# define([TIP_BOX_NOTE],	[ifelse([$#], [0], [[$0]], [SPAN([WORD_NOTE:],, [note])])])
 define([AHTR],	[AH([$1], ifelse([$#], [2], [], [[$2]]),,,, ifelse([$#], [3], [], [[$3]]), ]defn([SELECT_LAST])[)])
 define([BR],	[ifelse([$#], [0], [[$0]], [<br>])])
 define([BUN],	[BO([$1], [$2], [un])])
@@ -36,7 +35,7 @@ define([WBR],	[ifelse([$#], [0], [[$0]], [<wbr>])])
 define([NOTE],	[ifelse([$#], [0], [[$0]], ]BRAC([<span class="rs-note"]defn([TITLE_2])[>$1</span>])[)])
 define([PERSON],	[ifelse([$#], [0], [[$0]], ]BRAC([<span class="rs-person"]defn([TITLE_2])[>$1</span>])[)])
 
-# how to use AH(…) ---> <a href="…"…>…</a> html tag:
+# how to use AH(…)
 #
 # AH	---> AH
 # AH (…)	---> AH (…)

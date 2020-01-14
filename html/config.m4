@@ -8,22 +8,16 @@ ___POINT([one place to configure ALL generated web pages])
 # A → ε
 #define([ADD_LINKS_TO_ALL_PARTS_OF_THE_SERIES])
 
-# possible chars: 🠑ꜛ↑⇈⇧↾↿↟⤒
-# A → β
-define([JUMP_TO_TOC],	[☰])
-define([JUMP_TO_TOP],	[🡅])
-define([WARN_SIGN],	[⚠])
-
 # A → β
 # β
-define([RETURN_TO_TOC], NB()[AH(]JUMP_TO_TOC[, defn([WORD_CONTENT]), [jmp], [#]ADD_ID_RULE(TOCP-defn([#ID])))])
+define([RETURN_TO_TOC], NB()[AH([☰], defn([WORD_CONTENT]), [jmp], [#]ADD_ID_RULE(TOCP-defn([#ID])))])
 # or disable the links to TOC (if you do not like it)
 # A → ε
 #define([RETURN_TO_TOC])
 
-# links pointing to the top of the page
+# links pointing to the top of the page; possible chars: 🠑ꜛ↑⇈⇧↾↿↟⤒
 # β
-#define([ESCAPE_FROM_TOC], NB2()[AH(]JUMP_TO_TOP[, defn([WORD_TOP]), [top], [#])])
+#define([ESCAPE_FROM_TOC], NB2()[AH([🡅], defn([WORD_TOP]), [top], [#])])
 
 # TODO: link to other language (not finished yet, if finished ever)
 # β
