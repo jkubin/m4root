@@ -4,28 +4,28 @@
 <head>
 <meta charset="utf-8">
 <title>Generování kódu v M4: úvod</title>
-<!-- subordinate style sheet -->
-<style>.urs .m4-tip::before{content:"Pozn: ";color:#969696;}.urs .m4-top{text-decoration:none;}.urs .m4-dot{border-bottom:1px dotted #000;}.urs .m4-jmp{text-decoration:none;font-size:.5em;vertical-align:super;}.urs .m4-un{text-decoration:underline;}.urs .m4-bl{color:blue;}</style>
+<!-- supplemental style sheet -->
+<style>.urs .m4-tip::before{content:"Pozn: ";color:#969696;}.urs .m4-top{text-decoration:none;}.urs .m4-dot{border-bottom:1px dotted #000;}.urs .m4-jmp{text-decoration:none;font-size:.5em;vertical-align:super;}.urs .m4-un{text-decoration:underline;}.urs .m4-bl{color:blue;}.urs p.m4-level2{padding-left:1em;}.urs p.m4-level3{padding-left:2em;}</style>
 </head>
 <body>
 <!-- table of content -->
 <h2 id="m4-toc-capt">Obsah&nbsp;(<a href="../../texty/generating-code-in-m4-introduction/">English version</a>)</h2>
 <p id="m4-toc-uvod"><a href="#m4-uvod">1&nbsp;&nbsp;Úvod</a></p>
-<p id="m4-toc-priklady-pro-ctenare">&nbsp;&nbsp;&nbsp;<a href="#m4-priklady-pro-ctenare">1.1&nbsp;&nbsp;Příklady pro čtenáře</a></p>
+<p id="m4-toc-priklady-pro-ctenare" class="m4-level2"><a href="#m4-priklady-pro-ctenare">1.1&nbsp;&nbsp;Příklady pro čtenáře</a></p>
 <p id="m4-toc-historie-makro-jazyku"><a href="#m4-historie-makro-jazyku">2&nbsp;&nbsp;Historie makro jazyků</a></p>
 <p id="m4-toc-zaklady-jazyka-m4"><a href="#m4-zaklady-jazyka-m4">3&nbsp;&nbsp;Základy jazyka M4</a></p>
-<p id="m4-toc-bezkontextova-gramatika">&nbsp;&nbsp;&nbsp;<a href="#m4-bezkontextova-gramatika">3.1&nbsp;&nbsp;Bezkontextová gramatika</a></p>
-<p id="m4-toc-automaty">&nbsp;&nbsp;&nbsp;<a href="#m4-automaty">3.2&nbsp;&nbsp;Automaty</a></p>
-<p id="m4-toc-vystupni-fronty">&nbsp;&nbsp;&nbsp;<a href="#m4-vystupni-fronty">3.3&nbsp;&nbsp;Výstupní fronty</a></p>
+<p id="m4-toc-bezkontextova-gramatika" class="m4-level2"><a href="#m4-bezkontextova-gramatika">3.1&nbsp;&nbsp;Bezkontextová gramatika</a></p>
+<p id="m4-toc-automaty" class="m4-level2"><a href="#m4-automaty">3.2&nbsp;&nbsp;Automaty</a></p>
+<p id="m4-toc-vystupni-fronty" class="m4-level2"><a href="#m4-vystupni-fronty">3.3&nbsp;&nbsp;Výstupní fronty</a></p>
 <p id="m4-toc-hlavni-pouziti-m4"><a href="#m4-hlavni-pouziti-m4">4&nbsp;&nbsp;Hlavní použití M4</a></p>
-<p id="m4-toc-generovani-kodu">&nbsp;&nbsp;&nbsp;<a href="#m4-generovani-kodu">4.1&nbsp;&nbsp;Generování kódu</a></p>
-<p id="m4-toc-preprocesor">&nbsp;&nbsp;&nbsp;<a href="#m4-preprocesor">4.2&nbsp;&nbsp;Preprocesor</a></p>
+<p id="m4-toc-generovani-kodu" class="m4-level2"><a href="#m4-generovani-kodu">4.1&nbsp;&nbsp;Generování kódu</a></p>
+<p id="m4-toc-preprocesor" class="m4-level2"><a href="#m4-preprocesor">4.2&nbsp;&nbsp;Preprocesor</a></p>
 <p id="m4-toc-predpoklady-pro-zvladnuti-m4"><a href="#m4-predpoklady-pro-zvladnuti-m4">5&nbsp;&nbsp;Předpoklady pro zvládnutí M4</a></p>
-<p id="m4-toc-zaklady-gramatik">&nbsp;&nbsp;&nbsp;<a href="#m4-zaklady-gramatik">5.1&nbsp;&nbsp;Základy gramatik</a></p>
-<p id="m4-toc-zaklady-automatu">&nbsp;&nbsp;&nbsp;<a href="#m4-zaklady-automatu">5.2&nbsp;&nbsp;Základy automatů</a></p>
-<p id="m4-toc-gnu-make">&nbsp;&nbsp;&nbsp;<a href="#m4-gnu-make">5.3&nbsp;&nbsp;(GNU) make</a></p>
-<p id="m4-toc-vim">&nbsp;&nbsp;&nbsp;<a href="#m4-vim">5.4&nbsp;&nbsp;Vim</a></p>
-<p id="m4-toc-talent-a-cas">&nbsp;&nbsp;&nbsp;<a href="#m4-talent-a-cas">5.5&nbsp;&nbsp;Talent a čas</a></p>
+<p id="m4-toc-zaklady-gramatik" class="m4-level2"><a href="#m4-zaklady-gramatik">5.1&nbsp;&nbsp;Základy gramatik</a></p>
+<p id="m4-toc-zaklady-automatu" class="m4-level2"><a href="#m4-zaklady-automatu">5.2&nbsp;&nbsp;Základy automatů</a></p>
+<p id="m4-toc-gnu-make" class="m4-level2"><a href="#m4-gnu-make">5.3&nbsp;&nbsp;(GNU) make</a></p>
+<p id="m4-toc-vim" class="m4-level2"><a href="#m4-vim">5.4&nbsp;&nbsp;Vim</a></p>
+<p id="m4-toc-talent-a-cas" class="m4-level2"><a href="#m4-talent-a-cas">5.5&nbsp;&nbsp;Talent a čas</a></p>
 <p id="m4-toc-refs"><a href="#m4-refs">6&nbsp;&nbsp;Odkazy</a></p>
 <hr>
 <p id="m4-toc-priklady-generovani-kodu"><a href="#m4-priklady-generovani-kodu">A&nbsp;&nbsp;Příklady generování kódu</a></p>
@@ -369,24 +369,24 @@ Tímto způsobem je možné postupně získat určitou praxi.</p>
 <!-- annex content -->
 <h2 id="m4-priklady-generovani-kodu"><a href="#m4-priklady-generovani-kodu" title="⚓">A</a>&nbsp;&nbsp;Příklady generování kódu&nbsp;<a href="#m4-toc-priklady-generovani-kodu" title="Obsah" class="m4-jmp">☰</a></h2>
 <div class="rs-tip-major m4-tip">Znaky {<code>`'</code>, <code>[]</code>, <strong><code>␂␆</code></strong>, <code>〖〗</code>} v&nbsp;názvu příkladu <a href="#m4-rizeni-expanze-neterminalu" title="Řízení expanze neterminálů">řídí expanzi neterminálů</a>.</div>
-<p id="m4-toc-csv-nejjednodussi-priklad">&nbsp;&nbsp;&nbsp;<a href="#m4-csv-nejjednodussi-priklad">A.1&nbsp;&nbsp;<code>[]</code> CSV – nejjednodušší příklad</a></p>
-<p id="m4-toc-csv-pocitadlo">&nbsp;&nbsp;&nbsp;<a href="#m4-csv-pocitadlo">A.2&nbsp;&nbsp;<code>[]</code> CSV – počítadlo</a></p>
-<p id="m4-toc-specialni-znaky-vystupniho-kodu">&nbsp;&nbsp;&nbsp;<a href="#m4-specialni-znaky-vystupniho-kodu">A.3&nbsp;&nbsp;<code title="řešení">💡</code> Speciální znaky výstupního kódu</a></p>
-<p id="m4-toc-c-vystupni-fronta">&nbsp;&nbsp;&nbsp;<a href="#m4-c-vystupni-fronta">A.4&nbsp;&nbsp;<code>[]</code> C – výstupní fronta</a></p>
-<p id="m4-toc-ini-externi-prikaz">&nbsp;&nbsp;&nbsp;<a href="#m4-ini-externi-prikaz">A.5&nbsp;&nbsp;<code>[]</code> INI – externí příkaz</a></p>
-<p id="m4-toc-h-hex-pocitadlo">&nbsp;&nbsp;&nbsp;<a href="#m4-h-hex-pocitadlo">A.6&nbsp;&nbsp;<code>[]</code> .h – hex počítadlo</a></p>
-<p id="m4-toc-c-maly-automat">&nbsp;&nbsp;&nbsp;<a href="#m4-c-maly-automat">A.7&nbsp;&nbsp;<code>[]</code> C – malý automat</a></p>
-<p id="m4-toc-c-maly-automat-2">&nbsp;&nbsp;&nbsp;<a href="#m4-c-maly-automat-2">A.8&nbsp;&nbsp;<code>[]</code> C – malý automat 2</a></p>
-<p id="m4-toc-html-vystupni-fronty">&nbsp;&nbsp;&nbsp;<a href="#m4-html-vystupni-fronty">A.9&nbsp;&nbsp;<code>[]</code> HTML – výstupní fronty</a></p>
-<p id="m4-toc-vetveni-gramatikou">&nbsp;&nbsp;&nbsp;<a href="#m4-vetveni-gramatikou">A.10&nbsp;&nbsp;<code>[]</code> Větvení gramatikou</a></p>
-<p id="m4-toc-json-generujici-automat">&nbsp;&nbsp;&nbsp;<a href="#m4-json-generujici-automat">A.11&nbsp;&nbsp;<code>[]</code> JSON – generující automat</a></p>
-<p id="m4-toc-json-pojmenovane-fronty">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#m4-json-pojmenovane-fronty">A.11.1&nbsp;&nbsp;<code>[]</code> JSON – pojmenované fronty</a></p>
-<p id="m4-toc-json-generovane-indexy-front">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#m4-json-generovane-indexy-front">A.11.2&nbsp;&nbsp;<code>[]</code> JSON – generované indexy front</a></p>
-<p id="m4-toc-ini-nespojity-index-front">&nbsp;&nbsp;&nbsp;<a href="#m4-ini-nespojity-index-front">A.12&nbsp;&nbsp;<code>[]</code> INI – nespojitý index front</a></p>
-<p id="m4-toc-xml-smisene-zpravy">&nbsp;&nbsp;&nbsp;<a href="#m4-xml-smisene-zpravy">A.13&nbsp;&nbsp;<code>[]</code> XML – smíšené zprávy</a></p>
-<p id="m4-toc-xml-oddelene-zpravy">&nbsp;&nbsp;&nbsp;<a href="#m4-xml-oddelene-zpravy">A.14&nbsp;&nbsp;<code>[]</code> XML – oddělené zprávy</a></p>
-<p id="m4-toc-bash-cmd-echo-dretezecd">&nbsp;&nbsp;&nbsp;<a href="#m4-bash-cmd-echo-dretezecd">A.15&nbsp;&nbsp;<code>[]</code> Bash <code>~]$ echo "řetězec"</code></a></p>
-<p id="m4-toc-bash-cmd-echo-aretezeca">&nbsp;&nbsp;&nbsp;<a href="#m4-bash-cmd-echo-aretezeca">A.16&nbsp;&nbsp;<code>[]</code> Bash <code>~]$ echo 'řetězec'</code></a></p>
+<p id="m4-toc-csv-nejjednodussi-priklad" class="m4-level2"><a href="#m4-csv-nejjednodussi-priklad">A.1&nbsp;&nbsp;<code>[]</code> CSV – nejjednodušší příklad</a></p>
+<p id="m4-toc-csv-pocitadlo" class="m4-level2"><a href="#m4-csv-pocitadlo">A.2&nbsp;&nbsp;<code>[]</code> CSV – počítadlo</a></p>
+<p id="m4-toc-specialni-znaky-vystupniho-kodu" class="m4-level2"><a href="#m4-specialni-znaky-vystupniho-kodu">A.3&nbsp;&nbsp;<code title="řešení">💡</code> Speciální znaky výstupního kódu</a></p>
+<p id="m4-toc-c-vystupni-fronta" class="m4-level2"><a href="#m4-c-vystupni-fronta">A.4&nbsp;&nbsp;<code>[]</code> C – výstupní fronta</a></p>
+<p id="m4-toc-ini-externi-prikaz" class="m4-level2"><a href="#m4-ini-externi-prikaz">A.5&nbsp;&nbsp;<code>[]</code> INI – externí příkaz</a></p>
+<p id="m4-toc-h-hex-pocitadlo" class="m4-level2"><a href="#m4-h-hex-pocitadlo">A.6&nbsp;&nbsp;<code>[]</code> .h – hex počítadlo</a></p>
+<p id="m4-toc-c-maly-automat" class="m4-level2"><a href="#m4-c-maly-automat">A.7&nbsp;&nbsp;<code>[]</code> C – malý automat</a></p>
+<p id="m4-toc-c-maly-automat-2" class="m4-level2"><a href="#m4-c-maly-automat-2">A.8&nbsp;&nbsp;<code>[]</code> C – malý automat 2</a></p>
+<p id="m4-toc-html-vystupni-fronty" class="m4-level2"><a href="#m4-html-vystupni-fronty">A.9&nbsp;&nbsp;<code>[]</code> HTML – výstupní fronty</a></p>
+<p id="m4-toc-vetveni-gramatikou" class="m4-level2"><a href="#m4-vetveni-gramatikou">A.10&nbsp;&nbsp;<code>[]</code> Větvení gramatikou</a></p>
+<p id="m4-toc-json-generujici-automat" class="m4-level2"><a href="#m4-json-generujici-automat">A.11&nbsp;&nbsp;<code>[]</code> JSON – generující automat</a></p>
+<p id="m4-toc-json-pojmenovane-fronty" class="m4-level3"><a href="#m4-json-pojmenovane-fronty">A.11.1&nbsp;&nbsp;<code>[]</code> JSON – pojmenované fronty</a></p>
+<p id="m4-toc-json-generovane-indexy-front" class="m4-level3"><a href="#m4-json-generovane-indexy-front">A.11.2&nbsp;&nbsp;<code>[]</code> JSON – generované indexy front</a></p>
+<p id="m4-toc-ini-nespojity-index-front" class="m4-level2"><a href="#m4-ini-nespojity-index-front">A.12&nbsp;&nbsp;<code>[]</code> INI – nespojitý index front</a></p>
+<p id="m4-toc-xml-smisene-zpravy" class="m4-level2"><a href="#m4-xml-smisene-zpravy">A.13&nbsp;&nbsp;<code>[]</code> XML – smíšené zprávy</a></p>
+<p id="m4-toc-xml-oddelene-zpravy" class="m4-level2"><a href="#m4-xml-oddelene-zpravy">A.14&nbsp;&nbsp;<code>[]</code> XML – oddělené zprávy</a></p>
+<p id="m4-toc-bash-cmd-echo-dretezecd" class="m4-level2"><a href="#m4-bash-cmd-echo-dretezecd">A.15&nbsp;&nbsp;<code>[]</code> Bash <code>~]$ echo "řetězec"</code></a></p>
+<p id="m4-toc-bash-cmd-echo-aretezeca" class="m4-level2"><a href="#m4-bash-cmd-echo-aretezeca">A.16&nbsp;&nbsp;<code>[]</code> Bash <code>~]$ echo 'řetězec'</code></a></p>
 <div class="rs-tip-major m4-tip">Příklady v&nbsp;této příloze jsou složitější a&nbsp;jejich cílem je ukázat praktické použití jazyka M4.
 Podrobněji budou vysvětleny později.</div>
 <h3 id="m4-vstupni-zdrojovy-kod"><a href="#m4-vstupni-zdrojovy-kod" title="⚓">»</a>&nbsp;Vstupní zdrojový kód</h3>
@@ -568,7 +568,7 @@ divert(-1)</pre>
 </pre>
 <pre title="hello.ini">; DO NOT EDIT! This file is generated automatically!
 
-[hello_20200112]
+[hello_20200114]
 COMPLEX="!\"#$%&amp;'()*+,-./:;&lt;=&gt;?@[\\]^_`{|}~"
 SUCCESS="Complex M4 code failed successfully."
 NOFAULT="It's not a language fault!"</pre>
@@ -1263,9 +1263,9 @@ echo 'It'\''s not a language fault!'
 echo 'No other errors detected.'</pre>
 <h2 id="m4-priklady-preprocesoru"><a href="#m4-priklady-preprocesoru" title="⚓">B</a>&nbsp;&nbsp;Příklady preprocesoru&nbsp;<a href="#m4-toc-priklady-preprocesoru" title="Obsah" class="m4-jmp">☰</a></h2>
 <div class="rs-tip-major m4-tip">Znaky {<code>`'</code>, <code>[]</code>, <strong><code>␂␆</code></strong>, <code>〖〗</code>} v&nbsp;názvu příkladu <a href="#m4-rizeni-expanze-neterminalu" title="Řízení expanze neterminálů">řídí expanzi neterminálů</a>.</div>
-<p id="m4-toc-ba-preprocesor-jazyka-c-a-m4">&nbsp;&nbsp;&nbsp;<a href="#m4-ba-preprocesor-jazyka-c-a-m4">B.1&nbsp;&nbsp;<code>`'</code> Preprocesor jazyka C&nbsp;a&nbsp;M4</a></p>
-<p id="m4-toc-ba-css-komentare">&nbsp;&nbsp;&nbsp;<a href="#m4-ba-css-komentare">B.2&nbsp;&nbsp;<code>`'</code> CSS – komentáře</a></p>
-<p id="m4-toc-bash-netisknutelne-znaky">&nbsp;&nbsp;&nbsp;<a href="#m4-bash-netisknutelne-znaky">B.3&nbsp;&nbsp;<strong><code>␂␆</code></strong> Bash – netisknutelné znaky</a></p>
+<p id="m4-toc-ba-preprocesor-jazyka-c-a-m4" class="m4-level2"><a href="#m4-ba-preprocesor-jazyka-c-a-m4">B.1&nbsp;&nbsp;<code>`'</code> Preprocesor jazyka C&nbsp;a&nbsp;M4</a></p>
+<p id="m4-toc-ba-css-komentare" class="m4-level2"><a href="#m4-ba-css-komentare">B.2&nbsp;&nbsp;<code>`'</code> CSS – komentáře</a></p>
+<p id="m4-toc-bash-netisknutelne-znaky" class="m4-level2"><a href="#m4-bash-netisknutelne-znaky">B.3&nbsp;&nbsp;<strong><code>␂␆</code></strong> Bash – netisknutelné znaky</a></p>
 <h3 id="m4-ba-preprocesor-jazyka-c-a-m4"><a href="#m4-ba-preprocesor-jazyka-c-a-m4" title="⚓">B.1</a>&nbsp;&nbsp;<code>`'</code> Preprocesor jazyka C&nbsp;a&nbsp;M4&nbsp;<a href="#m4-toc-ba-preprocesor-jazyka-c-a-m4" title="Obsah" class="m4-jmp">☰</a></h3>
 <p>Direktivy <a href="https://cs.wikipedia.org/wiki/Preprocesor_jazyka_C" title="Preprocesor jazyka C">CPP</a> jsou pro M4 jednořádkový komentář, což brání nežádoucí expanzi stejně pojmenovaných maker.
 Definujeme-li bezpečnější makro <code>SAF()</code>, stejně pojmenované makro <code>SAF ()</code> nebude přepsáno.
@@ -1425,10 +1425,10 @@ then
 fi</pre>
 <h2 id="m4-m4-priklady"><a href="#m4-m4-priklady" title="⚓">C</a>&nbsp;&nbsp;M4 – příklady&nbsp;<a href="#m4-toc-m4-priklady" title="Obsah" class="m4-jmp">☰</a></h2>
 <div class="rs-tip-major m4-tip">Znaky {<code>`'</code>, <code>[]</code>, <strong><code>␂␆</code></strong>, <code>〖〗</code>} v&nbsp;názvu příkladu <a href="#m4-rizeni-expanze-neterminalu" title="Řízení expanze neterminálů">řídí expanzi neterminálů</a>.</div>
-<p id="m4-toc-json-leva-zavorka-b">&nbsp;&nbsp;&nbsp;<a href="#m4-json-leva-zavorka-b">C.1&nbsp;&nbsp;<code>[]</code> JSON – levá závorka <code>[</code></a></p>
-<p id="m4-toc-bash-pocitadla">&nbsp;&nbsp;&nbsp;<a href="#m4-bash-pocitadla">C.2&nbsp;&nbsp;<code>[]</code> Bash – počítadla</a></p>
-<p id="m4-toc-h-zavorky-h-dnl">&nbsp;&nbsp;&nbsp;<a href="#m4-h-zavorky-h-dnl">C.3&nbsp;&nbsp;<code>[]</code> .h – závorky <code>[]</code>, <code>[,]</code>, <code>[#]</code>, <code>[dnl]</code></a></p>
-<p id="m4-toc-awk-priklady-bezpecnejsich-maker">&nbsp;&nbsp;&nbsp;<a href="#m4-awk-priklady-bezpecnejsich-maker">C.4&nbsp;&nbsp;<code>[]</code> AWK – příklady bezpečnějších maker</a></p>
+<p id="m4-toc-json-leva-zavorka-b" class="m4-level2"><a href="#m4-json-leva-zavorka-b">C.1&nbsp;&nbsp;<code>[]</code> JSON – levá závorka <code>[</code></a></p>
+<p id="m4-toc-bash-pocitadla" class="m4-level2"><a href="#m4-bash-pocitadla">C.2&nbsp;&nbsp;<code>[]</code> Bash – počítadla</a></p>
+<p id="m4-toc-h-zavorky-h-dnl" class="m4-level2"><a href="#m4-h-zavorky-h-dnl">C.3&nbsp;&nbsp;<code>[]</code> .h – závorky <code>[]</code>, <code>[,]</code>, <code>[#]</code>, <code>[dnl]</code></a></p>
+<p id="m4-toc-awk-priklady-bezpecnejsich-maker" class="m4-level2"><a href="#m4-awk-priklady-bezpecnejsich-maker">C.4&nbsp;&nbsp;<code>[]</code> AWK – příklady bezpečnějších maker</a></p>
 <h3 id="m4-json-leva-zavorka-b"><a href="#m4-json-leva-zavorka-b" title="⚓">C.1</a>&nbsp;&nbsp;<code>[]</code> JSON – levá závorka <code>[</code>&nbsp;<a href="#m4-toc-json-leva-zavorka-b" title="Obsah" class="m4-jmp">☰</a></h3>
 <p>Uvnitř hranatých závorek <code>[… se neterminály neexpandují …]</code>.
 Proto je levá hranatá závorka <code>[</code> nahrazena makrem <code>LB()</code> z&nbsp;kořenového souboru.</p>
@@ -1564,8 +1564,8 @@ BEGIN { print "DONTE[]() LB () LB() SYMBOL ]" }</pre>
 
 BEGIN { print "DONTE() LB () [ Hello, world! ]" }</pre>
 <h2 id="m4-proc-pouzivat-m4-a-proc-ne"><a href="#m4-proc-pouzivat-m4-a-proc-ne" title="⚓">D</a>&nbsp;&nbsp;Proč používat M4 a&nbsp;proč ne?&nbsp;<a href="#m4-toc-proc-pouzivat-m4-a-proc-ne" title="Obsah" class="m4-jmp">☰</a></h2>
-<p id="m4-toc-proc-generovat-kod-v-m4">&nbsp;&nbsp;&nbsp;<a href="#m4-proc-generovat-kod-v-m4">D.1&nbsp;&nbsp;<code>👍</code> Proč generovat kód v&nbsp;M4</a></p>
-<p id="m4-toc-proc-se-vyhnout-m4">&nbsp;&nbsp;&nbsp;<a href="#m4-proc-se-vyhnout-m4">D.2&nbsp;&nbsp;<code>👎</code> Proč se vyhnout M4</a></p>
+<p id="m4-toc-proc-generovat-kod-v-m4" class="m4-level2"><a href="#m4-proc-generovat-kod-v-m4">D.1&nbsp;&nbsp;<code>👍</code> Proč generovat kód v&nbsp;M4</a></p>
+<p id="m4-toc-proc-se-vyhnout-m4" class="m4-level2"><a href="#m4-proc-se-vyhnout-m4">D.2&nbsp;&nbsp;<code>👎</code> Proč se vyhnout M4</a></p>
 <h3 id="m4-proc-generovat-kod-v-m4"><a href="#m4-proc-generovat-kod-v-m4" title="⚓">D.1</a>&nbsp;&nbsp;<code>👍</code> Proč generovat kód v&nbsp;M4&nbsp;<a href="#m4-toc-proc-generovat-kod-v-m4" title="Obsah" class="m4-jmp">☰</a></h3>
 <ul>
 <li>přímé použití <a href="#m4-bezkontextova-gramatika" title="Bezkontextová gramatika">bezkontextové gramatiky</a> (rekurze zdarma)
