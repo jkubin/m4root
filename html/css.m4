@@ -25,7 +25,7 @@ CSS_RULE_SET([.urs .NSP()un], [
 text-decoration:underline;
 ])
 
-CSS_RULE_SET([.urs .NSP()bl], [
+_CSS_RULE_SET([.urs .NSP()bl], [
 color:blue;
 ])
 
