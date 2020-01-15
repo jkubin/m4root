@@ -10,22 +10,27 @@ ifdef([LANG_CODE], [], [
 
 # language
 # A → β
+# β
 define([SELECT_LANG], BRAC($defn([LANG_INDEX_]LANG_CODE)))
 define([EXPAND_LANG], $defn([LANG_INDEX_]LANG_CODE))
 
 # select language without trailing white chars
 # A → β
+# β
 define([SELECT_LANG_WITHOUT_TRAILING_LF], [patsubst(]BRAC(BRAC($defn([LANG_INDEX_]LANG_CODE)))[, [\s*])])
+
+# expand language without trailing white chars
+# A → β
 define([EXPAND_LANG_WITHOUT_TRAILING_LF], [patsubst(]BRAC($defn([LANG_INDEX_]LANG_CODE))[, [\s*])])
 
 # select language
 # A → β
 define([LANG], [ifelse([$#], [0], [[$0]], ]BRAC(defn([SELECT_LANG]))[)])
 
-# select language (without trailing white chars)
+# select language without trailing white chars
 # A → β
 define([LANGW], [ifelse([$#], [0], [[$0]], ]BRAC(defn([SELECT_LANG_WITHOUT_TRAILING_LF]))[)])
 
-# expand language
+# expand language (used for language-dependent macros)
 # A → β
 define([XLANG], [ifelse([$#], [0], [[$0]], ]BRAC(defn([EXPAND_LANG]))[)])

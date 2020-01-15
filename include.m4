@@ -5,7 +5,7 @@ ___POINT([how to avoid `include' keyword])
 # common tip box
 # A → β
 define([the_series_is_generated], [
-	TIP_BOX(, LANG([výsledkem seriálu je šablona napsaná v M4], [the result of the series is a template written in M4]), [[dnl czech
+	TIP_BOX(, LANG([výsledek seriálu je sada ukázkových skriptů pro generování kódu], [the result of the series is a set of sample scripts for generating code]), [[dnl czech
 Vícejazyčný seriál QUOTE([BO([SERIES_NAME])]) je generován M4 skripty[]REF([SERIES_NAME], [vícejazyčná šablona s[]NB()příklady pro AH([www.root.cz], [Root.cz – informace nejen ze světa Linuxu], [https://www.root.cz])], [http://github.com/jkubin/m4root]),
 které (možná) usnadní psaní článků a[]NB()seriálů pro AH([www.root.cz], [Root.cz – informace nejen ze světa Linuxu], [https://www.root.cz/]) také jiným autorům.
 ],
