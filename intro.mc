@@ -104,9 +104,9 @@ LIST_ITEM_MONO([[HYLN([m4_on_examples], [m4_on_examples])]])
 LIST_ITEM_MONO([[HYLN([questions_and_answers], [questions_and_answers])]])
 
 LIST_ITEM([dnl czech
-[AH([http://github.com/jkubin/m4root], defn([SERIES_NAME]), [http://github.com/jkubin/m4root]) – složitější projekt generující HTML tohoto seriálu],
+[AH([http://github.com/jkubin/m4root], defn([SERIES_NAME]), [http://github.com/jkubin/m4root]) – složitější projekt generující HTML5 tohoto seriálu],
 dnl english: _next_language_
-[AH([http://github.com/jkubin/m4root], defn([SERIES_NAME]), [http://github.com/jkubin/m4root]) – a[]NB()project generating HTML of this series],
+[AH([http://github.com/jkubin/m4root], defn([SERIES_NAME]), [http://github.com/jkubin/m4root]) – a[]NB()project generating HTML5 of this series],
 ])
 
 ])dnl UNORDERED_LIST_WRAP
@@ -1080,10 +1080,10 @@ They will be explained in more detail later.
 ]])
 
 
-HEADING([input_source_code], [dnl czech
-[Vstupní zdrojový kód],
+SUB_ANNEX([input_source_code], [dnl czech
+[CODE_M4([[]]) Vstupní zdrojový kód],
 dnl english: _next_language_
-[Input source code],
+[CODE_M4([[]]) Input source code],
 ])
 
 PARA([[dnl czech
@@ -1095,13 +1095,13 @@ The input source code is similar to ABBR([CSV], [Comma Separated Values]), which
 Stacks in the examples are not used.
 ]])
 
-INSERT_FILE_AND_LINK([messages/messages_raw.mc], [⚠ ]LANG([obsahuje speciální znaky], [contains special characters])[ ⚠])
+INSERT_FILE_AND_LINK([messages/messages_raw.mc], LANG([vstupní zdrojový kód obsahuje speciální znaky], [input source code contains special characters])[ ⚠])
 
 TIP_BOX([[dnl czech
-Vstupní soubor může obsahovat poznámky, které nemusí být skryté v[]NB()komentářích CODE_M4([#]), CODE_M4([dnl]), CODE_M4([ifelse([…])]) nebo CODE_M4([[… někde uvnitř závorek …]]).
+Vstupní soubor může také obsahovat poznámky, které nemusí být skryté v[]NB()komentářích CODE_M4([#]), CODE_M4([dnl]), CODE_M4([ifelse([…])]) nebo CODE_M4([[… někde uvnitř závorek …]]).
 ],
 [dnl english: _next_language_
-The input file may contain notes that may not be hidden in the comments CODE_M4([#]), CODE_M4([dnl]), CODE_M4([ifelse([…])]) or CODE_M4([[… somewhere inside brackets …]]).
+The input file may also contain notes that may not be hidden in the comments CODE_M4([#]), CODE_M4([dnl]), CODE_M4([ifelse([…])]) or CODE_M4([[… somewhere inside brackets …]]).
 ]])
 
 
@@ -1144,20 +1144,20 @@ INSERT_FILES_RAW_MESSAGES([counter.csv.m4], [counter.csv])
 
 
 SUB_ANNEX([dnl czech
-[CODE([💡], [řešení]) Speciální znaky výstupního kódu],
+[CODE([💡], [řešení]) Úpravy speciálních znaků],
 dnl english: _next_language_
-[CODE([💡], [solution]) Special characters of output code],
+[CODE([💡], [solution]) Modification of special characters],
 ])
 
 PARA([[dnl czech
 Každý typ výstupního kódu vyžaduje úpravu speciálních znaků.
-Klíčové slovo CODE_M4([patsubst()]) je nevhodné pro tento úkol kvůli složitosti.
-Vstupní zdrojový kód proto napřed upravíme regulárním výrazem a[]NB()všechny speciální znaky schováme do maker.
+Klíčové slovo jazyka M4 CODE_M4([patsubst()]) je nevhodné pro tento úkol.
+Všechny speciální znaky vstupního souboru napřed skryjeme do vhodně pojmenovaných maker pomocí regulárních výrazů.
 ],
 [dnl english: _next_language_
 Each type of output code requires modification of special characters.
-The keyword CODE_M4([patsubst()]) is inappropriate for this type of task due to complexity.
-The input source code will first be modified by a regular expression and all special characters will be hidden in macros.
+The M4 CODE_M4([patsubst()]) keyword is inappropriate for this type of task.
+First, we hide all special characters of the input file into appropriately named macros using regular expressions.
 ]])
 
 _PARA([[dnl czech
@@ -1177,10 +1177,10 @@ dnl english: _next_language_
 INSERT_FILE_AND_LINK([messages/messages.mc], LANG([všechny speciální znaky jsou skryty do maker], [all special characters are hidden into macros]))
 
 PARA([[dnl czech
-Vytvoříme několik převodních souborů podle typu cílového kódu.
+Vytvoříme několik převodních souborů podle typu cílového kódu:
 ],
 [dnl english: _next_language_
-We create several conversion files according to the target code type.
+We create several conversion files according to the target code type:
 ]])
 
 HEADING_MONO([dnl
@@ -1216,7 +1216,7 @@ HEADING_MONO([dnl monolingual
 [CODE_M4([[]]) CSV[,] M4],
 ])
 
-INSERT_FILE_AND_LINK([messages/unchanged.m4], LANG([převodní soubor vrátí všechny speciální znaky], [the conversion file returns all special characters]))
+INSERT_FILE_AND_LINK([messages/unchanged.m4], LANG([převodní soubor vrátí zpátky všechny speciální znaky], [the conversion file returns all special characters back]))
 
 
 SUB_ANNEX([dnl czech
@@ -1539,7 +1539,7 @@ Definujeme-li bezpečnější makro CODE([SAF()]), stejně pojmenované makro CO
 Jmenný prostor ABBR([CPP], [Preprocesor jazyka C]) tak BO([může]) být zcela oddělen od jmenného prostoru M4.
 Problematický znak CODE([LQ()]) je skryt do makra CODE_M4([LQ()]).
 Apostrof CODE([RQ()]) ve zdrojovém kódu ničemu nevadí.
-Apostrof uvnitř makra CODE([ORD[]DEL([()])]) je skryt do makra CODE_M4([RQ()]).
+Apostrof uvnitř makra CODE([ORD[]DEL([SPAN([()],,, [color:rgba(0,0,0,.75)])],,, [color:red])]) je skryt do makra CODE_M4([RQ()]).
 Všimněte si jmen funkcí CODE_M4([define ()]) nebo CODE_M4([ifelse ()]) a[]NB()kde je expandován CODE([SYMBOL]).
 ],
 [dnl english: _next_language_
@@ -1548,7 +1548,7 @@ If we define a[]NB()safer CODE([SAF()]) macro, the same named CODE([SAF ()]) mac
 Thus, the ABBR([CPP], [C preprocessor]) namespace BO([can be]) completely separated from the M4 namespace.
 The problematic character CODE([LQ()]) is hidden in the CODE_M4([LQ()]) macro.
 Apostrophe CODE([']) does not matter in the source code.
-Apostrophe inside CODE([ORD[]DEL([()])]) macro is hidden in CODE_M4([RQ()]) macro.
+Apostrophe inside CODE([ORD[]DEL([SPAN([()],,, [color:rgba(0,0,0,.75)])],,, [color:red])]) macro is hidden in CODE_M4([RQ()]) macro.
 Note the CODE_M4([define ()]) or CODE_M4([ifelse ()]) function names and where the CODE_M4([SYMBOL]) is expanded.
 ]])
 
