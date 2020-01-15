@@ -57,6 +57,6 @@ generovani-kodu-v-m4-uvod/%.html: rootb.m4 queues.m4 aux.m4 entities.m4 config.m
 generovani-kodu-v-m4-uvod/publish.txt: rootb.m4 queues.m4 aux.m4 entities.m4 config.m4 inline.m4 headings.m4 block.m4 version.m4 style.m4 lang_cs.m4 css.m4 refs_en.m4 refs_cs.m4 order.m4 lang.m4 include.m4 $(wildcard intro.mc.html/*.m4 intro.mc.html/*/*.m4) publish.m4 intro.mc navig.m4
 	m4 -DLANG_CODE='cs' $^ | sed -f html/publish.sed -f brackets.sed > $@
 
-generovani-kodu-v-m4-uvod/spell.txt: rootb.m4 include.m4 version.m4 lang_cs.m4 refs_en.m4 refs_cs.m4 order.m4 lang.m4 headings.m4 spell.m4 intro.mc
+generovani-kodu-v-m4-uvod/spell.txt: rootb.m4 order.m4 lang.m4 headings.m4 version.m4 lang_cs.m4 refs_en.m4 refs_cs.m4 include.m4 spell.m4 intro.mc
 	m4 -DLANG_CODE='cs' -DSOURCE='intro.mc' $^ > $@
 

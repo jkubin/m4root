@@ -61,6 +61,7 @@ define(`ARG9',	`$9')
 # A(`$1', `$2', …, `$n'') → `$1'
 define(`SELECT_ARG1',	``$1'')
 define(`SELECT_ARG1_WITHOUT_TRAILING_LF', `patsubst(``$1'', `\s*')')
+# expand an argument
 define(`EXPAND_ARG1_WITHOUT_TRAILING_LF', `patsubst(`$1', `\s*')')
 
 # puts number of arguments
@@ -137,7 +138,7 @@ define(`TEST_ATM', `
 # β₁β₂
 define(`COUNT_UP', defn(`TEST_ATM')`
 
-	# INIT node defines a unique symbol with an initial value
+	# the INIT node defines a unique symbol as the internal counter value
 	define(`$0iv', $1)
 
 	# transition to the INCREMENT node
@@ -147,7 +148,7 @@ define(`COUNT_UP', defn(`TEST_ATM')`
 # β₁β₂
 define(`COUNT_DOWN', defn(`TEST_ATM')`
 
-	# INIT node defines a unique symbol with an initial value
+	# the INIT node defines a unique symbol as the internal counter value
 	define(`$0iv', $1)
 
 	# transition to the DECREMENT node
