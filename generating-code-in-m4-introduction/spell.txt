@@ -1,5 +1,5 @@
 # vim:wrap:spell:spelllang=en,en
-# intro.mc	0xecbd502	20200115-01:45:53
+# intro.mc	0xff31af1	20200115-09:36:42
 
 9
 Generating code in M4: introduction
@@ -59,7 +59,7 @@ M4 – examples
 Why using M4 and why not?
 
 96
-http://github.com/jkubin/m4root (Generating code in M4) – a project generating HTML of this series
+http://github.com/jkubin/m4root (Generating code in M4) – a project generating HTML5 of this series
 
 115
 History of macro languages
@@ -478,17 +478,17 @@ The examples in this annex are more complex and are intended to demonstrate the 
 They will be explained in more detail later.
 
 1083
-Input source code
+ Input source code
 
 1089
 The input source code is similar to CSV (Comma Separated Values), which is converted to arbitrarily complex target code of another language using CFG (Context-Free Grammar), automata and output queues.
 Stacks in the examples are not used.
 
 1098
-[⚠ contains special characters ⚠]
+[input source code contains special characters ⚠]
 
 1100
-The input file may contain notes that may not be hidden in the comments , ,  or .
+The input file may also contain notes that may not be hidden in the comments , ,  or .
 
 1108
  CSV – simplest example
@@ -506,12 +506,12 @@ Further expansion returns the numeric terminal symbol and increases the auxiliar
  is a small automaton.
 
 1146
-(solution) Special characters of output code
+(solution) Modification of special characters
 
 1152
 Each type of output code requires modification of special characters.
-The keyword  is inappropriate for this type of task due to complexity.
-The input source code will first be modified by a regular expression and all special characters will be hidden in macros.
+The M4  keyword is inappropriate for this type of task.
+First, we hide all special characters of the input file into appropriately named macros using regular expressions.
 
 1171
 Modified input code
@@ -520,7 +520,7 @@ Modified input code
 [all special characters are hidden into macros]
 
 1179
-We create several conversion files according to the target code type.
+We create several conversion files according to the target code type:
 
 1186
  XML, XSLT, HTML
@@ -550,7 +550,7 @@ We create several conversion files according to the target code type.
  CSV, M4
 
 1219
-[the conversion file returns all special characters]
+[the conversion file returns all special characters back]
 
 1222
  C – output queue

@@ -7,7 +7,7 @@
 <meta name="author" content="Josef Kubín">
 <link rel="stylesheet" type="text/css" href="../html/preview.css">
 <!-- supplemental style sheet -->
-<style>.urs .m4-tip::before{content:"Note: ";color:#969696;}.urs .m4-top{text-decoration:none;}.urs .m4-dot{border-bottom:1px dotted #000;}.urs .m4-jmp{text-decoration:none;font-size:.5em;vertical-align:super;}.urs .m4-un{text-decoration:underline;}.urs .m4-bl{color:blue;}.urs p.m4-level2{padding-left:1em;}.urs p.m4-level3{padding-left:2em;}</style>
+<style>.urs .m4-tip::before{content:"Note: ";color:#969696;}.urs .m4-top{text-decoration:none;}.urs .m4-dot{border-bottom:1px dotted #000;}.urs .m4-jmp{text-decoration:none;font-size:.5em;vertical-align:super;}.urs .m4-un{text-decoration:underline;}.urs p.m4-level2{padding-left:1em;}.urs p.m4-level3{padding-left:2em;}</style>
 </head>
 <body class="design-tile layout-article-content">
 <div class="urs">
@@ -62,7 +62,7 @@ Each part can be read in any order.</p>
 <li><a href="#m4-preprocessor-examples" title="Preprocessor examples">Preprocessor examples</a></li>
 <li><a href="#m4-m4-examples" title="M4 – examples">M4 – examples</a></li>
 <li><a href="#m4-why-using-m4-and-why-not" title="Why using M4 and why not?">Why using M4 and why not?</a></li>
-<li><a href="http://github.com/jkubin/m4root" title="Generating code in M4">http://github.com/jkubin/m4root</a> – a&nbsp;project generating HTML of this series</li>
+<li><a href="http://github.com/jkubin/m4root" title="Generating code in M4">http://github.com/jkubin/m4root</a> – a&nbsp;project generating HTML5 of this series</li>
 </ul>
 <h2 id="m4-history-of-macro-languages"><a href="#m4-history-of-macro-languages" title="⚓">2</a>&nbsp;&nbsp;History of macro languages&nbsp;<a href="#m4-toc-history-of-macro-languages" title="Content" class="m4-jmp">☰</a></h2>
 <p>Macro languages were invented at a&nbsp;time when the assembly language (ASM) dominated.
@@ -371,30 +371,31 @@ In this way it is possible to gradually gain some practice.</p>
 <!-- annex content -->
 <h2 id="m4-code-generation-examples"><a href="#m4-code-generation-examples" title="⚓">A</a>&nbsp;&nbsp;Code generation examples&nbsp;<a href="#m4-toc-code-generation-examples" title="Content" class="m4-jmp">☰</a></h2>
 <div class="rs-tip-major m4-tip">Chars. {<code>`'</code>, <code>[]</code>, <strong><code>␂␆</code></strong>, <code>〖〗</code>} in the name controls the <a href="#m4-nonterminal-expansion-control" title="Nonterminal expansion control">expansion of nonterminals</a>.</div>
-<p id="m4-toc-csv-simplest-example" class="m4-level2"><a href="#m4-csv-simplest-example">A.1&nbsp;&nbsp;<code>[]</code> CSV – simplest example</a></p>
-<p id="m4-toc-csv-counter" class="m4-level2"><a href="#m4-csv-counter">A.2&nbsp;&nbsp;<code>[]</code> CSV – counter</a></p>
-<p id="m4-toc-special-characters-of-output-cod" class="m4-level2"><a href="#m4-special-characters-of-output-cod">A.3&nbsp;&nbsp;<code title="solution">💡</code> Special characters of output code</a></p>
-<p id="m4-toc-c-output-queue" class="m4-level2"><a href="#m4-c-output-queue">A.4&nbsp;&nbsp;<code>[]</code> C – output queue</a></p>
-<p id="m4-toc-ini-an-external-command" class="m4-level2"><a href="#m4-ini-an-external-command">A.5&nbsp;&nbsp;<code>[]</code> INI – an external command</a></p>
-<p id="m4-toc-h-hex-counter" class="m4-level2"><a href="#m4-h-hex-counter">A.6&nbsp;&nbsp;<code>[]</code> .h – hex counter</a></p>
-<p id="m4-toc-c-small-automaton" class="m4-level2"><a href="#m4-c-small-automaton">A.7&nbsp;&nbsp;<code>[]</code> C – small automaton</a></p>
-<p id="m4-toc-c-small-automaton-2" class="m4-level2"><a href="#m4-c-small-automaton-2">A.8&nbsp;&nbsp;<code>[]</code> C – small automaton 2</a></p>
-<p id="m4-toc-html-output-queues" class="m4-level2"><a href="#m4-html-output-queues">A.9&nbsp;&nbsp;<code>[]</code> HTML – output queues</a></p>
-<p id="m4-toc-branching-by-grammar" class="m4-level2"><a href="#m4-branching-by-grammar">A.10&nbsp;&nbsp;<code>[]</code> Branching by grammar</a></p>
-<p id="m4-toc-json-generating-automaton" class="m4-level2"><a href="#m4-json-generating-automaton">A.11&nbsp;&nbsp;<code>[]</code> JSON – generating automaton</a></p>
-<p id="m4-toc-json-named-queues" class="m4-level3"><a href="#m4-json-named-queues">A.11.1&nbsp;&nbsp;<code>[]</code> JSON – named queues</a></p>
-<p id="m4-toc-json-generated-queue-indexes" class="m4-level3"><a href="#m4-json-generated-queue-indexes">A.11.2&nbsp;&nbsp;<code>[]</code> JSON – generated queue indexes</a></p>
-<p id="m4-toc-ini-discontinuous-queue-index" class="m4-level2"><a href="#m4-ini-discontinuous-queue-index">A.12&nbsp;&nbsp;<code>[]</code> INI – discontinuous queue index</a></p>
-<p id="m4-toc-xml-mixed-messages" class="m4-level2"><a href="#m4-xml-mixed-messages">A.13&nbsp;&nbsp;<code>[]</code> XML – mixed messages</a></p>
-<p id="m4-toc-xml-separated-messages" class="m4-level2"><a href="#m4-xml-separated-messages">A.14&nbsp;&nbsp;<code>[]</code> XML – separated messages</a></p>
-<p id="m4-toc-bash-cmd-echo-dstringd" class="m4-level2"><a href="#m4-bash-cmd-echo-dstringd">A.15&nbsp;&nbsp;<code>[]</code> Bash <code>~]$ echo "string"</code></a></p>
-<p id="m4-toc-bash-cmd-echo-astringa" class="m4-level2"><a href="#m4-bash-cmd-echo-astringa">A.16&nbsp;&nbsp;<code>[]</code> Bash <code>~]$ echo 'string'</code></a></p>
+<p id="m4-toc-input-source-code" class="m4-level2"><a href="#m4-input-source-code">A.1&nbsp;&nbsp;<code>[]</code> Input source code</a></p>
+<p id="m4-toc-csv-simplest-example" class="m4-level2"><a href="#m4-csv-simplest-example">A.2&nbsp;&nbsp;<code>[]</code> CSV – simplest example</a></p>
+<p id="m4-toc-csv-counter" class="m4-level2"><a href="#m4-csv-counter">A.3&nbsp;&nbsp;<code>[]</code> CSV – counter</a></p>
+<p id="m4-toc-modification-of-special-characte" class="m4-level2"><a href="#m4-modification-of-special-characte">A.4&nbsp;&nbsp;<code title="solution">💡</code> Modification of special characters</a></p>
+<p id="m4-toc-c-output-queue" class="m4-level2"><a href="#m4-c-output-queue">A.5&nbsp;&nbsp;<code>[]</code> C – output queue</a></p>
+<p id="m4-toc-ini-an-external-command" class="m4-level2"><a href="#m4-ini-an-external-command">A.6&nbsp;&nbsp;<code>[]</code> INI – an external command</a></p>
+<p id="m4-toc-h-hex-counter" class="m4-level2"><a href="#m4-h-hex-counter">A.7&nbsp;&nbsp;<code>[]</code> .h – hex counter</a></p>
+<p id="m4-toc-c-small-automaton" class="m4-level2"><a href="#m4-c-small-automaton">A.8&nbsp;&nbsp;<code>[]</code> C – small automaton</a></p>
+<p id="m4-toc-c-small-automaton-2" class="m4-level2"><a href="#m4-c-small-automaton-2">A.9&nbsp;&nbsp;<code>[]</code> C – small automaton 2</a></p>
+<p id="m4-toc-html-output-queues" class="m4-level2"><a href="#m4-html-output-queues">A.10&nbsp;&nbsp;<code>[]</code> HTML – output queues</a></p>
+<p id="m4-toc-branching-by-grammar" class="m4-level2"><a href="#m4-branching-by-grammar">A.11&nbsp;&nbsp;<code>[]</code> Branching by grammar</a></p>
+<p id="m4-toc-json-generating-automaton" class="m4-level2"><a href="#m4-json-generating-automaton">A.12&nbsp;&nbsp;<code>[]</code> JSON – generating automaton</a></p>
+<p id="m4-toc-json-named-queues" class="m4-level3"><a href="#m4-json-named-queues">A.12.1&nbsp;&nbsp;<code>[]</code> JSON – named queues</a></p>
+<p id="m4-toc-json-generated-queue-indexes" class="m4-level3"><a href="#m4-json-generated-queue-indexes">A.12.2&nbsp;&nbsp;<code>[]</code> JSON – generated queue indexes</a></p>
+<p id="m4-toc-ini-discontinuous-queue-index" class="m4-level2"><a href="#m4-ini-discontinuous-queue-index">A.13&nbsp;&nbsp;<code>[]</code> INI – discontinuous queue index</a></p>
+<p id="m4-toc-xml-mixed-messages" class="m4-level2"><a href="#m4-xml-mixed-messages">A.14&nbsp;&nbsp;<code>[]</code> XML – mixed messages</a></p>
+<p id="m4-toc-xml-separated-messages" class="m4-level2"><a href="#m4-xml-separated-messages">A.15&nbsp;&nbsp;<code>[]</code> XML – separated messages</a></p>
+<p id="m4-toc-bash-cmd-echo-dstringd" class="m4-level2"><a href="#m4-bash-cmd-echo-dstringd">A.16&nbsp;&nbsp;<code>[]</code> Bash <code>~]$ echo "string"</code></a></p>
+<p id="m4-toc-bash-cmd-echo-astringa" class="m4-level2"><a href="#m4-bash-cmd-echo-astringa">A.17&nbsp;&nbsp;<code>[]</code> Bash <code>~]$ echo 'string'</code></a></p>
 <div class="rs-tip-major m4-tip">The examples in this annex are more complex and are intended to demonstrate the practical use of M4.
 They will be explained in more detail later.</div>
-<h3 id="m4-input-source-code"><a href="#m4-input-source-code" title="⚓">»</a>&nbsp;Input source code</h3>
+<h3 id="m4-input-source-code"><a href="#m4-input-source-code" title="⚓">A.1</a>&nbsp;&nbsp;<code>[]</code> Input source code&nbsp;<a href="#m4-toc-input-source-code" title="Content" class="m4-jmp">☰</a></h3>
 <p>The input source code is similar to <abbr title="Comma Separated Values">CSV</abbr>, which is converted to arbitrarily complex target code of another language using <abbr title="Context-Free Grammar">CFG</abbr>, automata and output queues.
 Stacks in the examples are not used.</p>
-<p><code><a href="https://raw.githubusercontent.com/jkubin/m4root/master/messages/messages_raw.mc" title="GitHub">messages_raw.mc</a></code> – ⚠ contains special characters ⚠</p>
+<p><code><a href="https://raw.githubusercontent.com/jkubin/m4root/master/messages/messages_raw.mc" title="GitHub">messages_raw.mc</a></code> – input source code contains special characters ⚠</p>
 <pre title="messages_raw.mc"># 2018/05/15 Josef Kubin
 
 ERROR([COMPLEX],     [!"#$%&amp;'()*+ ,-./:;&lt;=&gt;?@[\]^_`{|}~])
@@ -403,8 +404,8 @@ ERROR([SUCCESS],     [Complex M4 code failed successfully.])
 WARNING([ADDICTIVE], [Programming in M4 is addictive!])
 ERROR([NOFAULT],     [It's not a language fault!])
 WARNING([NO_ERRORS], [No other errors detected.])</pre>
-<div class="rs-tip-major m4-tip">The input file may contain notes that may not be hidden in the comments <code>#</code>, <code>dnl</code>, <code>ifelse([…])</code> or <code>[… somewhere inside brackets …]</code>.</div>
-<h3 id="m4-csv-simplest-example"><a href="#m4-csv-simplest-example" title="⚓">A.1</a>&nbsp;&nbsp;<code>[]</code> CSV – simplest example&nbsp;<a href="#m4-toc-csv-simplest-example" title="Content" class="m4-jmp">☰</a></h3>
+<div class="rs-tip-major m4-tip">The input file may also contain notes that may not be hidden in the comments <code>#</code>, <code>dnl</code>, <code>ifelse([…])</code> or <code>[… somewhere inside brackets …]</code>.</div>
+<h3 id="m4-csv-simplest-example"><a href="#m4-csv-simplest-example" title="⚓">A.2</a>&nbsp;&nbsp;<code>[]</code> CSV – simplest example&nbsp;<a href="#m4-toc-csv-simplest-example" title="Content" class="m4-jmp">☰</a></h3>
 <p>This example does not use output queues, it only generates <abbr title="Comma Separated Values">CSV</abbr> separated by <code>TAB</code>.</p>
 <pre title="hello.csv.m4"># A → β
 define([ERROR], [
@@ -420,7 +421,7 @@ divert(-1)
 <pre title="hello.csv">COMPLEX	!"#$%&amp;'()*+,-./:;&lt;=&gt;?@[\]^_`{|}~
 SUCCESS	Complex M4 code failed successfully.
 NOFAULT	It's not a language fault!</pre>
-<h3 id="m4-csv-counter"><a href="#m4-csv-counter" title="⚓">A.2</a>&nbsp;&nbsp;<code>[]</code> CSV – counter&nbsp;<a href="#m4-toc-csv-counter" title="Content" class="m4-jmp">☰</a></h3>
+<h3 id="m4-csv-counter"><a href="#m4-csv-counter" title="⚓">A.3</a>&nbsp;&nbsp;<code>[]</code> CSV – counter&nbsp;<a href="#m4-toc-csv-counter" title="Content" class="m4-jmp">☰</a></h3>
 <p>The example uses the <code>COUNT_UP</code> macro from the root file whose <abbr title="the right side of the rewriting rule"><code>β</code></abbr> is copied to the right side of the <code>COUNTER</code> macro.
 During the first expansion of <code>COUNTER</code> its initial value is initialized.
 Further expansion returns the numeric terminal symbol and increases the auxiliary (global) symbol by one.
@@ -445,10 +446,10 @@ divert(-1)
 <pre title="counter.csv">ERR_1	COMPLEX	!"#$%&amp;'()*+,-./:;&lt;=&gt;?@[\]^_`{|}~
 ERR_2	SUCCESS	Complex M4 code failed successfully.
 ERR_3	NOFAULT	It's not a language fault!</pre>
-<h3 id="m4-special-characters-of-output-cod"><a href="#m4-special-characters-of-output-cod" title="⚓">A.3</a>&nbsp;&nbsp;<code title="solution">💡</code> Special characters of output code&nbsp;<a href="#m4-toc-special-characters-of-output-cod" title="Content" class="m4-jmp">☰</a></h3>
+<h3 id="m4-modification-of-special-characte"><a href="#m4-modification-of-special-characte" title="⚓">A.4</a>&nbsp;&nbsp;<code title="solution">💡</code> Modification of special characters&nbsp;<a href="#m4-toc-modification-of-special-characte" title="Content" class="m4-jmp">☰</a></h3>
 <p>Each type of output code requires modification of special characters.
-The keyword <code>patsubst()</code> is inappropriate for this type of task due to complexity.
-The input source code will first be modified by a regular expression and all special characters will be hidden in macros.</p>
+The M4 <code>patsubst()</code> keyword is inappropriate for this type of task.
+First, we hide all special characters of the input file into appropriately named macros using regular expressions.</p>
 <h4 id="m4-modified-input-code"><a href="#m4-modified-input-code" title="⚓">»</a>&nbsp;Modified input code</h4>
 <p><code><a href="https://raw.githubusercontent.com/jkubin/m4root/master/messages/messages.mc" title="GitHub">messages.mc</a></code> – all special characters are hidden into macros</p>
 <pre title="messages.mc"># 2018/05/15 Josef Kubin
@@ -459,7 +460,7 @@ ERROR([SUCCESS],     [Complex M4 code failed successfully.])
 WARNING([ADDICTIVE], [Programming in M4 is addictive[]EX()])
 ERROR([NOFAULT],     [It[]AP()s not a language fault[]EX()])
 WARNING([NO_ERRORS], [No other errors detected.])</pre>
-<p>We create several conversion files according to the target code type.</p>
+<p>We create several conversion files according to the target code type:</p>
 <h4 id="m4-xml-xslt-html"><a href="#m4-xml-xslt-html" title="⚓">»</a>&nbsp;<code>[]</code> XML, XSLT, HTML</h4>
 <p><code><a href="https://raw.githubusercontent.com/jkubin/m4root/master/messages/markup.m4" title="GitHub">markup.m4</a></code> – conversion file for markup languages</p>
 <pre title="markup.m4"># A → β
@@ -505,7 +506,7 @@ define([EX], [!])
 define([GT], [&gt;])
 define([LT], [&lt;])</pre>
 <h4 id="m4-csv-m4"><a href="#m4-csv-m4" title="⚓">»</a>&nbsp;<code>[]</code> CSV, M4</h4>
-<p><code><a href="https://raw.githubusercontent.com/jkubin/m4root/master/messages/unchanged.m4" title="GitHub">unchanged.m4</a></code> – the conversion file returns all special characters</p>
+<p><code><a href="https://raw.githubusercontent.com/jkubin/m4root/master/messages/unchanged.m4" title="GitHub">unchanged.m4</a></code> – the conversion file returns all special characters back</p>
 <pre title="unchanged.m4"># A → β
 define([AMP], [&amp;])
 define([AP], ['])
@@ -515,7 +516,7 @@ define([DQ], ["])
 define([EX], [!])
 define([GT], [&gt;])
 define([LT], [&lt;])</pre>
-<h3 id="m4-c-output-queue"><a href="#m4-c-output-queue" title="⚓">A.4</a>&nbsp;&nbsp;<code>[]</code> C – output queue&nbsp;<a href="#m4-toc-c-output-queue" title="Content" class="m4-jmp">☰</a></h3>
+<h3 id="m4-c-output-queue"><a href="#m4-c-output-queue" title="⚓">A.5</a>&nbsp;&nbsp;<code>[]</code> C – output queue&nbsp;<a href="#m4-toc-c-output-queue" title="Content" class="m4-jmp">☰</a></h3>
 <p>The example uses one output queue for characters <code>};</code> to close the array at the end.</p>
 <pre title="array.c.m4"># A → β
 define([ERROR], [
@@ -547,7 +548,7 @@ char *error[] = {
 	"Complex M4 code failed successfully.",
 	"It's not a language fault!",
 };</pre>
-<h3 id="m4-ini-an-external-command"><a href="#m4-ini-an-external-command" title="⚓">A.5</a>&nbsp;&nbsp;<code>[]</code> INI – an external command&nbsp;<a href="#m4-toc-ini-an-external-command" title="Content" class="m4-jmp">☰</a></h3>
+<h3 id="m4-ini-an-external-command"><a href="#m4-ini-an-external-command" title="⚓">A.6</a>&nbsp;&nbsp;<code>[]</code> INI – an external command&nbsp;<a href="#m4-toc-ini-an-external-command" title="Content" class="m4-jmp">☰</a></h3>
 <p>The example runs an external <code>date</code> command and places its output in square brackets.
 The output of an external command are two comma-separated items.
 The <code>FST()</code> macro selects the first item because the second item contains an unwanted <code>LF</code> (<samp>0x0a</samp>) new line character.</p>
@@ -574,7 +575,7 @@ divert(-1)</pre>
 COMPLEX="!\"#$%&amp;'()*+,-./:;&lt;=&gt;?@[\\]^_`{|}~"
 SUCCESS="Complex M4 code failed successfully."
 NOFAULT="It's not a language fault!"</pre>
-<h3 id="m4-h-hex-counter"><a href="#m4-h-hex-counter" title="⚓">A.6</a>&nbsp;&nbsp;<code>[]</code> .h – hex counter&nbsp;<a href="#m4-toc-h-hex-counter" title="Content" class="m4-jmp">☰</a></h3>
+<h3 id="m4-h-hex-counter"><a href="#m4-h-hex-counter" title="⚓">A.7</a>&nbsp;&nbsp;<code>[]</code> .h – hex counter&nbsp;<a href="#m4-toc-h-hex-counter" title="Content" class="m4-jmp">☰</a></h3>
 <p>The example uses the <code>COUNTER</code> macro to number the resulting <abbr title="C preprocessor">CPP</abbr> macros and one output queue.
 The queue number <code>1</code> contains the preprocessor directive <code>#endif</code> to terminate the header file.
 The decimal value of the counter is converted to the two-digit hex digit by keyword <code>eval()</code>.</p>
@@ -619,7 +620,7 @@ divert(-1)</pre>
 #define NOFAULT		0x02
 
 #endif /* __ERROR_H */</pre>
-<h3 id="m4-c-small-automaton"><a href="#m4-c-small-automaton" title="⚓">A.7</a>&nbsp;&nbsp;<code>[]</code> C – small automaton&nbsp;<a href="#m4-toc-c-small-automaton" title="Content" class="m4-jmp">☰</a></h3>
+<h3 id="m4-c-small-automaton"><a href="#m4-c-small-automaton" title="⚓">A.8</a>&nbsp;&nbsp;<code>[]</code> C – small automaton&nbsp;<a href="#m4-toc-c-small-automaton" title="Content" class="m4-jmp">☰</a></h3>
 <p>The example uses a&nbsp;small automaton <code>NEW_LINE</code> to generate a&nbsp;newline <code>\n</code> character and one output queue number <code>1</code> containing <code>";</code> characters to terminate resulting string.
 For the first time the <code>NEW_LINE</code> is rewritten to <abbr title="epsilon – empty symbol"><code>ε</code></abbr>, for the second time is rewritten to <code>\n</code>.</p>
 <pre title="stringl.c.m4">#     NEW_LINE automaton
@@ -655,7 +656,7 @@ divert(-1)</pre>
 
 char error[] =
 "!\"#$%&amp;'()*+,-./:;&lt;=&gt;?@[\\]^_`{|}~\nComplex M4 code failed successfully.\nIt's not a language fault!";</pre>
-<h3 id="m4-c-small-automaton-2"><a href="#m4-c-small-automaton-2" title="⚓">A.8</a>&nbsp;&nbsp;<code>[]</code> C – small automaton 2&nbsp;<a href="#m4-toc-c-small-automaton-2" title="Content" class="m4-jmp">☰</a></h3>
+<h3 id="m4-c-small-automaton-2"><a href="#m4-c-small-automaton-2" title="⚓">A.9</a>&nbsp;&nbsp;<code>[]</code> C – small automaton 2&nbsp;<a href="#m4-toc-c-small-automaton-2" title="Content" class="m4-jmp">☰</a></h3>
 <p>This example is similar to the previous one, but each string is on a&nbsp;new line.</p>
 <pre title="string.c.m4">#      NEW_LINE automaton
 #      ___      ________
@@ -693,7 +694,7 @@ char error[] =
 "!\"#$%&amp;'()*+,-./:;&lt;=&gt;?@[\\]^_`{|}~\n"
 "Complex M4 code failed successfully.\n"
 "It's not a language fault!";</pre>
-<h3 id="m4-html-output-queues"><a href="#m4-html-output-queues" title="⚓">A.9</a>&nbsp;&nbsp;<code>[]</code> HTML – output queues&nbsp;<a href="#m4-toc-html-output-queues" title="Content" class="m4-jmp">☰</a></h3>
+<h3 id="m4-html-output-queues"><a href="#m4-html-output-queues" title="⚓">A.10</a>&nbsp;&nbsp;<code>[]</code> HTML – output queues&nbsp;<a href="#m4-toc-html-output-queues" title="Content" class="m4-jmp">☰</a></h3>
 <p>The example uses two output queues.
 The queue number <code>1</code> contains paragraphs.
 The queue number <code>2</code> contains closing HTML tags.
@@ -758,7 +759,7 @@ divert(-1)</pre>
 	&lt;p id="NO_ERRORS"&gt;No other errors detected.&lt;/p&gt;
 &lt;/body&gt;
 &lt;/html&gt;</pre>
-<h3 id="m4-branching-by-grammar"><a href="#m4-branching-by-grammar" title="⚓">A.10</a>&nbsp;&nbsp;<code>[]</code> Branching by grammar&nbsp;<a href="#m4-toc-branching-by-grammar" title="Content" class="m4-jmp">☰</a></h3>
+<h3 id="m4-branching-by-grammar"><a href="#m4-branching-by-grammar" title="⚓">A.11</a>&nbsp;&nbsp;<code>[]</code> Branching by grammar&nbsp;<a href="#m4-toc-branching-by-grammar" title="Content" class="m4-jmp">☰</a></h3>
 <p>The example shows <a href="#m4-nonterminals-for-branches">branching by grammar</a>, macro arguments are ignored.
 Input nonterminals are rewritten to terminals <code title="🐛">ERROR → 🐛</code>, <code title="🐜">QUERY → 🐜</code>, <code title="🐝">WARNING → 🐝</code>.</p>
 <pre title="insect.txt.m4"># A → β
@@ -781,7 +782,7 @@ define([WARNING_INSECT], [🐝])</pre>
 ~]$ <strong>m4 rootb.m4 insect.txt.m4 messages.mc &gt; insect.txt</strong>
 </pre>
 <pre title="insect.txt">🐛🐜🐛🐝🐛🐝</pre>
-<h3 id="m4-json-generating-automaton"><a href="#m4-json-generating-automaton" title="⚓">A.11</a>&nbsp;&nbsp;<code>[]</code> JSON – generating automaton&nbsp;<a href="#m4-toc-json-generating-automaton" title="Content" class="m4-jmp">☰</a></h3>
+<h3 id="m4-json-generating-automaton"><a href="#m4-json-generating-automaton" title="⚓">A.12</a>&nbsp;&nbsp;<code>[]</code> JSON – generating automaton&nbsp;<a href="#m4-toc-json-generating-automaton" title="Content" class="m4-jmp">☰</a></h3>
 <p>The example uses two output queues and one generating automaton.
 The first <code>ERROR([…])</code> error message in the <code>ERROR</code> state generates a&nbsp;header with brackets and outputs the first record.
 The automaton goes to the state <code>NEXT_ITEM</code> which is a&nbsp;<abbr title="rule is used as the right side of another rewriting rule"><code>β</code> rule</abbr>.
@@ -831,7 +832,7 @@ divert(-1)</pre>
 		{"NOFAULT": "It's not a language fault!"}
 	]
 }}</pre>
-<h4 id="m4-json-named-queues"><a href="#m4-json-named-queues" title="⚓">A.11.1</a>&nbsp;&nbsp;<code>[]</code> JSON – named queues&nbsp;<a href="#m4-toc-json-named-queues" title="Content" class="m4-jmp">☰</a></h4>
+<h4 id="m4-json-named-queues"><a href="#m4-json-named-queues" title="⚓">A.12.1</a>&nbsp;&nbsp;<code>[]</code> JSON – named queues&nbsp;<a href="#m4-toc-json-named-queues" title="Content" class="m4-jmp">☰</a></h4>
 <p>The example processes other types of messages <code>QUERY</code> and <code>WARNING</code>.
 It uses three automata and six output queues.
 If we generate more complex source code, we will soon encounter the problem of maintaining index consistency for output queues.
@@ -920,7 +921,7 @@ divert(-1)</pre>
 		{"NO_ERRORS": "No other errors detected."}
 	]
 }}</pre>
-<h4 id="m4-json-generated-queue-indexes"><a href="#m4-json-generated-queue-indexes" title="⚓">A.11.2</a>&nbsp;&nbsp;<code>[]</code> JSON – generated queue indexes&nbsp;<a href="#m4-toc-json-generated-queue-indexes" title="Content" class="m4-jmp">☰</a></h4>
+<h4 id="m4-json-generated-queue-indexes"><a href="#m4-json-generated-queue-indexes" title="⚓">A.12.2</a>&nbsp;&nbsp;<code>[]</code> JSON – generated queue indexes&nbsp;<a href="#m4-toc-json-generated-queue-indexes" title="Content" class="m4-jmp">☰</a></h4>
 <p>During development, the order and number of output queues often change, which also requires frequent changes of their indexes.
 It is therefore appropriate to generate indexes.
 We can then use a&nbsp;virtually unlimited number of queues.
@@ -1005,7 +1006,7 @@ divert(-1)</pre>
 		{"NO_ERRORS": "No other errors detected."}
 	]
 }}</pre>
-<h3 id="m4-ini-discontinuous-queue-index"><a href="#m4-ini-discontinuous-queue-index" title="⚓">A.12</a>&nbsp;&nbsp;<code>[]</code> INI – discontinuous queue index&nbsp;<a href="#m4-toc-ini-discontinuous-queue-index" title="Content" class="m4-jmp">☰</a></h3>
+<h3 id="m4-ini-discontinuous-queue-index"><a href="#m4-ini-discontinuous-queue-index" title="⚓">A.13</a>&nbsp;&nbsp;<code>[]</code> INI – discontinuous queue index&nbsp;<a href="#m4-toc-ini-discontinuous-queue-index" title="Content" class="m4-jmp">☰</a></h3>
 <p>The example uses three automata and two output queues number <code>2</code> and <code>4</code> defined in a&nbsp;separate file.
 INI section names are generated by symbol chaining.
 The example uses the same file for output queues as the <a href="#m4-json-generated-queue-indexes" title="[] JSON – generated queue indexes">example</a> to generate JSON.</p>
@@ -1059,7 +1060,7 @@ NOFAULT="It's not a language fault!"
 [warning]
 ADDICTIVE="Programming in M4 is addictive!"
 NO_ERRORS="No other errors detected."</pre>
-<h3 id="m4-xml-mixed-messages"><a href="#m4-xml-mixed-messages" title="⚓">A.13</a>&nbsp;&nbsp;<code>[]</code> XML – mixed messages&nbsp;<a href="#m4-toc-xml-mixed-messages" title="Content" class="m4-jmp">☰</a></h3>
+<h3 id="m4-xml-mixed-messages"><a href="#m4-xml-mixed-messages" title="⚓">A.14</a>&nbsp;&nbsp;<code>[]</code> XML – mixed messages&nbsp;<a href="#m4-toc-xml-mixed-messages" title="Content" class="m4-jmp">☰</a></h3>
 <p>The example uses one output queue number <code>1</code> for the <code>&lt;/messages&gt;</code> closing tag.</p>
 <pre title="mixed.xml.m4"># A → β
 # β
@@ -1116,7 +1117,7 @@ divert(-1)</pre>
 		&lt;value&gt;No other errors detected.&lt;/value&gt;
 	&lt;/warning&gt;
 &lt;/messages&gt;</pre>
-<h3 id="m4-xml-separated-messages"><a href="#m4-xml-separated-messages" title="⚓">A.14</a>&nbsp;&nbsp;<code>[]</code> XML – separated messages&nbsp;<a href="#m4-toc-xml-separated-messages" title="Content" class="m4-jmp">☰</a></h3>
+<h3 id="m4-xml-separated-messages"><a href="#m4-xml-separated-messages" title="⚓">A.15</a>&nbsp;&nbsp;<code>[]</code> XML – separated messages&nbsp;<a href="#m4-toc-xml-separated-messages" title="Content" class="m4-jmp">☰</a></h3>
 <p>The example groups messages by their type using output queues.</p>
 <pre title="messages.xml.m4"># A → β
 # β
@@ -1196,7 +1197,7 @@ divert(-1)</pre>
 		&lt;/item&gt;
 	&lt;/warning&gt;
 &lt;/messages&gt;</pre>
-<h3 id="m4-bash-cmd-echo-dstringd"><a href="#m4-bash-cmd-echo-dstringd" title="⚓">A.15</a>&nbsp;&nbsp;<code>[]</code> Bash <code>~]$ echo "string"</code>&nbsp;<a href="#m4-toc-bash-cmd-echo-dstringd" title="Content" class="m4-jmp">☰</a></h3>
+<h3 id="m4-bash-cmd-echo-dstringd"><a href="#m4-bash-cmd-echo-dstringd" title="⚓">A.16</a>&nbsp;&nbsp;<code>[]</code> Bash <code>~]$ echo "string"</code>&nbsp;<a href="#m4-toc-bash-cmd-echo-dstringd" title="Content" class="m4-jmp">☰</a></h3>
 <pre title="doubleq.sh.m4"># A → β
 # β
 define([ERROR], [
@@ -1230,7 +1231,7 @@ echo "Complex M4 code failed successfully."
 echo "Programming in M4 is addictive"\!""
 echo "It's not a language fault"\!""
 echo "No other errors detected."</pre>
-<h3 id="m4-bash-cmd-echo-astringa"><a href="#m4-bash-cmd-echo-astringa" title="⚓">A.16</a>&nbsp;&nbsp;<code>[]</code> Bash <code>~]$ echo 'string'</code>&nbsp;<a href="#m4-toc-bash-cmd-echo-astringa" title="Content" class="m4-jmp">☰</a></h3>
+<h3 id="m4-bash-cmd-echo-astringa"><a href="#m4-bash-cmd-echo-astringa" title="⚓">A.17</a>&nbsp;&nbsp;<code>[]</code> Bash <code>~]$ echo 'string'</code>&nbsp;<a href="#m4-toc-bash-cmd-echo-astringa" title="Content" class="m4-jmp">☰</a></h3>
 <pre title="apost.sh.m4"># A → β
 # β
 define([ERROR], [
@@ -1275,7 +1276,7 @@ If we define a&nbsp;safer <code>SAF()</code> macro, the same named <code>SAF ()<
 Thus, the <abbr title="C preprocessor">CPP</abbr> namespace <strong>can be</strong> completely separated from the M4 namespace.
 The problematic character <code>`</code> is hidden in the <code>LQ()</code> macro.
 Apostrophe <code>'</code> does not matter in the source code.
-Apostrophe inside <code>ORD<del>()</del></code> macro is hidden in <code>RQ()</code> macro.
+Apostrophe inside <code>ORD<del style="color:red"><span style="color:rgba(0,0,0,.75)">()</span></del></code> macro is hidden in <code>RQ()</code> macro.
 Note the <code>define ()</code> or <code>ifelse ()</code> function names and where the <code>SYMBOL</code> is expanded.</p>
 <pre title="file.c.m4"># ORDinary and SAFe macros have different expansion:
 

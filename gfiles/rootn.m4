@@ -139,18 +139,18 @@ define(TEST_ATM, 
 define(COUNT_UP, defn(TEST_ATM)
 
 	# the INIT node defines a unique symbol as the internal counter value
-	define($0iv, $1)
+	define(iv$0, $1)
 
 	# transition to the INCREMENT node
-	define($0, $0ivdefine($0iv, incr($0iv)))
+	define($0, iv$0define(iv$0, incr(iv$0)))
 )
 
 # β₁β₂
 define(COUNT_DOWN, defn(TEST_ATM)
 
 	# the INIT node defines a unique symbol as the internal counter value
-	define($0iv, $1)
+	define(iv$0, $1)
 
 	# transition to the DECREMENT node
-	define($0, $0ivdefine($0iv, decr($0iv)))
+	define($0, iv$0define(iv$0, decr(iv$0)))
 )

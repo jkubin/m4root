@@ -1,2 +1,2 @@
-Привіт Світ!
-HELLO(BRANCH) → HELLO(9) → HELLO_$1 → HELLO_9 → Привіт Світ!
+Ahoj svet!
+HELLO(BRANCH) → HELLO(2) → HELLO_$1 → HELLO_2 → Ahoj svet!

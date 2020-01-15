@@ -1,5 +1,5 @@
 # vim:wrap:spell:spelllang=cs,en
-# intro.mc	0xecbd502	20200115-01:45:53
+# intro.mc	0xff31af1	20200115-09:36:41
 
 9
 Generování kódu v M4: úvod
@@ -26,7 +26,7 @@ Cílem seriálu je seznámit čtenáře s tímto nástrojem (m4 – je program p
 Na co se používá, jak se v něm programuje a jaké jsou jeho výhody a nevýhody.
 
 61
-[výsledek seriálu je sada ukázkových skriptů pro generování kódu]
+[výsledkem seriálu je sada ukázkových skriptů pro generování kódu]
 
 61
 Vícejazyčný seriál „Generování kódu v M4“ je generován M4 skripty,
@@ -60,7 +60,7 @@ M4 – příklady
 Proč používat M4 a proč ne?
 
 96
-http://github.com/jkubin/m4root (Generování kódu v M4) – složitější projekt generující HTML tohoto seriálu
+http://github.com/jkubin/m4root (Generování kódu v M4) – složitější projekt generující HTML5 tohoto seriálu
 
 115
 Historie makro jazyků
@@ -480,17 +480,17 @@ Příklady v této příloze jsou složitější a jejich cílem je ukázat prak
 Podrobněji budou vysvětleny později.
 
 1083
-Vstupní zdrojový kód
+ Vstupní zdrojový kód
 
 1089
 Vstupní zdrojový kód je podobný CSV (Comma Separated Values), který se převede na libovolně složitý cílový kód jiného jazyka pomocí CFG (Context-Free Grammar – bezkontextová gramatika), automatů a výstupních front.
 Zásobníky v příkladech nejsou použity.
 
 1098
-[⚠ obsahuje speciální znaky ⚠]
+[vstupní zdrojový kód obsahuje speciální znaky ⚠]
 
 1100
-Vstupní soubor může obsahovat poznámky, které nemusí být skryté v komentářích , ,  nebo .
+Vstupní soubor může také obsahovat poznámky, které nemusí být skryté v komentářích , ,  nebo .
 
 1108
  CSV – nejjednodušší příklad
@@ -508,12 +508,12 @@ Další expanze vrátí číselný terminální symbol a proběhne zvýšení po
  je malý automat.
 
 1146
-(řešení) Speciální znaky výstupního kódu
+(řešení) Úpravy speciálních znaků
 
 1152
 Každý typ výstupního kódu vyžaduje úpravu speciálních znaků.
-Klíčové slovo  je nevhodné pro tento úkol kvůli složitosti.
-Vstupní zdrojový kód proto napřed upravíme regulárním výrazem a všechny speciální znaky schováme do maker.
+Klíčové slovo jazyka M4  je nevhodné pro tento úkol.
+Všechny speciální znaky vstupního souboru napřed skryjeme do vhodně pojmenovaných maker pomocí regulárních výrazů.
 
 1171
 Upravený vstupní kód
@@ -522,7 +522,7 @@ Upravený vstupní kód
 [všechny speciální znaky jsou skryty do maker]
 
 1179
-Vytvoříme několik převodních souborů podle typu cílového kódu.
+Vytvoříme několik převodních souborů podle typu cílového kódu:
 
 1186
  XML, XSLT, HTML
@@ -552,7 +552,7 @@ Vytvoříme několik převodních souborů podle typu cílového kódu.
  CSV, M4
 
 1219
-[převodní soubor vrátí všechny speciální znaky]
+[převodní soubor vrátí zpátky všechny speciální znaky]
 
 1222
  C – výstupní fronta
