@@ -12,7 +12,7 @@ define([OTHER_LANGUAGE], defn([OTHER_LANG_PATH]))
 # path for generated files
 define([SRC_FILE_PATH], [https://raw.githubusercontent.com/jkubin/m4root/master/])
 
-# name for repository
+# name of repository
 define([SRC_REPO_NAME], [GitHub])
 
 m4wrap([
@@ -23,6 +23,7 @@ m4wrap([
 <head>
 <meta charset="utf-8">
 <title>CAPTION</title>
+<meta name="author" content="AUTHOR_NAME">
 <link rel="stylesheet" type="text/css" href="../html/preview.css">
 undivert(INTERNAL_STYLE_DATA, INTERNAL_STYLE_END)dnl
 </head>

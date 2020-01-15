@@ -32,10 +32,6 @@ XLANG([
 ])
 
 # A → β
-define([AUTHOR_IMG],	[face.png])
-define([AUTHOR_NAME],	[Josef Kubín])
-
-# path for files
 define([SRC_FILE_PATH], [../])
 define([SRC_REPO_NAME], [localhost])
 define([INDEX_HTML], [preview.html])
@@ -52,7 +48,7 @@ m4wrap([
 	divert(0)dnl
 <!-- DONTE() -->
 <!doctype html>
-<html id="css" class="js-inactive" lang="LANG_CODE" manifest="manifest.appcache">
+<html id="css" class="js-inactive" lang="LANG_CODE">
 <head>
 <meta charset="utf-8">
 <title>CAPTION</title>
