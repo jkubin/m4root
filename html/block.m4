@@ -123,7 +123,7 @@ define([SUB_CHAPTER], defn([MULTILINGUAL_HEADINGS], [SET_ANCHOR], [COUNTERS])[
 
 	define([#L2], .SUB_CHAPTER_IDX)
 	define([#L3])
-	define([INDENT_LEVEL], [ ]class="NSP()level2")
+	define([INDENT_LEVEL], [ ]class="ADD_CLASS_RULE_SET([level2])")
 	define([HEADING_TAG], [h3])
 
 	]defn([CHAPTER_COMMON_CODE])[
@@ -136,7 +136,7 @@ define([SUB_SUB_CHAPTER], defn([MULTILINGUAL_HEADINGS], [SET_ANCHOR], [COUNTERS]
 
 	define([#L2], .SUB_CHAPTER_IDX)
 	define([#L3], .SUB_SUB_CHAPTER_IDX)
-	define([INDENT_LEVEL], [ ]class="NSP()level3")
+	define([INDENT_LEVEL], [ ]class="ADD_CLASS_RULE_SET([level3])")
 	define([HEADING_TAG], [h4])
 
 	]defn([CHAPTER_COMMON_CODE])[
@@ -182,7 +182,7 @@ divert(-1)
 define([SUB_ANNEX], defn([MULTILINGUAL_HEADINGS], [SET_ANCHOR], [COUNTERS])[
 
 	divert(ANNEX_NAVIGATION)dnl
-<p id="NSP()TOCP-defn([#ID])" class="NSP()level2"><a href="[#]NSP()defn([#ID])">ANNEX_LETTER.SUB_ANNEX_IDX[]NB2()SELITM</a></p>
+<p id="NSP()TOCP-defn([#ID])" class="ADD_CLASS_RULE_SET([level2])"><a href="[#]NSP()defn([#ID])">ANNEX_LETTER.SUB_ANNEX_IDX[]NB2()SELITM</a></p>
 divert(CURRQU)dnl
 <h3]defn([HTML_HEADING_ATTRIBUTES])[><a href="[#]NSP()defn([#ID])"]defn([ANCHOR_SIGN])[>ANNEX_LETTER.SUB_ANNEX_IDX</a>NB2()SELITM]defn([RETURN_TO_TOC], [SWITCH_LANG])[</h3>
 divert(-1)
@@ -195,7 +195,7 @@ divert(-1)
 define([SUB_SUB_ANNEX], defn([MULTILINGUAL_HEADINGS], [SET_ANCHOR], [COUNTERS])[
 
 	divert(ANNEX_NAVIGATION)dnl
-<p id="NSP()TOCP-defn([#ID])" class="NSP()level3"><a href="[#]NSP()defn([#ID])">ANNEX_LETTER.SUB_ANNEX_IDX.SUB_SUB_ANNEX_IDX[]NB2()SELITM</a></p>
+<p id="NSP()TOCP-defn([#ID])" class="ADD_CLASS_RULE_SET([level3])"><a href="[#]NSP()defn([#ID])">ANNEX_LETTER.SUB_ANNEX_IDX.SUB_SUB_ANNEX_IDX[]NB2()SELITM</a></p>
 divert(CURRQU)dnl
 <h4]defn([HTML_HEADING_ATTRIBUTES])[><a href="[#]NSP()defn([#ID])"]defn([ANCHOR_SIGN])[>ANNEX_LETTER.SUB_ANNEX_IDX.SUB_SUB_ANNEX_IDX</a>NB2()SELITM]defn([RETURN_TO_TOC], [SWITCH_LANG])[</h4>
 divert(-1)
@@ -224,11 +224,11 @@ define([HYLN], [pushdef([CURRQU], divnum)divert(-1)
 		],
 		[$#], [3], [
 			pushdef([PREF], [$3].LANG_CODE)
-			pushdef([EXTERN], ../defn([RELAT_PATH])defn(defn([PREF]).anch)/defn([INDEX_HTML]))
+			pushdef([EXTERN], ../defn([RELAT_PATH])defn(defn([PREF]).anch)/defn([OUTPUT_FILE]))
 		],
 		[$#], [4], [
 			pushdef([PREF], [$3.$4])
-			pushdef([EXTERN], ../defn([RELAT_PATH])defn(defn([PREF]).anch)/defn([INDEX_HTML]))
+			pushdef([EXTERN], ../defn([RELAT_PATH])defn(defn([PREF]).anch)/defn([OUTPUT_FILE]))
 		], [
 
 		ROOT_ERROR([$0($@) is not defined])

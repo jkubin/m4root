@@ -19,7 +19,7 @@ divert(1)dnl
 defn([TARGET_FOLDER]) \
 divert(2)dnl
 TARGET_FOLDER/%.html: html_$2.m4f $(wildcard $1.html/*.m4 $1.html/*/*.m4) %.m4 $1 navig.m4
-	m4 -R $^ | sed -f brackets.sed > $[@]
+	m4 -DOUTPUT_FILE='$[@]' -R $^ | sed -f brackets.sed > $[@]
 
 TARGET_FOLDER/publish.txt: html_$2.m4f $(wildcard $1.html/*.m4 $1.html/*/*.m4) publish.m4 $1 navig.m4
 	m4 -R $^ | sed -f html/publish.sed -f brackets.sed > $[@]

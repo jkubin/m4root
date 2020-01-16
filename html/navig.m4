@@ -13,13 +13,13 @@ ifdef([ADD_LINKS_TO_ALL_PARTS_OF_THE_SERIES], [
 
 			# add reference to prefered language
 			define([ALL_PARTS_REF_TO_PREFERED_LANGUAGE],
-			[,] <a href="../defn([RELAT_PATH])defn([$1.$3.anch])/defn([INDEX_HTML])" title="defn([$1.$3.capt])">$3</a>)
+			[,] <a href="../defn([RELAT_PATH])defn([$1.$3.anch])/defn([OUTPUT_FILE])" title="defn([$1.$3.capt])">$3</a>)
 		])
 
 		divert(ALL_PARTS_ITEMS)dnl
 <li>ifdef([this.]defn([$1.$2.capt]),
 [defn([$1.$2.capt])],
-[<a href="../defn([$1.$2.anch])/defn([INDEX_HTML])">defn([$1.$2.capt])</a>])defn([ALL_PARTS_REF_TO_PREFERED_LANGUAGE])</li>
+[<a href="../defn([$1.$2.anch])/defn([OUTPUT_FILE])">defn([$1.$2.capt])</a>])defn([ALL_PARTS_REF_TO_PREFERED_LANGUAGE])</li>
 divert(-1)
 	])
 
@@ -49,14 +49,14 @@ ifelse(defn(OTHER_LANG_CODE.[LANG_VERSION]), [], [], [
 
 	# create HTML code to next language
 	define([SWITCH_TO_ANOTHER_LANGUAGE],
-	NB()(<a href="../defn([OTHER_LANGUAGE])defn(CURRENT_INDEX.OTHER_LANG_CODE.anch)/defn([INDEX_HTML])">defn(OTHER_LANG_CODE.[LANG_VERSION])</a>))
+	NB()(<a href="../defn([OTHER_LANGUAGE])defn(CURRENT_INDEX.OTHER_LANG_CODE.anch)/defn([OUTPUT_FILE])">defn(OTHER_LANG_CODE.[LANG_VERSION])</a>))
 ])
 
 # this is the TOC name at the beginning of page
 divert(START_OF_NAVIGATION)dnl
 <!-- table of content -->
 <h2 id="NSP()TOC_TOP">WORD_CONTENT[]ifdef([ADD_LINKS_TO_ALL_PARTS_OF_THE_SERIES],
-[NB()AH(JUMP_TO_TOC, defn([SENTENCE_ALL_PARTS]), [jmp], [#]NSP()defn([TOC_ALL_PARTS]))])defn([SWITCH_TO_ANOTHER_LANGUAGE])</h2>
+[NB()AH(JUMP_TO_TOC, defn([SENTENCE_ALL_PARTS]), [toc], [#]NSP()defn([TOC_ALL_PARTS]))])defn([SWITCH_TO_ANOTHER_LANGUAGE])</h2>
 divert(END_OF_NAVIGATION)dnl
 <!-- article content -->
 divert(ANNEX_CONTENT_START)dnl
