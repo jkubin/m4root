@@ -34,7 +34,6 @@ XLANG([
 # A → β
 define([SRC_FILE_PATH], [../])
 define([SRC_REPO_NAME], [localhost])
-define([INDEX_HTML], [preview.html])
 
 # set local image
 # A → β
@@ -123,7 +122,7 @@ divert(END_OF_ARTICLE)dnl
 			<div class="author clearfix" itemprop="author" itemtype="http://schema.org/Person" itemscope="">
 				<div class="author__pic avatar-round">
 					<a class="avatar__wrap" href="[#]" title="AUTHOR_PROFILE">
-						<img class="avatar__img" src="../img/AUTHOR_IMG" width="70" height="70" alt="AUTHOR_NAME">
+						<img class="avatar__img" src="../img/defn(AUTHOR_NAME)" width="70" height="70" alt="AUTHOR_NAME">
 					</a>
 				</div>
 				<div class="author__info">
