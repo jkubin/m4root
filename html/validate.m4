@@ -5,15 +5,19 @@ ___POINT([always test the result before publishing])
 # A → β
 define([IMG_SRC], [$2])
 
-# relative path to other language during development
-# A → β
-define([OTHER_LANGUAGE], defn([OTHER_LANG_PATH]))
+# relative path to other language html page
+# A → ε
+define([OTHER_LANGUAGE])
 
 # path for generated files
-define([SRC_FILE_PATH], [https://raw.githubusercontent.com/jkubin/m4root/master/])
+# A → β
+#define([SRC_FILE_PATH], [https://raw.githubusercontent.com/jkubin/m4root/master/])
+define([SRC_FILE_PATH], [../])
 
 # name of repository
-define([SRC_REPO_NAME], [GitHub])
+# A → β
+#define([SRC_REPO_NAME], [GitHub])
+define([SRC_REPO_NAME], [localhost])
 
 m4wrap([
 	divert(0)dnl
