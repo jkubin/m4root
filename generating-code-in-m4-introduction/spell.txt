@@ -1,5 +1,5 @@
 # vim:wrap:spell:spelllang=en,en
-# intro.mc	0xff31af1	20200115-09:36:42
+# intro.mc	0x7f2c16a	20200117-01:43:44
 
 9
 Generating code in M4: introduction
@@ -65,14 +65,14 @@ http://github.com/jkubin/m4root (Generating code in M4) – a project generating
 History of macro languages
 
 121
-Macro languages were invented at a time when the assembly language (ASM) dominated.
+Macro languages were invented when the assembly language (ASM) dominated.
 ASM source code usually contains identical instruction sequences that differ only in operand values.
-Identical instruction sequences can be grouped into one word, or a macro instruction that directly describes the purpose of the hidden instruction sequence in its name.
-These macro instructions are translated by the macro processor to the original instruction sequences, which are then translated into executable machine code.
+Identical instruction sequences can be grouped into one word or a macro instruction that directly describes the purpose of the hidden instruction sequence in its name.
+These macro instructions are translated by the macro processor to the original instruction sequences, which are then translated into the executable machine code.
 Programming in ASM using macro instructions is simpler, faster and less prone to human errors.
 
 136
-Later, macro languages were used to extend compiled programming languages because they made it possible to write source code at a higher level of abstraction than offers the programming language itself.
+Later, macro languages were used to extend compiled programming languages because they made it possible to write a source code at the higher level of abstraction than offerred by the programming language itself.
 The speed, performance and efficiency of a complex lower-level programming language is maintained through macro languages.
 However, it is important to understand all layers of code well.
 
@@ -209,8 +209,8 @@ Context-free grammar
 
 458
 Context-free grammar (shortly CFG (Context-Free Grammar)) is a formal grammar in which all rewriting rules have the form .
-The nonterminal  is rewritten to an arbitrarily long  (the right side of the rewriting rule) string composed of terminals or nonterminals.
-Kleene star (Wikipedia)  means that the resulting string can be rewritten to  (epsilon – empty symbol).
+The nonterminal  is rewritten to an arbitrarily long  (the right side of the rewriting rule) string composed of terminals  or nonterminals .
+Kleene star (Wikipedia)  means that nonterminal  can be rewritten to  (epsilon – empty symbol), or the rule is .
 
 469
 [context-free grammar rewriting rules]
@@ -225,9 +225,9 @@ The M4 rewriting rules are the same as context-free grammar rewriting rules.
 [M4 rewriting rules]
 
 497
-All M4 keywords are nonterminals (macros), they take some action (change the internal state of the macro processor) and rewrite to  (epsilon – empty symbol).
-Keywords can be renamed.
-This feature is very important for preprocessor mode.
+All M4 keywords are nonterminals (macros), they take some action and rewrite to  (epsilon – empty symbol) or another symbol.
+All keywords can be renamed or turned off completely.
+This feature is very important for preprocessor mode (preprocessor for itself).
 
 508
 [M4 keywords are nonterminals]
@@ -405,7 +405,7 @@ Testing automaton
 
 902
 Order of input symbols or their context can be tested by the automaton.
-If the input symbols meet the required properties, the automaton ends up in the double-ring node (indicates the accepting state or states).
+If the input symbols meet the required properties, the automaton ends up in the double-ring node which indicates the accepting state.
 
 926
 Previous automaton can be written as an ASCII art accompanying the M4 script:
@@ -485,198 +485,198 @@ The input source code is similar to CSV (Comma Separated Values), which is conve
 Stacks in the examples are not used.
 
 1098
-[input source code contains special characters ⚠]
+[the input source code contains special characters ⚠]
 
-1100
+1106
 The input file may also contain notes that may not be hidden in the comments , ,  or .
 
-1108
+1114
  CSV – simplest example
 
-1114
+1120
 This example does not use output queues, it only generates CSV (Comma Separated Values) separated by .
 
-1124
+1130
  CSV – counter
 
-1130
+1136
 The example uses the  macro from the root file whose  (the right side of the rewriting rule) is copied to the right side of the  macro.
 During the first expansion of  its initial value is initialized.
 Further expansion returns the numeric terminal symbol and increases the auxiliary (global) symbol by one.
  is a small automaton.
 
-1146
-(solution) Modification of special characters
-
 1152
-Each type of output code requires modification of special characters.
+(how to do it) Modification of special characters
+
+1158
+Each type of output code requires the modification of the special characters.
 The M4  keyword is inappropriate for this type of task.
 First, we hide all special characters of the input file into appropriately named macros using regular expressions.
 
-1171
+1177
 Modified input code
 
-1177
+1183
 [all special characters are hidden into macros]
 
-1179
+1185
 We create several conversion files according to the target code type:
 
-1186
+1192
  XML, XSLT, HTML
 
-1190
+1196
 [conversion file for markup languages]
 
-1193
+1199
  C, JSON, INI – 
 
-1198
+1204
 [conversion file for a source code]
 
-1201
+1207
  Bash – 
 
-1206
+1212
 [conversion file for Bash strings in quotation marks]
 
-1208
+1214
  Bash – 
 
-1213
+1219
 [conversion file for Bash strings in apostrophes]
 
-1215
+1221
  CSV, M4
 
-1219
-[the conversion file returns all special characters back]
-
-1222
- C – output queue
+1225
+[the conversion file puts all special characters back]
 
 1228
+ C – output queue
+
+1234
 The example uses one output queue for characters  to close the array at the end.
 
-1238
+1244
  INI – an external command
 
-1244
+1250
 The example runs an external  command and places its output in square brackets.
 The output of an external command are two comma-separated items.
 The  macro selects the first item because the second item contains an unwanted  () new line character.
 
-1258
+1264
  .h – hex counter
 
-1264
+1270
 The example uses the  macro to number the resulting CPP (C preprocessor) macros and one output queue.
 The queue number  contains the preprocessor directive  to terminate the header file.
 The decimal value of the counter is converted to the two-digit hex digit by keyword .
 
-1279
+1285
  C – small automaton
 
-1285
+1291
 The example uses a small automaton  to generate a newline  character and one output queue number  containing  characters to terminate resulting string.
-For the first time the  is rewritten to  (epsilon – empty symbol), for the second time is rewritten to .
+Run the first time , is rewritten to  (epsilon – empty symbol), in all following ones, it is rewritten to .
 
-1297
+1306
  C – small automaton 2
 
-1303
+1312
 This example is similar to the previous one, but each string is on a new line.
 
-1313
+1322
  HTML – output queues
 
-1319
+1328
 The example uses two output queues.
 The queue number  contains paragraphs.
 The queue number  contains closing HTML tags.
 Navigation links do not have to be stored anywhere, they go straight to the output.
-The  and  messages are processed in the same way as  messages.
+The  and  messages are processed in the same way as the  messages.
 
-1336
+1345
  Branching by grammar
 
-1342
+1351
 The example shows branching by grammar, macro arguments are ignored.
 Input nonterminals are rewritten to terminals (🐛), (🐜), (🐝).
 
-1354
+1363
  JSON – generating automaton
 
-1360
+1369
 The example uses two output queues and one generating automaton.
 The first  error message in the  state generates a header with brackets and outputs the first record.
 The automaton goes to the state  which is a  rule (rule is used as the right side of another rewriting rule).
 The following error messages in the  state only output individual records.
 At the end the output queue number  and number  print the characters  and  to close the resulting JSON.
 
-1378
+1387
  JSON – named queues
 
-1384
+1393
 The example processes other types of messages  and .
 It uses three automata and six output queues.
 If we generate more complex source code, we will soon encounter the problem of maintaining index consistency for output queues.
 To avoid confusion, we use queue names instead of numbers.
 
-1406
+1415
 To avoid having to define similar rules, we copy the right side of  (it is also a  rule (rule is used as the right side of another rewriting rule)) to the right side of the  and  rules.
 The  variable is rewritten to the name of the macro and concatenated with another symbol.
 The newly formed nonterminal is rewritten to the corresponding terminal symbol.
 In this way branching is carried out.
 
-1419
+1428
 [grammar branching in M4]
 
-1432
+1441
  JSON – generated queue indexes
 
-1438
+1447
 During development, the order and number of output queues often change, which also requires frequent changes of their indexes.
 It is therefore appropriate to generate indexes.
 We can then use a virtually unlimited number of queues.
 The following example shows how these indexes are generated.
 
-1454
+1463
  INI – discontinuous queue index
 
-1460
+1469
 The example uses three automata and two output queues number  and  defined in a separate file.
 INI section names are generated by symbol chaining.
 The example uses the same file for output queues as the example to generate JSON.
 
-1474
+1483
  XML – mixed messages
 
-1480
+1489
 The example uses one output queue number  for the  closing tag.
 
-1490
+1499
  XML – separated messages
 
-1496
+1505
 The example groups messages by their type using output queues.
-
-1506
- Bash 
 
 1515
  Bash 
 
 1524
+ Bash 
+
+1533
 Preprocessor examples
 
-1524
+1533
 Chars. {, , , } in the name controls the expansion of nonterminals.
 
-1530
+1539
  C preprocessor and M4
 
-1536
+1545
 The CPP (C preprocessor) directives are a one-line comment for M4, preventing unwanted expansion of the same named macros.
 If we define a safer  macro, the same named  macro will not be overwritten.
 Thus, the CPP (C preprocessor) namespace can be completely separated from the M4 namespace.
@@ -685,109 +685,109 @@ Apostrophe  does not matter in the source code.
 Apostrophe inside  macro is hidden in  macro.
 Note the  or  function names and where the  is expanded.
 
-1558
+1567
  CSS – comments
 
-1564
+1573
 CSS uses the  character for color codes, which is also the beginning of a one-line M4 comment.
 The  keyword sets a multiline  comment and rewrites into  (epsilon – empty symbol).
 The comments can be turned off with the same  keyword without parameters.
 
-1578
+1587
  Bash – nonprintable characters
 
-1584
+1593
 Bash uses both characters  .
 If we do not want to hide them in an  or  macro, we can use nonprintable characters for expansion control see example:
 
-1596
+1605
 M4 – examples
 
-1596
+1605
 Chars. {, , , } in the name controls the expansion of nonterminals.
 
-1603
+1612
  JSON – left bracket 
 
-1609
+1618
 The  inside square brackets.
 Therefore, the left square bracket  is replaced by the  macro defined in the root file.
 
-1621
+1630
  Bash – counters
 
-1627
+1636
 The  and  counters are defined in the root file.
 The  will not be expanded, only the outer brackets will be removed.
 The  macro defined in the root file must be used.
 
-1641
+1650
  .h – brackets , , , 
 
-1647
+1656
 The empty pair  (or empty symbol in brackets ) serves as a symbol separator.
 Brackets around the comment character  turn off its original meaning as well as turn off the meaning of the more powerful M4 comment .
 They also turn off the original meaning of the comma  as a macro argument delimiter.
 These symbols become ordinary terminal symbols without any side effect.
 
-1663
+1672
  AWK – examples of safer macros
 
-1669
+1678
 The universal alert  is ignored without parentheses, like , , …
 Such macros are explicitly created by a script developer, see the root file.
 
-1683
+1692
 Why using M4 and why not?
 
-1683
+1692
 Chars. {, , , } in the name controls the expansion of nonterminals.
 
-1691
+1700
  Why generate code in M4
 
-1697
+1706
 direct use of context-free grammar (recursion for free)
 a minimum M4 code is required for data transformation
 
-1697
+1706
 direct use of automata
 possibility to model necessary algorithms (M4 does not need versions)
 
-1697
+1706
 direct use of stacks
 stacks connected to automata extend the capabilities of the code generator
 
-1697
+1706
 direct use of output queues to temporarily store the resulting pieces of code
 the individual queues are finally dumped to output in ascending order
 
-1697
+1706
 faster code generation (compared to XSLT)
 low demands on computing resources
 
-1747
+1756
  Why avoid M4
 
-1753
+1762
 low-level universal language (similar to C)
 
 can not compete with narrowly specialized languages (for example XSLT)
 
 
-1753
+1762
 non-existent developer community (Autumn 2019)
 M4 is a forgotten language, small amount of existing projects
 
-1753
+1762
 an unusual programming paradigm requiring several prerequisites
 M4 is therefore a hard language
 
-1753
+1762
 productivity greatly depends on experience (possible problem with deadlines)
 the ability to think in M4 is an essential necessity
 
-1753
+1762
 maintaining a badly written M4 code is difficult
 existing M4 code is easy to turn into confusion
 

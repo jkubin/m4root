@@ -20,7 +20,7 @@ divert(-1)
 define([QUERY],   defn([ERROR]))
 define([WARNING], defn([ERROR]))
 
-# A → β
+# β
 define([NEXT_ITEM], [
 
 	divert($0_QU)dnl
