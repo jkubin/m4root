@@ -13,11 +13,10 @@ define([CONFIGURE_COMMAND_LINE], [
 	pushdef([ROOT_FILE],	[$3])
 	pushdef([PREFIX_FILES], [$4])
 	pushdef([SOURCES],	[$5])
-	pushdef([NB],		[&nbsp;&nbsp;&nbsp;])
 ])
 
 # A → β
-define([ADD_LINKS_TO_INSERTED_FILES], [ifelse([$1], [], [], [NB()AH([$1], defn([SRC_REPO_NAME]), defn([SRC_FILE_PATH], [FOLDER])[$1])$0(shift($@))])])
+define([ADD_LINKS_TO_INSERTED_FILES], [ifelse([$1], [], [], [AH([$1], defn([SRC_REPO_NAME]), defn([SRC_FILE_PATH], [FOLDER])[$1])$0(shift($@))])])
 define([ADD_FILES_TO_COMMAND_LINE], [ifelse([$1], [], [], [ $1[]$0(shift($@))])])
 
 # processes variable number of files, the last file is _ALWAYS_ output.file
@@ -29,7 +28,7 @@ define([INSERT_LIST_OF_FILES], [
 	ifelse([$#], [1], [
 
 		divert(CURRQU)dnl
-<table class="table"><tbody><tr><th style="width:100%" title="defn([TITLE_INPUT_FILES])">dnl
+<table class="table"><tbody><tr><th class="ADD_CLASS_RULE_SET([inputs])" title="defn([TITLE_INPUT_FILES])">dnl
 ifelse(defn([ROOT_FILE]), [], [], [AH(defn([ROOT_FILE]), defn([SRC_REPO_NAME]), defn([SRC_FILE_PATH], [FOLDER_FOR_GENERATED_FILES], [ROOT_FILE]))])[]dnl
 ADD_LINKS_TO_INSERTED_FILES(PREFIX_FILES)dnl
 undivert(REFERENCES_TO_FILES)dnl
@@ -48,7 +47,6 @@ CMD() BO([defn([COMMAND], [ROOT_FILE])ADD_FILES_TO_COMMAND_LINE(PREFIX_FILES)und
 
 			[COMMAND],
 			[FOLDER],
-			[NB],
 			[PREFIX_FILES],
 			[ROOT_FILE],
 			[SOURCES],
@@ -58,7 +56,7 @@ CMD() BO([defn([COMMAND], [ROOT_FILE])ADD_FILES_TO_COMMAND_LINE(PREFIX_FILES)und
 		INSERT_FILE(defn([FOLDER])[$1])
 
 divert(REFERENCES_TO_FILES)dnl
-NB()AH([$1], defn([SRC_REPO_NAME]), defn([SRC_FILE_PATH], [FOLDER])[$1])dnl
+AH([$1], defn([SRC_REPO_NAME]), defn([SRC_FILE_PATH], [FOLDER])[$1])dnl
 divert(PROCESSED_FILES)dnl
  [$1]dnl
 divert(-1)
