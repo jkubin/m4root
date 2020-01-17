@@ -7,7 +7,7 @@ content:"WORD_NOTE: ";
 color:#969696;
 ])
 
-CSS_RULE_SET([.urs .NSP()top], [
+_CSS_RULE_SET([.urs .NSP()top], [
 text-decoration:none;
 ])
 
@@ -15,7 +15,7 @@ CSS_RULE_SET([.urs .NSP()dot], [
 border-bottom:1px dotted #000;
 ])
 
-CSS_RULE_SET([.urs .NSP()jmp], [
+CSS_RULE_SET([.urs .NSP()toc], [
 text-decoration:none;
 font-size:.5em;
 vertical-align:super;
@@ -35,4 +35,12 @@ padding-left:1em;
 
 CSS_RULE_SET([.urs p.NSP()level3], [
 padding-left:2em;
+])
+
+CSS_RULE_SET([.urs th.NSP()inputs], [
+width:100%;
+])
+
+CSS_RULE_SET([.urs th.NSP()inputs a], [
+margin-right:1em;
 ])

@@ -10,7 +10,7 @@ ___POINT([one place to configure ALL generated web pages])
 
 # A → β
 # β
-define([RETURN_TO_TOC], NB()[AH([☰], defn([WORD_CONTENT]), [jmp], [#]ADD_ID_RULE(TOCP-defn([#ID])))])
+define([RETURN_TO_TOC], NB()[AH([☰], defn([WORD_CONTENT]), [toc], [#]ADD_ID_RULE(TOCP-defn([#ID])))])
 # or disable the links to TOC (if you do not like it)
 # A → ε
 #define([RETURN_TO_TOC])
