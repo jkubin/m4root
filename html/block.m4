@@ -99,7 +99,7 @@ pushdef([CHAPTER_COMMON_CODE], [
 	define([CURRQU], ARTICLE_CONTENT)
 
 	divert(CHAPTER_NAVIG_DATA)dnl
-<p id="NSP()TOCP-defn([#ID])"defn([INDENT_LEVEL])><a href="[#]NSP()defn([#ID])">defn([CHAPTER_IDX], [#L2], [#L3], [NB2])SELITM</a></p>
+<p id="NSP()TOCP-defn([#ID])"INDENT_LEVEL><a href="[#]NSP()defn([#ID])">defn([CHAPTER_IDX], [#L2], [#L3], [NB2])SELITM</a></p>
 divert(CURRQU)dnl
 <HEADING_TAG]defn([HTML_HEADING_ATTRIBUTES])[><a href="[#]NSP()defn([#ID])"]defn([ANCHOR_SIGN])[>defn([CHAPTER_IDX], [#L2], [#L3])</a>NB2()SELITM]defn([RETURN_TO_TOC], [SWITCH_LANG])[</HEADING_TAG>
 divert(-1)
@@ -123,7 +123,7 @@ define([SUB_CHAPTER], defn([MULTILINGUAL_HEADINGS], [SET_ANCHOR], [COUNTERS])[
 
 	define([#L2], .SUB_CHAPTER_IDX)
 	define([#L3])
-	define([INDENT_LEVEL], [ ]class="ADD_CLASS_RULE_SET([level2])")
+	define([INDENT_LEVEL], [ class="ADD_CLASS_RULE_SET([level2])"])
 	define([HEADING_TAG], [h3])
 
 	]defn([CHAPTER_COMMON_CODE])[
@@ -136,7 +136,7 @@ define([SUB_SUB_CHAPTER], defn([MULTILINGUAL_HEADINGS], [SET_ANCHOR], [COUNTERS]
 
 	define([#L2], .SUB_CHAPTER_IDX)
 	define([#L3], .SUB_SUB_CHAPTER_IDX)
-	define([INDENT_LEVEL], [ ]class="ADD_CLASS_RULE_SET([level3])")
+	define([INDENT_LEVEL], [ class="ADD_CLASS_RULE_SET([level3])"])
 	define([HEADING_TAG], [h4])
 
 	]defn([CHAPTER_COMMON_CODE])[
