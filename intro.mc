@@ -1,9 +1,9 @@
 # 2019/12/03 Josef Kubin
 
-define([AUTHOR_NAME],	[Josef Kubín])
-define([AUTHOR_IMG],	[face.png])
-
 VERSION(0, 0, 0)
+
+define([AUTHOR_NAME],		[Josef Kubín])
+define(defn([AUTHOR_NAME]),	[pepa.png])
 
 
 CAPTION([dnl czech
@@ -126,10 +126,10 @@ Makro instrukce se přeloží makro procesorem na původní sekvenci instrukcí,
 Programování v[]NB()JSA pomocí makro instrukcí je jednodušší, rychlejší a[]NB()méně náchylné k[]NB()lidským chybám.
 ],
 [dnl english: _next_language_
-Macro languages were invented at a[]NB()time when the assembly language (ASM) dominated.
+Macro languages were invented when the assembly language (ASM) dominated.
 ASM source code usually contains identical instruction sequences that differ only in operand values.
-Identical instruction sequences can be grouped into one word, or a[]NB()BO([macro instruction]) that directly describes the purpose of the hidden instruction sequence in its name.
-These macro instructions are translated by the macro processor to the original instruction sequences, which are then translated into executable machine code.
+Identical instruction sequences can be grouped into one word or a[]NB()BO([macro instruction]) that directly describes the purpose of the hidden instruction sequence in its name.
+These macro instructions are translated by the macro processor to the original instruction sequences, which are then translated into the executable machine code.
 Programming in ASM using macro instructions is simpler, faster and less prone to human errors.
 ]])
 
@@ -139,7 +139,7 @@ Rychlost, výkonnost a efektivita složitého programovacího jazyka nižší ú
 Avšak je důležité dobře rozumět všem vrstvám kódu.
 ],
 [dnl english: _next_language_
-Later, macro languages were used to extend compiled programming languages because they made it possible to write source code at a[]NB()higher level of abstraction than offers the programming language itself.
+Later, macro languages were used to extend compiled programming languages because they made it possible to write a source code at the higher level of abstraction than offerred by the programming language itself.
 The speed, performance and efficiency of a[]NB()complex lower-level programming language is maintained through macro languages.
 However, it is important to understand all layers of code well.
 ]])
@@ -457,13 +457,13 @@ dnl english: _next_language_
 
 PARA([[dnl czech
 Bezkontextová gramatika (krátce ABBR([CFG], [Context-Free Grammar – bezkontextová gramatika])) je HYLN([formální gramatika], [formal_grammar_chomsky]), ve které mají všechna přepisovací pravidla tvar CODE([A[]NB()→[]NB()β]).
-Neterminál CODE_M4([A]) se přepíše na libovolně dlouhý řetězec ABBR([CODE([β])], [pravá strana přepisovacího pravidla]) složený z[]NB()terminálů nebo neterminálů.
-AH([Kleene hvězda], [Wikipedie], [https://en.wikipedia.org/wiki/Kleene_star]) CODE([*]) znamená, že se neterminál CODE_M4([A]) může přepsat na ABBR([CODE([ε])], [epsilon – prázdný symbol]).
+Neterminál CODE_M4([A]) se přepíše na libovolně dlouhý řetězec ABBR([CODE([β])], [pravá strana přepisovacího pravidla]) složený z[]NB()terminálů CODE([{Σ}]) nebo neterminálů CODE([{N}]).
+AH([Kleene hvězda], [Wikipedie], [https://en.wikipedia.org/wiki/Kleene_star]) CODE([*]) znamená, že se neterminál CODE_M4([A]) může přepsat na ABBR([CODE([ε])], [epsilon – prázdný symbol]), nebo-li přepisovací pravidlo je CODE([A[]NB()→[]NB()ε]).
 ],
 [dnl english: _next_language_
 Context-free grammar (shortly ABBR([CFG], [Context-Free Grammar])) is a[]NB()HYLN([formal grammar], [formal_grammar_chomsky]) in which all rewriting rules have the form CODE([A[]NB()→[]NB()β]).
-The nonterminal CODE_M4([A]) is rewritten to an arbitrarily long ABBR([CODE([β])], [the right side of the rewriting rule]) string composed of terminals or nonterminals.
-AH([Kleene star], [Wikipedia], [https://en.wikipedia.org/wiki/Kleene_star]) CODE([*]) means that the resulting string can be rewritten to ABBR([CODE([ε])], [epsilon – empty symbol]).
+The nonterminal CODE_M4([A]) is rewritten to an arbitrarily long ABBR([CODE([β])], [the right side of the rewriting rule]) string composed of terminals CODE([{Σ}]) or nonterminals CODE([{N}]).
+AH([Kleene star], [Wikipedia], [https://en.wikipedia.org/wiki/Kleene_star]) CODE([*]) means that nonterminal CODE_M4([A]) can be rewritten to ABBR([CODE([ε])], [epsilon – empty symbol]), or the rule is CODE([A[]NB()→[]NB()ε]).
 ]])
 
 PRE(, LANG([přepisovací pravidla bezkontextové gramatiky], [context-free grammar rewriting rules]), [[
@@ -495,14 +495,14 @@ define(`A', `')
 ]])dnl PRE
 
 PARA([[dnl czech
-Všechna klíčová slova M4 jsou neterminály (makra), provedou nějakou akci (změní vnitřní stav makro procesoru) a[]NB()přepíší se na ABBR([CODE([ε])], [epsilon – prázdný symbol]).
-Klíčová slova mohou být přejmenována.
-Tato vlastnost je velmi důležitá pro režim preprocesoru.
+Všechna klíčová slova M4 jsou neterminály (makra), provedou nějakou akci a[]NB()přepíší se na ABBR([CODE([ε])], [epsilon – prázdný symbol]) nebo jiný symbol.
+Všechna klíčová slova mohou být přejmenována nebo úplně vypnuta.
+Tato vlastnost je velmi důležitá pro režim preprocesoru (preprocesor sebe sama).
 ],
 [dnl english: _next_language_
-All M4 keywords are nonterminals (macros), they take some action (change the internal state of the macro processor) and rewrite to ABBR([CODE([ε])], [epsilon – empty symbol]).
-Keywords can be renamed.
-This feature is very important for preprocessor mode.
+All M4 keywords are nonterminals (macros), they take some action and rewrite to ABBR([CODE([ε])], [epsilon – empty symbol]) or another symbol.
+All keywords can be renamed or turned off completely.
+This feature is very important for preprocessor mode (preprocessor for itself).
 ]])
 
 PRE(, LANG([klíčová slova M4 jsou neterminály], [M4 keywords are nonterminals]), [[
@@ -816,7 +816,7 @@ HORIZONTAL_RULE()
 UNORDERED_LIST_WRAP([
 
 LIST_ITEM([[dnl czech
-BO([cykly]) jsou pouze levo-rekurzivní nebo pravo-rekurzivní
+BO([cykly]) jsou pouze levorekurzivní nebo pravorekurzivní
 ],
 [dnl english: _next_language_
 BO([loops]) are only left-recursive or right-recursive
@@ -901,15 +901,15 @@ dnl english: _next_language_
 
 PARA([[dnl czech
 Pořadí vstupních symbolů nebo jejich kontext lze otestovat automatem.
-Splňují-li vstupní symboly požadované vlastnosti, automat skončí v[]NB()uzlu s[]NB()dvojitým kroužkem (označuje akceptující stav nebo stavy).
+Splňují-li vstupní symboly požadované vlastnosti, automat skončí v[]NB()uzlu s[]NB()dvojitým kroužkem, kterým se označuje akceptující stav.
 ],
 [dnl english: _next_language_
 Order of input symbols or their context can be tested by the automaton.
-If the input symbols meet the required properties, the automaton ends up in[]NB()the[]NB()double-ring node (indicates the accepting state or states).
+If the input symbols meet the required properties, the automaton ends up in[]NB()the[]NB()double-ring node which indicates the accepting state.
 ]])
 
 IMG([dfa_img],dnl id
-LANG([deterministický konečný automat], [deterministic finite automaton]),dnl title
+LANG([deterministický konečný automat], [deterministic finite automaton])[ (DFA)],dnl title
 [],dnl class
 [],dnl style
 [],dnl anything
@@ -1095,7 +1095,13 @@ The input source code is similar to ABBR([CSV], [Comma Separated Values]), which
 Stacks in the examples are not used.
 ]])
 
-INSERT_FILE_AND_LINK([messages/messages_raw.mc], LANG([vstupní zdrojový kód obsahuje speciální znaky], [input source code contains special characters])[ ⚠])
+INSERT_FILE_AND_LINK([messages/messages_raw.mc], LANG([vstupní zdrojový kód obsahuje speciální znaky], [the input source code contains special characters])[ ⚠])
+
+iv_NEJAKY_SYMBOO
+
+pouzit nejaky komentar pro konec clanku, abych to mohl snadno extrahovat a zpracovat text na plain text
+a pouzit diff
+udelat nejaky specialni adresar pro prvni dil roogb.m4
 
 TIP_BOX([[dnl czech
 Vstupní soubor může také obsahovat poznámky, které nemusí být skryté v[]NB()komentářích CODE_M4([#]), CODE_M4([dnl]), CODE_M4([ifelse([…])]) nebo CODE_M4([[… někde uvnitř závorek …]]).
@@ -1144,9 +1150,9 @@ INSERT_FILES_RAW_MESSAGES([counter.csv.m4], [counter.csv])
 
 
 SUB_ANNEX([dnl czech
-[CODE([💡], [řešení]) Úpravy speciálních znaků],
+[CODE([💡], [jak se to dělá]) Úpravy speciálních znaků],
 dnl english: _next_language_
-[CODE([💡], [solution]) Modification of special characters],
+[CODE([💡], [how to do it]) Modification of special characters],
 ])
 
 PARA([[dnl czech
@@ -1155,7 +1161,7 @@ Klíčové slovo jazyka M4 CODE_M4([patsubst()]) je nevhodné pro tento úkol.
 Všechny speciální znaky vstupního souboru napřed skryjeme do vhodně pojmenovaných maker pomocí regulárních výrazů.
 ],
 [dnl english: _next_language_
-Each type of output code requires modification of special characters.
+Each type of output code requires the modification of the special characters.
 The M4 CODE_M4([patsubst()]) keyword is inappropriate for this type of task.
 First, we hide all special characters of the input file into appropriately named macros using regular expressions.
 ]])
@@ -1216,7 +1222,7 @@ HEADING_MONO([dnl monolingual
 [CODE_M4([[]]) CSV[,] M4],
 ])
 
-INSERT_FILE_AND_LINK([messages/unchanged.m4], LANG([převodní soubor vrátí zpátky všechny speciální znaky], [the conversion file returns all special characters back]))
+INSERT_FILE_AND_LINK([messages/unchanged.m4], LANG([převodní soubor vrátí všechny speciální znaky zpátky], [the conversion file puts all special characters back]))
 
 
 SUB_ANNEX([dnl czech
@@ -1288,8 +1294,11 @@ Poprvé se CODE([NEW_LINE]) přepíše na ABBR([CODE([ε])], [epsilon – prázd
 ],
 [dnl english: _next_language_
 The example uses a[]NB()small automaton CODE([NEW_LINE]) to generate a[]NB()newline CODE([\n]) character and one output queue number CODE([1]) containing CODE([";]) characters to terminate resulting string.
-For the first time the CODE([NEW_LINE]) is rewritten to ABBR([CODE([ε])], [epsilon – empty symbol]), for the second time is rewritten to CODE([\n]).
+Run the first time CODE([NEW_LINE]), is rewritten to ABBR([CODE([ε])], [epsilon – empty symbol]), in all following ones, it is rewritten to CODE([\n]).
 ]])
+
+As it is run for the fist time,
+At first the is rewritten to ABBR([CODE([ε])], [epsilon – empty symbol]), for the second time is rewritten to CODE([\n]).
 
 INSERT_FILES_MESSAGES_CODE([stringl.c.m4], [stringl.c])
 
@@ -1327,7 +1336,7 @@ The example uses two output queues.
 The queue number CODE([1]) contains paragraphs.
 The queue number CODE([2]) contains closing HTML tags.
 Navigation links do not have to be stored anywhere, they go straight to the output.
-The CODE([QUERY]) and CODE([WARNING]) messages are processed in the same way as CODE([ERROR]) messages.
+The CODE([QUERY]) and CODE([WARNING]) messages are processed in the same way as the CODE([ERROR]) messages.
 ]])
 
 INSERT_FILES_MESSAGES_MARKUP([messages.html.m4], [messages.html])
