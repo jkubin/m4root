@@ -112,6 +112,7 @@ iabbrev <buffer> <unique> ul UL([<cr><cr>])dnl UL<up><c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> ulw UNORDERED_LIST_WRAP([<cr><cr><cr><cr>])dnl UNORDERED_LIST_WRAP<up><up><c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> uw UNORDERED_LIST_WRAP([<cr><cr><cr><cr>])dnl UNORDERED_LIST_WRAP<up><up><c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> wb []WBR()<c-r>=Eatchar('.')<cr>
+iabbrev <buffer> <unique> xs XSPAN([<c-r>"], [%%%], [%%%])<left><c-o>%;;<c-r>=Eatchar('.')<cr>
 
 iabbrev <buffer> <unique> tbw TBODY_WRAP([<cr><cr><cr><cr>])dnl TBODY_WRAP<up><up><c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> tcm TABLE_CAPTION_MONO([[dnl monolingual<cr><cr>]])<up><c-r>=Eatchar('.')<cr>

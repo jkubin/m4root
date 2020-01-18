@@ -168,6 +168,7 @@ define([TIME],		defn([BO]))
 define([UL],		defn([BO]))
 define([VAR],		defn([BO]))
 define([WBR])
+define([XSPAN],		[ifelse([$#], [0], [[$0]], [$2], [], [$1], [$1 ($2)])])
 
 # custom HTML5 inline elements for convenience
 

@@ -9,6 +9,7 @@ ___POINT([HTML5 inline elements])
 # global attributes for most tags
 # β
 pushdef([TITLE_2],	[[]ifelse([$2], [], [], [ title="[$2]"])])
+pushdef([XTITLE_2],	[[]ifelse([$2], [], [], [ title="$2"])])
 pushdef([CLASS_3],	[ifelse([$3], [], [], [ class="ADD_CLASS_RULE_SET([$3])"])])
 pushdef([STYLE_4],	[ifelse([$4], [], [], [ style="[$4]"])])
 pushdef([ID_5],	[ifelse([$5], [], [], [ id="FIND_AND_ADD_ID_RULE_SET([$5])"])])
@@ -68,6 +69,7 @@ pushdef([AH_ANYTHING_7],	[ifelse([$#], [7], [], [$7], [], [], [ [$7]])])
 
 # A → β
 pushdef([CREATE_INLINE_ELEMENT],	[define([$1], [ifelse($][#, 0, ]BRAC(BRAC($[0]))[, ]BRAC([<$2]defn([HTML_GLOBAL_ATTRIBUTES])[>$][1</$2>])[)])])
+pushdef([CREATE_INLINE_ELEMENT_EXPAND],	[define([$1], [ifelse($][#, 0, ]BRAC(BRAC($[0]))[, ]BRAC([<$2]defn([XTITLE_2], [CLASS_3], [STYLE_4], [ID_5], [ANYTHING_6])[>$][1</$2>])[)])])
 pushdef([CREATE_INLINE_ELEMENT_SPECIAL],	[define([$1], [ifelse($][#, 0, ]BRAC(BRAC($[0]))[, ]BRAC([$2])[)])])
 
 CREATE_INLINE_ELEMENT([ABBR],	[abbr])
@@ -95,6 +97,7 @@ CREATE_INLINE_ELEMENT([SUP],	[sup])
 CREATE_INLINE_ELEMENT([TIME],	[time])
 CREATE_INLINE_ELEMENT([UL],	[ul])
 CREATE_INLINE_ELEMENT([VAR],	[var])
+CREATE_INLINE_ELEMENT_EXPAND([XSPAN],	[span])
 CREATE_INLINE_ELEMENT_SPECIAL([AH],	[<a href="]defn([SELECT_LAST])"defn([AH_TITLE_2], [AH_CLASS_3], [AH_STYLE_4], [AH_ID_5], [AH_REL_6], [AH_ANYTHING_7])[>$1</a>])
 CREATE_INLINE_ELEMENT_SPECIAL([CODE_M4],	[<code]defn([HTML_GLOBAL_ATTRIBUTES])[>[$1]</code>])
 
@@ -115,5 +118,6 @@ popdef(
 	[ID_5],
 	[STYLE_4],
 	[TITLE_2],
+	[XTITLE_2],
 
 )
