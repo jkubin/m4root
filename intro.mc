@@ -2,9 +2,6 @@
 
 VERSION(0, 0, 0)
 
-define([AUTHOR_NAME],		[Josef Kubín])
-define(defn([AUTHOR_NAME]),	[pepa.png])
-
 
 CAPTION([dnl czech
 [SERIES_NAME: úvod],
@@ -44,7 +41,7 @@ It is necessary to use some code generation mechanism.
 The code generation is performed by a[]NB()tool for text transformation – BO([a[]NB()macro processor]).
 ]])
 
-PARA([[dnl czech
+PARA([what_is_the_series_about], [[dnl czech
 Seriál je zaměřen na praktické použití BO([univerzálního makro procesoru M4]) (dále jen M4) pomocí malých příkladů.
 Popisuje také teoretický základ všech implementací.
 Cílem seriálu je seznámit čtenáře s[]NB()tímto SPAN([nástrojem], [m4 – je program příkazové řádky], [dot]) a[]NB()také programovacím SPAN([jazykem], [M4 – je programovací jazyk], [dot]).[]BR()
@@ -121,14 +118,16 @@ dnl english: _next_language_
 PARA([[dnl czech
 Makro jazyky byly vynalezeny v[]NB()době, kdy dominoval jazyk symbolických instrukcí – ABBR([JSA], [Jazyk Symbolických Adres – assembler]).
 Zdrojový kód JSA velmi často obsahuje shodné sekvence instrukcí odlišující se pouze hodnotami operandů.
-Shodné sekvence instrukcí je možné seskupit do jednoho slova, nebo-li BO([makro instrukce]), která ve svém jménu přímo popisuje účel skryté sekvence instrukcí.
+Shodné sekvence instrukcí je možné seskupit do jednoho slova, nebo-li BO([makro instrukce]).
+Jméno obvykle popisuje účel skryté sekvence instrukcí.
 Makro instrukce se přeloží makro procesorem na původní sekvenci instrukcí, která se posléze přeloží do spustitelného strojového kódu.
 Programování v[]NB()JSA pomocí makro instrukcí je jednodušší, rychlejší a[]NB()méně náchylné k[]NB()lidským chybám.
 ],
 [dnl english: _next_language_
 Macro languages were invented when the assembly language (ASM) dominated.
 ASM source code usually contains identical instruction sequences that differ only in operand values.
-Identical instruction sequences can be grouped into one word or a[]NB()BO([macro instruction]) that directly describes the purpose of the hidden instruction sequence in its name.
+Identical instruction sequences can be grouped into one word or a[]NB()BO([macro instruction]).
+The name usually describes the purpose of the hidden sequence of instructions.
 These macro instructions are translated by the macro processor to the original instruction sequences, which are then translated into the executable machine code.
 Programming in ASM using macro instructions is simpler, faster and less prone to human errors.
 ]])
@@ -139,7 +138,7 @@ Rychlost, výkonnost a efektivita složitého programovacího jazyka nižší ú
 Avšak je důležité dobře rozumět všem vrstvám kódu.
 ],
 [dnl english: _next_language_
-Later, macro languages were used to extend compiled programming languages because they made it possible to write a source code at the higher level of abstraction than offerred by the programming language itself.
+Later, macro languages were used to extend compiled programming languages because they made it possible to write a source code at the higher level of abstraction than offered by the programming language itself.
 The speed, performance and efficiency of a[]NB()complex lower-level programming language is maintained through macro languages.
 However, it is important to understand all layers of code well.
 ]])
@@ -400,14 +399,14 @@ Dnes existuje několik implementací lišící se od původní implementace spí
 Nejrozšířenější implementace M4 je BO([GNU M4]) používaná pro AH([Autotools], [Wikipedie], [https://en.wikipedia.org/wiki/GNU_Build_System])
 a[]NB()pro překlad jednoduchého konfiguračního souboru CODE([sendmail.mc]) na složitý CODE([sendmail.cf]).
 Autorem této implementace z[]NB()roku 1990 je AH([PERSON([René Seindal])], [https://www.seindal.dk/rene/gnu/]).
-Následující příkaz nainstaluje BO([m4], [m4 s malým „m“ je program], [dot]):
+Následující příkaz nainstaluje BO([m4], [s malým „m“], [dot]):
 ],
 [dnl english: _next_language_
 Today, there are several implementations that differ from the original implementation rather by small details.
 The most common implementation of M4 is the BO([GNU M4]) used for AH([Autotools], [Wikipedia], [https://en.wikipedia.org/wiki/GNU_Build_System])
 and for translating the simple CODE([sendmail.mc]) configuration file to complex CODE([sendmail.cf]).
 The author of this implementation (1990) is AH([PERSON([René Seindal])], [https://www.seindal.dk/rene/gnu/]).
-To install BO([m4], [m4 with small letter „m“ is a program], [dot]), type the following command:
+To install BO([m4], [with small letter „m“], [dot]), type the following command:
 ]])
 
 PRE([install], LANG([příkaz nainstaluje také další důležité balíčky], [the command also installs other important packages]), [
@@ -458,12 +457,14 @@ dnl english: _next_language_
 PARA([[dnl czech
 Bezkontextová gramatika (krátce ABBR([CFG], [Context-Free Grammar – bezkontextová gramatika])) je HYLN([formální gramatika], [formal_grammar_chomsky]), ve které mají všechna přepisovací pravidla tvar CODE([A[]NB()→[]NB()β]).
 Neterminál CODE_M4([A]) se přepíše na libovolně dlouhý řetězec ABBR([CODE([β])], [pravá strana přepisovacího pravidla]) složený z[]NB()terminálů CODE([{Σ}]) nebo neterminálů CODE([{N}]).
-AH([Kleene hvězda], [Wikipedie], [https://en.wikipedia.org/wiki/Kleene_star]) CODE([*]) znamená, že se neterminál CODE_M4([A]) může přepsat na ABBR([CODE([ε])], [epsilon – prázdný symbol]), nebo-li přepisovací pravidlo je CODE([A[]NB()→[]NB()ε]).
+AH([Kleene hvězda], [Wikipedie], [https://en.wikipedia.org/wiki/Kleene_star]) CODE([*]) znamená, že se neterminál CODE_M4([A]) může přepsat na ABBR([CODE([ε])], [epsilon – prázdný symbol]).
+Přepisovací pravidlo: CODE([A[]NB()→[]NB()ε]).
 ],
 [dnl english: _next_language_
 Context-free grammar (shortly ABBR([CFG], [Context-Free Grammar])) is a[]NB()HYLN([formal grammar], [formal_grammar_chomsky]) in which all rewriting rules have the form CODE([A[]NB()→[]NB()β]).
 The nonterminal CODE_M4([A]) is rewritten to an arbitrarily long ABBR([CODE([β])], [the right side of the rewriting rule]) string composed of terminals CODE([{Σ}]) or nonterminals CODE([{N}]).
-AH([Kleene star], [Wikipedia], [https://en.wikipedia.org/wiki/Kleene_star]) CODE([*]) means that nonterminal CODE_M4([A]) can be rewritten to ABBR([CODE([ε])], [epsilon – empty symbol]), or the rule is CODE([A[]NB()→[]NB()ε]).
+AH([Kleene star], [Wikipedia], [https://en.wikipedia.org/wiki/Kleene_star]) CODE([*]) means that nonterminal CODE_M4([A]) can be rewritten to ABBR([CODE([ε])], [epsilon – empty symbol]).
+Rewriting rule: CODE([A[]NB()→[]NB()ε]).
 ]])
 
 PRE(, LANG([přepisovací pravidla bezkontextové gramatiky], [context-free grammar rewriting rules]), [[
@@ -497,12 +498,12 @@ define(`A', `')
 PARA([[dnl czech
 Všechna klíčová slova M4 jsou neterminály (makra), provedou nějakou akci a[]NB()přepíší se na ABBR([CODE([ε])], [epsilon – prázdný symbol]) nebo jiný symbol.
 Všechna klíčová slova mohou být přejmenována nebo úplně vypnuta.
-Tato vlastnost je velmi důležitá pro režim preprocesoru (preprocesor sebe sama).
+Tato vlastnost je velmi důležitá pro režim preprocesoru.
 ],
 [dnl english: _next_language_
 All M4 keywords are nonterminals (macros), they take some action and rewrite to ABBR([CODE([ε])], [epsilon – empty symbol]) or another symbol.
 All keywords can be renamed or turned off completely.
-This feature is very important for preprocessor mode (preprocessor for itself).
+This feature is very important for preprocessor mode.
 ]])
 
 PRE(, LANG([klíčová slova M4 jsou neterminály], [M4 keywords are nonterminals]), [[
@@ -687,7 +688,7 @@ Vstupní zdrojový kód jím prochází beze změny s[]NB()výjimkou neterminál
 Nalezené neterminály jsou expandovány na terminály a[]NB()odchází spolu se zdrojovým kódem na výstup.
 M4 může rozšířit jakýkoliv jiný jazyk, kde je preprocesor nedostatečný (bez rekurze) nebo žádný.
 Důležité je zvolit vhodný levý znak pro řízení expanze neterminálů, který nesmí kolidovat se znakem vstupního zdrojového kódu.
-Kolize znaku je ale snadno řešitelná.
+Kolize znaku je ale snadno řešitelná regulárním výrazem.
 ],
 [dnl english: _next_language_
 M4 can operate in preprocessor mode.
@@ -695,7 +696,7 @@ The input source code passes through it unchanged except for nonterminal symbols
 The nonterminals found are expanded to terminals and output along with the source code.
 M4 can extend any other language where the preprocessor is insufficient (no recursion) or none.
 It is important to select the left character for nonterminal expansion control, which must not collide with the input source code character.
-However the character collision is easy to solve.
+However the character collision is easy to solve by regex.
 ]])
 
 PRE(, LANG([M4 jako preprocesor – obecně], [M4 as preprocessor – in general]), [
@@ -793,13 +794,13 @@ PARA([[dnl czech
 Pro úspěšné zvládnutí tohoto makro jazyka je důležité splnit několik předpokladů.
 M4 není jednoduchý jazyk, protože není možné v[]NB()něm myslet a[]NB()programovat jako v[]NB()běžném programovacím jazyce.
 Nejdůležitější je uvědomit si, že se v[]NB()něm programují přepisovací pravidla gramatiky.
-Každý řetězec je buď terminální nebo neterminální symbol včetně všech klíčových slov jazyka (znaky CODE_M4([#]) a[]NB()CODE_M4([,]) jsou speciální případy neterminálů).
+Každý řetězec je buď terminální nebo neterminální symbol včetně všech klíčových slov jazyka (symboly CODE_M4([#]) a[]NB()CODE_M4([,]) jsou speciální případy neterminálů).
 ],
 [dnl english: _next_language_
 To successfully master this macro language it is important to fulfill several prerequisites.
 M4 is not a[]NB()simple language because it is not possible to think and program in it like an ordinary programming language.
 The most important thing to realize is that it is used to program grammar rewriting rules.
-Each string is either a[]NB()terminal or a[]NB()nonterminal symbol, including all language keywords (characters CODE_M4([#]) and CODE_M4([,]) are special cases of nonterminals).
+Each string is either a[]NB()terminal or a[]NB()nonterminal symbol, including all language keywords (symbols CODE_M4([#]) and CODE_M4([,]) are special cases of nonterminals).
 ]])
 
 TIP_BOX_WRAP([
@@ -1052,8 +1053,6 @@ In this way it is possible to gradually gain some practice.
 # a reference to a book that inspired me 😍
 []REF([Automaty a[]NB()gramatiky], [Michal Chytil, 1. vydání, Praha, 331 s. 1984.], [https://is.muni.cz/publication/173173])
 
-[]REF([Chomsky hierarchy], [cover image], [https://www.researchgate.net/figure/The-four-classes-of-grammars-in-the-Chomsky-hierarchy-of-transformational-grammars_fig1_244429893])
-
 BLOCKQUOTE(, LANG([M4 je těžký ⚠ jazyk!], [M4 is a hard ⚠ language!]), [[dnl czech
 Disclaimer 🕱: BO([Větší M4 projekty vyžadují praxi!])
 ],
@@ -1183,10 +1182,10 @@ dnl english: _next_language_
 INSERT_FILE_AND_LINK([messages/messages.mc], LANG([všechny speciální znaky jsou skryty do maker], [all special characters are hidden into macros]))
 
 PARA([[dnl czech
-Vytvoříme několik převodních souborů podle typu cílového kódu:
+Vytvoříme několik převodních souborů podle typu cílového kódu, makra pro hranaté závorky CODE_M4([LB()]) a CODE_M4([RB()]) jsou už definována v[]NB()kořenovém souboru:
 ],
 [dnl english: _next_language_
-We create several conversion files according to the target code type:
+We create several conversion files according to the target code type, CODE_M4([LB()]) and CODE_M4([RB()]) macros for square brackets are already defined in the root file:
 ]])
 
 HEADING_MONO([dnl
