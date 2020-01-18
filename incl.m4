@@ -2,6 +2,11 @@ __HEADER([Josef Kubin], [2019/12/10], [root_cz])
 ___DESCR([Repeated text patterns for ALL parts should be written here. Modified files from the `include' keyword are invisible for make.])
 ___POINT([how to avoid `include' keyword])
 
+# paired author name with image
+# A → β
+define([AUTHOR_NAME],		[Josef Kubín])
+define(defn([AUTHOR_NAME]),	[pepa.png])
+
 # common tip box
 # A → β
 define([the_series_is_generated], [
