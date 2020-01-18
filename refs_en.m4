@@ -12,6 +12,7 @@ define([#.en.Generating code in M4: introduction], [1])
 # A → β
 define([intro.mc.en.anch.Introduction], [introduction])
 define([intro.mc.en.uniq.Introduction])
+define([intro.mc.en.anch.what_is_the_series_about], [what-is-the-series-about])
 define([intro.mc.en.anch.Examples for readers], [examples-for-readers])
 define([intro.mc.en.uniq.Examples for readers])
 define([intro.mc.en.anch.History of macro languages], [history-of-macro-languages])

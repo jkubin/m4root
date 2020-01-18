@@ -21,7 +21,6 @@ define([CSS_RULE_SET], [
 	#ADD_CSS_RULE_SET([nazev], [suffix], [$2])
 
 	divert(INTERNAL_STYLE_DATA)dnl
-<!-- supplemental style sheet -->
 <style>dnl
 $1{patsubst(patsubst([$2], [[,#]], [[[\&]]]), [
 ])}dnl

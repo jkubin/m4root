@@ -12,6 +12,7 @@ define([#.cs.Generování kódu v M4: úvod], [1])
 # A → β
 define([intro.mc.cs.anch.Úvod], [uvod])
 define([intro.mc.cs.uniq.Úvod])
+define([intro.mc.cs.anch.what_is_the_series_about], [what-is-the-series-about])
 define([intro.mc.cs.anch.Příklady pro čtenáře], [priklady-pro-ctenare])
 define([intro.mc.cs.uniq.Příklady pro čtenáře])
 define([intro.mc.cs.anch.Historie makro jazyků], [historie-makro-jazyku])
