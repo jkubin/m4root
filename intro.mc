@@ -13,10 +13,10 @@ PEREX_IMG([img/m4tux.png], [https://i.iinfo.cz/images/154/m4tux-1-prev.png])
 
 
 PEREX([defn([PEREX_CS])[dnl czech
-Úvodní díl seriálu obsahuje jeho historii, základní principy jazyka, příklady použití a[]NB()nutné předpoklady pro zvládnutí tohoto geniálního nástroje.
+Úvodní díl seriálu obsahuje jeho historii, základní principy jazyka, příklady použití a[]NB()nutné předpoklady pro jeho zvládnutí.
 ],
 defn([PEREX_EN])[dnl english: _next_language_
-The introductory part of the series contains its history, the basic principles of language, examples of usage and prerequisites for master this brilliant tool.
+The introductory part of the series contains its history, the basic principles of language, examples of usage and prerequisites for its mastery.
 ]])
 
 
