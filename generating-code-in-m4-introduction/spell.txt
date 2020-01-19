@@ -1,5 +1,5 @@
 # vim:wrap:spell:spelllang=en,en
-# intro.mc	0x9b07272	20200118-22:34:02
+# intro.mc	0x41caad1	20200119-15:21:17
 
 6
 Generating code in M4: introduction
@@ -612,7 +612,7 @@ Input nonterminals are rewritten to terminals (🐛), (🐜), (🐝).
 1368
 The example uses two output queues and one generating automaton.
 The first  error message in the  state generates a header with brackets and outputs the first record.
-The automaton goes to the state  which is a  rule (rule is used as the right side of another rewriting rule).
+The automaton goes to the state  which is a  rule (the rule is used as the right side of another rewriting rule).
 The following error messages in the  state only output individual records.
 At the end the output queue number  and number  print the characters  and  to close the resulting JSON.
 
@@ -626,7 +626,7 @@ If we generate more complex source code, we will soon encounter the problem of m
 To avoid confusion, we use queue names instead of numbers.
 
 1414
-To avoid having to define similar rules, we copy the right side of  (it is also a  rule (rule is used as the right side of another rewriting rule)) to the right side of the  and  rules.
+To avoid having to define similar rules, we copy the right side of  (it is also a  rule (the rule is used as the right side of another rewriting rule)) to the right side of the  and  rules.
 The  variable is rewritten to the name of the macro and concatenated with another symbol.
 The newly formed nonterminal is rewritten to the corresponding terminal symbol.
 In this way branching is carried out.

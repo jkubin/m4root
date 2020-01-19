@@ -6,7 +6,7 @@
 <title>Generating code in M4: introduction</title>
 <meta name="author" content="Josef Kubín">
 <link rel="stylesheet" type="text/css" href="../html/preview.css">
-<style>.urs .m4-tip::before{content:"Note: ";color:#969696;}.urs .m4-dot{border-bottom:1px dotted #000;}.urs .m4-toc{text-decoration:none;font-size:.5em;vertical-align:super;}.urs .m4-un{text-decoration:underline;}.urs p.m4-level2{padding-left:1em;}.urs p.m4-level3{padding-left:2em;}.urs th.m4-inputs{width:100%;}.urs th.m4-inputs a{margin-right:1em;}</style>
+<style>.urs .m4-toc{text-decoration:none;font-size:.5em;vertical-align:super;}.urs .m4-dot{border-bottom:1px dotted #000;}.urs .m4-tip::before{content:"Note: ";color:#969696;}.urs p.m4-level2{padding-left:1em;}.urs .m4-un{text-decoration:underline;}.urs th.m4-inputs{width:100%;}.urs th.m4-inputs a{margin-right:1em;}.urs p.m4-level3{padding-left:2em;}</style>
 </head>
 <body class="design-tile layout-article-content">
 <div class="urs">
@@ -570,7 +570,7 @@ divert(-1)</pre>
 </pre>
 <pre title="hello.ini">; DO NOT EDIT! This file is generated automatically!
 
-[hello_20200115]
+[hello_20200119]
 COMPLEX="!\"#$%&amp;'()*+,-./:;&lt;=&gt;?@[\\]^_`{|}~"
 SUCCESS="Complex M4 code failed successfully."
 NOFAULT="It's not a language fault!"</pre>
@@ -784,7 +784,7 @@ define([WARNING_INSECT], [🐝])</pre>
 <h3 id="m4-json-generating-automaton"><a href="#m4-json-generating-automaton" title="⚓">A.12</a>&nbsp;&nbsp;<code>[]</code> JSON – generating automaton&nbsp;<a href="#m4-toc-json-generating-automaton" title="Content" class="m4-toc">☰</a></h3>
 <p>The example uses two output queues and one generating automaton.
 The first <code>ERROR([…])</code> error message in the <code>ERROR</code> state generates a&nbsp;header with brackets and outputs the first record.
-The automaton goes to the state <code>NEXT_ITEM</code> which is a&nbsp;<abbr title="rule is used as the right side of another rewriting rule"><code>β</code> rule</abbr>.
+The automaton goes to the state <code>NEXT_ITEM</code> which is a&nbsp;<abbr title="the rule is used as the right side of another rewriting rule"><code>β</code> rule</abbr>.
 The following error messages in the <code>NEXT_ITEM</code> state only output individual records.
 At the end the output queue number <code>1</code> and number <code>2</code> print the characters <code>]</code> and <code>}}</code> to close the resulting JSON.</p>
 <pre title="atm.json.m4">#      _______      ___________
@@ -836,7 +836,7 @@ divert(-1)</pre>
 It uses three automata and six output queues.
 If we generate more complex source code, we will soon encounter the problem of maintaining index consistency for output queues.
 To avoid confusion, we use queue names instead of numbers.</p>
-<p>To avoid having to define similar rules, we copy the right side of <code>ERROR</code> (it is also a&nbsp;<abbr title="rule is used as the right side of another rewriting rule"><code>β</code> rule</abbr>) to the right side of the <code>QUERY</code> and <code>WARNING</code> rules.
+<p>To avoid having to define similar rules, we copy the right side of <code>ERROR</code> (it is also a&nbsp;<abbr title="the rule is used as the right side of another rewriting rule"><code>β</code> rule</abbr>) to the right side of the <code>QUERY</code> and <code>WARNING</code> rules.
 The <code>$0</code> variable is rewritten to the name of the macro and concatenated with another symbol.
 The newly formed nonterminal is rewritten to the corresponding terminal symbol.
 In this way branching is carried out.</p>

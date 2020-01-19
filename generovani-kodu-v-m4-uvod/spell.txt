@@ -1,5 +1,5 @@
 # vim:wrap:spell:spelllang=cs,en
-# intro.mc	0x9b07272	20200118-22:34:01
+# intro.mc	0x41caad1	20200119-15:21:17
 
 6
 Generování kódu v M4: úvod
