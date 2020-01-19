@@ -158,8 +158,7 @@ The aim of this introductory part is mainly to show the basic practical use of M
 <h3 id="m4-context-free-grammar"><a href="#m4-context-free-grammar" title="⚓">3.1</a>&nbsp;&nbsp;Context-free grammar&nbsp;<a href="#m4-toc-context-free-grammar" title="Content" class="m4-toc">☰</a></h3>
 <p>Context-free grammar (shortly <abbr title="Context-Free Grammar">CFG</abbr>) is a&nbsp;<a href="#m4-formal-grammar-chomsky-type" title="Formal grammar (Chomsky type)">formal grammar</a> in which all rewriting rules have the form <code>A&nbsp;→&nbsp;β</code>.
 The nonterminal <code>A</code> is rewritten to an arbitrarily long <abbr title="the right side of the rewriting rule"><code>β</code></abbr> string composed of terminals <code>{Σ}</code> or nonterminals <code>{N}</code>.
-<a href="https://en.wikipedia.org/wiki/Kleene_star" title="Wikipedia">Kleene star</a> <code>*</code> means that nonterminal <code>A</code> can be rewritten to <abbr title="epsilon – empty symbol"><code>ε</code></abbr>.
-Rewriting rule: <code>A&nbsp;→&nbsp;ε</code>.</p>
+<a href="https://en.wikipedia.org/wiki/Kleene_star" title="Wikipedia">Kleene star</a> <code>*</code> means that nonterminal <code>A</code> can be rewritten to <abbr title="epsilon – empty symbol"><code>ε</code></abbr> (rewriting rule: <code>A&nbsp;→&nbsp;ε</code>).</p>
 <pre title="context-free grammar rewriting rules">
 P: A → β
    A ∈ N
@@ -289,7 +288,7 @@ S: is the start symbol
 </pre>
 <p><a href="https://en.wikipedia.org/wiki/Formal_grammar" title="Wikipedia">Formal grammar</a> describes <a href="https://en.wikipedia.org/wiki/Chomsky_hierarchy" title="Wikipedia – Chomsky hierarchy">subsets</a> of <a href="https://en.wikipedia.org/wiki/Formal_language" title="Wikipedia">formal language</a> rewriting rules.
 One of the subsets is named <a href="https://en.wikipedia.org/wiki/Context-free_grammar" title="Wikipedia">context-free grammar</a>, shortly <abbr title="Context-Free Grammar">CFG</abbr>.
-The CFG rewriting rules work the same as M4 rewriting rules.
+As mentioned earlier, the CFG rewriting rules work the same as M4 rewriting rules.
 Some of the following episodes of this series will focuses in more detail on formal grammars.</p>
 <h3 id="m4-fundamentals-of-automata"><a href="#m4-fundamentals-of-automata" title="⚓">5.2</a>&nbsp;&nbsp;Fundamentals of automata&nbsp;<a href="#m4-toc-fundamentals-of-automata" title="Content" class="m4-toc">☰</a></h3>
 <p>The ability to use predominantly two-state automata is an essential thing for writing simple M4 scripts because the vast majority of scripts use <a href="#m4-c-small-automaton" title="[] C – small automaton">small automata</a>.</p>
@@ -316,7 +315,7 @@ See the annex for <a href="#m4-json-generating-automaton" title="[] JSON – gen
 # ---&gt;/ ERROR \---&gt;/ NEXT_ITEM \---.
 #     \_______/    \___________/&lt;--'
 </pre>
-<p>The first error message generates a&nbsp;header and inserts the first item.
+<p>The first symbol in the <code>ERROR</code> state generates a&nbsp;header with brackets and inserts the first item.
 Then automaton make transition to <code>NEXT_ITEM</code> state in which only next items are added.
 The automaton remains in this state until all data has been processed.</p>
 <h3 id="m4-gnu-make"><a href="#m4-gnu-make" title="⚓">5.3</a>&nbsp;&nbsp;(GNU) make&nbsp;<a href="#m4-toc-gnu-make" title="Content" class="m4-toc">☰</a></h3>
@@ -360,7 +359,7 @@ In this way it is possible to gradually gain some practice.</p>
 <a href="https://en.wikipedia.org/wiki/Automata_theory">https://en.wikipedia.org/wiki/Automata_theory</a></li>
 <li id="m4-ref10"><strong>GNU Make Manual</strong>, Free Software Foundation<br>
 <a href="https://www.gnu.org/software/make/manual/make.html">https://www.gnu.org/software/make/manual/make.html</a></li>
-<li id="m4-ref11"><strong>Vim – the ubiquitous text editor</strong>, editing text at the speed of thought<br>
+<li id="m4-ref11"><strong>Vim – the ubiquitous text editor</strong>, that edits text at the speed of thought<br>
 <a href="https://www.vim.org/">https://www.vim.org/</a></li>
 <li id="m4-ref12"><strong>Automaty a&nbsp;formální jazyky I</strong>, Učební text FI MU<br>
 <a href="https://is.muni.cz/elportal/estud/fi/js06/ib005/Formalni_jazyky_a_automaty_I.pdf">https://is.muni.cz/elportal/estud/fi/js06/ib005/Formalni_jazyky_a_automaty_I.pdf</a></li>
@@ -459,7 +458,7 @@ ERROR([SUCCESS],     [Complex M4 code failed successfully.])
 WARNING([ADDICTIVE], [Programming in M4 is addictive[]EX()])
 ERROR([NOFAULT],     [It[]AP()s not a language fault[]EX()])
 WARNING([NO_ERRORS], [No other errors detected.])</pre>
-<p>We create several conversion files according to the target code type, <code>LB()</code> and <code>RB()</code> macros for square brackets are already defined in the root file:</p>
+<p>We create several conversion files according to the target code type, <code>LB()</code> and <code>RB()</code> macros for square brackets are already defined in the root file.</p>
 <h4 id="m4-xml-xslt-html"><a href="#m4-xml-xslt-html" title="⚓">»</a>&nbsp;<code>[]</code> XML, XSLT, HTML</h4>
 <p><code><a href="../messages/markup.m4" title="localhost">markup.m4</a></code> – conversion file for markup languages</p>
 <pre title="markup.m4"># A → β
@@ -838,8 +837,7 @@ If we generate more complex source code, we will soon encounter the problem of m
 To avoid confusion, we use queue names instead of numbers.</p>
 <p>To avoid having to define similar rules, we copy the right side of <code>ERROR</code> (it is also a&nbsp;<abbr title="the rule is used as the right side of another rewriting rule"><code>β</code> rule</abbr>) to the right side of the <code>QUERY</code> and <code>WARNING</code> rules.
 The <code>$0</code> variable is rewritten to the name of the macro and concatenated with another symbol.
-The newly formed nonterminal is rewritten to the corresponding terminal symbol.
-In this way branching is carried out.</p>
+The newly formed nonterminal is rewritten to the corresponding terminal symbol (queue number and name).</p>
 <pre id="m4-nonterminals-for-branches" title="grammar branching in M4">
 $0_QU → ERROR_QU → 2
 $0_END → ERROR_END → 3
@@ -1584,7 +1582,7 @@ BEGIN { print "DONTE() LB () [ Hello, world! ]" }</pre>
 </ul>
 <h3 id="m4-why-avoid-m4"><a href="#m4-why-avoid-m4" title="⚓">D.2</a>&nbsp;&nbsp;<code>👎</code> Why avoid M4&nbsp;<a href="#m4-toc-why-avoid-m4" title="Content" class="m4-toc">☰</a></h3>
 <ul>
-<li id="m4-low-level-language">low-level universal language (similar to C)
+<li id="m4-low-level-language">low-level universal language (similarly as C language)
 <ul>
 <li>can not compete with narrowly specialized languages (for example XSLT)</li>
 </ul></li>

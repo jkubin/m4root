@@ -9,11 +9,11 @@ generovani-kodu-v-m4-uvod
 # perex
 
 Makro procesor M4 se používá ke generování libovolně složitého kódu z&nbsp;jednoduchého zdrojového kódu.
-Úvodní díl seriálu obsahuje jeho historii, základní principy jazyka, příklady použití a&nbsp;nutné předpoklady pro zvládnutí tohoto geniálního nástroje.
+Úvodní díl seriálu obsahuje jeho historii, základní principy jazyka, příklady použití a&nbsp;nutné předpoklady pro jeho zvládnutí.
 
 # perex image
 
-https://i.iinfo.cz/images/73/m4tux-1-prev.png
+https://i.iinfo.cz/images/154/m4tux-1-prev.png
 
 # article body
 
@@ -73,7 +73,7 @@ Každý díl je možné číst v&nbsp;libovolném pořadí.</p>
 <li><a href="http://github.com/jkubin/m4root" title="Generování kódu v M4">http://github.com/jkubin/m4root</a> – složitější projekt generující HTML5 tohoto seriálu</li>
 </ul>
 <h2 id="m4-historie-makro-jazyku"><a href="#m4-historie-makro-jazyku" title="⚓">2</a>&nbsp;&nbsp;Historie makro jazyků&nbsp;<a href="#m4-toc-historie-makro-jazyku" title="Obsah" class="m4-toc">☰</a></h2>
-<p>Makro jazyky byly vynalezeny v&nbsp;době, kdy dominoval jazyk symbolických instrukcí – <abbr title="Jazyk Symbolických Adres – assembler">JSA</abbr>.
+<p>Makro jazyky byly vynalezeny v&nbsp;době, kdy dominoval jazyk symbolických adres – <abbr title="Jazyk Symbolických Adres – assembler">JSA</abbr>.
 Zdrojový kód JSA velmi často obsahuje shodné sekvence instrukcí odlišující se pouze hodnotami operandů.
 Shodné sekvence instrukcí je možné seskupit do jednoho slova, nebo-li <strong>makro instrukce</strong>.
 Jméno obvykle popisuje účel skryté sekvence instrukcí.
@@ -168,8 +168,7 @@ Cílem tohoto úvodního dílu je hlavně ukázat praktické použití M4 na př
 <h3 id="m4-bezkontextova-gramatika"><a href="#m4-bezkontextova-gramatika" title="⚓">3.1</a>&nbsp;&nbsp;Bezkontextová gramatika&nbsp;<a href="#m4-toc-bezkontextova-gramatika" title="Obsah" class="m4-toc">☰</a></h3>
 <p>Bezkontextová gramatika (krátce <abbr title="Context-Free Grammar – bezkontextová gramatika">CFG</abbr>) je <a href="#m4-formalni-gramatika-chomskeho-typ" title="Formální gramatika (Chomského typu)">formální gramatika</a>, ve které mají všechna přepisovací pravidla tvar <code>A&nbsp;→&nbsp;β</code>.
 Neterminál <code>A</code> se přepíše na libovolně dlouhý řetězec <abbr title="pravá strana přepisovacího pravidla"><code>β</code></abbr> složený z&nbsp;terminálů <code>{Σ}</code> nebo neterminálů <code>{N}</code>.
-<a href="https://en.wikipedia.org/wiki/Kleene_star" title="Wikipedie">Kleene hvězda</a> <code>*</code> znamená, že se neterminál <code>A</code> může přepsat na <abbr title="epsilon – prázdný symbol"><code>ε</code></abbr>.
-Přepisovací pravidlo: <code>A&nbsp;→&nbsp;ε</code>.</p>
+<a href="https://en.wikipedia.org/wiki/Kleene_star" title="Wikipedie">Kleene hvězda</a> <code>*</code> znamená, že se neterminál <code>A</code> může přepsat na <abbr title="epsilon – prázdný symbol"><code>ε</code></abbr> (přepisovací pravidlo: <code>A&nbsp;→&nbsp;ε</code>).</p>
 <pre title="přepisovací pravidla bezkontextové gramatiky">
 P: A → β
    A ∈ N
@@ -300,7 +299,7 @@ S: je počáteční (startovací) symbol
 </pre>
 <p><a href="https://cs.wikipedia.org/wiki/Formální_gramatika" title="Wikipedie">Formální gramatika</a> popisuje <a href="https://cs.wikipedia.org/wiki/Chomsk%C3%A9ho_hierarchie" title="Wikipedie – Chomského hierarchie">podmnožiny</a> přepisovacích pravidel <a href="https://cs.wikipedia.org/wiki/Form%C3%A1ln%C3%AD_jazyk" title="Wikipedie">formálního jazyka</a>.
 Jedna z&nbsp;podmnožin se jmenuje <a href="https://cs.wikipedia.org/wiki/Bezkontextov%C3%A1_gramatika" title="Wikipedie">bezkontextová gramatika</a>, krátce <abbr title="Context-Free Grammar – bezkontextová gramatika">CFG</abbr>.
-Přepisovací pravidla CFG pracují stejně jako přepisovací pravidla jazyka M4.
+Jak již bylo dříve zmíněno, přepisovací pravidla CFG pracují stejně jako přepisovací pravidla jazyka M4.
 Některý z&nbsp;následujících dílů seriálu se podrobněji zaměří na formální gramatiky.</p>
 <h3 id="m4-zaklady-automatu"><a href="#m4-zaklady-automatu" title="⚓">5.2</a>&nbsp;&nbsp;Základy automatů&nbsp;<a href="#m4-toc-zaklady-automatu" title="Obsah" class="m4-toc">☰</a></h3>
 <p>Schopnost používat převážně dvoustavové automaty je zásadní věc pro psaní jednoduchých M4 skriptů, protože převážná většina skriptů používá <a href="#m4-c-maly-automat" title="[] C – malý automat">malé automaty</a>.</p>
@@ -327,8 +326,8 @@ Automat je shodný s&nbsp;regulárním výrazem <code>(1*01*01*)*</code>.</em></
 # ---&gt;/ ERROR \---&gt;/ NEXT_ITEM \---.
 #     \_______/    \___________/&lt;--'
 </pre>
-<p>První symbol ve stavu <code>ERROR</code> vygeneruje záhlaví a&nbsp;první položku.
-Poté automat přejde do stavu <code>NEXT_ITEM</code>, ve kterém se přidávají další položky.
+<p>První symbol ve stavu <code>ERROR</code> vygeneruje záhlaví se závorkama a&nbsp;první položku.
+Poté automat přejde do stavu <code>NEXT_ITEM</code>, ve kterém se pouze přidávají další položky.
 Automat zůstává v&nbsp;tomto stavu, dokud nejsou zpracována všechna data.</p>
 <h3 id="m4-gnu-make"><a href="#m4-gnu-make" title="⚓">5.3</a>&nbsp;&nbsp;(GNU) make&nbsp;<a href="#m4-toc-gnu-make" title="Obsah" class="m4-toc">☰</a></h3>
 <p>Dobře navržený generátor kódu se obvykle skládá z&nbsp;několika menších souborů, jejichž pořadí, závislosti a&nbsp;parametry se zapisují do souboru <code>Makefile</code>.
@@ -470,7 +469,7 @@ ERROR([SUCCESS],     [Complex M4 code failed successfully.])
 WARNING([ADDICTIVE], [Programming in M4 is addictive[]EX()])
 ERROR([NOFAULT],     [It[]AP()s not a language fault[]EX()])
 WARNING([NO_ERRORS], [No other errors detected.])</pre>
-<p>Vytvoříme několik převodních souborů podle typu cílového kódu, makra pro hranaté závorky <code>LB()</code> a <code>RB()</code> jsou už definována v&nbsp;kořenovém souboru:</p>
+<p>Vytvoříme několik převodních souborů podle typu cílového kódu, makra pro hranaté závorky <code>LB()</code> a <code>RB()</code> jsou už definována v&nbsp;kořenovém souboru.</p>
 <h4 id="m4-xml-xslt-html"><a href="#m4-xml-xslt-html" title="⚓">»</a>&nbsp;<code>[]</code> XML, XSLT, HTML</h4>
 <p><code><a href="https://raw.githubusercontent.com/jkubin/m4root/master/messages/markup.m4" title="GitHub">markup.m4</a></code> – převodní soubor pro značkovací jazyky</p>
 <pre title="markup.m4"># A → β
@@ -632,7 +631,7 @@ divert(-1)</pre>
 #endif /* __ERROR_H */</pre>
 <h3 id="m4-c-maly-automat"><a href="#m4-c-maly-automat" title="⚓">A.8</a>&nbsp;&nbsp;<code>[]</code> C – malý automat&nbsp;<a href="#m4-toc-c-maly-automat" title="Obsah" class="m4-toc">☰</a></h3>
 <p>Příklad používá malý automat <code>NEW_LINE</code> pro generování znaku nového řádku <code>\n</code> a&nbsp;jednu výstupní frontu číslo <code>1</code> do které se vloží znaky <code>";</code> pro uzavření výsledného řetězce.
-Poprvé se <code>NEW_LINE</code> přepíše na <abbr title="epsilon – prázdný symbol"><code>ε</code></abbr>, podruhé se přepíše na <code>\n</code>.</p>
+Poprvé se <code>NEW_LINE</code> přepíše na <abbr title="epsilon – prázdný symbol"><code>ε</code></abbr>, podruhé a dále se přepíše na <code>\n</code>.</p>
 <pre title="stringl.c.m4">#     NEW_LINE automaton
 #      ___      ____
 # ---&gt;/ ε \---&gt;/ \n \---.
@@ -848,8 +847,7 @@ Generujeme-li složitější zdrojový kód, brzy narazíme na problém udržen�
 Abychom se vyhnuli zmatku, pojmenujeme si fronty a&nbsp;místo čísel používáme jména.</p>
 <p>Abychom nemuseli definovat podobná pravidla, zkopírujeme si pravou stranu <code>ERROR</code><br>(je to také <abbr title="takové pravidlo se používá jako pravá strana jiného přepisovacího pravidla"><code>β</code> pravidlo</abbr>) do pravé strany pravidel <code>QUERY</code> a&nbsp;<code>WARNING</code>.
 Proměnná <code>$0</code> se přepíše na jméno makra a&nbsp;zřetězí se s&nbsp;dalším symbolem.
-Nově vzniklý neterminál se přepíše na odpovídající terminální symbol.
-Tímto způsobem se provádí větvení.</p>
+Nově vzniklý neterminál se přepíše na odpovídající terminální symbol (číslo fronty a jméno).</p>
 <pre id="m4-nonterminals-for-branches" title="větvení gramatikou v M4">
 $0_QU → ERROR_QU → 2
 $0_END → ERROR_END → 3
