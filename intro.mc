@@ -9,7 +9,7 @@ dnl english: _next_language_
 [SERIES_NAME: introduction],
 ])
 
-PEREX_IMG([img/m4tux.png], [https://i.iinfo.cz/images/73/m4tux-1-prev.png])
+PEREX_IMG([img/m4tux.png], [https://i.iinfo.cz/images/154/m4tux-1-prev.png])
 
 
 PEREX([defn([PEREX_CS])[dnl czech
@@ -116,7 +116,7 @@ dnl english: _next_language_
 ])
 
 PARA([[dnl czech
-Makro jazyky byly vynalezeny v[]NB()době, kdy dominoval jazyk symbolických instrukcí – ABBR([JSA], [Jazyk Symbolických Adres – assembler]).
+Makro jazyky byly vynalezeny v[]NB()době, kdy dominoval jazyk symbolických adres – ABBR([JSA], [Jazyk Symbolických Adres – assembler]).
 Zdrojový kód JSA velmi často obsahuje shodné sekvence instrukcí odlišující se pouze hodnotami operandů.
 Shodné sekvence instrukcí je možné seskupit do jednoho slova, nebo-li BO([makro instrukce]).
 Jméno obvykle popisuje účel skryté sekvence instrukcí.
@@ -457,14 +457,12 @@ dnl english: _next_language_
 PARA([[dnl czech
 Bezkontextová gramatika (krátce ABBR([CFG], [Context-Free Grammar – bezkontextová gramatika])) je HYLN([formální gramatika], [formal_grammar_chomsky]), ve které mají všechna přepisovací pravidla tvar CODE([A[]NB()→[]NB()β]).
 Neterminál CODE_M4([A]) se přepíše na libovolně dlouhý řetězec ABBR([CODE([β])], [pravá strana přepisovacího pravidla]) složený z[]NB()terminálů CODE([{Σ}]) nebo neterminálů CODE([{N}]).
-AH([Kleene hvězda], [Wikipedie], [https://en.wikipedia.org/wiki/Kleene_star]) CODE([*]) znamená, že se neterminál CODE_M4([A]) může přepsat na ABBR([CODE([ε])], [epsilon – prázdný symbol]).
-Přepisovací pravidlo: CODE([A[]NB()→[]NB()ε]).
+AH([Kleene hvězda], [Wikipedie], [https://en.wikipedia.org/wiki/Kleene_star]) CODE([*]) znamená, že se neterminál CODE_M4([A]) může přepsat na ABBR([CODE([ε])], [epsilon – prázdný symbol]) (přepisovací pravidlo: CODE([A[]NB()→[]NB()ε])).
 ],
 [dnl english: _next_language_
 Context-free grammar (shortly ABBR([CFG], [Context-Free Grammar])) is a[]NB()HYLN([formal grammar], [formal_grammar_chomsky]) in which all rewriting rules have the form CODE([A[]NB()→[]NB()β]).
 The nonterminal CODE_M4([A]) is rewritten to an arbitrarily long ABBR([CODE([β])], [the right side of the rewriting rule]) string composed of terminals CODE([{Σ}]) or nonterminals CODE([{N}]).
-AH([Kleene star], [Wikipedia], [https://en.wikipedia.org/wiki/Kleene_star]) CODE([*]) means that nonterminal CODE_M4([A]) can be rewritten to ABBR([CODE([ε])], [epsilon – empty symbol]).
-Rewriting rule: CODE([A[]NB()→[]NB()ε]).
+AH([Kleene star], [Wikipedia], [https://en.wikipedia.org/wiki/Kleene_star]) CODE([*]) means that nonterminal CODE_M4([A]) can be rewritten to ABBR([CODE([ε])], [epsilon – empty symbol]) (rewriting rule: CODE([A[]NB()→[]NB()ε])).
 ]])
 
 PRE(, LANG([přepisovací pravidla bezkontextové gramatiky], [context-free grammar rewriting rules]), [[
@@ -869,13 +867,13 @@ S: LANG([je počáteční (startovací) symbol], [is the start symbol])
 PARA([[dnl czech
 AH([Formální gramatika], [Wikipedie], [https://cs.wikipedia.org/wiki/Formální_gramatika]) popisuje AH([podmnožiny], [Wikipedie – Chomského hierarchie], [https://cs.wikipedia.org/wiki/Chomsk%C3%A9ho_hierarchie]) přepisovacích pravidel AH([formálního jazyka], [Wikipedie], [https://cs.wikipedia.org/wiki/Form%C3%A1ln%C3%AD_jazyk]).
 Jedna z[]NB()podmnožin se jmenuje AH([bezkontextová gramatika], [Wikipedie], [https://cs.wikipedia.org/wiki/Bezkontextov%C3%A1_gramatika]), krátce ABBR([CFG], [Context-Free Grammar – bezkontextová gramatika]).
-Přepisovací pravidla CFG pracují stejně jako přepisovací pravidla jazyka M4.
+Jak již bylo dříve zmíněno, přepisovací pravidla CFG pracují stejně jako přepisovací pravidla jazyka M4.
 Některý z[]NB()následujících dílů seriálu se podrobněji zaměří na formální gramatiky.
 ],
 [dnl english: _next_language_
 AH([Formal grammar], [Wikipedia], [https://en.wikipedia.org/wiki/Formal_grammar]) describes AH([subsets], [Wikipedia – Chomsky hierarchy], [https://en.wikipedia.org/wiki/Chomsky_hierarchy]) of AH([formal language], [Wikipedia], [https://en.wikipedia.org/wiki/Formal_language]) rewriting rules.
 One of the subsets is named AH([context-free grammar], [Wikipedia], [https://en.wikipedia.org/wiki/Context-free_grammar]), shortly ABBR([CFG], [Context-Free Grammar]).
-The CFG rewriting rules work the same as M4 rewriting rules.
+As mentioned earlier, the CFG rewriting rules work the same as M4 rewriting rules.
 Some of the following episodes of this series will focuses in more detail on formal grammars.
 ]])
 
@@ -963,12 +961,12 @@ PRE(, [ASCII-art ]LANG([generujícího automatu], [of generating automaton]), [
 ])dnl PRE
 
 PARA([[dnl czech
-První symbol ve stavu CODE_M4([ERROR]) vygeneruje záhlaví a[]NB()první položku.
-Poté automat přejde do stavu CODE_M4([NEXT_ITEM]), ve kterém se přidávají další položky.
+První symbol ve stavu CODE_M4([ERROR]) vygeneruje záhlaví se závorkama a[]NB()první položku.
+Poté automat přejde do stavu CODE_M4([NEXT_ITEM]), ve kterém se pouze přidávají další položky.
 Automat zůstává v[]NB()tomto stavu, dokud nejsou zpracována všechna data.
 ],
 [dnl english: _next_language_
-The first error message generates a[]NB()header and inserts the first item.
+The first symbol in the CODE_M4([ERROR]) state generates a[]NB()header with brackets and inserts the first item.
 Then automaton make transition to CODE_M4([NEXT_ITEM]) state in which only next items are added.
 The automaton remains in this state until all data has been processed.
 ]])
@@ -1017,7 +1015,7 @@ Vim zkratky, definované klíčovým slovem CODE([iabbrev]), ušetří velké mn
 Tyto zkratky také významně snižují výskyt téměř neviditelných chyb způsobených nepárovou závorkou, čímž šetří ztracený čas vynaložený na ladění kódu.
 ],
 [dnl english: _next_language_
-Mastering the Vim[]REF([Vim – the ubiquitous text editor], [editing text at the speed of thought], [https://www.vim.org/]) editor is an important prerequisite for the convenience and speed of writing M4 code.
+Mastering the Vim[]REF([Vim – the ubiquitous text editor], [that edits text at the speed of thought], [https://www.vim.org/]) editor is an important prerequisite for the convenience and speed of writing M4 code.
 Vim shortcuts, defined by the CODE([iabbrev]) keyword, will save large amounts of unnecessary typing.
 These shortcuts also significantly reduce the occurrence of almost invisible errors caused by an unpaired bracket, thus saving the lost time spent on debugging.
 ]])
@@ -1182,10 +1180,10 @@ dnl english: _next_language_
 INSERT_FILE_AND_LINK([messages/messages.mc], LANG([všechny speciální znaky jsou skryty do maker], [all special characters are hidden into macros]))
 
 PARA([[dnl czech
-Vytvoříme několik převodních souborů podle typu cílového kódu, makra pro hranaté závorky CODE_M4([LB()]) a CODE_M4([RB()]) jsou už definována v[]NB()kořenovém souboru:
+Vytvoříme několik převodních souborů podle typu cílového kódu, makra pro hranaté závorky CODE_M4([LB()]) a CODE_M4([RB()]) jsou už definována v[]NB()kořenovém souboru.
 ],
 [dnl english: _next_language_
-We create several conversion files according to the target code type, CODE_M4([LB()]) and CODE_M4([RB()]) macros for square brackets are already defined in the root file:
+We create several conversion files according to the target code type, CODE_M4([LB()]) and CODE_M4([RB()]) macros for square brackets are already defined in the root file.
 ]])
 
 HEADING_MONO([dnl
@@ -1289,7 +1287,7 @@ dnl english: _next_language_
 
 PARA([[dnl czech
 Příklad používá malý automat CODE([NEW_LINE]) pro generování znaku nového řádku CODE([\n]) a[]NB()jednu výstupní frontu číslo CODE([1]) do které se vloží znaky CODE([";]) pro uzavření výsledného řetězce.
-Poprvé se CODE([NEW_LINE]) přepíše na ABBR([CODE([ε])], [epsilon – prázdný symbol]), podruhé se přepíše na CODE([\n]).
+Poprvé se CODE([NEW_LINE]) přepíše na ABBR([CODE([ε])], [epsilon – prázdný symbol]), podruhé a dále se přepíše na CODE([\n]).
 ],
 [dnl english: _next_language_
 The example uses a[]NB()small automaton CODE([NEW_LINE]) to generate a[]NB()newline CODE([\n]) character and one output queue number CODE([1]) containing CODE([";]) characters to terminate resulting string.
@@ -1414,14 +1412,12 @@ The example processes other CODE([QUERY]) and CODE([WARNING]) messages with a[]N
 PARA([[dnl czech
 Abychom nemuseli definovat podobná pravidla, zkopírujeme si pravou stranu CODE([ERROR])[]BR()(je to také ABBR([CODE([β]) pravidlo], [takové pravidlo se používá jako pravá strana jiného přepisovacího pravidla])) do pravé strany pravidel CODE([QUERY]) a[]NB()CODE([WARNING]).
 Proměnná CODE([$[0]]) se přepíše na jméno makra a[]NB()zřetězí se s[]NB()dalším symbolem.
-Nově vzniklý neterminál se přepíše na odpovídající terminální symbol.
-Tímto způsobem se provádí větvení.
+Nově vzniklý neterminál se přepíše na odpovídající terminální symbol (číslo fronty).
 ],
 [dnl english: _next_language_
 To avoid having to define similar rules, we copy the right side of CODE([ERROR]) (it is also a[]NB()ABBR([CODE([β]) rule], [the rule is used as the right side of another rewriting rule])) to the right side of the CODE([QUERY]) and CODE([WARNING]) rules.
 The CODE([$[0]]) variable is rewritten to the name of the macro and concatenated with another symbol.
-The newly formed nonterminal is rewritten to the corresponding terminal symbol.
-In this way branching is carried out.
+The newly formed nonterminal is rewritten to the corresponding terminal symbol (queue number).
 ]])
 
 PRE([nonterminals_for_branches], LANG([větvení gramatikou v M4], [grammar branching in M4]), [
@@ -1765,7 +1761,7 @@ univerzální jazyk nízké úrovně (podobně jako jazyk C)
 UL([LI([nemůže konkurovat úzce specializovaným jazykům (například XSLT)])])
 ],
 [dnl english: _next_language_
-low-level universal language (similar to C)
+low-level universal language (similarly as C language)
 UL([
 LI([can not compete with narrowly specialized languages (for example XSLT)])
 ])
