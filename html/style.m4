@@ -33,7 +33,7 @@ define([ADD_CSS_RULE_SET], [
 	])
 
 	divert(INTERNAL_STYLE_DATA)dnl
-patsubst(BRAC(patsubst([$2], [[,#]], [[[\&]]])), [
+patsubst(BRAC(patsubst([$2], [[,#]], [[\&]])), [
 ])dnl
 divert(-1)
 ])
