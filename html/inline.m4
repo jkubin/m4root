@@ -10,7 +10,7 @@ ___POINT([HTML5 inline elements])
 # β
 pushdef([TITLE_2],	[[]ifelse([$2], [], [], [ title="[$2]"])])
 pushdef([XTITLE_2],	[[]ifelse([$2], [], [], [ title="$2"])])
-pushdef([CLASS_3],	[ifelse([$3], [], [], [ class="ADD_CLASS_RULE_SET([$3])"])])
+pushdef([CLASS_3],	[ifelse([$3], [], [], [ class="ADD_CLASS([$3])"])])
 pushdef([STYLE_4],	[ifelse([$4], [], [], [ style="[$4]"])])
 pushdef([ID_5],	[ifelse([$5], [], [], [ id="FIND_AND_ADD_ID_RULE_SET([$5])"])])
 pushdef([ANYTHING_6],	[ifelse([$6], [], [], [ [$6]])])
@@ -53,7 +53,7 @@ define([PERSON],	[ifelse([$#], [0], [[$0]], ]BRAC([<span class="rs-person"]defn(
 # AH([text], [my_title], [my_class],,, [my_rel], [URL])	---> <a href="URL" title="my_title" class="my_class" rel="my_rel">text</a>
 # β
 pushdef([AH_TITLE_2],	[ifelse([$#], [2], [], [$2], [], [], [ title="[$2]"])])
-pushdef([AH_CLASS_3],	[ifelse([$#], [3], [], [$3], [], [], [ class="ADD_CLASS_RULE_SET([$3])"])])
+pushdef([AH_CLASS_3],	[ifelse([$#], [3], [], [$3], [], [], [ class="ADD_CLASS([$3])"])])
 pushdef([AH_STYLE_4],	[ifelse([$#], [4], [], [$4], [], [], [ style="[$4]"])])
 pushdef([AH_ID_5],	[ifelse([$#], [5], [], [$5], [], [], [ id="FIND_AND_ADD_ID_RULE_SET([$5])"])])
 pushdef([AH_REL_6],	[ifelse([$#], [6], [], [$6], [], [], [ rel="[$6]"])])

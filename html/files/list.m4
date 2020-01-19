@@ -28,7 +28,7 @@ define([INSERT_LIST_OF_FILES], [
 	ifelse([$#], [1], [
 
 		divert(CURRQU)dnl
-<table class="table"><tbody><tr><th class="ADD_CLASS_RULE_SET([inputs])" title="defn([TITLE_INPUT_FILES])">dnl
+<table class="table"><tbody><tr><th class="ADD_CLASS([inputs])" title="defn([TITLE_INPUT_FILES])">dnl
 ifelse(defn([ROOT_FILE]), [], [], [AH(defn([ROOT_FILE]), defn([SRC_REPO_NAME]), defn([SRC_FILE_PATH], [FOLDER_FOR_GENERATED_FILES], [ROOT_FILE]))])[]dnl
 ADD_LINKS_TO_INSERTED_FILES(PREFIX_FILES)dnl
 undivert(REFERENCES_TO_FILES)dnl

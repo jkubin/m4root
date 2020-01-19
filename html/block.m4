@@ -8,9 +8,9 @@ ___POINT([HTML5 block-level elements])
 # β
 pushdef([ID_1],			[ifelse([$#], [1], [], [$1], [], [], [ id="FIND_AND_ADD_ID_RULE_SET([$1])"])])
 pushdef([TITLE_2],		[ifelse([$#], [2], [], [$2], [], [], [ title="[$2]"])])
-pushdef([CLASS_3],		[ifelse([$#], [3], [], [$3], [], [], [ class="ADD_CLASS_RULE_SET([$3])"])])
-pushdef([CLASS_3_TIP_BOX],	[ class="rs-tip-major ADD_CLASS_RULE_SET([tip])ifelse([$#], [3], [], [$3], [], [], [ ADD_CLASS_RULE_SET([$3])])"])
-pushdef([CLASS_3_TILE_BOX],	[ class="rs-tile[]ifelse([$#], [3], [], [$3], [], [], [ ADD_CLASS_RULE_SET([$3])])"])
+pushdef([CLASS_3],		[ifelse([$#], [3], [], [$3], [], [], [ class="ADD_CLASS([$3])"])])
+pushdef([CLASS_3_TIP_BOX],	[ class="rs-tip-major ADD_CLASS([tip])ifelse([$#], [3], [], [$3], [], [], [ ADD_CLASS([$3])])"])
+pushdef([CLASS_3_TILE_BOX],	[ class="rs-tile[]ifelse([$#], [3], [], [$3], [], [], [ ADD_CLASS([$3])])"])
 pushdef([STYLE_4],		[ifelse([$#], [4], [], [$4], [], [], [ style="[$4]"])])
 pushdef([ANYTHING_5],		[ifelse([$#], [5], [], [$5], [], [], [ [$5]])])
 
@@ -123,7 +123,7 @@ define([SUB_CHAPTER], defn([MULTILINGUAL_HEADINGS], [SET_ANCHOR], [COUNTERS])[
 
 	define([#L2], .SUB_CHAPTER_IDX)
 	define([#L3])
-	define([INDENT_LEVEL], [ class="ADD_CLASS_RULE_SET([level2])"])
+	define([INDENT_LEVEL], [ class="ADD_CLASS([level2])"])
 	define([HEADING_TAG], [h3])
 
 	]defn([CHAPTER_COMMON_CODE])[
@@ -136,7 +136,7 @@ define([SUB_SUB_CHAPTER], defn([MULTILINGUAL_HEADINGS], [SET_ANCHOR], [COUNTERS]
 
 	define([#L2], .SUB_CHAPTER_IDX)
 	define([#L3], .SUB_SUB_CHAPTER_IDX)
-	define([INDENT_LEVEL], [ class="ADD_CLASS_RULE_SET([level3])"])
+	define([INDENT_LEVEL], [ class="ADD_CLASS([level3])"])
 	define([HEADING_TAG], [h4])
 
 	]defn([CHAPTER_COMMON_CODE])[
@@ -182,7 +182,7 @@ divert(-1)
 define([SUB_ANNEX], defn([MULTILINGUAL_HEADINGS], [SET_ANCHOR], [COUNTERS])[
 
 	divert(ANNEX_NAVIGATION)dnl
-<p id="NSP()TOCP-defn([#ID])" class="ADD_CLASS_RULE_SET([level2])"><a href="[#]NSP()defn([#ID])">ANNEX_LETTER.SUB_ANNEX_IDX[]NB2()SELITM</a></p>
+<p id="NSP()TOCP-defn([#ID])" class="ADD_CLASS([level2])"><a href="[#]NSP()defn([#ID])">ANNEX_LETTER.SUB_ANNEX_IDX[]NB2()SELITM</a></p>
 divert(CURRQU)dnl
 <h3]defn([HTML_HEADING_ATTRIBUTES])[><a href="[#]NSP()defn([#ID])"]defn([ANCHOR_SIGN])[>ANNEX_LETTER.SUB_ANNEX_IDX</a>NB2()SELITM]defn([RETURN_TO_TOC], [SWITCH_LANG])[</h3>
 divert(-1)
@@ -195,7 +195,7 @@ divert(-1)
 define([SUB_SUB_ANNEX], defn([MULTILINGUAL_HEADINGS], [SET_ANCHOR], [COUNTERS])[
 
 	divert(ANNEX_NAVIGATION)dnl
-<p id="NSP()TOCP-defn([#ID])" class="ADD_CLASS_RULE_SET([level3])"><a href="[#]NSP()defn([#ID])">ANNEX_LETTER.SUB_ANNEX_IDX.SUB_SUB_ANNEX_IDX[]NB2()SELITM</a></p>
+<p id="NSP()TOCP-defn([#ID])" class="ADD_CLASS([level3])"><a href="[#]NSP()defn([#ID])">ANNEX_LETTER.SUB_ANNEX_IDX.SUB_SUB_ANNEX_IDX[]NB2()SELITM</a></p>
 divert(CURRQU)dnl
 <h4]defn([HTML_HEADING_ATTRIBUTES])[><a href="[#]NSP()defn([#ID])"]defn([ANCHOR_SIGN])[>ANNEX_LETTER.SUB_ANNEX_IDX.SUB_SUB_ANNEX_IDX</a>NB2()SELITM]defn([RETURN_TO_TOC], [SWITCH_LANG])[</h4>
 divert(-1)
