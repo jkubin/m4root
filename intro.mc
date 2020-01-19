@@ -961,7 +961,7 @@ PRE(, [ASCII-art ]LANG([generujícího automatu], [of generating automaton]), [
 ])dnl PRE
 
 PARA([[dnl czech
-První symbol ve stavu CODE_M4([ERROR]) vygeneruje záhlaví se závorkama a[]NB()první položku.
+První symbol ve stavu CODE_M4([ERROR]) vygeneruje záhlaví se závorkami a[]NB()první položku.
 Poté automat přejde do stavu CODE_M4([NEXT_ITEM]), ve kterém se pouze přidávají další položky.
 Automat zůstává v[]NB()tomto stavu, dokud nejsou zpracována všechna data.
 ],
