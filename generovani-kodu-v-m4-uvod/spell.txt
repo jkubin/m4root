@@ -1,5 +1,5 @@
 # vim:wrap:spell:spelllang=cs,en
-# intro.mc	0xd695bdc	20200119-20:24:32
+# intro.mc	0xd8ab227	20200119-20:37:44
 
 6
 Generování kódu v M4: úvod
@@ -427,7 +427,7 @@ Tento příklad naleznete v příloze:
 [ASCII-art generujícího automatu]
 
 963
-První symbol ve stavu  vygeneruje záhlaví se závorkama a první položku.
+První symbol ve stavu  vygeneruje záhlaví se závorkami a první položku.
 Poté automat přejde do stavu , ve kterém se pouze přidávají další položky.
 Automat zůstává v tomto stavu, dokud nejsou zpracována všechna data.
 

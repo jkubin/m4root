@@ -326,7 +326,7 @@ Automat je shodný s&nbsp;regulárním výrazem <code>(1*01*01*)*</code>.</em></
 # ---&gt;/ ERROR \---&gt;/ NEXT_ITEM \---.
 #     \_______/    \___________/&lt;--'
 </pre>
-<p>První symbol ve stavu <code>ERROR</code> vygeneruje záhlaví se závorkama a&nbsp;první položku.
+<p>První symbol ve stavu <code>ERROR</code> vygeneruje záhlaví se závorkami a&nbsp;první položku.
 Poté automat přejde do stavu <code>NEXT_ITEM</code>, ve kterém se pouze přidávají další položky.
 Automat zůstává v&nbsp;tomto stavu, dokud nejsou zpracována všechna data.</p>
 <h3 id="m4-gnu-make"><a href="#m4-gnu-make" title="⚓">5.3</a>&nbsp;&nbsp;(GNU) make&nbsp;<a href="#m4-toc-gnu-make" title="Obsah" class="m4-toc">☰</a></h3>
