@@ -1375,7 +1375,7 @@ Na závěr výstupní fronty číslo CODE([1]) a[]NB()CODE([2]) vypíšou znaky 
 [dnl english: _next_language_
 The example uses two output queues and one generating automaton.
 The first CODE_M4([ERROR([…])]) error message in the CODE([ERROR]) state generates a[]NB()header with brackets and outputs the first record.
-The automaton goes to the state CODE([NEXT_ITEM]) which is a[]NB()ABBR([CODE([β]) rule], [rule is used as the right side of another rewriting rule]).
+The automaton goes to the state CODE([NEXT_ITEM]) which is a[]NB()ABBR([CODE([β]) rule], [the rule is used as the right side of another rewriting rule]).
 The following error messages in the CODE([NEXT_ITEM]) state only output individual records.
 At the end the output queue number CODE([1]) and number CODE([2]) print the characters CODE([RB()]) and CODE([}}]) to close the resulting JSON.
 ]])
@@ -1418,7 +1418,7 @@ Nově vzniklý neterminál se přepíše na odpovídající terminální symbol.
 Tímto způsobem se provádí větvení.
 ],
 [dnl english: _next_language_
-To avoid having to define similar rules, we copy the right side of CODE([ERROR]) (it is also a[]NB()ABBR([CODE([β]) rule], [rule is used as the right side of another rewriting rule])) to the right side of the CODE([QUERY]) and CODE([WARNING]) rules.
+To avoid having to define similar rules, we copy the right side of CODE([ERROR]) (it is also a[]NB()ABBR([CODE([β]) rule], [the rule is used as the right side of another rewriting rule])) to the right side of the CODE([QUERY]) and CODE([WARNING]) rules.
 The CODE([$[0]]) variable is rewritten to the name of the macro and concatenated with another symbol.
 The newly formed nonterminal is rewritten to the corresponding terminal symbol.
 In this way branching is carried out.
