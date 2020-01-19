@@ -13,12 +13,9 @@ define([CSS_RULE_SET], [
 
 	define([$1$2$3{}], __line__)
 
-	pushdef([.$2], [$1.]NSP()[$2$3])
-	pushdef(defn([.$2]), [$4])
+	pushdef([.$2], [$1.NSP()$2$3{$4}])
 ])
 
-# hide problematic characters: [,#]
-# _intentional_ macro-expansion (language-dependent names)
 # A → β
 # β
 define([ADD_CSS_RULE_SET], [
@@ -29,12 +26,15 @@ define([ADD_CSS_RULE_SET], [
 	ifdef([$1], [
 
 		# left recursion
-		$0(defn([$1]), defn(defn([$1])))
+		$0([$1], defn([$1]))
+	], [
+
+		define([$1.done])
 	])
 
 	divert(INTERNAL_STYLE_DATA)dnl
-[$1]{patsubst(patsubst([$2], [[,#]], [[[\&]]]), [
-])}dnl
+patsubst(BRAC(patsubst([$2], [[,#]], [[[\&]]])), [
+])dnl
 divert(-1)
 ])
 
@@ -59,16 +59,17 @@ divert(-1)
 # A → β
 define([ADD_CLASS_ITEMS], [
 
-	# test whether the required class is defined
-	ifdef([.$1], [], [
+	# add items to the style sheet if they have not already been added
+	ifdef([.$1], [
 
-		ROOT_ERROR([unknown class ‘$1’])
+		ADD_INTERNAL_STYLE([.$1], defn([.$1]))dnl
 	])
 
-	# add an item to the style sheet if it has not already been added
-	ifdef(defn([.$1]), [
 
-		ADD_INTERNAL_STYLE(defn([.$1]), defn(defn([.$1])))dnl
+	# the class has been already added or not defined
+	ifdef([.$1.done], [], [
+
+		ROOT_ERROR([unknown class ‘$1’])
 	])
 
 	divert(CURRQU)dnl
@@ -78,7 +79,7 @@ divert(-1)
 	# loop end condition
 	ifelse([$#], [1], [], [
 
-		# recursion
+		# right recursion
 		$0(shift($@))
 	])
 ])
@@ -106,6 +107,4 @@ define([ADD_CLASS], [pushdef([CURRQU], divnum)divert(-1)
 # unfinished
 # A → β
 define([FIND_AND_ADD_ID_RULE_SET], [NSP()defn(defn([FILE_PREFIX]).anch.[$1])])
-
-# unfinished
 define([ADD_ID_RULE], [NSP()[$1]])
