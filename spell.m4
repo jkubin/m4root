@@ -13,7 +13,7 @@ ifelse(defn([SOURCE]), [], [
 # The second line: source_file	git_revision_of_source_file	creation_time
 divert(0)dnl
 [#] vim:wrap:spell:spelllang=LANG_CODE,en
-[#] defn([SOURCE])	FST(esyscmd([git log -1 --format='[0x%h],' ]defn([SOURCE])))	FST(esyscmd([date '+[%Y%m%d-%R:%S],']))
+[#] __SOURCE(LB()defn([SOURCE]), ARG1(esyscmd([git log -1 --format='[0x%h],' ]defn([SOURCE]))), ARG1(esyscmd([date '+[%Y%m%d-%R:%S],']))])
 
 divert(1)dnl
 ---
