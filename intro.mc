@@ -169,7 +169,7 @@ HEADING_MONO([dnl monolingual
 
 PARA([[dnl czech
 AH([PERSON([Dennis Ritchie])], [Wikipedie], [https://cs.wikipedia.org/wiki/Dennis_Ritchie]) převzal základní myšlenku ABBR([GPM], [General Purpose Macro-generator]) a[]NB()napsal vylepšený makro procesor pro generování zdrojového kódu programovacího jazyka C (1972), který sám navrhl.
-Nový BUN([m])akroprocesor napsal pro minipočítač AP-BUN([3]) – odtud jméno BO([M3]).
+Nový BUN([m])akro procesor napsal pro minipočítač AP-BUN([3]) – odtud jméno BO([M3]).
 Tento přímý předchůdce současného M4 dokázal výrazně ušetřit těžkou a[]NB()časově náročnou práci, čímž zaujal vývojáře programující v[]NB()jiných jazycích (ABBR([FORTRAN], [FORmula TRANslation]), ABBR([COBOL], [COmmon Business-Oriented Language]), ABBR([PL/I], [Programming Language One]), …).
 Vývojáři upravovali M3 pro tyto jazyky čímž ho proměnili na univerzálně použitelný makro procesor M4.
 ],
@@ -978,8 +978,6 @@ dnl english: _next_language_
 [(GNU) make],
 ])
 
-Není vhodné do sebe vzájemně vkládat zdrojové soubory.
-
 PARA([[dnl czech
 Dobře navržený generátor kódu se obvykle skládá z[]NB()několika menších souborů, jejichž pořadí, závislosti a[]NB()parametry se zapisují do souboru CODE([Makefile]).
 Dobrá znalost tvorby CODE([Makefile]) je proto základním předpokladem pro zvládnutí M4.
@@ -1065,8 +1063,6 @@ dnl english: _next_language_
 [Code generation examples],
 ])
 
-# , LANG([skrývání problematických znaků se neprovádí], [hiding problematic characters is not performed]), 
-
 TIP_BOX([[dnl czech
 Příklady v[]NB()této příloze jsou složitější a[]NB()jejich cílem je ukázat praktické použití jazyka M4.
 Podrobněji budou vysvětleny později.
@@ -1093,12 +1089,6 @@ Stacks in the examples are not used.
 ]])
 
 INSERT_FILE_AND_LINK([messages/messages_raw.mc], LANG([vstupní zdrojový kód obsahuje speciální znaky], [the input source code contains special characters])[ ⚠])
-
-iv_NEJAKY_SYMBOO
-
-pouzit nejaky komentar pro konec clanku, abych to mohl snadno extrahovat a zpracovat text na plain text
-a pouzit diff
-udelat nejaky specialni adresar pro prvni dil roogb.m4
 
 TIP_BOX([[dnl czech
 Vstupní soubor může také obsahovat poznámky, které nemusí být skryté v[]NB()komentářích CODE_M4([#]), CODE_M4([dnl]), CODE_M4([ifelse([…])]) nebo CODE_M4([[… někde uvnitř závorek …]]).
@@ -1294,9 +1284,6 @@ The example uses a[]NB()small automaton CODE([NEW_LINE]) to generate a[]NB()newl
 Run the first time CODE([NEW_LINE]), is rewritten to ABBR([CODE([ε])], [epsilon – empty symbol]), in all following ones, it is rewritten to CODE([\n]).
 ]])
 
-As it is run for the fist time,
-At first the is rewritten to ABBR([CODE([ε])], [epsilon – empty symbol]), for the second time is rewritten to CODE([\n]).
-
 INSERT_FILES_MESSAGES_CODE([stringl.c.m4], [stringl.c])
 
 
@@ -1399,15 +1386,6 @@ It uses three automata and six output queues.
 If we generate more complex source code, we will soon encounter the problem of maintaining index consistency for output queues.
 To avoid confusion, we use queue names instead of numbers.
 ]])
-
-ifelse([
-PARA([[dnl czech
-Příklad zpracovává další zprávy typu CODE([QUERY]) a[]NB()CODE([WARNING]) celkem třemi automaty a[]NB()šesti výstupními frontami.
-],
-[dnl english: _next_language_
-The example processes other CODE([QUERY]) and CODE([WARNING]) messages with a[]NB()total of three automata and six output queues.
-]])
-])dnl
 
 PARA([[dnl czech
 Abychom nemuseli definovat podobná pravidla, zkopírujeme si pravou stranu CODE([ERROR])[]BR()(je to také ABBR([CODE([β]) pravidlo], [takové pravidlo se používá jako pravá strana jiného přepisovacího pravidla])) do pravé strany pravidel CODE([QUERY]) a[]NB()CODE([WARNING]).
