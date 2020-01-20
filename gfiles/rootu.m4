@@ -4,7 +4,7 @@ dnl DO NOT EDIT! This file is generated automatically!
 dnl
 divert(-1)changequote(〖,〗)
 
-__HEADER(〖Josef Kubin〗, 〖2018/10/15〗, 〖https://github.com/jkubin/m4root〗)
+__HEADER(〖Josef Kubin〗, 〖2018/10/15〗, 〖https://github.com/jkubin/m4root〗, 〖0, 0, 0〗)
 ___DESCR(〖the most general (root) rules for all scripts〗)
 ___POINT(〖script decomposition; NO repeated information anywhere else〗)
 ___USAGE(〖m4 root.m4 stem.m4 branch.m4 sub_branch.m4 leaf.m4 data.mc > output.file〗)
@@ -88,8 +88,8 @@ define(〖LU〗, 〖ifelse(〖$#〗, 〖0〗, 〖〖$0〗〗, 〖changequote`'fo
 define(〖RU〗, 〖ifelse(〖$#〗, 〖0〗, 〖〖$0〗〗, 〖changequote`'format(`%c%c%c', 227, 128, 151)changequote(〖,〗)〗)〗)
 
 #' set aliases to unpaired control char for expansion control (universal macros)
-define(〖LL〗, defn(〖LU〗))
-define(〖RR〗, defn(〖RU〗))
+# define(〖LL〗, defn(〖LU〗))
+# define(〖RR〗, defn(〖RU〗))
 
 # expand the last argument
 # A(〖$1〗, 〖$2〗, …, 〖$n〗〗) → $$# → $n → β

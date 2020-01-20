@@ -55,7 +55,7 @@ generating-code-in-m4-introduction/%.html: rootb.m4 queues.m4 aux.m4 ent.m4 cfg.
 	m4 -DLANG_CODE='en' -DOUTPUT_FILE='$*.html' $^ | sed -f brackets.sed > $@
 
 generating-code-in-m4-introduction/publish.txt: rootb.m4 queues.m4 aux.m4 ent.m4 cfg.m4 inline.m4 headings.m4 block.m4 ver.m4 style.m4 lang_en.m4 css.m4 refs_en.m4 refs_cs.m4 order.m4 lang.m4 incl.m4 $(wildcard intro.mc.html/*.m4 intro.mc.html/*/*.m4) publish.m4 intro.mc nav.m4
-	m4 -DLANG_CODE='en' $^ | sed -f html/publish.sed -f brackets.sed > $@
+	m4 -DLANG_CODE='en' -DSOURCE='intro.mc' $^ | sed -f html/publish.sed -f brackets.sed > $@
 
 generating-code-in-m4-introduction/spell.txt: rootb.m4 aux.m4 order.m4 lang.m4 headings.m4 ver.m4 lang_en.m4 refs_en.m4 refs_cs.m4 incl.m4 spell.m4 intro.mc
 	m4 -DLANG_CODE='en' -DSOURCE='intro.mc' $^ > $@
