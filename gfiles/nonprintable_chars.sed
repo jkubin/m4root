@@ -24,5 +24,5 @@ s/]//g
 /^\(define(RN, \).*$/s//\1ifelse($#, 0, $0, changequote`'format(`%c', 6)changequote(,)))/
 
 # set aliases
-/^define(LL,/s/LB/LN/
-/^define(RR,/s/RB/RN/
+/define(LL,/s/LB/LN/
+/define(RR,/s/RB/RN/

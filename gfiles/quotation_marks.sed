@@ -26,5 +26,5 @@ s/]/'/g
 /^define(`RQ', .*$/s//define(`RQ', `ifelse(`$#', `0', ``$0'', `changequote([,])format([%c], 39)changequote`'')')/
 
 # set aliases
-/^define(`LL',/s/LB/LQ/
-/^define(`RR',/s/RB/RQ/
+/define(`LL',/s/LB/LQ/
+/define(`RR',/s/RB/RQ/

@@ -24,5 +24,5 @@ s/]/〗/g
 /^\(define(〖RU〗, 〖\).*$/s//\1ifelse(〖$#〗, 〖0〗, 〖〖$0〗〗, 〖changequote`'format(`%c%c%c', 227, 128, 151)changequote(〖,〗)〗)〗)/
 
 # set aliases
-/^define(〖LL〗,/s/LB/LU/
-/^define(〖RR〗,/s/RB/RU/
+/define(〖LL〗,/s/LB/LU/
+/define(〖RR〗,/s/RB/RU/
