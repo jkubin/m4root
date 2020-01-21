@@ -1,6 +1,9 @@
 # DO NOT EDIT! This file is generated automatically!
 
-# associative memory for linking references
+__HEADER([Josef Kubin], [2019/12/11], [root_cz])
+___DESCR([(this is a generated file) associative memory to linking references, contains captions and ID])
+___POINT([linking links and simple database])
+
 # A → β
 define([intro.mc.en.capt], [Generating code in M4: introduction])
 define([intro.mc.en.anch], [generating-code-in-m4-introduction])
@@ -8,7 +11,6 @@ define([1.en.capt], [Generating code in M4: introduction])
 define([1.en.anch], [generating-code-in-m4-introduction])
 define([#.en.Generating code in M4: introduction], [1])
 
-# captions and ID
 # A → β
 define([intro.mc.en.anch.Introduction], [introduction])
 define([intro.mc.en.uniq.Introduction])
@@ -180,6 +182,5 @@ define([intro.mc.en.anch.unusual_language], [unusual-language])
 define([intro.mc.en.anch.experience_dependent], [experience-dependent])
 define([intro.mc.en.anch.hard_maintenance], [hard-maintenance])
 
-# selected words from the current language
 # A → β
 define([en.LANG_VERSION], [English version])

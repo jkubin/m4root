@@ -3,9 +3,14 @@ dnl
 dnl DO NOT EDIT! This file is generated automatically!
 dnl
 __HEADER(`Josef Kubin', `2019/11/16', `root')
-___DESCR(`check the length of the string by look (for the purpose of shortening)')
-___POINT(`string truncation by a computer is hardly acceptable')
-___USAGE(`m4 root.m4 ruler.m4 ...')
+___DESCR(`generates a string to shorten another string (by hand) because truncation is hardly acceptable')
+___POINT(`computer cannot truncate the string to remain readable')
+___USAGE(`m4 rootb.m4 rulerb.m4 …')
+
+# a Java example (the string is obviously too long)
+#
+# /*                  1234567890123456789012345678901234567890 */
+# System.out.println("Let's say: 'Hello, world!' It's damn good!");
 
 # ruler as an automaton
 #      ______      _______ 

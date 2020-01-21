@@ -1,6 +1,9 @@
 # DO NOT EDIT! This file is generated automatically!
 
-# associative memory for linking references
+__HEADER([Josef Kubin], [2019/12/11], [root_cz])
+___DESCR([(this is a generated file) associative memory to linking references, contains captions and ID])
+___POINT([linking links and simple database])
+
 # A → β
 define([intro.mc.cs.capt], [Generování kódu v M4: úvod])
 define([intro.mc.cs.anch], [generovani-kodu-v-m4-uvod])
@@ -8,7 +11,6 @@ define([1.cs.capt], [Generování kódu v M4: úvod])
 define([1.cs.anch], [generovani-kodu-v-m4-uvod])
 define([#.cs.Generování kódu v M4: úvod], [1])
 
-# captions and ID
 # A → β
 define([intro.mc.cs.anch.Úvod], [uvod])
 define([intro.mc.cs.uniq.Úvod])
@@ -180,6 +182,5 @@ define([intro.mc.cs.anch.unusual_language], [unusual-language])
 define([intro.mc.cs.anch.experience_dependent], [experience-dependent])
 define([intro.mc.cs.anch.hard_maintenance], [hard-maintenance])
 
-# selected words from the current language
 # A → β
 define([cs.LANG_VERSION], [Česká verze])

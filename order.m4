@@ -1,5 +1,9 @@
 # DO NOT EDIT! This file is generated automatically!
 
+__HEADER([Josef Kubin], [2019/11/29], [root_cz])
+___DESCR([(this is a generated file) contains extracted items from the ‘toc.m4’ file for other scripts])
+___POINT([ordered files to generate other files])
+
 # all source files in the order in which they are written to the file: toc.m4
 # A → β
 define([TABLE_OF_CONTENT], [
