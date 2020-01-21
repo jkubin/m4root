@@ -1,21 +1,16 @@
-# For help with this Makefile, type:
-# $ make h
+# __HEADER([Josef Kubin], [2019/10/09], [root_cz])
+# ___DESCR([this handwritten Makefile automatically creates additional rules for creating target files])
+# ___POINT([learning M4 using the examples in this series])
+# ___USAGE([make h && make && make])
 
  # <--- this is the form-feed character for Vim abbreviations, type: [[ to skip backward; type: ]] to skip forward
-
-# The following paragraph is for the M4 preprocessor:
-define m4
-__HEADER([Josef Kubin], [2019/10/09], [root_cz])
-___DESCR([this handwritten Makefile automatically creates additional rules for creating target files])
-___POINT([learning M4 using the examples in this series])
-___USAGE([make h && make && make])
-endef
 
 # keep secondary generated files
 .SECONDARY:
 
 
 SOURCE     = $(wildcard *.mc)
+DOC_FILE   = lightweight_documentation_for_source_files.txt
 DEBUG_FILE = debug.m4
 ORDER_FILE = order.m4
 VPATH      = gfiles
@@ -40,7 +35,7 @@ CLSUBDIRS  = $(SUBDIRS:%=clean-%)
 
 #:all	creates all files
 .PHONY: all
-all: src html $(TARGETS)
+all: src html doc $(TARGETS)
 
 
 #:html	creates rules to generate html
@@ -79,6 +74,13 @@ test t: debug dev
 devel dev: rootb.m4
 	m4 $< test.m4
 
+#:doc	extracts headers from source files and creates very lightweight documentation for a basic source file overview
+.PHONY: doc
+doc: $(DOC_FILE)
+
+$(DOC_FILE): doc.m4 $(wildcard gfiles/*b.m4) $(shell find -name '*.sed' -o -name 'Makefile' -o -name '*.m4' ! -path './messages/*' ! -path './gfiles/*' ! -path './hello_world/*' ! -path './preproc/*' ! -path './asm/*')
+	m4 $+ > $@
+
 $(ORDER_FILE): rootb.m4 toc.m4 toc_list.m4
 	m4 -DALL_LANGS='$(LANGS_ALL)' -DFILE_LIST='$(FILE_LIST)' $^ > $@
 
@@ -103,7 +105,7 @@ $(CLSUBDIRS):
 #:clean/cle/del/cl	deletes all generated files
 .PHONY: clean cle del cl
 clean cle del cl:
-	$(RM) -r $(DEBUG_FILE) $(ORDER_FILE) $(REFS_ALL) $(FOLDERS) *.{mk,m4f}
+	$(RM) -r $(DEBUG_FILE) $(DOC_FILE) $(ORDER_FILE) $(REFS_ALL) $(FOLDERS) *.{mk,m4f}
 
 #:distclean/dcl/cld/dc	also deletes generated files also in all example folders
 .PHONY: distclean dcl cld dc
@@ -118,4 +120,4 @@ mostlyclean mcl clm cll mc:
 #:help/he/hl/h	prints help for this Makefile
 .PHONY: help he hl h
 help he hl h:
-	@sed -n '/^#:/{s//\x1b[7mmake /;s/\t/\x1b[m /;p}' Makefile $(wildcard *.mk) | sort -u	# ]]	<--- square brackets for M4 preprocessor
+	@sed -n '/^#:/{s//\x1b[7mmake /;s/\t/\x1b[m /;p}' Makefile $(wildcard *.mk) | sort -u	# ]]	<--- square brackets because of M4
