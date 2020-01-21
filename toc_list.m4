@@ -5,7 +5,11 @@ ___POINT([the order is based on the queue index])
 # creates a skeleton for the file
 divert(0)dnl
 [#] DONTE()
-
+[
+__HEADER([Josef Kubin], [2019/11/29], [root_cz])
+___DESCR(]LB()[(this is a generated file) contains extracted items from the ‘]TOC_FILE_NAME[’ file for other scripts]][)
+___POINT([ordered files to generate other files])
+]
 [#] all source files in the order in which they are written to the file: TOC_FILE_NAME
 # A → β
 [define([TABLE_OF_CONTENT], ]LB()

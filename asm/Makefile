@@ -1,3 +1,8 @@
+# __HEADER([Josef Kubin], [2019/10/13], [root_cz])
+# ___DESCR([keeps two ASM files consistent for both Intel and AT&T notation; uses a local .vimrc file with iabbrev-s])
+# ___POINT([two ASM file formats generated from one metafile])
+# ___USAGE([make h && make])
+
 SYMBOL = Hello, world!
 TARGETS = intel.s att.s
 VPATH = ../gfiles
@@ -24,4 +29,4 @@ clean cl:
 #:help/he/hl/h	print this text
 .PHONY: help he hl h
 help he hl h:
-	@sed -n '/^#:/{s//\x1b[7mmake /;s/\t/\x1b[m /;p}' Makefile | sort	# ]]	<--- square brackets for M4 preprocessor
+	@sed -n '/^#:/{s//\x1b[7mmake /;s/\t/\x1b[m /;p}' Makefile | sort	# ]]	<--- square brackets because of M4

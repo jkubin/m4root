@@ -1,6 +1,6 @@
-# 2019/09/01 Josef Kubin
-#
-# the script converts source code files for use in M4 and html
+# __HEADER([Josef Kubin], [2019/09/01], [m4root])
+# ___DESCR([the script modifies input source code for use in M4 source code and for resulting HTML page])
+# ___POINT([every source code must be processed first])
 
 # Keep it first!
 s/&/\&amp;/g

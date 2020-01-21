@@ -1,6 +1,6 @@
-# 2019/08/25 Josef Kubin
-#
-# the script converts a caption string to (truncated) html anchors
+# __HEADER([Josef Kubin], [2019/08/25], [m4root])
+# ___DESCR([the script converts a caption string in UTF-8 to HTML anchors; the resulting string is truncated to 32 characters])
+# ___POINT([truncated lower case ASCII strings for anchors])
 
 # multiline items
 :a

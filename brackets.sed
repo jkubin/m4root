@@ -1,5 +1,6 @@
-# 2020/01/09 Josef Kubin
+# __HEADER([Josef Kubin], [2020/01/09], [m4root])
+# ___DESCR([transforms brackets as HTML entities back to ASCII])
+# ___POINT([post processing after M4 scripts; simple square brackets allow better reading of the resulting file])
 
-# square brackets conversion makes file more readable
 s/&#x5b;/[/g
 s/&#x5d;/]/g

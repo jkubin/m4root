@@ -1,5 +1,5 @@
 __HEADER([Josef Kubin], [2019/12/11], [root_cz])
-___DESCR([tests chapter logic flow (chapter → sub-chapter → sub-sub-chatper) and generates references for anchors])
+___DESCR([tests chapter logic flow (chapter → sub-chapter → sub-sub-chapter) and generates references for anchors])
 ___POINT([extracts all IDs from files and create associative pair])
 
 # create aliases to existing macros
@@ -323,15 +323,16 @@ divert(-1)
 # connects source files to generated files, languages, captions and anchors
 divert(0)dnl
 [#] DONTE()
-
-# associative memory for linking references
+[
+__HEADER([Josef Kubin], [2019/12/11], [root_cz])
+___DESCR([(this is a generated file) associative memory to linking references, contains captions and ID])
+___POINT([linking links and simple database])
+]
 # A → β
 divert(ANCHORS)dnl
-# captions and ID
 # A → β
 divert(SEL_WORDS)dnl
 
-# selected words from the current language
 # A → β
 divert(-1)
 

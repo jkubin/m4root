@@ -1,8 +1,8 @@
 # vim:ft=m4
 
 __HEADER([Josef Kubin], [2019/09/01], [root_cz])
-___DESCR([the script creates additional rules extending the handwritten Makefile])
-___POINT([additional rules by configuration from command line])
+___DESCR([the script creates additional rules extending the handwritten Makefile to generate HTML files])
+___POINT([additional rules by configuration from command line to generate HTML files])
 
 # A → β
 define([TABLE_OF_CONTENT_ITEM], [

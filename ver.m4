@@ -1,6 +1,5 @@
 __HEADER([Josef Kubin], [2019/12/22], [root_cz])
-___DESCR([the template is under development])
-___DESCR([to avoid frustrating innocent users, a version number is used])
+___DESCR([the HTML template is under development; to avoid frustrating innocent users a version number is used])
 ___POINT([stops document processing if the major version number is different])
 
 # MAJOR change means an incompatible change

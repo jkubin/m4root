@@ -1,6 +1,6 @@
 __HEADER([Josef Kubin], [2020/01/09], [html])
 ___DESCR([inserts source file content with a link and an optional description])
-___POINT([source file and link (with description possible)])
+___POINT([source file, link and description])
 
 #INSERT_FILE_AND_LINK([folder/file.m4])
 #INSERT_FILE_AND_LINK([folder/file.m4], [description])

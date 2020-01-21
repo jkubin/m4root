@@ -1,7 +1,6 @@
-# 2019/08/25 Josef Kubin
-#
-# the script converts the caption string to the string used for filenames
-# resulting string is not truncated
+# __HEADER([Josef Kubin], [2019/08/25], [m4root])
+# ___DESCR([the script converts the caption string to the string used for filenames; resulting string is not truncated])
+# ___POINT([full-length lower case ASCII strings for file names])
 
 # multiline items
 :a

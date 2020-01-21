@@ -1,3 +1,8 @@
+# __HEADER([Josef Kubin], [2019/11/17], [root_cz])
+# ___DESCR([the examples show how to generate messages into various target formats requiring modification of special characters])
+# ___POINT([different target files with specially modified characters for each file])
+# ___USAGE([make h && make])
+
 SOURCE_CODE = \
 array.c \
 atm.json \
@@ -67,4 +72,4 @@ clean cl:
 #:help/he/hl/h	print this text
 .PHONY: help he hl h
 help he hl h:
-	@sed -n '/^#:/{s//\x1b[7mmake /;s/\t/\x1b[m /;p}' Makefile | sort	# ]]	<--- square brackets for M4 preprocessor
+	@sed -n '/^#:/{s//\x1b[7mmake /;s/\t/\x1b[m /;p}' Makefile | sort	# ]]	<--- square brackets because of M4

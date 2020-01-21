@@ -1,6 +1,6 @@
 __HEADER([Josef Kubin], [2019/12/27], [root_cz])
-___DESCR([creates sample page for HTML validator: https://validator.w3.org/#validate_by_upload])
-___POINT([always test the result before publishing])
+___DESCR([creates a lightweight page for HTML validator (https://validator.w3.org/#validate_by_upload) and it also seems to be suitable for off-line article development])
+___POINT([develop and test the result before publishing])
 
 # A → β
 define([IMG_SRC], [$2])

@@ -1,6 +1,6 @@
 __HEADER([Josef Kubin], [2020/01/12], [intro.mc.html])
 ___DESCR([introductory parts have specific demands for files])
-___POINT([])
+___POINT([specific file (not for general use)])
 
 # INSERT_FILES_HELLO_WORLD([q], [qnames])
 # A → β

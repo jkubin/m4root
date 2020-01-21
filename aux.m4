@@ -1,6 +1,6 @@
 __HEADER([Josef Kubin], [2019/12/07], [root_cz])
-___DESCR([auxiliary macros])
-___POINT([less typing])
+___DESCR([auxiliary macros that could not fit elsewhere: CMD(); ROO();])
+___POINT([automate anything you can])
 
 # the appearance of the command line (choose what you like)
 #

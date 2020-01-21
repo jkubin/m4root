@@ -1,5 +1,5 @@
 __HEADER([Josef Kubin], [2019/12/09], [root_cz])
-___DESCR([main configuration of html template])
+___DESCR([main configuration for the html template])
 ___POINT([one place to configure ALL generated web pages])
 
 # /!\ in constant development /!\

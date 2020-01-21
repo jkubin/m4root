@@ -1,6 +1,6 @@
 __HEADER([Josef Kubin], [2019/12/10], [root_cz])
-___DESCR([Repeated text patterns for ALL parts should be written here. Modified files from the `include' keyword are invisible for make.])
-___POINT([how to avoid `include' keyword])
+___DESCR([repeated text patterns for ALL parts should be written here; modified files from the include keyword are invisible for make])
+___POINT([how to avoid include keyword; Note: this is M4 not C!])
 
 # paired author name with image
 # A → β

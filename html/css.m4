@@ -1,6 +1,6 @@
 __HEADER([Josef Kubin], [2019/12/24], [root_cz])
 ___DESCR([the resulting style sheet is embedded in the web page or can be extracted into a separated file])
-___POINT([all available CSS rules])
+___POINT([here are all CSS rules that are automatically selected into the style sheet])
 
 # [an prefix], [css_name], [suffix], [… css rule set …])
 CSS_RULE_SET([.urs ], [tip], [::before], [

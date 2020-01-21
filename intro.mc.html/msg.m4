@@ -1,6 +1,6 @@
 __HEADER([Josef Kubin], [2019/12/28], [root_cz])
-___DESCR([inserts files for messages])
-___POINT([inserts files for messages])
+___DESCR([inserts files for messages; introductory parts have specific demands for files])
+___POINT([specific file (not for general use)])
 
 # A → β
 define([INSERT_FILES_MESSAGES_QUEUES_MARKUP], [

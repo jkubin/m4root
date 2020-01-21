@@ -1,5 +1,6 @@
 __HEADER([Josef Kubin], [2019/07/11], [root_cz])
 ___DESCR([definitions of output queues])
+___POINT([each target file format has a specific queue list])
 
 # define counter for output queues
 define([QUEUE_INDEX], defn([COUNT_UP]))
