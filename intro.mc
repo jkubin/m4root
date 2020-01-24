@@ -442,10 +442,10 @@ Cílem tohoto úvodního dílu je hlavně ukázat praktické použití M4 na př
 ],
 [dnl english: _next_language_
 M4 is based on BO([context-free grammar]), BO([automata]), BO([stacks]) and BO([output queues]).
-To understand M4, it is therefore very important to understand the basic concepts of formal language theory –
-what are AH([terminal symbols], [Wikipedia], [https://en.wikipedia.org/wiki/Terminal_and_nonterminal_symbols]) (briefly BO([terminals])) and nonterminal symbols (briefly BO([nonterminals])).
+To understand M4, it is therefore crucial to understand the basic concepts of formal language theory –
+AH([terminal symbols], [Wikipedia], [https://en.wikipedia.org/wiki/Terminal_and_nonterminal_symbols]) (briefly BO([terminals])) and nonterminal symbols (briefly BO([nonterminals])).
 These terms will be explained later in more detail.
-The aim of this introductory part is mainly to show the basic practical use of M4 language on examples.
+The objective is to show the basic practical use of M4 language on examples.
 ]])
 
 SUB_CHAPTER([context_free_grammar], [dnl czech
@@ -460,7 +460,7 @@ Neterminál CODE_M4([A]) se přepíše na libovolně dlouhý řetězec ABBR([COD
 AH([Kleene hvězda], [Wikipedie], [https://en.wikipedia.org/wiki/Kleene_star]) CODE([*]) znamená, že se neterminál CODE_M4([A]) může přepsat na ABBR([CODE([ε])], [epsilon – prázdný symbol]) (přepisovací pravidlo: CODE([A[]NB()→[]NB()ε])).
 ],
 [dnl english: _next_language_
-Context-free grammar (shortly ABBR([CFG], [Context-Free Grammar])) is a[]NB()HYLN([formal grammar], [formal_grammar_chomsky]) in which all rewriting rules have the form CODE([A[]NB()→[]NB()β]).
+Context-free grammar (shortly ABBR([CFG], [Context-Free Grammar])) is a[]NB()HYLN([formal grammar], [formal_grammar_chomsky]) in which all rules for rewriting have the CODE([A[]NB()→[]NB()β]) form.
 The nonterminal CODE_M4([A]) is rewritten to an arbitrarily long ABBR([CODE([β])], [the right side of the rewriting rule]) string composed of terminals CODE([{Σ}]) or nonterminals CODE([{N}]).
 AH([Kleene star], [Wikipedia], [https://en.wikipedia.org/wiki/Kleene_star]) CODE([*]) means that nonterminal CODE_M4([A]) can be rewritten to ABBR([CODE([ε])], [epsilon – empty symbol]) (rewriting rule: CODE([A[]NB()→[]NB()ε])).
 ]])
@@ -481,8 +481,9 @@ PARA([[dnl czech
 Přepisovací pravidla M4 jsou stejná jako přepisovací pravidla bezkontextové gramatiky.
 ],
 [dnl english: _next_language_
-The M4 rewriting rules are the same as context-free grammar rewriting rules.
+The rules for rewriting are the same for context-free grammar and M4.
 ]])
+The M4 rewriting rules are the same as context-free grammar rewriting rules.
 
 PRE(, LANG([přepisovací pravidla M4], [M4 rewriting rules]), [[
 # A → β
@@ -499,9 +500,9 @@ Všechna klíčová slova mohou být přejmenována nebo úplně vypnuta.
 Tato vlastnost je velmi důležitá pro režim preprocesoru.
 ],
 [dnl english: _next_language_
-All M4 keywords are nonterminals (macros), they take some action and rewrite to ABBR([CODE([ε])], [epsilon – empty symbol]) or another symbol.
+All M4 keywords are nonterminals (macros), which take action and are rewritten to ABBR([CODE([ε])], [epsilon – empty symbol]) or another symbol.
 All keywords can be renamed or turned off completely.
-This feature is very important for preprocessor mode.
+This feature is crucial for the preprocessor mode.
 ]])
 
 PRE(, LANG([klíčová slova M4 jsou neterminály], [M4 keywords are nonterminals]), [[
@@ -529,10 +530,10 @@ Dvojice řídících znaků se nastavuje na začátku kořenového souboru.
 [dnl english: _next_language_
 The default character pair CODE([`']) in M4 controls the expansion of nonterminals.
 The keyword CODE_M4([changequote()]) can change them to other characters, for example {CODE_M4([[]]), BO([CODE([␂␆])]), CODE([〖〗])}.
-Nonterminals that we do not want to (immediately) expand are surrounded by this pair of characters.
-When passing through a[]NB()macro processor, all the symbols between this character pair are BUN([terminal symbols]) and the outer character pair is removed.
+The nonterminals that we do not want to (immediately) expand are surrounded by this pair of characters.
+When passing through the macro processor, all the symbols between this character pair are BUN([terminal symbols]) and the outer character pair is removed.
 The next pass will cause the expansion of the originally protected nonterminals.
-Control character pair is set at the beginning of the root file.
+The control character pair is set at the beginning of the root file.
 ]])
 
 
@@ -550,10 +551,10 @@ Automaty slouží jako QUOTE([přepínače]) pravidel gramatiky.
 Příklady HYLN([generujících automatů], [generating_automaton]) jsou ukázány v[]NB()příloze.
 ],
 [dnl english: _next_language_
-Automata use grammar rewriting rules as nodes and change their states according to input symbols.
-The currently used rewriting rule produces specific code to the output queue (or several output queues) until the automaton moves to another node with a[]NB()different rewriting rule.
+Automata use the grammar rules for rewriting as nodes and change their states according to input symbols.
+The currently used rule produces a specific code to the output queue (or several output queues) until the automaton moves to another node with a[]NB()different rule.
 Automata serve as QUOTE([switches]) of grammar rules.
-Examples of HYLN([generating automata], [generating_automaton]) are in annex.
+The examples of HYLN([generating automata], [generating_automaton]) are in annex.
 ]])
 
 
@@ -571,12 +572,13 @@ Na závěr jsou všechny neprázdné fronty vypsány ve vzestupném pořadí na 
 HYLN([Výstupní fronty], [output_queues_html]) jsou ukázány v[]NB()příloze.
 ],
 [dnl english: _next_language_
-Output queues are temporary storage for portions of the resulting code.
-These parts of the resulting code are created by rewriting rules of grammar that rewrite input symbols.
-The CODE_M4([divert(ℤ)]) keyword sets the current output queue.
-Finally, all non-empty queues are dumped in ascending order on standard output and compose the final code.
-Examples of HYLN([output queues], [output_queues_html]) are in annex.
+The output queues temporarily store the portions of the resulting code.
+These parts are formed using the gramar rules for rewriting which subsequently rewrite input symbols.
+The CODE_M4([divert(ℤ)]) keyword sets the output queue.
+Finally, all non-empty queues are dumped in ascending order to the standard output and compose the final code.
+The examples of the HYLN([output queues], [output_queues_html]) are in the annex.
 ]])
+These parts of the resulting code are created by rewriting rules of grammar that rewrite input symbols.
 
 TIP_BOX([[dnl czech
 BO([Zásobníky]) si ukážeme později.
@@ -630,14 +632,14 @@ LIST_ITEM([[dnl czech
 čtení transformačních pravidel ze souborů s[]NB()příponou CODE([.m4])
 ],
 [dnl english: _next_language_
-reading transformation rules from files with the CODE([.m4]) extension
+the reading transformation rules from files with the CODE([.m4]) extension
 ]])
 
 LIST_ITEM([[dnl czech
 expanze maker uvnitř souborů s[]NB()příponou CODE([.mc])
 ],
 [dnl english: _next_language_
-expansion of macros inside CODE([.mc]) files
+the expansion of macros inside CODE([.mc]) files
 ]])
 
 ])dnl ORDERED_LIST_WRAP
@@ -648,14 +650,14 @@ Datové soubory CODE([.mc]) obvykle neobsahují žádná transformační pravidl
 ],
 [dnl english: _next_language_
 The CODE([input1.mc]) and CODE([input2.mc]) files contain the BO([input data]) in a[]NB()format that allows them to be transformed into BO([output data]) according to the rules in the previous CODE([.m4]) files.
-The data CODE([.mc]) files usually do not contain any transformation rules.
+The CODE([.mc]) data files usually do not contain any transformation rules.
 ]])
 
 PARA([[dnl czech
 Vstupní data mohou také přicházet z[]NB()kolony:
 ],
 [dnl english: _next_language_
-Input data may also come from the pipeline:
+The input data may also come from the pipeline:
 ]])
 
 PRE(, LANG([vstupní kód → generování zdrojového kódu → soubor], [input code → source code generation → file]), [
@@ -689,12 +691,12 @@ Důležité je zvolit vhodný levý znak pro řízení expanze neterminálů, kt
 Kolize znaku je ale snadno řešitelná regulárním výrazem.
 ],
 [dnl english: _next_language_
-M4 can operate in preprocessor mode.
-The input source code passes through it unchanged except for nonterminal symbols.
-The nonterminals found are expanded to terminals and output along with the source code.
+M4 can operate in the preprocessor mode.
+The input source code passes unchanged through except for nonterminal symbols.
+The nonterminals found are expanded to terminals and the output along with the source code.
 M4 can extend any other language where the preprocessor is insufficient (no recursion) or none.
 It is important to select the left character for nonterminal expansion control, which must not collide with the input source code character.
-However the character collision is easy to solve by regex.
+However the character collision is easily solved by a regex.
 ]])
 
 PRE(, LANG([M4 jako preprocesor – obecně], [M4 as preprocessor – in general]), [
@@ -711,7 +713,7 @@ Konfliktní znak CODE([LQ()]) ze vstupního zdrojového kódu je skryt do makra,
 Prázdný pár řídících znaků CODE_M4([`']) před makrem slouží jako HYLN([oddělovač symbolů], [symbols_in_brackets]).
 ],
 [dnl english: _next_language_
-M4 in preprocessor mode can be part of a[]NB()pipeline.
+M4 in the preprocessor mode can be a part of a[]NB()pipeline.
 The conflicting character CODE([LQ()]) from the input source code is hidden into a[]NB()macro, for example CODE_M4([`'LQ()]).
 An empty pair of control characters CODE_M4([`']) before the macro serves as a[]NB()HYLN([symbol separator], [symbols_in_brackets]).
 ]])
@@ -742,7 +744,7 @@ Tyto znaky nemohou kolidovat s[]NB()tisknutelnými znaky zdrojového kódu.
 ],
 [dnl english: _next_language_
 Non printable characters BO([CODE([␂])]) (SAMP([0x02])) and BO([CODE([␆])]) (SAMP([0x06])) can be used to control the expansion of nonterminals.
-These characters can not interfere with printable source code characters.
+These characters cannot interfere with printable source code characters.
 ]])
 
 PRE(, defn([dirty_hack])[: ␂␆], [
@@ -768,7 +770,7 @@ Data nejsou oddělena od transformačních pravidel.
 Listový soubor CODE([leaf.m4]) obsahuje definice těchto pravidel spolu se vstupními daty.
 ],
 [dnl english: _next_language_
-Mixed mode is a[]NB()combination of the previous modes and is mainly used for experiments.
+The mixed mode is a[]NB()combination of the previous modes and is mainly used for experiments.
 The data is not separated from the rules for its transformation.
 The leaf file CODE([leaf.m4]) contains transformation rule definitions along with input data.
 ]])
@@ -797,8 +799,8 @@ Každý řetězec je buď terminální nebo neterminální symbol včetně všec
 [dnl english: _next_language_
 To successfully master this macro language it is important to fulfill several prerequisites.
 M4 is not a[]NB()simple language because it is not possible to think and program in it like an ordinary programming language.
-The most important thing to realize is that it is used to program grammar rewriting rules.
-Each string is either a[]NB()terminal or a[]NB()nonterminal symbol, including all language keywords (symbols CODE_M4([#]) and CODE_M4([,]) are special cases of nonterminals).
+The most important thing to realize is that it is used to program the grammar rules for rewriting.
+Each string is either a[]NB()terminal or a[]NB()nonterminal symbol, including all language keywords (the symbols CODE_M4([#]) and CODE_M4([,]) are special cases of nonterminals).
 ]])
 
 TIP_BOX_WRAP([
@@ -843,8 +845,9 @@ PARA([[dnl czech
 Základem všech gramatik jsou přepisovací pravidla, jejichž podobu obecně popisuje:
 ],
 [dnl english: _next_language_
-All grammars are based on rewriting rules, which form generally describes:
+All grammars are based on the rules for rewriting and their forms are generally described:
 ]])
+All grammars are based on rewriting rules, which form generally describes:
 
 
 HEADING([formal_grammar_chomsky], [dnl czech
@@ -871,10 +874,9 @@ Jak již bylo dříve zmíněno, přepisovací pravidla CFG pracují stejně jak
 Některý z[]NB()následujících dílů seriálu se podrobněji zaměří na formální gramatiky.
 ],
 [dnl english: _next_language_
-AH([Formal grammar], [Wikipedia], [https://en.wikipedia.org/wiki/Formal_grammar]) describes AH([subsets], [Wikipedia – Chomsky hierarchy], [https://en.wikipedia.org/wiki/Chomsky_hierarchy]) of AH([formal language], [Wikipedia], [https://en.wikipedia.org/wiki/Formal_language]) rewriting rules.
-One of the subsets is named AH([context-free grammar], [Wikipedia], [https://en.wikipedia.org/wiki/Context-free_grammar]), shortly ABBR([CFG], [Context-Free Grammar]).
-As mentioned earlier, the CFG rewriting rules work the same as M4 rewriting rules.
-Some of the following episodes of this series will focuses in more detail on formal grammars.
+The AH([Formal grammar], [Wikipedia], [https://en.wikipedia.org/wiki/Formal_grammar]) describes the AH([subsets], [Wikipedia – Chomsky hierarchy], [https://en.wikipedia.org/wiki/Chomsky_hierarchy]) of the AH([formal language], [Wikipedia], [https://en.wikipedia.org/wiki/Formal_language]) rewriting rules and one of the subsets is called AH([context-free grammar], [Wikipedia], [https://en.wikipedia.org/wiki/Context-free_grammar]), shortly ABBR([CFG], [Context-Free Grammar]).
+As mentioned earlier, the CFG rewriting rules work the same as the M4 rewriting rules.
+Some of the following episodes of this series will focus on formal grammar in detail.
 ]])
 
 
@@ -903,8 +905,8 @@ Pořadí vstupních symbolů nebo jejich kontext lze otestovat automatem.
 Splňují-li vstupní symboly požadované vlastnosti, automat skončí v[]NB()uzlu s[]NB()dvojitým kroužkem, kterým se označuje akceptující stav.
 ],
 [dnl english: _next_language_
-Order of input symbols or their context can be tested by the automaton.
-If the input symbols meet the required properties, the automaton ends up in[]NB()the[]NB()double-ring node which indicates the accepting state.
+The order of input symbols or their context can be tested by an automaton.
+If the input symbols meet the required properties, the automaton ends up in[]NB()a[]NB()double-ring node which indicates the accepting state.
 ]])
 
 IMG([dfa_img],dnl id
@@ -926,7 +928,7 @@ PARA([[dnl czech
 Předchozí automat lze zapsat jako ASCII art doprovázející M4 skript:
 ],
 [dnl english: _next_language_
-Previous automaton can be written as an ASCII art accompanying the M4 script:
+The previous automaton can be written as an ASCII art accompanying the M4 script:
 ]])
 
 PRE(, [ASCII-art ]LANG([jako dokumentace M4 kódu], [for M4 code documentation]), [
@@ -1069,7 +1071,7 @@ Podrobněji budou vysvětleny později.
 ],
 [dnl english: _next_language_
 The examples in this annex are more complex and are intended to demonstrate the practical use of M4.
-They will be explained in more detail later.
+They will be explained in detail later.
 ]])
 
 
