@@ -1,4 +1,5 @@
 # Generating code in M4
+![m4tux](img/m4tux.png?raw=true)
 1. install packages
 ```
 # dnf -y install make m4 pinfo
