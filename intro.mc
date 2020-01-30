@@ -1,4 +1,5 @@
-# 2019/12/03 Josef Kubin
+__HEADER([Josef Kubin], [2019/12/03], [m4root])
+___DESCR([the introductory part])
 
 VERSION(0, 0, 0)
 
@@ -1527,11 +1528,11 @@ Apostrof uvnitř makra CODE([ORD[]DEL([SPAN([()],,, [color:rgba(0,0,0,.75)])],,,
 Všimněte si jmen funkcí CODE_M4([define ()]) nebo CODE_M4([ifelse ()]) a[]NB()kde je expandován CODE([SYMBOL]).
 ],
 [dnl english: _next_language_
-The AH([CPP], [C preprocessor], [https://en.wikipedia.org/wiki/C_preprocessor]) directives are a[]NB()one-line comment for M4, preventing unwanted expansion of the same named macros.
-If we define a[]NB()safer CODE([SAF()]) macro, the same named CODE([SAF ()]) macro will not be overwritten.
+The AH([CPP], [C preprocessor], [https://en.wikipedia.org/wiki/C_preprocessor]) directives are a[]NB()one-line comment for M4 preventing unwanted expansion of the same named macros.
+If we define a[]NB()safer CODE([SAF()]) macro, the similar CODE([SAF ()]) macro will not be overwritten.
 Thus, the ABBR([CPP], [C preprocessor]) namespace BO([can be]) completely separated from the M4 namespace.
-The problematic character CODE([LQ()]) is hidden in the CODE_M4([LQ()]) macro.
-Apostrophe CODE([']) does not matter in the source code.
+The problematic character (backquote) CODE([LQ()]) is hidden in the CODE_M4([LQ()]) macro.
+The apostrophe CODE([']) does not matter in the source code.
 Apostrophe inside CODE([ORD[]DEL([SPAN([()],,, [color:rgba(0,0,0,.75)])],,, [color:red])]) macro is hidden in CODE_M4([RQ()]) macro.
 Note the CODE_M4([define ()]) or CODE_M4([ifelse ()]) function names and where the CODE_M4([SYMBOL]) is expanded.
 ]])
@@ -1552,7 +1553,7 @@ Komentáře se vypínají stejným klíčovým slovem CODE_M4([changecom]) bez p
 ],
 [dnl english: _next_language_
 CSS uses the CODE_M4([#]) character for color codes, which is also the beginning of a[]NB()one-line M4 comment.
-The CODE_M4([changecom(/*,*/)]) keyword sets a[]NB()multiline CODE([/* … */]) comment and rewrites into ABBR([CODE([ε])], [epsilon – empty symbol]).
+The CODE_M4([changecom(/*,*/)]) keyword sets a[]NB()multiline CODE([/* … */]) comment and rewrites itself into ABBR([CODE([ε])], [epsilon – empty symbol]).
 The comments can be turned off with the same CODE_M4([changecom]) keyword without parameters.
 ]])
 
@@ -1566,12 +1567,12 @@ dnl english: _next_language_
 ])
 
 PARA([[dnl czech
-Bash používá oba znaky CODE([LQ()]) CODE([LB()]).
+Bash používá oba znaky, CODE([LQ()]) a CODE([LB()]).
 Nechceme-li je skrývat do makra CODE_M4([LQ()]) nebo CODE_M4([LB()]), můžeme použít pro HYLN([řízení expanze neterminálů], [expansion_control]) netisknutelné znaky, viz. příklad:
 ],
 [dnl english: _next_language_
-Bash uses both characters CODE([LQ()]) CODE([LB()]).
-If we do not want to hide them in an CODE_M4([LQ()]) or CODE_M4([LB()]) macro, we can use nonprintable characters for HYLN([expansion control], [expansion_control]) see example:
+Bash uses both CODE([LQ()]) and CODE([LB()]) characters.
+If we do not want to hide them either in an CODE_M4([LQ()]) or CODE_M4([LB()]) macro, we can use nonprintable characters for HYLN([expansion control], [expansion_control]), see the example:
 ]])
 
 INSERT_FILES_PREPROC([n], [file.sh])
@@ -1635,8 +1636,8 @@ Vypnou také původní význam čárky CODE_M4([[,]]) jako oddělovače argument
 Tyto symboly se stanou obyčejnými terminálními symboly bez jakéhokoliv vedlejšího efektu.
 ],
 [dnl english: _next_language_
-The empty pair CODE_M4([[]]) (or empty symbol in brackets CODE_M4([[ε]])) serves as a[]NB()symbol separator.
-Brackets around the comment character CODE_M4([[#]]) turn off its original meaning as well as turn off the meaning of the EM([more powerful]) M4 comment CODE_M4([[dnl]]).
+The empty pair CODE_M4([[]]) (or the empty symbol in brackets CODE_M4([[ε]])) serves as a[]NB()symbol separator.
+Brackets around the comment character CODE_M4([[#]]) turn off its original meaning as well as the meaning of the EM([more powerful]) M4 comment CODE_M4([[dnl]]).
 They also turn off the original meaning of the comma CODE_M4([[,]]) as a[]NB()macro argument delimiter.
 These symbols become ordinary terminal symbols without any side effect.
 ]])
@@ -1655,7 +1656,7 @@ Univerzální výstraha CODE_M4([DONTE]) se ignoruje bez závorek, stejně jako 
 Taková makra explicitně vytváří vývojář skriptů, prohlédněte si kořenový soubor.
 ],
 [dnl english: _next_language_
-The universal alert CODE_M4([DONTE]) is ignored without parentheses, like CODE_M4([LB]), CODE_M4([RB]), …
+The universal alert CODE_M4([DONTE]) is ignored without parentheses, such as for example CODE_M4([LB]) or CODE_M4([RB]).
 Such macros are explicitly created by a[]NB()script developer, see the root file.
 ]])
 
@@ -1667,7 +1668,7 @@ pushdef([ANNEX_APPEND_CODE])# temporarily disable TIP_BOX in annex because no ex
 ANNEX([questions_and_answers], [dnl czech
 [Proč používat M4 a[]NB()proč ne?],
 dnl english: _next_language_
-[Why using M4 and why not?],
+[Why to use M4 and why not?],
 ])
 popdef([ANNEX_APPEND_CODE])# re-enable TIP_BOX
 
@@ -1675,7 +1676,7 @@ popdef([ANNEX_APPEND_CODE])# re-enable TIP_BOX
 SUB_ANNEX([why_to_use_m4], [dnl czech
 [CODE([👍]) Proč generovat kód v[]NB()M4],
 dnl english: _next_language_
-[CODE([👍]) Why generate code in M4],
+[CODE([👍]) Why to generate code in M4],
 ])
 
 UNORDERED_LIST_WRAP([
@@ -1686,7 +1687,7 @@ UL([LI([pro transformaci dat stačí napsat minimum M4 kódu])])
 ],
 [dnl english: _next_language_
 direct use of HYLN([context-free grammar], [context_free_grammar]) (recursion for free)
-UL([LI([a[]NB()minimum M4 code is required for data transformation])])
+UL([LI([minimum M4 code is required for data transformation])])
 ]])
 
 LIST_ITEM([[dnl czech
@@ -1704,7 +1705,7 @@ UL([LI([zásobníky propojené s[]NB()automaty rozšiřují možnosti generátor
 ],
 [dnl english: _next_language_
 direct use of stacks
-UL([LI([stacks connected to automata extend the capabilities of the code generator])])
+UL([LI([stacks connected to automata extend capabilities of code generator])])
 ]])
 
 LIST_ITEM([[dnl czech
@@ -1712,8 +1713,8 @@ přímé použití výstupních front pro dočasné uložení výsledných čás
 UL([LI([jednotlivé fronty jsou na závěr vypsány na výstup ve vzestupném pořadí])])
 ],
 [dnl english: _next_language_
-direct use of output queues to temporarily store the resulting pieces of code
-UL([LI([the individual queues are finally dumped to output in ascending order])])
+direct use of output queues to temporarily store resulting pieces of code
+UL([LI([individual queues are finally dumped to output in ascending order])])
 ]])
 
 LIST_ITEM([[dnl czech
@@ -1731,19 +1732,19 @@ UL([LI([low demands on computing resources])])
 SUB_ANNEX([why_not_use], [dnl czech
 [CODE([👎]) Proč se vyhnout M4],
 dnl english: _next_language_
-[CODE([👎]) Why avoid M4],
+[CODE([👎]) Why to avoid M4],
 ])
 
 UNORDERED_LIST_WRAP([
 
 LIST_ITEM([low_level_language], [[dnl czech
 univerzální jazyk nízké úrovně (podobně jako jazyk C)
-UL([LI([nemůže konkurovat úzce specializovaným jazykům (například XSLT)])])
+UL([LI([nemůže konkurovat úzce specializovaným jazykům, například XSLT])])
 ],
 [dnl english: _next_language_
-low-level universal language (similarly as C language)
+low-level universal language (similar to C language)
 UL([
-LI([can not compete with narrowly specialized languages (for example XSLT)])
+LI([cannot compete with narrowly specialized languages, for example XSLT])
 ])
 ]])
 
@@ -1754,8 +1755,8 @@ neexistující komunita vývojářů (podzim 2019)
 UL([LI([M4 je zapomenutý jazyk, málo existujících projektů])])
 ],
 [dnl english: _next_language_
-non-existent developer community (Autumn 2019)
-UL([LI([M4 is a[]NB()forgotten language, small amount of existing projects])])
+nonexistent developer community (as of Autumn 2019)
+UL([LI([M4 is forgotten language with small number of existing projects])])
 ]])
 
 LIST_ITEM([unusual_language], [[dnl czech
@@ -1763,8 +1764,8 @@ neobvyklé programovací paradigma vyžadující splnění HYLN([několika před
 UL([LI([M4 je proto těžký jazyk])])
 ],
 [dnl english: _next_language_
-an unusual programming paradigm requiring HYLN([several prerequisites], [prerequisites_for_mastering])
-UL([LI([M4 is therefore a[]NB()hard language])])
+unusual programming paradigm requiring HYLN([several prerequisites], [prerequisites_for_mastering])
+UL([LI([M4 is therefore demanding language])])
 ]])
 
 LIST_ITEM([experience_dependent], [[dnl czech
@@ -1772,8 +1773,8 @@ produktivita značně závisí na zkušenostech (možný problém s[]NB()termín
 UL([LI([schopnost myslet v[]NB()M4 je nutnost])])
 ],
 [dnl english: _next_language_
-productivity greatly depends on experience (possible problem with deadlines)
-UL([LI([the ability to think in M4 is an essential necessity])])
+productivity greatly depends on experience (problem with short-term deadlines)
+UL([LI([ability to think in M4 is essential necessity])])
 ]])
 
 LIST_ITEM([hard_maintenance], [[dnl czech
@@ -1781,8 +1782,8 @@ LIST_ITEM([hard_maintenance], [[dnl czech
 UL([LI([existující M4 kód je snadné proměnit ve zmatek])])
 ],
 [dnl english: _next_language_
-maintaining a[]NB()badly written M4 code is difficult
-UL([LI([existing M4 code is easy to turn into confusion])])
+maintaining badly written M4 code is difficult
+UL([LI([existing M4 code is easily thrown into confusion])])
 ]])
 
 ])dnl UNORDERED_LIST_WRAP
