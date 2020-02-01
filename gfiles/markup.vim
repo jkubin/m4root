@@ -52,6 +52,7 @@ iabbrev <buffer> <unique> gt []GT()<c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> hew HEADER_WRAP([<cr><cr><cr><cr>])dnl HEADER_WRAP<up><up><c-r>=Eatchar('.')<cr>
 "iabbrev <buffer> <unique> hh H1([])<left><left><c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> hh HEADING([dnl czech<cr>[],<cr>dnl english: _next_language_<cr><c-u>[%%%],<cr>])<left><c-o>%<c-o>0<down><right><c-r>=Eatchar('.')<cr>
+iabbrev <buffer> <unique> hea HEADING([dnl czech<cr>[],<cr>dnl english: _next_language_<cr><c-u>[%%%],<cr>])<left><c-o>%<c-o>0<down><right><c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> hm HEADING_MONO([dnl monolingual<cr>[],<cr>])<up><right><c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> hr HORIZONTAL_RULE()<c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> hy HYLN([<c-r>"], [])<c-o>T[<c-r>=Eatchar('.')<cr>

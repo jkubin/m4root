@@ -3,7 +3,7 @@ if exists("b:usr_ftplugin_hello")
 endif
 let b:usr_ftplugin_hello = 1
 
-iabbrev <buffer> <unique> sy SYSCALL([], [%%%])<c-o>T(<right><c-r>=Eatchar('.')<cr>
+iabbrev <buffer> <unique> syc SYSCALL([], [%%%])<c-o>T(<right><c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> gl GLOBAL_LABEL([])<c-o>T(<right><c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> int INT([])<c-o>T(<right><c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> mv MOV([], [%%%])<c-o>T(<right><c-r>=Eatchar('.')<cr>
