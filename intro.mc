@@ -574,7 +574,7 @@ HYLN([Výstupní fronty], [output_queues_html]) jsou ukázány v[]NB()příloze.
 ],
 [dnl english: _next_language_
 The output queues temporarily store the portions of the resulting code.
-These parts are formed using the gramar rules for rewriting which subsequently rewrite input symbols.
+These parts are formed using the grammar rules for rewriting which subsequently rewrite input symbols.
 The CODE_M4([divert(ℤ)]) keyword sets the output queue.
 Finally, all non-empty queues are dumped in ascending order to the standard output and compose the final code.
 The examples of the HYLN([output queues], [output_queues_html]) are in the annex.
@@ -1531,7 +1531,7 @@ Všimněte si jmen funkcí CODE_M4([define ()]) nebo CODE_M4([ifelse ()]) a[]NB(
 The AH([CPP], [C preprocessor], [https://en.wikipedia.org/wiki/C_preprocessor]) directives are a[]NB()one-line comment for M4 preventing unwanted expansion of the same named macros.
 If we define a[]NB()safer CODE([SAF()]) macro, the similar CODE([SAF ()]) macro will not be overwritten.
 Thus, the ABBR([CPP], [C preprocessor]) namespace BO([can be]) completely separated from the M4 namespace.
-The problematic character (backquote) CODE([LQ()]) is hidden in the CODE_M4([LQ()]) macro.
+The problematic (backquote) character CODE([LQ()]) is hidden in the CODE_M4([LQ()]) macro.
 The apostrophe CODE([']) does not matter in the source code.
 Apostrophe inside CODE([ORD[]DEL([SPAN([()],,, [color:rgba(0,0,0,.75)])],,, [color:red])]) macro is hidden in CODE_M4([RQ()]) macro.
 Note the CODE_M4([define ()]) or CODE_M4([ifelse ()]) function names and where the CODE_M4([SYMBOL]) is expanded.
