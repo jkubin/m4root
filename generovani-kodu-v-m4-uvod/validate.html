@@ -1391,7 +1391,7 @@ div {
 /* DONTE() */
 /* DO NOT EDIT! This file is generated automatically! */</pre>
 <h3 id="m4-bash-netisknutelne-znaky"><a href="#m4-bash-netisknutelne-znaky" title="⚓">B.3</a>&nbsp;&nbsp;<strong><code>␂␆</code></strong> Bash – netisknutelné znaky&nbsp;<a href="#m4-toc-bash-netisknutelne-znaky" title="Obsah" class="m4-toc">☰</a></h3>
-<p>Bash používá oba znaky <code>`</code> <code>[</code>.
+<p>Bash používá oba znaky, <code>`</code> a <code>[</code>.
 Nechceme-li je skrývat do makra <code>LQ()</code> nebo <code>LB()</code>, můžeme použít pro <a href="#m4-rizeni-expanze-neterminalu" title="Řízení expanze neterminálů">řízení expanze neterminálů</a> netisknutelné znaky, viz. příklad:</p>
 <pre title="file.sh.m4"># vim:mps+=<strong>␂</strong>\:<strong>␆</strong>
 
@@ -1584,7 +1584,7 @@ BEGIN { print "DONTE() LB () [ Hello, world! ]" }</pre>
 <h3 id="m4-proc-se-vyhnout-m4"><a href="#m4-proc-se-vyhnout-m4" title="⚓">D.2</a>&nbsp;&nbsp;<code>👎</code> Proč se vyhnout M4&nbsp;<a href="#m4-toc-proc-se-vyhnout-m4" title="Obsah" class="m4-toc">☰</a></h3>
 <ul>
 <li id="m4-low-level-language">univerzální jazyk nízké úrovně (podobně jako jazyk C)
-<ul><li>nemůže konkurovat úzce specializovaným jazykům (například XSLT)</li></ul></li>
+<ul><li>nemůže konkurovat úzce specializovaným jazykům, například XSLT</li></ul></li>
 <li id="m4-forgotten-language">neexistující komunita vývojářů (podzim 2019)
 <ul><li>M4 je zapomenutý jazyk, málo existujících projektů</li></ul></li>
 <li id="m4-unusual-language">neobvyklé programovací paradigma vyžadující splnění <a href="#m4-predpoklady-pro-zvladnuti-m4" title="Předpoklady pro zvládnutí M4">několika předpokladů</a>
