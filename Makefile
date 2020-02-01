@@ -10,7 +10,7 @@
 
 
 SOURCE     = $(wildcard *.mc)
-DOC_FILE   = lightweight_documentation_for_source_files.txt
+DOC_FILE   = brief_documentation_for_source_files.txt
 DEBUG_FILE = debug.m4
 ORDER_FILE = order.m4
 VPATH      = gfiles
@@ -74,7 +74,7 @@ test t: debug dev
 devel dev: rootb.m4
 	m4 $< test.m4
 
-#:doc	extracts headers from source files and creates very lightweight documentation for a basic source file overview
+#:doc	extracts headers from the source files and creates a brief documentation for a basic source file overview
 .PHONY: doc
 doc: $(DOC_FILE)
 
