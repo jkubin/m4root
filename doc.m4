@@ -2,8 +2,8 @@ dnl vim:ts=32:sw=32
 divert(-1)changequote([,])
 
 __HEADER([Josef Kubin], [2020/01/20], [m4root])
-___DESCR([extracts headers from source files and creates very lightweight documentation for a basic source file overview])
-___POINT([very lightweight documentation is a solution for cryptic short filenames])
+___DESCR([extracts headers from source files and creates brief documentation])
+___POINT([brief documentation is a solution for cryptic short filenames])
 ___USAGE([m4 doc.m4 …])
 
 # strings for documentation
