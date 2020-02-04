@@ -10,7 +10,7 @@
 
 
 SOURCE     = $(wildcard *.mc)
-DOC_FILE   = brief_documentation_for_source_files.txt
+DOC_FILE   = brief_documentation.txt
 DEBUG_FILE = debug.m4
 ORDER_FILE = order.m4
 VPATH      = gfiles

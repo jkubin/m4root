@@ -55,7 +55,7 @@ define([doc_dnl], defn([dnl]))
 # comment out this paragraph if you do not like it
 divert(0)dnl
 [#] vim:wrap:spell:spelllang=en
-This is very lightweight generated documentation for all handwritten source files and generated files.
+This is a generated brief documentation from all source files.
 It also shows the possibilities of the M4.
 divert(-1)
 
