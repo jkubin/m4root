@@ -427,6 +427,7 @@ divert(-1)
 ])
 
 # A → β
+# β
 define([PROGRAMLISTING], [
 
 	# convert '<' and '>' to html entities
@@ -434,6 +435,9 @@ define([PROGRAMLISTING], [
 <pre[]]defn([HTML_GLOBAL_ATTRIBUTES])[>patsubst(patsubst(BRAC(]defn([SELECT_LAST])[), [<], [&lt;]), [>], [&gt;])</pre>
 divert(-1)
 ])
+
+# A → β
+define([COMMAND], defn([PROGRAMLISTING]))
 
 #      _____      __________
 # --->/ REF \--->/ REF_NEXT \---.

@@ -30,6 +30,7 @@ iabbrev <buffer> <unique> cit CITE([<c-r>"])<esc>
 iabbrev <buffer> <unique> cm CODE_M4([<c-r>"])<esc>
 iabbrev <buffer> <unique> cmm CMD()<c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> com COMMENT_MONO([[dnl monolingual<cr><cr>]])<up><c-r>=Eatchar('.')<cr>
+iabbrev <buffer> <unique> comm COMMAND([<cr><cr>])dnl COMMAND<up><c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> cp CSS_PARENT([], [], [<cr>%%%<cr>])<left><c-o>%<right><right><c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> del DEL([<c-r>"])<esc>
 iabbrev <buffer> <unique> dew DETAILS_WRAP([<cr><cr><cr><cr>])dnl DETAILS_WRAP<up><up><c-r>=Eatchar('.')<cr>
