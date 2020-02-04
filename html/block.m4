@@ -236,16 +236,16 @@ divert(-1)
 ])
 
 # a hyperlink to a paragraph, code, headline, …, even into other html page in different language
-# HYLN([hyperlink], [INTERNAL_ID])
-# HYLN([hyperlink], [EXTERNAL_ID], src.mc)
-# HYLN([hyperlink to another language], [EXTERNAL_ID], source.mc, en)
+# LINK([hyperlink], [INTERNAL_ID])
+# LINK([hyperlink], [EXTERNAL_ID], src.mc)
+# LINK([hyperlink to another language], [EXTERNAL_ID], source.mc, en)
 #
 # both IDs must be the same
-# HYLN([INTERNAL_ID], [INTERNAL_ID])
-# HYLN([EXTERNAL_ID], [EXTERNAL_ID], source.mc)
-# HYLN([EXTERNAL_ID], [EXTERNAL_ID], source.mc, en)
+# LINK([INTERNAL_ID], [INTERNAL_ID])
+# LINK([EXTERNAL_ID], [EXTERNAL_ID], source.mc)
+# LINK([EXTERNAL_ID], [EXTERNAL_ID], source.mc, en)
 # A → β
-define([HYLN], [pushdef([CURRQU], divnum)divert(-1)
+define([LINK], [pushdef([CURRQU], divnum)divert(-1)
 
 	# the more arguments the more link capabilities
 	ifelse(
@@ -307,7 +307,7 @@ define([HYLN], [pushdef([CURRQU], divnum)divert(-1)
 
 	ifelse(defn([CAPT]), [], [
 
-			# CAPT in refs not found, use the first HYLN argument
+			# CAPT in refs not found, use the first LINK argument
 			define([CAPT], [$1])
 		],
 		[$1], [$2], [], [
@@ -344,11 +344,11 @@ pushdef([FIND_IMG_DIM], [
 define([COUNTER_FOR_IMAGES], defn([COUNT_UP]))
 COUNTER_FOR_IMAGES(1)
 
-# IMG(,,,,, [img.png, http://root.cz/img.png], [[czech], [english]])
-# IMG([ID], [title],,,, [img.png, http://root.cz/img.png], [[czech], [english]])
-# IMG([ID], [title], [class], [style], [anything], [img.png, http://root.cz/img.png], [[czech], [english]])
+# IMAGEDATA(,,,,, [img.png, http://root.cz/img.png], [[czech], [english]])
+# IMAGEDATA([ID], [title],,,, [img.png, http://root.cz/img.png], [[czech], [english]])
+# IMAGEDATA([ID], [title], [class], [style], [anything], [img.png, http://root.cz/img.png], [[czech], [english]])
 # A → β
-define([IMG], [
+define([IMAGEDATA], [
 
 	# Fixed number of arguments!
 	ifelse([$#], [7], [], [
@@ -427,7 +427,7 @@ divert(-1)
 ])
 
 # A → β
-define([PRE], [
+define([PROGRAMLISTING], [
 
 	# convert '<' and '>' to html entities
 	divert(CURRQU)dnl
@@ -566,18 +566,20 @@ define([HORIZONTAL_RULE],		defn([HTML_UNPAIRED_TAG]))
 define([##HORIZONTAL_RULE>],		[hr])
 define([INPUT],				defn([HTML_UNPAIRED_TAG]))
 define([##INPUT>],			[input])
-define([LIST_ITEM],			defn([HTML_MULTILINGUAL]))
-define([##LIST_ITEM>],			[li])
-define([LIST_ITEM_MONO],		defn([HTML_MONOLINGUAL]))
-define([##LIST_ITEM_MONO>],		[li])
+define([ITEMIZEDLIST_WRAP],		defn([DIV_WRAP]))
+define([##ITEMIZEDLIST_WRAP>],		[ul])
+define([LISTITEM],			defn([HTML_MULTILINGUAL]))
+define([##LISTITEM>],			[li])
+define([LISTITEM_MONO],			defn([HTML_MONOLINGUAL]))
+define([##LISTITEM_MONO>],		[li])
 define([MAIN_WRAP],			defn([DIV_WRAP]))
 define([##MAIN_WRAP>],			[main])
 define([NAV],				defn([HTML_MULTILINGUAL]))
 define([NAV_MONO],			defn([HTML_MONOLINGUAL]))
 define([##NAV_MONO>],			[nav])
 define([##NAV>],			[nav])
-define([ORDERED_LIST_WRAP],		defn([DIV_WRAP]))
-define([##ORDERED_LIST_WRAP>],		[ol])
+define([ORDEREDLIST_WRAP],		defn([DIV_WRAP]))
+define([##ORDEREDLIST_WRAP>],		[ol])
 define([PARA],				defn([HTML_MULTILINGUAL]))
 define([PARA_MONO],			defn([HTML_MONOLINGUAL]))
 define([##PARA_MONO>],			[p])
@@ -614,8 +616,6 @@ define([TFOOT_WRAP],			defn([DIV_WRAP]))
 define([##TFOOT_WRAP>],			[tfoot])
 define([THEAD_WRAP],			defn([DIV_WRAP]))
 define([##THEAD_WRAP>],			[thead])
-define([UNORDERED_LIST_WRAP],		defn([DIV_WRAP]))
-define([##UNORDERED_LIST_WRAP>],	[ul])
 
 # forget local β rules (good for frozen files)
 popdef(

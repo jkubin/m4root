@@ -46,13 +46,13 @@ PARA([what_is_the_series_about], [[dnl czech
 Seriál je zaměřen na praktické použití BO([univerzálního makro procesoru M4]) (dále jen M4) pomocí malých příkladů.
 Popisuje také teoretický základ všech implementací.
 Cílem seriálu je seznámit čtenáře s[]NB()tímto SPAN([nástrojem], [m4 – je program příkazové řádky], [dot]) a[]NB()také programovacím SPAN([jazykem], [M4 – je programovací jazyk], [dot]).[]BR()
-HYLN([Na co se používá], [main_uses_of_m4]), jak se v[]NB()něm programuje a[]NB()jaké jsou jeho HYLN([výhody], [why_to_use_m4]) a[]NB()HYLN([nevýhody], [why_not_use]).
+LINK([Na co se používá], [main_uses_of_m4]), jak se v[]NB()něm programuje a[]NB()jaké jsou jeho LINK([výhody], [why_to_use_m4]) a[]NB()LINK([nevýhody], [why_not_use]).
 ],
 [dnl english: _next_language_
 The series focus on the practical use of the BO([universal macro processor M4]) (hereafter M4) using small examples.
 It also describes the theoretical part of all its implementations.
 The aim of the series is to acquaint the reader with this SPAN([tool], [m4 – is a command line program], [dot]) and also the programming SPAN([language], [M4 – is a programming language], [dot]).
-HYLN([What is it used for], [main_uses_of_m4]), how to program in it and its HYLN([advantages], [why_to_use_m4]) and HYLN([disadvantages], [why_not_use]).
+LINK([What is it used for], [main_uses_of_m4]), how to program in it and its LINK([advantages], [why_to_use_m4]) and LINK([disadvantages], [why_not_use]).
 ]])
 
 # same tip box for each part
@@ -60,17 +60,17 @@ the_series_is_generated()
 
 PARA([[dnl czech
 Úvodní díl popisuje základní principy jazyka na jednoduchých příkladech.
-Všechny příklady používají přepisovací pravidla HYLN([bezkontextové gramatiky], [context_free_grammar]).
-Později se naučíme používat HYLN([výstupní fronty], [output_queues]),
-HYLN([automaty], [automata_descr]), asociativní paměti, zásobníky a[]NB()zásobníkové automaty.
-Naučíme se také psát HYLN([testovací automaty], [testing_automaton]) pro testování vstupních dat.
+Všechny příklady používají přepisovací pravidla LINK([bezkontextové gramatiky], [context_free_grammar]).
+Později se naučíme používat LINK([výstupní fronty], [output_queues]),
+LINK([automaty], [automata_descr]), asociativní paměti, zásobníky a[]NB()zásobníkové automaty.
+Naučíme se také psát LINK([testovací automaty], [testing_automaton]) pro testování vstupních dat.
 ],
 [dnl english: _next_language_
 The introductory part describes the basic principles of the language with simple examples of use.
-All examples use rewriting rules of HYLN([context-free grammar], [context_free_grammar]).
-Later we will learn how to use HYLN([output queues], [output_queues]),
-HYLN([automata], [automata_descr]), associative memories, stacks and pushdown automata.
-We will also learn how to write HYLN([testing automata], [testing_automaton]) to test input data.
+All examples use rewriting rules of LINK([context-free grammar], [context_free_grammar]).
+Later we will learn how to use LINK([output queues], [output_queues]),
+LINK([automata], [automata_descr]), associative memories, stacks and pushdown automata.
+We will also learn how to write LINK([testing automata], [testing_automaton]) to test input data.
 ]])
 
 
@@ -91,23 +91,23 @@ At the beginning of each episode, some parts of the M4 language will be describe
 Each part can be read in any order.
 ]])
 
-UNORDERED_LIST_WRAP([
+ITEMIZEDLIST_WRAP([
 
-LIST_ITEM_MONO([[HYLN([code_generation_examples], [code_generation_examples])]])
+LISTITEM_MONO([[LINK([code_generation_examples], [code_generation_examples])]])
 
-LIST_ITEM_MONO([[HYLN([preproc_examples], [preproc_examples])]])
+LISTITEM_MONO([[LINK([preproc_examples], [preproc_examples])]])
 
-LIST_ITEM_MONO([[HYLN([m4_on_examples], [m4_on_examples])]])
+LISTITEM_MONO([[LINK([m4_on_examples], [m4_on_examples])]])
 
-LIST_ITEM_MONO([[HYLN([questions_and_answers], [questions_and_answers])]])
+LISTITEM_MONO([[LINK([questions_and_answers], [questions_and_answers])]])
 
-LIST_ITEM([dnl czech
+LISTITEM([dnl czech
 [AH([http://github.com/jkubin/m4root], defn([SERIES_NAME]), [http://github.com/jkubin/m4root]) – složitější projekt generující HTML5 tohoto seriálu],
 dnl english: _next_language_
 [AH([http://github.com/jkubin/m4root], defn([SERIES_NAME]), [http://github.com/jkubin/m4root]) – a[]NB()project generating HTML5 of this series],
 ])
 
-])dnl UNORDERED_LIST_WRAP
+])dnl ITEMIZEDLIST_WRAP
 
 
 CHAPTER([dnl czech
@@ -190,51 +190,51 @@ PERSON([Dennis Ritchie]) byl také spolutvůrcem operačního systému UNIX a[]N
 PERSON([Dennis Ritchie]) was also a[]NB()co-creator of UNIX and therefore:
 ]])
 
-UNORDERED_LIST_WRAP([
+ITEMIZEDLIST_WRAP([
 
-LIST_ITEM([[dnl czech
+LISTITEM([[dnl czech
 M4 je minimalistický a[]NB()rychlý, AH([dělá jednu věc a[]NB()tu dělá dobře], [Filosofie UNIX-u], [https://cs.wikipedia.org/wiki/Filosofie_Unixu])
 ],
 [dnl english: _next_language_
 M4 is minimalist and fast, AH([it does one thing and it does well], [UNIX philosophy], [https://en.wikipedia.org/wiki/Unix_philosophy])
 ]])
 
-LIST_ITEM([[dnl czech
+LISTITEM([[dnl czech
 výhradně spoléhá na neinteraktivní rozhraní příkazové řádky
 ],
 [dnl english: _next_language_
 it relies solely on the non-interactive command line interface
 ]])
 
-LIST_ITEM([[dnl czech
+LISTITEM([[dnl czech
 parametry a[]NB()závislosti M4 skriptů popisuje CODE([Makefile])
 ],
 [dnl english: _next_language_
 parameters and dependencies of M4 scripts are described by CODE([Makefile])
 ]])
 
-LIST_ITEM([[dnl czech
+LISTITEM([[dnl czech
 znakem CODE_M4([#]) začíná jednořádkový komentář jako v[]NB()UNIX-ovém shell-u
 ],
 [dnl english: _next_language_
 the CODE_M4([#]) character begins with a[]NB()one-line comment like in a[]NB()UNIX shell
 ]])
 
-LIST_ITEM([[dnl czech
+LISTITEM([[dnl czech
 proměnné CODE([$[@]]), CODE([$[*]]), CODE([$[#]]), CODE([$[0]]), CODE([$[1]]), CODE([$[2]]), … mají podobný význam jako v[]NB()shell-u
 ],
 [dnl english: _next_language_
 variables CODE([$[@]]), CODE([$[*]]), CODE([$[#]]), CODE([$[0]]), CODE([$[1]]), CODE([$[2]]), … have similar meanings as in a[]NB()UNIX shell
 ]])
 
-LIST_ITEM([[dnl czech
+LISTITEM([[dnl czech
 oddělovač argumentů je čárka
 ],
 [dnl english: _next_language_
 the argument delimiter is comma
 ]])
 
-])dnl UNORDERED_LIST_WRAP
+])dnl ITEMIZEDLIST_WRAP
 
 ])dnl TIP_BOX_WRAP
 
@@ -245,14 +245,14 @@ Makro procesor M3 rozšířil také PERSON([Jim E. Weythman]), autor programové
 The M3 macro processor was also extended by PERSON([Jim E. Weythman]), the author of program construction, which is used in almost every M4 script:
 ]])
 
-PRE(, LANG([idiomatický kód M4], [idiomatic M4 code]), [[
+PROGRAMLISTING(, LANG([idiomatický kód M4], [idiomatic M4 code]), [[
 divert(-1)
 …
 define(…)
 …
 divert(0)dnl
 …
-]])dnl PRE
+]])dnl PROGRAMLISTING
 
 TIP_BOX([[dnl czech
 Klíčové slovo CODE([[divert](AH([ℤ], [celé číslo], [https://cs.wikipedia.org/wiki/Cel%C3%A9_%C4%8D%C3%ADslo]))], [divert(-1), divert(0), divert(1), …, divert(2147483647)], [dot]) přepíná výstupní fronty.
@@ -288,24 +288,24 @@ The macro processor converts the source code back to FORTRAN, then the compiler 
 TIP_BOX_WRAP([], LANG([jazyk M4 doplňuje jazyk C], [M4 language complements C language]), [
 
 PLAIN_TEXT([[dnl czech
-Všimněte si HYLN([téměř dokonalé symbiózy], [cpp_and_m4]) s[]NB()jazykem C
+Všimněte si LINK([téměř dokonalé symbiózy], [cpp_and_m4]) s[]NB()jazykem C
 ],
 [dnl english: _next_language_
-Note the HYLN([almost perfect symbiosis], [cpp_and_m4]) with the C[]NB()language:
+Note the LINK([almost perfect symbiosis], [cpp_and_m4]) with the C[]NB()language:
 ]])
 
-UNORDERED_LIST_WRAP([
+ITEMIZEDLIST_WRAP([
 
-LIST_ITEM([[dnl czech
+LISTITEM([[dnl czech
 direktivy ABBR([CPP], [Preprocesor jazyka C]) CODE_M4([#define]), CODE_M4([#include]), CODE_M4([#ifdef]), … jsou pro M4 komentáře
 ],
 [dnl english: _next_language_
 ABBR([CPP], [C preprocessor]) directives CODE_M4([#define]), CODE_M4([#include]), CODE_M4([#ifdef]), … are comments for M4
 ]])
-# LI([této vlastnosti využívají HYLN([bezpečnější makra], [safer_macros]) definovaná uživatelem])
-# LI([this feature uses HYLN([safer user-defined macros], [safer_macros])])
+# LI([této vlastnosti využívají LINK([bezpečnější makra], [safer_macros]) definovaná uživatelem])
+# LI([this feature uses LINK([safer user-defined macros], [safer_macros])])
 
-LIST_ITEM([[dnl czech
+LISTITEM([[dnl czech
 klíčová slova oddělená od závorek mezerou, ztrácí svůj původní význam
 UL([
 LI([M4 například ignoruje funkci CODE_M4([void define (char c, int i) {…}])])
@@ -318,7 +318,7 @@ LI([for example, M4 ignores CODE_M4([void define (char c, int i) {…}])])
 ])
 ]])
 
-LIST_ITEM([[dnl czech
+LISTITEM([[dnl czech
 argumenty maker oddělují čárky stejně jako argumenty funkcí jazyka[]NB()C
 UL([
 LI([je-li definováno makro CODE_M4([FUNC(char c, int i)]), jeho proměnné jsou:[]BR()
@@ -335,14 +335,14 @@ CODE([$[#] → 2]), CODE([$[0] → FUNC]), CODE([$[1] → char c]), CODE([$[2] �
 ])dnl UL
 ]])
 
-LIST_ITEM([[dnl czech
-BO([levý]) HYLN([řídící znak], [expansion_control]) CODE([LQ()]) pro neterminály není součástí syntaxe rodiny jazyků[]NB()C
+LISTITEM([[dnl czech
+BO([levý]) LINK([řídící znak], [expansion_control]) CODE([LQ()]) pro neterminály není součástí syntaxe rodiny jazyků[]NB()C
 ],
 [dnl english: _next_language_
-BO([the left]) HYLN([control character], [expansion_control]) CODE([LQ()]) is not a[]NB()part of the C[]NB()family syntax
+BO([the left]) LINK([control character], [expansion_control]) CODE([LQ()]) is not a[]NB()part of the C[]NB()family syntax
 ]])
 
-LIST_ITEM([[dnl czech
+LISTITEM([[dnl czech
 BO([pravý]) řídící znak CODE([']) nevadí, není-li součástí makra
 UL([LI([oba řídící znaky lze skrýt do uživatelsky definovaných maker CODE_M4([LQ()]), CODE_M4([RQ()])])])
 ],
@@ -351,7 +351,7 @@ BO([the right]) control character CODE([']) does not matter if it is not part of
 UL([LI([both control characters can be hidden into user-defined macros CODE_M4([LQ()]), CODE_M4([RQ()])])])
 ]])
 
-LIST_ITEM([[dnl czech
+LISTITEM([[dnl czech
 makra se píší CODE([VELKYMI_PISMENY]), stejně jako AH([neterminální symboly], [Wikipedie], [https://cs.wikipedia.org/wiki/Termin%C3%A1ln%C3%AD_a_netermin%C3%A1ln%C3%AD_symbol])
 UL([LI([tím je vymezen jejich jmenný prostor])])
 ],
@@ -360,7 +360,7 @@ macros are written CODE([IN_UPPERCASE]), just like AH([nonterminal symbols], [Wi
 UL([LI([this delimits their namespace])])
 ]])
 
-])dnl UNORDERED_LIST_WRAP
+])dnl ITEMIZEDLIST_WRAP
 
 ])dnl TIP_BOX_WRAP
 
@@ -373,7 +373,7 @@ The user manual[]REF([The M4 Macro Processor], [Bell Laboratories (1977)], [http
 So it would be fairly unfair to write that the authors of the M4 macro processor (1977) are EM([only]) two people.
 ]])
 
-IMG([the_authors],dnl id
+IMAGEDATA([the_authors],dnl id
 [Christopher Strachey, Dennis Ritchie, Brian Kernighan],dnl title
 [],dnl class
 [],dnl style
@@ -410,9 +410,9 @@ The author of this implementation (1990) is AH([PERSON([René Seindal])], [https
 To install BO([m4], [with small letter „m“], [dot]), type the following command:
 ]])
 
-PRE([install], LANG([příkaz nainstaluje také další důležité balíčky], [the command also installs other important packages]), [
+PROGRAMLISTING([install], LANG([příkaz nainstaluje také další důležité balíčky], [the command also installs other important packages]), [
 ROO() BO([dnf -y install make m4 pinfo])
-])dnl PRE
+])dnl PROGRAMLISTING
 
 PARA([[dnl czech
 Podrobný popis klíčových slov se nachází v[]NB()dokumentaci[]REF([GNU M4 - GNU macro processor], [Free Software Foundation], [https://www.gnu.org/software/m4/manual/]):
@@ -421,11 +421,11 @@ Podrobný popis klíčových slov se nachází v[]NB()dokumentaci[]REF([GNU M4 -
 A[]NB()detailed description of the keywords can be found in the documentation[]REF([GNU M4 - GNU macro processor], [Free Software Foundation], [https://www.gnu.org/software/m4/manual/]):
 ]])
 
-PRE([
+PROGRAMLISTING([
 CMD() BO([pinfo m4])
 CMD() BO([man m4])
 CMD() BO([m4 --help])
-])dnl PRE
+])dnl PROGRAMLISTING
 
 
 CHAPTER([dnl czech
@@ -456,21 +456,21 @@ dnl english: _next_language_
 ])
 
 PARA([[dnl czech
-Bezkontextová gramatika (krátce ABBR([CFG], [Context-Free Grammar – bezkontextová gramatika])) je HYLN([formální gramatika], [formal_grammar_chomsky]), ve které mají všechna přepisovací pravidla tvar CODE([A[]NB()→[]NB()β]).
+Bezkontextová gramatika (krátce ABBR([CFG], [Context-Free Grammar – bezkontextová gramatika])) je LINK([formální gramatika], [formal_grammar_chomsky]), ve které mají všechna přepisovací pravidla tvar CODE([A[]NB()→[]NB()β]).
 Neterminál CODE_M4([A]) se přepíše na libovolně dlouhý řetězec ABBR([CODE([β])], [pravá strana přepisovacího pravidla]) složený z[]NB()terminálů CODE([{Σ}]) nebo neterminálů CODE([{N}]).
 AH([Kleene hvězda], [Wikipedie], [https://en.wikipedia.org/wiki/Kleene_star]) CODE([*]) znamená, že se neterminál CODE_M4([A]) může přepsat na ABBR([CODE([ε])], [epsilon – prázdný symbol]) (přepisovací pravidlo: CODE([A[]NB()→[]NB()ε])).
 ],
 [dnl english: _next_language_
-Context-free grammar (shortly ABBR([CFG], [Context-Free Grammar])) is a[]NB()HYLN([formal grammar], [formal_grammar_chomsky]) in which all rules for rewriting have the CODE([A[]NB()→[]NB()β]) form.
+Context-free grammar (shortly ABBR([CFG], [Context-Free Grammar])) is a[]NB()LINK([formal grammar], [formal_grammar_chomsky]) in which all rules for rewriting have the CODE([A[]NB()→[]NB()β]) form.
 The nonterminal CODE_M4([A]) is rewritten to an arbitrarily long ABBR([CODE([β])], [the right side of the rewriting rule]) string composed of terminals CODE([{Σ}]) or nonterminals CODE([{N}]).
 AH([Kleene star], [Wikipedia], [https://en.wikipedia.org/wiki/Kleene_star]) CODE([*]) means that nonterminal CODE_M4([A]) can be rewritten to ABBR([CODE([ε])], [epsilon – empty symbol]) (rewriting rule: CODE([A[]NB()→[]NB()ε])).
 ]])
 
-PRE(, LANG([přepisovací pravidla bezkontextové gramatiky], [context-free grammar rewriting rules]), [[
+PROGRAMLISTING(, LANG([přepisovací pravidla bezkontextové gramatiky], [context-free grammar rewriting rules]), [[
 P: A → β
    A ∈ N
    β ∈ (N ∪ Σ)*
-]])dnl PRE
+]])dnl PROGRAMLISTING
 
 HEADING([m4_rules], [dnl czech
 [Přepisovací pravidla M4],
@@ -486,14 +486,14 @@ The rules for rewriting are the same for context-free grammar and M4.
 ]])
 The M4 rewriting rules are the same as context-free grammar rewriting rules.
 
-PRE(, LANG([přepisovací pravidla M4], [M4 rewriting rules]), [[
+PROGRAMLISTING(, LANG([přepisovací pravidla M4], [M4 rewriting rules]), [[
 # A → β
 define(`A', `β')
 
 # A → ε
 define(`A')
 define(`A', `')
-]])dnl PRE
+]])dnl PROGRAMLISTING
 
 PARA([[dnl czech
 Všechna klíčová slova M4 jsou neterminály (makra), provedou nějakou akci a[]NB()přepíší se na ABBR([CODE([ε])], [epsilon – prázdný symbol]) nebo jiný symbol.
@@ -506,12 +506,12 @@ All keywords can be renamed or turned off completely.
 This feature is crucial for the preprocessor mode.
 ]])
 
-PRE(, LANG([klíčová slova M4 jsou neterminály], [M4 keywords are nonterminals]), [[
+PROGRAMLISTING(, LANG([klíčová slova M4 jsou neterminály], [M4 keywords are nonterminals]), [[
 divert(ℤ) → ε
 define(`A', `β') → ε
 ifelse(`', `', `yes', `no') → yes
 …
-]])dnl PRE
+]])dnl PROGRAMLISTING
 
 
 HEADING([expansion_control], [dnl czech
@@ -549,13 +549,13 @@ Automaty používají přepisovací pravidla gramatiky jako uzly a[]NB()mění s
 Aktuálně používané přepisovací pravidlo produkuje do výstupní fronty (nebo do několika výstupních front)
 specifický kód, dokud automat nepřejde do jiného uzlu s[]NB()jiným přepisovacím pravidlem.
 Automaty slouží jako QUOTE([přepínače]) pravidel gramatiky.
-Příklady HYLN([generujících automatů], [generating_automaton]) jsou ukázány v[]NB()příloze.
+Příklady LINK([generujících automatů], [generating_automaton]) jsou ukázány v[]NB()příloze.
 ],
 [dnl english: _next_language_
 Automata use the grammar rules for rewriting as nodes and change their states according to input symbols.
 The currently used rule produces a specific code to the output queue (or several output queues) until the automaton moves to another node with a[]NB()different rule.
 Automata serve as QUOTE([switches]) of grammar rules.
-The examples of HYLN([generating automata], [generating_automaton]) are in annex.
+The examples of LINK([generating automata], [generating_automaton]) are in annex.
 ]])
 
 
@@ -570,14 +570,14 @@ Výstupní fronty jsou dočasné úložiště pro části výsledného kódu.
 Tyto části výsledného kódu jsou produkovány přepisovacími pravidly gramatiky, které přepisují vstupní symboly.
 Klíčové slovo CODE_M4([divert(ℤ)]) nastavuje aktuální výstupní frontu.
 Na závěr jsou všechny neprázdné fronty vypsány ve vzestupném pořadí na standardní výstup a[]NB()složí výsledný kód z[]NB()částí kódu.
-HYLN([Výstupní fronty], [output_queues_html]) jsou ukázány v[]NB()příloze.
+LINK([Výstupní fronty], [output_queues_html]) jsou ukázány v[]NB()příloze.
 ],
 [dnl english: _next_language_
 The output queues temporarily store the portions of the resulting code.
 These parts are formed using the grammar rules for rewriting which subsequently rewrite input symbols.
 The CODE_M4([divert(ℤ)]) keyword sets the output queue.
 Finally, all non-empty queues are dumped in ascending order to the standard output and compose the final code.
-The examples of the HYLN([output queues], [output_queues_html]) are in the annex.
+The examples of the LINK([output queues], [output_queues_html]) are in the annex.
 ]])
 These parts of the resulting code are created by rewriting rules of grammar that rewrite input symbols.
 
@@ -616,9 +616,9 @@ M4 transformuje vstupní data ze souborů ABBR([CODE([.mc])], [Macro Configurati
 M4 transforms input data from ABBR([CODE([.mc])], [Macro Configuration]) files to output data with the following command:
 ]])
 
-PRE([files_on_command_line], [← ]LANG([nejobecnější.m4 … nejspeciálnější.m4], [the_most_general.m4 … the_most_special.m4])[ →], [
+PROGRAMLISTING([files_on_command_line], [← ]LANG([nejobecnější.m4 … nejspeciálnější.m4], [the_most_general.m4 … the_most_special.m4])[ →], [
 CMD() BO([m4 root.m4 stem.m4 branch.m4 leaf.m4 input1.mc input2.mc > output.file])
-])dnl PRE
+])dnl PROGRAMLISTING
 
 PARA([[dnl czech
 Během načítání souborů jsou prováděny dvě základní operace:
@@ -627,23 +627,23 @@ Během načítání souborů jsou prováděny dvě základní operace:
 Two basic operations are performed during file loading:
 ]])
 
-ORDERED_LIST_WRAP([
+ORDEREDLIST_WRAP([
 
-LIST_ITEM([[dnl czech
+LISTITEM([[dnl czech
 čtení transformačních pravidel ze souborů s[]NB()příponou CODE([.m4])
 ],
 [dnl english: _next_language_
 the reading transformation rules from files with the CODE([.m4]) extension
 ]])
 
-LIST_ITEM([[dnl czech
+LISTITEM([[dnl czech
 expanze maker uvnitř souborů s[]NB()příponou CODE([.mc])
 ],
 [dnl english: _next_language_
 the expansion of macros inside CODE([.mc]) files
 ]])
 
-])dnl ORDERED_LIST_WRAP
+])dnl ORDEREDLIST_WRAP
 
 PARA([[dnl czech
 Soubory CODE([input1.mc]) a[]NB()CODE([input2.mc]) obsahují BO([vstupní data]) ve specifickém formátu, který umožňuje jejich transformaci na BO([výstupní data]) podle pravidel v[]NB()předchozích CODE([.m4]) souborech.
@@ -661,19 +661,19 @@ Vstupní data mohou také přicházet z[]NB()kolony:
 The input data may also come from the pipeline:
 ]])
 
-PRE(, LANG([vstupní kód → generování zdrojového kódu → soubor], [input code → source code generation → file]), [
+PROGRAMLISTING(, LANG([vstupní kód → generování zdrojového kódu → soubor], [input code → source code generation → file]), [
 CMD() BO([cat input.mc | m4 root.m4 stem.m4 branch.m4 leaf.m4 - > output.file])
-])dnl PRE
+])dnl PROGRAMLISTING
 
-PRE(, LANG([vstupní kód → generování zdrojového kódu → program], [input code → source code generation → program]), [
+PROGRAMLISTING(, LANG([vstupní kód → generování zdrojového kódu → program], [input code → source code generation → program]), [
 CMD() BO([cat input.mc | m4 root.m4 stem.m4 branch.m4 leaf.m4 - | gcc -x c -o progr -])
-])dnl PRE
+])dnl PROGRAMLISTING
 
 PARA([[dnl czech
-define([try_it_yourself], [Vyzkoušejte:])try_it_yourself() HYLN([code_generation_examples], [code_generation_examples])
+define([try_it_yourself], [Vyzkoušejte:])try_it_yourself() LINK([code_generation_examples], [code_generation_examples])
 ],
 [dnl english: _next_language_
-define([try_it_yourself], [Try:])try_it_yourself() HYLN([code_generation_examples], [code_generation_examples])
+define([try_it_yourself], [Try:])try_it_yourself() LINK([code_generation_examples], [code_generation_examples])
 ]])
 
 
@@ -700,31 +700,31 @@ It is important to select the left character for nonterminal expansion control, 
 However the character collision is easily solved by a regex.
 ]])
 
-PRE(, LANG([M4 jako preprocesor – obecně], [M4 as preprocessor – in general]), [
+PROGRAMLISTING(, LANG([M4 jako preprocesor – obecně], [M4 as preprocessor – in general]), [
 CMD() BO([m4 root.m4 stem.m4 branch.m4 leaf.m4 file.c > preproc.file.c])
-])dnl PRE
+])dnl PROGRAMLISTING
 
-PRE(, LANG([M4 jako preprocesor – bez dočasného souboru], [M4 as preprocessor – without intermediate file]), [
+PROGRAMLISTING(, LANG([M4 jako preprocesor – bez dočasného souboru], [M4 as preprocessor – without intermediate file]), [
 CMD() BO([m4 root.m4 stem.m4 branch.m4 leaf.m4 file.c | gcc -x c -o progr -])
-])dnl PRE
+])dnl PROGRAMLISTING
 
 PARA([[dnl czech
 M4 v[]NB()režimu preprocesoru může být součástí kolony.
 Konfliktní znak CODE([LQ()]) ze vstupního zdrojového kódu je skryt do makra, například CODE_M4([`'LQ()]).
-Prázdný pár řídících znaků CODE_M4([`']) před makrem slouží jako HYLN([oddělovač symbolů], [symbols_in_brackets]).
+Prázdný pár řídících znaků CODE_M4([`']) před makrem slouží jako LINK([oddělovač symbolů], [symbols_in_brackets]).
 ],
 [dnl english: _next_language_
 M4 in the preprocessor mode can be a part of a[]NB()pipeline.
 The conflicting character CODE([LQ()]) from the input source code is hidden into a[]NB()macro, for example CODE_M4([`'LQ()]).
-An empty pair of control characters CODE_M4([`']) before the macro serves as a[]NB()HYLN([symbol separator], [symbols_in_brackets]).
+An empty pair of control characters CODE_M4([`']) before the macro serves as a[]NB()LINK([symbol separator], [symbols_in_brackets]).
 ]])
 
 # sorry i couldn't resist …
 define([dirty_hack], LANG([M4 jako preprocesor s řídícími znaky], [M4 as preprocessor with control characters]))
 
-PRE(, defn([dirty_hack])[: `'], [
+PROGRAMLISTING(, defn([dirty_hack])[: `'], [
 CMD() BO([sed 's/LQ()/`'\''CODE_M4([LQ()])/g' any_src.code | m4 rootq.m4 leaf.m4 - | gcc …])
-])dnl PRE
+])dnl PROGRAMLISTING
 
 PARA([[dnl czech
 Při průchodu zdrojového kódu makro procesorem se makro CODE_M4([`'LQ()]) přepíše zpátky na původní znak CODE([LQ()]) a[]NB()prázdný pár CODE_M4([`']) je odstraněn.
@@ -735,9 +735,9 @@ When the source code is passed through the macro processor, the CODE_M4([`'LQ()]
 If square brackets are used to control the expansion of nonterminals, the left CODE([LB()]) square bracket must be hidden in the same way.
 ]])
 
-PRE(, defn([dirty_hack])[: []], [
+PROGRAMLISTING(, defn([dirty_hack])[: []], [
 CMD() BO([sed 's/\LB()/CODE_M4([[]LB()])/g' any_src.code | m4 rootb.m4 leaf.m4 - | gcc …])
-])dnl PRE
+])dnl PROGRAMLISTING
 
 PARA([[dnl czech
 Pro řízeni expanze neterminálů lze použít netisknutelné znaky BO([CODE([␂])]) (SAMP([0x02])) a[]NB()BO([CODE([␆])]) (SAMP([0x06])).
@@ -748,14 +748,14 @@ Non printable characters BO([CODE([␂])]) (SAMP([0x02])) and BO([CODE([␆])]) 
 These characters cannot interfere with printable source code characters.
 ]])
 
-PRE(, defn([dirty_hack])[: ␂␆], [
+PROGRAMLISTING(, defn([dirty_hack])[: ␂␆], [
 CMD() BO([m4 rootn.m4 leaf.m4 any_src.code | gcc …])
-])dnl PRE
+])dnl PROGRAMLISTING
 
 undefine([dirty_hack])
 
 PARA_MONO([[dnl
-try_it_yourself() HYLN([preproc_examples], [preproc_examples])
+try_it_yourself() LINK([preproc_examples], [preproc_examples])
 ]])
 
 
@@ -776,12 +776,12 @@ The data is not separated from the rules for its transformation.
 The leaf file CODE([leaf.m4]) contains transformation rule definitions along with input data.
 ]])
 
-PRE(, LANG([jak se naučit M4], [how to learn M4]), [
+PROGRAMLISTING(, LANG([jak se naučit M4], [how to learn M4]), [
 CMD() BO([m4 root.m4 leaf.m4])
-])dnl PRE
+])dnl PROGRAMLISTING
 
 PARA_MONO([[dnl
-try_it_yourself() HYLN([m4_on_examples], [m4_on_examples])
+try_it_yourself() LINK([m4_on_examples], [m4_on_examples])
 ]])
 
 
@@ -815,23 +815,23 @@ M4 intentionally does not have keywords for BO([cycles]) (CODE([for])/CODE([whil
 
 HORIZONTAL_RULE()
 
-UNORDERED_LIST_WRAP([
+ITEMIZEDLIST_WRAP([
 
-LIST_ITEM([[dnl czech
+LISTITEM([[dnl czech
 BO([cykly]) jsou pouze levorekurzivní nebo pravorekurzivní
 ],
 [dnl english: _next_language_
 BO([loops]) are only left-recursive or right-recursive
 ]])
 
-LIST_ITEM([[dnl czech
-BO([větví]) se HYLN([řetězením symbolů], [branching_in_m4]) nebo klíčovými slovy CODE_M4([ifelse()]), CODE_M4([ifdef()])
+LISTITEM([[dnl czech
+BO([větví]) se LINK([řetězením symbolů], [branching_in_m4]) nebo klíčovými slovy CODE_M4([ifelse()]), CODE_M4([ifdef()])
 ],
 [dnl english: _next_language_
-BO([branching]) is made by HYLN([symbol concatenation], [branching_in_m4]) or CODE_M4([ifelse()]), CODE_M4([ifdef()]) keywords
+BO([branching]) is made by LINK([symbol concatenation], [branching_in_m4]) or CODE_M4([ifelse()]), CODE_M4([ifdef()]) keywords
 ]])
 
-])dnl UNORDERED_LIST_WRAP
+])dnl ITEMIZEDLIST_WRAP
 
 ])dnl TIP_BOX_WRAP
 
@@ -857,7 +857,7 @@ dnl english: _next_language_
 [Formal grammar (Chomsky type)],
 ])
 
-PRE([
+PROGRAMLISTING([
 G = (N, Σ, P, S)
 N: LANG([neprázdná konečná množina neterminálních symbolů], [nonempty finite set of nonterminal symbols])
 Σ: LANG([konečná množina terminálních symbolů], [finite set of terminal symbols])
@@ -866,7 +866,7 @@ P: LANG([konečná množina přepisovacích pravidel], [finite set of production
    (N ∪ Σ)* N (N ∪ Σ)* → (N ∪ Σ)*
 S: LANG([je počáteční (startovací) symbol], [is the start symbol])
    S ∈ N
-])dnl PRE
+])dnl PROGRAMLISTING
 
 PARA([[dnl czech
 AH([Formální gramatika], [Wikipedie], [https://cs.wikipedia.org/wiki/Formální_gramatika]) popisuje AH([podmnožiny], [Wikipedie – Chomského hierarchie], [https://cs.wikipedia.org/wiki/Chomsk%C3%A9ho_hierarchie]) přepisovacích pravidel AH([formálního jazyka], [Wikipedie], [https://cs.wikipedia.org/wiki/Form%C3%A1ln%C3%AD_jazyk]).
@@ -888,10 +888,10 @@ dnl english: _next_language_
 ])
 
 PARA([[dnl czech
-Schopnost používat převážně dvoustavové automaty je zásadní věc pro psaní jednoduchých M4 skriptů, protože převážná většina skriptů používá HYLN([malé automaty], [small_automaton]).
+Schopnost používat převážně dvoustavové automaty je zásadní věc pro psaní jednoduchých M4 skriptů, protože převážná většina skriptů používá LINK([malé automaty], [small_automaton]).
 ],
 [dnl english: _next_language_
-The ability to use predominantly two-state automata is an essential thing for writing simple M4 scripts because the vast majority of scripts use HYLN([small automata], [small_automaton]).
+The ability to use predominantly two-state automata is an essential thing for writing simple M4 scripts because the vast majority of scripts use LINK([small automata], [small_automaton]).
 ]])
 
 
@@ -910,7 +910,7 @@ The order of input symbols or their context can be tested by an automaton.
 If the input symbols meet the required properties, the automaton ends up in[]NB()a[]NB()double-ring node which indicates the accepting state.
 ]])
 
-IMG([dfa_img],dnl id
+IMAGEDATA([dfa_img],dnl id
 LANG([deterministický konečný automat], [deterministic finite automaton])[ (DFA)],dnl title
 [],dnl class
 [],dnl style
@@ -932,14 +932,14 @@ Předchozí automat lze zapsat jako ASCII art doprovázející M4 skript:
 The previous automaton can be written as an ASCII art accompanying the M4 script:
 ]])
 
-PRE(, [ASCII-art ]LANG([jako dokumentace M4 kódu], [for M4 code documentation]), [
+PROGRAMLISTING(, [ASCII-art ]LANG([jako dokumentace M4 kódu], [for M4 code documentation]), [
 #          ____1
 #         |   /
 #      ___V__/   0    ____
 # --->// S1 \\------>/ S2 \---.1
 #     \\____//<------\____/<--'
 #                0
-])dnl PRE
+])dnl PROGRAMLISTING
 
 
 HEADING([generating_automaton], [dnl czech
@@ -950,18 +950,18 @@ dnl english: _next_language_
 
 PARA([[dnl czech
 Vstupní symboly mění uzly automatu, čímž zároveň mění přepisovací pravidla pro generování kódu.
-HYLN([Tento příklad], [json_generating_automaton]) naleznete v[]NB()příloze:
+LINK([Tento příklad], [json_generating_automaton]) naleznete v[]NB()příloze:
 ],
 [dnl english: _next_language_
 Input symbols change the nodes of the automaton, thereby changing the rewriting rules for code generation.
-See the annex for HYLN([this example], [json_generating_automaton]):
+See the annex for LINK([this example], [json_generating_automaton]):
 ]])
 
-PRE(, [ASCII-art ]LANG([generujícího automatu], [of generating automaton]), [
+PROGRAMLISTING(, [ASCII-art ]LANG([generujícího automatu], [of generating automaton]), [
 #      _______      ___________
 # --->/ ERROR \--->/ NEXT_ITEM \---.
 #     \_______/    \___________/<--'
-])dnl PRE
+])dnl PROGRAMLISTING
 
 PARA([[dnl czech
 První symbol ve stavu CODE_M4([ERROR]) vygeneruje záhlaví se závorkami a[]NB()první položku.
@@ -1023,10 +1023,10 @@ These shortcuts also significantly reduce the occurrence of almost invisible err
 
 
 _TIP_BOX([[dnl czech
-produktivitu skriptování zvyšuje kapitola – HYLN([vim_scripting], [vim_scripting]).
+produktivitu skriptování zvyšuje kapitola – LINK([vim_scripting], [vim_scripting]).
 ],
 [dnl english: _next_language_
-productivity of scripting increases chapter – HYLN([vim_scripting], [vim_scripting])
+productivity of scripting increases chapter – LINK([vim_scripting], [vim_scripting])
 ]])
 
 
@@ -1336,11 +1336,11 @@ dnl english: _next_language_
 ])
 
 PARA([[dnl czech
-Příklad ukazuje HYLN([větvení gramatikou], [nonterminals_for_branches]), argumenty maker se ignorují.
+Příklad ukazuje LINK([větvení gramatikou], [nonterminals_for_branches]), argumenty maker se ignorují.
 Vstupní neterminály se přepisují na terminály CODE_M4([ERROR → 🐛], [🐛]), CODE_M4([QUERY → 🐜], [🐜]), CODE_M4([WARNING → 🐝], [🐝]).
 ],
 [dnl english: _next_language_
-The example shows HYLN([branching by grammar], [nonterminals_for_branches]), macro arguments are ignored.
+The example shows LINK([branching by grammar], [nonterminals_for_branches]), macro arguments are ignored.
 Input nonterminals are rewritten to terminals CODE_M4([ERROR → 🐛], [🐛]), CODE_M4([QUERY → 🐜], [🐜]), CODE_M4([WARNING → 🐝], [🐝]).
 ]])
 
@@ -1401,7 +1401,7 @@ The CODE([$[0]]) variable is rewritten to the name of the macro and concatenated
 The newly formed nonterminal is rewritten to the corresponding terminal symbol (queue number and name).
 ]])
 
-PRE([nonterminals_for_branches], LANG([větvení gramatikou v M4], [grammar branching in M4]), [
+PROGRAMLISTING([nonterminals_for_branches], LANG([větvení gramatikou v M4], [grammar branching in M4]), [
 $[0]_QU → ERROR_QU → 2
 $[0]_END → ERROR_END → 3
 $[0]_NAME → ERROR_NAME → error
@@ -1409,7 +1409,7 @@ $[0]_QU → QUERY_QU → 0
 $[0]_END → QUERY_END → 1
 $[0]_NAME → QUERY_NAME → query
 …
-])dnl PRE
+])dnl PROGRAMLISTING
 
 INSERT_FILES_MESSAGES_CODE([qnames.json.m4], [qnames.json])
 
@@ -1445,12 +1445,12 @@ dnl english: _next_language_
 PARA([[dnl czech
 Příklad používá tři automaty a[]NB()dvě výstupní fronty číslo CODE([2]) a[]NB()CODE([4]) definované v[]NB()odděleném souboru.
 Názvy INI sekcí jsou generovány řetězením symbolů.
-Příklad používá stejný soubor pro výstupní fronty jako HYLN([příklad], [json_symbolic_queue_names]) pro generování JSON.
+Příklad používá stejný soubor pro výstupní fronty jako LINK([příklad], [json_symbolic_queue_names]) pro generování JSON.
 ],
 [dnl english: _next_language_
 The example uses three automata and two output queues number CODE([2]) and CODE([4]) defined in a[]NB()separate file.
 INI section names are generated by symbol chaining.
-The example uses the same file for output queues as the HYLN([example], [json_symbolic_queue_names]) to generate JSON.
+The example uses the same file for output queues as the LINK([example], [json_symbolic_queue_names]) to generate JSON.
 ]])
 
 INSERT_FILES_MESSAGES_QUEUES_CODE([messages.ini.m4], [messages.ini])
@@ -1568,11 +1568,11 @@ dnl english: _next_language_
 
 PARA([[dnl czech
 Bash používá oba znaky, CODE([LQ()]) a CODE([LB()]).
-Nechceme-li je skrývat do makra CODE_M4([LQ()]) nebo CODE_M4([LB()]), můžeme použít pro HYLN([řízení expanze neterminálů], [expansion_control]) netisknutelné znaky, viz. příklad:
+Nechceme-li je skrývat do makra CODE_M4([LQ()]) nebo CODE_M4([LB()]), můžeme použít pro LINK([řízení expanze neterminálů], [expansion_control]) netisknutelné znaky, viz. příklad:
 ],
 [dnl english: _next_language_
 Bash uses both CODE([LQ()]) and CODE([LB()]) characters.
-If we do not want to hide them either in an CODE_M4([LQ()]) or CODE_M4([LB()]) macro, we can use nonprintable characters for HYLN([expansion control], [expansion_control]), see the example:
+If we do not want to hide them either in an CODE_M4([LQ()]) or CODE_M4([LB()]) macro, we can use nonprintable characters for LINK([expansion control], [expansion_control]), see the example:
 ]])
 
 INSERT_FILES_PREPROC([n], [file.sh])
@@ -1679,18 +1679,18 @@ dnl english: _next_language_
 [CODE([👍]) Why to generate code in M4],
 ])
 
-UNORDERED_LIST_WRAP([
+ITEMIZEDLIST_WRAP([
 
-LIST_ITEM([[dnl czech
-přímé použití HYLN([bezkontextové gramatiky], [context_free_grammar]) (rekurze zdarma)
+LISTITEM([[dnl czech
+přímé použití LINK([bezkontextové gramatiky], [context_free_grammar]) (rekurze zdarma)
 UL([LI([pro transformaci dat stačí napsat minimum M4 kódu])])
 ],
 [dnl english: _next_language_
-direct use of HYLN([context-free grammar], [context_free_grammar]) (recursion for free)
+direct use of LINK([context-free grammar], [context_free_grammar]) (recursion for free)
 UL([LI([minimum M4 code is required for data transformation])])
 ]])
 
-LIST_ITEM([[dnl czech
+LISTITEM([[dnl czech
 přímé použití automatů
 UL([LI([možnost vymodelovat si potřebné algoritmy (M4 nepotřebuje verze)])])
 ],
@@ -1699,7 +1699,7 @@ direct use of automata
 UL([LI([possibility to model necessary algorithms (M4 does not need versions)])])
 ]])
 
-LIST_ITEM([[dnl czech
+LISTITEM([[dnl czech
 přímé použití zásobníků
 UL([LI([zásobníky propojené s[]NB()automaty rozšiřují možnosti generátoru kódu])])
 ],
@@ -1708,7 +1708,7 @@ direct use of stacks
 UL([LI([stacks connected to automata extend capabilities of code generator])])
 ]])
 
-LIST_ITEM([[dnl czech
+LISTITEM([[dnl czech
 přímé použití výstupních front pro dočasné uložení výsledných částí kódu
 UL([LI([jednotlivé fronty jsou na závěr vypsány na výstup ve vzestupném pořadí])])
 ],
@@ -1717,7 +1717,7 @@ direct use of output queues to temporarily store resulting pieces of code
 UL([LI([individual queues are finally dumped to output in ascending order])])
 ]])
 
-LIST_ITEM([[dnl czech
+LISTITEM([[dnl czech
 vyšší rychlost generování kódu (ve srovnání s[]NB()XSLT)
 UL([LI([nízké nároky na výpočetní zdroje])])
 ],
@@ -1726,7 +1726,7 @@ faster code generation (compared to XSLT)
 UL([LI([low demands on computing resources])])
 ]])
 
-])dnl UNORDERED_LIST_WRAP
+])dnl ITEMIZEDLIST_WRAP
 
 
 SECT1([why_not_use], [dnl czech
@@ -1735,9 +1735,9 @@ dnl english: _next_language_
 [CODE([👎]) Why to avoid M4],
 ])
 
-UNORDERED_LIST_WRAP([
+ITEMIZEDLIST_WRAP([
 
-LIST_ITEM([low_level_language], [[dnl czech
+LISTITEM([low_level_language], [[dnl czech
 univerzální jazyk nízké úrovně (podobně jako jazyk C)
 UL([LI([nemůže konkurovat úzce specializovaným jazykům, například XSLT])])
 ],
@@ -1750,7 +1750,7 @@ LI([cannot compete with narrowly specialized languages, for example XSLT])
 
 LI([M4 programming EM([can]) be difficult and time consuming])
 
-LIST_ITEM([forgotten_language], [[dnl czech
+LISTITEM([forgotten_language], [[dnl czech
 neexistující komunita vývojářů (podzim 2019)
 UL([LI([M4 je zapomenutý jazyk, málo existujících projektů])])
 ],
@@ -1759,16 +1759,16 @@ nonexistent developer community (as of Autumn 2019)
 UL([LI([M4 is forgotten language with small number of existing projects])])
 ]])
 
-LIST_ITEM([unusual_language], [[dnl czech
-neobvyklé programovací paradigma vyžadující splnění HYLN([několika předpokladů], [prerequisites_for_mastering])
+LISTITEM([unusual_language], [[dnl czech
+neobvyklé programovací paradigma vyžadující splnění LINK([několika předpokladů], [prerequisites_for_mastering])
 UL([LI([M4 je proto těžký jazyk])])
 ],
 [dnl english: _next_language_
-unusual programming paradigm requiring HYLN([several prerequisites], [prerequisites_for_mastering])
+unusual programming paradigm requiring LINK([several prerequisites], [prerequisites_for_mastering])
 UL([LI([M4 is therefore demanding language])])
 ]])
 
-LIST_ITEM([experience_dependent], [[dnl czech
+LISTITEM([experience_dependent], [[dnl czech
 produktivita značně závisí na zkušenostech (možný problém s[]NB()termíny)
 UL([LI([schopnost myslet v[]NB()M4 je nutnost])])
 ],
@@ -1777,7 +1777,7 @@ productivity greatly depends on experience (problem with short-term deadlines)
 UL([LI([ability to think in M4 is essential necessity])])
 ]])
 
-LIST_ITEM([hard_maintenance], [[dnl czech
+LISTITEM([hard_maintenance], [[dnl czech
 údržba špatně napsaného M4 kódu je těžká
 UL([LI([existující M4 kód je snadné proměnit ve zmatek])])
 ],
@@ -1786,4 +1786,4 @@ maintaining badly written M4 code is difficult
 UL([LI([existing M4 code is easily thrown into confusion])])
 ]])
 
-])dnl UNORDERED_LIST_WRAP
+])dnl ITEMIZEDLIST_WRAP

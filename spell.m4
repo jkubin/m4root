@@ -65,7 +65,7 @@ define([CAPTION], defn([PRINT_LANG])[
 
 # write hyperlink text or dereference link address
 # A → β
-define([HYLN], [pushdef([CURRQU], divnum)divert(-1)
+define([LINK], [pushdef([CURRQU], divnum)divert(-1)
 
 	# the more arguments the more link capabilities
 	ifelse(
@@ -93,7 +93,7 @@ define([HYLN], [pushdef([CURRQU], divnum)divert(-1)
 
 	ifelse(defn([CAPT]), [], [
 
-			# CAPT in refs not found, use the first HYLN argument
+			# CAPT in refs not found, use the first LINK argument
 			define([CAPT], [$1])
 		],
 		[$1], [$2], [], [
@@ -185,7 +185,7 @@ define([PERSON],	defn([BO]))
 
 # A → β
 define([ADDRESS_WRAP],		defn([TITLE], [EXPAND_LAST]))
-define([APPENDIX],			defn([PRINT_LANG], [APPENDIX_APPEND_CODE]))
+define([APPENDIX],		defn([PRINT_LANG], [APPENDIX_APPEND_CODE]))
 define([ARTICLE_WRAP],		defn([TITLE], [EXPAND_LAST]))
 define([ASIDE_WRAP],		defn([TITLE], [EXPAND_LAST]))
 define([BLOCKQUOTE],		defn([PRINT_LANG]))
@@ -209,18 +209,19 @@ define([FORM_WRAP],		defn([TITLE], [EXPAND_LAST]))
 define([HEADER_WRAP],		defn([TITLE], [EXPAND_LAST]))
 define([HEADING],		defn([PRINT_LANG]))
 define([HEADING_MONO],		defn([PRINT_MONO]))
-define([LIST_ITEM],		defn([PRINT_LANG]))
-define([LIST_ITEM_MONO],		defn([PRINT_MONO]))
+define([ITEMIZEDLIST_WRAP],		defn([TITLE], [EXPAND_LAST]))
+define([LISTITEM],		defn([PRINT_LANG]))
+define([LISTITEM_MONO],		defn([PRINT_MONO]))
 define([MAIN_WRAP],		defn([TITLE], [EXPAND_LAST]))
 define([NAV],			defn([PRINT_LANG]))
 define([NAV_MONO],		defn([PRINT_MONO]))
-define([ORDERED_LIST_WRAP],		defn([TITLE], [EXPAND_LAST]))
+define([ORDEREDLIST_WRAP],		defn([TITLE], [EXPAND_LAST]))
 define([PARA],			defn([PRINT_LANG]))
 define([PARA_MONO],		defn([PRINT_MONO]))
 define([PEREX],			defn([PRINT_LANG]))
 define([PLAIN_TEXT],		defn([PRINT_LANG]))
 define([PLAIN_TEXT_MONO],		defn([PRINT_MONO]))
-define([PRE], 			defn([TITLE]))
+define([PROGRAMLISTING], 		defn([TITLE]))
 define([SECT1],			defn([PRINT_LANG]))
 define([SECT2],			defn([PRINT_LANG]))
 define([SECTION_WRAP],		defn([TITLE], [EXPAND_LAST]))
@@ -242,7 +243,6 @@ define([TILE_BOX],		defn([PRINT_LANG]))
 define([TIP_BOX],		defn([PRINT_LANG]))
 define([TIP_BOX_MONO],		defn([PRINT_MONO]))
 define([TIP_BOX_WRAP],		defn([TITLE], [EXPAND_LAST]))
-define([UNORDERED_LIST_WRAP],		defn([TITLE], [EXPAND_LAST]))
 
 # for plugins
 # β

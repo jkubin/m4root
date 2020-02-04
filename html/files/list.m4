@@ -36,7 +36,7 @@ ADD_LINKS_TO_INSERTED_FILES(SOURCES)dnl
 </th><th title="defn([TITLE_OUTPUT_FILE])">AH([$1], defn([SRC_REPO_NAME]), defn([SRC_FILE_PATH], [FOLDER])[$1])</th></tr></tbody></table>
 divert(-1)
 
-PRE(, defn([WORD_COMMAND]), [
+PROGRAMLISTING(, defn([WORD_COMMAND]), [
 CMD() BO([defn([COMMAND], [ROOT_FILE])ADD_FILES_TO_COMMAND_LINE(PREFIX_FILES)undivert(PROCESSED_FILES)ADD_FILES_TO_COMMAND_LINE(SOURCES) > [$1]])
 ])
 
