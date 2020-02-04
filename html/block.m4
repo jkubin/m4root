@@ -38,17 +38,6 @@ pushdef([SET_ANCHOR], [
 ])
 
 # β
-pushdef([COUNTERS], [
-
-	# increment the current index
-	define([$0_IDX], incr($0_IDX))
-
-	# reset two child sub-indices (subchapters)
-	define([SUB_$0_IDX], 0)
-	define([SUB_SUB_$0_IDX], 0)
-])
-
-# β
 pushdef([HTML_MONOLINGUAL], [
 
 	divert(CURRQU)dnl
@@ -77,10 +66,18 @@ define([CAPTION], defn([TEST_ATM])[
 	define([FILE_PREFIX], __file__.LANG_CODE)
 
 	# init counter for chapters
-	define([CHAPTER_IDX], 0)
+	define([CHAPTER_IDX], defn([COUNT_UP]))
+	CHAPTER_IDX(0)
 
 	# starting letter for annex: ord('A') is 65
-	define([ANNEX_IDX], 64)
+	define([APPENDIX_IDX], defn([COUNT_UP]))
+	APPENDIX_IDX(65)
+
+	# init counters for sections
+	define([SECT1_IDX], defn([COUNT_UP]))
+	define([SECT2_IDX], defn([COUNT_UP]))
+	SECT1_IDX(1)
+	SECT2_IDX(1)
 
 	# transition to the next node (redefine itself to string)
 	define([$0], EXPAND_LANG(]defn([EXPAND_LAST])[))
@@ -99,17 +96,22 @@ pushdef([CHAPTER_COMMON_CODE], [
 	define([CURRQU], ARTICLE_CONTENT)
 
 	divert(CHAPTER_NAVIG_DATA)dnl
-<p id="NSP()TOCP-defn([#ID])"INDENT_LEVEL><a href="[#]NSP()defn([#ID])">defn([CHAPTER_IDX], [#L2], [#L3], [NB2])SELITM</a></p>
+<p id="NSP()TOCP-defn([#ID])"INDENT_LEVEL><a href="[#]NSP()defn([#ID])">defn([CHAPTER_IDX_val], [#S1], [#S2], [NB2])SELITM</a></p>
 divert(CURRQU)dnl
-<HEADING_TAG]defn([HTML_HEADING_ATTRIBUTES])[><a href="[#]NSP()defn([#ID])"]defn([ANCHOR_SIGN])[>defn([CHAPTER_IDX], [#L2], [#L3])</a>NB2()SELITM]defn([RETURN_TO_TOC], [SWITCH_LANG])[</HEADING_TAG>
+<HEADING_TAG]defn([HTML_HEADING_ATTRIBUTES])[><a href="[#]NSP()defn([#ID])"]defn([ANCHOR_SIGN])[>defn([CHAPTER_IDX_val], [#S1], [#S2])</a>NB2()SELITM]defn([RETURN_TO_TOC], [SWITCH_LANG])[</HEADING_TAG>
 divert(-1)
 ])
 
 # A → β
-define([CHAPTER], defn([MULTILINGUAL_HEADINGS], [SET_ANCHOR], [COUNTERS])[
+define([CHAPTER], defn([MULTILINGUAL_HEADINGS], [SET_ANCHOR])[
 
-	define([#L2])
-	define([#L3])
+	# increment index
+	CHAPTER_IDX
+	define([SECT1_IDX_val], 1)
+	define([SECT2_IDX_val], 1)
+
+	define([#S1])
+	define([#S2])
 	define([INDENT_LEVEL])
 	define([HEADING_TAG], [h2])
 
@@ -119,10 +121,12 @@ define([CHAPTER], defn([MULTILINGUAL_HEADINGS], [SET_ANCHOR], [COUNTERS])[
 ])
 
 # A → β
-define([SUB_CHAPTER], defn([MULTILINGUAL_HEADINGS], [SET_ANCHOR], [COUNTERS])[
+define([SECT1], defn([MULTILINGUAL_HEADINGS], [SET_ANCHOR])[
 
-	define([#L2], .SUB_CHAPTER_IDX)
-	define([#L3])
+	# increment index
+	define([#S1], .SECT1_IDX)
+	define([SECT2_IDX_val], 0)
+	define([#S2])
 	define([INDENT_LEVEL], [ class="ADD_CLASS([level2])"])
 	define([HEADING_TAG], [h3])
 
@@ -132,10 +136,11 @@ define([SUB_CHAPTER], defn([MULTILINGUAL_HEADINGS], [SET_ANCHOR], [COUNTERS])[
 ])
 
 # A → β
-define([SUB_SUB_CHAPTER], defn([MULTILINGUAL_HEADINGS], [SET_ANCHOR], [COUNTERS])[
+define([SECT2], defn([MULTILINGUAL_HEADINGS], [SET_ANCHOR])[
 
-	define([#L2], .SUB_CHAPTER_IDX)
-	define([#L3], .SUB_SUB_CHAPTER_IDX)
+	# increment index
+	define([#S1], .SECT1_IDX_val)
+	define([#S2], .SECT2_IDX)
 	define([INDENT_LEVEL], [ class="ADD_CLASS([level3])"])
 	define([HEADING_TAG], [h4])
 
@@ -150,54 +155,80 @@ define([SUB_SUB_CHAPTER], defn([MULTILINGUAL_HEADINGS], [SET_ANCHOR], [COUNTERS]
 #     \______/    \___/<--'
 #
 # A → β
-define([ANNEX_SEPARATOR], [<hr>
+define([APPENDIX_SEPARATOR], [<hr>
 define([$0])])
 
-# A → β
-define([ANNEX], defn([MULTILINGUAL_HEADINGS], [SET_ANCHOR], [COUNTERS])[
+# β
+define([APPENDIX_MODE], defn([MULTILINGUAL_HEADINGS], [SET_ANCHOR])[
 
-	define([ANNEX_LETTER], format([[%c]], ANNEX_IDX))
+	# increment letter index
+	define([APPENDIX_LETTER], format([[%c]], APPENDIX_IDX))
+	define([SECT1_IDX_val], 0)
+	define([SECT2_IDX_val], 0)
 
 	# set the current queue
-	define([CURRQU], ANNEX_CONTENT)
+	define([CURRQU], APPENDIX_CONTENT)
 
-	divert(ANNEX_NAVIG_DATA)dnl
-ANNEX_SEPARATOR<p id="NSP()TOCP-defn([#ID])"><a href="[#]NSP()defn([#ID])">ANNEX_LETTER[]NB2()SELITM</a></p>
-divert(ANNEX_NAVIGATION)dnl
+	divert(APPENDIX_NAVIG_DATA)dnl
+APPENDIX_SEPARATOR<p id="NSP()TOCP-defn([#ID])"><a href="[#]NSP()defn([#ID])">APPENDIX_LETTER[]NB2()SELITM</a></p>
+divert(APPENDIX_NAVIGATION)dnl
 undivert(CURRQU)dnl
-<h2]defn([HTML_HEADING_ATTRIBUTES])[><a href="[#]NSP()defn([#ID])"]defn([ANCHOR_SIGN])[>ANNEX_LETTER</a>NB2()SELITM]defn([RETURN_TO_TOC], [SWITCH_LANG])[</h2>
+<h2]defn([HTML_HEADING_ATTRIBUTES])[><a href="[#]NSP()defn([#ID])"]defn([ANCHOR_SIGN])[>APPENDIX_LETTER</a>NB2()SELITM]defn([RETURN_TO_TOC], [SWITCH_LANG])[</h2>
 divert(-1)
 
 	# size of the following headings
 	define([HEADING_TAG], [h3])
 
 	# temporarily change the current queue
-	pushdef([CURRQU], [ANNEX_NAVIGATION])
-	ANNEX_APPEND_CODE()
+	pushdef([CURRQU], [APPENDIX_NAVIGATION])
+	APPENDIX_APPEND_CODE()
 	# set the previous queue
 	popdef([CURRQU])
 ])
 
+#      __________      _______________
+# --->/ APPENDIX \--->/ APPENDIX_MODE \---.
+#     \__________/    \_______________/<--'
+#      _______      ________________
+# --->/ SECT1 \--->/ SECT1_APPENDIX \---.
+#     \_SECT2_/    \_SECT2_APPENDIX_/<--'
+#
 # A → β
-define([SUB_ANNEX], defn([MULTILINGUAL_HEADINGS], [SET_ANCHOR], [COUNTERS])[
+define([APPENDIX], defn([APPENDIX_MODE])[
 
-	divert(ANNEX_NAVIGATION)dnl
-<p id="NSP()TOCP-defn([#ID])" class="ADD_CLASS([level2])"><a href="[#]NSP()defn([#ID])">ANNEX_LETTER.SUB_ANNEX_IDX[]NB2()SELITM</a></p>
+	# transition to the next node
+	define([$0], defn([APPENDIX_MODE]))
+	define([SECT1], defn([SECT1_APPENDIX]))
+	define([SECT2], defn([SECT2_APPENDIX]))
+])
+
+# β
+define([SECT1_APPENDIX], defn([MULTILINGUAL_HEADINGS], [SET_ANCHOR])[
+
+	# increment index
+	SECT1_IDX
+	define([SECT2_IDX_val], 0)
+
+	divert(APPENDIX_NAVIGATION)dnl
+<p id="NSP()TOCP-defn([#ID])" class="ADD_CLASS([level2])"><a href="[#]NSP()defn([#ID])">APPENDIX_LETTER.SECT1_IDX_val[]NB2()SELITM</a></p>
 divert(CURRQU)dnl
-<h3]defn([HTML_HEADING_ATTRIBUTES])[><a href="[#]NSP()defn([#ID])"]defn([ANCHOR_SIGN])[>ANNEX_LETTER.SUB_ANNEX_IDX</a>NB2()SELITM]defn([RETURN_TO_TOC], [SWITCH_LANG])[</h3>
+<h3]defn([HTML_HEADING_ATTRIBUTES])[><a href="[#]NSP()defn([#ID])"]defn([ANCHOR_SIGN])[>APPENDIX_LETTER.SECT1_IDX_val</a>NB2()SELITM]defn([RETURN_TO_TOC], [SWITCH_LANG])[</h3>
 divert(-1)
 
 	# size of the following headings
 	define([HEADING_TAG], [h4])
 ])
 
-# A → β
-define([SUB_SUB_ANNEX], defn([MULTILINGUAL_HEADINGS], [SET_ANCHOR], [COUNTERS])[
+# β
+define([SECT2_APPENDIX], defn([MULTILINGUAL_HEADINGS], [SET_ANCHOR])[
 
-	divert(ANNEX_NAVIGATION)dnl
-<p id="NSP()TOCP-defn([#ID])" class="ADD_CLASS([level3])"><a href="[#]NSP()defn([#ID])">ANNEX_LETTER.SUB_ANNEX_IDX.SUB_SUB_ANNEX_IDX[]NB2()SELITM</a></p>
+	# increment index
+	SECT2_IDX
+
+	divert(APPENDIX_NAVIGATION)dnl
+<p id="NSP()TOCP-defn([#ID])" class="ADD_CLASS([level3])"><a href="[#]NSP()defn([#ID])">APPENDIX_LETTER.SECT1_IDX_val.SECT2_IDX_val[]NB2()SELITM</a></p>
 divert(CURRQU)dnl
-<h4]defn([HTML_HEADING_ATTRIBUTES])[><a href="[#]NSP()defn([#ID])"]defn([ANCHOR_SIGN])[>ANNEX_LETTER.SUB_ANNEX_IDX.SUB_SUB_ANNEX_IDX</a>NB2()SELITM]defn([RETURN_TO_TOC], [SWITCH_LANG])[</h4>
+<h4]defn([HTML_HEADING_ATTRIBUTES])[><a href="[#]NSP()defn([#ID])"]defn([ANCHOR_SIGN])[>APPENDIX_LETTER.SECT1_IDX_val.SECT2_IDX_val</a>NB2()SELITM]defn([RETURN_TO_TOC], [SWITCH_LANG])[</h4>
 divert(-1)
 
 	# size of the following headings
@@ -594,7 +625,6 @@ popdef(
 	[CLASS_3],
 	[CLASS_3_TILE_BOX],
 	[CLASS_3_TIP_BOX],
-	[COUNTERS],
 	[FIND_IMG_DIM],
 	[HTML_GLOBAL_ATTRIBUTES],
 	[HTML_HEADING_ATTRIBUTES],

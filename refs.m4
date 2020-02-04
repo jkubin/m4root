@@ -1,5 +1,5 @@
 __HEADER([Josef Kubin], [2019/12/11], [root_cz])
-___DESCR([tests chapter logic flow (chapter → sub-chapter → sub-sub-chapter) and generates references for anchors])
+___DESCR([tests logic flow (CHAPTER → SECT1 → SECT2) and generates references for anchors])
 ___POINT([extracts all IDs from files and create associative pair])
 
 # create aliases to existing macros
@@ -226,86 +226,48 @@ divert(-1)
 # β
 define([CHAPTER], defn([MULTILINGUAL_HEADINGS], [ANCHORS_SED], [EXECUTE_SED], [TEST_RESULT])[
 
-	define([$0_NODE], defn([$0]))
+	define([DOC_NODE], defn([$0]))
 
 	]defn([SET_UNIQ_KEY_FOR_LINK], [PRINT_ITEMS])[
 ])
 
 # A → β
-define([SUB_CHAPTER], defn([MULTILINGUAL_HEADINGS], [ANCHORS_SED], [EXECUTE_SED], [TEST_RESULT])[
+define([SECT1], defn([MULTILINGUAL_HEADINGS], [ANCHORS_SED], [EXECUTE_SED], [TEST_RESULT])[
 
-	# chapter logic flow test
+	# logic flow test
 	ifelse(
-		defn([CHAPTER_NODE]), defn([CHAPTER]), [],
-		defn([CHAPTER_NODE]), defn([SUB_CHAPTER]), [],
-		defn([CHAPTER_NODE]), defn([SUB_SUB_CHAPTER]), [], [
+		defn([DOC_NODE]), defn([CHAPTER]), [],
+		defn([DOC_NODE]), defn([SECT1]), [],
+		defn([DOC_NODE]), defn([SECT2]), [], [
 
-		ROOT_ERROR([sub-chapter must follow chapter or sub-sub-chapter])
+		ROOT_ERROR([SECT1 must follow CHAPTER or SECT2])
 	])
 
-	# set automaton to sub-chapter node
-	define([CHAPTER_NODE], defn([$0]))
+	# set automaton to the current node
+	define([DOC_NODE], defn([$0]))
 
 	]defn([SET_UNIQ_KEY_FOR_LINK], [PRINT_ITEMS])[
 ])
 
 # A → β
-define([SUB_SUB_CHAPTER], defn([MULTILINGUAL_HEADINGS], [ANCHORS_SED], [EXECUTE_SED], [TEST_RESULT])[
+define([SECT2], defn([MULTILINGUAL_HEADINGS], [ANCHORS_SED], [EXECUTE_SED], [TEST_RESULT])[
 
-	# chapter logic flow test
+	# logic flow test
 	ifelse(
-		defn([CHAPTER_NODE]), defn([SUB_CHAPTER]), [],
-		defn([CHAPTER_NODE]), defn([SUB_SUB_CHAPTER]), [], [
+		defn([DOC_NODE]), defn([SECT1]), [],
+		defn([DOC_NODE]), defn([SECT2]), [], [
 
-		ROOT_ERROR([sub-sub-chapter must follow sub-chapter or sub-sub-chapter])
+		ROOT_ERROR([SECT2 must follow SECT1 or SECT2])
 	])
 
-	# set automaton to sub-sub-chapter node
-	define([CHAPTER_NODE], defn([$0]))
-
-	]defn([SET_UNIQ_KEY_FOR_LINK], [PRINT_ITEMS])[
-])
-
-# annex is the same as chapter except of the inner comment
-# Keep the first new line for unique automaton node: (ANNEX <-/-> CHAPTER)!
-# A → β
-define([ANNEX], [
-]defn([CHAPTER]))
-
-# A → β
-define([SUB_ANNEX], defn([MULTILINGUAL_HEADINGS], [ANCHORS_SED], [EXECUTE_SED], [TEST_RESULT])[
-
-	# chapter logic flow test
-	ifelse(
-		defn([ANNEX_NODE]), defn([ANNEX]), [],
-		defn([ANNEX_NODE]), defn([SUB_ANNEX]), [],
-		defn([ANNEX_NODE]), defn([SUB_SUB_ANNEX]), [], [
-
-		ROOT_ERROR([sub-chapter must follow chapter or sub-sub-chapter])
-	])
-
-	# set automaton to sub-annex
-	define([ANNEX_NODE], defn([$0]))
+	# set automaton to the current node
+	define([DOC_NODE], defn([$0]))
 
 	]defn([SET_UNIQ_KEY_FOR_LINK], [PRINT_ITEMS])[
 ])
 
 # A → β
-define([SUB_SUB_ANNEX], defn([MULTILINGUAL_HEADINGS], [ANCHORS_SED], [EXECUTE_SED], [TEST_RESULT])[
-
-	# chapter logic flow test
-	ifelse(
-		defn([ANNEX_NODE]), defn([SUB_ANNEX]), [],
-		defn([ANNEX_NODE]), defn([SUB_SUB_ANNEX]), [], [
-
-		ROOT_ERROR([sub-sub-chapter must follow sub-chapter or sub-sub-chapter])
-	])
-
-	# set automaton to sub-sub-annex
-	define([ANNEX_NODE], defn([$0]))
-
-	]defn([SET_UNIQ_KEY_FOR_LINK], [PRINT_ITEMS])[
-])
+define([APPENDIX], defn([CHAPTER]))
 
 # A → β
 define([WORD], [
