@@ -14,6 +14,8 @@ iabbrev <buffer> <unique> apo []AP()<esc>
 iabbrev <buffer> <unique> arw ARTICLE_WRAP([<cr><cr><cr><cr>])dnl ARTICLE_WRAP<up><up><c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> asw ASIDE_WRAP([<cr><cr><cr><cr>])dnl ASIDE_WRAP<up><up><c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> bb BO([<c-r>"])<esc>
+iabbrev <buffer> <unique> bh BRIDGEHEAD([dnl czech<cr>[],<cr>dnl english: _next_language_<cr><c-u>[%%%],<cr>])<left><c-o>%<c-o>0<down><right><c-r>=Eatchar('.')<cr>
+iabbrev <buffer> <unique> bhm BRIDGEHEAD_MONO([dnl monolingual<cr>[],<cr>])<up><right><c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> bm BLOCKQUOTE_MONO([[dnl monolingual<cr><cr>]])<up><c-r>=Eatchar('.')<cr>
 "iabbrev <buffer> <unique> bo BO([])<left><left><c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> bq BLOCKQUOTE([[dnl czech<cr><cr>],<cr>[dnl english: _next_language_<cr>%%%<cr>]])<left><c-o>%<c-o>0<down><c-r>=Eatchar('.')<cr>
@@ -101,9 +103,6 @@ iabbrev <buffer> <unique> sum SUMMARY([[dnl czech<cr><cr>],<cr>[dnl english: _ne
 iabbrev <buffer> <unique> sup SUP([<c-r>"])<esc>
 iabbrev <buffer> <unique> sw SECTION_WRAP([<cr><cr><cr><cr>])dnl SECTION_WRAP<up><up><c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> til TILE_BOX([[dnl czech<cr><cr>],<cr>[dnl english: _next_language_<cr>%%%<cr>]])<left><c-o>%<c-o>0<down><c-r>=Eatchar('.')<cr>
-iabbrev <buffer> <unique> ti TITLE([dnl czech<cr>[],<cr>dnl english: _next_language_<cr><c-u>[%%%],<cr>])<left><c-o>%<c-o>0<down><right><c-r>=Eatchar('.')<cr>
-iabbrev <buffer> <unique> tm TITLE_MONO([dnl monolingual<cr>[],<cr>])<up><right><c-r>=Eatchar('.')<cr>
-iabbrev <buffer> <unique> tt TITLE([dnl czech<cr>[],<cr>dnl english: _next_language_<cr><c-u>[%%%],<cr>])<left><c-o>%<c-o>0<down><right><c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> ull ITEMIZEDLIST_WRAP([<cr><cr><cr><cr>])dnl ITEMIZEDLIST_WRAP<up><up><c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> ul UL([<cr><cr>])dnl UL<up><c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> ulw ITEMIZEDLIST_WRAP([<cr><cr><cr><cr>])dnl ITEMIZEDLIST_WRAP<up><up><c-r>=Eatchar('.')<cr>

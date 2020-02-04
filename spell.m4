@@ -190,6 +190,8 @@ define([ARTICLE_WRAP],		defn([TITLE_ATTR], [EXPAND_LAST]))
 define([ASIDE_WRAP],		defn([TITLE_ATTR], [EXPAND_LAST]))
 define([BLOCKQUOTE],		defn([PRINT_LANG]))
 define([BLOCKQUOTE_MONO],		defn([PRINT_MONO]))
+define([BRIDGEHEAD],		defn([PRINT_LANG]))
+define([BRIDGEHEAD_MONO],		defn([PRINT_MONO]))
 define([CHAPTER],		defn([PRINT_LANG]))
 define([COMMAND], 		defn([TITLE_ATTR]))
 define([COMMENT_MONO],		defn([PRINT_MONO]))
@@ -243,8 +245,6 @@ define([TBODY_WRAP],		defn([TITLE_ATTR], [EXPAND_LAST]))
 define([TFOOT_WRAP],		defn([TITLE_ATTR], [EXPAND_LAST]))
 define([THEAD_WRAP],		defn([TITLE_ATTR], [EXPAND_LAST]))
 define([TILE_BOX],		defn([PRINT_LANG]))
-define([TITLE],			defn([PRINT_LANG]))
-define([TITLE_MONO],		defn([PRINT_MONO]))
 
 # for plugins
 # β

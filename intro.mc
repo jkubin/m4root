@@ -145,7 +145,7 @@ However, it is important to understand all layers of code well.
 ]])
 
 
-TITLE_MONO([dnl monolingual
+BRIDGEHEAD_MONO([dnl monolingual
 [GPM (General Purpose Macro-generator)],
 ])
 
@@ -164,7 +164,7 @@ The basic idea of the original proposal remained the same.
 ]])
 
 
-TITLE_MONO([dnl monolingual
+BRIDGEHEAD_MONO([dnl monolingual
 [M3],
 ])
 
@@ -266,7 +266,7 @@ Argument CODE([0]) switches output to CODE([stdout]) (standard output).
 ]])
 
 
-TITLE_MONO([dnl monolingual
+BRIDGEHEAD_MONO([dnl monolingual
 [M4],
 ])
 
@@ -391,7 +391,7 @@ Brian Kernighan[]REF([Brian Kernighan], [An Interview with Brian Kernighan], [ht
 ]])
 
 
-TITLE_MONO([dnl monolingual
+BRIDGEHEAD_MONO([dnl monolingual
 [GNU M4],
 ])
 
@@ -472,7 +472,7 @@ P: A → β
    β ∈ (N ∪ Σ)*
 ]])dnl PROGRAMLISTING
 
-TITLE([m4_rules], [dnl czech
+BRIDGEHEAD([m4_rules], [dnl czech
 [Přepisovací pravidla M4],
 dnl english: _next_language_
 [M4 rewriting rules],
@@ -514,7 +514,7 @@ ifelse(`', `', `yes', `no') → yes
 ]])dnl PROGRAMLISTING
 
 
-TITLE([expansion_control], [dnl czech
+BRIDGEHEAD([expansion_control], [dnl czech
 [Řízení expanze neterminálů],
 dnl english: _next_language_
 [Nonterminal expansion control],
@@ -759,7 +759,7 @@ try_it_yourself() LINK([preproc_examples], [preproc_examples])
 ]])
 
 
-TITLE([dnl czech
+BRIDGEHEAD([dnl czech
 [Smíšený režim],
 dnl english: _next_language_
 [Mixed mode],
@@ -851,7 +851,7 @@ All grammars are based on the rules for rewriting and their forms are generally 
 All grammars are based on rewriting rules, which form generally describes:
 
 
-TITLE([formal_grammar_chomsky], [dnl czech
+BRIDGEHEAD([formal_grammar_chomsky], [dnl czech
 [Formální gramatika (Chomského typu)],
 dnl english: _next_language_
 [Formal grammar (Chomsky type)],
@@ -895,7 +895,7 @@ The ability to use predominantly two-state automata is an essential thing for wr
 ]])
 
 
-TITLE([testing_automaton], [dnl czech
+BRIDGEHEAD([testing_automaton], [dnl czech
 [Testovací automat],
 dnl english: _next_language_
 [Testing automaton],
@@ -942,7 +942,7 @@ PROGRAMLISTING(, [ASCII-art ]LANG([jako dokumentace M4 kódu], [for M4 code docu
 ])dnl PROGRAMLISTING
 
 
-TITLE([generating_automaton], [dnl czech
+BRIDGEHEAD([generating_automaton], [dnl czech
 [Generující automat],
 dnl english: _next_language_
 [Generating automaton],
@@ -1164,7 +1164,7 @@ Generating different file types usually requires less effort because the previou
 ]])
 
 
-TITLE([modified_input_source_code], [dnl czech
+BRIDGEHEAD([modified_input_source_code], [dnl czech
 [Upravený vstupní kód],
 dnl english: _next_language_
 [Modified input code],
@@ -1179,14 +1179,14 @@ Vytvoříme několik převodních souborů podle typu cílového kódu, makra pr
 We create several conversion files according to the target code type, CODE_M4([LB()]) and CODE_M4([RB()]) macros for square brackets are already defined in the root file.
 ]])
 
-TITLE_MONO([dnl
+BRIDGEHEAD_MONO([dnl
 [CODE_M4([[]]) XML[,] XSLT[,] HTML],
 ])
 
 INSERT_FILE_AND_LINK([messages/markup.m4], LANG([převodní soubor pro značkovací jazyky], [conversion file for markup languages]))
 
 # hide  ‘"’ → DQ(), because of title="… &quot; … &quot; …"
-TITLE([dnl
+BRIDGEHEAD([dnl
 [CODE_M4([[]]) C[,] JSON[,] INI – CODE([DQ()řetězec[]DQ()])],
 [CODE_M4([[]]) C[,] JSON[,] INI – CODE([DQ()string[]DQ()])],
 ])
@@ -1194,21 +1194,21 @@ TITLE([dnl
 INSERT_FILE_AND_LINK([messages/code.m4], LANG([převodní soubor pro zdrojový kód], [conversion file for a source code]))
 
 # hide ‘"’ → DQ(), because of title="… &quot; … &quot; …"
-TITLE([dnl
+BRIDGEHEAD([dnl
 [CODE_M4([[]]) Bash – CODE([DQ()řetězec[]DQ()])],
 [CODE_M4([[]]) Bash – CODE([DQ()string[]DQ()])],
 ])
 
 INSERT_FILE_AND_LINK([messages/doubleq.m4], LANG([převodní soubor pro Bash řetězce v uvozovkách], [conversion file for Bash strings in quotation marks]))
 
-TITLE([dnl
+BRIDGEHEAD([dnl
 [CODE_M4([[]]) Bash – CODE([AP()řetězec[]AP()])],
 [CODE_M4([[]]) Bash – CODE([AP()string[]AP()])],
 ])
 
 INSERT_FILE_AND_LINK([messages/apost.m4], LANG([převodní soubor pro Bash řetězce v apostrofech], [conversion file for Bash strings in apostrophes]))
 
-TITLE_MONO([dnl monolingual
+BRIDGEHEAD_MONO([dnl monolingual
 [CODE_M4([[]]) CSV[,] M4],
 ])
 
