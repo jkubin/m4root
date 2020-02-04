@@ -16,10 +16,10 @@ ___USAGE(`m4 root.m4 stem.m4 branch.m4 sub_branch.m4 leaf.m4 data.mc > output.fi
 #
 # Formal Grammar (Chomsky type)
 # G = (N, Σ, P, S)
-# N: fin. set of non-terminal symbols
-# Σ: fin. set of terminal symbols
+# N: nonempty finite set of non-terminal symbols
+# Σ: finite set of terminal symbols
 #    N ∩ Σ = ø
-# P: fin. set of production rules
+# P: finite set of production rules
 #    (N ∪ Σ)* N (N ∪ Σ)* → (N ∪ Σ)*
 # S: is the start symbol
 #    S ∈ N

@@ -240,13 +240,13 @@ The control character pair is set at the beginning of the root file.</p>
 <p>Automata use the grammar rules for rewriting as nodes and change their states according to input symbols.
 The currently used rule produces a specific code to the output queue (or several output queues) until the automaton moves to another node with a&nbsp;different rule.
 Automata serve as „switches“ of grammar rules.
-The examples of <a href="#m4-generating-automaton" title="Generating automaton">generating automata</a> are in annex.</p>
+The examples of <a href="#m4-generating-automaton" title="Generating automaton">generating automata</a> are in appendix.</p>
 <h3 id="m4-output-queues"><a href="#m4-output-queues" title="⚓">3.3</a>&nbsp;&nbsp;Output queues&nbsp;<a href="#m4-toc-output-queues" title="Content" class="m4-toc">☰</a></h3>
 <p>The output queues temporarily store the portions of the resulting code.
 These parts are formed using the grammar rules for rewriting which subsequently rewrite input symbols.
 The <code>divert(ℤ)</code> keyword sets the output queue.
 Finally, all non-empty queues are dumped in ascending order to the standard output and compose the final code.
-The examples of the <a href="#m4-html-output-queues" title="[] HTML – output queues">output queues</a> are in the annex.</p>
+The examples of the <a href="#m4-html-output-queues" title="[] HTML – output queues">output queues</a> are in the appendix.</p>
 <div class="rs-tip-major m4-tip"><strong>Stacks</strong> will be described later.</div>
 <h2 id="m4-main-uses-of-m4"><a href="#m4-main-uses-of-m4" title="⚓">4</a>&nbsp;&nbsp;Main uses of M4&nbsp;<a href="#m4-toc-main-uses-of-m4" title="Content" class="m4-toc">☰</a></h2>
 <p>M4 is used to generate the source code of any programming language or as a&nbsp;preprocessor for any source code.</p>
@@ -354,7 +354,7 @@ The automaton is the same as the regular expression <code>(1*01*01*)*</code>.</e
 </pre>
 <h4 id="m4-generating-automaton"><a href="#m4-generating-automaton" title="⚓">»</a>&nbsp;Generating automaton</h4>
 <p>Input symbols change the nodes of the automaton, thereby changing the rewriting rules for code generation.
-See the annex for <a href="#m4-json-generating-automaton" title="[] JSON – generating automaton">this example</a>:</p>
+See the appendix for <a href="#m4-json-generating-automaton" title="[] JSON – generating automaton">this example</a>:</p>
 <pre title="ASCII-art of generating automaton">
 #      _______      ___________
 # ---&gt;/ ERROR \---&gt;/ NEXT_ITEM \---.
@@ -433,7 +433,7 @@ In this way it is possible to gradually gain some practice.</p>
 <p id="m4-toc-xml-separated-messages" class="m4-level2"><a href="#m4-xml-separated-messages">A.15&nbsp;&nbsp;<code>[]</code> XML – separated messages</a></p>
 <p id="m4-toc-bash-cmd-echo-dstringd" class="m4-level2"><a href="#m4-bash-cmd-echo-dstringd">A.16&nbsp;&nbsp;<code>[]</code> Bash <code>~]$ echo "string"</code></a></p>
 <p id="m4-toc-bash-cmd-echo-astringa" class="m4-level2"><a href="#m4-bash-cmd-echo-astringa">A.17&nbsp;&nbsp;<code>[]</code> Bash <code>~]$ echo 'string'</code></a></p>
-<div class="rs-tip-major m4-tip">The examples in this annex are more complex and are intended to demonstrate the practical use of M4.
+<div class="rs-tip-major m4-tip">The examples in this appendix are more complex and are intended to demonstrate the practical use of M4.
 They will be explained in detail later.</div>
 <h3 id="m4-input-source-code"><a href="#m4-input-source-code" title="⚓">A.1</a>&nbsp;&nbsp;<code>[]</code> Input source code&nbsp;<a href="#m4-toc-input-source-code" title="Content" class="m4-toc">☰</a></h3>
 <p>The input source code is similar to <abbr title="Comma Separated Values">CSV</abbr>, which is converted to arbitrarily complex target code of another language using <abbr title="Context-Free Grammar">CFG</abbr>, automata and output queues.

@@ -323,7 +323,7 @@ Author: Josef Kubin
 Started: 2019/12/23
 Note: root_cz
 Description: converts inline and block-level elements into a plain text file for checking jargon and typos
-Reason: plain text file for spell checking and for suggestions from other people (they can edit)
+Reason: plain text file for spell checking and for suggestions from other people (text can be easily edited)
 ---
 File: asm/Makefile
 Author: Josef Kubin

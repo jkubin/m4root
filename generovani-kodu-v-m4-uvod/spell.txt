@@ -1,5 +1,5 @@
 # vim:wrap:spell:spelllang=cs,en
-# __SOURCE([intro.mc, 0xe8aaba5, 20200204-02:33:24])
+# __SOURCE([intro.mc, 0x38a6c6d, 20200204-05:00:46])
 
 7
 Generování kódu v M4: úvod
@@ -179,6 +179,14 @@ tím je vymezen jejich jmenný prostor
 367
 Uživatelský manuál zmiňuje ještě další, zde neuvedené spoluautory.
 Bylo by tedy značně nespravedlivé napsat, že autory makro procesoru M4 (1977) jsou pouze dva lidé.
+
+376
+[Christopher Strachey, Dennis Ritchie, Brian Kernighan]
+
+376
+Christopher Strachey,
+Dennis Ritchie,
+Brian Kernighan
 
 394
 GNU M4
@@ -409,6 +417,13 @@ Testovací automat
 904
 Pořadí vstupních symbolů nebo jejich kontext lze otestovat automatem.
 Splňují-li vstupní symboly požadované vlastnosti, automat skončí v uzlu s dvojitým kroužkem, kterým se označuje akceptující stav.
+
+913
+[deterministický konečný automat (DFA)]
+
+913
+Příklad automatu akceptující sudý počet (žádný je také sudý) symbolů , ignorující symboly .
+Automat je shodný s regulárním výrazem .
 
 928
 Předchozí automat lze zapsat jako ASCII art doprovázející M4 skript:
@@ -806,8 +821,20 @@ RATFOR — A Preprocessor for a Rational Fortran	Brian W. Kernighan
 367
 The M4 Macro Processor	Bell Laboratories (1977)
 
+376
+Christopher Strachey	Computer Hope – Free computer help since 1998
+
+376
+Dennis Ritchie	Zomrel tvorca Unixu a jazyka C
+
+376
+Brian Kernighan	An Interview with Brian Kernighan
+
 417
 GNU M4 - GNU macro processor	Free Software Foundation
+
+913
+Teorie automatů	From Wikipedia, the free encyclopedia
 
 997
 GNU Make Manual	Free Software Foundation

@@ -1,5 +1,5 @@
 # vim:wrap:spell:spelllang=en,en
-# __SOURCE([intro.mc, 0xe8aaba5, 20200204-02:33:24])
+# __SOURCE([intro.mc, 0x38a6c6d, 20200204-05:00:47])
 
 7
 Generating code in M4: introduction
@@ -179,6 +179,14 @@ this delimits their namespace
 The user manual mentions other co-authors not mentioned here.
 So it would be fairly unfair to write that the authors of the M4 macro processor (1977) are only two people.
 
+376
+[Christopher Strachey, Dennis Ritchie, Brian Kernighan]
+
+376
+Christopher Strachey,
+Dennis Ritchie,
+Brian Kernighan
+
 394
 GNU M4
 
@@ -251,7 +259,7 @@ Automata
 Automata use the grammar rules for rewriting as nodes and change their states according to input symbols.
 The currently used rule produces a specific code to the output queue (or several output queues) until the automaton moves to another node with a different rule.
 Automata serve as „switches“ of grammar rules.
-The examples of generating automata are in annex.
+The examples of generating automata are in appendix.
 
 562
 Output queues
@@ -261,7 +269,7 @@ The output queues temporarily store the portions of the resulting code.
 These parts are formed using the grammar rules for rewriting which subsequently rewrite input symbols.
 The  keyword sets the output queue.
 Finally, all non-empty queues are dumped in ascending order to the standard output and compose the final code.
-The examples of the output queues are in the annex.
+The examples of the output queues are in the appendix.
 
 584
 Stacks will be described later.
@@ -407,6 +415,13 @@ Testing automaton
 The order of input symbols or their context can be tested by an automaton.
 If the input symbols meet the required properties, the automaton ends up in a double-ring node which indicates the accepting state.
 
+913
+[deterministic finite automaton (DFA)]
+
+913
+Example of an automaton accepting an even number (none is even) of symbols , ignoring symbols .
+The automaton is the same as the regular expression .
+
 928
 The previous automaton can be written as an ASCII art accompanying the M4 script:
 
@@ -418,7 +433,7 @@ Generating automaton
 
 951
 Input symbols change the nodes of the automaton, thereby changing the rewriting rules for code generation.
-See the annex for this example:
+See the appendix for this example:
 
 960
 [ASCII-art of generating automaton]
@@ -474,7 +489,7 @@ Code generation examples
 Chars. {, , , } in the name controls the expansion of nonterminals.
 
 1069
-The examples in this annex are more complex and are intended to demonstrate the practical use of M4.
+The examples in this appendix are more complex and are intended to demonstrate the practical use of M4.
 They will be explained in detail later.
 
 1079
@@ -804,8 +819,20 @@ RATFOR — A Preprocessor for a Rational Fortran	Brian W. Kernighan
 367
 The M4 Macro Processor	Bell Laboratories (1977)
 
+376
+Christopher Strachey	Computer Hope – Free computer help since 1998
+
+376
+Dennis Ritchie	Zomrel tvorca Unixu a jazyka C
+
+376
+Brian Kernighan	An Interview with Brian Kernighan
+
 417
 GNU M4 - GNU macro processor	Free Software Foundation
+
+913
+Automata theory	From Wikipedia, the free encyclopedia
 
 997
 GNU Make Manual	Free Software Foundation
