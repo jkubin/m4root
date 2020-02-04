@@ -59,8 +59,8 @@ divert(START_OF_NAVIGATION)dnl
 [NB()AH(JUMP_TO_TOC, defn([SENTENCE_ALL_PARTS]), [toc], [#]NSP()defn([TOC_ALL_PARTS]))])defn([SWITCH_TO_ANOTHER_LANGUAGE])</h2>
 divert(END_OF_NAVIGATION)dnl
 <!-- article content -->
-divert(ANNEX_CONTENT_START)dnl
-<!-- annex content -->
+divert(APPENDIX_CONTENT_START)dnl
+<!-- appendix content -->
 divert(-1)
 
 # the following code tests state of the REF automaton

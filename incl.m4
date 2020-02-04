@@ -22,7 +22,7 @@ which will make it easier (maybe) for other authors to write articles on AH([www
 
 # common code in annex
 # A → β
-define([ANNEX_APPEND_CODE], [
+define([APPENDIX_APPEND_CODE], [
 	TIP_BOX([[dnl czech
 Znaky {CODE([`']), CODE_M4([[]]), BO([CODE([␂␆])]), CODE([〖〗])} v[]NB()názvu příkladu HYLN([řídí expanzi neterminálů], [expansion_control]).
 ],
