@@ -1,5 +1,5 @@
 # vim:wrap:spell:spelllang=en,en
-# __SOURCE([intro.mc, 0x38a6c6d, 20200204-05:00:47])
+# __SOURCE([intro.mc, 0xac2dfe4, 20200204-05:18:40])
 
 7
 Generating code in M4: introduction
