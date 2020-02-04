@@ -61,7 +61,7 @@ File: refs.m4
 Author: Josef Kubin
 Started: 2019/12/11
 Note: root_cz
-Description: tests chapter logic flow (chapter → sub-chapter → sub-sub-chapter) and generates references for anchors
+Description: tests logic flow (CHAPTER → SECT1 → SECT2) and generates references for anchors
 Reason: extracts all IDs from files and create associative pair
 ---
 File: hello_world/Makefile
@@ -273,7 +273,7 @@ File: html/ent.m4
 Author: Josef Kubin
 Started: 2020/01/14
 Note: html
-Description: html entities must be hidden
+Description: solution for html entities which must be hidden
 Reason: html entities
 ---
 File: html/inline.m4

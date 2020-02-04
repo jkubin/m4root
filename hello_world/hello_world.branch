@@ -1,2 +1,2 @@
-Ciao mondo!
-HELLO(BRANCH) → HELLO(5) → HELLO_$1 → HELLO_5 → Ciao mondo!
+Привет, мир!
+HELLO(BRANCH) → HELLO(8) → HELLO_$1 → HELLO_8 → Привет, мир!
