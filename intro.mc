@@ -74,7 +74,7 @@ We will also learn how to write HYLN([testing automata], [testing_automaton]) to
 ]])
 
 
-SUB_CHAPTER([dnl czech
+SECT1([dnl czech
 [Příklady pro čtenáře],
 dnl english: _next_language_
 [Examples for readers],
@@ -449,7 +449,7 @@ These terms will be explained later in more detail.
 The objective is to show the basic practical use of M4 language on examples.
 ]])
 
-SUB_CHAPTER([context_free_grammar], [dnl czech
+SECT1([context_free_grammar], [dnl czech
 [Bezkontextová gramatika],
 dnl english: _next_language_
 [Context-free grammar],
@@ -538,7 +538,7 @@ The control character pair is set at the beginning of the root file.
 ]])
 
 
-SUB_CHAPTER([automata_descr], [dnl czech
+SECT1([automata_descr], [dnl czech
 [Automaty],
 dnl english: _next_language_
 [Automata],
@@ -559,7 +559,7 @@ The examples of HYLN([generating automata], [generating_automaton]) are in annex
 ]])
 
 
-SUB_CHAPTER([output_queues], [dnl czech
+SECT1([output_queues], [dnl czech
 [Výstupní fronty],
 dnl english: _next_language_
 [Output queues],
@@ -603,7 +603,7 @@ M4 is used to generate the source code of any programming language or as a[]NB()
 ]])
 
 
-SUB_CHAPTER([code_generation], [dnl czech
+SECT1([code_generation], [dnl czech
 [Generování kódu],
 dnl english: _next_language_
 [The code generation],
@@ -677,7 +677,7 @@ define([try_it_yourself], [Try:])try_it_yourself() HYLN([code_generation_example
 ]])
 
 
-SUB_CHAPTER([m4_as_preproc], [dnl czech
+SECT1([m4_as_preproc], [dnl czech
 [Preprocesor],
 dnl english: _next_language_
 [The preprocessor],
@@ -836,7 +836,7 @@ BO([branching]) is made by HYLN([symbol concatenation], [branching_in_m4]) or CO
 ])dnl TIP_BOX_WRAP
 
 
-SUB_CHAPTER([dnl czech
+SECT1([dnl czech
 [Základy gramatik],
 dnl english: _next_language_
 [Fundamentals of grammars],
@@ -881,7 +881,7 @@ Some of the following episodes of this series will focus on formal grammar in de
 ]])
 
 
-SUB_CHAPTER([dnl czech
+SECT1([dnl czech
 [Základy automatů],
 dnl english: _next_language_
 [Fundamentals of automata],
@@ -975,7 +975,7 @@ The automaton remains in this state until all data has been processed.
 ]])
 
 
-SUB_CHAPTER([dnl czech
+SECT1([dnl czech
 [(GNU) make],
 dnl english: _next_language_
 [(GNU) make],
@@ -1004,7 +1004,7 @@ The file CODE([~/.vimrc]) contains CODE([nnoremap []LT()c-j[]GT() :make[]LT()cr[
 ]])
 
 
-SUB_CHAPTER([dnl czech
+SECT1([dnl czech
 [Vim],
 dnl english: _next_language_
 [Vim],
@@ -1030,7 +1030,7 @@ productivity of scripting increases chapter – HYLN([vim_scripting], [vim_scrip
 ]])
 
 
-SUB_CHAPTER([dnl czech
+SECT1([dnl czech
 [Talent a čas],
 dnl english: _next_language_
 [Talent and time],
@@ -1060,7 +1060,7 @@ Disclaimer 🕱: BO([Larger M4 projects require practice!])
 ]])
 
 
-ANNEX([code_generation_examples], [dnl czech
+APPENDIX([code_generation_examples], [dnl czech
 [Příklady generování kódu],
 dnl english: _next_language_
 [Code generation examples],
@@ -1076,7 +1076,7 @@ They will be explained in detail later.
 ]])
 
 
-SUB_ANNEX([input_source_code], [dnl czech
+SECT1([input_source_code], [dnl czech
 [CODE_M4([[]]) Vstupní zdrojový kód],
 dnl english: _next_language_
 [CODE_M4([[]]) Input source code],
@@ -1101,7 +1101,7 @@ The input file may also contain notes that may not be hidden in the comments COD
 ]])
 
 
-SUB_ANNEX([dnl czech
+SECT1([dnl czech
 [CODE_M4([[]]) CSV – nejjednodušší příklad],
 dnl english: _next_language_
 [CODE_M4([[]]) CSV – simplest example],
@@ -1117,7 +1117,7 @@ This example does not use output queues, it only generates ABBR([CSV], [Comma Se
 INSERT_FILES_RAW_MESSAGES([hello.csv.m4], [hello.csv])
 
 
-SUB_ANNEX([dnl czech
+SECT1([dnl czech
 [CODE_M4([[]]) CSV – počítadlo],
 dnl english: _next_language_
 [CODE_M4([[]]) CSV – counter],
@@ -1139,7 +1139,7 @@ CODE_M4([COUNTER]) is a[]NB()small automaton.
 INSERT_FILES_RAW_MESSAGES([counter.csv.m4], [counter.csv])
 
 
-SUB_ANNEX([dnl czech
+SECT1([dnl czech
 [CODE([💡], [jak se to dělá]) Úpravy speciálních znaků],
 dnl english: _next_language_
 [CODE([💡], [how to do it]) Modification of special characters],
@@ -1215,7 +1215,7 @@ HEADING_MONO([dnl monolingual
 INSERT_FILE_AND_LINK([messages/unchanged.m4], LANG([převodní soubor vrátí všechny speciální znaky zpátky], [the conversion file puts all special characters back]))
 
 
-SUB_ANNEX([dnl czech
+SECT1([dnl czech
 [CODE_M4([[]]) C – výstupní fronta],
 dnl english: _next_language_
 [CODE_M4([[]]) C – output queue],
@@ -1231,7 +1231,7 @@ The example uses one output queue for characters CODE([};]) to close the array a
 INSERT_FILES_MESSAGES_CODE([array.c.m4], [array.c])
 
 
-SUB_ANNEX([dnl czech
+SECT1([dnl czech
 [CODE_M4([[]]) INI – externí příkaz],
 dnl english: _next_language_
 [CODE_M4([[]]) INI – an external command],
@@ -1251,7 +1251,7 @@ The CODE_M4([FST()]) macro selects the first item because the second item contai
 INSERT_FILES_MESSAGES_CODE([hello.ini.m4], [hello.ini])
 
 
-SUB_ANNEX([dnl czech
+SECT1([dnl czech
 [CODE_M4([[]]) .h – hex počítadlo],
 dnl english: _next_language_
 [CODE_M4([[]]) .h – hex counter],
@@ -1272,7 +1272,7 @@ INSERT_FILES_MESSAGES([messages.h.m4], [messages.h])
 
 
 
-SUB_ANNEX([small_automaton], [dnl czech
+SECT1([small_automaton], [dnl czech
 [CODE_M4([[]]) C – malý automat],
 dnl english: _next_language_
 [CODE_M4([[]]) C – small automaton],
@@ -1290,7 +1290,7 @@ Run the first time CODE([NEW_LINE]), is rewritten to ABBR([CODE([ε])], [epsilon
 INSERT_FILES_MESSAGES_CODE([stringl.c.m4], [stringl.c])
 
 
-SUB_ANNEX([dnl czech
+SECT1([dnl czech
 [CODE_M4([[]]) C – malý automat 2],
 dnl english: _next_language_
 [CODE_M4([[]]) C – small automaton 2],
@@ -1306,7 +1306,7 @@ This example is similar to the previous one, but each string is on a[]NB()new li
 INSERT_FILES_MESSAGES_CODE([string.c.m4], [string.c])
 
 
-SUB_ANNEX([output_queues_html], [dnl czech
+SECT1([output_queues_html], [dnl czech
 [CODE_M4([[]]) HTML – výstupní fronty],
 dnl english: _next_language_
 [CODE_M4([[]]) HTML – output queues],
@@ -1329,7 +1329,7 @@ The CODE([QUERY]) and CODE([WARNING]) messages are processed in the same way as 
 INSERT_FILES_MESSAGES_MARKUP([messages.html.m4], [messages.html])
 
 
-SUB_ANNEX([branching_in_m4], [dnl czech
+SECT1([branching_in_m4], [dnl czech
 [CODE_M4([[]]) Větvení gramatikou],
 dnl english: _next_language_
 [CODE_M4([[]]) Branching by grammar],
@@ -1347,7 +1347,7 @@ Input nonterminals are rewritten to terminals CODE_M4([ERROR → 🐛], [🐛]),
 INSERT_FILES_MESSAGES([insect.txt.m4], [insect.txt])
 
 
-SUB_ANNEX([json_generating_automaton], [dnl czech
+SECT1([json_generating_automaton], [dnl czech
 [CODE_M4([[]]) JSON – generující automat],
 dnl english: _next_language_
 [CODE_M4([[]]) JSON – generating automaton],
@@ -1371,7 +1371,7 @@ At the end the output queue number CODE([1]) and number CODE([2]) print the char
 INSERT_FILES_MESSAGES_CODE([atm.json.m4], [atm.json])
 
 
-SUB_SUB_ANNEX([json_branch], [dnl czech
+SECT2([json_branch], [dnl czech
 [CODE_M4([[]]) JSON – pojmenované fronty],
 dnl english: _next_language_
 [CODE_M4([[]]) JSON – named queues],
@@ -1414,7 +1414,7 @@ $[0]_NAME → QUERY_NAME → query
 INSERT_FILES_MESSAGES_CODE([qnames.json.m4], [qnames.json])
 
 
-SUB_SUB_ANNEX([json_symbolic_queue_names], [dnl czech
+SECT2([json_symbolic_queue_names], [dnl czech
 [CODE_M4([[]]) JSON – generované indexy front],
 dnl english: _next_language_
 [CODE_M4([[]]) JSON – generated queue indexes],
@@ -1436,7 +1436,7 @@ The following example shows how these indexes are generated.
 INSERT_FILES_MESSAGES_CODE([queues.m4], [messages.json.m4], [messages.json])
 
 
-SUB_ANNEX([dnl czech
+SECT1([dnl czech
 [CODE_M4([[]]) INI – nespojitý index front],
 dnl english: _next_language_
 [CODE_M4([[]]) INI – discontinuous queue index],
@@ -1456,7 +1456,7 @@ The example uses the same file for output queues as the HYLN([example], [json_sy
 INSERT_FILES_MESSAGES_QUEUES_CODE([messages.ini.m4], [messages.ini])
 
 
-SUB_ANNEX([dnl czech
+SECT1([dnl czech
 [CODE_M4([[]]) XML – smíšené zprávy],
 dnl english: _next_language_
 [CODE_M4([[]]) XML – mixed messages],
@@ -1472,7 +1472,7 @@ The example uses one output queue number CODE([1]) for the CODE([[]LT()/messages
 INSERT_FILES_MESSAGES_QUEUES_MARKUP([mixed.xml.m4], [mixed.xml])
 
 
-SUB_ANNEX([dnl czech
+SECT1([dnl czech
 [CODE_M4([[]]) XML – oddělené zprávy],
 dnl english: _next_language_
 [CODE_M4([[]]) XML – separated messages],
@@ -1488,7 +1488,7 @@ The example groups messages by their type using output queues.
 INSERT_FILES_MESSAGES_QUEUES_MARKUP([messages.xml.m4], [messages.xml])
 
 
-SUB_ANNEX([dnl czech
+SECT1([dnl czech
 [CODE_M4([[]]) Bash CODE([CMD() echo []DQ()řetězec[]DQ()])],
 dnl english: _next_language_
 [CODE_M4([[]]) Bash CODE([CMD() echo []DQ()string[]DQ()])],
@@ -1497,7 +1497,7 @@ dnl english: _next_language_
 INSERT_FILES_MESSAGES_DOUBLEQ([doubleq.sh.m4], [doubleq.sh])
 
 
-SUB_ANNEX([dnl czech
+SECT1([dnl czech
 [CODE_M4([[]]) Bash CODE([CMD() echo 'řetězec'])],
 dnl english: _next_language_
 [CODE_M4([[]]) Bash CODE([CMD() echo 'string'])],
@@ -1506,13 +1506,13 @@ dnl english: _next_language_
 INSERT_FILES_MESSAGES_APOSTROPHE([apost.sh.m4], [apost.sh])
 
 
-ANNEX([preproc_examples], [dnl czech
+APPENDIX([preproc_examples], [dnl czech
 [Příklady preprocesoru],
 dnl english: _next_language_
 [Preprocessor examples],
 ])
 
-SUB_ANNEX([cpp_and_m4], [dnl czech
+SECT1([cpp_and_m4], [dnl czech
 [CODE_M4([`']) Preprocesor jazyka C[]NB()a[]NB()M4],
 dnl english: _next_language_
 [CODE_M4([`']) C[]NB()preprocessor and M4],
@@ -1540,7 +1540,7 @@ Note the CODE_M4([define ()]) or CODE_M4([ifelse ()]) function names and where t
 INSERT_FILES_PREPROC([q], [file.c])
 
 
-SUB_ANNEX([dnl czech
+SECT1([dnl czech
 [CODE_M4([`']) CSS – komentáře],
 dnl english: _next_language_
 [CODE_M4([`']) CSS – comments],
@@ -1560,7 +1560,7 @@ The comments can be turned off with the same CODE_M4([changecom]) keyword withou
 INSERT_FILES_PREPROC([q], [file.css])
 
 
-SUB_ANNEX([nprint_bash], [dnl czech
+SECT1([nprint_bash], [dnl czech
 [BO([CODE([␂␆])]) Bash – netisknutelné znaky],
 dnl english: _next_language_
 [BO([CODE([␂␆])]) Bash – nonprintable characters],
@@ -1578,14 +1578,14 @@ If we do not want to hide them either in an CODE_M4([LQ()]) or CODE_M4([LB()]) m
 INSERT_FILES_PREPROC([n], [file.sh])
 
 
-ANNEX([m4_on_examples], [dnl czech
+APPENDIX([m4_on_examples], [dnl czech
 [M4 – příklady],
 dnl english: _next_language_
 [M4 – examples],
 ])
 
 
-SUB_ANNEX([dnl czech
+SECT1([dnl czech
 [CODE_M4([[]]) JSON – levá závorka CODE([LB()])],
 dnl english: _next_language_
 [CODE_M4([[]]) JSON – left bracket CODE([LB()])],
@@ -1603,7 +1603,7 @@ Therefore, the left square bracket CODE([LB()]) is replaced by the CODE_M4([LB()
 INSERT_FILES_HELLO_WORLD([b], [json])
 
 
-SUB_ANNEX([dnl czech
+SECT1([dnl czech
 [CODE_M4([[]]) Bash – počítadla],
 dnl english: _next_language_
 [CODE_M4([[]]) Bash – counters],
@@ -1623,7 +1623,7 @@ The CODE_M4([LB()]) macro defined in the root file must be used.
 INSERT_FILES_HELLO_WORLD([b], [sh])
 
 
-SUB_ANNEX([symbols_in_brackets], [dnl czech
+SECT1([symbols_in_brackets], [dnl czech
 [CODE_M4([[]]) .h – závorky CODE_M4([[]])[,] CODE_M4([[,]])[,] CODE_M4([[#]])[,] CODE_M4([[dnl]])],
 dnl english: _next_language_
 [CODE_M4([[]]) .h – brackets CODE_M4([[]])[,] CODE_M4([[,]])[,] CODE_M4([[#]])[,] CODE_M4([[dnl]])],
@@ -1645,7 +1645,7 @@ These symbols become ordinary terminal symbols without any side effect.
 INSERT_FILES_HELLO_WORLD([b], [h])
 
 
-SUB_ANNEX([safe_example], [dnl czech
+SECT1([safe_example], [dnl czech
 [CODE_M4([[]]) AWK – příklady bezpečnějších maker],
 dnl english: _next_language_
 [CODE_M4([[]]) AWK – examples of safer macros],
@@ -1664,16 +1664,16 @@ INSERT_FILES_HELLO_WORLD([b], [awk])
 
 
 # A → ε
-pushdef([ANNEX_APPEND_CODE])# temporarily disable TIP_BOX in annex because no examples
-ANNEX([questions_and_answers], [dnl czech
+pushdef([APPENDIX_APPEND_CODE])# temporarily disable TIP_BOX in annex because no examples
+APPENDIX([questions_and_answers], [dnl czech
 [Proč používat M4 a[]NB()proč ne?],
 dnl english: _next_language_
 [Why to use M4 and why not?],
 ])
-popdef([ANNEX_APPEND_CODE])# re-enable TIP_BOX
+popdef([APPENDIX_APPEND_CODE])# re-enable TIP_BOX
 
 
-SUB_ANNEX([why_to_use_m4], [dnl czech
+SECT1([why_to_use_m4], [dnl czech
 [CODE([👍]) Proč generovat kód v[]NB()M4],
 dnl english: _next_language_
 [CODE([👍]) Why to generate code in M4],
@@ -1729,7 +1729,7 @@ UL([LI([low demands on computing resources])])
 ])dnl UNORDERED_LIST_WRAP
 
 
-SUB_ANNEX([why_not_use], [dnl czech
+SECT1([why_not_use], [dnl czech
 [CODE([👎]) Proč se vyhnout M4],
 dnl english: _next_language_
 [CODE([👎]) Why to avoid M4],
