@@ -145,7 +145,7 @@ However, it is important to understand all layers of code well.
 ]])
 
 
-HEADING_MONO([dnl monolingual
+TITLE_MONO([dnl monolingual
 [GPM (General Purpose Macro-generator)],
 ])
 
@@ -164,7 +164,7 @@ The basic idea of the original proposal remained the same.
 ]])
 
 
-HEADING_MONO([dnl monolingual
+TITLE_MONO([dnl monolingual
 [M3],
 ])
 
@@ -181,7 +181,7 @@ This direct ancestor of the current M4 managed to significantly save heavy and t
 Developers have customized M3 for these languages turning it into a[]NB()universally usable M4 macro processor.
 ]])
 
-TIP_BOX_WRAP(, [m4 ∈ ]LANG([{množina nástrojů UNIX-u}], [{set of UNIX tools}]), [
+NOTE_WRAP(, [m4 ∈ ]LANG([{množina nástrojů UNIX-u}], [{set of UNIX tools}]), [
 
 PLAIN_TEXT([[dnl czech
 PERSON([Dennis Ritchie]) byl také spolutvůrcem operačního systému UNIX a[]NB()proto:
@@ -236,7 +236,7 @@ the argument delimiter is comma
 
 ])dnl ITEMIZEDLIST_WRAP
 
-])dnl TIP_BOX_WRAP
+])dnl NOTE_WRAP
 
 PARA([[dnl czech
 Makro procesor M3 rozšířil také PERSON([Jim E. Weythman]), autor programové konstrukce, která se používá téměř v[]NB()každém M4 skriptu:
@@ -254,7 +254,7 @@ divert(0)dnl
 …
 ]])dnl PROGRAMLISTING
 
-TIP_BOX([[dnl czech
+NOTE([[dnl czech
 Klíčové slovo CODE([[divert](AH([ℤ], [celé číslo], [https://cs.wikipedia.org/wiki/Cel%C3%A9_%C4%8D%C3%ADslo]))], [divert(-1), divert(0), divert(1), …, divert(2147483647)], [dot]) přepíná výstupní fronty.
 Argument CODE([-1]) zcela vypne jakýkoliv textový výstup.
 Argument CODE([0]) přepne výstup na CODE_M4([stdout]) (standardní výstup).
@@ -266,7 +266,7 @@ Argument CODE([0]) switches output to CODE([stdout]) (standard output).
 ]])
 
 
-HEADING_MONO([dnl monolingual
+TITLE_MONO([dnl monolingual
 [M4],
 ])
 
@@ -285,7 +285,7 @@ Programming in RATFOR is similar to C[]NB()programming.
 The macro processor converts the source code back to FORTRAN, then the compiler performs the usual compilation to machine code.
 ]])
 
-TIP_BOX_WRAP([], LANG([jazyk M4 doplňuje jazyk C], [M4 language complements C language]), [
+NOTE_WRAP([], LANG([jazyk M4 doplňuje jazyk C], [M4 language complements C language]), [
 
 PLAIN_TEXT([[dnl czech
 Všimněte si LINK([téměř dokonalé symbiózy], [cpp_and_m4]) s[]NB()jazykem C
@@ -362,7 +362,7 @@ UL([LI([this delimits their namespace])])
 
 ])dnl ITEMIZEDLIST_WRAP
 
-])dnl TIP_BOX_WRAP
+])dnl NOTE_WRAP
 
 PARA([[dnl czech
 Uživatelský manuál[]REF([The M4 Macro Processor], [Bell Laboratories (1977)], [https://wolfram.schneider.org/bsd/7thEdManVol2/m4/m4.pdf]) zmiňuje ještě další, zde neuvedené spoluautory.
@@ -391,7 +391,7 @@ Brian Kernighan[]REF([Brian Kernighan], [An Interview with Brian Kernighan], [ht
 ]])
 
 
-HEADING_MONO([dnl monolingual
+TITLE_MONO([dnl monolingual
 [GNU M4],
 ])
 
@@ -472,7 +472,7 @@ P: A → β
    β ∈ (N ∪ Σ)*
 ]])dnl PROGRAMLISTING
 
-HEADING([m4_rules], [dnl czech
+TITLE([m4_rules], [dnl czech
 [Přepisovací pravidla M4],
 dnl english: _next_language_
 [M4 rewriting rules],
@@ -514,7 +514,7 @@ ifelse(`', `', `yes', `no') → yes
 ]])dnl PROGRAMLISTING
 
 
-HEADING([expansion_control], [dnl czech
+TITLE([expansion_control], [dnl czech
 [Řízení expanze neterminálů],
 dnl english: _next_language_
 [Nonterminal expansion control],
@@ -555,7 +555,7 @@ Příklady LINK([generujících automatů], [generating_automaton]) jsou ukázá
 Automata use the grammar rules for rewriting as nodes and change their states according to input symbols.
 The currently used rule produces a specific code to the output queue (or several output queues) until the automaton moves to another node with a[]NB()different rule.
 Automata serve as QUOTE([switches]) of grammar rules.
-The examples of LINK([generating automata], [generating_automaton]) are in annex.
+The examples of LINK([generating automata], [generating_automaton]) are in appendix.
 ]])
 
 
@@ -577,11 +577,11 @@ The output queues temporarily store the portions of the resulting code.
 These parts are formed using the grammar rules for rewriting which subsequently rewrite input symbols.
 The CODE_M4([divert(ℤ)]) keyword sets the output queue.
 Finally, all non-empty queues are dumped in ascending order to the standard output and compose the final code.
-The examples of the LINK([output queues], [output_queues_html]) are in the annex.
+The examples of the LINK([output queues], [output_queues_html]) are in the appendix.
 ]])
 These parts of the resulting code are created by rewriting rules of grammar that rewrite input symbols.
 
-TIP_BOX([[dnl czech
+NOTE([[dnl czech
 BO([Zásobníky]) si ukážeme později.
 ],
 [dnl english: _next_language_
@@ -759,7 +759,7 @@ try_it_yourself() LINK([preproc_examples], [preproc_examples])
 ]])
 
 
-HEADING([dnl czech
+TITLE([dnl czech
 [Smíšený režim],
 dnl english: _next_language_
 [Mixed mode],
@@ -804,7 +804,7 @@ The most important thing to realize is that it is used to program the grammar ru
 Each string is either a[]NB()terminal or a[]NB()nonterminal symbol, including all language keywords (the symbols CODE_M4([#]) and CODE_M4([,]) are special cases of nonterminals).
 ]])
 
-TIP_BOX_WRAP([
+NOTE_WRAP([
 
 PLAIN_TEXT([[dnl czech
 M4 záměrně nemá klíčová slova pro BO([cykly]) (CODE([for])/CODE([while])), protože jeho základ je zcela jiný, než jaký mají procedurální nebo funkcionální jazyky.
@@ -833,7 +833,7 @@ BO([branching]) is made by LINK([symbol concatenation], [branching_in_m4]) or CO
 
 ])dnl ITEMIZEDLIST_WRAP
 
-])dnl TIP_BOX_WRAP
+])dnl NOTE_WRAP
 
 
 SECT1([dnl czech
@@ -851,7 +851,7 @@ All grammars are based on the rules for rewriting and their forms are generally 
 All grammars are based on rewriting rules, which form generally describes:
 
 
-HEADING([formal_grammar_chomsky], [dnl czech
+TITLE([formal_grammar_chomsky], [dnl czech
 [Formální gramatika (Chomského typu)],
 dnl english: _next_language_
 [Formal grammar (Chomsky type)],
@@ -895,7 +895,7 @@ The ability to use predominantly two-state automata is an essential thing for wr
 ]])
 
 
-HEADING([testing_automaton], [dnl czech
+TITLE([testing_automaton], [dnl czech
 [Testovací automat],
 dnl english: _next_language_
 [Testing automaton],
@@ -942,7 +942,7 @@ PROGRAMLISTING(, [ASCII-art ]LANG([jako dokumentace M4 kódu], [for M4 code docu
 ])dnl PROGRAMLISTING
 
 
-HEADING([generating_automaton], [dnl czech
+TITLE([generating_automaton], [dnl czech
 [Generující automat],
 dnl english: _next_language_
 [Generating automaton],
@@ -954,7 +954,7 @@ LINK([Tento příklad], [json_generating_automaton]) naleznete v[]NB()příloze:
 ],
 [dnl english: _next_language_
 Input symbols change the nodes of the automaton, thereby changing the rewriting rules for code generation.
-See the annex for LINK([this example], [json_generating_automaton]):
+See the appendix for LINK([this example], [json_generating_automaton]):
 ]])
 
 PROGRAMLISTING(, [ASCII-art ]LANG([generujícího automatu], [of generating automaton]), [
@@ -994,7 +994,7 @@ Reading and maintaining source code generally takes more time than creating it.
 A[]NB()well-structured CODE([Makefile]) therefore significantly contributes to the overall clarity of the resulting code generator.
 ]])
 
-TIP_BOX(, LANG([tímto tématem se budeme zabývat jindy], [we will deal with this topic at another part]), [[dnl czech
+NOTE(, LANG([tímto tématem se budeme zabývat jindy], [we will deal with this topic at another part]), [[dnl czech
 Spouštění CODE([make])[]REF([GNU Make Manual], [Free Software Foundation], [https://www.gnu.org/software/make/manual/make.html]) z[]NB()editoru kódu pomocí vhodné klávesové zkratky zásadně urychluje vývoj M4 kódu.
 Soubor CODE([~/.vimrc]) obsahuje CODE([nnoremap []LT()c-j[]GT() :make[]LT()cr[]GT()]).
 ],
@@ -1066,12 +1066,12 @@ dnl english: _next_language_
 [Code generation examples],
 ])
 
-TIP_BOX([[dnl czech
+NOTE([[dnl czech
 Příklady v[]NB()této příloze jsou složitější a[]NB()jejich cílem je ukázat praktické použití jazyka M4.
 Podrobněji budou vysvětleny později.
 ],
 [dnl english: _next_language_
-The examples in this annex are more complex and are intended to demonstrate the practical use of M4.
+The examples in this appendix are more complex and are intended to demonstrate the practical use of M4.
 They will be explained in detail later.
 ]])
 
@@ -1093,7 +1093,7 @@ Stacks in the examples are not used.
 
 INSERT_FILE_AND_LINK([messages/messages_raw.mc], LANG([vstupní zdrojový kód obsahuje speciální znaky], [the input source code contains special characters])[ ⚠])
 
-TIP_BOX([[dnl czech
+NOTE([[dnl czech
 Vstupní soubor může také obsahovat poznámky, které nemusí být skryté v[]NB()komentářích CODE_M4([#]), CODE_M4([dnl]), CODE_M4([ifelse([…])]) nebo CODE_M4([[… někde uvnitř závorek …]]).
 ],
 [dnl english: _next_language_
@@ -1164,7 +1164,7 @@ Generating different file types usually requires less effort because the previou
 ]])
 
 
-HEADING([modified_input_source_code], [dnl czech
+TITLE([modified_input_source_code], [dnl czech
 [Upravený vstupní kód],
 dnl english: _next_language_
 [Modified input code],
@@ -1179,14 +1179,14 @@ Vytvoříme několik převodních souborů podle typu cílového kódu, makra pr
 We create several conversion files according to the target code type, CODE_M4([LB()]) and CODE_M4([RB()]) macros for square brackets are already defined in the root file.
 ]])
 
-HEADING_MONO([dnl
+TITLE_MONO([dnl
 [CODE_M4([[]]) XML[,] XSLT[,] HTML],
 ])
 
 INSERT_FILE_AND_LINK([messages/markup.m4], LANG([převodní soubor pro značkovací jazyky], [conversion file for markup languages]))
 
 # hide  ‘"’ → DQ(), because of title="… &quot; … &quot; …"
-HEADING([dnl
+TITLE([dnl
 [CODE_M4([[]]) C[,] JSON[,] INI – CODE([DQ()řetězec[]DQ()])],
 [CODE_M4([[]]) C[,] JSON[,] INI – CODE([DQ()string[]DQ()])],
 ])
@@ -1194,21 +1194,21 @@ HEADING([dnl
 INSERT_FILE_AND_LINK([messages/code.m4], LANG([převodní soubor pro zdrojový kód], [conversion file for a source code]))
 
 # hide ‘"’ → DQ(), because of title="… &quot; … &quot; …"
-HEADING([dnl
+TITLE([dnl
 [CODE_M4([[]]) Bash – CODE([DQ()řetězec[]DQ()])],
 [CODE_M4([[]]) Bash – CODE([DQ()string[]DQ()])],
 ])
 
 INSERT_FILE_AND_LINK([messages/doubleq.m4], LANG([převodní soubor pro Bash řetězce v uvozovkách], [conversion file for Bash strings in quotation marks]))
 
-HEADING([dnl
+TITLE([dnl
 [CODE_M4([[]]) Bash – CODE([AP()řetězec[]AP()])],
 [CODE_M4([[]]) Bash – CODE([AP()string[]AP()])],
 ])
 
 INSERT_FILE_AND_LINK([messages/apost.m4], LANG([převodní soubor pro Bash řetězce v apostrofech], [conversion file for Bash strings in apostrophes]))
 
-HEADING_MONO([dnl monolingual
+TITLE_MONO([dnl monolingual
 [CODE_M4([[]]) CSV[,] M4],
 ])
 
@@ -1664,13 +1664,13 @@ INSERT_FILES_HELLO_WORLD([b], [awk])
 
 
 # A → ε
-pushdef([APPENDIX_APPEND_CODE])# temporarily disable TIP_BOX in annex because no examples
+pushdef([APPENDIX_APPEND_CODE])# temporarily disable NOTE in appendix because no examples
 APPENDIX([questions_and_answers], [dnl czech
 [Proč používat M4 a[]NB()proč ne?],
 dnl english: _next_language_
 [Why to use M4 and why not?],
 ])
-popdef([APPENDIX_APPEND_CODE])# re-enable TIP_BOX
+popdef([APPENDIX_APPEND_CODE])# re-enable NOTE
 
 
 SECT1([why_to_use_m4], [dnl czech
