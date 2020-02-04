@@ -34,7 +34,7 @@ define([REFERENCES_TO_FILES],	QUEUE_INDEX)
 # (optionally) forget counter and its internal value
 undefine(
 
-	[ivQUEUE_INDEX],
+	[QUEUE_INDEX_val],
 	[QUEUE_INDEX],
 
 )
