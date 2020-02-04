@@ -35,7 +35,7 @@ CLSUBDIRS  = $(SUBDIRS:%=clean-%)
 
 #:all	creates all files
 .PHONY: all
-all: src html doc $(TARGETS)
+all: src html $(TARGETS)
 
 
 #:html	creates rules to generate html

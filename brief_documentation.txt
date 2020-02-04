@@ -23,8 +23,8 @@ File: doc.m4
 Author: Josef Kubin
 Started: 2020/01/20
 Note: m4root
-Description: extracts headers from source files and creates very lightweight documentation for a basic source file overview
-Reason: very lightweight documentation is a solution for cryptic short filenames
+Description: extracts headers from source files and creates brief documentation
+Reason: brief documentation is a solution for cryptic short filenames
 Usage: m4 doc.m4 …
 ---
 File: lang_cs.m4
