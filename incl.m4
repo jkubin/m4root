@@ -10,7 +10,7 @@ define(defn([AUTHOR_NAME]),	[pepa.png])
 # common tip box
 # A → β
 define([the_series_is_generated], [
-	TIP_BOX(, LANG([výsledkem seriálu je sada ukázkových skriptů pro generování kódu], [the result of the series is a set of sample scripts for generating code]), [[dnl czech
+	NOTE(, LANG([výsledkem seriálu je sada ukázkových skriptů pro generování kódu], [the result of the series is a set of sample scripts for generating code]), [[dnl czech
 Vícejazyčný seriál QUOTE([BO([SERIES_NAME])]) je generován M4 skripty[]REF([SERIES_NAME], [vícejazyčná šablona s[]NB()příklady pro AH([www.root.cz], [Root.cz – informace nejen ze světa Linuxu], [https://www.root.cz])], [http://github.com/jkubin/m4root]),
 které (možná) usnadní psaní článků a[]NB()seriálů pro AH([www.root.cz], [Root.cz – informace nejen ze světa Linuxu], [https://www.root.cz/]) také jiným autorům.
 ],
@@ -23,7 +23,7 @@ which will make it easier (maybe) for other authors to write articles on AH([www
 # common code in annex
 # A → β
 define([APPENDIX_APPEND_CODE], [
-	TIP_BOX([[dnl czech
+	NOTE([[dnl czech
 Znaky {CODE([`']), CODE_M4([[]]), BO([CODE([␂␆])]), CODE([〖〗])} v[]NB()názvu příkladu LINK([řídí expanzi neterminálů], [expansion_control]).
 ],
 [dnl english: _next_language_

@@ -389,7 +389,7 @@ divert(-1)
 ])
 
 # A → β
-define([TIP_BOX_WRAP], [
+define([NOTE_WRAP], [
 
 	divert(CURRQU)dnl
 <div[]]defn([HTML_TIP_BOX_ATTRIBUTES])[>dnl
@@ -403,7 +403,7 @@ divert(-1)
 ])
 
 # A → β
-define([TIP_BOX_MONO], [
+define([NOTE_MONO], [
 
 	divert(CURRQU)dnl
 <div[]]defn([HTML_TIP_BOX_ATTRIBUTES])[>EXPAND_ARG1_WITHOUT_TRAILING_LF(]defn([EXPAND_LAST])[)</div>
@@ -411,7 +411,7 @@ divert(-1)
 ])
 
 # A → β
-define([TIP_BOX], [
+define([NOTE], [
 
 	divert(CURRQU)dnl
 <div[]]defn([HTML_TIP_BOX_ATTRIBUTES])[>EXPAND_LANG_WITHOUT_TRAILING_LF(]defn([EXPAND_LAST])[)</div>
@@ -488,7 +488,7 @@ divert(CURRQU)popdef([CURRQU])dnl
 ])
 
 # A → β
-define([HEADING_MONO], defn([MONOLINGUAL_HEADINGS], [SET_ANCHOR])[
+define([TITLE_MONO], defn([MONOLINGUAL_HEADINGS], [SET_ANCHOR])[
 
 	divert(CURRQU)dnl
 <HEADING_TAG]defn([HTML_HEADING_ATTRIBUTES])[>]defn([REFERENCE_TO_HEADLINE])[SELITM</HEADING_TAG>
@@ -496,7 +496,7 @@ divert(-1)
 ])
 
 # A → β
-define([HEADING], defn([MULTILINGUAL_HEADINGS], [SET_ANCHOR])[
+define([TITLE], defn([MULTILINGUAL_HEADINGS], [SET_ANCHOR])[
 
 	divert(CURRQU)dnl
 <HEADING_TAG]defn([HTML_HEADING_ATTRIBUTES])[>]defn([REFERENCE_TO_HEADLINE])[SELITM</HEADING_TAG>

@@ -33,7 +33,7 @@ define([WBR],	[ifelse([$#], [0], [[$0]], [<wbr>])])
 
 # built-in styles for root.cz
 # A → β
-define([NOTE],	[ifelse([$#], [0], [[$0]], ]BRAC([<span class="rs-note"]defn([TITLE_2])[>$1</span>])[)])
+define([GRAY],	[ifelse([$#], [0], [[$0]], ]BRAC([<span class="rs-note"]defn([TITLE_2])[>$1</span>])[)])
 define([PERSON],	[ifelse([$#], [0], [[$0]], ]BRAC([<span class="rs-person"]defn([TITLE_2])[>$1</span>])[)])
 
 # how to use AH(…)
