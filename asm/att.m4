@@ -1,4 +1,4 @@
-# A → β
+# A → ε
 define([SYNTAX])
 
 # A → β
