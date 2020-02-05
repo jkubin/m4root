@@ -1,5 +1,8 @@
 # vim:wrap:spell:spelllang=en,en
-# __SOURCE([intro.mc, 0xcfc684e, 20200204-11:52:09])
+#
+# DO NOT EDIT! This file is generated automatically!
+#
+# __SOURCE([intro.mc, 0xcfc684e, 20200204-23:37:52])
 
 7
 Generating code in M4: introduction

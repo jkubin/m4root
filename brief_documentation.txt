@@ -57,6 +57,22 @@ Note: m4root
 Description: the script converts the caption string to the string used for filenames; resulting string is not truncated
 Reason: full-length lower case ASCII strings for file names
 ---
+File: if20/kiosk_preproc.m4
+Author: Josef Kubin
+Started: 2020/02/05
+Note: if20
+Description: 
+Reason: 
+Usage: m4 kiosk_preproc.m4 symbols.mc
+---
+File: if20/Makefile
+Author: Josef Kubin
+Started: 2020/02/05
+Note: if20
+Description: 
+Reason: 
+Usage: make h
+---
 File: refs.m4
 Author: Josef Kubin
 Started: 2019/12/11

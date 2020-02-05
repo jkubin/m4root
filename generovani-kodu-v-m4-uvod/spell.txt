@@ -1,5 +1,8 @@
 # vim:wrap:spell:spelllang=cs,en
-# __SOURCE([intro.mc, 0xcfc684e, 20200204-11:52:08])
+#
+# DO NOT EDIT! This file is generated automatically!
+#
+# __SOURCE([intro.mc, 0xcfc684e, 20200204-23:37:52])
 
 7
 Generování kódu v M4: úvod

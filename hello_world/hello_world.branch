@@ -1,2 +1,2 @@
-Γειά σου Κόσμε!
-HELLO(BRANCH) → HELLO(7) → HELLO_$1 → HELLO_7 → Γειά σου Κόσμε!
+Witaj świecie!
+HELLO(BRANCH) → HELLO(6) → HELLO_$1 → HELLO_6 → Witaj świecie!
