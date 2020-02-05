@@ -31,6 +31,7 @@ divert(-1)
 
 m4wrap([
 	divert(0)dnl
+[#] DONTE()
 # caption
 
 CAPTION
@@ -48,5 +49,6 @@ PEREX
 PEREX_IMG
 
 # article body
+# copy to clipboard using the keyboard shortcut (xvim): "+yG
 
 ])
