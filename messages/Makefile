@@ -7,6 +7,7 @@ SOURCE_CODE = \
 array.c \
 atm.json \
 hello.ini \
+hello_brac.ini \
 messages.ini \
 messages.json \
 qnames.json \
