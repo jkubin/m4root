@@ -740,7 +740,7 @@ CMD() BO([sed 's/\LB()/CODE_M4([[]LB()])/g' any_src.code | m4 rootb.m4 leaf.m4 -
 ])dnl COMMAND
 
 PARA([[dnl czech
-Pro řízeni expanze neterminálů lze použít netisknutelné znaky BO([CODE([␂])]) (SAMP([0x02])) a[]NB()BO([CODE([␆])]) (SAMP([0x06])).
+Pro řízení expanze neterminálů lze použít netisknutelné znaky BO([CODE([␂])]) (SAMP([0x02])) a[]NB()BO([CODE([␆])]) (SAMP([0x06])).
 Tyto znaky nemohou kolidovat s[]NB()tisknutelnými znaky zdrojového kódu.
 ],
 [dnl english: _next_language_
