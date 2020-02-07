@@ -144,7 +144,6 @@ The speed, performance and efficiency of a[]NB()complex lower-level programming 
 However, it is important to understand all layers of code well.
 ]])
 
-
 BRIDGEHEAD_MONO([dnl monolingual
 [GPM (General Purpose Macro-generator)],
 ])
@@ -163,7 +162,6 @@ The next generation of M3 and M4 macro processors basically just expanded the or
 The basic idea of the original proposal remained the same.
 ]])
 
-
 BRIDGEHEAD_MONO([dnl monolingual
 [M3],
 ])
@@ -265,7 +263,6 @@ Argument CODE([-1]) completely disables any text output.
 Argument CODE([0]) switches output to CODE([stdout]) (standard output).
 ]])
 
-
 BRIDGEHEAD_MONO([dnl monolingual
 [M4],
 ])
@@ -390,7 +387,6 @@ Dennis Ritchie[]REF([Dennis Ritchie], [Zomrel tvorca Unixu a[]NB()jazyka[]NB()C]
 Brian Kernighan[]REF([Brian Kernighan], [An Interview with Brian Kernighan], [https://www.cs.cmu.edu/~mihaib/kernighan-interview/])
 ]])
 
-
 BRIDGEHEAD_MONO([dnl monolingual
 [GNU M4],
 ])
@@ -513,7 +509,6 @@ ifelse(`', `', `yes', `no') → yes
 …
 ]])dnl PROGRAMLISTING
 
-
 BRIDGEHEAD([expansion_control], [dnl czech
 [Řízení expanze neterminálů],
 dnl english: _next_language_
@@ -758,7 +753,6 @@ PARA_MONO([[dnl
 try_it_yourself() LINK([preproc_examples], [preproc_examples])
 ]])
 
-
 BRIDGEHEAD([dnl czech
 [Smíšený režim],
 dnl english: _next_language_
@@ -848,9 +842,7 @@ Základem všech gramatik jsou přepisovací pravidla, jejichž podobu obecně p
 [dnl english: _next_language_
 All grammars are based on the rules for rewriting and their forms are generally described:
 ]])
-All grammars are based on rewriting rules, which form generally describes:
 
-
 BRIDGEHEAD([formal_grammar_chomsky], [dnl czech
 [Formální gramatika (Chomského typu)],
 dnl english: _next_language_
@@ -894,7 +886,6 @@ Schopnost používat převážně dvoustavové automaty je zásadní věc pro ps
 The ability to use predominantly two-state automata is an essential thing for writing simple M4 scripts because the vast majority of scripts use LINK([small automata], [small_automaton]).
 ]])
 
-
 BRIDGEHEAD([testing_automaton], [dnl czech
 [Testovací automat],
 dnl english: _next_language_
@@ -941,7 +932,6 @@ PROGRAMLISTING(, [ASCII-art ]LANG([jako dokumentace M4 kódu], [for M4 code docu
 #                0
 ])dnl PROGRAMLISTING
 
-
 BRIDGEHEAD([generating_automaton], [dnl czech
 [Generující automat],
 dnl english: _next_language_
@@ -1019,14 +1009,6 @@ Tyto zkratky také významně snižují výskyt téměř neviditelných chyb zp�
 Mastering the Vim[]REF([Vim – the ubiquitous text editor], [that edits text at the speed of thought], [https://www.vim.org/]) editor is an important prerequisite for the convenience and speed of writing M4 code.
 Vim shortcuts, defined by the CODE([iabbrev]) keyword, will save large amounts of unnecessary typing.
 These shortcuts also significantly reduce the occurrence of almost invisible errors caused by an unpaired bracket, thus saving the lost time spent on debugging.
-]])
-
-
-_TIP_BOX([[dnl czech
-produktivitu skriptování zvyšuje kapitola – LINK([vim_scripting], [vim_scripting]).
-],
-[dnl english: _next_language_
-productivity of scripting increases chapter – LINK([vim_scripting], [vim_scripting])
 ]])
 
 
@@ -1163,7 +1145,6 @@ Generování různých typů souborů obvykle vyžaduje méně úsilí, protože
 Generating different file types usually requires less effort because the previous finished files can be used.
 ]])
 
-
 BRIDGEHEAD([modified_input_source_code], [dnl czech
 [Upravený vstupní kód],
 dnl english: _next_language_
@@ -1269,7 +1250,6 @@ The decimal value of the counter is converted to the two-digit hex digit by keyw
 ]])
 
 INSERT_FILES_MESSAGES([messages.h.m4], [messages.h])
-
 
 
 SECT1([small_automaton], [dnl czech
@@ -1743,12 +1723,8 @@ UL([LI([nemůže konkurovat úzce specializovaným jazykům, například XSLT])]
 ],
 [dnl english: _next_language_
 low-level universal language (similar to C language)
-UL([
-LI([cannot compete with narrowly specialized languages, for example XSLT])
-])
+UL([LI([cannot compete with narrowly specialized languages, for example XSLT])])
 ]])
-
-LI([M4 programming EM([can]) be difficult and time consuming])
 
 LISTITEM([forgotten_language], [[dnl czech
 neexistující komunita vývojářů (podzim 2019)
