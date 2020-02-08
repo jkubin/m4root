@@ -49,7 +49,7 @@ ifelse(defn(OTHER_LANG_CODE.[LANG_VERSION]), [], [], [
 
 	# create HTML code to next language
 	define([SWITCH_TO_ANOTHER_LANGUAGE],
-	NB()(<a href="../defn([OTHER_LANGUAGE])defn(CURRENT_INDEX.OTHER_LANG_CODE.anch)/defn([OUTPUT_FILE])">defn(OTHER_LANG_CODE.[LANG_VERSION])</a>))
+	NB()(<a href="../defn([OTHER_LANGUAGE])defn(CURRENT_INDEX.OTHER_LANG_CODE.anch)/defn([OUTPUT_FILE])" title="defn(CURRENT_INDEX.OTHER_LANG_CODE.capt)">defn(OTHER_LANG_CODE.[LANG_VERSION])</a>))
 ])
 
 # this is the TOC name at the beginning of page
