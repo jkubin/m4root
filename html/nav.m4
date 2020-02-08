@@ -2,39 +2,6 @@ __HEADER([Josef Kubin], [2019/12/01], [root_cz])
 ___DESCR([navigation logic for HTML page; table of content; all parts of the series])
 ___POINT([common script for preview and publish])
 
-# if enabled
-ifdef([ADD_LINKS_TO_ALL_PARTS_OF_THE_SERIES], [
-
-	# A → β
-	define([TABLE_OF_CONTENT_ITEM], [
-
-		# if multilingual pages are generated
-		ifelse([$3], [], [], [
-
-			# add reference to prefered language
-			define([ALL_PARTS_REF_TO_PREFERED_LANGUAGE],
-			[,] <a href="../defn([RELAT_PATH])defn([$1.$3.anch])/defn([OUTPUT_FILE])" title="defn([$1.$3.capt])">$3</a>)
-		])
-
-		divert(ALL_PARTS_ITEMS)dnl
-<li>ifdef([this.]defn([$1.$2.capt]),
-[defn([$1.$2.capt])],
-[<a href="../defn([$1.$2.anch])/defn([OUTPUT_FILE])">defn([$1.$2.capt])</a>])defn([ALL_PARTS_REF_TO_PREFERED_LANGUAGE])</li>
-divert(-1)
-	])
-
-	# "this.page name" disables link for "this" page (because it looks better :-)
-	define(this.defn([CAPTION]))
-
-	# creates table of content for all parts
-	ifelse(defn(OTHER_LANG_CODE.[LANG_VERSION]), [], [
-
-		TABLE_OF_CONTENT(LANG_CODE)
-	], [
-		TABLE_OF_CONTENT(LANG_CODE[,] OTHER_LANG_CODE)
-	])
-])
-
 # find the current index for navigation logic (previous part, current part, next part)
 define([CURRENT_INDEX], defn([#].LANG_CODE.defn([CAPTION])))
 
@@ -85,6 +52,35 @@ divert(-1)
 
 # if enabled
 ifdef([ADD_LINKS_TO_ALL_PARTS_OF_THE_SERIES], [
+
+	# A → β
+	define([TABLE_OF_CONTENT_ITEM], [
+
+		# if multilingual pages are generated
+		ifelse([$3], [], [], [
+
+			# add reference to prefered language
+			define([ALL_PARTS_REF_TO_PREFERED_LANGUAGE],
+			[,] <a href="../defn([RELAT_PATH])defn([$1.$3.anch])/defn([OUTPUT_FILE])" title="defn([$1.$3.capt])">$3</a>)
+		])
+
+		divert(ALL_PARTS_ITEMS)dnl
+<li>ifdef([this.]defn([$1.$2.capt]),
+[defn([$1.$2.capt])],
+[<a href="../defn([$1.$2.anch])/defn([OUTPUT_FILE])">defn([$1.$2.capt])</a>])defn([ALL_PARTS_REF_TO_PREFERED_LANGUAGE])</li>
+divert(-1)
+	])
+
+	# "this.page name" disables link for "this" page (because it looks better :-)
+	define(this.defn([CAPTION]))
+
+	# creates table of content for all parts
+	ifelse(defn(OTHER_LANG_CODE.[LANG_VERSION]), [], [
+
+		TABLE_OF_CONTENT(LANG_CODE)
+	], [
+		TABLE_OF_CONTENT(LANG_CODE[,] OTHER_LANG_CODE)
+	])
 
 	define([#ID], defn([TOC_ALL_PARTS]))
 
