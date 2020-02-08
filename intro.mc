@@ -923,7 +923,7 @@ Předchozí automat lze zapsat jako ASCII art doprovázející M4 skript:
 The previous automaton can be written as an ASCII art accompanying the M4 script:
 ]])
 
-PROGRAMLISTING(, [ASCII-art ]LANG([jako dokumentace M4 kódu], [for M4 code documentation]), [
+PROGRAMLISTING(, [ASCII art ]LANG([jako dokumentace M4 kódu], [for M4 code documentation]), [
 #          ____1
 #         |   /
 #      ___V__/   0    ____
@@ -947,7 +947,7 @@ Input symbols change the nodes of the automaton, thereby changing the rewriting 
 See the appendix for LINK([this example], [json_generating_automaton]):
 ]])
 
-PROGRAMLISTING(, [ASCII-art ]LANG([generujícího automatu], [of generating automaton]), [
+PROGRAMLISTING(, [ASCII art ]LANG([generujícího automatu], [of generating automaton]), [
 #      _______      ___________
 # --->/ ERROR \--->/ NEXT_ITEM \---.
 #     \_______/    \___________/<--'
