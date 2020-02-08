@@ -198,8 +198,8 @@ File: test.m4
 Author: Josef Kubin
 Started: 2019/07/18
 Note: root_cz
-Description: 
-Reason: 
+Description: testing laboratory for new features
+Reason: M4 script development
 ---
 File: html/files/list.m4
 Author: Josef Kubin

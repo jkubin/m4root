@@ -11,7 +11,7 @@
 <body class="design-tile layout-article-content">
 <div class="urs">
 <!-- table of content -->
-<h2 id="m4-toc-capt">Content&nbsp;(<a href="../generovani-kodu-v-m4-uvod/validate.html">Česká verze</a>)</h2>
+<h2 id="m4-toc-capt">Content&nbsp;(<a href="../generovani-kodu-v-m4-uvod/validate.html" title="Generování kódu v M4: úvod">Česká verze</a>)</h2>
 <p id="m4-toc-introduction"><a href="#m4-introduction">1&nbsp;&nbsp;Introduction</a></p>
 <p id="m4-toc-examples-for-readers" class="m4-level2"><a href="#m4-examples-for-readers">1.1&nbsp;&nbsp;Examples for readers</a></p>
 <p id="m4-toc-history-of-macro-languages"><a href="#m4-history-of-macro-languages">2&nbsp;&nbsp;History of macro languages</a></p>
@@ -298,7 +298,7 @@ If the input symbols meet the required properties, the automaton ends up in&nbsp
 <p><em>Picture <a href="#m4-dfa-img" title="⚓">2</a>: Example of an automaton<sup><a href="https://en.wikipedia.org/wiki/Automata_theory" title="Automata theory">[9]</a></sup> accepting an even number (none is even) of symbols <code>0</code>, ignoring symbols <code>1</code>.
 The automaton is the same as the regular expression <code>(1*01*01*)*</code>.</em></p>
 <p>The previous automaton can be written as an ASCII art accompanying the M4 script:</p>
-<pre title="ASCII-art for M4 code documentation">
+<pre title="ASCII art for M4 code documentation">
 #          ____1
 #         |   /
 #      ___V__/   0    ____
@@ -309,7 +309,7 @@ The automaton is the same as the regular expression <code>(1*01*01*)*</code>.</e
 <h4 id="m4-generating-automaton"><a href="#m4-generating-automaton" title="⚓">»</a>&nbsp;Generating automaton</h4>
 <p>Input symbols change the nodes of the automaton, thereby changing the rewriting rules for code generation.
 See the appendix for <a href="#m4-json-generating-automaton" title="[] JSON – generating automaton">this example</a>:</p>
-<pre title="ASCII-art of generating automaton">
+<pre title="ASCII art of generating automaton">
 #      _______      ___________
 # ---&gt;/ ERROR \---&gt;/ NEXT_ITEM \---.
 #     \_______/    \___________/&lt;--'
@@ -568,7 +568,7 @@ divert(-1)</pre>
 </pre>
 <pre title="hello.ini">; DO NOT EDIT! This file is generated automatically!
 
-[hello_20200204]
+[hello_20200207]
 COMPLEX="!\"#$%&amp;'()*+,-./:;&lt;=&gt;?@[\\]^_`{|}~"
 SUCCESS="Complex M4 code failed successfully."
 NOFAULT="It's not a language fault!"</pre>
@@ -836,7 +836,7 @@ If we generate more complex source code, we will soon encounter the problem of m
 To avoid confusion, we use queue names instead of numbers.</p>
 <p>To avoid having to define similar rules, we copy the right side of <code>ERROR</code> (it is also a&nbsp;<abbr title="the rule is used as the right side of another rewriting rule"><code>β</code> rule</abbr>) to the right side of the <code>QUERY</code> and <code>WARNING</code> rules.
 The <code>$0</code> variable is rewritten to the name of the macro and concatenated with another symbol.
-The newly formed nonterminal is rewritten to the corresponding terminal symbol (queue number and name).</p>
+The newly formed nonterminal is rewritten to the corresponding terminal symbol (queue number or name).</p>
 <pre id="m4-nonterminals-for-branches" title="grammar branching in M4">
 $0_QU → ERROR_QU → 2
 $0_END → ERROR_END → 3
@@ -1582,9 +1582,7 @@ BEGIN { print "DONTE() LB () [ Hello, world! ]" }</pre>
 <h3 id="m4-why-to-avoid-m4"><a href="#m4-why-to-avoid-m4" title="⚓">D.2</a>&nbsp;&nbsp;<code>👎</code> Why to avoid M4&nbsp;<a href="#m4-toc-why-to-avoid-m4" title="Content" class="m4-toc">☰</a></h3>
 <ul>
 <li id="m4-low-level-language">low-level universal language (similar to C language)
-<ul>
-<li>cannot compete with narrowly specialized languages, for example XSLT</li>
-</ul></li>
+<ul><li>cannot compete with narrowly specialized languages, for example XSLT</li></ul></li>
 <li id="m4-forgotten-language">nonexistent developer community (as of Autumn 2019)
 <ul><li>M4 is forgotten language with small number of existing projects</li></ul></li>
 <li id="m4-unusual-language">unusual programming paradigm requiring <a href="#m4-prerequisites-for-mastering-m4" title="Prerequisites for mastering M4">several prerequisites</a>

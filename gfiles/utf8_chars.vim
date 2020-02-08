@@ -80,7 +80,6 @@ iabbrev <buffer> <unique> gn __gnu__<c-r>=Eatchar('\s')<cr>
 "iabbrev <buffer> <unique> id index(〖〗, 〖%%%〗)<c-o>T(<right><c-r>=Eatchar('.')<cr>
 "iabbrev <buffer> <unique> idx index(〖〗, 〖%%%〗)<c-o>T(<right><c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> ifc ifelse(〖<cr>〗)dnl comment<c-o>0<esc>
-iabbrev <buffer> <unique> ii ifelse(〖<cr>〗)dnl comment<c-o>0<esc>
 "iabbrev <buffer> <unique> ifdd ifdef(`', `%%%', `%%%')<c-o>T(<right><c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> ifde ifdef(〖〗, 〖%%%〗, 〖%%%〗)<c-o>T(<right><c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> ifd ifdef(〖〗, 〖%%%〗)<c-o>T(<right><c-r>=Eatchar('.')<cr>
@@ -90,6 +89,7 @@ iabbrev <buffer> <unique> ife ifelse(〖$1〗, 〖%%%〗, 〖%%%〗, 〖%%%〗)<
 iabbrev <buffer> <unique> ifel ifelse(<cr><tab>〖$%%%〗, 〖%%%〗, 〖%%%〗,<cr>〖$%%%〗, 〖%%%〗, 〖%%%〗,<cr>〖$%%%〗, 〖%%%〗, 〖%%%〗,<cr>〖%%%〗dnl<cr>)<c-o><<<left><c-o>%;;<c-r>=Eatchar('.')<cr>
 "iabbrev <buffer> <unique> ifff ifelse(`', `%%%', `%%%')<c-o>T(<right><c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> iff ifelse(〖$〗, 〖%%%〗, 〖%%%〗)<c-o>F$<right><c-r>=Eatchar('.')<cr>
+iabbrev <buffer> <unique> ii ifelse(〖<cr>〗)dnl comment<c-o>0<esc>
 iabbrev <buffer> <unique> inc incr($1)
 iabbrev <buffer> <unique> incl include(〖〗)<left><left><c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> ind indir(〖〗)<left><left><c-r>=Eatchar('.')<cr>
@@ -130,7 +130,6 @@ iabbrev <buffer> <unique> sn SND()<left><c-r>=Eatchar('.')<cr>
 "iabbrev <buffer> <unique> sub substr(〖$〗, 〖%%%〗, 〖%%%〗)<c-o>T$<c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> su substr(〖$〗, 〖%%%〗, 〖%%%〗)<c-o>T$<c-r>=Eatchar('.')<cr>
 "iabbrev <buffer> <unique> sv sysval<c-r>=Eatchar('.')<cr>
-iabbrev <buffer> <unique> syc syscmd(〖〗)<left><left><c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> sys sysval<c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> sysv sysval<c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> sy syscmd(〖〗)<left><left><c-r>=Eatchar('.')<cr>
