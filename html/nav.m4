@@ -56,7 +56,7 @@ ifelse(defn(OTHER_LANG_CODE.[LANG_VERSION]), [], [], [
 divert(START_OF_NAVIGATION)dnl
 <!-- table of content -->
 <h2 id="NSP()TOC_TOP">WORD_CONTENT[]ifdef([ADD_LINKS_TO_ALL_PARTS_OF_THE_SERIES],
-[NB()AH(JUMP_TO_TOC, defn([SENTENCE_ALL_PARTS]), [toc], [#]NSP()defn([TOC_ALL_PARTS]))])defn([SWITCH_TO_ANOTHER_LANGUAGE])</h2>
+[NB()AH([☰], defn([SENTENCE_ALL_PARTS]), [toc], [#]NSP()defn([TOC_ALL_PARTS]))])defn([SWITCH_TO_ANOTHER_LANGUAGE])</h2>
 divert(END_OF_NAVIGATION)dnl
 <!-- article content -->
 divert(APPENDIX_CONTENT_START)dnl
@@ -64,11 +64,11 @@ divert(APPENDIX_CONTENT_START)dnl
 divert(-1)
 
 # the following code tests state of the REF automaton
-# if the REF were used somewhere in the source document it changes automaton state to the REF_NEXT state
+# if the REF macro was used somewhere in the source document it changes automaton state to the REF_NEXT state
 ifelse(defn([REF]), defn([REF_NEXT]), [
 
 	# increment chapter index for rerences
-	define([CHAPTER_IDX], incr(CHAPTER_IDX))
+	CHAPTER_IDX
 
 	# set link to references
 	define([#ID], defn([TOC_REFS]))
@@ -76,10 +76,10 @@ ifelse(defn([REF]), defn([REF_NEXT]), [
 	# add item to navigation and below the page
 	# it have to be here because it is the last but one index, it can not be in the REF automaton
 	divert(CHAPTER_NAVIG_DATA)dnl
-<p id="NSP()TOCP-defn([#ID])"><a href="[#]NSP()defn([#ID])">CHAPTER_IDX()NB2()WORD_REFERENCES</a></p>
+<p id="NSP()TOCP-defn([#ID])"><a href="[#]NSP()defn([#ID])">CHAPTER_IDX_val()NB2()WORD_REFERENCES</a></p>
 divert(ARTICLE_REFER_CAPT)
 <!-- article references -->
-<h2 id="NSP()defn([#ID])"><a href="[#]NSP()defn([#ID])"defn([ANCHOR_SIGN])>CHAPTER_IDX</a>NB2()WORD_REFERENCES[]RETURN_TO_TOC</h2>
+<h2 id="NSP()defn([#ID])"><a href="[#]NSP()defn([#ID])"defn([ANCHOR_SIGN])>CHAPTER_IDX_val</a>NB2()WORD_REFERENCES[]RETURN_TO_TOC</h2>
 divert(-1)
 ])
 
@@ -89,13 +89,13 @@ ifdef([ADD_LINKS_TO_ALL_PARTS_OF_THE_SERIES], [
 	define([#ID], defn([TOC_ALL_PARTS]))
 
 	# increment chapter index (this is the last item in navigation)
-	define([CHAPTER_IDX], incr(CHAPTER_IDX))
+	CHAPTER_IDX
 
 	# add item to navigation and below the page
 	divert(CHAPTER_NAVIG_DATA)dnl
-<p id="NSP()TOCP-defn([#ID])"><a href="[#]NSP()defn([#ID])">CHAPTER_IDX()NB2()SENTENCE_ALL_PARTS</a></p>
+<p id="NSP()TOCP-defn([#ID])"><a href="[#]NSP()defn([#ID])">CHAPTER_IDX_val()NB2()SENTENCE_ALL_PARTS</a></p>
 divert(ALL_PARTS_LIST)dnl
-<h2 id="NSP()defn([#ID])"><a href="[#]NSP()defn([#ID])"defn([ANCHOR_SIGN])>CHAPTER_IDX</a>NB2()SENTENCE_ALL_PARTS[]RETURN_TO_TOC</h2>
+<h2 id="NSP()defn([#ID])"><a href="[#]NSP()defn([#ID])"defn([ANCHOR_SIGN])>CHAPTER_IDX_val</a>NB2()SENTENCE_ALL_PARTS[]RETURN_TO_TOC</h2>
 <ol>
 divert(ALL_PARTS_LIST_END)dnl
 </ol>
