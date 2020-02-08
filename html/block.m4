@@ -237,10 +237,10 @@ divert(-1)
 
 # a hyperlink to a paragraph, code, headline, …, even into other html page in different language
 # LINK([hyperlink], [INTERNAL_ID])
-# LINK([hyperlink], [EXTERNAL_ID], src.mc)
+# LINK([hyperlink], [EXTERNAL_ID], source.mc)
 # LINK([hyperlink to another language], [EXTERNAL_ID], source.mc, en)
 #
-# both IDs must be the same
+# both IDs must be the same in order to dereference the text
 # LINK([INTERNAL_ID], [INTERNAL_ID])
 # LINK([EXTERNAL_ID], [EXTERNAL_ID], source.mc)
 # LINK([EXTERNAL_ID], [EXTERNAL_ID], source.mc, en)
