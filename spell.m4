@@ -60,6 +60,22 @@ EXPAND_LANG_WITHOUT_TRAILING_LF(]defn([EXPAND_LAST])[)
 divert(-1)
 ])
 
+# prints count characters
+# β
+pushdef([PEREX_NUMBER_OF_CHARS], [
+
+	define([SELITM], SELECT_LANG_WITHOUT_TRAILING_LF(]defn([EXPAND_LAST])[))
+
+	divert(0)dnl
+[#] number of characters (200 ±10 is recommended): esyscmd([wc -m << EOF]
+patsubst(defn([SELITM]), [,], [[,]])
+[EOF])dnl
+divert(-1)
+])
+
+ifelse([
+])dnl comment
+
 # A → β
 define([CAPTION], defn([PRINT_LANG])[
 
@@ -226,7 +242,7 @@ define([NOTE_WRAP],		defn([TITLE_ATTR], [EXPAND_LAST]))
 define([ORDEREDLIST_WRAP],		defn([TITLE_ATTR], [EXPAND_LAST]))
 define([PARA],			defn([PRINT_LANG]))
 define([PARA_MONO],		defn([PRINT_MONO]))
-define([PEREX],			defn([PRINT_LANG]))
+define([PEREX],			defn([PEREX_NUMBER_OF_CHARS], [PRINT_LANG]))
 define([PLAIN_TEXT],		defn([PRINT_LANG]))
 define([PLAIN_TEXT_MONO],		defn([PRINT_MONO]))
 define([PROGRAMLISTING], 		defn([TITLE_ATTR]))
@@ -269,6 +285,7 @@ define([INSERT_FILE_AND_LINK], defn([SPELLCHECK_FILE_TITLE]))
 
 popdef(
 
+	[PEREX_NUMBER_OF_CHARS],
 	[PRINT],
 	[SPELLCHECK_FILE_TITLE],
 	[TITLE_ATTR],
