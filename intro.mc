@@ -1373,12 +1373,12 @@ To avoid confusion, we use queue names instead of numbers.
 PARA([[dnl czech
 Abychom nemuseli definovat podobná pravidla, zkopírujeme si pravou stranu CODE([ERROR])[]BR()(je to také ABBR([CODE([β]) pravidlo], [takové pravidlo se používá jako pravá strana jiného přepisovacího pravidla])) do pravé strany pravidel CODE([QUERY]) a[]NB()CODE([WARNING]).
 Proměnná CODE([$[0]]) se přepíše na jméno makra a[]NB()zřetězí se s[]NB()dalším symbolem.
-Nově vzniklý neterminál se přepíše na odpovídající terminální symbol (číslo fronty a jméno).
+Nově vzniklý neterminál se přepíše na odpovídající terminální symbol (číslo fronty nebo jméno).
 ],
 [dnl english: _next_language_
 To avoid having to define similar rules, we copy the right side of CODE([ERROR]) (it is also a[]NB()ABBR([CODE([β]) rule], [the rule is used as the right side of another rewriting rule])) to the right side of the CODE([QUERY]) and CODE([WARNING]) rules.
 The CODE([$[0]]) variable is rewritten to the name of the macro and concatenated with another symbol.
-The newly formed nonterminal is rewritten to the corresponding terminal symbol (queue number and name).
+The newly formed nonterminal is rewritten to the corresponding terminal symbol (queue number or name).
 ]])
 
 PROGRAMLISTING([nonterminals_for_branches], LANG([větvení gramatikou v M4], [grammar branching in M4]), [
