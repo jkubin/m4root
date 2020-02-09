@@ -458,7 +458,7 @@ AH([Kleeneho hvězda], [Wikipedie], [https://en.wikipedia.org/wiki/Kleene_star])
 ],
 [dnl english: _next_language_
 Context-free grammar (shortly ABBR([CFG], [Context-Free Grammar])) is a[]NB()LINK([formal grammar], [formal_grammar_chomsky]) in which all rules for rewriting have the CODE([A[]NB()→[]NB()β]) form.
-The nonterminal CODE_M4([A]) is rewritten to an arbitrarily long ABBR([CODE([β])], [the right side of the rewriting rule]) string composed of terminals CODE([{Σ}]) or nonterminals CODE([{N}]).
+The nonterminal CODE_M4([A]) is rewritten to an arbitrarily long ABBR([CODE([β])], [the right side of the rewriting rule]) string composed of terminals CODE([Σ]) or nonterminals CODE([N]).
 AH([Kleene star], [Wikipedia], [https://en.wikipedia.org/wiki/Kleene_star]) CODE([*]) means that nonterminal CODE_M4([A]) can be rewritten to ABBR([CODE([ε])], [epsilon – empty symbol]) (rewriting rule: CODE([A[]NB()→[]NB()ε])).
 ]])
 
@@ -544,13 +544,13 @@ Automaty používají přepisovací pravidla gramatiky jako uzly a[]NB()mění s
 Aktuálně používané přepisovací pravidlo produkuje do výstupní fronty (nebo do několika výstupních front)
 specifický kód, dokud automat nepřejde do jiného uzlu s[]NB()jiným přepisovacím pravidlem.
 Automaty slouží jako QUOTE([přepínače]) pravidel gramatiky.
-Příklady LINK([generujících automatů], [generating_automaton]) jsou ukázány v[]NB()příloze.
+Příklady LINK([generujících automatů], [json_generating_automaton]) jsou ukázány v[]NB()příloze.
 ],
 [dnl english: _next_language_
 Automata use the grammar rules for rewriting as nodes and change their states according to input symbols.
 The currently used rule produces a specific code to the output queue (or several output queues) until the automaton moves to another node with a[]NB()different rule.
 Automata serve as QUOTE([switches]) of grammar rules.
-The examples of LINK([generating automata], [generating_automaton]) are in appendix.
+The examples of LINK([generating automata], [json_generating_automaton]) are in appendix.
 ]])
 
 
@@ -718,7 +718,7 @@ An empty pair of control characters CODE_M4([`']) before the macro serves as a[]
 define([dirty_hack], LANG([M4 jako preprocesor s řídícími znaky], [M4 as preprocessor with control characters]))
 
 COMMAND(, defn([dirty_hack])[: `'], [
-CMD() BO([sed 's/LQ()/`'\''CODE_M4([LQ()])/g' any_src.code | m4 rootq.m4 leaf.m4 - | gcc …])
+CMD() BO([sed '/^[#]/!s/LQ()/`'\''CODE_M4([LQ()])/g' any_src.code | m4 rootq.m4 leaf.m4 - | gcc …])
 ])dnl COMMAND
 
 PARA([[dnl czech
@@ -731,7 +731,7 @@ If square brackets are used to control the expansion of nonterminals, the left C
 ]])
 
 COMMAND(, defn([dirty_hack])[: []], [
-CMD() BO([sed 's/\LB()/CODE_M4([[]LB()])/g' any_src.code | m4 rootb.m4 leaf.m4 - | gcc …])
+CMD() BO([sed '/^[#]/!s/\LB()/CODE_M4([[]LB()])/g' any_src.code | m4 rootb.m4 leaf.m4 - | gcc …])
 ])dnl COMMAND
 
 PARA([[dnl czech
@@ -1719,11 +1719,11 @@ ITEMIZEDLIST_WRAP([
 
 LISTITEM([low_level_language], [[dnl czech
 univerzální jazyk nízké úrovně (podobně jako jazyk C)
-UL([LI([nemůže konkurovat úzce specializovaným jazykům, například XSLT])])
+UL([LI([nemůže konkurovat úzce specializovaným jazykům])])
 ],
 [dnl english: _next_language_
 low-level universal language (similar to C language)
-UL([LI([cannot compete with narrowly specialized languages, for example XSLT])])
+UL([LI([cannot compete with narrowly specialized languages])])
 ]])
 
 LISTITEM([forgotten_language], [[dnl czech
