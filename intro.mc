@@ -909,11 +909,11 @@ LANG([deterministický konečný automat], [deterministic finite automaton])[ (D
 [img/dfa.png, https://i.iinfo.cz/images/149/dfa-1.png],dnl src
 [[dnl czech
 Příklad automatu[]REF([Teorie automatů], [From Wikipedia, the free encyclopedia], [https://cs.wikipedia.org/wiki/Teorie_automat%C5%AF], [Wikipedie]) akceptující sudý počet (žádný je také sudý) symbolů CODE([0]), ignorující symboly CODE([1]).
-Automat je shodný s[]NB()regulárním výrazem CODE([(1*01*01*)*]).
+Automat je shodný s[]NB()regulárním výrazem CODE([(1*01*01*)*1*]).
 ],
 [dnl english: _next_language_
 Example of an automaton[]REF([Automata theory], [From Wikipedia, the free encyclopedia], [https://en.wikipedia.org/wiki/Automata_theory], [Wikipedia]) accepting an even number (none is even) of symbols CODE([0]), ignoring symbols CODE([1]).
-The automaton is the same as the regular expression CODE([(1*01*01*)*]).
+The automaton is the same as the regular expression CODE([(1*01*01*)*1*]).
 ]])
 
 PARA([[dnl czech
