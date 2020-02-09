@@ -954,7 +954,7 @@ PROGRAMLISTING(, [ASCII art ]LANG([generujícího automatu], [of generating auto
 ])dnl PROGRAMLISTING
 
 PARA([[dnl czech
-První symbol ve stavu CODE_M4([ERROR]) vygeneruje záhlaví se závorkami a[]NB()první položku.
+První symbol ve stavu CODE_M4([ERROR]) vygeneruje záhlaví se závorkami a[]NB()vloží první položku.
 Poté automat přejde do stavu CODE_M4([NEXT_ITEM]), ve kterém se pouze přidávají další položky.
 Automat zůstává v[]NB()tomto stavu, dokud nejsou zpracována všechna data.
 ],
@@ -1021,7 +1021,7 @@ dnl english: _next_language_
 PARA([[dnl czech
 M4 nejde zvládnout přes víkend, zvláště chybí-li základy[]REF([Automaty a[]NB()formální jazyky I], [Učební text FI MU], [https://is.muni.cz/elportal/estud/fi/js06/ib005/Formalni_jazyky_a_automaty_I.pdf])
 AH([teorie[]NB()automatů], [Wikipedie], [https://cs.wikipedia.org/wiki/Teorie_automat%C5%AF]) a[]NB()AH([formálních[]NB()gramatik], [Wikipedie], [https://cs.wikipedia.org/wiki/Form%C3%A1ln%C3%AD_gramatika]).
-Pro zvládnutí M4 je nutné QUOTE([odpřemýšlet si]) delší období a[]NB()napsat velké množství špatného (složitého) M4 kódu, který z[]NB()vlastní vůle přepíšete kvůli lepšímu nápadu.
+Pro dokonalé zvládnutí M4 je nutné QUOTE([odpřemýšlet si]) delší období a[]NB()napsat velké množství špatného (složitého) M4 kódu, který z[]NB()vlastní vůle přepíšete kvůli lepšímu nápadu.
 Tímto způsobem je možné postupně získat určitou praxi.
 ],
 [dnl english: _next_language_
@@ -1755,11 +1755,11 @@ UL([LI([ability to think in M4 is essential necessity])])
 
 LISTITEM([hard_maintenance], [[dnl czech
 údržba špatně napsaného M4 kódu je těžká
-UL([LI([existující M4 kód je snadné proměnit ve zmatek])])
+UL([LI([existující M4 kód je snadné proměnit ve zmatek (nutný dohled!)])])
 ],
 [dnl english: _next_language_
 maintaining badly written M4 code is difficult
-UL([LI([existing M4 code is easily thrown into confusion])])
+UL([LI([existing M4 code is easily thrown into confusion (supervision required!)])])
 ]])
 
 ])dnl ITEMIZEDLIST_WRAP
