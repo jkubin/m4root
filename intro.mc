@@ -1,7 +1,7 @@
 __HEADER([Josef Kubin], [2019/12/03], [m4root])
 ___DESCR([the introductory part])
 
-VERSION(0, 0, 0)
+VERSION_TEMPLATE(1, 0, 0)
 
 
 CAPTION([dnl czech
@@ -406,9 +406,9 @@ The author of this implementation (1990) is AH([PERSON([René Seindal])], [https
 To install BO([m4], [with small letter „m“], [dot]), type the following command:
 ]])
 
-COMMAND([install], LANG([příkaz nainstaluje také další důležité balíčky], [the command also installs other important packages]), [
-ROO() BO([dnf -y install make m4 pinfo])
-])dnl COMMAND
+COMMAND_ROOT([install], LANG([příkaz nainstaluje také další důležité balíčky], [the command also installs other important packages]), [
+BO([dnf -y install make m4 pinfo])
+])dnl COMMAND_ROOT
 
 PARA([[dnl czech
 Podrobný popis klíčových slov se nachází v[]NB()dokumentaci[]REF([GNU M4 - GNU macro processor], [Free Software Foundation], [https://www.gnu.org/software/m4/manual/]):
@@ -417,11 +417,11 @@ Podrobný popis klíčových slov se nachází v[]NB()dokumentaci[]REF([GNU M4 -
 A[]NB()detailed description of the keywords can be found in the documentation[]REF([GNU M4 - GNU macro processor], [Free Software Foundation], [https://www.gnu.org/software/m4/manual/]):
 ]])
 
-COMMAND([
+PROGRAMLISTING([
 CMD() BO([pinfo m4])
 CMD() BO([man m4])
 CMD() BO([m4 --help])
-])dnl COMMAND
+])dnl PROGRAMLISTING
 
 
 CHAPTER([dnl czech
@@ -611,9 +611,9 @@ M4 transformuje vstupní data ze souborů ABBR([CODE([.mc])], [Macro Configurati
 M4 transforms input data from ABBR([CODE([.mc])], [Macro Configuration]) files to output data with the following command:
 ]])
 
-COMMAND([files_on_command_line], [← ]LANG([nejobecnější.m4 … nejspeciálnější.m4], [the_most_general.m4 … the_most_special.m4])[ →], [
-CMD() BO([m4 root.m4 stem.m4 branch.m4 leaf.m4 input1.mc input2.mc > output.file])
-])dnl COMMAND
+COMMAND_USR([files_on_command_line], [← ]LANG([nejobecnější.m4 … nejspeciálnější.m4], [the_most_general.m4 … the_most_special.m4])[ →], [
+BO([m4 root.m4 stem.m4 branch.m4 leaf.m4 input1.mc input2.mc > output.file])
+])dnl COMMAND_USR
 
 PARA([[dnl czech
 Během načítání souborů jsou prováděny dvě základní operace:
@@ -656,13 +656,13 @@ Vstupní data mohou také přicházet z[]NB()kolony:
 The input data may also come from the pipeline:
 ]])
 
-COMMAND(, LANG([vstupní kód → generování zdrojového kódu → soubor], [input code → source code generation → file]), [
-CMD() BO([cat input.mc | m4 root.m4 stem.m4 branch.m4 leaf.m4 - > output.file])
-])dnl COMMAND
+COMMAND_USR(, LANG([vstupní kód → generování zdrojového kódu → soubor], [input code → source code generation → file]), [
+BO([cat input.mc | m4 root.m4 stem.m4 branch.m4 leaf.m4 - > output.file])
+])dnl COMMAND_USR
 
-COMMAND(, LANG([vstupní kód → generování zdrojového kódu → program], [input code → source code generation → program]), [
-CMD() BO([cat input.mc | m4 root.m4 stem.m4 branch.m4 leaf.m4 - | gcc -x c -o progr -])
-])dnl COMMAND
+COMMAND_USR(, LANG([vstupní kód → generování zdrojového kódu → program], [input code → source code generation → program]), [
+BO([cat input.mc | m4 root.m4 stem.m4 branch.m4 leaf.m4 - | gcc -x c -o progr -])
+])dnl COMMAND_USR
 
 PARA([[dnl czech
 define([try_it_yourself], [Vyzkoušejte:])try_it_yourself() LINK([code_generation_examples], [code_generation_examples])
@@ -695,13 +695,13 @@ It is important to select the left character for nonterminal expansion control, 
 However the character collision is easily solved by a regex.
 ]])
 
-COMMAND(, LANG([M4 jako preprocesor – obecně], [M4 as preprocessor – in general]), [
-CMD() BO([m4 root.m4 stem.m4 branch.m4 leaf.m4 file.c > preproc.file.c])
-])dnl COMMAND
+COMMAND_USR(, LANG([M4 jako preprocesor – obecně], [M4 as preprocessor – in general]), [
+BO([m4 root.m4 stem.m4 branch.m4 leaf.m4 file.c > preproc.file.c])
+])dnl COMMAND_USR
 
-COMMAND(, LANG([M4 jako preprocesor – bez dočasného souboru], [M4 as preprocessor – without intermediate file]), [
-CMD() BO([m4 root.m4 stem.m4 branch.m4 leaf.m4 file.c | gcc -x c -o progr -])
-])dnl COMMAND
+COMMAND_USR(, LANG([M4 jako preprocesor – bez dočasného souboru], [M4 as preprocessor – without intermediate file]), [
+BO([m4 root.m4 stem.m4 branch.m4 leaf.m4 file.c | gcc -x c -o progr -])
+])dnl COMMAND_USR
 
 PARA([[dnl czech
 M4 v[]NB()režimu preprocesoru může být součástí kolony.
@@ -717,9 +717,9 @@ An empty pair of control characters CODE_M4([`']) before the macro serves as a[]
 # sorry i couldn't resist …
 define([dirty_hack], LANG([M4 jako preprocesor s řídícími znaky], [M4 as preprocessor with control characters]))
 
-COMMAND(, defn([dirty_hack])[: `'], [
-CMD() BO([sed '/^[#]/!s/LQ()/`'\''CODE_M4([LQ()])/g' any_src.code | m4 rootq.m4 leaf.m4 - | gcc …])
-])dnl COMMAND
+COMMAND_USR(, defn([dirty_hack])[: `'], [
+BO([sed '/^[#]/!s/LQ()/`'\''CODE_M4([LQ()])/g' any_src.code | m4 rootq.m4 leaf.m4 - | gcc …])
+])dnl COMMAND_USR
 
 PARA([[dnl czech
 Při průchodu zdrojového kódu makro procesorem se makro CODE_M4([`'LQ()]) přepíše zpátky na původní znak CODE([LQ()]) a[]NB()prázdný pár CODE_M4([`']) je odstraněn.
@@ -730,9 +730,9 @@ When the source code is passed through the macro processor, the CODE_M4([`'LQ()]
 If square brackets are used to control the expansion of nonterminals, the left CODE([LB()]) square bracket must be hidden in the same way.
 ]])
 
-COMMAND(, defn([dirty_hack])[: []], [
-CMD() BO([sed '/^[#]/!s/\LB()/CODE_M4([[]LB()])/g' any_src.code | m4 rootb.m4 leaf.m4 - | gcc …])
-])dnl COMMAND
+COMMAND_USR(, defn([dirty_hack])[: []], [
+BO([sed '/^[#]/!s/\LB()/CODE_M4([[]LB()])/g' any_src.code | m4 rootb.m4 leaf.m4 - | gcc …])
+])dnl COMMAND_USR
 
 PARA([[dnl czech
 Pro řízení expanze neterminálů lze použít netisknutelné znaky BO([CODE([␂])]) (SAMP([0x02])) a[]NB()BO([CODE([␆])]) (SAMP([0x06])).
@@ -743,9 +743,9 @@ Non printable characters BO([CODE([␂])]) (SAMP([0x02])) and BO([CODE([␆])]) 
 These characters cannot interfere with printable source code characters.
 ]])
 
-COMMAND(, defn([dirty_hack])[: ␂␆], [
-CMD() BO([m4 rootn.m4 leaf.m4 any_src.code | gcc …])
-])dnl COMMAND
+COMMAND_USR(, defn([dirty_hack])[: ␂␆], [
+BO([m4 rootn.m4 leaf.m4 any_src.code | gcc …])
+])dnl COMMAND_USR
 
 undefine([dirty_hack])
 
@@ -770,9 +770,9 @@ The data is not separated from the rules for its transformation.
 The leaf file CODE([leaf.m4]) contains transformation rule definitions along with input data.
 ]])
 
-COMMAND(, LANG([jak se naučit M4], [how to learn M4]), [
-CMD() BO([m4 root.m4 leaf.m4])
-])dnl COMMAND
+COMMAND_USR(, LANG([jak se naučit M4], [how to learn M4]), [
+BO([m4 root.m4 leaf.m4])
+])dnl COMMAND_USR
 
 PARA_MONO([[dnl
 try_it_yourself() LINK([m4_on_examples], [m4_on_examples])

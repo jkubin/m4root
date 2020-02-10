@@ -11,6 +11,8 @@ pushdef([TITLE_2],		[ifelse([$#], [2], [], [$2], [], [], [ title="[$2]"])])
 pushdef([CLASS_3],		[ifelse([$#], [3], [], [$3], [], [], [ class="ADD_CLASS([$3])"])])
 pushdef([CLASS_3_TIP_BOX],	[ class="rs-tip-major ADD_CLASS([tip])ifelse([$#], [3], [], [$3], [], [], [ ADD_CLASS([$3])])"])
 pushdef([CLASS_3_TILE_BOX],	[ class="rs-tile[]ifelse([$#], [3], [], [$3], [], [], [ ADD_CLASS([$3])])"])
+pushdef([CLASS_3_USR_CMD],	[ class="ADD_CLASS([usc])[]ifelse([$#], [3], [], [$3], [], [], [ ADD_CLASS([$3])])"])
+pushdef([CLASS_3_ROOT_CMD],	[ class="ADD_CLASS([root])[]ifelse([$#], [3], [], [$3], [], [], [ ADD_CLASS([$3])])"])
 pushdef([STYLE_4],		[ifelse([$#], [4], [], [$4], [], [], [ style="[$4]"])])
 pushdef([ANYTHING_5],		[ifelse([$#], [5], [], [$5], [], [], [ [$5]])])
 
@@ -18,7 +20,9 @@ pushdef([ANYTHING_5],		[ifelse([$#], [5], [], [$5], [], [], [ [$5]])])
 # β
 pushdef([HTML_GLOBAL_ATTRIBUTES],	defn([ID_1], [TITLE_2], [CLASS_3], [STYLE_4], [ANYTHING_5]))
 pushdef([HTML_HEADING_ATTRIBUTES],	[ id="ADD_ID_RULE(defn([#ID]))"]defn([TITLE_2], [CLASS_3], [STYLE_4], [ANYTHING_5]))
+pushdef([HTML_ROOT_CMD_ATTRIBUTES],	defn([ID_1], [TITLE_2], [CLASS_3_ROOT_CMD], [STYLE_4], [ANYTHING_5]))
 pushdef([HTML_TIP_BOX_ATTRIBUTES],	defn([ID_1], [TITLE_2], [CLASS_3_TIP_BOX], [STYLE_4], [ANYTHING_5]))
+pushdef([HTML_USR_CMD_ATTRIBUTES],	defn([ID_1], [TITLE_2], [CLASS_3_USR_CMD], [STYLE_4], [ANYTHING_5]))
 
 # β
 pushdef([SET_ANCHOR], [
@@ -127,7 +131,7 @@ define([SECT1], defn([MULTILINGUAL_HEADINGS], [SET_ANCHOR])[
 	define([#S1], .SECT1_IDX)
 	define([SECT2_IDX_val], 0)
 	define([#S2])
-	define([INDENT_LEVEL], [ class="ADD_CLASS([level2])"])
+	define([INDENT_LEVEL], [ class="ADD_CLASS([l2])"])
 	define([HEADING_TAG], [h3])
 
 	]defn([CHAPTER_COMMON_CODE])[
@@ -141,7 +145,7 @@ define([SECT2], defn([MULTILINGUAL_HEADINGS], [SET_ANCHOR])[
 	# increment index
 	define([#S1], .SECT1_IDX_val)
 	define([#S2], .SECT2_IDX)
-	define([INDENT_LEVEL], [ class="ADD_CLASS([level3])"])
+	define([INDENT_LEVEL], [ class="ADD_CLASS([l3])"])
 	define([HEADING_TAG], [h4])
 
 	]defn([CHAPTER_COMMON_CODE])[
@@ -210,7 +214,7 @@ define([SECT1_APPENDIX], defn([MULTILINGUAL_HEADINGS], [SET_ANCHOR])[
 	define([SECT2_IDX_val], 0)
 
 	divert(APPENDIX_NAVIGATION)dnl
-<p id="NSP()TOCP-defn([#ID])" class="ADD_CLASS([level2])"><a href="[#]NSP()defn([#ID])">APPENDIX_LETTER.SECT1_IDX_val[]NB2()SELITM</a></p>
+<p id="NSP()TOCP-defn([#ID])" class="ADD_CLASS([l2])"><a href="[#]NSP()defn([#ID])">APPENDIX_LETTER.SECT1_IDX_val[]NB2()SELITM</a></p>
 divert(CURRQU)dnl
 <h3]defn([HTML_HEADING_ATTRIBUTES])[><a href="[#]NSP()defn([#ID])"]defn([ANCHOR_SIGN])[>APPENDIX_LETTER.SECT1_IDX_val</a>NB2()SELITM]defn([RETURN_TO_TOC], [SWITCH_LANG])[</h3>
 divert(-1)
@@ -226,7 +230,7 @@ define([SECT2_APPENDIX], defn([MULTILINGUAL_HEADINGS], [SET_ANCHOR])[
 	SECT2_IDX
 
 	divert(APPENDIX_NAVIGATION)dnl
-<p id="NSP()TOCP-defn([#ID])" class="ADD_CLASS([level3])"><a href="[#]NSP()defn([#ID])">APPENDIX_LETTER.SECT1_IDX_val.SECT2_IDX_val[]NB2()SELITM</a></p>
+<p id="NSP()TOCP-defn([#ID])" class="ADD_CLASS([l3])"><a href="[#]NSP()defn([#ID])">APPENDIX_LETTER.SECT1_IDX_val.SECT2_IDX_val[]NB2()SELITM</a></p>
 divert(CURRQU)dnl
 <h4]defn([HTML_HEADING_ATTRIBUTES])[><a href="[#]NSP()defn([#ID])"]defn([ANCHOR_SIGN])[>APPENDIX_LETTER.SECT1_IDX_val.SECT2_IDX_val</a>NB2()SELITM]defn([RETURN_TO_TOC], [SWITCH_LANG])[</h4>
 divert(-1)
@@ -437,7 +441,22 @@ divert(-1)
 ])
 
 # A → β
-define([COMMAND], defn([PROGRAMLISTING]))
+define([COMMAND_USR], [
+
+	# convert '<' and '>' to html entities
+	divert(CURRQU)dnl
+<pre[]]defn([HTML_USR_CMD_ATTRIBUTES])[>patsubst(patsubst(BRAC(]defn([SELECT_LAST])[), [<], [&lt;]), [>], [&gt;])</pre>
+divert(-1)
+])
+
+# A → β
+define([COMMAND_ROOT], [
+
+	# convert '<' and '>' to html entities
+	divert(CURRQU)dnl
+<pre[]]defn([HTML_ROOT_CMD_ATTRIBUTES])[>patsubst(patsubst(BRAC(]defn([SELECT_LAST])[), [<], [&lt;]), [>], [&gt;])</pre>
+divert(-1)
+])
 
 #      _____      __________
 # --->/ REF \--->/ REF_NEXT \---.
@@ -627,15 +646,19 @@ popdef(
 	[ANYTHING_5],
 	[CHAPTER_COMMON_CODE],
 	[CLASS_3],
+	[CLASS_3_ROOT_CMD],
 	[CLASS_3_TILE_BOX],
 	[CLASS_3_TIP_BOX],
+	[CLASS_3_USR_CMD],
 	[FIND_IMG_DIM],
 	[HTML_GLOBAL_ATTRIBUTES],
 	[HTML_HEADING_ATTRIBUTES],
 	[HTML_MONOLINGUAL],
 	[HTML_MULTILINGUAL],
+	[HTML_ROOT_CMD_ATTRIBUTES],
 	[HTML_TIP_BOX_ATTRIBUTES],
 	[HTML_UNPAIRED_TAG],
+	[HTML_USR_CMD_ATTRIBUTES],
 	[ID_1],
 	[SET_ANCHOR],
 	[STYLE_4],
