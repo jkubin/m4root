@@ -10,13 +10,13 @@ ifelse(defn([SOURCE]), [], [
 ])
 
 # The first line: https://vim.fandom.com/wiki/Modeline_magic
-# The second line: source_file	git_revision_of_source_file	creation_time
+# The second line: source_file_name, creation_time, git_revision_of_source.mc, git_HEAD
 divert(0)dnl
 [#] vim:wrap:spell:spelllang=LANG_CODE,en
 #
 [#] DONTE()
 #
-[#] __SOURCE(LB()defn([SOURCE]), ARG1(esyscmd([git log -1 --format='[%h],' ]defn([SOURCE]))), ARG1(esyscmd([date '+[%Y%m%d-%R:%S],']))])
+[#] __SOURCE(LB()ARG1(esyscmd([date '+[%Y%m%d-%R:%S],'])), defn([SOURCE]), ARG1(esyscmd([git log -1 --format='[%h],' ]defn([SOURCE]))), ARG1(esyscmd([git log -1 --format='[%h],']))])
 
 divert(1)dnl
 ---
