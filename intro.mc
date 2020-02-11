@@ -321,7 +321,7 @@ UL([
 LI([je-li definováno makro CODE_M4([FUNC(char c, int i)]), jeho proměnné jsou:[]BR()
 CODE([$[#] → 2]), CODE([$[0] → FUNC]), CODE([$[1] → char c]), CODE([$[2] → int i])
 ])
-])dnl UL
+])
 ],
 [dnl english: _next_language_
 macro arguments separate commas just like commas in C[]NB()functions
@@ -329,7 +329,7 @@ UL([
 LI([if the CODE_M4([FUNC(char c, int i)]) macro is defined, its variables are:[]BR()
 CODE([$[#] → 2]), CODE([$[0] → FUNC]), CODE([$[1] → char c]), CODE([$[2] → int i])
 ])
-])dnl UL
+])
 ]])
 
 LISTITEM([[dnl czech
