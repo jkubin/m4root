@@ -1,0 +1,21 @@
+# vim:wrap:spell:spelllang=en,en
+#
+# DO NOT EDIT! This file is generated automatically!
+#
+# __SOURCE([20200211-14:10:29, fundamentals.mc, 6564aaa, 7633149])
+
+7
+Generating code in M4: fundamentals
+
+# number of characters (200 ±10 is recommended): 201
+16
+The M4 macro processor is used to generate arbitrarily complex code from simple source code.
+This part is focused on informal description of seemingly complex concepts of theoretical computer science.
+
+24
+Introduction
+
+30
+%%%
+
+---

@@ -127,7 +127,7 @@ Další generace makro procesorů M3 a&nbsp;M4 původní <abbr title="General Pu
 Základní myšlenka původního návrhu ale zůstala stejná.</p>
 <h3 id="m4-m3"><a href="#m4-m3" title="⚓">»</a>&nbsp;M3</h3>
 <p><a href="https://cs.wikipedia.org/wiki/Dennis_Ritchie" title="Wikipedie"><span class="rs-person">Dennis Ritchie</span></a> převzal základní myšlenku <abbr title="General Purpose Macro-generator">GPM</abbr> a&nbsp;napsal vylepšený makro procesor pro generování zdrojového kódu programovacího jazyka C (1972), který sám navrhl.
-Nový <strong class="m4-un">m</strong>akro procesor napsal pro minipočítač AP-<strong class="m4-un">3</strong> – odtud jméno <strong>M3</strong>.
+Nový <strong class="m4-un">m</strong>akro procesor napsal pro minipočítač AP-<strong class="m4-un">3</strong>, odtud jméno <strong>M3</strong>.
 Tento přímý předchůdce současného M4 dokázal výrazně ušetřit těžkou a&nbsp;časově náročnou práci, čímž zaujal vývojáře programující v&nbsp;jiných jazycích (<abbr title="FORmula TRANslation">FORTRAN</abbr>, <abbr title="COmmon Business-Oriented Language">COBOL</abbr>, <abbr title="Programming Language One">PL/I</abbr>, …).
 Vývojáři upravovali M3 pro tyto jazyky čímž ho proměnili na univerzálně použitelný makro procesor M4.</p>
 <div title="m4 ∈ {množina nástrojů UNIX-u}" class="rs-tip-major m4-tip"><span class="rs-person">Dennis Ritchie</span> byl také spolutvůrcem operačního systému UNIX a&nbsp;proto:<ul>
@@ -292,7 +292,7 @@ Prázdný pár řídících znaků <code>`'</code> před makrem slouží jako <a
 <strong>sed '/^#/!s/`/`'\''<code>LQ()</code>/g' any_src.code | m4 rootq.m4 leaf.m4 - | gcc …</strong>
 </pre>
 <p>Při průchodu zdrojového kódu makro procesorem se makro <code>`'LQ()</code> přepíše zpátky na původní znak <code>`</code> a&nbsp;prázdný pár <code>`'</code> je odstraněn.
-Použijeme-li pro řízení expanze neterminálů hranaté závorky, skryjeme stejným způsobem levou <code>[</code> hranatou závorku.</p>
+Použijeme-li pro <a href="#m4-rizeni-expanze-neterminalu" title="Řízení expanze neterminálů">řízení expanze neterminálů</a> hranaté závorky, skryjeme stejným způsobem levou <code>[</code> hranatou závorku.</p>
 <pre title="M4 jako preprocesor s řídícími znaky: []" class="m4-usc">
 <strong>sed '/^#/!s/\[/<code>[]LB()</code>/g' any_src.code | m4 rootb.m4 leaf.m4 - | gcc …</strong>
 </pre>
@@ -587,7 +587,7 @@ char *error[] = {
 <h3 id="m4-ini-externi-prikaz"><a href="#m4-ini-externi-prikaz" title="⚓">A.6</a>&nbsp;&nbsp;<code>[]</code> INI – externí příkaz&nbsp;<a href="#m4-toc-ini-externi-prikaz" title="Obsah" class="m4-toc">☰</a></h3>
 <p>Příklad spustí externí příkaz <code>date</code> a&nbsp;jeho výstup umístí do hranatých závorek.
 Výstupem externího příkazu jsou dvě položky oddělené čárkou.
-Makro <code>FST()</code> vybere první položku, protože druhá položka obsahuje nežádoucí znak nového řádku <code>LF</code> (<samp>0x0a</samp>).</p>
+Makro <code>ARG1()</code> vybere první položku, protože druhá položka obsahuje nežádoucí znak nového řádku <code>LF</code> (<samp>0x0a</samp>).</p>
 <pre title="hello.ini.m4"># A → β
 define([ERROR], [
 
@@ -604,7 +604,7 @@ divert(-1)</pre>
 <div title="příkaz" class="m4-usc"><strong>m4</strong> <a href="../gfiles/rootb.m4" title="localhost">rootb.m4</a> <a href="../messages/hello.ini.m4" title="localhost">hello.ini.m4</a> <a href="../messages/code.m4" title="localhost">code.m4</a> <a href="../messages/messages.mc" title="localhost">messages.mc</a> <strong>&gt;</strong> <a href="../messages/hello.ini" title="localhost">hello.ini</a></div>
 <pre title="hello.ini">; DO NOT EDIT! This file is generated automatically!
 
-[hello_20200210]
+[hello_20200211]
 COMPLEX="!\"#$%&amp;'()*+,-./:;&lt;=&gt;?@[\\]^_`{|}~"
 SUCCESS="Complex M4 code failed successfully."
 NOFAULT="It's not a language fault!"</pre>

@@ -80,7 +80,7 @@ The next generation of M3 and M4 macro processors basically just expanded the or
 The basic idea of the original proposal remained the same.</p>
 <h3 id="m4-m3"><a href="#m4-m3" title="⚓">»</a>&nbsp;M3</h3>
 <p><a href="https://en.wikipedia.org/wiki/Dennis_Ritchie" title="Wikipedia"><span class="rs-person">Dennis Ritchie</span></a> took over the basic idea of <abbr title="General Purpose Macro-generator">GPM</abbr> and wrote an improved macro processor for generating source code of C&nbsp;(1972) language, which he himself designed.
-The new <strong class="m4-un">m</strong>acro processor was written for the minicomputer AP-<strong class="m4-un">3</strong> – hence the name <strong>M3</strong>.
+The new <strong class="m4-un">m</strong>acro processor was written for the minicomputer AP-<strong class="m4-un">3</strong>, hence the name <strong>M3</strong>.
 This direct ancestor of the current M4 managed to significantly save heavy and time-consuming work and attract developers programming to other languages (<abbr title="FORmula TRANslation">FORTRAN</abbr>, <abbr title="COmmon Business-Oriented Language">COBOL</abbr>, <abbr title="Programming Language One">PL/I</abbr>, …).
 Developers have customized M3 for these languages turning it into a&nbsp;universally usable M4 macro processor.</p>
 <div title="m4 ∈ {set of UNIX tools}" class="rs-tip-major m4-tip"><span class="rs-person">Dennis Ritchie</span> was also a&nbsp;co-creator of UNIX and therefore:<ul>
@@ -538,7 +538,7 @@ char *error[] = {
 <h3 id="m4-ini-an-external-command"><a href="#m4-ini-an-external-command" title="⚓">A.6</a>&nbsp;&nbsp;<code>[]</code> INI – an external command&nbsp;<a href="#m4-toc-ini-an-external-command" title="Content" class="m4-toc">☰</a></h3>
 <p>The example runs an external <code>date</code> command and places its output in square brackets.
 The output of an external command are two comma-separated items.
-The <code>FST()</code> macro selects the first item because the second item contains an unwanted <code>LF</code> (<samp>0x0a</samp>) new line character.</p>
+The <code>ARG1()</code> macro selects the first item because the second item contains an unwanted <code>LF</code> (<samp>0x0a</samp>) new line character.</p>
 <pre title="hello.ini.m4"># A → β
 define([ERROR], [
 
@@ -555,7 +555,7 @@ divert(-1)</pre>
 <div title="command" class="m4-usc"><strong>m4</strong> <a href="../gfiles/rootb.m4" title="localhost">rootb.m4</a> <a href="../messages/hello.ini.m4" title="localhost">hello.ini.m4</a> <a href="../messages/code.m4" title="localhost">code.m4</a> <a href="../messages/messages.mc" title="localhost">messages.mc</a> <strong>&gt;</strong> <a href="../messages/hello.ini" title="localhost">hello.ini</a></div>
 <pre title="hello.ini">; DO NOT EDIT! This file is generated automatically!
 
-[hello_20200210]
+[hello_20200211]
 COMPLEX="!\"#$%&amp;'()*+,-./:;&lt;=&gt;?@[\\]^_`{|}~"
 SUCCESS="Complex M4 code failed successfully."
 NOFAULT="It's not a language fault!"</pre>

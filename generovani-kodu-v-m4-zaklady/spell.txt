@@ -1,0 +1,21 @@
+# vim:wrap:spell:spelllang=cs,en
+#
+# DO NOT EDIT! This file is generated automatically!
+#
+# __SOURCE([20200211-14:10:29, fundamentals.mc, 6564aaa, 7633149])
+
+7
+Generování kódu v M4: základy
+
+# number of characters (200 ±10 is recommended): 190
+16
+Makro procesor M4 se používá ke generování libovolně složitého kódu z jednoduchého zdrojového kódu.
+Tento díl je zaměřen na neformální popis zdánlivě složitých pojmů teoretické informatiky.
+
+24
+Úvod
+
+30
+%%%
+
+---

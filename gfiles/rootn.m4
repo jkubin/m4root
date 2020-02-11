@@ -4,7 +4,7 @@ dnl DO NOT EDIT! This file is generated automatically!
 dnl
 divert(-1)changequote(,)
 
-__HEADER(Josef Kubin, 2018/10/15, https://github.com/jkubin/m4root, 0, 0, 0)
+__HEADER(Josef Kubin, 2018/10/15, https://github.com/jkubin/m4root, 0, 1, 0)
 ___DESCR(the most general (root) rules for all scripts)
 ___POINT(script decomposition; NO repeated information anywhere else)
 ___USAGE(m4 root.m4 stem.m4 branch.m4 sub_branch.m4 leaf.m4 data.mc > output.file)
@@ -40,7 +40,7 @@ define(DONTE, ifelse($#, 0, $0,
 DO NOT EDIT! This file is generated automatically!))
 
 # expand n-th argument
-# A($1, $2, …, $n) → $1 | $2 | $3 | $4 → β
+# A($1, $2, …, $n) → $1 | $2 | $3 | $4 → β
 define(FST, ifelse($#, 0, $0, $1))
 define(SND, ifelse($#, 0, $0, $2))
 define(TRD, ifelse($#, 0, $0, $3))
@@ -58,7 +58,7 @@ define(ARG8,	$8)
 define(ARG9,	$9)
 
 # select an argument
-# A($1, $2, …, $n) → $1
+# A($1, $2, …, $n) → $1
 define(SELECT_ARG1,	$1)
 define(SELECT_ARG1_WITHOUT_TRAILING_LF, patsubst($1, \s*))
 # expand an argument
@@ -68,7 +68,7 @@ define(EXPAND_ARG1_WITHOUT_TRAILING_LF, patsubst($1, \s*))
 define(NAR, ifelse($#, 0, $0, $#))
 
 # puts additional pair of characters (against unwanted expansion)
-# A($1, $2, …, $n) → $1, $2, …, $n
+# A($1, $2, …, $n) → $1, $2, …, $n
 define(PAIR, ifelse($#, 0, $0, $@))
 
 # puts a specific additional pair of characters (against unwanted expansion)
@@ -92,19 +92,19 @@ define(RU, 〗)
 # define(RR, defn(RN))
 
 # expand the last argument
-# A($1, $2, …, $n) → $$# → $n → β
+# A($1, $2, …, $n) → $$# → $n → β
 define(EXPAND_LAST, define(#, $$#)indir(#, $@))
 
 # select the last argument
-# A($1, $2, …, $n) → $$# → $n
+# A($1, $2, …, $n) → $$# → $n
 define(SELECT_LAST, define(#, $$#)indir(#, $@))
 
 # expand the last but one (there must be at least two arguments)
-# A($1, $2, …, $n) → $decr($#) → $(n-1) → β
+# A($1, $2, …, $n) → $decr($#) → $(n-1) → β
 define(EXPAND_LASTB1, define(#, $decr($#))indir(#, $@))
 
 # select the last but one (there must be at least two arguments)
-# A($1, $2, …, $n) → $decr($#) → $(n-1)
+# A($1, $2, …, $n) → $decr($#) → $(n-1)
 define(SELECT_LASTB1, define(#, BRAC($decr($#)))indir(#, $@))
 
 # print an informative message to stderr

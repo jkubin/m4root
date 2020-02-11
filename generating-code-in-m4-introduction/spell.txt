@@ -2,7 +2,7 @@
 #
 # DO NOT EDIT! This file is generated automatically!
 #
-# __SOURCE([intro.mc, a0c1997, 20200211-10:24:43])
+# __SOURCE([20200211-14:10:29, intro.mc, a0c1997, 7633149])
 
 7
 Generating code in M4: introduction
@@ -95,7 +95,7 @@ M3
 
 169
 Dennis Ritchie (Wikipedia) took over the basic idea of GPM (General Purpose Macro-generator) and wrote an improved macro processor for generating source code of C (1972) language, which he himself designed.
-The new macro processor was written for the minicomputer AP-3 – hence the name M3.
+The new macro processor was written for the minicomputer AP-3, hence the name M3.
 This direct ancestor of the current M4 managed to significantly save heavy and time-consuming work and attract developers programming to other languages (FORTRAN (FORmula TRANslation), COBOL (COmmon Business-Oriented Language), PL/I (Programming Language One), …).
 Developers have customized M3 for these languages turning it into a universally usable M4 macro processor.
 

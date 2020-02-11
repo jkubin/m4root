@@ -2,7 +2,7 @@
 #
 # DO NOT EDIT! This file is generated automatically!
 #
-# __SOURCE([intro.mc, a0c1997, 20200211-10:24:42])
+# __SOURCE([20200211-14:10:29, intro.mc, a0c1997, 7633149])
 
 7
 Generování kódu v M4: úvod
@@ -97,7 +97,7 @@ M3
 
 169
 Dennis Ritchie (Wikipedie) převzal základní myšlenku GPM (General Purpose Macro-generator) a napsal vylepšený makro procesor pro generování zdrojového kódu programovacího jazyka C (1972), který sám navrhl.
-Nový makro procesor napsal pro minipočítač AP-3 – odtud jméno M3.
+Nový makro procesor napsal pro minipočítač AP-3, odtud jméno M3.
 Tento přímý předchůdce současného M4 dokázal výrazně ušetřit těžkou a časově náročnou práci, čímž zaujal vývojáře programující v jiných jazycích (FORTRAN (FORmula TRANslation), COBOL (COmmon Business-Oriented Language), PL/I (Programming Language One), …).
 Vývojáři upravovali M3 pro tyto jazyky čímž ho proměnili na univerzálně použitelný makro procesor M4.
 
