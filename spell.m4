@@ -16,7 +16,7 @@ divert(0)dnl
 #
 [#] DONTE()
 #
-[#] __SOURCE(LB()defn([SOURCE]), ARG1(esyscmd([git log -1 --format='[0x%h],' ]defn([SOURCE]))), ARG1(esyscmd([date '+[%Y%m%d-%R:%S],']))])
+[#] __SOURCE(LB()defn([SOURCE]), ARG1(esyscmd([git log -1 --format='[%h],' ]defn([SOURCE]))), ARG1(esyscmd([date '+[%Y%m%d-%R:%S],']))])
 
 divert(1)dnl
 ---
