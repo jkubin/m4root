@@ -1,6 +1,7 @@
 # creates final asm code
 
-divert(0)dnl
+m4wrap([
+	divert(0)dnl
 # vim:ft=asm
 [#] DONTE()
 SYNTAX
@@ -10,3 +11,4 @@ undivert(SYSCALL_TBL)dnl
 undivert(DATA_TBL)dnl
 
 .section .text
+])
