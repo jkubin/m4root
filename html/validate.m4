@@ -1,5 +1,5 @@
 __HEADER([Josef Kubin], [2019/12/27], [root_cz])
-___DESCR([creates a lightweight page for HTML validator (https://validator.w3.org/#validate_by_upload) and it also seems to be suitable for off-line article development])
+___DESCR([creates HTML page for validator (tidy) and it also seems to be suitable for off-line article development])
 ___POINT([develop and test the result before publishing])
 
 # A → β
@@ -21,7 +21,7 @@ define([SRC_REPO_NAME], [localhost])
 
 m4wrap([
 	divert(0)dnl
-<!-- DONTE() https://validator.w3.org/[#]validate_by_upload -->
+<!-- DONTE() -->
 <!doctype html>
 <html lang="LANG_CODE">
 <head>
