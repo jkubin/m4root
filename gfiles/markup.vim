@@ -106,7 +106,7 @@ iabbrev <buffer> <unique> sup SUP([<c-r>"])<esc>
 iabbrev <buffer> <unique> sw SECTION_WRAP([<cr><cr><cr><cr>])dnl SECTION_WRAP<up><up><c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> til TILE_BOX([[dnl czech<cr><cr>],<cr>[dnl english: _next_language_<cr>%%%<cr>]])<left><c-o>%<c-o>0<down><c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> ull ITEMIZEDLIST_WRAP([<cr><cr><cr><cr>])dnl ITEMIZEDLIST_WRAP<up><up><c-r>=Eatchar('.')<cr>
-iabbrev <buffer> <unique> ul UL([<cr><cr>])dnl UL<up><c-r>=Eatchar('.')<cr>
+iabbrev <buffer> <unique> ul UL([<cr><cr>])<up><c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> ulw ITEMIZEDLIST_WRAP([<cr><cr><cr><cr>])dnl ITEMIZEDLIST_WRAP<up><up><c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> uw ITEMIZEDLIST_WRAP([<cr><cr><cr><cr>])dnl ITEMIZEDLIST_WRAP<up><up><c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> wb []WBR()<c-r>=Eatchar('.')<cr>
