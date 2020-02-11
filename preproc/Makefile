@@ -24,6 +24,9 @@ $(TARGETS): Makefile
 $(PREFIX).%: rootq.m4 %.m4 %
 	m4 -DSYMBOL='$(SYMBOL)' $(filter-out Makefile, $^) > $@
 
+$(PREFIX).file.css: rootq.m4 file.css.m4 file.css foo.css
+	m4 -DSYMBOL='$(SYMBOL)' $(filter-out Makefile foo.css, $^) > $@
+
 $(PREFIX).%.sh: rootn.m4 %.sh.m4 %.sh
 	m4 -DSYMBOL='$(SYMBOL)' $(filter-out Makefile, $^) > $@
 

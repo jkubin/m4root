@@ -1,7 +1,9 @@
 /* DONTE() */changecom(/*,*/)
 /* DONTE() */
 
-div {
+include(`foo.css')dnl
+
+.bar {
 	border-width: WIDTH;
 	border-color: TOP SIDES BOTTOM; 
 	background-image: url('PATH');

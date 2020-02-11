@@ -1,10 +1,14 @@
 /* DO NOT EDIT! This file is generated automatically! */
 /* DONTE() */
 
-div {
+.foo {
+	border: 3px 2px 1px;
+}
+
+.bar {
 	border-width: 3px;
 	border-color: #f00 #0f0 #00f; 
-	background-image: url('http://www.root.cz/img.jpg');
+	background-image: url('https://www.root.cz/m4tux.png');
 }
 
 /* DONTE() */
