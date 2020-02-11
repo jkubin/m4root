@@ -1,4 +1,4 @@
-# __HEADER([Josef Kubin], [2019/10/09], [root_cz])
+# __HEADER([Josef Kubin], [2019/10/09], [m4root])
 # ___DESCR([this handwritten Makefile automatically creates additional rules for creating target files])
 # ___POINT([learning M4 using the examples in this series])
 # ___USAGE([make h && make && make])
