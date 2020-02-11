@@ -13,24 +13,7 @@ QUEUE_INDEX(1)
 
 # the order of the files is important for the TOC
 define([intro.mc],		QUEUE_INDEX)
-
-ifelse([
 define([fundamentals.mc],	QUEUE_INDEX)
-define([context_free_grammar.mc],	QUEUE_INDEX)
-define([demo.mc],		QUEUE_INDEX)
-define([outqueues.mc],		QUEUE_INDEX)
-define([automata.mc],		QUEUE_INDEX)
-define([workflow.mc],		QUEUE_INDEX)
-define([automata_theory.mc],	QUEUE_INDEX)
-define([validation.mc],		QUEUE_INDEX)
-define([root_files.mc],		QUEUE_INDEX)
-define([debugging.mc],		QUEUE_INDEX)
-define([counters.mc],		QUEUE_INDEX)
-define([frozen.mc],		QUEUE_INDEX)
-define([multilang.mc],		QUEUE_INDEX)
-define([pitfalls.mc],		QUEUE_INDEX)
-define([lsystem.mc],		QUEUE_INDEX)
-])dnl comment
 
 # keep it after files
 define([END_OF_TOC],		QUEUE_INDEX)
