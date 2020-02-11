@@ -4,6 +4,7 @@ VPATH = gfiles:html
 
 FOLDERS_cs = \
 generovani-kodu-v-m4-uvod \
+generovani-kodu-v-m4-zaklady \
 
 PREVIEW_cs  = $(FOLDERS_cs:=/preview.html)
 VALIDATE_cs = $(FOLDERS_cs:=/validate.html)
@@ -59,4 +60,13 @@ generovani-kodu-v-m4-uvod/publish.txt: rootb.m4 queues.m4 aux.m4 ent.m4 cfg.m4 i
 
 generovani-kodu-v-m4-uvod/spell.txt: rootb.m4 aux.m4 order.m4 lang.m4 headings.m4 ver.m4 lang_cs.m4 refs_en.m4 refs_cs.m4 incl.m4 spell.m4 intro.mc
 	m4 -DLANG_CODE='cs' -DSOURCE='intro.mc' $^ > $@
+
+generovani-kodu-v-m4-zaklady/%.html: rootb.m4 queues.m4 aux.m4 ent.m4 cfg.m4 inline.m4 headings.m4 block.m4 ver.m4 style.m4 lang_cs.m4 css.m4 refs_en.m4 refs_cs.m4 order.m4 lang.m4 incl.m4 $(wildcard fundamentals.mc.html/*.m4 fundamentals.mc.html/*/*.m4) %.m4 fundamentals.mc nav.m4
+	m4 -DLANG_CODE='cs' -DOUTPUT_FILE='$*.html' $^ | sed -f brackets.sed > $@
+
+generovani-kodu-v-m4-zaklady/publish.txt: rootb.m4 queues.m4 aux.m4 ent.m4 cfg.m4 inline.m4 headings.m4 block.m4 ver.m4 style.m4 lang_cs.m4 css.m4 refs_en.m4 refs_cs.m4 order.m4 lang.m4 incl.m4 $(wildcard fundamentals.mc.html/*.m4 fundamentals.mc.html/*/*.m4) publish.m4 fundamentals.mc nav.m4
+	m4 -DLANG_CODE='cs' -DSOURCE='fundamentals.mc' $^ | sed -f html/publish.sed -f brackets.sed > $@
+
+generovani-kodu-v-m4-zaklady/spell.txt: rootb.m4 aux.m4 order.m4 lang.m4 headings.m4 ver.m4 lang_cs.m4 refs_en.m4 refs_cs.m4 incl.m4 spell.m4 fundamentals.mc
+	m4 -DLANG_CODE='cs' -DSOURCE='fundamentals.mc' $^ > $@
 

@@ -8,6 +8,7 @@ ___POINT([ordered files to generate other files])
 # A → β
 define([TABLE_OF_CONTENT], [
 	TABLE_OF_CONTENT_ITEM([intro.mc], $1)
+	TABLE_OF_CONTENT_ITEM([fundamentals.mc], $1)
 ])
 
 # all languages in the order in which they are written to the file: toc.m4

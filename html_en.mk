@@ -4,6 +4,7 @@ VPATH = gfiles:html
 
 FOLDERS_en = \
 generating-code-in-m4-introduction \
+generating-code-in-m4-fundamentals \
 
 PREVIEW_en  = $(FOLDERS_en:=/preview.html)
 VALIDATE_en = $(FOLDERS_en:=/validate.html)
@@ -59,4 +60,13 @@ generating-code-in-m4-introduction/publish.txt: rootb.m4 queues.m4 aux.m4 ent.m4
 
 generating-code-in-m4-introduction/spell.txt: rootb.m4 aux.m4 order.m4 lang.m4 headings.m4 ver.m4 lang_en.m4 refs_en.m4 refs_cs.m4 incl.m4 spell.m4 intro.mc
 	m4 -DLANG_CODE='en' -DSOURCE='intro.mc' $^ > $@
+
+generating-code-in-m4-fundamentals/%.html: rootb.m4 queues.m4 aux.m4 ent.m4 cfg.m4 inline.m4 headings.m4 block.m4 ver.m4 style.m4 lang_en.m4 css.m4 refs_en.m4 refs_cs.m4 order.m4 lang.m4 incl.m4 $(wildcard fundamentals.mc.html/*.m4 fundamentals.mc.html/*/*.m4) %.m4 fundamentals.mc nav.m4
+	m4 -DLANG_CODE='en' -DOUTPUT_FILE='$*.html' $^ | sed -f brackets.sed > $@
+
+generating-code-in-m4-fundamentals/publish.txt: rootb.m4 queues.m4 aux.m4 ent.m4 cfg.m4 inline.m4 headings.m4 block.m4 ver.m4 style.m4 lang_en.m4 css.m4 refs_en.m4 refs_cs.m4 order.m4 lang.m4 incl.m4 $(wildcard fundamentals.mc.html/*.m4 fundamentals.mc.html/*/*.m4) publish.m4 fundamentals.mc nav.m4
+	m4 -DLANG_CODE='en' -DSOURCE='fundamentals.mc' $^ | sed -f html/publish.sed -f brackets.sed > $@
+
+generating-code-in-m4-fundamentals/spell.txt: rootb.m4 aux.m4 order.m4 lang.m4 headings.m4 ver.m4 lang_en.m4 refs_en.m4 refs_cs.m4 incl.m4 spell.m4 fundamentals.mc
+	m4 -DLANG_CODE='en' -DSOURCE='fundamentals.mc' $^ > $@
 

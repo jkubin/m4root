@@ -159,12 +159,19 @@ Description: maintains consistent files with square bracket files
 Reason: one hand-written file to generate additional files
 Usage: make h && make
 ---
+File: tmp/publish.sed
+Author: Josef Kubin
+Started: 2019/12/22
+Note: m4root
+Description: convert problematic multi-byte UTF-8 characters (CMS refuses them) to HTML entities
+Reason: converts multi-byte UTF-8 characters to HTML entities for Content Management System
+---
 File: ver.m4
 Author: Josef Kubin
 Started: 2019/12/22
 Note: root_cz
-Description: the HTML template is under development; to avoid frustrating innocent users a version number is used
-Reason: stops document processing if the major version number is different
+Description: the project is in constant development; to avoid frustrating innocent users a version number is used
+Reason: stops source.mc processing if the major version number is different
 ---
 File: toc.m4
 Author: Josef Kubin
@@ -415,7 +422,7 @@ Reason: post processing after M4 scripts; simple square brackets allow better re
 File: Makefile
 Author: Josef Kubin
 Started: 2019/10/09
-Note: root_cz
+Note: m4root
 Description: this handwritten Makefile automatically creates additional rules for creating target files
 Reason: learning M4 using the examples in this series
 Usage: make h && make && make

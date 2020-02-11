@@ -123,7 +123,6 @@ iabbrev <buffer> <unique> ,q `'<c-r>=Eatchar('.')<cr>
 "iabbrev <buffer> <unique> reg regexp(`$', `%%%', `%%%')<c-o>T$<c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> rrr `'RR()<c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> saf ifelse(`$#', `0', ``$0'', `<c-r>"')<c-r>=Eatchar('.')<cr>
-iabbrev <buffer> <unique> sc syscmd(`')<left><left><c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> sh shift($@)
 iabbrev <buffer> <unique> sin sinclude(`')<left><left><c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> sn SND()<left><c-r>=Eatchar('.')<cr>
@@ -132,7 +131,7 @@ iabbrev <buffer> <unique> su substr(`$', `%%%', `%%%')<c-o>T$<c-r>=Eatchar('.')<
 "iabbrev <buffer> <unique> sv sysval<c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> sys sysval<c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> sysv sysval<c-r>=Eatchar('.')<cr>
-iabbrev <buffer> <unique> sy syscmd(`')<left><left><c-r>=Eatchar('.')<cr>
+iabbrev <buffer> <unique> sysc syscmd(`')<left><left><c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> tof traceoff<c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> ton traceon(`')<c-o>T(<right><c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> tra define(`$0', defn(`'))<c-o>T(<right><c-r>=Eatchar('.')<cr>
