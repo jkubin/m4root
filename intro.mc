@@ -1514,9 +1514,9 @@ INSERT_FILES_PREPROC([q], [file.c])
 
 
 SECT1([dnl czech
-[CODE_M4([`']) CSS – vložení souboru a komentáře],
+[CODE_M4([`']) CSS – vložení souboru[,] komentář],
 dnl english: _next_language_
-[CODE_M4([`']) CSS – file inclusion and comments],
+[CODE_M4([`']) CSS – file inclusion[,] comment],
 ])
 
 PARA([[dnl czech
