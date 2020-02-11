@@ -7,7 +7,7 @@ ___POINT([specific file (not for general use)])
 define([INSERT_FILES_HELLO_WORLD], [
 	CONFIGURE_COMMAND_LINE(
 [hello_world/],dnl			common sub-folder name (or use absolute paths)
-[m4 -DSYMBOL='Hello, world!' ],dnl	command and its options
+[m4 -DSYMBOL='Hello, world!'],dnl	command and its options
 [root$1.m4],dnl				root file
 )
 	INSERT_LIST_OF_FILES([$2.m4], [hello_world.$2])
@@ -18,7 +18,7 @@ define([INSERT_FILES_HELLO_WORLD], [
 define([INSERT_FILES_PREPROC], [
 	CONFIGURE_COMMAND_LINE(
 [preproc/],dnl				common sub-folder name (or use absolute paths)
-[m4 -DSYMBOL='Hello, world!' ],dnl	command and its options
+[m4 -DSYMBOL='Hello, world!'],dnl	command and its options
 [root$1.m4],dnl				root file
 )
 	INSERT_LIST_OF_FILES([$2.m4], [$2], [preproc.$2])
@@ -29,7 +29,7 @@ define([INSERT_FILES_PREPROC], [
 define([INSERT_FILES_MESSAGES], [
 	CONFIGURE_COMMAND_LINE(
 [messages/],dnl				common sub-folder name (or use absolute paths)
-[m4 ],dnl				command and its options
+[m4],dnl				command and its options
 [rootb.m4],dnl				root file
 [],dnl					prefix files
 [messages.mc],dnl			source file or comma separated source files

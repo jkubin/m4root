@@ -16,8 +16,7 @@ define([CONFIGURE_COMMAND_LINE], [
 ])
 
 # A → β
-define([ADD_LINKS_TO_INSERTED_FILES], [ifelse([$1], [], [], [AH([$1], defn([SRC_REPO_NAME]), defn([SRC_FILE_PATH], [FOLDER])[$1])$0(shift($@))])])
-define([ADD_FILES_TO_COMMAND_LINE], [ifelse([$1], [], [], [ $1[]$0(shift($@))])])
+define([ADD_LINKS_TO_INSERTED_FILES], [ifelse([$1], [], [], [AH([$1], defn([SRC_REPO_NAME]), defn([SRC_FILE_PATH], [FOLDER])[$1]) $0(shift($@))])])
 
 # processes variable number of files, the last file is _ALWAYS_ output.file
 # INSERT_LIST_OF_FILES([input_file1.src], [input_file2.src], [input_file3.src], …, [output.file])
@@ -28,17 +27,13 @@ define([INSERT_LIST_OF_FILES], [
 	ifelse([$#], [1], [
 
 		divert(CURRQU)dnl
-<table class="table"><tbody><tr><th class="ADD_CLASS([inputs])" title="defn([TITLE_INPUT_FILES])">dnl
-ifelse(defn([ROOT_FILE]), [], [], [AH(defn([ROOT_FILE]), defn([SRC_REPO_NAME]), defn([SRC_FILE_PATH], [FOLDER_FOR_GENERATED_FILES], [ROOT_FILE]))])[]dnl
+<div title="defn([WORD_COMMAND])" class="ADD_CLASS([usc])">BO([defn([PROGRAM])]) dnl
+ifelse(defn([ROOT_FILE]), [], [], [AH(defn([ROOT_FILE]), defn([SRC_REPO_NAME]), defn([SRC_FILE_PATH], [FOLDER_FOR_GENERATED_FILES], [ROOT_FILE])) ])[]dnl
 ADD_LINKS_TO_INSERTED_FILES(PREFIX_FILES)dnl
 undivert(REFERENCES_TO_FILES)dnl
 ADD_LINKS_TO_INSERTED_FILES(SOURCES)dnl
-</th><th title="defn([TITLE_OUTPUT_FILE])">AH([$1], defn([SRC_REPO_NAME]), defn([SRC_FILE_PATH], [FOLDER])[$1])</th></tr></tbody></table>
+BO([GT()]) AH([$1], defn([SRC_REPO_NAME]), defn([SRC_FILE_PATH], [FOLDER])[$1])</div>
 divert(-1)
-
-COMMAND(, defn([WORD_COMMAND]), [
-CMD() BO([defn([PROGRAM], [ROOT_FILE])ADD_FILES_TO_COMMAND_LINE(PREFIX_FILES)undivert(PROCESSED_FILES)ADD_FILES_TO_COMMAND_LINE(SOURCES) > [$1]])
-])
 
 		INSERT_FILE(defn([FOLDER])[$1])
 
@@ -56,9 +51,7 @@ CMD() BO([defn([PROGRAM], [ROOT_FILE])ADD_FILES_TO_COMMAND_LINE(PREFIX_FILES)und
 		INSERT_FILE(defn([FOLDER])[$1])
 
 divert(REFERENCES_TO_FILES)dnl
-AH([$1], defn([SRC_REPO_NAME]), defn([SRC_FILE_PATH], [FOLDER])[$1])dnl
-divert(PROCESSED_FILES)dnl
- [$1]dnl
+AH([$1], defn([SRC_REPO_NAME]), defn([SRC_FILE_PATH], [FOLDER])[$1]) dnl
 divert(-1)
 
 		# recursive loop

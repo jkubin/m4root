@@ -28,7 +28,6 @@ define([APPENDIX_CONTENT],		QUEUE_INDEX)
 define([END_OF_ARTICLE],	QUEUE_INDEX)
 
 # auxiliary queues for processing input files
-define([PROCESSED_FILES],	QUEUE_INDEX)
 define([REFERENCES_TO_FILES],	QUEUE_INDEX)
 
 # (optionally) forget counter and its internal value
