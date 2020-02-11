@@ -168,13 +168,13 @@ BRIDGEHEAD_MONO([dnl monolingual
 
 PARA([[dnl czech
 AH([PERSON([Dennis Ritchie])], [Wikipedie], [https://cs.wikipedia.org/wiki/Dennis_Ritchie]) převzal základní myšlenku ABBR([GPM], [General Purpose Macro-generator]) a[]NB()napsal vylepšený makro procesor pro generování zdrojového kódu programovacího jazyka C (1972), který sám navrhl.
-Nový BUN([m])akro procesor napsal pro minipočítač AP-BUN([3]) – odtud jméno BO([M3]).
+Nový BUN([m])akro procesor napsal pro minipočítač AP-BUN([3]), odtud jméno BO([M3]).
 Tento přímý předchůdce současného M4 dokázal výrazně ušetřit těžkou a[]NB()časově náročnou práci, čímž zaujal vývojáře programující v[]NB()jiných jazycích (ABBR([FORTRAN], [FORmula TRANslation]), ABBR([COBOL], [COmmon Business-Oriented Language]), ABBR([PL/I], [Programming Language One]), …).
 Vývojáři upravovali M3 pro tyto jazyky čímž ho proměnili na univerzálně použitelný makro procesor M4.
 ],
 [dnl english: _next_language_
 AH([PERSON([Dennis Ritchie])], [Wikipedia], [https://en.wikipedia.org/wiki/Dennis_Ritchie]) took over the basic idea of ABBR([GPM], [General Purpose Macro-generator]) and wrote an improved macro processor for generating source code of C[]NB()(1972) language, which he himself designed.
-The new BUN([m])acro processor was written for the minicomputer AP-BUN([3]) – hence the name BO([M3]).
+The new BUN([m])acro processor was written for the minicomputer AP-BUN([3]), hence the name BO([M3]).
 This direct ancestor of the current M4 managed to significantly save heavy and time-consuming work and attract developers programming to other languages (ABBR([FORTRAN], [FORmula TRANslation]), ABBR([COBOL], [COmmon Business-Oriented Language]), ABBR([PL/I], [Programming Language One]), …).
 Developers have customized M3 for these languages turning it into a[]NB()universally usable M4 macro processor.
 ]])
@@ -723,7 +723,7 @@ BO([sed '/^[#]/!s/LQ()/`'\''CODE_M4([LQ()])/g' any_src.code | m4 rootq.m4 leaf.m
 
 PARA([[dnl czech
 Při průchodu zdrojového kódu makro procesorem se makro CODE_M4([`'LQ()]) přepíše zpátky na původní znak CODE([LQ()]) a[]NB()prázdný pár CODE_M4([`']) je odstraněn.
-Použijeme-li pro řízení expanze neterminálů hranaté závorky, skryjeme stejným způsobem levou CODE([LB()]) hranatou závorku.
+Použijeme-li pro LINK([řízení expanze neterminálů], [expansion_control]) hranaté závorky, skryjeme stejným způsobem levou CODE([LB()]) hranatou závorku.
 ],
 [dnl english: _next_language_
 When the source code is passed through the macro processor, the CODE_M4([`'LQ()]) macro is rewritten back to the original CODE([LQ()]) character and the empty pair CODE_M4([`']) is removed.
@@ -1214,12 +1214,12 @@ dnl english: _next_language_
 PARA([[dnl czech
 Příklad spustí externí příkaz CODE([date]) a[]NB()jeho výstup umístí do hranatých závorek.
 Výstupem externího příkazu jsou dvě položky oddělené čárkou.
-Makro CODE_M4([FST()]) vybere první položku, protože druhá položka obsahuje nežádoucí znak nového řádku CODE([LF]) (SAMP([0x0a])).
+Makro CODE_M4([ARG1()]) vybere první položku, protože druhá položka obsahuje nežádoucí znak nového řádku CODE([LF]) (SAMP([0x0a])).
 ],
 [dnl english: _next_language_
 The example runs an external CODE([date]) command and places its output in square brackets.
 The output of an external command are two comma-separated items.
-The CODE_M4([FST()]) macro selects the first item because the second item contains an unwanted CODE([LF]) (SAMP([0x0a])) new line character.
+The CODE_M4([ARG1()]) macro selects the first item because the second item contains an unwanted CODE([LF]) (SAMP([0x0a])) new line character.
 ]])
 
 INSERT_FILES_MESSAGES_CODE([hello.ini.m4], [hello.ini])
