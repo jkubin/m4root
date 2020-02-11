@@ -32,7 +32,8 @@ iabbrev <buffer> <unique> cit CITE([<c-r>"])<esc>
 iabbrev <buffer> <unique> cm CODE_M4([<c-r>"])<esc>
 iabbrev <buffer> <unique> cmm CMD()<c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> com COMMENT_MONO([[dnl monolingual<cr><cr>]])<up><c-r>=Eatchar('.')<cr>
-iabbrev <buffer> <unique> comm COMMAND([<cr><cr>])dnl COMMAND<up><c-r>=Eatchar('.')<cr>
+iabbrev <buffer> <unique> cor COMMAND_ROOT([<cr><cr>])dnl COMMAND_ROOT<up><c-r>=Eatchar('.')<cr>
+iabbrev <buffer> <unique> cou COMMAND_USR([<cr><cr>])dnl COMMAND_USR<up><c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> cp CSS_PARENT([], [], [<cr>%%%<cr>])<left><c-o>%<right><right><c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> del DEL([<c-r>"])<esc>
 iabbrev <buffer> <unique> dew DETAILS_WRAP([<cr><cr><cr><cr>])dnl DETAILS_WRAP<up><up><c-r>=Eatchar('.')<cr>
@@ -93,6 +94,7 @@ iabbrev <buffer> <unique> qq QUOTE([<c-r>"])<esc>
 iabbrev <buffer> <unique> ref []REF([], [%%%], [%%%])<c-o>T(<right><c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> roo ROO()<c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> sa SAMP([<c-r>"])<esc>
+iabbrev <buffer> <unique> scn <c-l><cr>SECT1([dnl czech<cr>[],<cr>dnl english: _next_language_<cr><c-u>[%%%],<cr>])<left><c-o>%<c-o>0<down><right><c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> sm SMALL([<c-r>"])<esc>
 iabbrev <buffer> <unique> sp SPAN([<c-r>"], [%%%], [%%%])<left><c-o>%;;<c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> ss <c-l><cr>SECT1([dnl czech<cr>[],<cr>dnl english: _next_language_<cr><c-u>[%%%],<cr>])<left><c-o>%<c-o>0<down><right><c-r>=Eatchar('.')<cr>
