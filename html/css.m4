@@ -43,19 +43,12 @@ CSS_RULE_SET([div], [usc], [], [
 background:#fff;
 border-radius:4px;
 border:1px solid #ddd;
-clear:both;
 color:#333;
-display:block;
 font-family:"Courier New",Courier,monospace;
 font-size:.8em;
 line-height:1.1;
 margin:0 0 11px;
-overflow-wrap:normal;
-overflow:auto;
 padding:8px;
-white-space:pre;
-word-break:break-all;
-word-wrap:break-word;
 
 ])
 
