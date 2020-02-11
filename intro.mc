@@ -493,7 +493,7 @@ define(`A', `')
 
 PARA([[dnl czech
 Všechna klíčová slova M4 jsou neterminály (makra), provedou nějakou akci a[]NB()přepíší se na ABBR([CODE([ε])], [epsilon – prázdný symbol]) nebo jiný symbol.
-Všechna klíčová slova mohou být přejmenována nebo úplně vypnuta.
+Všechna klíčová slova lze přejmenovat nebo úplně vypnout.
 Tato vlastnost je velmi důležitá pro režim preprocesoru.
 ],
 [dnl english: _next_language_
@@ -1019,27 +1019,20 @@ dnl english: _next_language_
 ])
 
 PARA([[dnl czech
-M4 nejde zvládnout přes víkend, zvláště chybí-li základy[]REF([Automaty a[]NB()formální jazyky I], [Učební text FI MU], [https://is.muni.cz/elportal/estud/fi/js06/ib005/Formalni_jazyky_a_automaty_I.pdf])
+M4 obvykle nejde zvládnout přes víkend, zvláště chybí-li základy[]REF([Automaty a[]NB()formální jazyky I], [Učební text FI MU], [https://is.muni.cz/elportal/estud/fi/js06/ib005/Formalni_jazyky_a_automaty_I.pdf])
 AH([teorie[]NB()automatů], [Wikipedie], [https://cs.wikipedia.org/wiki/Teorie_automat%C5%AF]) a[]NB()AH([formálních[]NB()gramatik], [Wikipedie], [https://cs.wikipedia.org/wiki/Form%C3%A1ln%C3%AD_gramatika]).
-Pro dokonalé zvládnutí M4 je nutné QUOTE([odpřemýšlet si]) delší období a[]NB()napsat velké množství špatného (složitého) M4 kódu, který z[]NB()vlastní vůle přepíšete kvůli lepšímu nápadu.
-Tímto způsobem je možné postupně získat určitou praxi.
+Pro dokonalé zvládnutí M4 je nutné QUOTE([odpřemýšlet si]) delší období a[]NB()napsat určité množství špatného (složitého) M4 kódu, který z[]NB()vlastní vůle přepíšete kvůli lepšímu nápadu.
+Tímto způsobem je možné postupně získat praxi.
 ],
 [dnl english: _next_language_
-M4 cannot be mastered over the weekend, especially when the fundamentals[]REF([Automaty a[]NB()formální jazyky I], [Učební text FI MU], [https://is.muni.cz/elportal/estud/fi/js06/ib005/Formalni_jazyky_a_automaty_I.pdf]) of
+M4 usually cannot be mastered over the weekend, especially when the fundamentals[]REF([Automaty a[]NB()formální jazyky I], [Učební text FI MU], [https://is.muni.cz/elportal/estud/fi/js06/ib005/Formalni_jazyky_a_automaty_I.pdf]) of
 AH([automata theory], [Wikipedia], [https://en.wikipedia.org/wiki/Automata_theory]) and AH([formal[]NB()grammars], [Wikipedia], [https://en.wikipedia.org/wiki/Formal_grammar]) are lacking.
-To master the M4, you need to spend a[]NB()longer period of time and write a[]NB()lot of bad (complex) M4 code that you rewrite for a[]NB()better idea.
-In this way it is possible to gradually gain some practice.
+To master the M4, you need to spend a[]NB()longer period of time and write certain amounts of bad (complex) M4 code that you rewrite for a[]NB()better idea.
+In this way it is possible to gradually gain practice.
 ]])
 
 # a reference to a book that inspired me 😍
 []REF([Automaty a[]NB()gramatiky], [Michal Chytil, 1. vydání, Praha, 331 s. 1984.], [https://is.muni.cz/publication/173173])
-
-BLOCKQUOTE(, LANG([M4 je těžký ⚠ jazyk!], [M4 is a hard ⚠ language!]), [[dnl czech
-Disclaimer 🕱: BO([Větší M4 projekty vyžadují praxi!])
-],
-[dnl english: _next_language_
-Disclaimer 🕱: BO([Larger M4 projects require practice!])
-]])
 
 
 APPENDIX([code_generation_examples], [dnl czech
@@ -1521,9 +1514,9 @@ INSERT_FILES_PREPROC([q], [file.c])
 
 
 SECT1([dnl czech
-[CODE_M4([`']) CSS – komentáře],
+[CODE_M4([`']) CSS – vložení souboru a komentáře],
 dnl english: _next_language_
-[CODE_M4([`']) CSS – comments],
+[CODE_M4([`']) CSS – file inclusion and comments],
 ])
 
 PARA([[dnl czech
@@ -1537,6 +1530,7 @@ The CODE_M4([changecom(/*,*/)]) keyword sets a[]NB()multiline CODE([/* … */]) 
 The comments can be turned off with the same CODE_M4([changecom]) keyword without parameters.
 ]])
 
+INSERT_FILE_AND_LINK([preproc/foo.css], LANG([soubor vložený makro procesorem], [file embedded by the macro processor]))
 INSERT_FILES_PREPROC([q], [file.css])
 
 
@@ -1737,7 +1731,7 @@ UL([LI([M4 is forgotten language with small number of existing projects])])
 
 LISTITEM([unusual_language], [[dnl czech
 neobvyklé programovací paradigma vyžadující splnění LINK([několika předpokladů], [prerequisites_for_mastering])
-UL([LI([M4 je proto těžký jazyk])])
+UL([LI([M4 je proto náročný jazyk])])
 ],
 [dnl english: _next_language_
 unusual programming paradigm requiring LINK([several prerequisites], [prerequisites_for_mastering])
