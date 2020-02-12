@@ -1,5 +1,5 @@
-__HEADER([Josef Kubin], [2019/12/27], [root_cz])
-___DESCR([creates HTML page for validator (tidy) and it also seems to be suitable for off-line article development])
+__HEADER([Josef Kubin], [2019/12/27], [m4root])
+___DESCR([creates HTML page for off-line article development and validator (tidy)])
 ___POINT([develop and test the result before publishing])
 
 # A → β
