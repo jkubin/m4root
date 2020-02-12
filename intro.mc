@@ -506,7 +506,7 @@ PROGRAMLISTING(, LANG([klíčová slova M4 jsou neterminály], [M4 keywords are 
 divert(ℤ) → ε
 define(`A', `β') → ε
 ifelse(`', `', `yes', `no') → yes
-ifelse(`', `', `ifdef(`sym', `1', `0')', `no') → ifdef(`sym', `1', `0') → 0
+ifelse(`', `', `ifdef(`dnl', `1', `0')', `no') → ifdef(`dnl', `1', `0') → 1
 …
 ]])dnl PROGRAMLISTING
 
