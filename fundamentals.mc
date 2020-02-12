@@ -14,10 +14,10 @@ PEREX_IMG([img/m4tux.png], [https://i.iinfo.cz/images/154/m4tux-1-prev.png])
 
 
 PEREX([defn([PEREX_CS])[dnl czech
-Tento díl je zaměřen na neformální popis zdánlivě složitých pojmů teoretické informatiky.
+Tento díl je zaměřen na vysvětlení potřebných, zdánlivě složitých pojmů teoretické informatiky.
 ],
 defn([PEREX_EN])[dnl english: _next_language_
-This part is focused on informal description of seemingly complex concepts of theoretical computer science.
+This part is focused on explanation of necessary, seemingly complex concepts of theoretical computer science.
 ]])
 
 
