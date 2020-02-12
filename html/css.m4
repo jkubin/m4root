@@ -53,7 +53,11 @@ padding:8px;
 ])
 
 CSS_RULE_SET([], [usc], [ a], [
-font-weight: bold;
+font-weight:bold;
+])
+
+CSS_RULE_SET([], [usc], [ a:visited], [
+color:black;
 ])
 
 CSS_RULE_SET([], [usc], [::before], [
