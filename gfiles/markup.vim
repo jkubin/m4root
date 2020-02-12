@@ -20,6 +20,7 @@ iabbrev <buffer> <unique> bm BLOCKQUOTE_MONO([[dnl monolingual<cr><cr>]])<up><c-
 "iabbrev <buffer> <unique> bo BO([])<left><left><c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> bq BLOCKQUOTE([[dnl czech<cr><cr>],<cr>[dnl english: _next_language_<cr>%%%<cr>]])<left><c-o>%<c-o>0<down><c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> br []BR()<c-r>=Eatchar('.')<cr>
+iabbrev <buffer> <unique> bri BRIDGEHEAD([dnl czech<cr>[],<cr>dnl english: _next_language_<cr><c-u>[%%%],<cr>])<left><c-o>%<c-o>0<down><right><c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> btn BUTTON([<c-r>"])<esc>
 iabbrev <buffer> <unique> bu BUN([<c-r>"])<esc>
 iabbrev <buffer> <unique> cc CODE([<c-r>"])<esc>
