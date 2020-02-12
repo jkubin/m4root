@@ -20,15 +20,18 @@ defn([TARGET_FOLDER]) \
 divert(2)dnl
 TARGET_FOLDER/%.html: rootb.m4 queues.m4 aux.m4 ent.m4 cfg.m4 inline.m4 headings.m4 block.m4 ver.m4 style.m4 lang_$2.m4 css.m4 REFS_FILES order.m4 lang.m4 incl.m4 $(wildcard $1.html/*.m4 $1.html/*/*.m4) %.m4 $1 nav.m4
 	m4 -DLANG_CODE='$2' -DOUTPUT_FILE='$[*].html' $^ | sed -f brackets.sed > $[@]
-
-TARGET_FOLDER/publish.txt: rootb.m4 queues.m4 aux.m4 ent.m4 cfg.m4 inline.m4 headings.m4 block.m4 ver.m4 style.m4 lang_$2.m4 css.m4 REFS_FILES order.m4 lang.m4 incl.m4 $(wildcard $1.html/*.m4 $1.html/*/*.m4) publish.m4 $1 nav.m4
-	m4 -DLANG_CODE='$2' -DSOURCE='$1' $^ | sed -f html/publish.sed -f brackets.sed > $[@]
+	@tidy -qe $[@]
 
 TARGET_FOLDER/spell.txt: rootb.m4 aux.m4 order.m4 lang.m4 headings.m4 ver.m4 lang_$2.m4 REFS_FILES incl.m4 spell.m4 $1
 	m4 -DLANG_CODE='$2' -DSOURCE='$1' $^ > $[@]
 
+TARGET_FOLDER/publish.txt: rootb.m4 queues.m4 aux.m4 ent.m4 cfg.m4 inline.m4 headings.m4 block.m4 ver.m4 style.m4 lang_$2.m4 css.m4 REFS_FILES order.m4 lang.m4 incl.m4 $(wildcard $1.html/*.m4 $1.html/*/*.m4) publish.m4 $1 nav.m4
+	m4 -DLANG_CODE='$2' -DSOURCE='$1' $^ | sed -f html/publish.sed -f brackets.sed > $[@]
+
 divert(-1)
 ])
+
+# valid: TARGET_FOLDER/index.html
 
 # process table from the common content file
 TABLE_OF_CONTENT(LANG_CODE)
@@ -40,9 +43,9 @@ define([CLEAN_SUBTARGETS],	[clean_]LANG_CODE [cl_]LANG_CODE [cl]LANG_CODE [c]LAN
 define([PUBLISH_FILES],		[PUBLISH_]LANG_CODE)
 define([PREVIEW_FILES],		[PREVIEW_]LANG_CODE)
 define([SPCHECK_FILES],		[SPCHECK_]LANG_CODE)
-define([VALIDATE_FILES],	[VALIDATE_]LANG_CODE)
+define([ARTICLE_FILES],		[ARTICLE_]LANG_CODE)
 define([FOLDER_NAMES],		[FOLDERS_]LANG_CODE)
-define([SUBTARGETS],		$(FOLDER_NAMES) $(PREVIEW_FILES) $(VALIDATE_FILES) $(PUBLISH_FILES) $(SPCHECK_FILES))
+define([SUBTARGETS],		$(FOLDER_NAMES) $(PREVIEW_FILES) $(ARTICLE_FILES) $(PUBLISH_FILES) $(SPCHECK_FILES))
 
 # create the final output
 divert(0)dnl
@@ -52,13 +55,13 @@ VPATH = gfiles:html
 
 FOLDER_NAMES = \
 undivert(1)
-PREVIEW_FILES  = $(FOLDER_NAMES:=/preview.html)
-VALIDATE_FILES = $(FOLDER_NAMES:=/validate.html)
-PUBLISH_FILES  = $(FOLDER_NAMES:=/publish.txt)
-SPCHECK_FILES  = $(FOLDER_NAMES:=/spell.txt)
+ARTICLE_FILES = $(FOLDER_NAMES:=/index.html)
+PREVIEW_FILES = $(FOLDER_NAMES:=/preview.html)
+PUBLISH_FILES = $(FOLDER_NAMES:=/publish.txt)
+SPCHECK_FILES = $(FOLDER_NAMES:=/spell.txt)
+ARTICLE  += $(FOLDER_NAMES) $(ARTICLE_FILES)
 FOLDERS  += $(FOLDER_NAMES)
 PREVIEW  += $(FOLDER_NAMES) $(PREVIEW_FILES)
-VALIDATE += $(FOLDER_NAMES) $(VALIDATE_FILES)
 PUBLISH  += $(FOLDER_NAMES) $(PUBLISH_FILES)
 SPCHECK  += $(FOLDER_NAMES) $(SPCHECK_FILES)
 TARGETS  += SUBTARGETS
@@ -67,7 +70,7 @@ TARGETS  += SUBTARGETS
 .PHONY: html-sub-targets sub su
 html-sub-targets sub su: $(TARGETS)
 
-#:preview/pre/pr/p	for off-line article development
+#:preview/pre/pr/p	as close as possible in real website
 .PHONY: preview pre pr p
 preview pre pr p: $(PREVIEW)
 
@@ -79,9 +82,9 @@ spell sp: $(SPCHECK)
 .PHONY: publish pub pu
 publish pub pu: $(PUBLISH)
 
-#:validate/val/va/v	creates files for testing in HTML validator
-.PHONY: validate val va v
-validate val va v: $(VALIDATE)
+#:article/art/a	article development
+.PHONY: article art a
+article art a: $(ARTICLE)
 
 [#]:patsubst(defn([ALL_SUBTARGETS]), [ ], [/])	creates files in ‘LANG_CODE’ language
 .PHONY: ALL_SUBTARGETS

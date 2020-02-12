@@ -20,6 +20,7 @@ defn([TARGET_FOLDER]) \
 divert(2)dnl
 TARGET_FOLDER/%.html: html_$2.m4f $(wildcard $1.html/*.m4 $1.html/*/*.m4) %.m4 $1 nav.m4
 	m4 -DOUTPUT_FILE='$[@]' -R $^ | sed -f brackets.sed > $[@]
+	@tidy -qe $[@]
 
 TARGET_FOLDER/publish.txt: html_$2.m4f $(wildcard $1.html/*.m4 $1.html/*/*.m4) publish.m4 $1 nav.m4
 	m4 -DSOURCE='$1' -R $^ | sed -f html/publish.sed -f brackets.sed > $[@]
@@ -40,10 +41,10 @@ define([CLEAN_SUBTARGETS],	[clean_]LANG_CODE [cl_]LANG_CODE [cl]LANG_CODE [c]LAN
 define([PUBLISH_FILES],		[PUBLISH_]LANG_CODE)
 define([PREVIEW_FILES],		[PREVIEW_]LANG_CODE)
 define([SPCHECK_FILES],		[SPCHECK_]LANG_CODE)
-define([VALIDATE_FILES],	[VALIDATE_]LANG_CODE)
+define([ARTICLE_FILES],		[ARTICLE_]LANG_CODE)
 define([FOLDER_NAMES],		[FOLDERS_]LANG_CODE)
 define([FROZEN_FILE],		[html_]LANG_CODE.m4f)
-define([SUBTARGETS],		$(FOLDER_NAMES) $(PREVIEW_FILES) $(VALIDATE_FILES) $(PUBLISH_FILES) $(SPCHECK_FILES))
+define([SUBTARGETS],		$(FOLDER_NAMES) $(PREVIEW_FILES) $(ARTICLE_FILES) $(PUBLISH_FILES) $(SPCHECK_FILES))
 
 # create the final output
 divert(0)dnl
@@ -53,22 +54,22 @@ VPATH = gfiles:html
 
 FOLDER_NAMES = \
 undivert(1)
-PREVIEW_FILES  = $(FOLDER_NAMES:=/preview.html)
-VALIDATE_FILES = $(FOLDER_NAMES:=/validate.html)
-PUBLISH_FILES  = $(FOLDER_NAMES:=/publish.txt)
-SPCHECK_FILES  = $(FOLDER_NAMES:=/spell.txt)
-FOLDERS    += $(FOLDER_NAMES)
-PREVIEW    += $(FOLDER_NAMES) $(PREVIEW_FILES)
-VALIDATE   += $(FOLDER_NAMES) $(VALIDATE_FILES)
-PUBLISH    += $(FOLDER_NAMES) $(PUBLISH_FILES)
-SPCHECK    += $(FOLDER_NAMES) $(SPCHECK_FILES)
-TARGETS    += SUBTARGETS
+ARTICLE_FILES = $(FOLDER_NAMES:=/index.html)
+PREVIEW_FILES = $(FOLDER_NAMES:=/preview.html)
+PUBLISH_FILES = $(FOLDER_NAMES:=/publish.txt)
+SPCHECK_FILES = $(FOLDER_NAMES:=/spell.txt)
+ARTICLE  += $(FOLDER_NAMES) $(ARTICLE_FILES)
+FOLDERS  += $(FOLDER_NAMES)
+PREVIEW  += $(FOLDER_NAMES) $(PREVIEW_FILES)
+PUBLISH  += $(FOLDER_NAMES) $(PUBLISH_FILES)
+SPCHECK  += $(FOLDER_NAMES) $(SPCHECK_FILES)
+TARGETS  += SUBTARGETS
 
 #:fhtml-sub-targets/sub/su	creates all files from generated rules
 .PHONY: fhtml-sub-targets sub su
 fhtml-sub-targets sub su: $(TARGETS)
 
-#:preview/pre/pr/p	for off-line article development
+#:preview/pre/pr/p	as close as possible for real website
 .PHONY: preview pre pr p
 preview pre pr p: $(PREVIEW)
 
@@ -80,9 +81,9 @@ spell sp: $(SPCHECK)
 .PHONY: publish pub pu
 publish pub pu: $(PUBLISH)
 
-#:validate/val/va/v	creates files for testing in HTML validator
-.PHONY: validate val va v
-validate val va v: $(VALIDATE)
+#:article/art/a	article development
+.PHONY: article art a
+article art a: $(ARTICLE)
 
 [#]:patsubst(defn([ALL_SUBTARGETS]), [ ], [/])	creates files in ‘LANG_CODE’ language
 .PHONY: ALL_SUBTARGETS
