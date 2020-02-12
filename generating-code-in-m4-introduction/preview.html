@@ -5,6 +5,7 @@
 <meta charset="utf-8">
 <title>Generating code in M4: introduction</title>
 <link rel="stylesheet" type="text/css" href="../html/preview.css">
+<style>.urs .m4-toc{text-decoration:none;font-size:.5em;vertical-align:super;}.urs .m4-dot{border-bottom:1px dotted #000;}.urs .m4-tip::before{content:"Note: ";color:#969696;}.urs p.m4-l2{padding-left:1em;}.urs .m4-un{text-decoration:underline;}.urs .m4-root::before{content:"~]# ";}.urs div.m4-usc{background:#fff;border-radius:4px;border:1px solid #ddd;color:#333;font-family:"Courier New",Courier,monospace;font-size:.8em;line-height:1.1;margin:0 0 11px;padding:8px;}.urs .m4-usc a{font-weight:bold;}.urs .m4-usc a:visited{color:black;}.urs .m4-usc::before{content:"~]$ ";}.urs p.m4-l3{padding-left:2em;}</style>
 <meta name="description" content="The M4 macro processor is used to generate arbitrarily complex code from simple source code.
 The introductory part of the series contains its history, the basic principles of language, examples of usage and prerequisites for its mastery.">
 <meta name="author" content="Josef Kubín">
@@ -32,12 +33,7 @@ The introductory part of the series contains its history, the basic principles o
 				<div class="perex__impressum">
 						<span class="perex__author">Josef Kubín</span>
 						<span class="perex__date">
-							<svg class="icon icon-time" viewBox="0 0 100 100" width="20" height="20">
-								<use xlink:href="#svg-sprite-time">
-<svg viewBox="0 0 110.97 111" preserveAspectRatio="xMidYMid" id="svg-sprite-time" xmlns="http://www.w3.org/2000/svg"><path d="M55.484 111.003c-30.65 0-55.496-24.847-55.496-55.496C-.012 24.857 24.834.01 55.484.01c30.649 0 55.496 24.847 55.496 55.497 0 30.649-24.847 55.496-55.496 55.496zm0-94.263c-21.376 0-38.766 17.391-38.766 38.767 0 21.376 17.39 38.766 38.766 38.766 21.376 0 38.766-17.39 38.766-38.766 0-21.376-17.39-38.767-38.766-38.767zm18.512 45.04H55.485a6.274 6.274 0 0 1-4.456-1.856L36.782 45.557a6.276 6.276 0 0 1 .037-8.872 6.276 6.276 0 0 1 8.875.037l12.405 12.511h15.897a6.274 6.274 0 0 1 0 12.547z"></path></svg>
-								</use>
-							</svg>
-							<span itemprop="datePublished">11. 2. 2020</span>
+							<span itemprop="datePublished">12. 2. 2020</span>
 						</span>
 				</div>
 				<p itemprop="description">The M4 macro processor is used to generate arbitrarily complex code from simple source code.
@@ -55,7 +51,6 @@ The introductory part of the series contains its history, the basic principles o
 <!-- Sklik-kontext-start -->
 <div class=" layout-article-content">
 <div class="php-urs urs">
-<style>.urs .m4-toc{text-decoration:none;font-size:.5em;vertical-align:super;}.urs .m4-dot{border-bottom:1px dotted #000;}.urs .m4-tip::before{content:"Note: ";color:#969696;}.urs p.m4-l2{padding-left:1em;}.urs .m4-un{text-decoration:underline;}.urs .m4-root::before{content:"~]# ";}.urs div.m4-usc{background:#fff;border-radius:4px;border:1px solid #ddd;color:#333;font-family:"Courier New",Courier,monospace;font-size:.8em;line-height:1.1;margin:0 0 11px;padding:8px;}.urs .m4-usc a{font-weight: bold;}.urs .m4-usc::before{content:"~]$ ";}.urs p.m4-l3{padding-left:2em;}</style>
 <!-- table of content -->
 <h2 id="m4-toc-capt">Content&nbsp;(<a href="../generovani-kodu-v-m4-uvod/preview.html" title="Generování kódu v M4: úvod">Česká verze</a>)</h2>
 <p id="m4-toc-introduction"><a href="#m4-introduction">1&nbsp;&nbsp;Introduction</a></p>
@@ -167,7 +162,8 @@ The macro processor converts the source code back to FORTRAN, then the compiler 
 <li>if the <code>FUNC(char c, int i)</code> macro is defined, its variables are:<br>
 <code>$# → 2</code>, <code>$0 → FUNC</code>, <code>$1 → char c</code>, <code>$2 → int i</code>
 </li>
-</ul><li><strong>the left</strong> <a href="#m4-nonterminal-expansion-control" title="Nonterminal expansion control">control character</a> <code>`</code> is not a&nbsp;part of the C&nbsp;family syntax</li>
+</ul></li>
+<li><strong>the left</strong> <a href="#m4-nonterminal-expansion-control" title="Nonterminal expansion control">control character</a> <code>`</code> is not a&nbsp;part of the C&nbsp;family syntax</li>
 <li><strong>the right</strong> control character <code>'</code> does not matter if it is not part of the macro<br>
 <ul><li>both control characters can be hidden into user-defined macros <code>LQ()</code>, <code>RQ()</code></li></ul></li>
 <li>macros are written <code>IN_UPPERCASE</code>, just like <a href="https://en.wikipedia.org/wiki/Terminal_and_nonterminal_symbols" title="Wikipedia">nonterminal symbols</a>
@@ -227,6 +223,7 @@ This feature is crucial for the preprocessor mode.</p>
 divert(ℤ) → ε
 define(`A', `β') → ε
 ifelse(`', `', `yes', `no') → yes
+ifelse(`', `', `ifdef(`dnl', `1', `0')', `no') → ifdef(`dnl', `1', `0') → 1
 …
 </pre>
 <h4 id="m4-nonterminal-expansion-control"><a href="#m4-nonterminal-expansion-control" title="⚓">»</a>&nbsp;Nonterminal expansion control</h4>

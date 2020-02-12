@@ -229,6 +229,13 @@ Note: html
 Description: inserts source file content with a link and an optional description
 Reason: source file, link and description
 ---
+File: html/index.m4
+Author: Josef Kubin
+Started: 2019/12/27
+Note: m4root
+Description: creates HTML page for off-line article development and validator (tidy)
+Reason: develop and test the result before publishing
+---
 File: html/nav.m4
 Author: Josef Kubin
 Started: 2019/12/01
@@ -275,8 +282,8 @@ File: html/publish.m4
 Author: Josef Kubin
 Started: 2019/12/12
 Note: root_cz
-Description: creates the final file for CMS (copy and paste); xvim shortcut to copy HTML part: "+yG
-Reason: template for CMS
+Description: creates the final file for Content Management System (copy and paste)
+Reason: template for Content Management System
 ---
 File: html/cfg.m4
 Author: Josef Kubin
@@ -284,13 +291,6 @@ Started: 2019/12/09
 Note: root_cz
 Description: main configuration for the html template
 Reason: one place to configure ALL generated web pages
----
-File: html/validate.m4
-Author: Josef Kubin
-Started: 2019/12/27
-Note: root_cz
-Description: creates a lightweight page for HTML validator (https://validator.w3.org/#validate_by_upload) and it also seems to be suitable for off-line article development
-Reason: develop and test the result before publishing
 ---
 File: html/ent.m4
 Author: Josef Kubin
