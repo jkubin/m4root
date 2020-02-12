@@ -74,6 +74,21 @@ test t: debug dev
 devel dev: rootb.m4
 	m4 $< test.m4
 
+
+#:clean/cle/del/cl	deletes all generated files
+.PHONY: clean cle del cl
+clean cle del cl:
+	$(RM) -r $(DEBUG_FILE) $(DOC_FILE) $(ORDER_FILE) $(REFS_ALL) $(FOLDERS) *.{mk,m4f}
+
+#:distclean/dcl/cld/dc	also deletes generated files also in all example folders
+.PHONY: distclean dcl cld dc
+distclean dcl cld dc: clean $(CLSUBDIRS)
+
+#:mostlyclean/mcl/clm/cll/mc	deletes only a subset of the generated files
+.PHONY: mostlyclean mcl clm cll mc
+mostlyclean mcl clm cll mc:
+	$(RM) -r $(FOLDERS) *.{mk,m4f}
+
 #:doc	extracts headers from the source files and creates a brief documentation for a basic source file overview
 .PHONY: doc
 doc: $(DOC_FILE)
@@ -100,21 +115,6 @@ $(SUBDIRS):
 .PHONY: $(CLSUBDIRS)
 $(CLSUBDIRS):
 	$(MAKE) -C $(@:clean-%=%) clean
-
-
-#:clean/cle/del/cl	deletes all generated files
-.PHONY: clean cle del cl
-clean cle del cl:
-	$(RM) -r $(DEBUG_FILE) $(DOC_FILE) $(ORDER_FILE) $(REFS_ALL) $(FOLDERS) *.{mk,m4f}
-
-#:distclean/dcl/cld/dc	also deletes generated files also in all example folders
-.PHONY: distclean dcl cld dc
-distclean dcl cld dc: clean $(CLSUBDIRS)
-
-#:mostlyclean/mcl/clm/cll/mc	deletes only a subset of the generated files
-.PHONY: mostlyclean mcl clm cll mc
-mostlyclean mcl clm cll mc:
-	$(RM) -r $(FOLDERS) *.{mk,m4f}
 
 
 #:help/he/hl/h	prints help for this Makefile
