@@ -21,7 +21,9 @@ define([SRC_REPO_NAME], [localhost])
 
 m4wrap([
 	divert(0)dnl
-<!-- DONTE() -->
+<!-- vim:wrap
+	DONTE()
+-->
 <!doctype html>
 <html lang="LANG_CODE">
 <head>
