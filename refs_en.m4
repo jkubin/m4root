@@ -189,8 +189,6 @@ define([intro.mc.en.anch.experience_dependent], [experience-dependent])
 define([intro.mc.en.anch.hard_maintenance], [hard-maintenance])
 define([fundamentals.mc.en.anch.Introduction], [introduction])
 define([fundamentals.mc.en.uniq.Introduction])
-define([fundamentals.mc.en.anch.UNIX philosophy], [unix-philosophy])
-define([fundamentals.mc.en.uniq.UNIX philosophy])
 
 # A → β
 define([en.LANG_VERSION], [English version])

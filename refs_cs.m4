@@ -189,8 +189,6 @@ define([intro.mc.cs.anch.experience_dependent], [experience-dependent])
 define([intro.mc.cs.anch.hard_maintenance], [hard-maintenance])
 define([fundamentals.mc.cs.anch.Úvod], [uvod])
 define([fundamentals.mc.cs.uniq.Úvod])
-define([fundamentals.mc.cs.anch.Filosofie UNIX-u], [filosofie-unix-u])
-define([fundamentals.mc.cs.uniq.Filosofie UNIX-u])
 
 # A → β
 define([cs.LANG_VERSION], [Česká verze])

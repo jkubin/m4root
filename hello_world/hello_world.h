@@ -7,4 +7,4 @@
 
 #define HELLO_WORLD	Hello, world!
 
-#endif	/* __HELLO_WORLD_H */
+#endif /* __HELLO_WORLD_H */
