@@ -38,6 +38,14 @@ CSS_RULE_SET([p], [l3], [], [
 padding-left:2em;
 ])
 
+CSS_RULE_SET([], [root], [], [
+font-weight:bold;
+])
+
+CSS_RULE_SET([], [usc], [], [
+font-weight:bold;
+])
+
 CSS_RULE_SET([div], [usc], [], [
 
 background:#fff;
@@ -48,22 +56,22 @@ font-family:"Courier New",Courier,monospace;
 font-size:.8em;
 line-height:1.1;
 margin:0 0 11px;
+overflow:auto;
 padding:8px;
+white-space:nowrap;
 
-])
-
-CSS_RULE_SET([], [usc], [ a], [
-font-weight:bold;
 ])
 
 CSS_RULE_SET([], [usc], [ a:visited], [
-color:black;
+color:#333;
 ])
 
 CSS_RULE_SET([], [usc], [::before], [
 content:"CMD() ";
+font-weight:normal;
 ])
 
 CSS_RULE_SET([], [root], [::before], [
 content:"ROO() ";
+font-weight:normal;
 ])
