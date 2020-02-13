@@ -407,8 +407,8 @@ To install BO([m4], [with small letter „m“], [dot]), type the following comm
 ]])
 
 COMMAND_ROOT([install], LANG([příkaz nainstaluje také další důležité balíčky], [the command also installs other important packages]), [
-BO([dnf -y install make m4 pinfo])
-])dnl COMMAND_ROOT
+dnf -y install make m4 pinfo
+])
 
 PARA([[dnl czech
 Podrobný popis klíčových slov se nachází v[]NB()dokumentaci[]REF([GNU M4 - GNU macro processor], [Free Software Foundation], [https://www.gnu.org/software/m4/manual/]):
@@ -520,7 +520,7 @@ PARA([[dnl czech
 Výchozí dvojice znaků CODE([`']) v[]NB()M4 řídí expanzi neterminálů.
 Klíčové slovo CODE_M4([changequote()]) je může změnit na jiné znaky, například {CODE_M4([[]]), BO([CODE([␂␆])]), CODE([〖〗])}.
 Neterminály, které nechceme (ihned) expandovat, jsou obklopeny touto dvojicí znaků.
-Při průchodu makro procesorem jsou všechny symboly mezi touto dvojicí znaků BUN([terminálními symboly]) a[]NB()vnější dvojice znaků je odstraněna.
+Při průchodu makro procesorem jsou všechny symboly mezi touto dvojicí znaků BO([terminálními symboly]) a[]NB()vnější dvojice znaků je odstraněna.
 Další průchod již způsobí expanzi původně chráněných neterminálů.
 Dvojice řídících znaků se nastavuje na začátku kořenového souboru.
 ],
@@ -613,8 +613,8 @@ M4 transforms input data from ABBR([CODE([.mc])], [Macro Configuration]) files t
 ]])
 
 COMMAND_USR([files_on_command_line], [← ]LANG([nejobecnější.m4 … nejspeciálnější.m4], [the_most_general.m4 … the_most_special.m4])[ →], [
-BO([m4 root.m4 stem.m4 branch.m4 leaf.m4 input1.mc input2.mc > output.file])
-])dnl COMMAND_USR
+m4 root.m4 stem.m4 branch.m4 leaf.m4 input1.mc input2.mc > output.file
+])
 
 PARA([[dnl czech
 Během načítání souborů jsou prováděny dvě základní operace:
@@ -658,12 +658,12 @@ The input data may also come from the pipeline:
 ]])
 
 COMMAND_USR(, LANG([vstupní kód → generování zdrojového kódu → soubor], [input code → source code generation → file]), [
-BO([cat input.mc | m4 root.m4 stem.m4 branch.m4 leaf.m4 - > output.file])
-])dnl COMMAND_USR
+cat input.mc | m4 root.m4 stem.m4 branch.m4 leaf.m4 - > output.file
+])
 
 COMMAND_USR(, LANG([vstupní kód → generování zdrojového kódu → program], [input code → source code generation → program]), [
-BO([cat input.mc | m4 root.m4 stem.m4 branch.m4 leaf.m4 - | gcc -x c -o progr -])
-])dnl COMMAND_USR
+cat input.mc | m4 root.m4 stem.m4 branch.m4 leaf.m4 - | gcc -x c -o progr -
+])
 
 PARA([[dnl czech
 define([try_it_yourself], [Vyzkoušejte:])try_it_yourself() LINK([code_generation_examples], [code_generation_examples])
@@ -697,12 +697,12 @@ However the character collision is easily solved by a regex.
 ]])
 
 COMMAND_USR(, LANG([M4 jako preprocesor – obecně], [M4 as preprocessor – in general]), [
-BO([m4 root.m4 stem.m4 branch.m4 leaf.m4 file.c > preproc.file.c])
-])dnl COMMAND_USR
+m4 root.m4 stem.m4 branch.m4 leaf.m4 file.c > preproc.file.c
+])
 
 COMMAND_USR(, LANG([M4 jako preprocesor – bez dočasného souboru], [M4 as preprocessor – without intermediate file]), [
-BO([m4 root.m4 stem.m4 branch.m4 leaf.m4 file.c | gcc -x c -o progr -])
-])dnl COMMAND_USR
+m4 root.m4 stem.m4 branch.m4 leaf.m4 file.c | gcc -x c -o progr -
+])
 
 PARA([[dnl czech
 M4 v[]NB()režimu preprocesoru může být součástí kolony.
@@ -719,8 +719,8 @@ An empty pair of control characters CODE_M4([`']) before the macro serves as a[]
 define([dirty_hack], LANG([M4 jako preprocesor s řídícími znaky], [M4 as preprocessor with control characters]))
 
 COMMAND_USR(, defn([dirty_hack])[: `'], [
-BO([sed '/^[#]/!s/LQ()/`'\''CODE_M4([LQ()])/g' any_src.code | m4 rootq.m4 leaf.m4 - | gcc …])
-])dnl COMMAND_USR
+sed 's/LQ()/`'\''CODE_M4([LQ()])/g; s/[#]/`[#]'\''/g' any_src.code | m4 rootq.m4 leaf.m4 - | …
+])
 
 PARA([[dnl czech
 Při průchodu zdrojového kódu makro procesorem se makro CODE_M4([`'LQ()]) přepíše zpátky na původní znak CODE([LQ()]) a[]NB()prázdný pár CODE_M4([`']) je odstraněn.
@@ -732,8 +732,8 @@ If square brackets are used to control the expansion of nonterminals, the left C
 ]])
 
 COMMAND_USR(, defn([dirty_hack])[: []], [
-BO([sed '/^[#]/!s/\LB()/CODE_M4([[]LB()])/g' any_src.code | m4 rootb.m4 leaf.m4 - | gcc …])
-])dnl COMMAND_USR
+sed 's/\LB()/CODE_M4([[]LB()])/g; s/[#]/[[#]]/g' any_src.code | m4 rootb.m4 leaf.m4 - | gcc …
+])
 
 PARA([[dnl czech
 Pro řízení expanze neterminálů lze použít netisknutelné znaky BO([CODE([␂])]) (SAMP([0x02])) a[]NB()BO([CODE([␆])]) (SAMP([0x06])).
@@ -745,8 +745,8 @@ These characters cannot interfere with printable source code characters.
 ]])
 
 COMMAND_USR(, defn([dirty_hack])[: ␂␆], [
-BO([m4 rootn.m4 leaf.m4 any_src.code | gcc …])
-])dnl COMMAND_USR
+sed 's/[#]/␂[#]␆/g' any_src.code | m4 rootn.m4 leaf.m4 - | gcc …
+])
 
 undefine([dirty_hack])
 
@@ -772,8 +772,8 @@ The leaf file CODE([leaf.m4]) contains transformation rule definitions along wit
 ]])
 
 COMMAND_USR(, LANG([jak se naučit M4], [how to learn M4]), [
-BO([m4 root.m4 leaf.m4])
-])dnl COMMAND_USR
+m4 root.m4 leaf.m4
+])
 
 PARA_MONO([[dnl
 try_it_yourself() LINK([m4_on_examples], [m4_on_examples])
@@ -1020,7 +1020,7 @@ dnl english: _next_language_
 ])
 
 PARA([[dnl czech
-M4 obvykle nejde zvládnout přes víkend, zvláště chybí-li základy[]REF([Automaty a[]NB()formální jazyky I], [Učební text FI MU], [https://is.muni.cz/elportal/estud/fi/js06/ib005/Formalni_jazyky_a_automaty_I.pdf])
+M4 obvykle nejde zcela zvládnout přes víkend, zvláště chybí-li základy[]REF([Automaty a[]NB()formální jazyky I], [Učební text FI MU], [https://is.muni.cz/elportal/estud/fi/js06/ib005/Formalni_jazyky_a_automaty_I.pdf])
 AH([teorie[]NB()automatů], [Wikipedie], [https://cs.wikipedia.org/wiki/Teorie_automat%C5%AF]) a[]NB()AH([formálních[]NB()gramatik], [Wikipedie], [https://cs.wikipedia.org/wiki/Form%C3%A1ln%C3%AD_gramatika]).
 Pro dokonalé zvládnutí M4 je nutné QUOTE([odpřemýšlet si]) delší období a[]NB()napsat určité množství špatného (složitého) M4 kódu, který z[]NB()vlastní vůle přepíšete kvůli lepšímu nápadu.
 Tímto způsobem je možné postupně získat praxi.
@@ -1130,13 +1130,6 @@ Všechny speciální znaky vstupního souboru napřed skryjeme do vhodně pojmen
 Each type of output code requires the modification of the special characters.
 The M4 CODE_M4([patsubst()]) keyword is inappropriate for this type of task.
 First, we hide all special characters of the input file into appropriately named macros using regular expressions.
-]])
-
-_PARA([[dnl czech
-Generování různých typů souborů obvykle vyžaduje méně úsilí, protože je možné použít předchozí hotové soubory.
-],
-[dnl english: _next_language_
-Generating different file types usually requires less effort because the previous finished files can be used.
 ]])
 
 BRIDGEHEAD([modified_input_source_code], [dnl czech
@@ -1722,12 +1715,12 @@ UL([LI([cannot compete with narrowly specialized languages])])
 ]])
 
 LISTITEM([forgotten_language], [[dnl czech
-neexistující komunita vývojářů (podzim 2019)
-UL([LI([M4 je zapomenutý jazyk, málo existujících projektů])])
+malá komunita vývojářů (podzim 2019)
+UL([LI([M4 je téměř zapomenutý jazyk, málo existujících projektů])])
 ],
 [dnl english: _next_language_
-nonexistent developer community (as of Autumn 2019)
-UL([LI([M4 is forgotten language with small number of existing projects])])
+small developer community (as of Autumn 2019)
+UL([LI([M4 is nearly forgotten language with small number of existing projects])])
 ]])
 
 LISTITEM([unusual_language], [[dnl czech
@@ -1741,15 +1734,15 @@ UL([LI([M4 is therefore demanding language])])
 
 LISTITEM([experience_dependent], [[dnl czech
 produktivita značně závisí na zkušenostech (možný problém s[]NB()termíny)
-UL([LI([schopnost myslet v[]NB()M4 je nutnost])])
+UL([LI([schopnost myslet v[]NB()M4 (nebo ABBR([CFG], [Context-Free Grammar – bezkontextová gramatika])) je nutnost])])
 ],
 [dnl english: _next_language_
 productivity greatly depends on experience (problem with short-term deadlines)
-UL([LI([ability to think in M4 is essential necessity])])
+UL([LI([ability to think in M4 (or ABBR([CFG], [Context-Free Grammar])) is essential necessity])])
 ]])
 
 LISTITEM([hard_maintenance], [[dnl czech
-údržba špatně napsaného M4 kódu je těžká
+údržba špatně napsaného M4 kódu je obtížná
 UL([LI([existující M4 kód je snadné proměnit ve zmatek (nutný dohled!)])])
 ],
 [dnl english: _next_language_
