@@ -27,12 +27,12 @@ define([INSERT_LIST_OF_FILES], [
 	ifelse([$#], [1], [
 
 		divert(CURRQU)dnl
-<div title="defn([WORD_COMMAND])" class="ADD_CLASS([usc])">BO([defn([PROGRAM])]) dnl
+<div title="defn([WORD_COMMAND])" class="ADD_CLASS([usc])">defn([PROGRAM]) dnl
 ifelse(defn([ROOT_FILE]), [], [], [AH(defn([ROOT_FILE]), defn([SRC_REPO_NAME]), defn([SRC_FILE_PATH], [FOLDER_FOR_GENERATED_FILES], [ROOT_FILE])) ])[]dnl
 ADD_LINKS_TO_INSERTED_FILES(PREFIX_FILES)dnl
 undivert(REFERENCES_TO_FILES)dnl
 ADD_LINKS_TO_INSERTED_FILES(SOURCES)dnl
-BO([GT()]) AH([$1], defn([SRC_REPO_NAME]), defn([SRC_FILE_PATH], [FOLDER])[$1])</div>
+GT() AH([$1], defn([SRC_REPO_NAME]), defn([SRC_FILE_PATH], [FOLDER])[$1])</div>
 divert(-1)
 
 		INSERT_FILE(defn([FOLDER])[$1])
