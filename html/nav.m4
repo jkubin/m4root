@@ -44,7 +44,7 @@ ifelse(defn([REF]), defn([REF_NEXT]), [
 	# it have to be here because it is the last but one index, it can not be in the REF automaton
 	divert(CHAPTER_NAVIG_DATA)dnl
 <p id="NSP()TOCP-defn([#ID])"><a href="[#]NSP()defn([#ID])">CHAPTER_IDX_val()NB2()WORD_REFERENCES</a></p>
-divert(ARTICLE_REFER_CAPT)
+divert(ARTICLE_REFER_CAPT)dnl
 <!-- article references -->
 <h2 id="NSP()defn([#ID])"><a href="[#]NSP()defn([#ID])"defn([ANCHOR_SIGN])>CHAPTER_IDX_val</a>NB2()WORD_REFERENCES[]RETURN_TO_TOC</h2>
 divert(-1)
