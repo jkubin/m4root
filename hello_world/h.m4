@@ -11,4 +11,4 @@ divert(0)dnl
 
 [#]define HELLO	SYMBOL
 
-[#endif	/* __]HELLO[_H */]
+[#]endif /* __[]HELLO[]_H */
