@@ -179,7 +179,7 @@ This direct ancestor of the current M4 managed to significantly save heavy and t
 Developers have customized M3 for these languages turning it into a[]NB()universally usable M4 macro processor.
 ]])
 
-NOTE_WRAP(, [m4 ∈ ]LANG([{množina nástrojů UNIX-u}], [{set of UNIX tools}]), [
+NOTE_WRAP(, [m4 ∈ {]LANG([množina nástrojů UNIX-u], [set of UNIX tools])[}], [
 
 PLAIN_TEXT([[dnl czech
 PERSON([Dennis Ritchie]) byl také spolutvůrcem operačního systému UNIX a[]NB()proto:
@@ -243,16 +243,16 @@ Makro procesor M3 rozšířil také PERSON([Jim E. Weythman]), autor programové
 The M3 macro processor was also extended by PERSON([Jim E. Weythman]), the author of program construction, which is used in almost every M4 script:
 ]])
 
-PROGRAMLISTING(, LANG([idiomatický kód M4], [idiomatic M4 code]), [[
-divert(-1)
+PROGRAMLISTING(, LANG([idiomatický kód M4], [idiomatic M4 code]), [dnl
+[divert(-1)
 …
 define(…)
 …
 divert(0)dnl
-…
-]])dnl PROGRAMLISTING
+…]
+])dnl PROGRAMLISTING
 
-NOTE([[dnl czech
+NOTE(, defn([WORD_NOTE]), [[dnl czech
 Klíčové slovo CODE([[divert](AH([ℤ], [celé číslo], [https://cs.wikipedia.org/wiki/Cel%C3%A9_%C4%8D%C3%ADslo]))], [divert(-1), divert(0), divert(1), …, divert(2147483647)], [dot]) přepíná výstupní fronty.
 Argument CODE([-1]) zcela vypne jakýkoliv textový výstup.
 Argument CODE([0]) přepne výstup na CODE_M4([stdout]) (standardní výstup).
@@ -406,7 +406,7 @@ The author of this implementation (1990) is AH([PERSON([René Seindal])], [https
 To install BO([m4], [with small letter „m“], [dot]), type the following command:
 ]])
 
-COMMAND_ROOT([install], LANG([příkaz nainstaluje také další důležité balíčky], [the command also installs other important packages]), [
+COMMAND_ROOT([install], LANG([příkaz nainstaluje také další důležité balíčky], [the command also installs other important packages]), [dnl
 dnf -y install make m4 pinfo
 ])
 
@@ -417,7 +417,7 @@ Podrobný popis klíčových slov se nachází v[]NB()dokumentaci[]REF([GNU M4 -
 A[]NB()detailed description of the keywords can be found in the documentation[]REF([GNU M4 - GNU macro processor], [Free Software Foundation], [https://www.gnu.org/software/m4/manual/]):
 ]])
 
-PROGRAMLISTING([
+PROGRAMLISTING([dnl
 CMD() BO([pinfo m4])
 CMD() BO([man m4])
 CMD() BO([m4 --help])
@@ -462,11 +462,11 @@ The nonterminal CODE_M4([A]) is rewritten to an arbitrarily long ABBR([CODE([β]
 AH([Kleene star], [Wikipedia], [https://en.wikipedia.org/wiki/Kleene_star]) CODE([*]) means that nonterminal CODE_M4([A]) can be rewritten to ABBR([CODE([ε])], [epsilon – empty symbol]) (rewriting rule: CODE([A[]NB()→[]NB()ε])).
 ]])
 
-PROGRAMLISTING(, LANG([přepisovací pravidla bezkontextové gramatiky], [context-free grammar rewriting rules]), [[
+PROGRAMLISTING(, LANG([přepisovací pravidla bezkontextové gramatiky], [context-free grammar rewriting rules]), [dnl
 P: A → β
    A ∈ N
    β ∈ (N ∪ Σ)*
-]])dnl PROGRAMLISTING
+])dnl PROGRAMLISTING
 
 BRIDGEHEAD([m4_rules], [dnl czech
 [Přepisovací pravidla M4],
@@ -482,8 +482,8 @@ The rules for rewriting are the same for context-free grammar and M4.
 ]])
 The M4 rewriting rules are the same as context-free grammar rewriting rules.
 
-PROGRAMLISTING(, LANG([přepisovací pravidla M4], [M4 rewriting rules]), [[
-# A → β
+PROGRAMLISTING(, LANG([přepisovací pravidla M4], [M4 rewriting rules]), [dnl
+[# A → β
 define(`A', `β')
 
 # A → ε
@@ -502,8 +502,8 @@ All keywords can be renamed or turned off completely.
 This feature is crucial for the preprocessor mode.
 ]])
 
-PROGRAMLISTING(, LANG([klíčová slova M4 jsou neterminály], [M4 keywords are nonterminals]), [[
-divert(ℤ) → ε
+PROGRAMLISTING(, LANG([klíčová slova M4 jsou neterminály], [M4 keywords are nonterminals]), [dnl
+[divert(ℤ) → ε
 define(`A', `β') → ε
 ifelse(`', `', `yes', `no') → yes
 ifelse(`', `', `ifdef(`dnl', `1', `0')', `no') → ifdef(`dnl', `1', `0') → 1
@@ -577,7 +577,7 @@ The examples of the LINK([output queues], [output_queues_html]) are in the appen
 ]])
 These parts of the resulting code are created by rewriting rules of grammar that rewrite input symbols.
 
-NOTE([[dnl czech
+INFO(, defn([WORD_INFORMATION]), [[dnl czech
 BO([Zásobníky]) si ukážeme později.
 ],
 [dnl english: _next_language_
@@ -612,7 +612,7 @@ M4 transformuje vstupní data ze souborů ABBR([CODE([.mc])], [Macro Configurati
 M4 transforms input data from ABBR([CODE([.mc])], [Macro Configuration]) files to output data with the following command:
 ]])
 
-COMMAND_USR([files_on_command_line], [← ]LANG([nejobecnější.m4 … nejspeciálnější.m4], [the_most_general.m4 … the_most_special.m4])[ →], [
+COMMAND_USR([files_on_command_line], [← ]LANG([nejobecnější.m4 … nejspeciálnější.m4], [the_most_general.m4 … the_most_special.m4])[ →], [dnl
 m4 root.m4 stem.m4 branch.m4 leaf.m4 input1.mc input2.mc > output.file
 ])
 
@@ -657,11 +657,11 @@ Vstupní data mohou také přicházet z[]NB()kolony:
 The input data may also come from the pipeline:
 ]])
 
-COMMAND_USR(, LANG([vstupní kód → generování zdrojového kódu → soubor], [input code → source code generation → file]), [
+COMMAND_USR(, LANG([vstupní kód → generování zdrojového kódu → soubor], [input code → source code generation → file]), [dnl
 cat input.mc | m4 root.m4 stem.m4 branch.m4 leaf.m4 - > output.file
 ])
 
-COMMAND_USR(, LANG([vstupní kód → generování zdrojového kódu → program], [input code → source code generation → program]), [
+COMMAND_USR(, LANG([vstupní kód → generování zdrojového kódu → program], [input code → source code generation → program]), [dnl
 cat input.mc | m4 root.m4 stem.m4 branch.m4 leaf.m4 - | gcc -x c -o progr -
 ])
 
@@ -696,11 +696,11 @@ It is important to select the left character for nonterminal expansion control, 
 However the character collision is easily solved by a regex.
 ]])
 
-COMMAND_USR(, LANG([M4 jako preprocesor – obecně], [M4 as preprocessor – in general]), [
+COMMAND_USR(, LANG([M4 jako preprocesor – obecně], [M4 as preprocessor – in general]), [dnl
 m4 root.m4 stem.m4 branch.m4 leaf.m4 file.c > preproc.file.c
 ])
 
-COMMAND_USR(, LANG([M4 jako preprocesor – bez dočasného souboru], [M4 as preprocessor – without intermediate file]), [
+COMMAND_USR(, LANG([M4 jako preprocesor – bez dočasného souboru], [M4 as preprocessor – without intermediate file]), [dnl
 m4 root.m4 stem.m4 branch.m4 leaf.m4 file.c | gcc -x c -o progr -
 ])
 
@@ -715,11 +715,15 @@ The conflicting character CODE([LQ()]) from the input source code is hidden into
 An empty pair of control characters CODE_M4([`']) before the macro serves as a[]NB()LINK([symbol separator], [symbols_in_brackets]).
 ]])
 
-# sorry i couldn't resist …
-define([dirty_hack], LANG([M4 jako preprocesor s řídícími znaky], [M4 as preprocessor with control characters]))
+define([common_title_for_regex], LANG([M4 jako preprocesor s řídícími znaky], [M4 as preprocessor with control characters]))
+define([common_title], [ ]LANG([jinak], [differently]))
 
-COMMAND_USR(, defn([dirty_hack])[: `'], [
-sed 's/LQ()/`'\''CODE_M4([LQ()])/g; s/[#]/`[#]'\''/g' any_src.code | m4 rootq.m4 leaf.m4 - | …
+COMMAND_USR(, defn([common_title_for_regex])[: `'], [dnl
+sed 's/LQ()/`'\''[LQ()]/g;s/[#]\|\LT()[dnl]\GT()/`&'\''/g' any.src | m4 rootq.m4 leaf.m4 -
+])
+
+COMMAND_USR(, defn([common_title_for_regex], [common_title])[: `'], [dnl
+sed 's/LQ()/`'\''[LQ()]/g;s/[#]/`[#]'\''/g;s/\LT()[dnl]\GT()/`[dnl]'\''/g' any.src | m4 …
 ])
 
 PARA([[dnl czech
@@ -731,8 +735,12 @@ When the source code is passed through the macro processor, the CODE_M4([`'LQ()]
 If square brackets are used to control the expansion of nonterminals, the left CODE([LB()]) square bracket must be hidden in the same way.
 ]])
 
-COMMAND_USR(, defn([dirty_hack])[: []], [
-sed 's/\LB()/CODE_M4([[]LB()])/g; s/[#]/[[#]]/g' any_src.code | m4 rootb.m4 leaf.m4 - | gcc …
+COMMAND_USR(, defn([common_title_for_regex])[: []], [dnl
+sed 's/\LB()/[[]LB()]/g;s/[#]\|\LT()[dnl]\GT()/[[&]]/g' any.src | m4 rootb.m4 leaf.m4 - | …
+])
+
+COMMAND_USR(, defn([common_title_for_regex], [common_title])[: []], [dnl
+sed 's/\LB()/[[]LB()]/g;s/[#]/[[#]]/g;s/\LT()[dnl]\GT()/[[dnl]]/g' any.src | m4 rootb.m4 …
 ])
 
 PARA([[dnl czech
@@ -744,11 +752,15 @@ Non printable characters BO([CODE([␂])]) (SAMP([0x02])) and BO([CODE([␆])]) 
 These characters cannot interfere with printable source code characters.
 ]])
 
-COMMAND_USR(, defn([dirty_hack])[: ␂␆], [
-sed 's/[#]/␂[#]␆/g' any_src.code | m4 rootn.m4 leaf.m4 - | gcc …
+COMMAND_USR(, defn([common_title_for_regex])[: ␂␆], [dnl
+sed 's/[#]\|\LT()[dnl]\GT()/␂[&]␆/g' any.src | m4 rootn.m4 leaf.m4 - | gcc …
 ])
 
-undefine([dirty_hack])
+COMMAND_USR(, defn([common_title_for_regex], [common_title])[: ␂␆], [dnl
+sed 's/[#]/␂[#]␆/g;s/\LT()[dnl]\GT()/␂[dnl]␆/g' any.src | m4 rootn.m4 leaf.m4 - | gcc …
+])
+
+undefine([common_title_for_regex], [common_title])
 
 PARA_MONO([[dnl
 try_it_yourself() LINK([preproc_examples], [preproc_examples])
@@ -771,7 +783,7 @@ The data is not separated from the rules for its transformation.
 The leaf file CODE([leaf.m4]) contains transformation rule definitions along with input data.
 ]])
 
-COMMAND_USR(, LANG([jak se naučit M4], [how to learn M4]), [
+COMMAND_USR(, LANG([jak se naučit M4], [how to learn M4]), [dnl
 m4 root.m4 leaf.m4
 ])
 
@@ -799,7 +811,7 @@ The most important thing to realize is that it is used to program the grammar ru
 Each string is either a[]NB()terminal or a[]NB()nonterminal symbol, including all language keywords (the symbols CODE_M4([#]) and CODE_M4([,]) are special cases of nonterminals).
 ]])
 
-NOTE_WRAP([
+NOTE_WRAP(, defn([WORD_NOTE]), [
 
 PLAIN_TEXT([[dnl czech
 M4 záměrně nemá klíčová slova pro BO([cykly]) (CODE([for])/CODE([while])), protože jeho základ je zcela jiný, než jaký mají procedurální nebo funkcionální jazyky.
@@ -850,7 +862,7 @@ dnl english: _next_language_
 [Formal grammar (Chomsky type)],
 ])
 
-PROGRAMLISTING([
+PROGRAMLISTING([dnl
 G = (N, Σ, P, S)
 N: LANG([neprázdná konečná množina neterminálních symbolů], [nonempty finite set of nonterminal symbols])
 Σ: LANG([konečná množina terminálních symbolů], [finite set of terminal symbols])
@@ -924,7 +936,7 @@ Předchozí automat lze zapsat jako ASCII art doprovázející M4 skript:
 The previous automaton can be written as an ASCII art accompanying the M4 script:
 ]])
 
-PROGRAMLISTING(, [ASCII art ]LANG([jako dokumentace M4 kódu], [for M4 code documentation]), [
+PROGRAMLISTING(, [ASCII art ]LANG([jako dokumentace M4 kódu], [for M4 code documentation]), [dnl
 #          ____1
 #         |   /
 #      ___V__/   0    ____
@@ -948,7 +960,7 @@ Input symbols change the nodes of the automaton, thereby changing the rewriting 
 See the appendix for LINK([this example], [json_generating_automaton]):
 ]])
 
-PROGRAMLISTING(, [ASCII art ]LANG([generujícího automatu], [of generating automaton]), [
+PROGRAMLISTING(, [ASCII art ]LANG([generujícího automatu], [of generating automaton]), [dnl
 #      _______      ___________
 # --->/ ERROR \--->/ NEXT_ITEM \---.
 #     \_______/    \___________/<--'
@@ -1042,7 +1054,7 @@ dnl english: _next_language_
 [Code generation examples],
 ])
 
-NOTE([[dnl czech
+NOTE(, defn([WORD_NOTE]), [[dnl czech
 Příklady v[]NB()této příloze jsou složitější a[]NB()jejich cílem je ukázat praktické použití jazyka M4.
 Podrobněji budou vysvětleny později.
 ],
@@ -1069,7 +1081,7 @@ Stacks in the examples are not used.
 
 INSERT_FILE_AND_LINK([messages/messages_raw.mc], LANG([vstupní zdrojový kód obsahuje speciální znaky], [the input source code contains special characters])[ ⚠])
 
-NOTE([[dnl czech
+NOTE(, defn([WORD_NOTE]), [[dnl czech
 Vstupní soubor může také obsahovat poznámky, které nemusí být skryté v[]NB()komentářích CODE_M4([#]), CODE_M4([dnl]), CODE_M4([ifelse([…])]) nebo CODE_M4([[… někde uvnitř závorek …]]).
 ],
 [dnl english: _next_language_
@@ -1368,7 +1380,7 @@ The CODE([$[0]]) variable is rewritten to the name of the macro and concatenated
 The newly formed nonterminal is rewritten to the corresponding terminal symbol (queue number or name).
 ]])
 
-PROGRAMLISTING([nonterminals_for_branches], LANG([větvení gramatikou v M4], [grammar branching in M4]), [
+PROGRAMLISTING([nonterminals_for_branches], LANG([větvení gramatikou v M4], [grammar branching in M4]), [dnl
 $[0]_QU → ERROR_QU → 2
 $[0]_END → ERROR_END → 3
 $[0]_NAME → ERROR_NAME → error
