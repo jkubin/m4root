@@ -1,3 +1,5 @@
+# vim:ts=40:sw=40
+
 __HEADER([Josef Kubin], [2019/12/29], [root_cz])
 ___DESCR([basic set of block-level elements with a subset of global attributes])
 ___POINT([HTML5 block-level elements])
@@ -6,23 +8,31 @@ ___POINT([HTML5 block-level elements])
 
 # html tag attributes (at the end of this file will be forgotten)
 # β
-pushdef([ID_1],			[ifelse([$#], [1], [], [$1], [], [], [ id="FIND_AND_ADD_ID_RULE_SET([$1])"])])
-pushdef([TITLE_2],		[ifelse([$#], [2], [], [$2], [], [], [ title="[$2]"])])
-pushdef([CLASS_3],		[ifelse([$#], [3], [], [$3], [], [], [ class="ADD_CLASS([$3])"])])
-pushdef([CLASS_3_TIP_BOX],	[ class="rs-tip-major ADD_CLASS([tip])ifelse([$#], [3], [], [$3], [], [], [ ADD_CLASS([$3])])"])
-pushdef([CLASS_3_TILE_BOX],	[ class="rs-tile[]ifelse([$#], [3], [], [$3], [], [], [ ADD_CLASS([$3])])"])
+pushdef([ID_1],	[ifelse([$#], [1], [], [$1], [], [], [ id="FIND_AND_ADD_ID_RULE_SET([$1])"])])
+pushdef([TITLE_2],	[ifelse([$#], [2], [], [$2], [], [], [ title="[$2]"])])
+pushdef([CLASS_3],	[ifelse([$#], [3], [], [$3], [], [], [ class="ADD_CLASS([$3])"])])
+pushdef([CLASS_3_NOTE],	[ class="rs-tip-major ADD_CLASS([note])ifelse([$#], [3], [], [$3], [], [], [ ADD_CLASS([$3])])"])
+pushdef([CLASS_3_WARN],	[ class="rs-tip-major ADD_CLASS([warn])ifelse([$#], [3], [], [$3], [], [], [ ADD_CLASS([$3])])"])
+pushdef([CLASS_3_INFO],	[ class="rs-tip-major ADD_CLASS([info])ifelse([$#], [3], [], [$3], [], [], [ ADD_CLASS([$3])])"])
+pushdef([CLASS_3_TILE],	[ class="rs-tile[]ifelse([$#], [3], [], [$3], [], [], [ ADD_CLASS([$3])])"])
 pushdef([CLASS_3_USR_CMD],	[ class="ADD_CLASS([usc])[]ifelse([$#], [3], [], [$3], [], [], [ ADD_CLASS([$3])])"])
 pushdef([CLASS_3_ROOT_CMD],	[ class="ADD_CLASS([root])[]ifelse([$#], [3], [], [$3], [], [], [ ADD_CLASS([$3])])"])
-pushdef([STYLE_4],		[ifelse([$#], [4], [], [$4], [], [], [ style="[$4]"])])
-pushdef([ANYTHING_5],		[ifelse([$#], [5], [], [$5], [], [], [ [$5]])])
+pushdef([STYLE_4],	[ifelse([$#], [4], [], [$4], [], [], [ style="[$4]"])])
+pushdef([ANYTHING_5],	[ifelse([$#], [5], [], [$5], [], [], [ [$5]])])
 
 # html tag attributes groups
 # β
 pushdef([HTML_GLOBAL_ATTRIBUTES],	defn([ID_1], [TITLE_2], [CLASS_3], [STYLE_4], [ANYTHING_5]))
 pushdef([HTML_HEADING_ATTRIBUTES],	[ id="ADD_ID_RULE(defn([#ID]))"]defn([TITLE_2], [CLASS_3], [STYLE_4], [ANYTHING_5]))
+pushdef([HTML_INFO_ATTRIBUTES],	defn([ID_1], [TITLE_2], [CLASS_3_INFO], [STYLE_4], [ANYTHING_5]))
+pushdef([HTML_NOTE_ATTRIBUTES],	defn([ID_1], [TITLE_2], [CLASS_3_NOTE], [STYLE_4], [ANYTHING_5]))
 pushdef([HTML_ROOT_CMD_ATTRIBUTES],	defn([ID_1], [TITLE_2], [CLASS_3_ROOT_CMD], [STYLE_4], [ANYTHING_5]))
-pushdef([HTML_TIP_BOX_ATTRIBUTES],	defn([ID_1], [TITLE_2], [CLASS_3_TIP_BOX], [STYLE_4], [ANYTHING_5]))
 pushdef([HTML_USR_CMD_ATTRIBUTES],	defn([ID_1], [TITLE_2], [CLASS_3_USR_CMD], [STYLE_4], [ANYTHING_5]))
+pushdef([HTML_WARN_ATTRIBUTES],	defn([ID_1], [TITLE_2], [CLASS_3_WARN], [STYLE_4], [ANYTHING_5]))
+
+# convert {&, >, <} to html entities, strip trailing white chars
+# β
+pushdef([PROCESS_RAW_CODE_TO_HTML_ENTITIES], [patsubst(patsubst(patsubst(patsubst(define([#], [[[[[$$#]]]]])indir([#], $@), [\s*]), [&], [&amp;]), [<], [&lt;]), [>], [&gt;])])
 
 # β
 pushdef([SET_ANCHOR], [
@@ -396,7 +406,7 @@ divert(-1)
 define([NOTE_WRAP], [
 
 	divert(CURRQU)dnl
-<div[]]defn([HTML_TIP_BOX_ATTRIBUTES])[>dnl
+<div[]]defn([HTML_NOTE_ATTRIBUTES])[>dnl
 divert(-1)
 
 	]defn([EXPAND_LAST])[
@@ -410,7 +420,7 @@ divert(-1)
 define([NOTE_MONO], [
 
 	divert(CURRQU)dnl
-<div[]]defn([HTML_TIP_BOX_ATTRIBUTES])[>EXPAND_ARG1_WITHOUT_TRAILING_LF(]defn([EXPAND_LAST])[)</div>
+<div[]]defn([HTML_NOTE_ATTRIBUTES])[>EXPAND_ARG1_WITHOUT_TRAILING_LF(]defn([EXPAND_LAST])[)</div>
 divert(-1)
 ])
 
@@ -418,7 +428,23 @@ divert(-1)
 define([NOTE], [
 
 	divert(CURRQU)dnl
-<div[]]defn([HTML_TIP_BOX_ATTRIBUTES])[>EXPAND_LANG_WITHOUT_TRAILING_LF(]defn([EXPAND_LAST])[)</div>
+<div[]]defn([HTML_NOTE_ATTRIBUTES])[>EXPAND_LANG_WITHOUT_TRAILING_LF(]defn([EXPAND_LAST])[)</div>
+divert(-1)
+])
+
+# A → β
+define([WARN], [
+
+	divert(CURRQU)dnl
+<div[]]defn([HTML_WARN_ATTRIBUTES])[>EXPAND_LANG_WITHOUT_TRAILING_LF(]defn([EXPAND_LAST])[)</div>
+divert(-1)
+])
+
+# A → β
+define([INFO], [
+
+	divert(CURRQU)dnl
+<div[]]defn([HTML_INFO_ATTRIBUTES])[>EXPAND_LANG_WITHOUT_TRAILING_LF(]defn([EXPAND_LAST])[)</div>
 divert(-1)
 ])
 
@@ -426,7 +452,7 @@ divert(-1)
 define([TILE_BOX], [
 
 	divert(CURRQU)dnl
-<div[]]defn([ID_1], [TITLE_2], [CLASS_3_TILE_BOX], [STYLE_4])[>EXPAND_LANG_WITHOUT_TRAILING_LF(]defn([EXPAND_LAST])[)</div>
+<div[]]defn([ID_1], [TITLE_2], [CLASS_3_TILE], [STYLE_4])[>EXPAND_LANG_WITHOUT_TRAILING_LF(]defn([EXPAND_LAST])[)</div>
 divert(-1)
 ])
 
@@ -434,27 +460,24 @@ divert(-1)
 # β
 define([PROGRAMLISTING], [
 
-	# convert '<' and '>' to html entities
 	divert(CURRQU)dnl
-<pre[]]defn([HTML_GLOBAL_ATTRIBUTES])[>patsubst(patsubst(BRAC(]defn([SELECT_LAST])[), [<], [&lt;]), [>], [&gt;])</pre>
+<pre[]]defn([HTML_GLOBAL_ATTRIBUTES])>defn([PROCESS_RAW_CODE_TO_HTML_ENTITIES])[</pre>
 divert(-1)
 ])
 
 # A → β
 define([COMMAND_USR], [
 
-	# convert '<' and '>' to html entities
 	divert(CURRQU)dnl
-<pre[]]defn([HTML_USR_CMD_ATTRIBUTES])[>patsubst(patsubst(BRAC(]defn([SELECT_LAST])[), [<], [&lt;]), [>], [&gt;])</pre>
+<div[]]defn([HTML_USR_CMD_ATTRIBUTES])>defn([PROCESS_RAW_CODE_TO_HTML_ENTITIES])[</div>
 divert(-1)
 ])
 
 # A → β
 define([COMMAND_ROOT], [
 
-	# convert '<' and '>' to html entities
 	divert(CURRQU)dnl
-<pre[]]defn([HTML_ROOT_CMD_ATTRIBUTES])[>patsubst(patsubst(BRAC(]defn([SELECT_LAST])[), [<], [&lt;]), [>], [&gt;])</pre>
+<div[]]defn([HTML_ROOT_CMD_ATTRIBUTES])>defn([PROCESS_RAW_CODE_TO_HTML_ENTITIES])[</div>
 divert(-1)
 ])
 
@@ -646,20 +669,25 @@ popdef(
 	[ANYTHING_5],
 	[CHAPTER_COMMON_CODE],
 	[CLASS_3],
+	[CLASS_3_INFO],
+	[CLASS_3_NOTE],
 	[CLASS_3_ROOT_CMD],
-	[CLASS_3_TILE_BOX],
-	[CLASS_3_TIP_BOX],
+	[CLASS_3_TILE],
 	[CLASS_3_USR_CMD],
+	[CLASS_3_WARN],
 	[FIND_IMG_DIM],
 	[HTML_GLOBAL_ATTRIBUTES],
 	[HTML_HEADING_ATTRIBUTES],
+	[HTML_INFO_ATTRIBUTES],
 	[HTML_MONOLINGUAL],
 	[HTML_MULTILINGUAL],
+	[HTML_NOTE_ATTRIBUTES],
 	[HTML_ROOT_CMD_ATTRIBUTES],
-	[HTML_TIP_BOX_ATTRIBUTES],
 	[HTML_UNPAIRED_TAG],
 	[HTML_USR_CMD_ATTRIBUTES],
+	[HTML_WARN_ATTRIBUTES],
 	[ID_1],
+	[PROCESS_RAW_CODE_TO_HTML_ENTITIES],
 	[SET_ANCHOR],
 	[STYLE_4],
 	[TITLE_2],
