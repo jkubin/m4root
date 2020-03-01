@@ -4,7 +4,7 @@
 # ___USAGE([make h && make])
 
 # stem for generated files
-FILES = root ruler
+FILES = mroot root ruler
 
 # suffix letter for previously generated files
 TYPES = q n u
