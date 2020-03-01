@@ -38,7 +38,6 @@ pushdef([PROCESS_RAW_CODE_TO_HTML_ENTITIES], [patsubst(patsubst(patsubst(patsubs
 
 # β
 pushdef([SET_ANCHOR], [
-
 	# if a unique symbol is not defined
 	ifdef(defn([FILE_PREFIX]).uniq.defn([SELITM]), [], [
 
@@ -55,7 +54,6 @@ pushdef([SET_ANCHOR], [
 
 # β
 pushdef([HTML_MONOLINGUAL], [
-
 	divert(CURRQU)dnl
 <defn([##$0>])]defn([HTML_GLOBAL_ATTRIBUTES])[>EXPAND_ARG1_WITHOUT_TRAILING_LF(]defn([EXPAND_LAST])[)</defn([##$0>])>
 divert(-1)
@@ -63,7 +61,6 @@ divert(-1)
 
 # β
 pushdef([HTML_MULTILINGUAL], [
-
 	divert(CURRQU)dnl
 <defn([##$0>])]defn([HTML_GLOBAL_ATTRIBUTES])[>EXPAND_LANG_WITHOUT_TRAILING_LF(]defn([EXPAND_LAST])[)</defn([##$0>])>
 divert(-1)
@@ -71,14 +68,12 @@ divert(-1)
 
 # A → β
 define([PEREX_IMG], defn([TEST_ATM])[
-
 	# transition to the next node (redefine itself to image path)
 	define([$0], ../[$1])
 ])
 
 # A → β
 define([CAPTION], defn([TEST_ATM])[
-
 	define([FILE_PREFIX], __file__.LANG_CODE)
 
 	# init counter for chapters
@@ -101,14 +96,12 @@ define([CAPTION], defn([TEST_ATM])[
 
 # A → β
 define([PEREX], defn([TEST_ATM])[
-
 	# transition to the next node (redefine itself to the selected string)
 	define([$0], SELECT_LANG_WITHOUT_TRAILING_LF(]defn([EXPAND_LAST])[))
 ])
 
 # β
 pushdef([CHAPTER_COMMON_CODE], [
-
 	define([CURRQU], ARTICLE_CONTENT)
 
 	divert(CHAPTER_NAVIG_DATA)dnl
@@ -339,7 +332,6 @@ define([LINK], [pushdef([CURRQU], divnum)divert(-1)
 
 # β
 pushdef([FIND_IMG_DIM], [
-
 	# the "identify" program has a bug (silent if missing file)
 	ifelse(ARG1($6), [], [
 
@@ -365,7 +357,6 @@ COUNTER_FOR_IMAGES(1)
 # IMAGEDATA([ID], [title], [class], [style], [anything], [img.png, http://root.cz/img.png], [[czech], [english]])
 # A → β
 define([IMAGEDATA], [
-
 	# Fixed number of arguments!
 	ifelse([$#], [7], [], [
 
@@ -382,7 +373,6 @@ divert(-1)
 
 # A → β
 define([PLAIN_TEXT_MONO], [
-
 	divert(CURRQU)dnl
 EXPAND_ARG1_WITHOUT_TRAILING_LF(]defn([EXPAND_LAST])[)[]dnl
 divert(-1)
@@ -390,7 +380,6 @@ divert(-1)
 
 # A → β
 define([PLAIN_TEXT], [
-
 	divert(CURRQU)dnl
 EXPAND_LANG_WITHOUT_TRAILING_LF(]defn([EXPAND_LAST])[)[]dnl
 divert(-1)
@@ -398,7 +387,6 @@ divert(-1)
 
 # A → β
 define([COMMENT_MONO], [
-
 	divert(CURRQU)dnl
 <!-- EXPAND_ARG1_WITHOUT_TRAILING_LF(]defn([EXPAND_LAST])[) -->
 divert(-1)
@@ -406,11 +394,9 @@ divert(-1)
 
 # A → β
 define([NOTE_WRAP], [
-
 	divert(CURRQU)dnl
 <div[]]defn([HTML_NOTE_ATTRIBUTES])[>dnl
 divert(-1)
-
 	]defn([EXPAND_LAST])[
 
 	divert(CURRQU)dnl
@@ -420,7 +406,6 @@ divert(-1)
 
 # A → β
 define([NOTE_MONO], [
-
 	divert(CURRQU)dnl
 <div[]]defn([HTML_NOTE_ATTRIBUTES])[>EXPAND_ARG1_WITHOUT_TRAILING_LF(]defn([EXPAND_LAST])[)</div>
 divert(-1)
@@ -428,7 +413,6 @@ divert(-1)
 
 # A → β
 define([NOTE], [
-
 	divert(CURRQU)dnl
 <div[]]defn([HTML_NOTE_ATTRIBUTES])[>EXPAND_LANG_WITHOUT_TRAILING_LF(]defn([EXPAND_LAST])[)</div>
 divert(-1)
@@ -436,7 +420,6 @@ divert(-1)
 
 # A → β
 define([WARN], [
-
 	divert(CURRQU)dnl
 <div[]]defn([HTML_WARN_ATTRIBUTES])[>EXPAND_LANG_WITHOUT_TRAILING_LF(]defn([EXPAND_LAST])[)</div>
 divert(-1)
@@ -444,7 +427,6 @@ divert(-1)
 
 # A → β
 define([EXCL], [
-
 	divert(CURRQU)dnl
 <div[]]defn([HTML_EXCL_ATTRIBUTES])[>EXPAND_LANG_WITHOUT_TRAILING_LF(]defn([EXPAND_LAST])[)</div>
 divert(-1)
@@ -452,7 +434,6 @@ divert(-1)
 
 # A → β
 define([INFO], [
-
 	divert(CURRQU)dnl
 <div[]]defn([HTML_INFO_ATTRIBUTES])[>EXPAND_LANG_WITHOUT_TRAILING_LF(]defn([EXPAND_LAST])[)</div>
 divert(-1)
@@ -460,7 +441,6 @@ divert(-1)
 
 # A → β
 define([TILE_BOX], [
-
 	divert(CURRQU)dnl
 <div[]]defn([ID_1], [TITLE_2], [CLASS_3_TILE], [STYLE_4])[>EXPAND_LANG_WITHOUT_TRAILING_LF(]defn([EXPAND_LAST])[)</div>
 divert(-1)
@@ -469,7 +449,6 @@ divert(-1)
 # A → β
 # β
 define([PROGRAMLISTING], [
-
 	divert(CURRQU)dnl
 <pre[]]defn([HTML_GLOBAL_ATTRIBUTES])>defn([PROCESS_RAW_CODE_TO_HTML_ENTITIES])[</pre>
 divert(-1)
@@ -477,7 +456,6 @@ divert(-1)
 
 # A → β
 define([COMMAND_USR], [
-
 	divert(CURRQU)dnl
 <div[]]defn([HTML_USR_CMD_ATTRIBUTES])>defn([PROCESS_RAW_CODE_TO_HTML_ENTITIES])[</div>
 divert(-1)
@@ -485,7 +463,6 @@ divert(-1)
 
 # A → β
 define([COMMAND_ROOT], [
-
 	divert(CURRQU)dnl
 <div[]]defn([HTML_ROOT_CMD_ATTRIBUTES])>defn([PROCESS_RAW_CODE_TO_HTML_ENTITIES])[</div>
 divert(-1)

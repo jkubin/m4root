@@ -3,7 +3,56 @@ ___DESCR([the resulting style sheet is embedded in the web page or can be extrac
 ___POINT([here are all CSS rules that are automatically selected into the style sheet])
 
 # [prefix], [my_css_name], [suffix], [… css rule set …])
-CSS_RULE_SET([], [tip], [::before], [
+CSS_RULE_SET([], [note], [::before], [
+content:"\1f5b9";
+color:#969696;
+margin-right:.4em;
+font-size:1.2em;
+])
+
+color:orange;
+vertical-align:-50%;
+
+CSS_RULE_SET([], [warn], [::before], [
+content:"\26a0";
+color:red;
+margin-right:.4em;
+font-size:1.2em;
+])
+
+CSS_RULE_SET([], [excl], [::before], [
+content:"\2755";
+color:#969696;
+margin:0 .5em 0 .2em;
+font-size:1.2em;
+])
+
+CSS_RULE_SET([], [info], [::before], [
+content:"\1f6c8";
+color:#969696;
+margin-right:.4em;
+font-size:1.2em;
+])
+
+CSS_RULE_SET([], [note], [], [
+padding-top:.3em;
+])
+
+CSS_RULE_SET([], [info], [], [
+padding-top:.3em;
+])
+
+CSS_RULE_SET([], [excl], [], [
+padding-top:.3em;
+])
+
+CSS_RULE_SET([], [warn], [], [
+padding-top:.3em;
+border-color:red;
+])
+
+# [prefix], [my_css_name], [suffix], [… css rule set …])
+_CSS_RULE_SET([], [tip], [::before], [
 content:"WORD_NOTE: ";
 color:#969696;
 ])
@@ -38,15 +87,13 @@ CSS_RULE_SET([p], [l3], [], [
 padding-left:2em;
 ])
 
-CSS_RULE_SET([], [root], [], [
+CSS_RULE_SET([], [unix], [], [
 font-weight:bold;
 ])
+quotes:"„" "“";
 
-CSS_RULE_SET([], [usc], [], [
-font-weight:bold;
-])
-
-CSS_RULE_SET([div], [usc], [], [
+# TODO: unfinished
+CSS_RULE_SET([], [usc], [,.urs .NSP()root], [
 
 background:#fff;
 border-radius:4px;
@@ -54,13 +101,18 @@ border:1px solid #ddd;
 color:#333;
 font-family:"Courier New",Courier,monospace;
 font-size:.8em;
+font-weight:bold;
 line-height:1.1;
 margin:0 0 11px;
-overflow:auto;
 padding:8px;
-white-space:nowrap;
 
 ])
+
+CSS_RULE_SET([], [pre], [], [
+overflow:auto;
+white-space:pre;
+])
+white-space:nowrap;
 
 CSS_RULE_SET([], [usc], [ a:visited], [
 color:#333;
