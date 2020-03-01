@@ -53,8 +53,9 @@ m4wrap([
 <title>CAPTION</title>
 <link rel="stylesheet" type="text/css" href="../html/preview.css">
 undivert(INTERNAL_STYLE_DATA, INTERNAL_STYLE_END)dnl
-<meta name="description" content="PEREX">
 <meta name="author" content="AUTHOR_NAME">
+<meta name="description" content="PEREX">
+<meta name="generator" content="M4">
 </head>
 <body>
 <div class="design-page__content">

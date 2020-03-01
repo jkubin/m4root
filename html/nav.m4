@@ -19,9 +19,9 @@ ifelse(defn(OTHER_LANG_CODE.[LANG_VERSION]), [], [], [
 	NB()(<a href="../defn([OTHER_LANGUAGE])defn(CURRENT_INDEX.OTHER_LANG_CODE.anch)/defn([OUTPUT_FILE])" title="defn(CURRENT_INDEX.OTHER_LANG_CODE.capt)">defn(OTHER_LANG_CODE.[LANG_VERSION])</a>))
 ])
 
-# this is the TOC name at the beginning of page
-divert(START_OF_NAVIGATION)dnl
-<!-- table of content -->
+# this is the beginning of the page
+divert(START_OF_NAVIGATION)dnl table of content
+dnl
 <h2 id="NSP()TOC_TOP">WORD_CONTENT[]ifdef([ADD_LINKS_TO_ALL_PARTS_OF_THE_SERIES],
 [NB()AH([☰], defn([SENTENCE_ALL_PARTS]), [toc], [#]NSP()defn([TOC_ALL_PARTS]))])defn([SWITCH_TO_ANOTHER_LANGUAGE])</h2>
 divert(END_OF_NAVIGATION)dnl
