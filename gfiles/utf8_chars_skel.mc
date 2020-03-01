@@ -1,5 +1,5 @@
-# vim:mps+=〖\:〗
+# vim:mps+=⟦\:⟧
 
 # skeletonVIM_CREATION_DATE Josef Kubin
 
-MY_MACRO(〖〗)
+MY_MACRO(⟦⟧)

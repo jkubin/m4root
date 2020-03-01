@@ -2,11 +2,19 @@
 This is a generated brief documentation from all source files.
 It also shows the possibilities of the M4.
 ---
+File: gfiles/mrootb.m4
+Author: Josef Kubin
+Started: 2020/02/18
+Note: gfiles
+Description: minimal root script for simple projects
+Reason: root script as small as possible
+Usage: m4 mroot.m4 stem.m4 branch.m4 sub_branch.m4 leaf.m4 data.mc > output.file
+---
 File: gfiles/rootb.m4
 Author: Josef Kubin
 Started: 2018/10/15
 Note: https://github.com/jkubin/m4root
-Version: 0.1.0
+Version: 1.1.0
 Description: the most general (root) rules for all scripts
 Reason: script decomposition; NO repeated information anywhere else
 Usage: m4 root.m4 stem.m4 branch.m4 sub_branch.m4 leaf.m4 data.mc > output.file
