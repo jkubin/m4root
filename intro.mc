@@ -518,7 +518,7 @@ dnl english: _next_language_
 
 PARA([[dnl czech
 Výchozí dvojice znaků CODE([`']) v[]NB()M4 řídí expanzi neterminálů.
-Klíčové slovo CODE_M4([changequote()]) je může změnit na jiné znaky, například {CODE_M4([[]]), BO([CODE([␂␆])]), CODE([〖〗])}.
+Klíčové slovo CODE_M4([changequote()]) je může změnit na jiné znaky, například {CODE_M4([[]]), BO([CODE([␂␆])]), CODE([⟦⟧])}.
 Neterminály, které nechceme (ihned) expandovat, jsou obklopeny touto dvojicí znaků.
 Při průchodu makro procesorem jsou všechny symboly mezi touto dvojicí znaků BO([terminálními symboly]) a[]NB()vnější dvojice znaků je odstraněna.
 Další průchod již způsobí expanzi původně chráněných neterminálů.
@@ -526,7 +526,7 @@ Dvojice řídících znaků se nastavuje na začátku kořenového souboru.
 ],
 [dnl english: _next_language_
 The default character pair CODE([`']) in M4 controls the expansion of nonterminals.
-The keyword CODE_M4([changequote()]) can change them to other characters, for example {CODE_M4([[]]), BO([CODE([␂␆])]), CODE([〖〗])}.
+The keyword CODE_M4([changequote()]) can change them to other characters, for example {CODE_M4([[]]), BO([CODE([␂␆])]), CODE([⟦⟧])}.
 The nonterminals that we do not want to (immediately) expand are surrounded by this pair of characters.
 When passing through the macro processor, all the symbols between this character pair are BUN([terminal symbols]) and the outer character pair is removed.
 The next pass will cause the expansion of the originally protected nonterminals.

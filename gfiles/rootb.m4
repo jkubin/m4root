@@ -1,6 +1,6 @@
 divert(-1)changequote([,])
 
-__HEADER([Josef Kubin], [2018/10/15], [https://github.com/jkubin/m4root], [0, 1, 0])
+__HEADER([Josef Kubin], [2018/10/15], [https://github.com/jkubin/m4root], [1, 1, 0])
 ___DESCR([the most general (root) rules for all scripts])
 ___POINT([script decomposition; NO repeated information anywhere else])
 ___USAGE([m4 root.m4 stem.m4 branch.m4 sub_branch.m4 leaf.m4 data.mc > output.file])
@@ -63,15 +63,15 @@ define([EXPAND_ARG1_WITHOUT_TRAILING_LF], [patsubst([$1], [\s*])])
 # puts number of arguments
 define([NAR], [ifelse([$#], [0], [[$0]], [$#])])
 
-# puts additional pair of characters (against unwanted expansion)
+# additional pair (payr is not a vocabulary word) symbols against unwanted expansion
 # A([$1], [$2], …, [$n]) → [[$1], [$2], …, [$n]]
-define([PAIR], [ifelse([$#], [0], [[$0]], [[$@]])])
+define([PAYR], [[$@]])
 
 # puts a specific additional pair of characters (against unwanted expansion)
 define([BRAC], [[$@]])
 define([NPRI], [$@])
 define([QUOT], [`$@'])
-define([UTFP], [〖$@〗])
+define([UTFP], [⟦$@⟧])
 
 # puts a left/right unpaired angular bracket, quotation mark, nonprintable or UTF-8 char
 define([LB], [ifelse([$#], [0], [[$0]], [changequote`'format(`%c', 91)changequote([,])])])
@@ -80,8 +80,8 @@ define([LQ], [`])
 define([RQ], ['])
 define([LN], [])
 define([RN], [])
-define([LU], [〖])
-define([RU], [〗])
+define([LU], [⟦])
+define([RU], [⟧])
 
 #' set aliases to unpaired control char for expansion control (universal macros)
 # define([LL], defn([LB]))
