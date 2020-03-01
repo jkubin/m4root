@@ -16,9 +16,12 @@ define([WORD_APPENDIX],	[Appendix])
 define([WORD_COMMAND],	[command])
 define([WORD_CONTENT],	[Content])
 define([WORD_IMAGE],	[Picture])
-define([WORD_NOTE],	[Note])
+define([WORD_IMPORTANT],	[important])
+define([WORD_NOTE],	[note])
 define([WORD_REFERENCES],	[References])
 define([WORD_TOP],	[Top])
+define([WORD_WARNING],	[warning])
+define([WORD_INFORMATION],	[for information])
 
 # another language
 define([OTHER_LANG_PATH],	[../clanky/])

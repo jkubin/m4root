@@ -16,9 +16,12 @@ define([WORD_APPENDIX],	[Příloha])
 define([WORD_COMMAND],	[příkaz])
 define([WORD_CONTENT],	[Obsah])
 define([WORD_IMAGE],	[Obrázek])
-define([WORD_NOTE],	[Pozn])
+define([WORD_IMPORTANT],	[důležité])
+define([WORD_NOTE],	[poznámka])
 define([WORD_REFERENCES],	[Odkazy])
 define([WORD_TOP],	[Nahoru])
+define([WORD_WARNING],	[upozornění])
+define([WORD_INFORMATION],	[pro informaci])
 
 # another language
 define([OTHER_LANG_PATH],	[../texty/])
