@@ -507,8 +507,8 @@ PROGRAMLISTING(, LANG([klíčová slova M4 jsou neterminály], [M4 keywords are 
 define(`A', `β') → ε
 ifelse(`', `', `yes', `no') → yes
 ifelse(`', `', `ifdef(`dnl', `1', `0')', `no') → ifdef(`dnl', `1', `0') → 1
-…
-]])dnl PROGRAMLISTING
+…]
+])dnl PROGRAMLISTING
 
 BRIDGEHEAD([expansion_control], [dnl czech
 [Řízení expanze neterminálů],
@@ -1073,13 +1073,15 @@ dnl english: _next_language_
 PARA([[dnl czech
 Vstupní zdrojový kód je podobný ABBR([CSV], [Comma Separated Values]), který se převede na libovolně složitý cílový kód jiného jazyka pomocí ABBR([CFG], [Context-Free Grammar – bezkontextová gramatika]), automatů a[]NB()výstupních front.
 Zásobníky v[]NB()příkladech nejsou použity.
+Vstupní zdrojový kód obsahuje speciální znaky, které je nutné skrýt:
 ],
 [dnl english: _next_language_
 The input source code is similar to ABBR([CSV], [Comma Separated Values]), which is converted to arbitrarily complex target code of another language using ABBR([CFG], [Context-Free Grammar]), automata and output queues.
 Stacks in the examples are not used.
+The input source code contains special characters that must be hidden:
 ]])
 
-INSERT_FILE_AND_LINK([messages/messages_raw.mc], LANG([vstupní zdrojový kód obsahuje speciální znaky], [the input source code contains special characters])[ ⚠])
+INSERT_FILE([messages/messages_raw.mc])
 
 NOTE(, defn([WORD_NOTE]), [[dnl czech
 Vstupní soubor může také obsahovat poznámky, které nemusí být skryté v[]NB()komentářích CODE_M4([#]), CODE_M4([dnl]), CODE_M4([ifelse([…])]) nebo CODE_M4([[… někde uvnitř závorek …]]).
@@ -1150,7 +1152,7 @@ dnl english: _next_language_
 [Modified input code],
 ])
 
-INSERT_FILE_AND_LINK([messages/messages.mc], LANG([všechny speciální znaky jsou skryty do maker], [all special characters are hidden into macros]))
+INSERT_FILE([messages/messages.mc], LANG([všechny speciální znaky jsou skryty do maker], [all special characters are hidden into macros]))
 
 PARA([[dnl czech
 Vytvoříme několik převodních souborů podle typu cílového kódu, makra pro hranaté závorky CODE_M4([LB()]) a CODE_M4([RB()]) jsou už definována v[]NB()kořenovém souboru.
@@ -1163,7 +1165,7 @@ BRIDGEHEAD_MONO([dnl
 [CODE_M4([[]]) XML[,] XSLT[,] HTML],
 ])
 
-INSERT_FILE_AND_LINK([messages/markup.m4], LANG([převodní soubor pro značkovací jazyky], [conversion file for markup languages]))
+INSERT_FILE([messages/markup.m4], LANG([převodní soubor pro značkovací jazyky], [conversion file for markup languages]))
 
 # hide  ‘"’ → DQ(), because of title="… &quot; … &quot; …"
 BRIDGEHEAD([dnl
@@ -1171,7 +1173,7 @@ BRIDGEHEAD([dnl
 [CODE_M4([[]]) C[,] JSON[,] INI – CODE([DQ()string[]DQ()])],
 ])
 
-INSERT_FILE_AND_LINK([messages/code.m4], LANG([převodní soubor pro zdrojový kód], [conversion file for a source code]))
+INSERT_FILE([messages/code.m4], LANG([převodní soubor pro zdrojový kód], [conversion file for a source code]))
 
 # hide ‘"’ → DQ(), because of title="… &quot; … &quot; …"
 BRIDGEHEAD([dnl
@@ -1179,20 +1181,27 @@ BRIDGEHEAD([dnl
 [CODE_M4([[]]) Bash – CODE([DQ()string[]DQ()])],
 ])
 
-INSERT_FILE_AND_LINK([messages/doubleq.m4], LANG([převodní soubor pro Bash řetězce v uvozovkách], [conversion file for Bash strings in quotation marks]))
+INSERT_FILE([messages/doubleq.m4], LANG([převodní soubor pro Bash řetězce v uvozovkách], [conversion file for Bash strings in quotation marks]))
 
 BRIDGEHEAD([dnl
 [CODE_M4([[]]) Bash – CODE([AP()řetězec[]AP()])],
 [CODE_M4([[]]) Bash – CODE([AP()string[]AP()])],
 ])
 
-INSERT_FILE_AND_LINK([messages/apost.m4], LANG([převodní soubor pro Bash řetězce v apostrofech], [conversion file for Bash strings in apostrophes]))
+INSERT_FILE([messages/apost.m4], LANG([převodní soubor pro Bash řetězce v apostrofech], [conversion file for Bash strings in apostrophes]))
 
 BRIDGEHEAD_MONO([dnl monolingual
 [CODE_M4([[]]) CSV[,] M4],
 ])
 
-INSERT_FILE_AND_LINK([messages/unchanged.m4], LANG([převodní soubor vrátí všechny speciální znaky zpátky], [the conversion file puts all special characters back]))
+PARA([[dnl czech
+Převodní soubor vrátí všechny speciální znaky zpátky:
+],
+[dnl english: _next_language_
+The conversion file puts all special characters back:
+]])
+
+INSERT_FILE([messages/unchanged.m4])
 
 
 SECT1([dnl czech
@@ -1536,7 +1545,7 @@ The CODE_M4([changecom(/*,*/)]) keyword sets a[]NB()multiline CODE([/* … */]) 
 The comments can be turned off with the same CODE_M4([changecom]) keyword without parameters.
 ]])
 
-INSERT_FILE_AND_LINK([preproc/foo.css], LANG([soubor vložený makro procesorem], [file embedded by the macro processor]))
+INSERT_FILE([preproc/foo.css], LANG([soubor vložený makro procesorem], [file embedded by the macro processor]))
 INSERT_FILES_PREPROC([q], [file.css])
 
 
