@@ -7,7 +7,7 @@ CSS_RULE_SET([], [note], [::before], [
 content:"\1f5b9";
 color:#969696;
 margin-right:.4em;
-font-size:1.2em;
+font-size:1.5em;
 ])
 
 color:orange;
@@ -17,37 +17,37 @@ CSS_RULE_SET([], [warn], [::before], [
 content:"\26a0";
 color:red;
 margin-right:.4em;
-font-size:1.2em;
+font-size:1.5em;
 ])
 
 CSS_RULE_SET([], [excl], [::before], [
 content:"\2755";
 color:#969696;
 margin:0 .5em 0 .2em;
-font-size:1.2em;
+font-size:1.5em;
 ])
 
 CSS_RULE_SET([], [info], [::before], [
 content:"\1f6c8";
 color:#969696;
 margin-right:.4em;
-font-size:1.2em;
+font-size:1.5em;
 ])
 
 CSS_RULE_SET([], [note], [], [
-padding-top:.3em;
+padding-top:.2em;
 ])
 
 CSS_RULE_SET([], [info], [], [
-padding-top:.3em;
+padding-top:.2em;
 ])
 
 CSS_RULE_SET([], [excl], [], [
-padding-top:.3em;
+padding-top:.2em;
 ])
 
 CSS_RULE_SET([], [warn], [], [
-padding-top:.3em;
+padding-top:.2em;
 border-color:red;
 ])
 
@@ -112,7 +112,38 @@ CSS_RULE_SET([], [pre], [], [
 overflow:auto;
 white-space:pre;
 ])
-white-space:nowrap;
+
+CSS_RULE_SET([], [src], [], [
+position:relative;
+])
+
+CSS_RULE_SET([], [src], [ a], [
+
+background:hsla(0,0%,86%,.5);
+border-radius:0 4px;
+border:1px solid #ddd;
+font-family:"Courier New",Courier,monospace;
+font-size:.8em;
+font-weight:bold;
+padding:0 .3em;
+position:absolute;
+right:0;
+
+])
+
+CSS_RULE_SET([], [src], [ a:visited], [
+color:#333;
+])
+
+.down:hover a{display:inline;}
+
+_CSS_RULE_SET([], [src], [:hover a], [
+background:#fff;
+])
+
+_CSS_RULE_SET([], [src], [ a::before], [
+content:"git: ";
+])
 
 CSS_RULE_SET([], [usc], [ a:visited], [
 color:#333;
