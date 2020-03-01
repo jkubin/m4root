@@ -230,13 +230,6 @@ Note: root_cz
 Description: source files contains M4 keywords and forbidden characters, therefore must be processed
 Reason: any input files must be processed first
 ---
-File: html/files/link.m4
-Author: Josef Kubin
-Started: 2020/01/09
-Note: html
-Description: inserts source file content with a link and an optional description
-Reason: source file, link and description
----
 File: html/index.m4
 Author: Josef Kubin
 Started: 2019/12/27

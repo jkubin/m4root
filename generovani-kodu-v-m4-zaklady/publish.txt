@@ -13,7 +13,7 @@ Tento díl je zaměřen na vysvětlení potřebných, zdánlivě složitých poj
 
 # shortcut for article: "+yG
 
-<!-- "Generování kódu v M4: základy" __SOURCE([20200301-19:39:17, fundamentals.mc, e396d0f, 2c29f9a]) -->
+<!-- "Generování kódu v M4: základy" __SOURCE([20200302-00:25:32, fundamentals.mc, e396d0f, c7c3f31]) -->
 <style>.urs .m4-toc{text-decoration:none;font-size:.5em;vertical-align:super;}</style>
 <h2 id="m4-toc-capt">Obsah&nbsp;(<a href="../../texty/generating-code-in-m4-fundamentals/" title="Generating code in M4: fundamentals">English version</a>)</h2>
 <p id="m4-toc-uvod"><a href="#m4-uvod">1&nbsp;&nbsp;Úvod</a></p>
