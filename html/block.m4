@@ -11,17 +11,19 @@ ___POINT([HTML5 block-level elements])
 pushdef([ID_1],	[ifelse([$#], [1], [], [$1], [], [], [ id="FIND_AND_ADD_ID_RULE_SET([$1])"])])
 pushdef([TITLE_2],	[ifelse([$#], [2], [], [$2], [], [], [ title="[$2]"])])
 pushdef([CLASS_3],	[ifelse([$#], [3], [], [$3], [], [], [ class="ADD_CLASS([$3])"])])
-pushdef([CLASS_3_NOTE],	[ class="rs-tip-major ADD_CLASS([note])ifelse([$#], [3], [], [$3], [], [], [ ADD_CLASS([$3])])"])
-pushdef([CLASS_3_WARN],	[ class="rs-tip-major ADD_CLASS([warn])ifelse([$#], [3], [], [$3], [], [], [ ADD_CLASS([$3])])"])
+pushdef([CLASS_3_EXCL],	[ class="rs-tip-major ADD_CLASS([excl])ifelse([$#], [3], [], [$3], [], [], [ ADD_CLASS([$3])])"])
 pushdef([CLASS_3_INFO],	[ class="rs-tip-major ADD_CLASS([info])ifelse([$#], [3], [], [$3], [], [], [ ADD_CLASS([$3])])"])
+pushdef([CLASS_3_NOTE],	[ class="rs-tip-major ADD_CLASS([note])ifelse([$#], [3], [], [$3], [], [], [ ADD_CLASS([$3])])"])
+pushdef([CLASS_3_ROOT_CMD],	[ class="ADD_CLASS([root])[]ifelse([$#], [3], [], [$3], [], [], [ ADD_CLASS([$3])])"])
 pushdef([CLASS_3_TILE],	[ class="rs-tile[]ifelse([$#], [3], [], [$3], [], [], [ ADD_CLASS([$3])])"])
 pushdef([CLASS_3_USR_CMD],	[ class="ADD_CLASS([usc])[]ifelse([$#], [3], [], [$3], [], [], [ ADD_CLASS([$3])])"])
-pushdef([CLASS_3_ROOT_CMD],	[ class="ADD_CLASS([root])[]ifelse([$#], [3], [], [$3], [], [], [ ADD_CLASS([$3])])"])
+pushdef([CLASS_3_WARN],	[ class="rs-tip-major ADD_CLASS([warn])ifelse([$#], [3], [], [$3], [], [], [ ADD_CLASS([$3])])"])
 pushdef([STYLE_4],	[ifelse([$#], [4], [], [$4], [], [], [ style="[$4]"])])
 pushdef([ANYTHING_5],	[ifelse([$#], [5], [], [$5], [], [], [ [$5]])])
 
 # html tag attributes groups
 # β
+pushdef([HTML_EXCL_ATTRIBUTES],	defn([ID_1], [TITLE_2], [CLASS_3_EXCL], [STYLE_4], [ANYTHING_5]))
 pushdef([HTML_GLOBAL_ATTRIBUTES],	defn([ID_1], [TITLE_2], [CLASS_3], [STYLE_4], [ANYTHING_5]))
 pushdef([HTML_HEADING_ATTRIBUTES],	[ id="ADD_ID_RULE(defn([#ID]))"]defn([TITLE_2], [CLASS_3], [STYLE_4], [ANYTHING_5]))
 pushdef([HTML_INFO_ATTRIBUTES],	defn([ID_1], [TITLE_2], [CLASS_3_INFO], [STYLE_4], [ANYTHING_5]))
@@ -441,6 +443,14 @@ divert(-1)
 ])
 
 # A → β
+define([EXCL], [
+
+	divert(CURRQU)dnl
+<div[]]defn([HTML_EXCL_ATTRIBUTES])[>EXPAND_LANG_WITHOUT_TRAILING_LF(]defn([EXPAND_LAST])[)</div>
+divert(-1)
+])
+
+# A → β
 define([INFO], [
 
 	divert(CURRQU)dnl
@@ -669,6 +679,7 @@ popdef(
 	[ANYTHING_5],
 	[CHAPTER_COMMON_CODE],
 	[CLASS_3],
+	[CLASS_3_EXCL],
 	[CLASS_3_INFO],
 	[CLASS_3_NOTE],
 	[CLASS_3_ROOT_CMD],
@@ -676,6 +687,7 @@ popdef(
 	[CLASS_3_USR_CMD],
 	[CLASS_3_WARN],
 	[FIND_IMG_DIM],
+	[HTML_EXCL_ATTRIBUTES],
 	[HTML_GLOBAL_ATTRIBUTES],
 	[HTML_HEADING_ATTRIBUTES],
 	[HTML_INFO_ATTRIBUTES],
