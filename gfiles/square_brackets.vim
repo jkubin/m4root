@@ -87,7 +87,7 @@ iabbrev <buffer> <unique> ife ifelse([$1], [%%%], [%%%], [%%%])<c-o>T$<esc>
 iabbrev <buffer> <unique> ifel ifelse(<cr><tab>[$%%%], [%%%], [%%%],<cr>[$%%%], [%%%], [%%%],<cr>[$%%%], [%%%], [%%%],<cr>[%%%]dnl<cr>)<c-o><<<left><c-o>%;;<c-r>=Eatchar('.')<cr>
 "iabbrev <buffer> <unique> ifff ifelse(`', `%%%', `%%%')<c-o>T(<right><c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> iff ifelse([$], [%%%], [%%%])<c-o>F$<right><c-r>=Eatchar('.')<cr>
-iabbrev <buffer> <unique> ii ifelse([<cr>])dnl comment<c-o>0<esc>
+"iabbrev <buffer> <unique> ii ifelse([<cr>])dnl comment<c-o>0<esc>
 iabbrev <buffer> <unique> inc incr($1)
 iabbrev <buffer> <unique> incl include([])<left><left><c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> ind indir([])<left><left><c-r>=Eatchar('.')<cr>
