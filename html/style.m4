@@ -13,7 +13,7 @@ define([CSS_RULE_SET], [
 
 	define([$1$2$3{}], __line__)
 
-	pushdef([.$2], [.urs $1.NSP()$2$3{$4}])
+	pushdef([.$2], [.urs $1.NSP()$2$3{$4}])
 ])
 
 # A → β
@@ -33,8 +33,8 @@ define([ADD_CSS_RULE_SET], [
 	])
 
 	divert(INTERNAL_STYLE_DATA)dnl
-patsubst(patsubst([[$2]], [[,#]], [[\&]]), [
-])dnl
+patsubst(patsubst(patsubst([[[$2]]], [[,#]], [[\&]]), [
+]), [;?}], [}])dnl
 divert(-1)
 ])
 
