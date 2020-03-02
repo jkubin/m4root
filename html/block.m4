@@ -1,4 +1,4 @@
-# vim:ts=40:sw=40
+# vim:ts=20:sw=20
 
 __HEADER([Josef Kubin], [2019/12/29], [root_cz])
 ___DESCR([basic set of block-level elements with a subset of global attributes])
@@ -288,11 +288,9 @@ define([LINK], [pushdef([CURRQU], divnum)divert(-1)
 	ifelse(defn([TITLE]), [], [], [
 
 		# temporarily redefine macros
-		pushdef([AP], [ifelse([$#], [0], [[$0]], [&apos;])])
 		pushdef([BO], defn([FST]))
 		pushdef([CODE], defn([SELECT_ARG1]))
 		pushdef([CODE_M4], defn([SELECT_ARG1]))
-		pushdef([DQ], [ifelse([$#], [0], [[$0]], [&quot;])])
 		pushdef([NB], [ifelse([$#], [0], [[$0]], [ ])])
 
 		# expand title
@@ -301,11 +299,9 @@ define([LINK], [pushdef([CURRQU], divnum)divert(-1)
 		# forget previous temporary macros
 		popdef(
 
-			[AP],
 			[BO],
 			[CODE],
 			[CODE_M4],
-			[DQ],
 			[NB],
 
 		)
@@ -487,12 +483,12 @@ define([REF], [pushdef([CURRQU], divnum)divert(-1)
 	# create new entry for all references under the article
 	divert(ARTICLE_REFERENCES)dnl
 <ol>
-<li id="REF_SYMBOL"><strong>$1</strong>ifelse([$2], [], [], [, $2])[]BR()
+<li><a href="[#]REF_SYMBOL" title="ifelse(defn([CURRQU]), [-1], [NONE_])WORD_SOURCE" class="ADD_CLASS([top])">↑</a>[]NB()<strong>$1</strong>ifelse([$2], [], [], [, $2])[]BR()
 <a href="[$3]">[$3]</a></li>
 divert(END_OF_REFERENCES)dnl
 </ol>
 divert(CURRQU)popdef([CURRQU])dnl
-<sup><a href="[$3]" title="$1">BRAC(REF_COUNTER)</a></sup>dnl
+<sup><a href="[$3]" title="$1" id="REF_SYMBOL">BRAC(REF_COUNTER)</a></sup>dnl
 ])
 
 # β
@@ -501,23 +497,20 @@ define([REF_NEXT], [pushdef([CURRQU], divnum)divert(-1)
 	# test if the reference already exists
 	ifdef([{$1$2$3}], [
 
-		# find number to an existing referece
-		define([REF_VALUE], defn([{$1$2$3}]))
-		define([REF_SYMBOL], NSP()[ref]REF_VALUE)
-	], [
+		divert(CURRQU)popdef([CURRQU])dnl
+<sup><a href="[$3]" title="$1">BRAC(REF_VALUE)</a></sup>dnl
+], [
 		# increment counter for new ref value
 		define([REF_VALUE], define([REF_COUNTER], incr(REF_COUNTER))REF_COUNTER)
 		define([REF_SYMBOL], NSP()[ref]REF_VALUE)
 		define([{$1$2$3}], REF_VALUE)
 
 		divert(ARTICLE_REFERENCES)dnl
-<li id="REF_SYMBOL"><strong>$1</strong>ifelse([$2], [], [], [, $2])[]BR()
+<li><a href="[#]REF_SYMBOL" title="ifelse(defn([CURRQU]), [-1], [NONE_])WORD_SOURCE" class="ADD_CLASS([top])">↑</a>[]NB()<strong>$1</strong>ifelse([$2], [], [], [, $2])[]BR()
 <a href="[$3]">[$3]</a></li>
-divert(-1)
-	])
-
 divert(CURRQU)popdef([CURRQU])dnl
-<sup><a href="[$3]" title="$1">BRAC(REF_VALUE)</a></sup>dnl
+<sup><a href="[$3]" title="$1" id="REF_SYMBOL">BRAC(REF_VALUE)</a></sup>dnl
+])dnl
 ])
 
 # A → β
