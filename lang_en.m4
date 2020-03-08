@@ -21,7 +21,7 @@ define([WORD_IMPORTANT],	[important])
 define([WORD_INFORMATION],	[for information])
 define([WORD_NOTE],	[note])
 define([WORD_REFERENCES],	[References])
-define([WORD_SOURCE],	[source])	# keep WORD_SOURCE
+define([WORD_SOURCE],	[back to the text])	# keep WORD_SOURCE
 define([WORD_TOP],	[Top])
 define([WORD_WARNING],	[warning])
 

@@ -21,7 +21,7 @@ define([WORD_IMPORTANT],	[důležité])
 define([WORD_INFORMATION],	[pro informaci])
 define([WORD_NOTE],	[poznámka])
 define([WORD_REFERENCES],	[Odkazy])
-define([WORD_SOURCE],	[zdroj])	# keep WORD_SOURCE
+define([WORD_SOURCE],	[zpátky do textu])	# keep WORD_SOURCE
 define([WORD_TOP],	[Nahoru])
 define([WORD_WARNING],	[upozornění])
 

@@ -2,12 +2,12 @@
 #
 # DO NOT EDIT! This file is generated automatically!
 #
-# __SOURCE([20200302-00:25:32, fundamentals.mc, e396d0f, c7c3f31])
+# __SOURCE([20200309-00:16:07, fundamentals.mc, e396d0f, 7f3533f])
 
 7
 Generování kódu v M4: základy
 
-# number of characters (200 ±10 is recommended): 196
+# number of characters in perex (200 ±10 is recommended): 196
 16
 Makro procesor M4 se používá ke generování libovolně složitého kódu z jednoduchého zdrojového kódu.
 Tento díl je zaměřen na vysvětlení potřebných, zdánlivě složitých pojmů teoretické informatiky.

@@ -2,12 +2,12 @@
 #
 # DO NOT EDIT! This file is generated automatically!
 #
-# __SOURCE([20200302-00:25:32, fundamentals.mc, e396d0f, c7c3f31])
+# __SOURCE([20200309-00:16:07, fundamentals.mc, e396d0f, 7f3533f])
 
 7
 Generating code in M4: fundamentals
 
-# number of characters (200 ±10 is recommended): 203
+# number of characters in perex (200 ±10 is recommended): 203
 16
 The M4 macro processor is used to generate arbitrarily complex code from simple source code.
 This part is focused on explanation of necessary, seemingly complex concepts of theoretical computer science.
