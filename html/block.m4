@@ -446,7 +446,7 @@ divert(-1)
 # β
 define([PROGRAMLISTING], [
 	divert(CURRQU)dnl
-<pre[]]defn([HTML_GLOBAL_ATTRIBUTES])>defn([PROCESS_RAW_CODE_TO_HTML_ENTITIES])[</pre>
+<div class="ADD_CLASS([src])"><pre[]]defn([HTML_GLOBAL_ATTRIBUTES])>defn([PROCESS_RAW_CODE_TO_HTML_ENTITIES])[</pre></div>
 divert(-1)
 ])
 
@@ -483,7 +483,7 @@ define([REF], [pushdef([CURRQU], divnum)divert(-1)
 	# create new entry for all references under the article
 	divert(ARTICLE_REFERENCES)dnl
 <ol>
-<li><a href="[#]REF_SYMBOL" title="ifelse(defn([CURRQU]), [-1], [NONE_])WORD_SOURCE" class="ADD_CLASS([top])">↑</a>[]NB()<strong>$1</strong>ifelse([$2], [], [], [, $2])[]BR()
+<li>ifelse(defn([CURRQU]), [-1], [], [<a href="[#]REF_SYMBOL" title="WORD_SOURCE" class="ADD_CLASS([top])">↑</a>])NB()<strong>$1</strong>ifelse([$2], [], [], [, $2])[]BR()
 <a href="[$3]">[$3]</a></li>
 divert(END_OF_REFERENCES)dnl
 </ol>
@@ -506,7 +506,7 @@ define([REF_NEXT], [pushdef([CURRQU], divnum)divert(-1)
 		define([{$1$2$3}], REF_VALUE)
 
 		divert(ARTICLE_REFERENCES)dnl
-<li><a href="[#]REF_SYMBOL" title="ifelse(defn([CURRQU]), [-1], [NONE_])WORD_SOURCE" class="ADD_CLASS([top])">↑</a>[]NB()<strong>$1</strong>ifelse([$2], [], [], [, $2])[]BR()
+<li>ifelse(defn([CURRQU]), [-1], [], [<a href="[#]REF_SYMBOL" title="WORD_SOURCE" class="ADD_CLASS([top])">↑</a>])NB()<strong>$1</strong>ifelse([$2], [], [], [, $2])[]BR()
 <a href="[$3]">[$3]</a></li>
 divert(CURRQU)popdef([CURRQU])dnl
 <sup><a href="[$3]" title="$1" id="REF_SYMBOL">BRAC(REF_VALUE)</a></sup>dnl
