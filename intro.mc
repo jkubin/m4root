@@ -1769,11 +1769,11 @@ UL([LI([individual queues are finally dumped to output in ascending order])])
 ]])
 
 LISTITEM([[dnl czech
-vyšší rychlost generování kódu (ve srovnání s[]NB()XSLT)
+výrazně vyšší rychlost generování kódu (ve srovnání s[]NB()XSLT)
 UL([LI([nízké nároky na výpočetní zdroje])])
 ],
 [dnl english: _next_language_
-faster code generation (compared to XSLT)
+significantly faster code generation (compared to XSLT)
 UL([LI([low demands on computing resources])])
 ]])
 
