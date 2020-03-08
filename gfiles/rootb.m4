@@ -27,9 +27,13 @@ ___USAGE([m4 root.m4 stem.m4 branch.m4 sub_branch.m4 leaf.m4 data.mc > output.fi
 #    A ∈ N
 #    β ∈ (N ∪ Σ)*
 #
-# productions rules in M4
+# production rules in M4
 # A → β
 # define([A], [β])
+#
+# A → ε
+# define([A])
+# define([A], [])
 
 # LOUD alert for unsuspecting users
 define([DONTE], [ifelse([$#], [0], [[$0]],

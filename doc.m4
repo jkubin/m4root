@@ -57,6 +57,8 @@ divert(0)dnl
 [#] vim:wrap:spell:spelllang=en
 This is a generated brief documentation from all source files.
 It also shows the possibilities of the M4.
+To update this file, run the following command:
+~]$ make doc
 divert(-1)
 
 # disable one-line comments and turn off all M4 keywords
