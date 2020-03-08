@@ -14,12 +14,12 @@ define([FIRST_CLASS_RULE_SET], [pushdef([.$1], defn([CLASS_RULE_SET_KEY]))CLASS_
 # A → β
 define([CSS_CLASS_RULE_SET], [
 
-	ifdef([.{$1$2$3}], [
+	ifdef([class{$1.$2.$3}key], [
 
 		ROOT_ERROR([the rule set ‘$0($@)’ is redefined])
 	])
 
-	pushdef([CLASS_RULE_SET_KEY], [.{$1$2$3}])
+	pushdef([CLASS_RULE_SET_KEY], [class{$1.$2.$3}key])
 	pushdef([CLASS_SURROUNDINGS], .urs [$1].NSP()$[1$3])
 
 	# once the rule set is written to stylesheet, it undefine itself
