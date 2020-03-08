@@ -18,14 +18,14 @@ define([TABLE_OF_CONTENT_ITEM], [
 divert(1)dnl
 defn([TARGET_FOLDER]) \
 divert(2)dnl
-TARGET_FOLDER/%.html: rootb.m4 queues.m4 aux.m4 ent.m4 cfg.m4 inline.m4 headings.m4 block.m4 ver.m4 style.m4 lang_$2.m4 css.m4 REFS_FILES order.m4 lang.m4 incl.m4 $(wildcard $1.html/*.m4 $1.html/*/*.m4) %.m4 $1 nav.m4
+TARGET_FOLDER/%.html: rootb.m4 queues.m4 aux.m4 ent.m4 cfg.m4 inline.m4 headings.m4 block.m4 ver.m4 style.m4 lang_$2.m4 css.m4 js.m4 git.m4 REFS_FILES order.m4 lang.m4 incl.m4 $(wildcard $1.html/*.m4 $1.html/*/*.m4) %.m4 $1 nav.m4
 	m4 -DLANG_CODE='$2' -DOUTPUT_FILE='$[*].html' $^ | sed -f brackets.sed > $[@]
 	@tidy -qe $[@]
 
 TARGET_FOLDER/spell.txt: rootb.m4 aux.m4 order.m4 lang.m4 headings.m4 ver.m4 lang_$2.m4 REFS_FILES incl.m4 spell.m4 $1
 	m4 -DLANG_CODE='$2' -DSOURCE='$1' $^ > $[@]
 
-TARGET_FOLDER/publish.txt: rootb.m4 queues.m4 aux.m4 ent.m4 cfg.m4 inline.m4 headings.m4 block.m4 ver.m4 style.m4 lang_$2.m4 css.m4 REFS_FILES order.m4 lang.m4 incl.m4 $(wildcard $1.html/*.m4 $1.html/*/*.m4) publish.m4 $1 nav.m4
+TARGET_FOLDER/publish.txt: rootb.m4 queues.m4 aux.m4 ent.m4 cfg.m4 inline.m4 headings.m4 block.m4 ver.m4 style.m4 lang_$2.m4 css.m4 js.m4 git.m4 REFS_FILES order.m4 lang.m4 incl.m4 $(wildcard $1.html/*.m4 $1.html/*/*.m4) publish.m4 $1 nav.m4
 	m4 -DLANG_CODE='$2' -DSOURCE='$1' $^ | sed -f html/publish.sed -f brackets.sed > $[@]
 
 divert(-1)
