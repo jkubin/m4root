@@ -454,12 +454,12 @@ dnl english: _next_language_
 PARA([[dnl czech
 Bezkontextová gramatika (krátce ABBR([CFG], [Context-Free Grammar – bezkontextová gramatika])) je LINK([formální gramatika], [formal_grammar_chomsky]), ve které mají všechna přepisovací pravidla tvar CODE([A[]NB()→[]NB()β]).
 Neterminál CODE_M4([A]) se přepíše na libovolně dlouhý řetězec ABBR([CODE([β])], [pravá strana přepisovacího pravidla]) složený z[]NB()terminálů CODE([Σ]) nebo neterminálů CODE([N]).
-AH([Kleeneho hvězda], [Wikipedie], [https://en.wikipedia.org/wiki/Kleene_star]) CODE([*]) znamená, že se neterminál CODE_M4([A]) může přepsat na ABBR([CODE([ε])], [epsilon – prázdný symbol]) (přepisovací pravidlo: CODE([A[]NB()→[]NB()ε])).
+AH([Kleeneho hvězda], [Wikipedie], [https://en.wikipedia.org/wiki/Kleene_star]) CODE([*]) znamená, že se neterminál CODE_M4([A]) může přepsat na ABBR([CODE([ε])], [epsilon – prázdný symbol]) (přepisovací pravidlo CODE([A[]NB()→[]NB()ε])).
 ],
 [dnl english: _next_language_
 Context-free grammar (shortly ABBR([CFG], [Context-Free Grammar])) is a[]NB()LINK([formal grammar], [formal_grammar_chomsky]) in which all rules for rewriting have the CODE([A[]NB()→[]NB()β]) form.
 The nonterminal CODE_M4([A]) is rewritten to an arbitrarily long ABBR([CODE([β])], [the right side of the rewriting rule]) string composed of terminals CODE([Σ]) or nonterminals CODE([N]).
-AH([Kleene star], [Wikipedia], [https://en.wikipedia.org/wiki/Kleene_star]) CODE([*]) means that nonterminal CODE_M4([A]) can be rewritten to ABBR([CODE([ε])], [epsilon – empty symbol]) (rewriting rule: CODE([A[]NB()→[]NB()ε])).
+AH([Kleene star], [Wikipedia], [https://en.wikipedia.org/wiki/Kleene_star]) CODE([*]) means that nonterminal CODE_M4([A]) can be rewritten to ABBR([CODE([ε])], [epsilon – empty symbol]) (rewriting rule CODE([A[]NB()→[]NB()ε])).
 ]])
 
 PROGRAMLISTING(, LANG([přepisovací pravidla bezkontextové gramatiky], [context-free grammar rewriting rules]), [dnl
@@ -488,8 +488,8 @@ define(`A', `β')
 
 # A → ε
 define(`A')
-define(`A', `')
-]])dnl PROGRAMLISTING
+define(`A', `')]
+])dnl PROGRAMLISTING
 
 PARA([[dnl czech
 Všechna klíčová slova M4 jsou neterminály (makra), provedou nějakou akci a[]NB()přepíší se na ABBR([CODE([ε])], [epsilon – prázdný symbol]) nebo jiný symbol.
@@ -541,10 +541,10 @@ dnl english: _next_language_
 ])
 
 PARA([[dnl czech
-Automaty používají přepisovací pravidla gramatiky jako uzly a[]NB()mění své stavy podle vstupních symbolů.
+Automaty slouží jako QUOTE([přepínače]) pravidel gramatiky.
+Používají přepisovací pravidla gramatiky jako uzly a[]NB()mění své stavy podle vstupních symbolů.
 Aktuálně používané přepisovací pravidlo produkuje do výstupní fronty (nebo do několika výstupních front)
 specifický kód, dokud automat nepřejde do jiného uzlu s[]NB()jiným přepisovacím pravidlem.
-Automaty slouží jako QUOTE([přepínače]) pravidel gramatiky.
 Příklady LINK([generujících automatů], [json_generating_automaton]) jsou ukázány v[]NB()příloze.
 ],
 [dnl english: _next_language_
@@ -704,6 +704,13 @@ COMMAND_USR(, LANG([M4 jako preprocesor – bez dočasného souboru], [M4 as pre
 m4 root.m4 stem.m4 branch.m4 leaf.m4 file.c | gcc -x c -o progr -
 ])
 
+
+BRIDGEHEAD([dnl czech
+[CODE_M4([`']) Výchozí znaky],
+dnl english: _next_language_
+[CODE_M4([`']) Default characters],
+])
+
 PARA([[dnl czech
 M4 v[]NB()režimu preprocesoru může být součástí kolony.
 Konfliktní znak CODE([LQ()]) ze vstupního zdrojového kódu je skryt do makra, například CODE_M4([`'LQ()]).
@@ -717,6 +724,10 @@ An empty pair of control characters CODE_M4([`']) before the macro serves as a[]
 
 define([common_title_for_regex], LANG([M4 jako preprocesor s řídícími znaky], [M4 as preprocessor with control characters]))
 define([common_title], [ ]LANG([jinak], [differently]))
+
+COMMAND_USR(, defn([common_title_for_regex])[: `'], [dnl
+sed 's/LQ()/`'\''[LQ()]/g' any.src | m4 rootq.m4 leaf.m4 -
+])
 
 COMMAND_USR(, defn([common_title_for_regex])[: `'], [dnl
 sed 's/LQ()/`'\''[LQ()]/g;s/[#]\|\LT()[dnl]\GT()/`&'\''/g' any.src | m4 rootq.m4 leaf.m4 -
@@ -735,12 +746,30 @@ When the source code is passed through the macro processor, the CODE_M4([`'LQ()]
 If square brackets are used to control the expansion of nonterminals, the left CODE([LB()]) square bracket must be hidden in the same way.
 ]])
 
+
+BRIDGEHEAD([dnl czech
+[CODE_M4([[]]) Hranaté závorky],
+dnl english: _next_language_
+[CODE_M4([[]]) Square brackets],
+])
+
+COMMAND_USR(, defn([common_title_for_regex])[: []], [dnl
+sed 's/\LB()/[[]LB()]/g' any.src | m4 rootb.m4 leaf.m4 - | …
+])
+
 COMMAND_USR(, defn([common_title_for_regex])[: []], [dnl
 sed 's/\LB()/[[]LB()]/g;s/[#]\|\LT()[dnl]\GT()/[[&]]/g' any.src | m4 rootb.m4 leaf.m4 - | …
 ])
 
 COMMAND_USR(, defn([common_title_for_regex], [common_title])[: []], [dnl
 sed 's/\LB()/[[]LB()]/g;s/[#]/[[#]]/g;s/\LT()[dnl]\GT()/[[dnl]]/g' any.src | m4 rootb.m4 …
+])
+
+
+BRIDGEHEAD([dnl czech
+[CODE_M4([␂␆]) Netisknutelné znaky],
+dnl english: _next_language_
+[CODE_M4([␂␆]) Non printable characters],
 ])
 
 PARA([[dnl czech
@@ -753,11 +782,43 @@ These characters cannot interfere with printable source code characters.
 ]])
 
 COMMAND_USR(, defn([common_title_for_regex])[: ␂␆], [dnl
+cat any.src | m4 rootn.m4 leaf.m4 - | gcc …
+])
+
+COMMAND_USR(, defn([common_title_for_regex])[: ␂␆], [dnl
 sed 's/[#]\|\LT()[dnl]\GT()/␂[&]␆/g' any.src | m4 rootn.m4 leaf.m4 - | gcc …
 ])
 
 COMMAND_USR(, defn([common_title_for_regex], [common_title])[: ␂␆], [dnl
 sed 's/[#]/␂[#]␆/g;s/\LT()[dnl]\GT()/␂[dnl]␆/g' any.src | m4 rootn.m4 leaf.m4 - | gcc …
+])
+
+
+BRIDGEHEAD([dnl czech
+[CODE_M4([⟦⟧]) UTF-8 znaky],
+dnl english: _next_language_
+[CODE_M4([⟦⟧]) UTF-8 characters],
+])
+
+PARA([[dnl czech
+Expanzi neterminálů může také řídit vhodně zvolený pár CODE([⟦⟧]) UTF-8 znaků.
+Běžný zdrojový kód tyto znaky neobsahuje, proto nemusíme řešit kolizi.
+],
+[dnl english: _next_language_
+Expansion of nonterminals can also be controlled by a suitably selected UTF-8 character CODE([⟦⟧]) pair.
+The usual source code does not contain these characters.
+]])
+
+COMMAND_USR(, defn([common_title_for_regex])[: ⟦⟧], [dnl
+cat any.src | m4 rootu.m4 leaf.m4 - | gcc …
+])
+
+COMMAND_USR(, defn([common_title_for_regex])[: ⟦⟧], [dnl
+sed 's/[#]\|\LT()[dnl]\GT()/⟦[&]⟧/g' any.src | m4 rootu.m4 leaf.m4 - | gcc …
+])
+
+COMMAND_USR(, defn([common_title_for_regex], [common_title])[: ⟦⟧], [dnl
+sed 's/[#]/⟦[#]⟧/g;s/\LT()[dnl]\GT()/⟦[dnl]⟧/g' any.src | m4 rootu.m4 leaf.m4 - | gcc …
 ])
 
 undefine([common_title_for_regex], [common_title])
@@ -1161,47 +1222,48 @@ Vytvoříme několik převodních souborů podle typu cílového kódu, makra pr
 We create several conversion files according to the target code type, CODE_M4([LB()]) and CODE_M4([RB()]) macros for square brackets are already defined in the root file.
 ]])
 
+define([conv_file], LANG([Převodní soubor pro], [Conversion file for]))
+
 BRIDGEHEAD_MONO([dnl
-[CODE_M4([[]]) XML[,] XSLT[,] HTML],
+[CODE_M4([[]]) conv_file XML[,] XSLT[,] HTML],
 ])
 
 INSERT_FILE([messages/markup.m4], LANG([převodní soubor pro značkovací jazyky], [conversion file for markup languages]))
 
 # hide  ‘"’ → DQ(), because of title="… &quot; … &quot; …"
-BRIDGEHEAD([dnl
-[CODE_M4([[]]) C[,] JSON[,] INI – CODE([DQ()řetězec[]DQ()])],
-[CODE_M4([[]]) C[,] JSON[,] INI – CODE([DQ()string[]DQ()])],
+BRIDGEHEAD_MONO([dnl
+[CODE_M4([[]]) conv_file C[,] JSON[,] INI: CODE([DQ()řetězec[]DQ()])],
+[CODE_M4([[]]) conv_file C[,] JSON[,] INI: CODE([DQ()string[]DQ()])],
 ])
 
 INSERT_FILE([messages/code.m4], LANG([převodní soubor pro zdrojový kód], [conversion file for a source code]))
 
 # hide ‘"’ → DQ(), because of title="… &quot; … &quot; …"
 BRIDGEHEAD([dnl
-[CODE_M4([[]]) Bash – CODE([DQ()řetězec[]DQ()])],
-[CODE_M4([[]]) Bash – CODE([DQ()string[]DQ()])],
+[CODE_M4([[]]) conv_file Bash: CODE([DQ()řetězec[]DQ()])],
+dnl english: _next_language_
+[CODE_M4([[]]) conv_file Bash: CODE([DQ()string[]DQ()])],
 ])
 
-INSERT_FILE([messages/doubleq.m4], LANG([převodní soubor pro Bash řetězce v uvozovkách], [conversion file for Bash strings in quotation marks]))
+INSERT_FILE([messages/doubleq.m4], XLANG([převodní soubor pro Bash []DQ()řetězce v uvozovkách[]DQ()], [conversion file for Bash []DQ()strings in quotation marks[]DQ()]))
 
 BRIDGEHEAD([dnl
-[CODE_M4([[]]) Bash – CODE([AP()řetězec[]AP()])],
-[CODE_M4([[]]) Bash – CODE([AP()string[]AP()])],
+[CODE_M4([[]]) conv_file Bash: CODE([AP()řetězec[]AP()])],
+dnl english: _next_language_
+[CODE_M4([[]]) conv_file Bash: CODE([AP()string[]AP()])],
 ])
 
-INSERT_FILE([messages/apost.m4], LANG([převodní soubor pro Bash řetězce v apostrofech], [conversion file for Bash strings in apostrophes]))
+INSERT_FILE([messages/apost.m4], LANG([převodní soubor pro Bash 'řetězce v apostrofech'], [conversion file for Bash 'strings in apostrophes']))
 
-BRIDGEHEAD_MONO([dnl monolingual
-[CODE_M4([[]]) CSV[,] M4],
+BRIDGEHEAD([dnl
+[CODE_M4([[]]) conv_file CSV[,] M4 (všechny znaky vrátí zpátky)],
+dnl english: _next_language_
+[CODE_M4([[]]) conv_file CSV[,] M4 (returns all characters)],
 ])
 
-PARA([[dnl czech
-Převodní soubor vrátí všechny speciální znaky zpátky:
-],
-[dnl english: _next_language_
-The conversion file puts all special characters back:
-]])
+undefine([conv_file])
 
-INSERT_FILE([messages/unchanged.m4])
+INSERT_FILE([messages/unchanged.m4], LANG([převodní soubor vrátí všechny speciální znaky zpátky], [the conversion file puts all special characters back]))
 
 
 SECT1([dnl czech
@@ -1736,11 +1798,11 @@ UL([LI([cannot compete with narrowly specialized languages])])
 ]])
 
 LISTITEM([forgotten_language], [[dnl czech
-malá komunita vývojářů (podzim 2019)
+neexistující komunita vývojářů (podzim 2019)
 UL([LI([M4 je téměř zapomenutý jazyk, málo existujících projektů])])
 ],
 [dnl english: _next_language_
-small developer community (as of Autumn 2019)
+nonexistent developer community (as of Autumn 2019)
 UL([LI([M4 is nearly forgotten language with small number of existing projects])])
 ]])
 
@@ -1755,19 +1817,19 @@ UL([LI([M4 is therefore demanding language])])
 
 LISTITEM([experience_dependent], [[dnl czech
 produktivita značně závisí na zkušenostech (možný problém s[]NB()termíny)
-UL([LI([schopnost myslet v[]NB()M4 (nebo ABBR([CFG], [Context-Free Grammar – bezkontextová gramatika])) je nutnost])])
+UL([LI([schopnost myslet v[]NB()M4 (jako přímá aplikace ABBR([CFG], [Context-Free Grammar – bezkontextová gramatika])) je nutnost])])
 ],
 [dnl english: _next_language_
 productivity greatly depends on experience (problem with short-term deadlines)
-UL([LI([ability to think in M4 (or ABBR([CFG], [Context-Free Grammar])) is essential necessity])])
+UL([LI([ability to think in M4 (as a direct application ABBR([CFG], [Context-Free Grammar])) is essential necessity])])
 ]])
 
 LISTITEM([hard_maintenance], [[dnl czech
-údržba špatně napsaného M4 kódu je obtížná
+údržba špatně napsaného M4 kódu není jednoduchá
 UL([LI([existující M4 kód je snadné proměnit ve zmatek (nutný dohled!)])])
 ],
 [dnl english: _next_language_
-maintaining badly written M4 code is difficult
+maintaining badly written M4 code is not easy
 UL([LI([existing M4 code is easily thrown into confusion (supervision required!)])])
 ]])
 
