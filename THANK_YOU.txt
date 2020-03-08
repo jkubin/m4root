@@ -4,9 +4,9 @@ I am indebted to several people who helped me (in alphabetical order):
 
 Jakub Martiško	(several bugfixes)
 Jana Tudíková	(translation to English)
+Mojmír Křetínský	(taught me compilers)
 Mouad Essaghir	(translation to English; HTML template hints)
 Pavel Moravec	(hints for my presentation)
 Pavel Tišnovský	(text review)
 Petr Krčmář	(editor in chief of www.root.cz; trust and patience with me)
 Zdeněk Pytela	(HTML template hints)
-
