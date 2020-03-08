@@ -9,8 +9,9 @@ iabbrev <buffer> <unique> aaa AH([<c-r>"], [%%%], [%%%])<left><c-o>%;;<c-o><c-r>
 iabbrev <buffer> <unique> aa AH([<c-r>"], [])<left><left><c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> ab ABBR([<c-r>"], [])<c-o>T[<c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> ac ACRO([<c-r>"], [])<c-o>T[<c-r>=Eatchar('.')<cr>
+iabbrev <buffer> <unique> am []AMP()<c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> ap <c-l><cr>APPENDIX([dnl czech<cr>[],<cr>dnl english: _next_language_<cr><c-u>[%%%],<cr>])<left><c-o>%<c-o>0<down><right><c-r>=Eatchar('.')<cr>
-iabbrev <buffer> <unique> apo []AP()<esc>
+iabbrev <buffer> <unique> apo []AP()<c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> arw ARTICLE_WRAP([<cr><cr><cr><cr>])dnl ARTICLE_WRAP<up><up><c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> asw ASIDE_WRAP([<cr><cr><cr><cr>])dnl ASIDE_WRAP<up><up><c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> bb BO([<c-r>"])<esc>
@@ -46,7 +47,7 @@ iabbrev <buffer> <unique> dlt DESCRIPTION_LIST_TERM([[dnl czech<cr><cr>],<cr>[dn
 iabbrev <buffer> <unique> dltm DESCRIPTION_LIST_TERM_MONO([[dnl monolingual<cr><cr>]])<up><c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> dlw DESCRIPTION_LIST_WRAP([<cr><cr><cr><cr>])dnl DESCRIPTION_LIST_WRAP<up><up><c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> dm DIV_MONO([[dnl monolingual<cr><cr>]])dnl DIV_MONO<up><c-r>=Eatchar('.')<cr>
-iabbrev <buffer> <unique> dq []DQ()<esc>
+iabbrev <buffer> <unique> dq []DQ()<c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> dv DIV([[dnl czech<cr><cr>],<cr>[dnl english: _next_language_<cr>%%%<cr>]])<left><c-o>%<c-o>0<down><c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> emm EM([<c-r>"])<esc>
 "iabbrev <buffer> <unique> ex EXAMPLE([<c-r>"], [])<c-o>T[<c-r>=Eatchar('.')<cr>
@@ -112,6 +113,7 @@ iabbrev <buffer> <unique> ull ITEMIZEDLIST_WRAP([<cr><cr><cr><cr>])dnl ITEMIZEDL
 iabbrev <buffer> <unique> ul UL([<cr><cr>])<up><c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> ulw ITEMIZEDLIST_WRAP([<cr><cr><cr><cr>])dnl ITEMIZEDLIST_WRAP<up><up><c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> uw ITEMIZEDLIST_WRAP([<cr><cr><cr><cr>])dnl ITEMIZEDLIST_WRAP<up><up><c-r>=Eatchar('.')<cr>
+iabbrev <buffer> <unique> wa WARN(, defn([WORD_WARNING]), [[dnl czech<cr><cr>],<cr>[dnl english: _next_language_<cr>%%%<cr>]])<left><c-o>%<c-o>0<down><c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> wb []WBR()<c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> ww WARN(, defn([WORD_WARNING]), [[dnl czech<cr><cr>],<cr>[dnl english: _next_language_<cr>%%%<cr>]])<left><c-o>%<c-o>0<down><c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> xs XSPAN([<c-r>"], [%%%], [%%%])<left><c-o>%;;<c-r>=Eatchar('.')<cr>
