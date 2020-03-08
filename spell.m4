@@ -67,7 +67,7 @@ pushdef([PRINT_LANG_PEREX], [
 	define([SELITM], SELECT_LANG_WITHOUT_TRAILING_LF(]defn([EXPAND_LAST])[))
 
 	divert(0)dnl
-[#] number of characters (200 ±10 is recommended): esyscmd([wc -m << EOF]
+[#] number of characters in perex (200 ±10 is recommended): esyscmd([wc -m << EOF]
 patsubst(defn([SELITM]), [,], [[,]])
 [EOF])dnl
 __line__
@@ -285,7 +285,7 @@ divert(-1)
 ])
 
 # A → β
-define([INSERT_FILE_AND_LINK], defn([SPELLCHECK_FILE_TITLE]))
+define([INSERT_FILE], defn([SPELLCHECK_FILE_TITLE]))
 
 popdef(
 

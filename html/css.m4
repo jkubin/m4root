@@ -1,12 +1,17 @@
 __HEADER([Josef Kubin], [2019/12/24], [root_cz])
 ___DESCR([the resulting style sheet is embedded in the web page or can be extracted into a separated file])
-___POINT([here are all CSS rules that are automatically selected into the style sheet])
+___POINT([here are all CSS rules that are automatically added into the style sheet])
 
-color:#969696;
-color:orange;
-vertical-align:-50%;
+# keep all rule sets sorted
 
-# [prefix], [my_css_name], [suffix], [… css rule set …]
+# TODO: id rule set is not finished
+# [id_name], [suffix], [… rule set …]
+CSS_ID_RULE_SET([one, two, three], [ x], [
+test;
+])
+
+# how to set class rule set
+# [prefix], [class_name1, class_name2, ...], [suffix], [… rule set …]
 CSS_CLASS_RULE_SET([], [note], [::before], [
 content:"\1f5b9";
 margin-right:.2em;
@@ -45,7 +50,6 @@ CSS_CLASS_RULE_SET([], [top], [], [
 text-decoration:none;
 ])
 
-text-decoration: underline dotted;
 CSS_CLASS_RULE_SET([], [dot], [], [
 border-bottom:1px dotted #000;
 ])
@@ -77,8 +81,6 @@ padding-left:2em;
 CSS_CLASS_RULE_SET([], [unix], [], [
 font-weight:bold;
 ])
-
-quotes:"„" "“";
 
 CSS_CLASS_RULE_SET([], [usc, root], [], [
 
@@ -122,11 +124,14 @@ color:#333;
 ])
 
 CSS_CLASS_RULE_SET([], [src], [ code::before], [
+
 content:"git:";
 margin-right:.1em;
+
 ])
 
 text-decoration:underline dotted;	<--- blbe to vypada :(
+
 CSS_CLASS_RULE_SET([], [src], [ code span], [
 
 cursor:help;
@@ -151,7 +156,7 @@ CSS_CLASS_RULE_SET([], [src], [ ol li], [
 margin:0;
 ])
 
-CSS_CLASS_RULE_SET([], [usc], [ a:visited], [
+CSS_CLASS_RULE_SET([], [usc, root], [ a:visited], [
 color:#333;
 ])
 
