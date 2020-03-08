@@ -16,7 +16,12 @@ define([CONFIGURE_COMMAND_LINE], [
 ])
 
 # A → β
-define([ADD_LINKS_TO_INSERTED_FILES], [ifelse([$1], [], [], [AH([$1], defn([SRC_REPO_NAME]), defn([SRC_FILE_PATH], [FOLDER])[$1]) $0(shift($@))])])
+define([ADD_LINKS_TO_INSERTED_FILES], [ifelse([$1], [], [], [dnl
+define([GIT_RECORD], defn(./FOLDER[$1]))ifelse(defn([GIT_RECORD]), [], [
+
+	ROOT_ERROR([git record for ‘$1’ not found, regenerate git database])
+])dnl
+AH([$1], defn([SRC_REPO_NAME]), SRC_FILE_PATH[]FOLDER[$1]) $0(shift($@))])])
 
 # processes variable number of files, the last file is _ALWAYS_ output.file
 # INSERT_LIST_OF_FILES([input_file1.src], [input_file2.src], [input_file3.src], …, [output.file])
@@ -28,11 +33,20 @@ define([INSERT_LIST_OF_FILES], [
 
 		divert(CURRQU)dnl
 <div title="defn([WORD_COMMAND])" class="ADD_CLASS([usc])">defn([PROGRAM]) dnl
-ifelse(defn([ROOT_FILE]), [], [], [AH(defn([ROOT_FILE]), defn([SRC_REPO_NAME]), defn([SRC_FILE_PATH], [FOLDER_FOR_GENERATED_FILES], [ROOT_FILE])) ])[]dnl
+ifelse(defn([ROOT_FILE]), [], [], [dnl
+define([GIT_RECORD], defn(./FOLDER_FOR_GENERATED_FILES[]ROOT_FILE))ifelse(defn([GIT_RECORD]), [], [
+
+	ROOT_ERROR([git record for ‘$1’ not found, regenerate git database])
+])dnl
+AH(defn([ROOT_FILE]), defn([SRC_REPO_NAME]), SRC_FILE_PATH[]FOLDER_FOR_GENERATED_FILES[]ROOT_FILE) ])[]dnl
 ADD_LINKS_TO_INSERTED_FILES(PREFIX_FILES)dnl
 undivert(REFERENCES_TO_FILES)dnl
 ADD_LINKS_TO_INSERTED_FILES(SOURCES)dnl
-GT() AH([$1], defn([SRC_REPO_NAME]), defn([SRC_FILE_PATH], [FOLDER])[$1])</div>
+define([GIT_RECORD], defn(./FOLDER[$1]))ifelse(defn([GIT_RECORD]), [], [
+
+	ROOT_ERROR([git record for ‘$1’ not found, regenerate git database])
+])dnl
+GT() AH([$1], defn([SRC_REPO_NAME]), SRC_FILE_PATH[]FOLDER[$1])</div>
 divert(-1)
 
 		INSERT_FILE(defn([FOLDER])[$1])
@@ -50,11 +64,12 @@ divert(-1)
 	], [
 		INSERT_FILE(defn([FOLDER])[$1])
 
+# GIT_RECORD for AH() is already set in INSERT_FILE
 divert(REFERENCES_TO_FILES)dnl
-AH([$1], defn([SRC_REPO_NAME]), defn([SRC_FILE_PATH], [FOLDER])[$1]) dnl
+AH([$1], defn([SRC_REPO_NAME]), SRC_FILE_PATH[]FOLDER[$1]) dnl
 divert(-1)
 
-		# recursive loop
+		# right recursive loop
 		$0(shift($@))
 	])
 ])

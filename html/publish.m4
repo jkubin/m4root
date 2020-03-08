@@ -17,15 +17,15 @@ define([IMG_SRC], [$2])
 define([OTHER_LANGUAGE], defn([OTHER_LANG_PATH]))
 
 # path for generated files
-define([SRC_FILE_PATH], [https://raw.githubusercontent.com/jkubin/m4root/master/])
+define([SRC_FILE_PATH], [https://raw.githubusercontent.com/jkubin/m4root/ARG1(GIT_RECORD)/])
 
 # name for repository
 define([SRC_REPO_NAME], [GitHub])
 
 m4wrap([
 
-# the resulting html will be edited by other people (who strongly hate M4) and love drudgery
-# the header helps to maintain consistency: creation_time, source_file.mc, git_rev_of_source_file.mc, git_HEAD_rev
+# the resulting html code will be edited by other people (who strongly hate M4 and love drudgery)
+# the header helps to maintain consistency: creation_time, source_file.mc, git_rev_of_source_mc_file, git_HEAD_rev
 divert(BEGIN_OF_ARTICLE)dnl
 <!-- "CAPTION" __SOURCE(LB()ARG1(esyscmd([date '+[%Y%m%d-%R:%S],'])), defn([SOURCE]), ARG1(esyscmd([git log -1 --format='[%h],' ]defn([SOURCE]))), ARG1(esyscmd([git log -1 --format='[%h],']))[]RB()) -->
 divert(END_OF_ARTICLE)dnl

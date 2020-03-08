@@ -71,8 +71,9 @@ test t: debug dev
 
 #:devel/dev	this target is for M4 script development
 .PHONY: devel dev
-devel dev: rootb.m4
-	m4 $< test.m4
+#devel dev: rootb.m4 cfg.m4 queues.m4 style.m4 css.m4 test.m4
+devel dev: rootb.m4 git.m4 test.m4
+	m4 $^
 
 
 #:clean/cle/del/cl	deletes all generated files
@@ -93,7 +94,7 @@ mostlyclean mcl clm cll mc:
 .PHONY: doc
 doc: $(DOC_FILE)
 
-$(DOC_FILE): doc.m4 $(wildcard gfiles/*b.m4) $(shell find -name '*.sed' -o -name 'Makefile' -o -name '*.m4' ! -path './messages/*' ! -path './gfiles/*' ! -path './hello_world/*' ! -path './preproc/*' ! -path './asm/*')
+$(DOC_FILE): doc.m4 $(wildcard gfiles/*b.m4) $(shell find -name 'git.sh' -o -name '*.sed' -o -name 'Makefile' -o -name '*.m4' ! -path './messages/*' ! -path './gfiles/*' ! -path './hello_world/*' ! -path './preproc/*' ! -path './asm/*')
 	m4 $+ > $@
 
 $(ORDER_FILE): rootb.m4 toc.m4 toc_list.m4
@@ -107,6 +108,9 @@ html_%.mk: rootb.m4 $(ORDER_FILE) refs_%.m4 lang.m4 headings.m4 mk/html.m4
 
 fhtml_%.mk: rootb.m4 $(ORDER_FILE) refs_%.m4 lang.m4 headings.m4 mk/fhtml.m4
 	m4 -DREFS_FILES='$(MAKE_REFS)' -DLANG_CODE='$*' $^ > $@
+
+git.m4: git.sh
+	./$< > $@
 
 .PHONY: $(SUBDIRS)
 $(SUBDIRS):
