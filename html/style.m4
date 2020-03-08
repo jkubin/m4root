@@ -2,23 +2,42 @@ __HEADER([Josef Kubin], [2019/12/24], [root_cz])
 ___DESCR([creates a style sheet in the reserved namespace])
 ___POINT([the style sheet contains only the things that are actually used])
 
+#      ______________________      _____________________
+# --->/ FIRST_CLASS_RULE_SET \--->/ NEXT_CLASS_RULE_SET \---.
+#     \______________________/    \_____________________/<--'
+#
+# A → β
+define([NEXT_CLASS_RULE_SET], [ifelse([$1], [], [], [[,]pushdef([.$1], defn([CLASS_RULE_SET_KEY]))CLASS_SURROUNDINGS([$1])[]$0(shift($@))])])
+define([FIRST_CLASS_RULE_SET], [pushdef([.$1], defn([CLASS_RULE_SET_KEY]))CLASS_SURROUNDINGS([$1])[]NEXT_CLASS_RULE_SET(shift($@))])
+
 # process CSS definitions
 # A → β
-define([CSS_RULE_SET], [
+define([CSS_CLASS_RULE_SET], [
 
-	ifdef([$1$2$3{}], [
+	ifdef([.{$1$2$3}], [
 
-		ROOT_ERROR([class ‘$0($@)’ redefined, first occurrence on:]defn([$1$2$3{}]))
+		ROOT_ERROR([the rule set ‘$0($@)’ is redefined])
 	])
 
-	define([$1$2$3{}], __line__)
+	pushdef([CLASS_RULE_SET_KEY], [.{$1$2$3}])
+	pushdef([CLASS_SURROUNDINGS], .urs [$1].NSP()$[1$3])
 
-	pushdef([.$2], [.urs $1.NSP()$2$3{$4}])
+	# once the rule set is written to stylesheet, it undefine itself
+	# A → β
+	define(defn([CLASS_RULE_SET_KEY]), [undefine(]LB()defn([CLASS_RULE_SET_KEY])RB()[)divert(INTERNAL_STYLE_DATA)]FIRST_CLASS_RULE_SET($2)[{patsubst(patsubst(patsubst([[[$4]]], [#], [[#]]), [
+]), [;?])}divert(-1)
+	])
+
+	popdef(
+
+		[CLASS_RULE_SET_KEY],
+		[CLASS_SURROUNDINGS],
+
+	)
 ])
 
 # A → β
-# β
-define([ADD_CSS_RULE_SET], [
+define([ADD_CLASS_RULE_SET], [
 
 	popdef([$1])
 
@@ -29,54 +48,48 @@ define([ADD_CSS_RULE_SET], [
 		$0([$1], defn([$1]))
 	], [
 
-		define([$1.done])
+		# A → ε
+		define([$1])
 	])
 
-	divert(INTERNAL_STYLE_DATA)dnl
-patsubst(patsubst(patsubst([[[$2]]], [[,#]], [[\&]]), [
-]), [;?}], [}])dnl
-divert(-1)
+	ifdef([$2], [
+
+		indir([$2])
+	])
 ])
 
-#      ____________________      __________________
-# --->/ ADD_INTERNAL_STYLE \--->/ ADD_CSS_RULE_SET \---.
-#     \____________________/    \__________________/<--'
+#      _______________      __________
+# --->/ ADD_STYLE_TAG \--->/ undefine \
+#     \_______________/    \__________/
 #
 # A → β
-define([ADD_INTERNAL_STYLE], [
+define([ADD_STYLE_TAG], [
+
+	undefine([$0])
 
 	divert(INTERNAL_STYLE_DATA)dnl
 <style>dnl
 divert(INTERNAL_STYLE_END)dnl
 </style>
 divert(-1)
-
-	ADD_CSS_RULE_SET($@)
-
-	define([$0], defn([ADD_CSS_RULE_SET]))
 ])
 
 # A → β
-define([ADD_CLASS_ITEMS], [
+define([ADD_CLASS_ITEM], [
 
-	# add items to the style sheet if they have not already been added
 	ifdef([.$1], [
 
-		ADD_INTERNAL_STYLE([.$1], defn([.$1]))dnl
-	])
+		ifelse(defn([.$1]), [], [], [
 
+			ADD_STYLE_TAG()
 
-	# the class has been already added or not defined
-	ifdef([.$1.done], [], [
+			ADD_CLASS_RULE_SET([.$1], defn([.$1]))
+		])
+	], [
 
 		ROOT_ERROR([unknown class ‘$1’])
 	])
 
-	divert(CURRQU)dnl
-SPACE_AS_SEPARATOR()NSP()[$1]dnl
-divert(-1)
-
-	# loop end condition
 	ifelse([$#], [1], [], [
 
 		# right recursion
@@ -84,25 +97,18 @@ divert(-1)
 	])
 ])
 
-#      SPACE_AUTOMATON
-#      ___      _____
-# --->/ ε \--->/ " " \---.
-#     \___/    \_____/<--'
-# β
-define([SPACE_AUTOMATON], [define([$0], [ ])])
-
+# if the class name(s) was used once, write only the class name(s)
 # A → β
-define([ADD_CLASS], [pushdef([CURRQU], divnum)divert(-1)
+define([ADD_CLASS], [ifdef([$0 $1], [], [pushdef([CURRQU], divnum)divert(-1)
 
-	# reset automaton
-	# A → β
-	define([SPACE_AS_SEPARATOR], defn([SPACE_AUTOMATON]))
+	# process class value(s)
+	ADD_CLASS_ITEM(patsubst([$1], [ +], [,]))
 
-	# process class values separated by a space
-	ADD_CLASS_ITEMS(patsubst([$1], [ +], [,]))
+	# define class name(s)
+	define([$0 $1], NSP()patsubst([$1], [ +], [ NSP()]))
 
 	divert(CURRQU)popdef([CURRQU])dnl
-])
+])defn([$0 $1])])
 
 # unfinished
 # A → β

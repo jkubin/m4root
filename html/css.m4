@@ -2,98 +2,85 @@ __HEADER([Josef Kubin], [2019/12/24], [root_cz])
 ___DESCR([the resulting style sheet is embedded in the web page or can be extracted into a separated file])
 ___POINT([here are all CSS rules that are automatically selected into the style sheet])
 
-# [prefix], [my_css_name], [suffix], [… css rule set …])
-CSS_RULE_SET([], [note], [::before], [
-content:"\1f5b9";
 color:#969696;
-margin-right:.4em;
-font-size:1.5em;
-])
-
 color:orange;
 vertical-align:-50%;
 
-CSS_RULE_SET([], [warn], [::before], [
+# [prefix], [my_css_name], [suffix], [… css rule set …]
+CSS_CLASS_RULE_SET([], [note], [::before], [
+content:"\1f5b9";
+margin-right:.2em;
+font-size:1.5em;
+])
+
+CSS_CLASS_RULE_SET([], [warn], [::before], [
 content:"\26a0";
 color:red;
-margin-right:.4em;
+margin-right:.2em;
 font-size:1.5em;
 ])
 
-CSS_RULE_SET([], [excl], [::before], [
+CSS_CLASS_RULE_SET([], [excl], [::before], [
 content:"\2755";
-color:#969696;
-margin:0 .5em 0 .2em;
+margin:0 .4em 0 .2em;
 font-size:1.5em;
 ])
 
-CSS_RULE_SET([], [info], [::before], [
+CSS_CLASS_RULE_SET([], [info], [::before], [
 content:"\1f6c8";
-color:#969696;
-margin-right:.4em;
+margin-right:.2em;
 font-size:1.5em;
 ])
 
-CSS_RULE_SET([], [note], [], [
+CSS_CLASS_RULE_SET([], [note, info, excl, warn], [], [
 padding-top:.2em;
+padding-bottom:.4em;
 ])
 
-CSS_RULE_SET([], [info], [], [
-padding-top:.2em;
-])
-
-CSS_RULE_SET([], [excl], [], [
-padding-top:.2em;
-])
-
-CSS_RULE_SET([], [warn], [], [
-padding-top:.2em;
+CSS_CLASS_RULE_SET([], [warn], [], [
 border-color:red;
 ])
 
-# [prefix], [my_css_name], [suffix], [… css rule set …])
-_CSS_RULE_SET([], [tip], [::before], [
-content:"WORD_NOTE: ";
-color:#969696;
-])
-
-CSS_RULE_SET([], [top], [], [
+CSS_CLASS_RULE_SET([], [top], [], [
 text-decoration:none;
 ])
 
-CSS_RULE_SET([], [dot], [], [
+text-decoration: underline dotted;
+CSS_CLASS_RULE_SET([], [dot], [], [
 border-bottom:1px dotted #000;
 ])
 
-CSS_RULE_SET([], [toc], [], [
-text-decoration:none;
+CSS_CLASS_RULE_SET([], [toc], [], [
+
 font-size:.5em;
+text-decoration:none;
 vertical-align:super;
+
 ])
 
-CSS_RULE_SET([], [un], [], [
+CSS_CLASS_RULE_SET([], [un], [], [
 text-decoration:underline;
 ])
 
-CSS_RULE_SET([], [bl], [], [
+CSS_CLASS_RULE_SET([], [bl], [], [
 color:blue;
 ])
 
-CSS_RULE_SET([p], [l2], [], [
+CSS_CLASS_RULE_SET([p], [l2], [], [
 padding-left:1em;
 ])
 
-CSS_RULE_SET([p], [l3], [], [
+CSS_CLASS_RULE_SET([p], [l3], [], [
 padding-left:2em;
 ])
 
-CSS_RULE_SET([], [unix], [], [
+CSS_CLASS_RULE_SET([], [unix], [], [
 font-weight:bold;
 ])
+
 quotes:"„" "“";
 
-# TODO: unfinished
-CSS_RULE_SET([], [usc], [,.urs .NSP()root], [
+CSS_CLASS_RULE_SET([], [usc, root], [], [
 
 background:#fff;
 border-radius:4px;
@@ -108,53 +95,77 @@ padding:8px;
 
 ])
 
-CSS_RULE_SET([], [pre], [], [
+_CSS_CLASS_RULE_SET([], [pre], [], [
 overflow:auto;
 white-space:pre;
 ])
 
-CSS_RULE_SET([], [src], [], [
+CSS_CLASS_RULE_SET([], [src], [], [
 position:relative;
 ])
 
-CSS_RULE_SET([], [src], [ a], [
+CSS_CLASS_RULE_SET([], [src], [ code], [
 
-background:hsla(0,0%,86%,.5);
 border-radius:0 4px;
 border:1px solid #ddd;
-font-family:"Courier New",Courier,monospace;
-font-size:.8em;
+font-family:monospace,monospace;
+font-size:.7em;
 font-weight:bold;
-padding:0 .3em;
+padding:2px 4px;
 position:absolute;
 right:0;
 
 ])
 
-CSS_RULE_SET([], [src], [ a:visited], [
+CSS_CLASS_RULE_SET([], [src], [ a:visited], [
 color:#333;
 ])
 
-.down:hover a{display:inline;}
-
-_CSS_RULE_SET([], [src], [:hover a], [
-background:#fff;
+CSS_CLASS_RULE_SET([], [src], [ code::before], [
+content:"git:";
+margin-right:.1em;
 ])
 
-_CSS_RULE_SET([], [src], [ a::before], [
-content:"git: ";
+text-decoration:underline dotted;	<--- blbe to vypada :(
+CSS_CLASS_RULE_SET([], [src], [ code span], [
+
+cursor:help;
+border-bottom:1px dotted #000;
+
 ])
 
-CSS_RULE_SET([], [usc], [ a:visited], [
+CSS_CLASS_RULE_SET([], [src], [ ol], [
+
+font-size:.8em;
+left:-2.5em;
+line-height:1.1;
+padding-top:8px;
+position:absolute;
+top:0;
+
+])
+
+# ADD_JAVASCRIPT([src])
+
+CSS_CLASS_RULE_SET([], [src], [ ol li], [
+margin:0;
+])
+
+CSS_CLASS_RULE_SET([], [usc], [ a:visited], [
 color:#333;
 ])
 
-CSS_RULE_SET([], [usc], [::before], [
+CSS_CLASS_RULE_SET([], [usc], [::before], [
 content:"CMD() ";
 font-weight:normal;
 ])
 
-CSS_RULE_SET([], [root], [::before], [
+CSS_CLASS_RULE_SET([], [root], [::before], [
 content:"ROO() ";
 font-weight:normal;
+])
+
+# remove bottom margin of <ul></ul> inside .rs-tip-major
+CSS_CLASS_RULE_SET([], [note], [ ul], [
+margin-bottom:0;
 ])
