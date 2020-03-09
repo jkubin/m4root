@@ -13,7 +13,7 @@ The introductory part of the series contains its history, the basic principles o
 
 # shortcut for article: "+yG
 
-<!-- "Generating code in M4: introduction" __SOURCE([20200309-01:48:41, intro.mc, 216c6db, 143e0f0]) -->
+<!-- "Generating code in M4: introduction" __SOURCE([20200309-01:58:19, intro.mc, 216c6db, 9095ef6]) -->
 <style>.urs .m4-toc{font-size:.5em;text-decoration:none;vertical-align:super}.urs .m4-dot{border-bottom:1px dotted #000}.urs .m4-note::before{content:"\1f5b9";margin-right:.2em;font-size:1.5em}.urs .m4-note,.urs .m4-info,.urs .m4-excl,.urs .m4-warn{padding-top:.2em;padding-bottom:.4em}.urs .m4-note ul{margin-bottom:0}.urs .m4-top{text-decoration:none}.urs p.m4-l2{padding-left:1em}.urs .m4-un{text-decoration:underline}.urs .m4-src{position:relative}.urs .m4-src code{border-radius:0 4px;border:1px solid #ddd;font-family:monospace,monospace;font-size:.7em;font-weight:bold;padding:2px 4px;position:absolute;right:0}.urs .m4-src a:visited{color:#333}.urs .m4-src code::before{content:"git:";margin-right:.1em}.urs .m4-src code span{cursor:help;border-bottom:1px dotted #000}.urs .m4-src ol{font-size:.8em;left:-2.1em;line-height:1.1;padding-top:8px;position:absolute;top:0}.urs .m4-src ol li{margin:0}.urs .m4-usc,.urs .m4-root{background:#fff;border-radius:4px;border:1px solid #ddd;color:#333;font-family:"Courier New",Courier,monospace;font-size:.8em;font-weight:bold;line-height:1.1;margin:0 0 11px;padding:8px}.urs .m4-usc a:visited,.urs .m4-root a:visited{color:#333}.urs .m4-root::before{content:"~]# ";font-weight:normal}.urs .m4-info::before{content:"\1f6c8";margin-right:.2em;font-size:1.5em}.urs .m4-usc::before{content:"~]$ ";font-weight:normal}.urs p.m4-l3{padding-left:2em}</style>
 <h2 id="m4-toc-capt">Content&nbsp;(<a href="../../clanky/generovani-kodu-v-m4-uvod/" title="Generování kódu v M4: úvod">Česká verze</a>)</h2>
 <p id="m4-toc-introduction"><a href="#m4-introduction">1&nbsp;&nbsp;Introduction</a></p>
@@ -98,7 +98,7 @@ Developers have customized M3 for these languages turning it into a&nbsp;univers
 </ul>
 </div>
 <p>The M3 macro processor was also extended by <span class="rs-person">Jim E. Weythman</span>, the author of program construction, which is used in almost every M4 script:</p>
-<div title="idiomatic M4 code" class="m4-src"><pre class="m4-pre">divert(-1)
+<div class="m4-src"><pre title="idiomatic M4 code" class="m4-pre">divert(-1)
 …
 define(…)
 …
@@ -159,12 +159,12 @@ The objective is to show the basic practical use of M4 language on examples.</p>
 <p>Context-free grammar (shortly <abbr title="Context-Free Grammar">CFG</abbr>) is a&nbsp;<a href="#m4-formal-grammar-chomsky-type" title="Formal grammar (Chomsky type)">formal grammar</a> in which all rules for rewriting have the <code>A&nbsp;→&nbsp;β</code> form.
 The nonterminal <code>A</code> is rewritten to an arbitrarily long <abbr title="the right side of the rewriting rule"><code>β</code></abbr> string composed of terminals <code>Σ</code> or nonterminals <code>N</code>.
 <a href="https://en.wikipedia.org/wiki/Kleene_star" title="Wikipedia">Kleene star</a> <code>*</code> means that nonterminal <code>A</code> can be rewritten to <abbr title="epsilon – empty symbol"><code>ε</code></abbr> (rewriting rule <code>A&nbsp;→&nbsp;ε</code>).</p>
-<div title="context-free grammar rewriting rules" class="m4-src"><pre class="m4-pre">P: A → β
+<div class="m4-src"><pre title="context-free grammar rewriting rules" class="m4-pre">P: A → β
    A ∈ N
    β ∈ (N ∪ Σ)*</pre></div>
 <h4 id="m4-m4-rewriting-rules"><a href="#m4-m4-rewriting-rules" title="⚓">»</a>&nbsp;M4 rewriting rules</h4>
 <p>The rules for rewriting are the same for context-free grammar and M4.</p>
-<div title="M4 rewriting rules" class="m4-src"><pre class="m4-pre"># A → β
+<div class="m4-src"><pre title="M4 rewriting rules" class="m4-pre"># A → β
 define(`A', `β')
 
 # A → ε
@@ -173,7 +173,7 @@ define(`A', `')</pre></div>
 <p>All M4 keywords are nonterminals (macros), which take action and are rewritten to <abbr title="epsilon – empty symbol"><code>ε</code></abbr> or another symbol.
 All keywords can be renamed or turned off completely.
 This feature is crucial for the preprocessor mode.</p>
-<div title="M4 keywords are nonterminals" class="m4-src"><pre class="m4-pre">divert(ℤ) → ε
+<div class="m4-src"><pre title="M4 keywords are nonterminals" class="m4-pre">divert(ℤ) → ε
 define(`A', `β') → ε
 ifelse(`', `', `yes', `no') → yes
 ifelse(`', `', `ifdef(`dnl', `1', `0')', `no') → ifdef(`dnl', `1', `0') → 1
@@ -288,7 +288,7 @@ If the input symbols meet the required properties, the automaton ends up in&nbsp
 <p><em>Picture <a href="#m4-dfa-img" title="⚓">2</a>: Example of an automaton<sup><a href="https://en.wikipedia.org/wiki/Automata_theory" title="Automata theory" id="m4-ref9">[9]</a></sup> accepting an even number (none is even) of symbols <code>0</code>, ignoring symbols <code>1</code>.
 The automaton is the same as the regular expression <code>(1*01*01*)*1*</code>.</em></p>
 <p>The previous automaton can be written as an ASCII art accompanying the M4 script:</p>
-<div title="ASCII art for M4 code documentation" class="m4-src"><pre class="m4-pre">#          ____1
+<div class="m4-src"><pre title="ASCII art for M4 code documentation" class="m4-pre">#          ____1
 #         |   /
 #      ___V__/   0    ____
 # ---&gt;// S1 \\------&gt;/ S2 \---.1
@@ -297,7 +297,7 @@ The automaton is the same as the regular expression <code>(1*01*01*)*1*</code>.<
 <h4 id="m4-generating-automaton"><a href="#m4-generating-automaton" title="⚓">»</a>&nbsp;Generating automaton</h4>
 <p>Input symbols change the nodes of the automaton, thereby changing the rewriting rules for code generation.
 See the appendix for <a href="#m4-json-generating-automaton" title="[] JSON – generating automaton">this example</a>:</p>
-<div title="ASCII art of generating automaton" class="m4-src"><pre class="m4-pre">#      _______      ___________
+<div class="m4-src"><pre title="ASCII art of generating automaton" class="m4-pre">#      _______      ___________
 # ---&gt;/ ERROR \---&gt;/ NEXT_ITEM \---.
 #     \_______/    \___________/&lt;--'</pre></div>
 <p>The first symbol in the <code>ERROR</code> state generates a&nbsp;header with brackets and inserts the first item.
@@ -785,7 +785,7 @@ To avoid confusion, we use queue names instead of numbers.</p>
 <p>To avoid having to define similar rules, we copy the right side of <code>ERROR</code> (it is also a&nbsp;<abbr title="the rule is used as the right side of another rewriting rule"><code>β</code> rule</abbr>) to the right side of the <code>QUERY</code> and <code>WARNING</code> rules.
 The <code>$0</code> variable is rewritten to the name of the macro and concatenated with another symbol.
 The newly formed nonterminal is rewritten to the corresponding terminal symbol (queue number or name).</p>
-<div id="m4-nonterminals-for-branches" title="grammar branching in M4" class="m4-src"><pre class="m4-pre">$0_QU → ERROR_QU → 2
+<div class="m4-src"><pre id="m4-nonterminals-for-branches" title="grammar branching in M4" class="m4-pre">$0_QU → ERROR_QU → 2
 $0_END → ERROR_END → 3
 $0_NAME → ERROR_NAME → error
 $0_QU → QUERY_QU → 0

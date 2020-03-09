@@ -136,7 +136,7 @@ Vývojáři upravovali M3 pro tyto jazyky čímž ho proměnili na univerzálně
 </ul>
 </div>
 <p>Makro procesor M3 rozšířil také <span class="rs-person">Jim E. Weythman</span>, autor programové konstrukce, která se používá téměř v&nbsp;každém M4 skriptu:</p>
-<div title="idiomatický kód M4" class="m4-src"><pre class="m4-pre">divert(-1)
+<div class="m4-src"><pre title="idiomatický kód M4" class="m4-pre">divert(-1)
 …
 define(…)
 …
@@ -197,12 +197,12 @@ Cílem tohoto úvodního dílu je hlavně ukázat praktické použití M4 na př
 <p>Bezkontextová gramatika (krátce <abbr title="Context-Free Grammar – bezkontextová gramatika">CFG</abbr>) je <a href="#m4-formalni-gramatika-chomskeho-typ" title="Formální gramatika (Chomského typu)">formální gramatika</a>, ve které mají všechna přepisovací pravidla tvar <code>A&nbsp;→&nbsp;β</code>.
 Neterminál <code>A</code> se přepíše na libovolně dlouhý řetězec <abbr title="pravá strana přepisovacího pravidla"><code>β</code></abbr> složený z&nbsp;terminálů <code>Σ</code> nebo neterminálů <code>N</code>.
 <a href="https://en.wikipedia.org/wiki/Kleene_star" title="Wikipedie">Kleeneho hvězda</a> <code>*</code> znamená, že se neterminál <code>A</code> může přepsat na <abbr title="epsilon – prázdný symbol"><code>ε</code></abbr> (přepisovací pravidlo <code>A&nbsp;→&nbsp;ε</code>).</p>
-<div title="přepisovací pravidla bezkontextové gramatiky" class="m4-src"><pre class="m4-pre">P: A → β
+<div class="m4-src"><pre title="přepisovací pravidla bezkontextové gramatiky" class="m4-pre">P: A → β
    A ∈ N
    β ∈ (N ∪ Σ)*</pre></div>
 <h4 id="m4-prepisovaci-pravidla-m4"><a href="#m4-prepisovaci-pravidla-m4" title="⚓">»</a>&nbsp;Přepisovací pravidla M4</h4>
 <p>Přepisovací pravidla M4 jsou stejná jako přepisovací pravidla bezkontextové gramatiky.</p>
-<div title="přepisovací pravidla M4" class="m4-src"><pre class="m4-pre"># A → β
+<div class="m4-src"><pre title="přepisovací pravidla M4" class="m4-pre"># A → β
 define(`A', `β')
 
 # A → ε
@@ -211,7 +211,7 @@ define(`A', `')</pre></div>
 <p>Všechna klíčová slova M4 jsou neterminály (makra), provedou nějakou akci a&nbsp;přepíší se na <abbr title="epsilon – prázdný symbol"><code>ε</code></abbr> nebo jiný symbol.
 Všechna klíčová slova lze přejmenovat nebo úplně vypnout.
 Tato vlastnost je velmi důležitá pro režim preprocesoru.</p>
-<div title="klíčová slova M4 jsou neterminály" class="m4-src"><pre class="m4-pre">divert(ℤ) → ε
+<div class="m4-src"><pre title="klíčová slova M4 jsou neterminály" class="m4-pre">divert(ℤ) → ε
 define(`A', `β') → ε
 ifelse(`', `', `yes', `no') → yes
 ifelse(`', `', `ifdef(`dnl', `1', `0')', `no') → ifdef(`dnl', `1', `0') → 1
@@ -328,7 +328,7 @@ Splňují-li vstupní symboly požadované vlastnosti, automat skončí v&nbsp;u
 <p><em>Obrázek <a href="#m4-dfa-img" title="⚓">2</a>: Příklad automatu<sup><a href="https://cs.wikipedia.org/wiki/Teorie_automat%C5%AF" title="Teorie automatů" id="m4-ref9">[9]</a></sup> akceptující sudý počet (žádný je také sudý) symbolů <code>0</code>, ignorující symboly <code>1</code>.
 Automat je shodný s&nbsp;regulárním výrazem <code>(1*01*01*)*1*</code>.</em></p>
 <p>Předchozí automat lze zapsat jako ASCII art doprovázející M4 skript:</p>
-<div title="ASCII art jako dokumentace M4 kódu" class="m4-src"><pre class="m4-pre">#          ____1
+<div class="m4-src"><pre title="ASCII art jako dokumentace M4 kódu" class="m4-pre">#          ____1
 #         |   /
 #      ___V__/   0    ____
 # ---&gt;// S1 \\------&gt;/ S2 \---.1
@@ -337,7 +337,7 @@ Automat je shodný s&nbsp;regulárním výrazem <code>(1*01*01*)*1*</code>.</em>
 <h4 id="m4-generujici-automat"><a href="#m4-generujici-automat" title="⚓">»</a>&nbsp;Generující automat</h4>
 <p>Vstupní symboly mění uzly automatu, čímž zároveň mění přepisovací pravidla pro generování kódu.
 <a href="#m4-json-generujici-automat" title="[] JSON – generující automat">Tento příklad</a> naleznete v&nbsp;příloze:</p>
-<div title="ASCII art generujícího automatu" class="m4-src"><pre class="m4-pre">#      _______      ___________
+<div class="m4-src"><pre title="ASCII art generujícího automatu" class="m4-pre">#      _______      ___________
 # ---&gt;/ ERROR \---&gt;/ NEXT_ITEM \---.
 #     \_______/    \___________/&lt;--'</pre></div>
 <p>První symbol ve stavu <code>ERROR</code> vygeneruje záhlaví se závorkami a&nbsp;vloží první položku.
@@ -824,7 +824,7 @@ Abychom se vyhnuli zmatku, pojmenujeme si fronty a&nbsp;místo čísel použív�
 <p>Abychom nemuseli definovat podobná pravidla, zkopírujeme si pravou stranu <code>ERROR</code><br>(je to také <abbr title="takové pravidlo se používá jako pravá strana jiného přepisovacího pravidla"><code>β</code> pravidlo</abbr>) do pravé strany pravidel <code>QUERY</code> a&nbsp;<code>WARNING</code>.
 Proměnná <code>$0</code> se přepíše na jméno makra a&nbsp;zřetězí se s&nbsp;dalším symbolem.
 Nově vzniklý neterminál se přepíše na odpovídající terminální symbol (číslo fronty nebo jméno).</p>
-<div id="m4-nonterminals-for-branches" title="větvení gramatikou v M4" class="m4-src"><pre class="m4-pre">$0_QU → ERROR_QU → 2
+<div class="m4-src"><pre id="m4-nonterminals-for-branches" title="větvení gramatikou v M4" class="m4-pre">$0_QU → ERROR_QU → 2
 $0_END → ERROR_END → 3
 $0_NAME → ERROR_NAME → error
 $0_QU → QUERY_QU → 0
