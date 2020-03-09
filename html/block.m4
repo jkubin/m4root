@@ -14,6 +14,7 @@ pushdef([CLASS_3],	[ifelse([$#], [3], [], [$3], [], [], [ class="ADD_CLASS([$3])
 pushdef([CLASS_3_EXCL],	[ class="rs-tip-major ADD_CLASS([excl])ifelse([$#], [3], [], [$3], [], [], [ ADD_CLASS([$3])])"])
 pushdef([CLASS_3_INFO],	[ class="rs-tip-major ADD_CLASS([info])ifelse([$#], [3], [], [$3], [], [], [ ADD_CLASS([$3])])"])
 pushdef([CLASS_3_NOTE],	[ class="rs-tip-major ADD_CLASS([note])ifelse([$#], [3], [], [$3], [], [], [ ADD_CLASS([$3])])"])
+pushdef([CLASS_3_PROG],	[ class="ADD_CLASS([src])[]ifelse([$#], [3], [], [$3], [], [], [ ADD_CLASS([$3])])"])
 pushdef([CLASS_3_ROOT_CMD],	[ class="ADD_CLASS([root])[]ifelse([$#], [3], [], [$3], [], [], [ ADD_CLASS([$3])])"])
 pushdef([CLASS_3_TILE],	[ class="rs-tile[]ifelse([$#], [3], [], [$3], [], [], [ ADD_CLASS([$3])])"])
 pushdef([CLASS_3_USR_CMD],	[ class="ADD_CLASS([usc])[]ifelse([$#], [3], [], [$3], [], [], [ ADD_CLASS([$3])])"])
@@ -28,6 +29,7 @@ pushdef([HTML_GLOBAL_ATTRIBUTES],	defn([ID_1], [TITLE_2], [CLASS_3], [STYLE_4], 
 pushdef([HTML_HEADING_ATTRIBUTES],	[ id="ADD_ID_RULE(defn([#ID]))"]defn([TITLE_2], [CLASS_3], [STYLE_4], [ANYTHING_5]))
 pushdef([HTML_INFO_ATTRIBUTES],	defn([ID_1], [TITLE_2], [CLASS_3_INFO], [STYLE_4], [ANYTHING_5]))
 pushdef([HTML_NOTE_ATTRIBUTES],	defn([ID_1], [TITLE_2], [CLASS_3_NOTE], [STYLE_4], [ANYTHING_5]))
+pushdef([HTML_PROG_ATTRIBUTES],	defn([ID_1], [TITLE_2], [CLASS_3_PROG], [STYLE_4], [ANYTHING_5]))
 pushdef([HTML_ROOT_CMD_ATTRIBUTES],	defn([ID_1], [TITLE_2], [CLASS_3_ROOT_CMD], [STYLE_4], [ANYTHING_5]))
 pushdef([HTML_USR_CMD_ATTRIBUTES],	defn([ID_1], [TITLE_2], [CLASS_3_USR_CMD], [STYLE_4], [ANYTHING_5]))
 pushdef([HTML_WARN_ATTRIBUTES],	defn([ID_1], [TITLE_2], [CLASS_3_WARN], [STYLE_4], [ANYTHING_5]))
@@ -442,11 +444,11 @@ define([TILE_BOX], [
 divert(-1)
 ])
 
+# class="NSP()pre" is necessary for JavaScript code because CMS reorders the resulting HTML code
 # A → β
-# β
 define([PROGRAMLISTING], [
 	divert(CURRQU)dnl
-<div class="ADD_CLASS([src])"><pre[]]defn([HTML_GLOBAL_ATTRIBUTES])>defn([PROCESS_RAW_CODE_TO_HTML_ENTITIES])[</pre></div>
+<div[]]defn([HTML_PROG_ATTRIBUTES])><pre class="NSP()pre">defn([PROCESS_RAW_CODE_TO_HTML_ENTITIES])[</pre></div>
 divert(-1)
 ])
 
@@ -475,7 +477,7 @@ define([REF], [pushdef([CURRQU], divnum)divert(-1)
 	# set reference index, create symbol and an unique tuple
 	define([REF_COUNTER], [1])
 	define([REF_SYMBOL], NSP()[ref]REF_COUNTER)
-	define([{$1$2$3}], REF_COUNTER)
+	define([{$1|$2|$3}], REF_COUNTER)
 
 	# transition to the next node
 	define([$0], defn([REF_NEXT]))
@@ -495,7 +497,7 @@ divert(CURRQU)popdef([CURRQU])dnl
 define([REF_NEXT], [pushdef([CURRQU], divnum)divert(-1)
 
 	# test if the reference already exists
-	ifdef([{$1$2$3}], [
+	ifdef([{$1|$2|$3}], [
 
 		divert(CURRQU)popdef([CURRQU])dnl
 <sup><a href="[$3]" title="$1">BRAC(REF_VALUE)</a></sup>dnl
@@ -503,7 +505,7 @@ define([REF_NEXT], [pushdef([CURRQU], divnum)divert(-1)
 		# increment counter for new ref value
 		define([REF_VALUE], define([REF_COUNTER], incr(REF_COUNTER))REF_COUNTER)
 		define([REF_SYMBOL], NSP()[ref]REF_VALUE)
-		define([{$1$2$3}], REF_VALUE)
+		define([{$1|$2|$3}], REF_VALUE)
 
 		divert(ARTICLE_REFERENCES)dnl
 <li>ifelse(defn([CURRQU]), [-1], [], [<a href="[#]REF_SYMBOL" title="WORD_SOURCE" class="ADD_CLASS([top])">↑</a>])NB()<strong>$1</strong>ifelse([$2], [], [], [, $2])[]BR()
@@ -652,6 +654,7 @@ popdef(
 	[CLASS_3_EXCL],
 	[CLASS_3_INFO],
 	[CLASS_3_NOTE],
+	[CLASS_3_PROG],
 	[CLASS_3_ROOT_CMD],
 	[CLASS_3_TILE],
 	[CLASS_3_USR_CMD],
@@ -664,6 +667,7 @@ popdef(
 	[HTML_MONOLINGUAL],
 	[HTML_MULTILINGUAL],
 	[HTML_NOTE_ATTRIBUTES],
+	[HTML_PROG_ATTRIBUTES],
 	[HTML_ROOT_CMD_ATTRIBUTES],
 	[HTML_UNPAIRED_TAG],
 	[HTML_USR_CMD_ATTRIBUTES],
