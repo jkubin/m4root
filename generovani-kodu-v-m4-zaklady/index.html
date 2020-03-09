@@ -9,7 +9,7 @@
 <meta name="author" content="Josef Kubín">
 <meta name="generator" content="M4">
 <link rel="stylesheet" type="text/css" href="../html/preview.css">
-<style>.urs .m4-src{position:relative}.urs .m4-src code{border-radius:0 4px;border:1px solid #ddd;font-family:monospace,monospace;font-size:.7em;font-weight:bold;padding:2px 4px;position:absolute;right:0}.urs .m4-src a:visited{color:#333}.urs .m4-src code::before{content:"git:";margin-right:.1em}.urs .m4-src code span{cursor:help;border-bottom:1px dotted #000}.urs .m4-src ol{font-size:.8em;left:-2.5em;line-height:1.1;padding-top:8px;position:absolute;top:0}.urs .m4-src ol li{margin:0}.urs .m4-toc{font-size:.5em;text-decoration:none;vertical-align:super}</style>
+<style>.urs .m4-toc{font-size:.5em;text-decoration:none;vertical-align:super}</style>
 </head>
 <body class="design-tile layout-article-content">
 <div class="urs">
@@ -20,15 +20,15 @@
 <p>%%%</p>
 <!-- appendix content -->
 <script>
-var m4_src = document.getElementsByClassName("m4-src");
-for (var e of m4_src) {
-	var l = e.lastChild.innerHTML.split('\n').length + 1;
+var m4_pre = document.getElementsByClassName("m4-pre");
+for (var e of m4_pre) {
+	var l = e.innerHTML.split('\n').length;
 	var o = document.createElement("ol");
 
-	for (var i = 1; i < l; i++)
+	for (var i = 0; i < l; i++)
 		o.appendChild(document.createElement("li"));
 
-	e.appendChild(o);
+	e.parentElement.appendChild(o);
 }
 </script>
 </div>

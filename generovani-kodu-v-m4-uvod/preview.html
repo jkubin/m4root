@@ -5,7 +5,7 @@
 <meta charset="utf-8">
 <title>Generování kódu v M4: úvod</title>
 <link rel="stylesheet" type="text/css" href="../html/preview.css">
-<style>.urs .m4-src{position:relative}.urs .m4-src code{border-radius:0 4px;border:1px solid #ddd;font-family:monospace,monospace;font-size:.7em;font-weight:bold;padding:2px 4px;position:absolute;right:0}.urs .m4-src a:visited{color:#333}.urs .m4-src code::before{content:"git:";margin-right:.1em}.urs .m4-src code span{cursor:help;border-bottom:1px dotted #000}.urs .m4-src ol{font-size:.8em;left:-2.5em;line-height:1.1;padding-top:8px;position:absolute;top:0}.urs .m4-src ol li{margin:0}.urs .m4-toc{font-size:.5em;text-decoration:none;vertical-align:super}.urs .m4-dot{border-bottom:1px dotted #000}.urs .m4-note::before{content:"\1f5b9";margin-right:.2em;font-size:1.5em}.urs .m4-note,.urs .m4-info,.urs .m4-excl,.urs .m4-warn{padding-top:.2em;padding-bottom:.4em}.urs .m4-note ul{margin-bottom:0}.urs .m4-top{text-decoration:none}.urs p.m4-l2{padding-left:1em}.urs .m4-un{text-decoration:underline}.urs .m4-usc,.urs .m4-root{background:#fff;border-radius:4px;border:1px solid #ddd;color:#333;font-family:"Courier New",Courier,monospace;font-size:.8em;font-weight:bold;line-height:1.1;margin:0 0 11px;padding:8px}.urs .m4-usc a:visited,.urs .m4-root a:visited{color:#333}.urs .m4-root::before{content:"~]# ";font-weight:normal}.urs .m4-info::before{content:"\1f6c8";margin-right:.2em;font-size:1.5em}.urs .m4-usc::before{content:"~]$ ";font-weight:normal}.urs p.m4-l3{padding-left:2em}</style>
+<style>.urs .m4-toc{font-size:.5em;text-decoration:none;vertical-align:super}.urs .m4-dot{border-bottom:1px dotted #000}.urs .m4-note::before{content:"\1f5b9";margin-right:.2em;font-size:1.5em}.urs .m4-note,.urs .m4-info,.urs .m4-excl,.urs .m4-warn{padding-top:.2em;padding-bottom:.4em}.urs .m4-note ul{margin-bottom:0}.urs .m4-top{text-decoration:none}.urs p.m4-l2{padding-left:1em}.urs .m4-un{text-decoration:underline}.urs .m4-src{position:relative}.urs .m4-src code{border-radius:0 4px;border:1px solid #ddd;font-family:monospace,monospace;font-size:.7em;font-weight:bold;padding:2px 4px;position:absolute;right:0}.urs .m4-src a:visited{color:#333}.urs .m4-src code::before{content:"git:";margin-right:.1em}.urs .m4-src code span{cursor:help;border-bottom:1px dotted #000}.urs .m4-src ol{font-size:.8em;left:-2.1em;line-height:1.1;padding-top:8px;position:absolute;top:0}.urs .m4-src ol li{margin:0}.urs .m4-usc,.urs .m4-root{background:#fff;border-radius:4px;border:1px solid #ddd;color:#333;font-family:"Courier New",Courier,monospace;font-size:.8em;font-weight:bold;line-height:1.1;margin:0 0 11px;padding:8px}.urs .m4-usc a:visited,.urs .m4-root a:visited{color:#333}.urs .m4-root::before{content:"~]# ";font-weight:normal}.urs .m4-info::before{content:"\1f6c8";margin-right:.2em;font-size:1.5em}.urs .m4-usc::before{content:"~]$ ";font-weight:normal}.urs p.m4-l3{padding-left:2em}</style>
 <meta name="author" content="Josef Kubín">
 <meta name="description" content="Makro procesor M4 se používá ke generování libovolně složitého kódu z&nbsp;jednoduchého zdrojového kódu.
 Úvodní díl seriálu obsahuje jeho historii, základní principy jazyka, příklady použití a&nbsp;nutné předpoklady pro jeho zvládnutí.">
@@ -136,7 +136,7 @@ Vývojáři upravovali M3 pro tyto jazyky čímž ho proměnili na univerzálně
 </ul>
 </div>
 <p>Makro procesor M3 rozšířil také <span class="rs-person">Jim E. Weythman</span>, autor programové konstrukce, která se používá téměř v&nbsp;každém M4 skriptu:</p>
-<div class="m4-src"><pre title="idiomatický kód M4">divert(-1)
+<div title="idiomatický kód M4" class="m4-src"><pre class="m4-pre">divert(-1)
 …
 define(…)
 …
@@ -184,7 +184,7 @@ Autorem této implementace z&nbsp;roku 1990 je <a href="https://www.seindal.dk/r
 Následující příkaz nainstaluje <strong title="s malým „m“" class="m4-dot">m4</strong>:</p>
 <div id="m4-install" title="příkaz nainstaluje také další důležité balíčky" class="m4-root">dnf -y install make m4 pinfo</div>
 <p>Podrobný popis klíčových slov se nachází v&nbsp;dokumentaci<sup><a href="https://www.gnu.org/software/m4/manual/" title="GNU M4 - GNU macro processor" id="m4-ref8">[8]</a></sup>:</p>
-<div class="m4-src"><pre>~]$ <strong>pinfo m4</strong>
+<div class="m4-src"><pre class="m4-pre">~]$ <strong>pinfo m4</strong>
 ~]$ <strong>man m4</strong>
 ~]$ <strong>m4 --help</strong></pre></div>
 <h2 id="m4-zaklady-jazyka-m4"><a href="#m4-zaklady-jazyka-m4" title="⚓">3</a>&nbsp;&nbsp;Základy jazyka M4&nbsp;<a href="#m4-toc-zaklady-jazyka-m4" title="Obsah" class="m4-toc">☰</a></h2>
@@ -197,12 +197,12 @@ Cílem tohoto úvodního dílu je hlavně ukázat praktické použití M4 na př
 <p>Bezkontextová gramatika (krátce <abbr title="Context-Free Grammar – bezkontextová gramatika">CFG</abbr>) je <a href="#m4-formalni-gramatika-chomskeho-typ" title="Formální gramatika (Chomského typu)">formální gramatika</a>, ve které mají všechna přepisovací pravidla tvar <code>A&nbsp;→&nbsp;β</code>.
 Neterminál <code>A</code> se přepíše na libovolně dlouhý řetězec <abbr title="pravá strana přepisovacího pravidla"><code>β</code></abbr> složený z&nbsp;terminálů <code>Σ</code> nebo neterminálů <code>N</code>.
 <a href="https://en.wikipedia.org/wiki/Kleene_star" title="Wikipedie">Kleeneho hvězda</a> <code>*</code> znamená, že se neterminál <code>A</code> může přepsat na <abbr title="epsilon – prázdný symbol"><code>ε</code></abbr> (přepisovací pravidlo <code>A&nbsp;→&nbsp;ε</code>).</p>
-<div class="m4-src"><pre title="přepisovací pravidla bezkontextové gramatiky">P: A → β
+<div title="přepisovací pravidla bezkontextové gramatiky" class="m4-src"><pre class="m4-pre">P: A → β
    A ∈ N
    β ∈ (N ∪ Σ)*</pre></div>
 <h4 id="m4-prepisovaci-pravidla-m4"><a href="#m4-prepisovaci-pravidla-m4" title="⚓">»</a>&nbsp;Přepisovací pravidla M4</h4>
 <p>Přepisovací pravidla M4 jsou stejná jako přepisovací pravidla bezkontextové gramatiky.</p>
-<div class="m4-src"><pre title="přepisovací pravidla M4"># A → β
+<div title="přepisovací pravidla M4" class="m4-src"><pre class="m4-pre"># A → β
 define(`A', `β')
 
 # A → ε
@@ -211,7 +211,7 @@ define(`A', `')</pre></div>
 <p>Všechna klíčová slova M4 jsou neterminály (makra), provedou nějakou akci a&nbsp;přepíší se na <abbr title="epsilon – prázdný symbol"><code>ε</code></abbr> nebo jiný symbol.
 Všechna klíčová slova lze přejmenovat nebo úplně vypnout.
 Tato vlastnost je velmi důležitá pro režim preprocesoru.</p>
-<div class="m4-src"><pre title="klíčová slova M4 jsou neterminály">divert(ℤ) → ε
+<div title="klíčová slova M4 jsou neterminály" class="m4-src"><pre class="m4-pre">divert(ℤ) → ε
 define(`A', `β') → ε
 ifelse(`', `', `yes', `no') → yes
 ifelse(`', `', `ifdef(`dnl', `1', `0')', `no') → ifdef(`dnl', `1', `0') → 1
@@ -268,9 +268,9 @@ Prázdný pár řídících znaků <code>`'</code> před makrem slouží jako <a
 <div title="M4 jako preprocesor s řídícími znaky: `'" class="m4-usc">sed 's/`/`'\''LQ()/g' any.src | m4 rootq.m4 leaf.m4 -</div>
 <div title="M4 jako preprocesor s řídícími znaky: `'" class="m4-usc">sed 's/`/`'\''LQ()/g;s/#\|\&lt;dnl\&gt;/`&amp;'\''/g' any.src | m4 rootq.m4 leaf.m4 -</div>
 <div title="M4 jako preprocesor s řídícími znaky jinak: `'" class="m4-usc">sed 's/`/`'\''LQ()/g;s/#/`#'\''/g;s/\&lt;dnl\&gt;/`dnl'\''/g' any.src | m4 …</div>
-<p>Při průchodu zdrojového kódu makro procesorem se makro <code>`'LQ()</code> přepíše zpátky na původní znak <code>`</code> a&nbsp;prázdný pár <code>`'</code> je odstraněn.
-Použijeme-li pro <a href="#m4-rizeni-expanze-neterminalu" title="Řízení expanze neterminálů">řízení expanze neterminálů</a> hranaté závorky, skryjeme stejným způsobem levou <code>[</code> hranatou závorku.</p>
+<p>Při průchodu zdrojového kódu makro procesorem se makro <code>`'LQ()</code> přepíše zpátky na původní znak <code>`</code> a&nbsp;prázdný pár <code>`'</code> je odstraněn.</p>
 <h4 id="m4-hranate-zavorky"><a href="#m4-hranate-zavorky" title="⚓">»</a>&nbsp;<code>[]</code> Hranaté závorky</h4>
+<p>Použijeme-li pro <a href="#m4-rizeni-expanze-neterminalu" title="Řízení expanze neterminálů">řízení expanze neterminálů</a> hranaté závorky, skryjeme stejným způsobem levou <code>[</code> hranatou závorku.</p>
 <div title="M4 jako preprocesor s řídícími znaky: []" class="m4-usc">sed 's/\[/[]LB()/g' any.src | m4 rootb.m4 leaf.m4 - | …</div>
 <div title="M4 jako preprocesor s řídícími znaky: []" class="m4-usc">sed 's/\[/[]LB()/g;s/#\|\&lt;dnl\&gt;/[&amp;]/g' any.src | m4 rootb.m4 leaf.m4 - | …</div>
 <div title="M4 jako preprocesor s řídícími znaky jinak: []" class="m4-usc">sed 's/\[/[]LB()/g;s/#/[#]/g;s/\&lt;dnl\&gt;/[dnl]/g' any.src | m4 rootb.m4 …</div>
@@ -307,7 +307,7 @@ Každý řetězec je buď terminální nebo neterminální symbol včetně všec
 <h3 id="m4-zaklady-gramatik"><a href="#m4-zaklady-gramatik" title="⚓">5.1</a>&nbsp;&nbsp;Základy gramatik&nbsp;<a href="#m4-toc-zaklady-gramatik" title="Obsah" class="m4-toc">☰</a></h3>
 <p>Základem všech gramatik jsou přepisovací pravidla, jejichž podobu obecně popisuje:</p>
 <h4 id="m4-formalni-gramatika-chomskeho-typ"><a href="#m4-formalni-gramatika-chomskeho-typ" title="⚓">»</a>&nbsp;Formální gramatika (Chomského typu)</h4>
-<div class="m4-src"><pre>G = (N, Σ, P, S)
+<div class="m4-src"><pre class="m4-pre">G = (N, Σ, P, S)
 N: neprázdná konečná množina neterminálních symbolů
 Σ: konečná množina terminálních symbolů
    N ∩ Σ = ø
@@ -328,7 +328,7 @@ Splňují-li vstupní symboly požadované vlastnosti, automat skončí v&nbsp;u
 <p><em>Obrázek <a href="#m4-dfa-img" title="⚓">2</a>: Příklad automatu<sup><a href="https://cs.wikipedia.org/wiki/Teorie_automat%C5%AF" title="Teorie automatů" id="m4-ref9">[9]</a></sup> akceptující sudý počet (žádný je také sudý) symbolů <code>0</code>, ignorující symboly <code>1</code>.
 Automat je shodný s&nbsp;regulárním výrazem <code>(1*01*01*)*1*</code>.</em></p>
 <p>Předchozí automat lze zapsat jako ASCII art doprovázející M4 skript:</p>
-<div class="m4-src"><pre title="ASCII art jako dokumentace M4 kódu">#          ____1
+<div title="ASCII art jako dokumentace M4 kódu" class="m4-src"><pre class="m4-pre">#          ____1
 #         |   /
 #      ___V__/   0    ____
 # ---&gt;// S1 \\------&gt;/ S2 \---.1
@@ -337,7 +337,7 @@ Automat je shodný s&nbsp;regulárním výrazem <code>(1*01*01*)*1*</code>.</em>
 <h4 id="m4-generujici-automat"><a href="#m4-generujici-automat" title="⚓">»</a>&nbsp;Generující automat</h4>
 <p>Vstupní symboly mění uzly automatu, čímž zároveň mění přepisovací pravidla pro generování kódu.
 <a href="#m4-json-generujici-automat" title="[] JSON – generující automat">Tento příklad</a> naleznete v&nbsp;příloze:</p>
-<div class="m4-src"><pre title="ASCII art generujícího automatu">#      _______      ___________
+<div title="ASCII art generujícího automatu" class="m4-src"><pre class="m4-pre">#      _______      ___________
 # ---&gt;/ ERROR \---&gt;/ NEXT_ITEM \---.
 #     \_______/    \___________/&lt;--'</pre></div>
 <p>První symbol ve stavu <code>ERROR</code> vygeneruje záhlaví se závorkami a&nbsp;vloží první položku.
@@ -417,7 +417,7 @@ Podrobněji budou vysvětleny později.</div>
 <p>Vstupní zdrojový kód je podobný <abbr title="Comma Separated Values">CSV</abbr>, který se převede na libovolně složitý cílový kód jiného jazyka pomocí <abbr title="Context-Free Grammar – bezkontextová gramatika">CFG</abbr>, automatů a&nbsp;výstupních front.
 Zásobníky v&nbsp;příkladech nejsou použity.
 Vstupní zdrojový kód obsahuje speciální znaky, které je nutné skrýt:</p>
-<div class="m4-src"><code><span title="2020-01-06 16:21:10 +0100">b53eafe</span> <a href="../messages/messages_raw.mc" title="localhost">messages_raw.mc</a></code><pre># 2018/05/15 Josef Kubin
+<div class="m4-src"><code><span title="2020-01-06 16:21:10 +0100">b53eafe</span> <a href="../messages/messages_raw.mc" title="localhost">messages_raw.mc</a></code><pre class="m4-pre"># 2018/05/15 Josef Kubin
 
 ERROR([COMPLEX],     [!"#$%&amp;'()*+ ,-./:;&lt;=&gt;?@[\]^_`{|}~])
 QUERY([READABLE],    [Is badly written M4 code readable [N/y]?])
@@ -428,7 +428,7 @@ WARNING([NO_ERRORS], [No other errors detected.])</pre></div>
 <div title="poznámka" class="rs-tip-major m4-note">Vstupní soubor může také obsahovat poznámky, které nemusí být skryté v&nbsp;komentářích <code>#</code>, <code>dnl</code>, <code>ifelse([…])</code> nebo <code>[… někde uvnitř závorek …]</code>.</div>
 <h3 id="m4-csv-nejjednodussi-priklad"><a href="#m4-csv-nejjednodussi-priklad" title="⚓">A.2</a>&nbsp;&nbsp;<code>[]</code> CSV – nejjednodušší příklad&nbsp;<a href="#m4-toc-csv-nejjednodussi-priklad" title="Obsah" class="m4-toc">☰</a></h3>
 <p>Tento příklad nepoužívá výstupní fronty, pouze generuje <abbr title="Comma Separated Values">CSV</abbr> oddělené znakem <code>TAB</code>.</p>
-<div class="m4-src"><code><span title="2020-01-06 16:21:10 +0100">b53eafe</span> <a href="../messages/hello.csv.m4" title="localhost">hello.csv.m4</a></code><pre># A → β
+<div class="m4-src"><code><span title="2020-01-06 16:21:10 +0100">b53eafe</span> <a href="../messages/hello.csv.m4" title="localhost">hello.csv.m4</a></code><pre class="m4-pre"># A → β
 define([ERROR], [
 
 	divert(0)dnl
@@ -436,7 +436,7 @@ define([ERROR], [
 divert(-1)
 ])</pre></div>
 <div title="příkaz" class="m4-usc">m4 <a href="../gfiles/rootb.m4" title="localhost">rootb.m4</a> <a href="../messages/hello.csv.m4" title="localhost">hello.csv.m4</a> <a href="../messages/messages_raw.mc" title="localhost">messages_raw.mc</a> &gt; <a href="../messages/hello.csv" title="localhost">hello.csv</a></div>
-<div class="m4-src"><code><span title="2020-01-06 16:21:10 +0100">b53eafe</span> <a href="../messages/hello.csv" title="localhost">hello.csv</a></code><pre>COMPLEX	!"#$%&amp;'()*+,-./:;&lt;=&gt;?@[\]^_`{|}~
+<div class="m4-src"><code><span title="2020-01-06 16:21:10 +0100">b53eafe</span> <a href="../messages/hello.csv" title="localhost">hello.csv</a></code><pre class="m4-pre">COMPLEX	!"#$%&amp;'()*+,-./:;&lt;=&gt;?@[\]^_`{|}~
 SUCCESS	Complex M4 code failed successfully.
 NOFAULT	It's not a language fault!</pre></div>
 <h3 id="m4-csv-pocitadlo"><a href="#m4-csv-pocitadlo" title="⚓">A.3</a>&nbsp;&nbsp;<code>[]</code> CSV – počítadlo&nbsp;<a href="#m4-toc-csv-pocitadlo" title="Obsah" class="m4-toc">☰</a></h3>
@@ -444,7 +444,7 @@ NOFAULT	It's not a language fault!</pre></div>
 Během první expanze <code>COUNTER</code> proběhne inicializace jeho startovací hodnoty.
 Další expanze vrátí číselný terminální symbol a&nbsp;proběhne zvýšení pomocného (globálního) symbolu o&nbsp;jedničku.
 <code>COUNTER</code> je malý automat.</p>
-<div class="m4-src"><code><span title="2020-01-06 16:21:10 +0100">b53eafe</span> <a href="../messages/counter.csv.m4" title="localhost">counter.csv.m4</a></code><pre># A → β
+<div class="m4-src"><code><span title="2020-01-06 16:21:10 +0100">b53eafe</span> <a href="../messages/counter.csv.m4" title="localhost">counter.csv.m4</a></code><pre class="m4-pre"># A → β
 define([COUNTER], defn([COUNT_UP]))
 
 # init counter
@@ -458,7 +458,7 @@ ERR_[]COUNTER	[$1]	$2
 divert(-1)
 ])</pre></div>
 <div title="příkaz" class="m4-usc">m4 <a href="../gfiles/rootb.m4" title="localhost">rootb.m4</a> <a href="../messages/counter.csv.m4" title="localhost">counter.csv.m4</a> <a href="../messages/messages_raw.mc" title="localhost">messages_raw.mc</a> &gt; <a href="../messages/counter.csv" title="localhost">counter.csv</a></div>
-<div class="m4-src"><code><span title="2020-01-06 16:21:10 +0100">b53eafe</span> <a href="../messages/counter.csv" title="localhost">counter.csv</a></code><pre>ERR_1	COMPLEX	!"#$%&amp;'()*+,-./:;&lt;=&gt;?@[\]^_`{|}~
+<div class="m4-src"><code><span title="2020-01-06 16:21:10 +0100">b53eafe</span> <a href="../messages/counter.csv" title="localhost">counter.csv</a></code><pre class="m4-pre">ERR_1	COMPLEX	!"#$%&amp;'()*+,-./:;&lt;=&gt;?@[\]^_`{|}~
 ERR_2	SUCCESS	Complex M4 code failed successfully.
 ERR_3	NOFAULT	It's not a language fault!</pre></div>
 <h3 id="m4-upravy-specialnich-znaku"><a href="#m4-upravy-specialnich-znaku" title="⚓">A.4</a>&nbsp;&nbsp;<code title="jak se to dělá">💡</code> Úpravy speciálních znaků&nbsp;<a href="#m4-toc-upravy-specialnich-znaku" title="Obsah" class="m4-toc">☰</a></h3>
@@ -466,7 +466,7 @@ ERR_3	NOFAULT	It's not a language fault!</pre></div>
 Klíčové slovo jazyka M4 <code>patsubst()</code> je nevhodné pro tento úkol.
 Všechny speciální znaky vstupního souboru napřed skryjeme do vhodně pojmenovaných maker pomocí regulárních výrazů.</p>
 <h4 id="m4-upraveny-vstupni-kod"><a href="#m4-upraveny-vstupni-kod" title="⚓">»</a>&nbsp;Upravený vstupní kód</h4>
-<div class="m4-src"><code><span title="2020-03-09 00:12:55 +0100">cce57f8</span> <a href="../messages/messages.mc" title="localhost">messages.mc</a></code><pre title="všechny speciální znaky jsou skryty do maker"># 2018/05/15 Josef Kubin
+<div class="m4-src"><code><span title="2020-03-09 00:12:55 +0100">cce57f8</span> <a href="../messages/messages.mc" title="localhost">messages.mc</a></code><pre class="m4-pre" title="všechny speciální znaky jsou skryty do maker"># 2018/05/15 Josef Kubin
 
 ERROR([COMPLEX],     [[]EX()[]DQ()[#]$%[]AMP()[]AP()()*+,-./:;[]LT()=[]GT()?@[]LB()[]BS()[]RB()^_[]BQ(){|}~])
 QUERY([READABLE],    [Is badly written M4 code readable []LB()N/y[]RB()?])
@@ -476,7 +476,7 @@ ERROR([NOFAULT],     [It[]AP()s not a language fault[]EX()])
 WARNING([NO_ERRORS], [No other errors detected.])</pre></div>
 <p>Vytvoříme několik převodních souborů podle typu cílového kódu, makra pro hranaté závorky <code>LB()</code> a <code>RB()</code> jsou už definována v&nbsp;kořenovém souboru.</p>
 <h4 id="m4-prevodni-soubor-pro-xml-xslt-htm"><a href="#m4-prevodni-soubor-pro-xml-xslt-htm" title="⚓">»</a>&nbsp;<code>[]</code> Převodní soubor pro XML, XSLT, HTML</h4>
-<div class="m4-src"><code><span title="2020-01-06 16:21:10 +0100">b53eafe</span> <a href="../messages/markup.m4" title="localhost">markup.m4</a></code><pre title="převodní soubor pro značkovací jazyky"># A → β
+<div class="m4-src"><code><span title="2020-01-06 16:21:10 +0100">b53eafe</span> <a href="../messages/markup.m4" title="localhost">markup.m4</a></code><pre class="m4-pre" title="převodní soubor pro značkovací jazyky"># A → β
 define([AMP], [&amp;amp;])
 define([AP], ['])
 define([BQ], [`])
@@ -486,7 +486,7 @@ define([EX], [!])
 define([GT], [&amp;gt;])
 define([LT], [&amp;lt;])</pre></div>
 <h4 id="m4-prevodni-soubor-pro-c-json-ini-d"><a href="#m4-prevodni-soubor-pro-c-json-ini-d" title="⚓">»</a>&nbsp;<code>[]</code> Převodní soubor pro C, JSON, INI: <code>&quot;řetězec&quot;</code></h4>
-<div class="m4-src"><code><span title="2020-01-06 16:21:10 +0100">b53eafe</span> <a href="../messages/code.m4" title="localhost">code.m4</a></code><pre title="převodní soubor pro zdrojový kód"># A → β
+<div class="m4-src"><code><span title="2020-01-06 16:21:10 +0100">b53eafe</span> <a href="../messages/code.m4" title="localhost">code.m4</a></code><pre class="m4-pre" title="převodní soubor pro zdrojový kód"># A → β
 define([AMP], [&amp;])
 define([AP], ['])
 define([BQ], [`])
@@ -496,7 +496,7 @@ define([EX], [!])
 define([GT], [&gt;])
 define([LT], [&lt;])</pre></div>
 <h4 id="m4-prevodni-soubor-pro-bash-dreteze"><a href="#m4-prevodni-soubor-pro-bash-dreteze" title="⚓">»</a>&nbsp;<code>[]</code> Převodní soubor pro Bash: <code>&quot;řetězec&quot;</code></h4>
-<div class="m4-src"><code><span title="2020-01-06 16:21:10 +0100">b53eafe</span> <a href="../messages/doubleq.m4" title="localhost">doubleq.m4</a></code><pre title="převodní soubor pro Bash &quot;řetězce v uvozovkách&quot;"># A → β
+<div class="m4-src"><code><span title="2020-01-06 16:21:10 +0100">b53eafe</span> <a href="../messages/doubleq.m4" title="localhost">doubleq.m4</a></code><pre class="m4-pre" title="převodní soubor pro Bash &quot;řetězce v uvozovkách&quot;"># A → β
 define([AMP], [&amp;])
 define([AP], ['])
 define([BQ], [\`])
@@ -506,7 +506,7 @@ define([EX], ["\!"])
 define([GT], [&gt;])
 define([LT], [&lt;])</pre></div>
 <h4 id="m4-prevodni-soubor-pro-bash-areteze"><a href="#m4-prevodni-soubor-pro-bash-areteze" title="⚓">»</a>&nbsp;<code>[]</code> Převodní soubor pro Bash: <code>&apos;řetězec&apos;</code></h4>
-<div class="m4-src"><code><span title="2020-01-06 16:21:10 +0100">b53eafe</span> <a href="../messages/apost.m4" title="localhost">apost.m4</a></code><pre title="převodní soubor pro Bash 'řetězce v apostrofech'"># A → β
+<div class="m4-src"><code><span title="2020-01-06 16:21:10 +0100">b53eafe</span> <a href="../messages/apost.m4" title="localhost">apost.m4</a></code><pre class="m4-pre" title="převodní soubor pro Bash 'řetězce v apostrofech'"># A → β
 define([AMP], [&amp;])
 define([AP], ['\''])
 define([BQ], [`])
@@ -516,7 +516,7 @@ define([EX], [!])
 define([GT], [&gt;])
 define([LT], [&lt;])</pre></div>
 <h4 id="m4-prevodni-soubor-pro-csv-m4-vsech"><a href="#m4-prevodni-soubor-pro-csv-m4-vsech" title="⚓">»</a>&nbsp;<code>[]</code> Převodní soubor pro CSV, M4 (všechny znaky vrátí zpátky)</h4>
-<div class="m4-src"><code><span title="2020-01-10 04:42:49 +0100">f175bef</span> <a href="../messages/unchanged.m4" title="localhost">unchanged.m4</a></code><pre title="převodní soubor vrátí všechny speciální znaky zpátky"># A → β
+<div class="m4-src"><code><span title="2020-01-10 04:42:49 +0100">f175bef</span> <a href="../messages/unchanged.m4" title="localhost">unchanged.m4</a></code><pre class="m4-pre" title="převodní soubor vrátí všechny speciální znaky zpátky"># A → β
 define([AMP], [&amp;])
 define([AP], ['])
 define([BQ], [`])
@@ -527,7 +527,7 @@ define([GT], [&gt;])
 define([LT], [&lt;])</pre></div>
 <h3 id="m4-c-vystupni-fronta"><a href="#m4-c-vystupni-fronta" title="⚓">A.5</a>&nbsp;&nbsp;<code>[]</code> C – výstupní fronta&nbsp;<a href="#m4-toc-c-vystupni-fronta" title="Obsah" class="m4-toc">☰</a></h3>
 <p>Příklad používá jednu výstupní frontu na znaky <code>};</code> pro uzavření pole na konci skriptu.</p>
-<div class="m4-src"><code><span title="2020-01-06 16:21:10 +0100">b53eafe</span> <a href="../messages/array.c.m4" title="localhost">array.c.m4</a></code><pre># A → β
+<div class="m4-src"><code><span title="2020-01-06 16:21:10 +0100">b53eafe</span> <a href="../messages/array.c.m4" title="localhost">array.c.m4</a></code><pre class="m4-pre"># A → β
 define([ERROR], [
 
 	divert(0)dnl
@@ -545,7 +545,7 @@ divert(1)dnl
 };
 divert(-1)</pre></div>
 <div title="příkaz" class="m4-usc">m4 <a href="../gfiles/rootb.m4" title="localhost">rootb.m4</a> <a href="../messages/array.c.m4" title="localhost">array.c.m4</a> <a href="../messages/code.m4" title="localhost">code.m4</a> <a href="../messages/messages.mc" title="localhost">messages.mc</a> &gt; <a href="../messages/array.c" title="localhost">array.c</a></div>
-<div class="m4-src"><code><span title="2020-01-06 16:21:10 +0100">b53eafe</span> <a href="../messages/array.c" title="localhost">array.c</a></code><pre>/*
+<div class="m4-src"><code><span title="2020-01-06 16:21:10 +0100">b53eafe</span> <a href="../messages/array.c" title="localhost">array.c</a></code><pre class="m4-pre">/*
  * DO NOT EDIT! This file is generated automatically!
  */
 
@@ -558,7 +558,7 @@ char *error[] = {
 <p>Příklad spustí externí příkaz <code>date</code> a&nbsp;jeho výstup umístí do hranatých závorek.
 Výstupem externího příkazu jsou dvě položky oddělené čárkou.
 Makro <code>ARG1()</code> vybere první položku, protože druhá položka obsahuje nežádoucí znak nového řádku <code>LF</code> (<samp>0x0a</samp>).</p>
-<div class="m4-src"><code><span title="2020-02-11 02:32:35 +0100">9e13656</span> <a href="../messages/hello.ini.m4" title="localhost">hello.ini.m4</a></code><pre># A → β
+<div class="m4-src"><code><span title="2020-02-11 02:32:35 +0100">9e13656</span> <a href="../messages/hello.ini.m4" title="localhost">hello.ini.m4</a></code><pre class="m4-pre"># A → β
 define([ERROR], [
 
 	divert(0)dnl
@@ -572,7 +572,7 @@ divert(0)dnl
 LB()ARG1(esyscmd([date '+[hello_%Y%m%d],']))]
 divert(-1)</pre></div>
 <div title="příkaz" class="m4-usc">m4 <a href="../gfiles/rootb.m4" title="localhost">rootb.m4</a> <a href="../messages/hello.ini.m4" title="localhost">hello.ini.m4</a> <a href="../messages/code.m4" title="localhost">code.m4</a> <a href="../messages/messages.mc" title="localhost">messages.mc</a> &gt; <a href="../messages/hello.ini" title="localhost">hello.ini</a></div>
-<div class="m4-src"><code><span title="2020-03-01 19:44:31 +0100">c7c3f31</span> <a href="../messages/hello.ini" title="localhost">hello.ini</a></code><pre>; DO NOT EDIT! This file is generated automatically!
+<div class="m4-src"><code><span title="2020-03-01 19:44:31 +0100">c7c3f31</span> <a href="../messages/hello.ini" title="localhost">hello.ini</a></code><pre class="m4-pre">; DO NOT EDIT! This file is generated automatically!
 
 [hello_20200306]
 COMPLEX="!\"#$%&amp;'()*+,-./:;&lt;=&gt;?@[\\]^_`{|}~"
@@ -582,7 +582,7 @@ NOFAULT="It's not a language fault!"</pre></div>
 <p>Příklad používá makro <code>COUNTER</code> pro číslování výsledných <abbr title="Preprocesor jazyka C">CPP</abbr> maker a&nbsp;jednu výstupní frontu.
 Fronta číslo <code>1</code> obsahuje direktivu preprocesoru <code>#endif</code> pro zakončení hlavičkového souboru.
 Převod dekadické hodnoty počítadla na dvoumístné hex-a číslo provádí klíčové slovo <code>eval()</code>.</p>
-<div class="m4-src"><code><span title="2020-01-06 16:21:10 +0100">b53eafe</span> <a href="../messages/messages.h.m4" title="localhost">messages.h.m4</a></code><pre># A → β
+<div class="m4-src"><code><span title="2020-01-06 16:21:10 +0100">b53eafe</span> <a href="../messages/messages.h.m4" title="localhost">messages.h.m4</a></code><pre class="m4-pre"># A → β
 define([COUNTER], defn([COUNT_UP]))
 
 # init counter
@@ -608,7 +608,7 @@ divert(1)
 #endif /* __ERROR_H */
 divert(-1)</pre></div>
 <div title="příkaz" class="m4-usc">m4 <a href="../gfiles/rootb.m4" title="localhost">rootb.m4</a> <a href="../messages/messages.h.m4" title="localhost">messages.h.m4</a> <a href="../messages/messages.mc" title="localhost">messages.mc</a> &gt; <a href="../messages/messages.h" title="localhost">messages.h</a></div>
-<div class="m4-src"><code><span title="2020-01-06 16:21:10 +0100">b53eafe</span> <a href="../messages/messages.h" title="localhost">messages.h</a></code><pre>/*
+<div class="m4-src"><code><span title="2020-01-06 16:21:10 +0100">b53eafe</span> <a href="../messages/messages.h" title="localhost">messages.h</a></code><pre class="m4-pre">/*
  * DO NOT EDIT! This file is generated automatically!
  */
 
@@ -623,7 +623,7 @@ divert(-1)</pre></div>
 <h3 id="m4-c-maly-automat"><a href="#m4-c-maly-automat" title="⚓">A.8</a>&nbsp;&nbsp;<code>[]</code> C – malý automat&nbsp;<a href="#m4-toc-c-maly-automat" title="Obsah" class="m4-toc">☰</a></h3>
 <p>Příklad používá malý automat <code>NEW_LINE</code> pro generování znaku nového řádku <code>\n</code> a&nbsp;jednu výstupní frontu číslo <code>1</code> do které se vloží znaky <code>";</code> pro uzavření výsledného řetězce.
 Poprvé se <code>NEW_LINE</code> přepíše na <abbr title="epsilon – prázdný symbol"><code>ε</code></abbr>, podruhé a dále se přepíše na <code>\n</code>.</p>
-<div class="m4-src"><code><span title="2020-01-06 16:21:10 +0100">b53eafe</span> <a href="../messages/stringl.c.m4" title="localhost">stringl.c.m4</a></code><pre>#     NEW_LINE automaton
+<div class="m4-src"><code><span title="2020-01-06 16:21:10 +0100">b53eafe</span> <a href="../messages/stringl.c.m4" title="localhost">stringl.c.m4</a></code><pre class="m4-pre">#     NEW_LINE automaton
 #      ___      ____
 # ---&gt;/ ε \---&gt;/ \n \---.
 #     \___/    \____/&lt;--'
@@ -647,7 +647,7 @@ char error[[]] =
 "divert(1)";
 divert(-1)</pre></div>
 <div title="příkaz" class="m4-usc">m4 <a href="../gfiles/rootb.m4" title="localhost">rootb.m4</a> <a href="../messages/stringl.c.m4" title="localhost">stringl.c.m4</a> <a href="../messages/code.m4" title="localhost">code.m4</a> <a href="../messages/messages.mc" title="localhost">messages.mc</a> &gt; <a href="../messages/stringl.c" title="localhost">stringl.c</a></div>
-<div class="m4-src"><code><span title="2020-01-06 16:21:10 +0100">b53eafe</span> <a href="../messages/stringl.c" title="localhost">stringl.c</a></code><pre>/*
+<div class="m4-src"><code><span title="2020-01-06 16:21:10 +0100">b53eafe</span> <a href="../messages/stringl.c" title="localhost">stringl.c</a></code><pre class="m4-pre">/*
  * DO NOT EDIT! This file is generated automatically!
  */
 
@@ -655,7 +655,7 @@ char error[] =
 "!\"#$%&amp;'()*+,-./:;&lt;=&gt;?@[\\]^_`{|}~\nComplex M4 code failed successfully.\nIt's not a language fault!";</pre></div>
 <h3 id="m4-c-maly-automat-2"><a href="#m4-c-maly-automat-2" title="⚓">A.9</a>&nbsp;&nbsp;<code>[]</code> C – malý automat 2&nbsp;<a href="#m4-toc-c-maly-automat-2" title="Obsah" class="m4-toc">☰</a></h3>
 <p>Tento příklad je podobný předchozímu, avšak každý řetězec je na novém řádku.</p>
-<div class="m4-src"><code><span title="2020-01-06 16:21:10 +0100">b53eafe</span> <a href="../messages/string.c.m4" title="localhost">string.c.m4</a></code><pre>#      NEW_LINE automaton
+<div class="m4-src"><code><span title="2020-01-06 16:21:10 +0100">b53eafe</span> <a href="../messages/string.c.m4" title="localhost">string.c.m4</a></code><pre class="m4-pre">#      NEW_LINE automaton
 #      ___      ________
 # ---&gt;/ ε \---&gt;/ \n"LF" \---.
 #     \___/    \________/&lt;--'
@@ -680,7 +680,7 @@ char error[[]] =
 "divert(1)";
 divert(-1)</pre></div>
 <div title="příkaz" class="m4-usc">m4 <a href="../gfiles/rootb.m4" title="localhost">rootb.m4</a> <a href="../messages/string.c.m4" title="localhost">string.c.m4</a> <a href="../messages/code.m4" title="localhost">code.m4</a> <a href="../messages/messages.mc" title="localhost">messages.mc</a> &gt; <a href="../messages/string.c" title="localhost">string.c</a></div>
-<div class="m4-src"><code><span title="2020-01-06 16:21:10 +0100">b53eafe</span> <a href="../messages/string.c" title="localhost">string.c</a></code><pre>/*
+<div class="m4-src"><code><span title="2020-01-06 16:21:10 +0100">b53eafe</span> <a href="../messages/string.c" title="localhost">string.c</a></code><pre class="m4-pre">/*
  * DO NOT EDIT! This file is generated automatically!
  */
 
@@ -693,7 +693,7 @@ char error[] =
 Fronta číslo <code>1</code> obsahuje odstavce, fronta číslo <code>2</code> uzavírací značky HTML stránky.
 Navigační odkazy nemusí být nikde uloženy, jdou přímo na výstup.
 Zprávy typu <code>QUERY</code> a&nbsp;<code>WARNING</code> jsou zpracovány stejně jako zprávy typu <code>ERROR</code>.</p>
-<div class="m4-src"><code><span title="2020-01-06 16:21:10 +0100">b53eafe</span> <a href="../messages/messages.html.m4" title="localhost">messages.html.m4</a></code><pre># vim:ft=m4
+<div class="m4-src"><code><span title="2020-01-06 16:21:10 +0100">b53eafe</span> <a href="../messages/messages.html.m4" title="localhost">messages.html.m4</a></code><pre class="m4-pre"># vim:ft=m4
 
 # A → β
 # β
@@ -726,7 +726,7 @@ divert(2)dnl
 &lt;/html&gt;
 divert(-1)</pre></div>
 <div title="příkaz" class="m4-usc">m4 <a href="../gfiles/rootb.m4" title="localhost">rootb.m4</a> <a href="../messages/messages.html.m4" title="localhost">messages.html.m4</a> <a href="../messages/markup.m4" title="localhost">markup.m4</a> <a href="../messages/messages.mc" title="localhost">messages.mc</a> &gt; <a href="../messages/messages.html" title="localhost">messages.html</a></div>
-<div class="m4-src"><code><span title="2020-01-06 16:21:10 +0100">b53eafe</span> <a href="../messages/messages.html" title="localhost">messages.html</a></code><pre>&lt;!-- DO NOT EDIT! This file is generated automatically! --&gt;
+<div class="m4-src"><code><span title="2020-01-06 16:21:10 +0100">b53eafe</span> <a href="../messages/messages.html" title="localhost">messages.html</a></code><pre class="m4-pre">&lt;!-- DO NOT EDIT! This file is generated automatically! --&gt;
 &lt;!doctype html&gt;
 &lt;html lang="en"&gt;
 	&lt;meta charset="utf-8"&gt;
@@ -752,7 +752,7 @@ divert(-1)</pre></div>
 <h3 id="m4-vetveni-gramatikou"><a href="#m4-vetveni-gramatikou" title="⚓">A.11</a>&nbsp;&nbsp;<code>[]</code> Větvení gramatikou&nbsp;<a href="#m4-toc-vetveni-gramatikou" title="Obsah" class="m4-toc">☰</a></h3>
 <p>Příklad ukazuje <a href="#m4-nonterminals-for-branches">větvení gramatikou</a>, argumenty maker se ignorují.
 Vstupní neterminály se přepisují na terminály <code title="🐛">ERROR → 🐛</code>, <code title="🐜">QUERY → 🐜</code>, <code title="🐝">WARNING → 🐝</code>.</p>
-<div class="m4-src"><code><span title="2020-01-06 16:21:10 +0100">b53eafe</span> <a href="../messages/insect.txt.m4" title="localhost">insect.txt.m4</a></code><pre># A → β
+<div class="m4-src"><code><span title="2020-01-06 16:21:10 +0100">b53eafe</span> <a href="../messages/insect.txt.m4" title="localhost">insect.txt.m4</a></code><pre class="m4-pre"># A → β
 # β
 define([ERROR], [
 
@@ -768,14 +768,14 @@ define([ERROR_INSECT],   [🐛])
 define([QUERY_INSECT],   [🐜])
 define([WARNING_INSECT], [🐝])</pre></div>
 <div title="příkaz" class="m4-usc">m4 <a href="../gfiles/rootb.m4" title="localhost">rootb.m4</a> <a href="../messages/insect.txt.m4" title="localhost">insect.txt.m4</a> <a href="../messages/messages.mc" title="localhost">messages.mc</a> &gt; <a href="../messages/insect.txt" title="localhost">insect.txt</a></div>
-<div class="m4-src"><code><span title="2020-01-06 16:21:10 +0100">b53eafe</span> <a href="../messages/insect.txt" title="localhost">insect.txt</a></code><pre>🐛🐜🐛🐝🐛🐝</pre></div>
+<div class="m4-src"><code><span title="2020-01-06 16:21:10 +0100">b53eafe</span> <a href="../messages/insect.txt" title="localhost">insect.txt</a></code><pre class="m4-pre">🐛🐜🐛🐝🐛🐝</pre></div>
 <h3 id="m4-json-generujici-automat"><a href="#m4-json-generujici-automat" title="⚓">A.12</a>&nbsp;&nbsp;<code>[]</code> JSON – generující automat&nbsp;<a href="#m4-toc-json-generujici-automat" title="Obsah" class="m4-toc">☰</a></h3>
 <p>Příklad používá dvě výstupní fronty a&nbsp;jeden generující automat.
 První chybová zpráva <code>ERROR([…])</code> ve stavu <code>ERROR</code> vygeneruje záhlaví se závorkami a&nbsp;vypíše na výstup první záznam.
 Automat přejde do stavu <code>NEXT_ITEM</code> což je <abbr title="takové pravidlo se používá jako pravá strana jiného přepisovacího pravidla"><code>β</code> pravidlo</abbr>.
 Následující chybové zprávy ve stavu <code>NEXT_ITEM</code> pouze vypisují na výstup jednotlivé záznamy.
 Na závěr výstupní fronty číslo <code>1</code> a&nbsp;<code>2</code> vypíšou znaky <code>]</code> a&nbsp;<code>}}</code> čímž zakončí výsledný JSON.</p>
-<div class="m4-src"><code><span title="2020-01-06 16:21:10 +0100">b53eafe</span> <a href="../messages/atm.json.m4" title="localhost">atm.json.m4</a></code><pre>#      _______      ___________
+<div class="m4-src"><code><span title="2020-01-06 16:21:10 +0100">b53eafe</span> <a href="../messages/atm.json.m4" title="localhost">atm.json.m4</a></code><pre class="m4-pre">#      _______      ___________
 # ---&gt;/ ERROR \---&gt;/ NEXT_ITEM \---.
 #     \_______/    \___________/&lt;--'
 
@@ -808,7 +808,7 @@ divert(2)dnl
 }}
 divert(-1)</pre></div>
 <div title="příkaz" class="m4-usc">m4 <a href="../gfiles/rootb.m4" title="localhost">rootb.m4</a> <a href="../messages/atm.json.m4" title="localhost">atm.json.m4</a> <a href="../messages/code.m4" title="localhost">code.m4</a> <a href="../messages/messages.mc" title="localhost">messages.mc</a> &gt; <a href="../messages/atm.json" title="localhost">atm.json</a></div>
-<div class="m4-src"><code><span title="2020-01-06 16:21:10 +0100">b53eafe</span> <a href="../messages/atm.json" title="localhost">atm.json</a></code><pre>{"generating_automaton": {
+<div class="m4-src"><code><span title="2020-01-06 16:21:10 +0100">b53eafe</span> <a href="../messages/atm.json" title="localhost">atm.json</a></code><pre class="m4-pre">{"generating_automaton": {
 	"_comment": "DO NOT EDIT! This file is generated automatically!",
 	"error": [
 		{"COMPLEX": "!\"#$%&amp;'()*+,-./:;&lt;=&gt;?@[\\]^_`{|}~"},
@@ -824,14 +824,14 @@ Abychom se vyhnuli zmatku, pojmenujeme si fronty a&nbsp;místo čísel použív�
 <p>Abychom nemuseli definovat podobná pravidla, zkopírujeme si pravou stranu <code>ERROR</code><br>(je to také <abbr title="takové pravidlo se používá jako pravá strana jiného přepisovacího pravidla"><code>β</code> pravidlo</abbr>) do pravé strany pravidel <code>QUERY</code> a&nbsp;<code>WARNING</code>.
 Proměnná <code>$0</code> se přepíše na jméno makra a&nbsp;zřetězí se s&nbsp;dalším symbolem.
 Nově vzniklý neterminál se přepíše na odpovídající terminální symbol (číslo fronty nebo jméno).</p>
-<div class="m4-src"><pre id="m4-nonterminals-for-branches" title="větvení gramatikou v M4">$0_QU → ERROR_QU → 2
+<div id="m4-nonterminals-for-branches" title="větvení gramatikou v M4" class="m4-src"><pre class="m4-pre">$0_QU → ERROR_QU → 2
 $0_END → ERROR_END → 3
 $0_NAME → ERROR_NAME → error
 $0_QU → QUERY_QU → 0
 $0_END → QUERY_END → 1
 $0_NAME → QUERY_NAME → query
 …</pre></div>
-<div class="m4-src"><code><span title="2020-01-06 16:21:10 +0100">b53eafe</span> <a href="../messages/qnames.json.m4" title="localhost">qnames.json.m4</a></code><pre># DO NOT WRITE INDEXES MANUALLY, use counter!
+<div class="m4-src"><code><span title="2020-01-06 16:21:10 +0100">b53eafe</span> <a href="../messages/qnames.json.m4" title="localhost">qnames.json.m4</a></code><pre class="m4-pre"># DO NOT WRITE INDEXES MANUALLY, use counter!
 define([QUERY_QU],     0)
 define([QUERY_END],    1)
 define([ERROR_QU],     2)
@@ -884,7 +884,7 @@ divert(LAST_QUEUE)
 }}
 divert(-1)</pre></div>
 <div title="příkaz" class="m4-usc">m4 <a href="../gfiles/rootb.m4" title="localhost">rootb.m4</a> <a href="../messages/qnames.json.m4" title="localhost">qnames.json.m4</a> <a href="../messages/code.m4" title="localhost">code.m4</a> <a href="../messages/messages.mc" title="localhost">messages.mc</a> &gt; <a href="../messages/qnames.json" title="localhost">qnames.json</a></div>
-<div class="m4-src"><code><span title="2020-01-06 16:21:10 +0100">b53eafe</span> <a href="../messages/qnames.json" title="localhost">qnames.json</a></code><pre>{"queue_names": {
+<div class="m4-src"><code><span title="2020-01-06 16:21:10 +0100">b53eafe</span> <a href="../messages/qnames.json" title="localhost">qnames.json</a></code><pre class="m4-pre">{"queue_names": {
 	"_comment": "DO NOT EDIT! This file is generated automatically!",
 	"query": [
 		{"READABLE": "Is badly written M4 code readable [N/y]?"}
@@ -904,7 +904,7 @@ divert(-1)</pre></div>
 Indexy je proto vhodné generovat.
 Můžeme pak používat prakticky neomezený počet front.
 Následující příklad ukazuje, jak se tyto indexy generují.</p>
-<div class="m4-src"><code><span title="2020-01-06 16:21:10 +0100">b53eafe</span> <a href="../messages/queues.m4" title="localhost">queues.m4</a></code><pre># defines a counter for output queues
+<div class="m4-src"><code><span title="2020-01-06 16:21:10 +0100">b53eafe</span> <a href="../messages/queues.m4" title="localhost">queues.m4</a></code><pre class="m4-pre"># defines a counter for output queues
 # A → β
 define([QUEUE_INDEX], defn([COUNT_UP]))
 
@@ -927,7 +927,7 @@ define([LAST_QUEUE],   QUEUE_INDEX)
 define([WARNING_NAME], [warning])
 define([ERROR_NAME],   [error])
 define([QUERY_NAME],   [query])</pre></div>
-<div class="m4-src"><code><span title="2020-01-06 16:21:10 +0100">b53eafe</span> <a href="../messages/messages.json.m4" title="localhost">messages.json.m4</a></code><pre>#      _________      ___________
+<div class="m4-src"><code><span title="2020-01-06 16:21:10 +0100">b53eafe</span> <a href="../messages/messages.json.m4" title="localhost">messages.json.m4</a></code><pre class="m4-pre">#      _________      ___________
 # ---&gt;/  ERROR  \---&gt;/ NEXT_ITEM \---.
 #     |  QUERY  |    \___________/&lt;--'
 #     \_WARNING_/
@@ -966,7 +966,7 @@ divert(LAST_QUEUE)
 }}
 divert(-1)</pre></div>
 <div title="příkaz" class="m4-usc">m4 <a href="../gfiles/rootb.m4" title="localhost">rootb.m4</a> <a href="../messages/queues.m4" title="localhost">queues.m4</a> <a href="../messages/messages.json.m4" title="localhost">messages.json.m4</a> <a href="../messages/code.m4" title="localhost">code.m4</a> <a href="../messages/messages.mc" title="localhost">messages.mc</a> &gt; <a href="../messages/messages.json" title="localhost">messages.json</a></div>
-<div class="m4-src"><code><span title="2020-01-06 16:21:10 +0100">b53eafe</span> <a href="../messages/messages.json" title="localhost">messages.json</a></code><pre>{"messages": {
+<div class="m4-src"><code><span title="2020-01-06 16:21:10 +0100">b53eafe</span> <a href="../messages/messages.json" title="localhost">messages.json</a></code><pre class="m4-pre">{"messages": {
 	"_comment": "DO NOT EDIT! This file is generated automatically!",
 	"query": [
 		{"READABLE": "Is badly written M4 code readable [N/y]?"}
@@ -985,7 +985,7 @@ divert(-1)</pre></div>
 <p>Příklad používá tři automaty a&nbsp;dvě výstupní fronty číslo <code>2</code> a&nbsp;<code>4</code> definované v&nbsp;odděleném souboru.
 Názvy INI sekcí jsou generovány řetězením symbolů.
 Příklad používá stejný soubor pro výstupní fronty jako <a href="#m4-json-generovane-indexy-front" title="[] JSON – generované indexy front">příklad</a> pro generování JSON.</p>
-<div class="m4-src"><code><span title="2020-01-17 01:43:51 +0100">c145bef</span> <a href="../messages/messages.ini.m4" title="localhost">messages.ini.m4</a></code><pre>#      _________      ___________
+<div class="m4-src"><code><span title="2020-01-17 01:43:51 +0100">c145bef</span> <a href="../messages/messages.ini.m4" title="localhost">messages.ini.m4</a></code><pre class="m4-pre">#      _________      ___________
 # ---&gt;/  ERROR  \---&gt;/ NEXT_ITEM \---.
 #     |  QUERY  |    \___________/&lt;--'
 #     \_WARNING_/
@@ -1019,7 +1019,7 @@ divert(0)dnl
 ; DONTE()
 divert(-1)</pre></div>
 <div title="příkaz" class="m4-usc">m4 <a href="../gfiles/rootb.m4" title="localhost">rootb.m4</a> <a href="../messages/messages.ini.m4" title="localhost">messages.ini.m4</a> <a href="../messages/queues.m4" title="localhost">queues.m4</a> <a href="../messages/code.m4" title="localhost">code.m4</a> <a href="../messages/messages.mc" title="localhost">messages.mc</a> &gt; <a href="../messages/messages.ini" title="localhost">messages.ini</a></div>
-<div class="m4-src"><code><span title="2020-01-06 16:21:10 +0100">b53eafe</span> <a href="../messages/messages.ini" title="localhost">messages.ini</a></code><pre>; DO NOT EDIT! This file is generated automatically!
+<div class="m4-src"><code><span title="2020-01-06 16:21:10 +0100">b53eafe</span> <a href="../messages/messages.ini" title="localhost">messages.ini</a></code><pre class="m4-pre">; DO NOT EDIT! This file is generated automatically!
 
 [query]
 READABLE="Is badly written M4 code readable [N/y]?"
@@ -1034,7 +1034,7 @@ ADDICTIVE="Programming in M4 is addictive!"
 NO_ERRORS="No other errors detected."</pre></div>
 <h3 id="m4-xml-smisene-zpravy"><a href="#m4-xml-smisene-zpravy" title="⚓">A.14</a>&nbsp;&nbsp;<code>[]</code> XML – smíšené zprávy&nbsp;<a href="#m4-toc-xml-smisene-zpravy" title="Obsah" class="m4-toc">☰</a></h3>
 <p>Příklad používá jednu výstupní frontu číslo <code>1</code> pro uzavírací značku <code>&lt;/messages&gt;</code>.</p>
-<div class="m4-src"><code><span title="2020-01-06 16:21:10 +0100">b53eafe</span> <a href="../messages/mixed.xml.m4" title="localhost">mixed.xml.m4</a></code><pre># A → β
+<div class="m4-src"><code><span title="2020-01-06 16:21:10 +0100">b53eafe</span> <a href="../messages/mixed.xml.m4" title="localhost">mixed.xml.m4</a></code><pre class="m4-pre"># A → β
 # β
 define([ERROR], [
 
@@ -1058,7 +1058,7 @@ divert(1)dnl
 &lt;/messages&gt;
 divert(-1)</pre></div>
 <div title="příkaz" class="m4-usc">m4 <a href="../gfiles/rootb.m4" title="localhost">rootb.m4</a> <a href="../messages/queues.m4" title="localhost">queues.m4</a> <a href="../messages/mixed.xml.m4" title="localhost">mixed.xml.m4</a> <a href="../messages/markup.m4" title="localhost">markup.m4</a> <a href="../messages/messages.mc" title="localhost">messages.mc</a> &gt; <a href="../messages/mixed.xml" title="localhost">mixed.xml</a></div>
-<div class="m4-src"><code><span title="2020-01-06 16:21:10 +0100">b53eafe</span> <a href="../messages/mixed.xml" title="localhost">mixed.xml</a></code><pre>&lt;!-- DO NOT EDIT! This file is generated automatically! --&gt;
+<div class="m4-src"><code><span title="2020-01-06 16:21:10 +0100">b53eafe</span> <a href="../messages/mixed.xml" title="localhost">mixed.xml</a></code><pre class="m4-pre">&lt;!-- DO NOT EDIT! This file is generated automatically! --&gt;
 &lt;?xml version="1.0" encoding="utf-8"?&gt;
 &lt;messages&gt;
 	&lt;error&gt;
@@ -1088,7 +1088,7 @@ divert(-1)</pre></div>
 &lt;/messages&gt;</pre></div>
 <h3 id="m4-xml-oddelene-zpravy"><a href="#m4-xml-oddelene-zpravy" title="⚓">A.15</a>&nbsp;&nbsp;<code>[]</code> XML – oddělené zprávy&nbsp;<a href="#m4-toc-xml-oddelene-zpravy" title="Obsah" class="m4-toc">☰</a></h3>
 <p>Příklad seskupuje zprávy podle jejich typu pomocí výstupních front.</p>
-<div class="m4-src"><code><span title="2020-01-06 16:21:10 +0100">b53eafe</span> <a href="../messages/messages.xml.m4" title="localhost">messages.xml.m4</a></code><pre># A → β
+<div class="m4-src"><code><span title="2020-01-06 16:21:10 +0100">b53eafe</span> <a href="../messages/messages.xml.m4" title="localhost">messages.xml.m4</a></code><pre class="m4-pre"># A → β
 # β
 define([ERROR], [
 
@@ -1129,7 +1129,7 @@ divert(LAST_QUEUE)dnl
 &lt;/messages&gt;
 divert(-1)</pre></div>
 <div title="příkaz" class="m4-usc">m4 <a href="../gfiles/rootb.m4" title="localhost">rootb.m4</a> <a href="../messages/queues.m4" title="localhost">queues.m4</a> <a href="../messages/messages.xml.m4" title="localhost">messages.xml.m4</a> <a href="../messages/markup.m4" title="localhost">markup.m4</a> <a href="../messages/messages.mc" title="localhost">messages.mc</a> &gt; <a href="../messages/messages.xml" title="localhost">messages.xml</a></div>
-<div class="m4-src"><code><span title="2020-01-06 16:21:10 +0100">b53eafe</span> <a href="../messages/messages.xml" title="localhost">messages.xml</a></code><pre>&lt;!-- DO NOT EDIT! This file is generated automatically! --&gt;
+<div class="m4-src"><code><span title="2020-01-06 16:21:10 +0100">b53eafe</span> <a href="../messages/messages.xml" title="localhost">messages.xml</a></code><pre class="m4-pre">&lt;!-- DO NOT EDIT! This file is generated automatically! --&gt;
 &lt;?xml version="1.0" encoding="utf-8"?&gt;
 &lt;messages&gt;
 	&lt;query&gt;
@@ -1164,7 +1164,7 @@ divert(-1)</pre></div>
 	&lt;/warning&gt;
 &lt;/messages&gt;</pre></div>
 <h3 id="m4-bash-cmd-echo-dretezecd"><a href="#m4-bash-cmd-echo-dretezecd" title="⚓">A.16</a>&nbsp;&nbsp;<code>[]</code> Bash <code>~]$ echo &quot;řetězec&quot;</code>&nbsp;<a href="#m4-toc-bash-cmd-echo-dretezecd" title="Obsah" class="m4-toc">☰</a></h3>
-<div class="m4-src"><code><span title="2020-01-06 16:21:10 +0100">b53eafe</span> <a href="../messages/doubleq.sh.m4" title="localhost">doubleq.sh.m4</a></code><pre># A → β
+<div class="m4-src"><code><span title="2020-01-06 16:21:10 +0100">b53eafe</span> <a href="../messages/doubleq.sh.m4" title="localhost">doubleq.sh.m4</a></code><pre class="m4-pre"># A → β
 # β
 define([ERROR], [
 
@@ -1184,7 +1184,7 @@ divert(0)dnl
 
 divert(-1)</pre></div>
 <div title="příkaz" class="m4-usc">m4 <a href="../gfiles/rootb.m4" title="localhost">rootb.m4</a> <a href="../messages/doubleq.sh.m4" title="localhost">doubleq.sh.m4</a> <a href="../messages/doubleq.m4" title="localhost">doubleq.m4</a> <a href="../messages/messages.mc" title="localhost">messages.mc</a> &gt; <a href="../messages/doubleq.sh" title="localhost">doubleq.sh</a></div>
-<div class="m4-src"><code><span title="2020-01-10 13:31:12 +0100">d4b7733</span> <a href="../messages/doubleq.sh" title="localhost">doubleq.sh</a></code><pre>#!/bin/bash
+<div class="m4-src"><code><span title="2020-01-10 13:31:12 +0100">d4b7733</span> <a href="../messages/doubleq.sh" title="localhost">doubleq.sh</a></code><pre class="m4-pre">#!/bin/bash
 #
 # DO NOT EDIT! This file is generated automatically!
 
@@ -1195,7 +1195,7 @@ echo "Programming in M4 is addictive"\!""
 echo "It's not a language fault"\!""
 echo "No other errors detected."</pre></div>
 <h3 id="m4-bash-cmd-echo-aretezeca"><a href="#m4-bash-cmd-echo-aretezeca" title="⚓">A.17</a>&nbsp;&nbsp;<code>[]</code> Bash <code>~]$ echo 'řetězec'</code>&nbsp;<a href="#m4-toc-bash-cmd-echo-aretezeca" title="Obsah" class="m4-toc">☰</a></h3>
-<div class="m4-src"><code><span title="2020-01-06 16:21:10 +0100">b53eafe</span> <a href="../messages/apost.sh.m4" title="localhost">apost.sh.m4</a></code><pre># A → β
+<div class="m4-src"><code><span title="2020-01-06 16:21:10 +0100">b53eafe</span> <a href="../messages/apost.sh.m4" title="localhost">apost.sh.m4</a></code><pre class="m4-pre"># A → β
 # β
 define([ERROR], [
 
@@ -1215,7 +1215,7 @@ divert(0)dnl
 
 divert(-1)</pre></div>
 <div title="příkaz" class="m4-usc">m4 <a href="../gfiles/rootb.m4" title="localhost">rootb.m4</a> <a href="../messages/apost.sh.m4" title="localhost">apost.sh.m4</a> <a href="../messages/apost.m4" title="localhost">apost.m4</a> <a href="../messages/messages.mc" title="localhost">messages.mc</a> &gt; <a href="../messages/apost.sh" title="localhost">apost.sh</a></div>
-<div class="m4-src"><code><span title="2020-01-06 16:21:10 +0100">b53eafe</span> <a href="../messages/apost.sh" title="localhost">apost.sh</a></code><pre>#!/bin/bash
+<div class="m4-src"><code><span title="2020-01-06 16:21:10 +0100">b53eafe</span> <a href="../messages/apost.sh" title="localhost">apost.sh</a></code><pre class="m4-pre">#!/bin/bash
 #
 # DO NOT EDIT! This file is generated automatically!
 
@@ -1238,14 +1238,14 @@ Problematický znak <code>`</code> je skryt do makra <code>LQ()</code>.
 Apostrof <code>'</code> ve zdrojovém kódu ničemu nevadí.
 Apostrof uvnitř makra <code>ORD<del style="color:red"><span style="color:rgba(0,0,0,.75)">()</span></del></code> je skryt do makra <code>RQ()</code>.
 Všimněte si jmen funkcí <code>define ()</code> nebo <code>ifelse ()</code> a&nbsp;kde je expandován <code>SYMBOL</code>.</p>
-<div class="m4-src"><code><span title="2020-01-06 16:21:10 +0100">b53eafe</span> <a href="../preproc/file.c.m4" title="localhost">file.c.m4</a></code><pre># ORDinary and SAFe macros have different expansion:
+<div class="m4-src"><code><span title="2020-01-06 16:21:10 +0100">b53eafe</span> <a href="../preproc/file.c.m4" title="localhost">file.c.m4</a></code><pre class="m4-pre"># ORDinary and SAFe macros have different expansion:
 
 # A → β
 define(`ORD', `$0_M4 RQ()SYMBOL`'RQ()')
 define(`SAF', `ifelse(`$#', `0', ``$0'', `($1) * ($1)	/* $0_M4 SYMBOL */')')
 
 divert(0)dnl</pre></div>
-<div class="m4-src"><code><span title="2020-01-06 16:21:10 +0100">b53eafe</span> <a href="../preproc/file.c" title="localhost">file.c</a></code><pre>/*
+<div class="m4-src"><code><span title="2020-01-06 16:21:10 +0100">b53eafe</span> <a href="../preproc/file.c" title="localhost">file.c</a></code><pre class="m4-pre">/*
  * DONTE()
  */
 
@@ -1277,7 +1277,7 @@ int main(void)
 	return 0;
 }</pre></div>
 <div title="příkaz" class="m4-usc">m4 -DSYMBOL='Hello, world!' <a href="../gfiles/rootq.m4" title="localhost">rootq.m4</a> <a href="../preproc/file.c.m4" title="localhost">file.c.m4</a> <a href="../preproc/file.c" title="localhost">file.c</a> &gt; <a href="../preproc/preproc.file.c" title="localhost">preproc.file.c</a></div>
-<div class="m4-src"><code><span title="2020-01-06 16:21:10 +0100">b53eafe</span> <a href="../preproc/preproc.file.c" title="localhost">preproc.file.c</a></code><pre>/*
+<div class="m4-src"><code><span title="2020-01-06 16:21:10 +0100">b53eafe</span> <a href="../preproc/preproc.file.c" title="localhost">preproc.file.c</a></code><pre class="m4-pre">/*
  * DO NOT EDIT! This file is generated automatically!
  */
 
@@ -1312,10 +1312,10 @@ int main(void)
 <p>CSS používá znak <code>#</code> pro kódy barev, což je také začátek jednořádkového M4 komentáře.
 Klíčové slovo <code>changecom(/*,*/)</code> nastaví víceřádkový komentář <code>/* … */</code> a&nbsp;přepíše se na <abbr title="epsilon – prázdný symbol"><code>ε</code></abbr>.
 Komentáře se vypínají stejným klíčovým slovem <code>changecom</code> bez parametrů.</p>
-<div class="m4-src"><code><span title="2020-02-11 02:32:35 +0100">9e13656</span> <a href="../preproc/foo.css" title="localhost">foo.css</a></code><pre title="soubor vložený makro procesorem">.foo {
+<div class="m4-src"><code><span title="2020-02-11 02:32:35 +0100">9e13656</span> <a href="../preproc/foo.css" title="localhost">foo.css</a></code><pre class="m4-pre" title="soubor vložený makro procesorem">.foo {
 	border: WIDTH 2px 1px;
 }</pre></div>
-<div class="m4-src"><code><span title="2020-02-11 02:32:35 +0100">9e13656</span> <a href="../preproc/file.css.m4" title="localhost">file.css.m4</a></code><pre># CSS preprocessor
+<div class="m4-src"><code><span title="2020-02-11 02:32:35 +0100">9e13656</span> <a href="../preproc/file.css.m4" title="localhost">file.css.m4</a></code><pre class="m4-pre"># CSS preprocessor
 
 define(`WIDTH', `3px')
 define(`TOP', `#f00')
@@ -1326,7 +1326,7 @@ define(`IMAGE', `m4tux.png')
 define(`PATH', `https://SITE/IMAGE')
 
 divert(0)dnl</pre></div>
-<div class="m4-src"><code><span title="2020-02-11 02:32:35 +0100">9e13656</span> <a href="../preproc/file.css" title="localhost">file.css</a></code><pre>/* DONTE() */changecom(/*,*/)
+<div class="m4-src"><code><span title="2020-02-11 02:32:35 +0100">9e13656</span> <a href="../preproc/file.css" title="localhost">file.css</a></code><pre class="m4-pre">/* DONTE() */changecom(/*,*/)
 /* DONTE() */
 
 include(`foo.css')dnl
@@ -1340,7 +1340,7 @@ include(`foo.css')dnl
 /* DONTE() */
 changecom/* DONTE() */changecom(/*,*/)</pre></div>
 <div title="příkaz" class="m4-usc">m4 -DSYMBOL='Hello, world!' <a href="../gfiles/rootq.m4" title="localhost">rootq.m4</a> <a href="../preproc/file.css.m4" title="localhost">file.css.m4</a> <a href="../preproc/file.css" title="localhost">file.css</a> &gt; <a href="../preproc/preproc.file.css" title="localhost">preproc.file.css</a></div>
-<div class="m4-src"><code><span title="2020-02-11 02:32:35 +0100">9e13656</span> <a href="../preproc/preproc.file.css" title="localhost">preproc.file.css</a></code><pre>/* DO NOT EDIT! This file is generated automatically! */
+<div class="m4-src"><code><span title="2020-02-11 02:32:35 +0100">9e13656</span> <a href="../preproc/preproc.file.css" title="localhost">preproc.file.css</a></code><pre class="m4-pre">/* DO NOT EDIT! This file is generated automatically! */
 /* DONTE() */
 
 .foo {
@@ -1358,7 +1358,7 @@ changecom/* DONTE() */changecom(/*,*/)</pre></div>
 <h3 id="m4-bash-netisknutelne-znaky"><a href="#m4-bash-netisknutelne-znaky" title="⚓">B.3</a>&nbsp;&nbsp;<strong><code>␂␆</code></strong> Bash – netisknutelné znaky&nbsp;<a href="#m4-toc-bash-netisknutelne-znaky" title="Obsah" class="m4-toc">☰</a></h3>
 <p>Bash používá oba znaky, <code>`</code> a <code>[</code>.
 Nechceme-li je skrývat do makra <code>LQ()</code> nebo <code>LB()</code>, můžeme použít pro <a href="#m4-rizeni-expanze-neterminalu" title="Řízení expanze neterminálů">řízení expanze neterminálů</a> netisknutelné znaky, viz. příklad:</p>
-<div class="m4-src"><code><span title="2020-01-06 16:21:10 +0100">b53eafe</span> <a href="../preproc/file.sh.m4" title="localhost">file.sh.m4</a></code><pre># vim:mps+=<strong>␂</strong>\:<strong>␆</strong>
+<div class="m4-src"><code><span title="2020-01-06 16:21:10 +0100">b53eafe</span> <a href="../preproc/file.sh.m4" title="localhost">file.sh.m4</a></code><pre class="m4-pre"># vim:mps+=<strong>␂</strong>\:<strong>␆</strong>
 
 # A → β
 define(<strong>␂</strong>LEFT<strong>␆</strong>, <strong>␂</strong>$<strong>␂</strong>#<strong>␆</strong><strong>␆</strong>)
@@ -1366,7 +1366,7 @@ define(<strong>␂</strong>OP<strong>␆</strong>, <strong>␂</strong>-eq<stron
 define(<strong>␂</strong>RIGHT<strong>␆</strong>, <strong>␂</strong>0<strong>␆</strong>)
 
 divert(0)dnl</pre></div>
-<div class="m4-src"><code><span title="2020-01-06 16:21:10 +0100">b53eafe</span> <a href="../preproc/file.sh" title="localhost">file.sh</a></code><pre>#!/bin/bash
+<div class="m4-src"><code><span title="2020-01-06 16:21:10 +0100">b53eafe</span> <a href="../preproc/file.sh" title="localhost">file.sh</a></code><pre class="m4-pre">#!/bin/bash
 #
 <strong>␂</strong>#<strong>␆</strong> DONTE()
 
@@ -1377,7 +1377,7 @@ then
 	echo $HELLO
 fi</pre></div>
 <div title="příkaz" class="m4-usc">m4 -DSYMBOL='Hello, world!' <a href="../gfiles/rootn.m4" title="localhost">rootn.m4</a> <a href="../preproc/file.sh.m4" title="localhost">file.sh.m4</a> <a href="../preproc/file.sh" title="localhost">file.sh</a> &gt; <a href="../preproc/preproc.file.sh" title="localhost">preproc.file.sh</a></div>
-<div class="m4-src"><code><span title="2020-01-06 16:21:10 +0100">b53eafe</span> <a href="../preproc/preproc.file.sh" title="localhost">preproc.file.sh</a></code><pre>#!/bin/bash
+<div class="m4-src"><code><span title="2020-01-06 16:21:10 +0100">b53eafe</span> <a href="../preproc/preproc.file.sh" title="localhost">preproc.file.sh</a></code><pre class="m4-pre">#!/bin/bash
 #
 # DO NOT EDIT! This file is generated automatically!
 
@@ -1396,7 +1396,7 @@ fi</pre></div>
 <h3 id="m4-json-leva-zavorka-b"><a href="#m4-json-leva-zavorka-b" title="⚓">C.1</a>&nbsp;&nbsp;<code>[]</code> JSON – levá závorka <code>[</code>&nbsp;<a href="#m4-toc-json-leva-zavorka-b" title="Obsah" class="m4-toc">☰</a></h3>
 <p>Uvnitř hranatých závorek <code>[… se neterminály neexpandují …]</code>.
 Proto je levá hranatá závorka <code>[</code> nahrazena makrem <code>LB()</code> z&nbsp;kořenového souboru.</p>
-<div class="m4-src"><code><span title="2020-01-06 16:21:10 +0100">b53eafe</span> <a href="../hello_world/json.m4" title="localhost">json.m4</a></code><pre># JSON
+<div class="m4-src"><code><span title="2020-01-06 16:21:10 +0100">b53eafe</span> <a href="../hello_world/json.m4" title="localhost">json.m4</a></code><pre class="m4-pre"># JSON
 
 divert(0)dnl
 {"foo": {
@@ -1406,7 +1406,7 @@ divert(0)dnl
 	]
 }}</pre></div>
 <div title="příkaz" class="m4-usc">m4 -DSYMBOL='Hello, world!' <a href="../gfiles/rootb.m4" title="localhost">rootb.m4</a> <a href="../hello_world/json.m4" title="localhost">json.m4</a> &gt; <a href="../hello_world/hello_world.json" title="localhost">hello_world.json</a></div>
-<div class="m4-src"><code><span title="2020-01-06 16:21:10 +0100">b53eafe</span> <a href="../hello_world/hello_world.json" title="localhost">hello_world.json</a></code><pre>{"foo": {
+<div class="m4-src"><code><span title="2020-01-06 16:21:10 +0100">b53eafe</span> <a href="../hello_world/hello_world.json" title="localhost">hello_world.json</a></code><pre class="m4-pre">{"foo": {
 	"_comment": "DO NOT EDIT! This file is generated automatically!",
 	"bar": [
 		{"baz": "Hello, world!"}
@@ -1416,7 +1416,7 @@ divert(0)dnl
 <p>Počítadla <code>COUNT_UP</code> a&nbsp;<code>COUNT_DOWN</code> jsou definována v&nbsp;kořenovém souboru.
 Neterminály<br><code>[… uvnitř závorek …]</code> nebudou expandovány, pouze se odeberou vnější závorky.
 Nutno použít makro <code>LB()</code> z&nbsp;kořenového souboru.</p>
-<div class="m4-src"><code><span title="2020-01-06 16:21:10 +0100">b53eafe</span> <a href="../hello_world/sh.m4" title="localhost">sh.m4</a></code><pre># A → β
+<div class="m4-src"><code><span title="2020-01-06 16:21:10 +0100">b53eafe</span> <a href="../hello_world/sh.m4" title="localhost">sh.m4</a></code><pre class="m4-pre"># A → β
 define([LEFT], [$[#]])
 define([OP], [-eq])
 define([RIGHT], [0])
@@ -1450,7 +1450,7 @@ then
 	echo '__COUNTUP__] SYMBOL LB()__COUNTDN__'
 fi</pre></div>
 <div title="příkaz" class="m4-usc">m4 -DSYMBOL='Hello, world!' <a href="../gfiles/rootb.m4" title="localhost">rootb.m4</a> <a href="../hello_world/sh.m4" title="localhost">sh.m4</a> &gt; <a href="../hello_world/hello_world.sh" title="localhost">hello_world.sh</a></div>
-<div class="m4-src"><code><span title="2020-01-06 16:21:10 +0100">b53eafe</span> <a href="../hello_world/hello_world.sh" title="localhost">hello_world.sh</a></code><pre>#!/bin/bash
+<div class="m4-src"><code><span title="2020-01-06 16:21:10 +0100">b53eafe</span> <a href="../hello_world/hello_world.sh" title="localhost">hello_world.sh</a></code><pre class="m4-pre">#!/bin/bash
 #
 # DO NOT EDIT! This file is generated automatically!
 
@@ -1473,7 +1473,7 @@ fi</pre></div>
 Závorky kolem znaku komentáře <code>[#]</code> vypnou jeho původní význam, stejně jako vypnou význam <em>silnějšího</em> M4 komentáře <code>[dnl]</code>.
 Vypnou také původní význam čárky <code>[,]</code> jako oddělovače argumentů maker.
 Tyto symboly se stanou obyčejnými terminálními symboly bez jakéhokoliv vedlejšího efektu.</p>
-<div class="m4-src"><code><span title="2020-02-13 14:50:23 +0100">ce5cd99</span> <a href="../hello_world/h.m4" title="localhost">h.m4</a></code><pre># A → β
+<div class="m4-src"><code><span title="2020-02-13 14:50:23 +0100">ce5cd99</span> <a href="../hello_world/h.m4" title="localhost">h.m4</a></code><pre class="m4-pre"># A → β
 define([HELLO], [HELLO_WORLD])
 
 divert(0)dnl
@@ -1488,7 +1488,7 @@ divert(0)dnl
 
 [#]endif /* __[]HELLO[]_H */</pre></div>
 <div title="příkaz" class="m4-usc">m4 -DSYMBOL='Hello, world!' <a href="../gfiles/rootb.m4" title="localhost">rootb.m4</a> <a href="../hello_world/h.m4" title="localhost">h.m4</a> &gt; <a href="../hello_world/hello_world.h" title="localhost">hello_world.h</a></div>
-<div class="m4-src"><code><span title="2020-02-13 14:51:13 +0100">6b10c6c</span> <a href="../hello_world/hello_world.h" title="localhost">hello_world.h</a></code><pre>/*
+<div class="m4-src"><code><span title="2020-02-13 14:51:13 +0100">6b10c6c</span> <a href="../hello_world/hello_world.h" title="localhost">hello_world.h</a></code><pre class="m4-pre">/*
  * dnl DO NOT EDIT! This file is generated automatically!
  */
 
@@ -1501,7 +1501,7 @@ divert(0)dnl
 <h3 id="m4-awk-priklady-bezpecnejsich-maker"><a href="#m4-awk-priklady-bezpecnejsich-maker" title="⚓">C.4</a>&nbsp;&nbsp;<code>[]</code> AWK – příklady bezpečnějších maker&nbsp;<a href="#m4-toc-awk-priklady-bezpecnejsich-maker" title="Obsah" class="m4-toc">☰</a></h3>
 <p>Univerzální výstraha <code>DONTE</code> se ignoruje bez závorek, stejně jako <code>LB</code>, <code>RB</code>, …
 Taková makra explicitně vytváří vývojář skriptů, prohlédněte si kořenový soubor.</p>
-<div class="m4-src"><code><span title="2020-01-06 23:32:45 +0100">3a8a5dd</span> <a href="../hello_world/awk.m4" title="localhost">awk.m4</a></code><pre># AWK
+<div class="m4-src"><code><span title="2020-01-06 23:32:45 +0100">3a8a5dd</span> <a href="../hello_world/awk.m4" title="localhost">awk.m4</a></code><pre class="m4-pre"># AWK
 
 divert(0)dnl
 #!/bin/awk -f
@@ -1510,7 +1510,7 @@ divert(0)dnl
 
 BEGIN { print "DONTE[]() LB () LB() SYMBOL ]" }</pre></div>
 <div title="příkaz" class="m4-usc">m4 -DSYMBOL='Hello, world!' <a href="../gfiles/rootb.m4" title="localhost">rootb.m4</a> <a href="../hello_world/awk.m4" title="localhost">awk.m4</a> &gt; <a href="../hello_world/hello_world.awk" title="localhost">hello_world.awk</a></div>
-<div class="m4-src"><code><span title="2020-01-06 23:32:45 +0100">3a8a5dd</span> <a href="../hello_world/hello_world.awk" title="localhost">hello_world.awk</a></code><pre>#!/bin/awk -f
+<div class="m4-src"><code><span title="2020-01-06 23:32:45 +0100">3a8a5dd</span> <a href="../hello_world/hello_world.awk" title="localhost">hello_world.awk</a></code><pre class="m4-pre">#!/bin/awk -f
 #
 # DONTE() ---&gt; "DO NOT EDIT! This file is generated automatically!"
 
@@ -1545,15 +1545,15 @@ BEGIN { print "DONTE() LB () [ Hello, world! ]" }</pre></div>
 <ul><li>existující M4 kód je snadné proměnit ve zmatek (nutný dohled!)</li></ul></li>
 </ul>
 <script>
-var m4_src = document.getElementsByClassName("m4-src");
-for (var e of m4_src) {
-	var l = e.lastChild.innerHTML.split('\n').length + 1;
+var m4_pre = document.getElementsByClassName("m4-pre");
+for (var e of m4_pre) {
+	var l = e.innerHTML.split('\n').length;
 	var o = document.createElement("ol");
 
-	for (var i = 1; i < l; i++)
+	for (var i = 0; i < l; i++)
 		o.appendChild(document.createElement("li"));
 
-	e.appendChild(o);
+	e.parentElement.appendChild(o);
 }
 </script>
 </div>
