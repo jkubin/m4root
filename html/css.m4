@@ -142,7 +142,7 @@ border-bottom:1px dotted #000;
 CSS_CLASS_RULE_SET([], [src], [ ol], [
 
 font-size:.8em;
-left:-2.5em;
+left:-2.1em;
 line-height:1.1;
 padding-top:8px;
 position:absolute;
