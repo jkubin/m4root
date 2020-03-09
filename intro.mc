@@ -739,11 +739,9 @@ sed 's/LQ()/`'\''[LQ()]/g;s/[#]/`[#]'\''/g;s/\LT()[dnl]\GT()/`[dnl]'\''/g' any.s
 
 PARA([[dnl czech
 Při průchodu zdrojového kódu makro procesorem se makro CODE_M4([`'LQ()]) přepíše zpátky na původní znak CODE([LQ()]) a[]NB()prázdný pár CODE_M4([`']) je odstraněn.
-Použijeme-li pro LINK([řízení expanze neterminálů], [expansion_control]) hranaté závorky, skryjeme stejným způsobem levou CODE([LB()]) hranatou závorku.
 ],
 [dnl english: _next_language_
 When the source code is passed through the macro processor, the CODE_M4([`'LQ()]) macro is rewritten back to the original CODE([LQ()]) character and the empty pair CODE_M4([`']) is removed.
-If square brackets are used to control the expansion of nonterminals, the left CODE([LB()]) square bracket must be hidden in the same way.
 ]])
 
 
@@ -752,6 +750,13 @@ BRIDGEHEAD([dnl czech
 dnl english: _next_language_
 [CODE_M4([[]]) Square brackets],
 ])
+
+PARA([[dnl czech
+Použijeme-li pro LINK([řízení expanze neterminálů], [expansion_control]) hranaté závorky, skryjeme stejným způsobem levou CODE([LB()]) hranatou závorku.
+],
+[dnl english: _next_language_
+If square brackets are used to control the expansion of nonterminals, the left CODE([LB()]) square bracket must be hidden in the same way.
+]])
 
 COMMAND_USR(, defn([common_title_for_regex])[: []], [dnl
 sed 's/\LB()/[[]LB()]/g' any.src | m4 rootb.m4 leaf.m4 - | …
