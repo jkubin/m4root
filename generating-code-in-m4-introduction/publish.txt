@@ -13,8 +13,8 @@ The introductory part of the series contains its history, the basic principles o
 
 # shortcut for article: "+yG
 
-<!-- "Generating code in M4: introduction" __SOURCE([20200315-22:39:10, intro.mc, 5d9ca62, 5d9ca62]) -->
-<style>.m4-hx a:first-child{margin-right:0.5em}.m4-hx .m4-nav{visibility:hidden}.m4-nav{margin-left:0.7em}.m4-nav a{text-decoration:none}.m4-nav a:first-child{margin-right:0.5em}.m4-hx:hover .m4-nav{visibility:visible}.m4-dot{border-bottom:1px dotted #000;cursor:help}.m4-note::before{content:"\1f5b9";margin-right:.2em;font-size:1.5em}.urs .m4-note,.urs .m4-info,.urs .m4-excl,.urs .m4-warn{padding-top:.2em;padding-bottom:.4em}.m4-note ul{margin-bottom:0}ol.m4-refs a:first-child{text-decoration:none}p.m4-l2{padding-left:1em}.m4-un{text-decoration:underline}.m4-src{background:#fff;border-radius:4px;position:relative}.m4-src pre{background:none;position:relative}.m4-src code{border-radius:0 4px;border:1px solid #ddd;font-family:monospace,monospace;font-size:.7em;font-weight:bold;padding:2px 4px;position:absolute;right:0;top:0}.m4-src a{color:#333}.m4-src code::before{content:"git:";margin-right:.1em}.m4-src code span{border-bottom:1px dotted #000;cursor:help;margin-right:.6em}.m4-src ol{font-size:.8em;left:-2em;line-height:1.1;padding:9px 0;position:absolute;top:0}.m4-src ol li{margin:0;width:640px}.m4-src ol li:nth-child(even){background:#f5f5f5}.m4-usc,.m4-root{background:#fff;border-radius:4px;border:1px solid #ddd;color:#333;font-family:"Courier New",Courier,monospace;font-size:.8em;font-weight:bold;line-height:1.1;margin:0 0 11px;padding:8px}.m4-usc a,.m4-root a{color:#333}.m4-root::before{content:"~]# ";font-weight:normal}.m4-info::before{content:"\1f6c8";margin-right:.2em;font-size:1.5em}.m4-usc::before{content:"~]$ ";font-weight:normal}p.m4-l3{padding-left:2em}</style>
+<!-- "Generating code in M4: introduction" __SOURCE([20200315-23:23:29, intro.mc, 5d9ca62, 966fe28]) -->
+<style>.m4-hx a:first-child{margin-right:.5em}.m4-hx .m4-nav{visibility:hidden}.m4-nav{margin-left:.7em}.m4-nav a{text-decoration:none}.m4-nav a:first-child{margin-right:.5em}.m4-hx:hover .m4-nav{visibility:visible}.m4-dot{border-bottom:1px dotted #000;cursor:help}.m4-note::before{content:"\1f5b9";margin-right:.2em;font-size:1.5em}.urs .m4-note,.urs .m4-info,.urs .m4-excl,.urs .m4-warn{padding-top:.2em;padding-bottom:.4em}.m4-note ul{margin-bottom:0}ol.m4-refs a:first-child{margin-right:.3em;text-decoration:none}p.m4-l2{padding-left:1em}.m4-un{text-decoration:underline}.m4-src{background:#fff;border-radius:4px;position:relative}.m4-src pre{background:none;position:relative}.m4-src code{border-radius:0 4px;border:1px solid #ddd;font-family:monospace,monospace;font-size:.7em;font-weight:bold;padding:2px 4px;position:absolute;right:0;top:0}.m4-src a{color:#333}.m4-src code::before{content:"git:";margin-right:.1em}.m4-src code span{border-bottom:1px dotted #000;cursor:help;margin-right:.6em}.m4-src ol{font-size:.8em;left:-2em;line-height:1.1;padding:9px 0;position:absolute;top:0}.m4-src ol li{margin:0;width:640px}.m4-src ol li:nth-child(even){background:#f5f5f5}.m4-usc,.m4-root{background:#fff;border-radius:4px;border:1px solid #ddd;color:#333;font-family:"Courier New",Courier,monospace;font-size:.8em;font-weight:bold;line-height:1.1;margin:0 0 11px;padding:8px}.m4-usc a,.m4-root a{color:#333}.m4-root::before{content:"~]# ";font-weight:normal}.m4-info::before{content:"\1f6c8";margin-right:.2em;font-size:1.5em}.m4-usc::before{content:"~]$ ";font-weight:normal}p.m4-l3{padding-left:2em}</style>
 <h2 id="m4-toc">Content&nbsp;(<a href="../../clanky/generovani-kodu-v-m4-uvod/" title="Generování kódu v M4: úvod">Česká verze</a>)</h2>
 <p id="m4-toc-introduction"><a href="#m4-introduction">1&nbsp;&nbsp;Introduction</a></p>
 <p id="m4-toc-examples-for-readers" class="m4-l2"><a href="#m4-examples-for-readers">1.1&nbsp;&nbsp;Examples for readers</a></p>
@@ -329,31 +329,31 @@ In this way it is possible to gradually gain practice.</p>
 <!-- article references -->
 <h2 id="m4-refs" class="m4-hx"><a href="#m4-refs" title="⚓">6</a>References<sup class="m4-nav"><a href="#m4-toc-refs" title="Content">☰</a><a href="#m4-toc" title="Top">&#x1f845;</a></sup></h2>
 <ol class="m4-refs">
-<li><a href="#m4-ref1" title="link in the text">↑</a>&nbsp;<strong>Generating code in M4</strong>, multilingual template with examples for <a href="https://www.root.cz" title="Root.cz – information not only from the Linux world">www.root.cz</a><br>
+<li><a href="#m4-ref1" title="link in the text">↑</a><strong>Generating code in M4</strong>, multilingual template with examples for <a href="https://www.root.cz" title="Root.cz – information not only from the Linux world">www.root.cz</a><br>
 <a href="http://github.com/jkubin/m4root">http://github.com/jkubin/m4root</a></li>
-<li><a href="#m4-ref2" title="link in the text">↑</a>&nbsp;<strong>A&nbsp;General Purpose Macro-generator</strong>, Computer Journal 8, 3 (1965), 225–41<br>
+<li><a href="#m4-ref2" title="link in the text">↑</a><strong>A&nbsp;General Purpose Macro-generator</strong>, Computer Journal 8, 3 (1965), 225–41<br>
 <a href="http://dx.doi.org/10.1093/comjnl/8.3.225">http://dx.doi.org/10.1093/comjnl/8.3.225</a></li>
-<li><a href="#m4-ref3" title="link in the text">↑</a>&nbsp;<strong>RATFOR — A Preprocessor for a Rational Fortran</strong>, Brian W. Kernighan<br>
+<li><a href="#m4-ref3" title="link in the text">↑</a><strong>RATFOR — A Preprocessor for a Rational Fortran</strong>, Brian W. Kernighan<br>
 <a href="https://wolfram.schneider.org/bsd/7thEdManVol2/ratfor/ratfor.pdf">https://wolfram.schneider.org/bsd/7thEdManVol2/ratfor/ratfor.pdf</a></li>
-<li><a href="#m4-ref4" title="link in the text">↑</a>&nbsp;<strong>The M4 Macro Processor</strong>, Bell Laboratories (1977)<br>
+<li><a href="#m4-ref4" title="link in the text">↑</a><strong>The M4 Macro Processor</strong>, Bell Laboratories (1977)<br>
 <a href="https://wolfram.schneider.org/bsd/7thEdManVol2/m4/m4.pdf">https://wolfram.schneider.org/bsd/7thEdManVol2/m4/m4.pdf</a></li>
-<li><a href="#m4-ref5" title="link in the text">↑</a>&nbsp;<strong>Christopher Strachey</strong>, Computer Hope – Free computer help since 1998<br>
+<li><a href="#m4-ref5" title="link in the text">↑</a><strong>Christopher Strachey</strong>, Computer Hope – Free computer help since 1998<br>
 <a href="https://www.computerhope.com/people/christopher_strachey.htm">https://www.computerhope.com/people/christopher_strachey.htm</a></li>
-<li><a href="#m4-ref6" title="link in the text">↑</a>&nbsp;<strong>Dennis Ritchie</strong>, Zomrel tvorca Unixu a&nbsp;jazyka&nbsp;C<br>
+<li><a href="#m4-ref6" title="link in the text">↑</a><strong>Dennis Ritchie</strong>, Zomrel tvorca Unixu a&nbsp;jazyka&nbsp;C<br>
 <a href="https://pc.zoznam.sk/novinka/zomrel-tvorca-unixu-jazyka-c">https://pc.zoznam.sk/novinka/zomrel-tvorca-unixu-jazyka-c</a></li>
-<li><a href="#m4-ref7" title="link in the text">↑</a>&nbsp;<strong>Brian Kernighan</strong>, An Interview with Brian Kernighan<br>
+<li><a href="#m4-ref7" title="link in the text">↑</a><strong>Brian Kernighan</strong>, An Interview with Brian Kernighan<br>
 <a href="https://www.cs.cmu.edu/~mihaib/kernighan-interview/">https://www.cs.cmu.edu/~mihaib/kernighan-interview/</a></li>
-<li><a href="#m4-ref8" title="link in the text">↑</a>&nbsp;<strong>GNU M4 - GNU macro processor</strong>, Free Software Foundation<br>
+<li><a href="#m4-ref8" title="link in the text">↑</a><strong>GNU M4 - GNU macro processor</strong>, Free Software Foundation<br>
 <a href="https://www.gnu.org/software/m4/manual/">https://www.gnu.org/software/m4/manual/</a></li>
-<li><a href="#m4-ref9" title="link in the text">↑</a>&nbsp;<strong>Automata theory</strong>, From Wikipedia, the free encyclopedia<br>
+<li><a href="#m4-ref9" title="link in the text">↑</a><strong>Automata theory</strong>, From Wikipedia, the free encyclopedia<br>
 <a href="https://en.wikipedia.org/wiki/Automata_theory">https://en.wikipedia.org/wiki/Automata_theory</a></li>
-<li><a href="#m4-ref10" title="link in the text">↑</a>&nbsp;<strong>GNU Make Manual</strong>, Free Software Foundation<br>
+<li><a href="#m4-ref10" title="link in the text">↑</a><strong>GNU Make Manual</strong>, Free Software Foundation<br>
 <a href="https://www.gnu.org/software/make/manual/make.html">https://www.gnu.org/software/make/manual/make.html</a></li>
-<li><a href="#m4-ref11" title="link in the text">↑</a>&nbsp;<strong>Vim – the ubiquitous text editor</strong>, that edits text at the speed of thought<br>
+<li><a href="#m4-ref11" title="link in the text">↑</a><strong>Vim – the ubiquitous text editor</strong>, that edits text at the speed of thought<br>
 <a href="https://www.vim.org/">https://www.vim.org/</a></li>
-<li><a href="#m4-ref12" title="link in the text">↑</a>&nbsp;<strong>Automaty a&nbsp;formální jazyky I</strong>, Učební text FI MU<br>
+<li><a href="#m4-ref12" title="link in the text">↑</a><strong>Automaty a&nbsp;formální jazyky I</strong>, Učební text FI MU<br>
 <a href="https://is.muni.cz/elportal/estud/fi/js06/ib005/Formalni_jazyky_a_automaty_I.pdf">https://is.muni.cz/elportal/estud/fi/js06/ib005/Formalni_jazyky_a_automaty_I.pdf</a></li>
-<li>&nbsp;<strong>Automaty a&nbsp;gramatiky</strong>, Michal Chytil, 1. vydání, Praha, 331 s. 1984.<br>
+<li><strong>Automaty a&nbsp;gramatiky</strong>, Michal Chytil, 1. vydání, Praha, 331 s. 1984.<br>
 <a href="https://is.muni.cz/publication/173173">https://is.muni.cz/publication/173173</a></li>
 </ol>
 <!-- appendix content -->
