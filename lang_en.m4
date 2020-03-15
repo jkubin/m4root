@@ -9,7 +9,6 @@ define([SERIES_NAME],	[Generating code in M4])
 define([LANG_VERSION],	[English version])
 
 # preview + publish
-define([NONE_WORD_SOURCE],	[not in the text])	# keep stem WORD_SOURCE
 define([SENTENCE_ALL_PARTS],	[Series breakdown])
 define([TITLE_INPUT_FILES], 	[input files])
 define([TITLE_OUTPUT_FILE], 	[output file])
@@ -21,7 +20,7 @@ define([WORD_IMPORTANT],	[important])
 define([WORD_INFORMATION],	[for information])
 define([WORD_NOTE],	[note])
 define([WORD_REFERENCES],	[References])
-define([WORD_SOURCE],	[back to the text])	# keep WORD_SOURCE
+define([WORD_SOURCE],	[link in the text])
 define([WORD_TOP],	[Top])
 define([WORD_WARNING],	[warning])
 

@@ -9,7 +9,6 @@ define([SERIES_NAME],	[Generování kódu v M4])
 define([LANG_VERSION],	[Česká verze])
 
 # preview + publish
-define([NONE_WORD_SOURCE],	[není v textu])	# keep stem WORD_SOURCE
 define([SENTENCE_ALL_PARTS],	[Všechny díly seriálu])
 define([TITLE_INPUT_FILES], 	[vstupní soubory])
 define([TITLE_OUTPUT_FILE], 	[výstupní soubor])
@@ -21,9 +20,9 @@ define([WORD_IMPORTANT],	[důležité])
 define([WORD_INFORMATION],	[pro informaci])
 define([WORD_NOTE],	[poznámka])
 define([WORD_REFERENCES],	[Odkazy])
-define([WORD_SOURCE],	[zpátky do textu])	# keep WORD_SOURCE
+define([WORD_SOURCE],	[odkaz v textu])
 define([WORD_TOP],	[Nahoru])
-define([WORD_WARNING],	[upozornění])
+define([WORD_WARNING],	[varování])
 
 # another language
 define([OTHER_LANG_PATH],	[../texty/])
