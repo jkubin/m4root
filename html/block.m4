@@ -12,9 +12,9 @@ pushdef([ID_1],	[ifelse([$#], [1], [], [$1], [], [], [ id="FIND_AND_ADD_ID_RULE_
 pushdef([TITLE_2],	[ifelse([$#], [2], [], [$2], [], [], [ title="[$2]"])])
 pushdef([CLASS_3],	[ifelse([$#], [3], [], [$3], [], [], [ class="ADD_CLASS([$3])"])])
 pushdef([CLASS_3_EXCL],	[ class="rs-tip-major ADD_CLASS([excl])ifelse([$#], [3], [], [$3], [], [], [ ADD_CLASS([$3])])"])
+pushdef([CLASS_3_HEADING],	[ class="ADD_CLASS([hx])[]ifelse([$#], [3], [], [$3], [], [], [ ADD_CLASS([$3])])"])
 pushdef([CLASS_3_INFO],	[ class="rs-tip-major ADD_CLASS([info])ifelse([$#], [3], [], [$3], [], [], [ ADD_CLASS([$3])])"])
 pushdef([CLASS_3_NOTE],	[ class="rs-tip-major ADD_CLASS([note])ifelse([$#], [3], [], [$3], [], [], [ ADD_CLASS([$3])])"])
-pushdef([CLASS_3_PROG],	[ class="NSP()pre[]ifelse([$#], [3], [], [$3], [], [], [ ADD_CLASS([$3])])"])
 pushdef([CLASS_3_ROOT_CMD],	[ class="ADD_CLASS([root])[]ifelse([$#], [3], [], [$3], [], [], [ ADD_CLASS([$3])])"])
 pushdef([CLASS_3_TILE],	[ class="rs-tile[]ifelse([$#], [3], [], [$3], [], [], [ ADD_CLASS([$3])])"])
 pushdef([CLASS_3_USR_CMD],	[ class="ADD_CLASS([usc])[]ifelse([$#], [3], [], [$3], [], [], [ ADD_CLASS([$3])])"])
@@ -26,10 +26,9 @@ pushdef([ANYTHING_5],	[ifelse([$#], [5], [], [$5], [], [], [ [$5]])])
 # β
 pushdef([HTML_EXCL_ATTRIBUTES],	defn([ID_1], [TITLE_2], [CLASS_3_EXCL], [STYLE_4], [ANYTHING_5]))
 pushdef([HTML_GLOBAL_ATTRIBUTES],	defn([ID_1], [TITLE_2], [CLASS_3], [STYLE_4], [ANYTHING_5]))
-pushdef([HTML_HEADING_ATTRIBUTES],	[ id="ADD_ID_RULE(defn([#ID]))"]defn([TITLE_2], [CLASS_3], [STYLE_4], [ANYTHING_5]))
+pushdef([HTML_HEADING_ATTRIBUTES],	[ id="ADD_ID_RULE(defn([#ID]))"]defn([TITLE_2], [CLASS_3_HEADING], [STYLE_4], [ANYTHING_5]))
 pushdef([HTML_INFO_ATTRIBUTES],	defn([ID_1], [TITLE_2], [CLASS_3_INFO], [STYLE_4], [ANYTHING_5]))
 pushdef([HTML_NOTE_ATTRIBUTES],	defn([ID_1], [TITLE_2], [CLASS_3_NOTE], [STYLE_4], [ANYTHING_5]))
-pushdef([HTML_PROG_ATTRIBUTES],	defn([ID_1], [TITLE_2], [CLASS_3_PROG], [STYLE_4], [ANYTHING_5]))
 pushdef([HTML_ROOT_CMD_ATTRIBUTES],	defn([ID_1], [TITLE_2], [CLASS_3_ROOT_CMD], [STYLE_4], [ANYTHING_5]))
 pushdef([HTML_USR_CMD_ATTRIBUTES],	defn([ID_1], [TITLE_2], [CLASS_3_USR_CMD], [STYLE_4], [ANYTHING_5]))
 pushdef([HTML_WARN_ATTRIBUTES],	defn([ID_1], [TITLE_2], [CLASS_3_WARN], [STYLE_4], [ANYTHING_5]))
@@ -109,7 +108,7 @@ pushdef([CHAPTER_COMMON_CODE], [
 	divert(CHAPTER_NAVIG_DATA)dnl
 <p id="NSP()TOCP-defn([#ID])"INDENT_LEVEL><a href="[#]NSP()defn([#ID])">defn([CHAPTER_IDX_val], [#S1], [#S2], [NB2])SELITM</a></p>
 divert(CURRQU)dnl
-<HEADING_TAG]defn([HTML_HEADING_ATTRIBUTES])[><a href="[#]NSP()defn([#ID])"]defn([ANCHOR_SIGN])[>defn([CHAPTER_IDX_val], [#S1], [#S2])</a>NB2()SELITM]defn([RETURN_TO_TOC], [SWITCH_LANG])[</HEADING_TAG>
+<HEADING_TAG]defn([HTML_HEADING_ATTRIBUTES])[><a href="[#]NSP()defn([#ID])"]defn([ANCHOR_SIGN])[>defn([CHAPTER_IDX_val], [#S1], [#S2])</a>SELITM]defn([RETURN_TO_TOC], [SWITCH_LANG])[</HEADING_TAG>
 divert(-1)
 ])
 
@@ -184,7 +183,7 @@ define([APPENDIX_MODE], defn([MULTILINGUAL_HEADINGS], [SET_ANCHOR])[
 APPENDIX_SEPARATOR<p id="NSP()TOCP-defn([#ID])"><a href="[#]NSP()defn([#ID])">APPENDIX_LETTER[]NB2()SELITM</a></p>
 divert(APPENDIX_NAVIGATION)dnl
 undivert(CURRQU)dnl
-<h2]defn([HTML_HEADING_ATTRIBUTES])[><a href="[#]NSP()defn([#ID])"]defn([ANCHOR_SIGN])[>APPENDIX_LETTER</a>NB2()SELITM]defn([RETURN_TO_TOC], [SWITCH_LANG])[</h2>
+<h2]defn([HTML_HEADING_ATTRIBUTES])[><a href="[#]NSP()defn([#ID])"]defn([ANCHOR_SIGN])[>APPENDIX_LETTER</a>SELITM]defn([RETURN_TO_TOC], [SWITCH_LANG])[</h2>
 divert(-1)
 
 	# size of the following headings
@@ -223,7 +222,7 @@ define([SECT1_APPENDIX], defn([MULTILINGUAL_HEADINGS], [SET_ANCHOR])[
 	divert(APPENDIX_NAVIGATION)dnl
 <p id="NSP()TOCP-defn([#ID])" class="ADD_CLASS([l2])"><a href="[#]NSP()defn([#ID])">APPENDIX_LETTER.SECT1_IDX_val[]NB2()SELITM</a></p>
 divert(CURRQU)dnl
-<h3]defn([HTML_HEADING_ATTRIBUTES])[><a href="[#]NSP()defn([#ID])"]defn([ANCHOR_SIGN])[>APPENDIX_LETTER.SECT1_IDX_val</a>NB2()SELITM]defn([RETURN_TO_TOC], [SWITCH_LANG])[</h3>
+<h3]defn([HTML_HEADING_ATTRIBUTES])[><a href="[#]NSP()defn([#ID])"]defn([ANCHOR_SIGN])[>APPENDIX_LETTER.SECT1_IDX_val</a>SELITM]defn([RETURN_TO_TOC], [SWITCH_LANG])[</h3>
 divert(-1)
 
 	# size of the following headings
@@ -239,7 +238,7 @@ define([SECT2_APPENDIX], defn([MULTILINGUAL_HEADINGS], [SET_ANCHOR])[
 	divert(APPENDIX_NAVIGATION)dnl
 <p id="NSP()TOCP-defn([#ID])" class="ADD_CLASS([l3])"><a href="[#]NSP()defn([#ID])">APPENDIX_LETTER.SECT1_IDX_val.SECT2_IDX_val[]NB2()SELITM</a></p>
 divert(CURRQU)dnl
-<h4]defn([HTML_HEADING_ATTRIBUTES])[><a href="[#]NSP()defn([#ID])"]defn([ANCHOR_SIGN])[>APPENDIX_LETTER.SECT1_IDX_val.SECT2_IDX_val</a>NB2()SELITM]defn([RETURN_TO_TOC], [SWITCH_LANG])[</h4>
+<h4]defn([HTML_HEADING_ATTRIBUTES])[><a href="[#]NSP()defn([#ID])"]defn([ANCHOR_SIGN])[>APPENDIX_LETTER.SECT1_IDX_val.SECT2_IDX_val</a>SELITM]defn([RETURN_TO_TOC], [SWITCH_LANG])[</h4>
 divert(-1)
 
 	# size of the following headings
@@ -444,11 +443,10 @@ define([TILE_BOX], [
 divert(-1)
 ])
 
-# class="NSP()pre" is necessary for JavaScript code because CMS reorders the resulting HTML code
 # A → β
 define([PROGRAMLISTING], [
 	divert(CURRQU)dnl
-<div class="ADD_CLASS([src])"><pre[]]defn([HTML_PROG_ATTRIBUTES])>defn([PROCESS_RAW_CODE_TO_HTML_ENTITIES])[</pre></div>
+<div class="ADD_CLASS([src])"><pre[]]defn([HTML_GLOBAL_ATTRIBUTES])>defn([PROCESS_RAW_CODE_TO_HTML_ENTITIES])[</pre></div>
 divert(-1)
 ])
 
@@ -484,8 +482,8 @@ define([REF], [pushdef([CURRQU], divnum)divert(-1)
 
 	# create new entry for all references under the article
 	divert(ARTICLE_REFERENCES)dnl
-<ol>
-<li>ifelse(defn([CURRQU]), [-1], [], [<a href="[#]REF_SYMBOL" title="WORD_SOURCE" class="ADD_CLASS([top])">↑</a>])NB()<strong>$1</strong>ifelse([$2], [], [], [, $2])[]BR()
+<ol class="ADD_CLASS([refs])">
+<li>ifelse(defn([CURRQU]), [-1], [], [<a href="[#]REF_SYMBOL" title="WORD_SOURCE">↑</a>])NB()<strong>$1</strong>ifelse([$2], [], [], [, $2])[]BR()
 <a href="[$3]">[$3]</a></li>
 divert(END_OF_REFERENCES)dnl
 </ol>
@@ -508,7 +506,7 @@ define([REF_NEXT], [pushdef([CURRQU], divnum)divert(-1)
 		define([{$1|$2|$3}], REF_VALUE)
 
 		divert(ARTICLE_REFERENCES)dnl
-<li>ifelse(defn([CURRQU]), [-1], [], [<a href="[#]REF_SYMBOL" title="WORD_SOURCE" class="ADD_CLASS([top])">↑</a>])NB()<strong>$1</strong>ifelse([$2], [], [], [, $2])[]BR()
+<li>ifelse(defn([CURRQU]), [-1], [], [<a href="[#]REF_SYMBOL" title="WORD_SOURCE">↑</a>])NB()<strong>$1</strong>ifelse([$2], [], [], [, $2])[]BR()
 <a href="[$3]">[$3]</a></li>
 divert(CURRQU)popdef([CURRQU])dnl
 <sup><a href="[$3]" title="$1" id="REF_SYMBOL">BRAC(REF_VALUE)</a></sup>dnl
@@ -519,7 +517,7 @@ divert(CURRQU)popdef([CURRQU])dnl
 define([BRIDGEHEAD_MONO], defn([MONOLINGUAL_HEADINGS], [SET_ANCHOR])[
 
 	divert(CURRQU)dnl
-<HEADING_TAG]defn([HTML_HEADING_ATTRIBUTES])[>]defn([REFERENCE_TO_HEADLINE])[SELITM</HEADING_TAG>
+<HEADING_TAG]defn([HTML_HEADING_ATTRIBUTES])[>]defn([REFERENCE_TO_HEADLINE])[SELITM[]SUP([AH([🡅], defn([WORD_TOP]), [#]NSP()TOCP)],, [nav])</HEADING_TAG>
 divert(-1)
 ])
 
@@ -527,7 +525,7 @@ divert(-1)
 define([BRIDGEHEAD], defn([MULTILINGUAL_HEADINGS], [SET_ANCHOR])[
 
 	divert(CURRQU)dnl
-<HEADING_TAG]defn([HTML_HEADING_ATTRIBUTES])[>]defn([REFERENCE_TO_HEADLINE])[SELITM</HEADING_TAG>
+<HEADING_TAG]defn([HTML_HEADING_ATTRIBUTES])[>]defn([REFERENCE_TO_HEADLINE])[SELITM[]SUP([AH([🡅], defn([WORD_TOP]), [#]NSP()TOCP)],, [nav])</HEADING_TAG>
 divert(-1)
 ])
 
@@ -652,9 +650,9 @@ popdef(
 	[CHAPTER_COMMON_CODE],
 	[CLASS_3],
 	[CLASS_3_EXCL],
+	[CLASS_3_HEADING],
 	[CLASS_3_INFO],
 	[CLASS_3_NOTE],
-	[CLASS_3_PROG],
 	[CLASS_3_ROOT_CMD],
 	[CLASS_3_TILE],
 	[CLASS_3_USR_CMD],
@@ -667,7 +665,6 @@ popdef(
 	[HTML_MONOLINGUAL],
 	[HTML_MULTILINGUAL],
 	[HTML_NOTE_ATTRIBUTES],
-	[HTML_PROG_ATTRIBUTES],
 	[HTML_ROOT_CMD_ATTRIBUTES],
 	[HTML_UNPAIRED_TAG],
 	[HTML_USR_CMD_ATTRIBUTES],

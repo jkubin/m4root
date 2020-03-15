@@ -10,7 +10,7 @@ ___POINT([one place to configure ALL generated web pages])
 
 # A → β
 # β
-define([RETURN_TO_TOC], NB()[AH([☰], defn([WORD_CONTENT]), [toc], [#]ADD_ID_RULE(TOCP-defn([#ID])))])
+define([RETURN_TO_TOC], [[]SUP([AH([☰], defn([WORD_CONTENT]), [#]ADD_ID_RULE(TOCP-defn([#ID])))AH([🡅], defn([WORD_TOP]), [#]NSP()TOCP)],, [nav])])
 # or disable the links to TOC (if you do not like it)
 # A → ε
 #define([RETURN_TO_TOC])
@@ -30,7 +30,7 @@ define([ANCHOR_SIGN], [ title="⚓"])
 
 # add a reference link to the heading
 # β
-define([REFERENCE_TO_HEADLINE], [<a href="[#]NSP()defn([#ID])"]defn([ANCHOR_SIGN])[>»</a>]NB())
+define([REFERENCE_TO_HEADLINE], [<a href="[#]NSP()defn([#ID])"]defn([ANCHOR_SIGN])[>»</a>])
 
 # a folder containing generated files such as root files, vim shortcut files and M4 plugins
 # A → β
@@ -50,7 +50,6 @@ define([FOLDER_FOR_GENERATED_FILES], [gfiles/])
 # Table Of Content Prefix; caption; refs; all parts of the series
 # A → β
 define([TOCP],		[toc])
-define([TOC_TOP],	[toc-capt])
 define([TOC_REFS],	[refs])
 define([TOC_ALL_PARTS],	[all-parts])
 

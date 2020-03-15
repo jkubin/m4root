@@ -22,8 +22,8 @@ ifelse(defn(OTHER_LANG_CODE.[LANG_VERSION]), [], [], [
 # this is the beginning of the page
 divert(START_OF_NAVIGATION)dnl table of content
 dnl
-<h2 id="NSP()TOC_TOP">WORD_CONTENT[]ifdef([ADD_LINKS_TO_ALL_PARTS_OF_THE_SERIES],
-[NB()AH([☰], defn([SENTENCE_ALL_PARTS]), [toc], [#]NSP()defn([TOC_ALL_PARTS]))])defn([SWITCH_TO_ANOTHER_LANGUAGE])</h2>
+<h2 id="NSP()TOCP">WORD_CONTENT[]ifdef([ADD_LINKS_TO_ALL_PARTS_OF_THE_SERIES],
+[SUP([AH([☰], defn([SENTENCE_ALL_PARTS]), [#]NSP()defn([TOC_ALL_PARTS]))],, [nav])])defn([SWITCH_TO_ANOTHER_LANGUAGE])</h2>
 divert(END_OF_NAVIGATION)dnl
 <!-- article content -->
 divert(APPENDIX_CONTENT_START)dnl
@@ -46,7 +46,7 @@ ifelse(defn([REF]), defn([REF_NEXT]), [
 <p id="NSP()TOCP-defn([#ID])"><a href="[#]NSP()defn([#ID])">CHAPTER_IDX_val()NB2()WORD_REFERENCES</a></p>
 divert(ARTICLE_REFER_CAPT)dnl
 <!-- article references -->
-<h2 id="NSP()defn([#ID])"><a href="[#]NSP()defn([#ID])"defn([ANCHOR_SIGN])>CHAPTER_IDX_val</a>NB2()WORD_REFERENCES[]RETURN_TO_TOC</h2>
+<h2 id="NSP()defn([#ID])" class="ADD_CLASS([hx])"><a href="[#]NSP()defn([#ID])"defn([ANCHOR_SIGN])>CHAPTER_IDX_val</a>WORD_REFERENCES[]RETURN_TO_TOC</h2>
 divert(-1)
 ])
 
@@ -91,7 +91,7 @@ divert(-1)
 	divert(CHAPTER_NAVIG_DATA)dnl
 <p id="NSP()TOCP-defn([#ID])"><a href="[#]NSP()defn([#ID])">CHAPTER_IDX_val()NB2()SENTENCE_ALL_PARTS</a></p>
 divert(ALL_PARTS_LIST)dnl
-<h2 id="NSP()defn([#ID])"><a href="[#]NSP()defn([#ID])"defn([ANCHOR_SIGN])>CHAPTER_IDX_val</a>NB2()SENTENCE_ALL_PARTS[]RETURN_TO_TOC</h2>
+<h2 id="NSP()defn([#ID])" class="ADD_CLASS([hx])"><a href="[#]NSP()defn([#ID])"defn([ANCHOR_SIGN])>CHAPTER_IDX_val</a>NB2()SENTENCE_ALL_PARTS[]RETURN_TO_TOC</h2>
 <ol>
 divert(ALL_PARTS_LIST_END)dnl
 </ol>
