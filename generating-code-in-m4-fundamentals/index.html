@@ -9,26 +9,25 @@
 <meta name="author" content="Josef Kubín">
 <meta name="generator" content="M4">
 <link rel="stylesheet" type="text/css" href="../html/preview.css">
-<style>.urs .m4-toc{font-size:.5em;text-decoration:none;vertical-align:super}</style>
+<style>.m4-hx a:first-child{margin-right:0.5em}.m4-hx .m4-nav{visibility:hidden}.m4-nav{margin-left:0.7em}.m4-nav a{text-decoration:none}.m4-nav a:first-child{margin-right:0.5em}.m4-hx:hover .m4-nav{visibility:visible}</style>
 </head>
 <body class="design-tile layout-article-content">
 <div class="urs">
-<h2 id="m4-toc-capt">Content&nbsp;(<a href="../generovani-kodu-v-m4-zaklady/index.html" title="Generování kódu v M4: základy">Česká verze</a>)</h2>
+<h2 id="m4-toc">Content&nbsp;(<a href="../generovani-kodu-v-m4-zaklady/index.html" title="Generování kódu v M4: základy">Česká verze</a>)</h2>
 <p id="m4-toc-introduction"><a href="#m4-introduction">1&nbsp;&nbsp;Introduction</a></p>
 <!-- article content -->
-<h2 id="m4-introduction"><a href="#m4-introduction" title="⚓">1</a>&nbsp;&nbsp;Introduction&nbsp;<a href="#m4-toc-introduction" title="Content" class="m4-toc">☰</a></h2>
+<h2 id="m4-introduction" class="m4-hx"><a href="#m4-introduction" title="⚓">1</a>Introduction<sup class="m4-nav"><a href="#m4-toc-introduction" title="Content">☰</a><a href="#m4-toc" title="Top">🡅</a></sup></h2>
 <p>%%%</p>
 <!-- appendix content -->
 <script>
-var m4_pre = document.getElementsByClassName("m4-pre");
+var m4_pre = document.getElementsByTagName("pre");
 for (var e of m4_pre) {
-	var l = e.innerHTML.split('\n').length;
-	var o = document.createElement("ol");
+	var p = e.parentElement, n = e.innerHTML.split('\n').length, o = document.createElement("ol");
 
-	for (var i = 0; i < l; i++)
+	for (var i = 0; i < n; i++)
 		o.appendChild(document.createElement("li"));
 
-	e.parentElement.appendChild(o);
+	p.insertBefore(o, p.firstChild);
 }
 </script>
 </div>

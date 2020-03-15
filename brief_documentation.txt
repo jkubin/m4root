@@ -464,3 +464,10 @@ Started: 2019/12/10
 Note: root_cz
 Description: repeated text patterns for ALL parts should be written here; modified files from the include keyword are invisible for make
 Reason: how to avoid include keyword; Note: this is M4 not C!
+---
+File: print.m4
+Author: Josef Kubin
+Started: 2020/03/13
+Note: m4root
+Description: prints visible words to estimate their amount
+Reason: output only visible text

@@ -9,7 +9,7 @@ $!{N;ba}
 # convert uppercase letters to lovercase
 s/[[:upper:]]/\l&/g
 
-# transliterate lovercase UTF-8 to ASCII
+# transliterate lowercase UTF-8 to ASCII
 y/áčďéěíňóřšťúůýž/acdeeinorstuuyz/
 
 # change problematic characters to -
