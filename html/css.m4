@@ -47,7 +47,10 @@ border-color:red;
 ])
 
 CSS_CLASS_RULE_SET([ol], [refs], [ a:first-child], [
+
+margin-right:.3em;
 text-decoration:none;
+
 ])
 
 CSS_CLASS_RULE_SET([], [toc], [], [
@@ -199,7 +202,7 @@ margin-bottom:0;
 ])
 
 CSS_CLASS_RULE_SET([], [hx], [ a:first-child], [
-margin-right:0.5em;
+margin-right:.5em;
 ])
 
 CSS_CLASS_RULE_SET([.NSP()hx ], [nav], [], [
@@ -210,7 +213,7 @@ visibility:hidden;
 
 CSS_CLASS_RULE_SET([], [nav], [], [
 
-margin-left:0.7em;
+margin-left:.7em;
 
 ])
 
@@ -219,7 +222,7 @@ text-decoration:none;
 ])
 
 CSS_CLASS_RULE_SET([], [nav], [ a:first-child], [
-margin-right:0.5em;
+margin-right:.5em;
 ])
 
 CSS_CLASS_RULE_SET([.NSP()hx:hover ], [nav], [], [
