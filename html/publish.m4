@@ -20,7 +20,7 @@ define([OTHER_LANGUAGE], defn([OTHER_LANG_PATH]))
 define([SRC_FILE_PATH], [https://raw.githubusercontent.com/jkubin/m4root/ARG1(GIT_RECORD)/])
 
 # name for repository
-define([SRC_REPO_NAME], [GitHub])
+define([SRC_REPO_NAME], [GitHub:~/])
 
 m4wrap([
 

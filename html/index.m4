@@ -17,8 +17,8 @@ define([SRC_FILE_PATH], [../])
 
 # name of repository
 # A → β
-#define([SRC_REPO_NAME], [GitHub])
-define([SRC_REPO_NAME], [localhost])
+#define([SRC_REPO_NAME], [GitHub:~/])
+define([SRC_REPO_NAME], [localhost:~/])
 
 m4wrap([
 	divert(0)dnl

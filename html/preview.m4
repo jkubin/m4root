@@ -33,7 +33,7 @@ XLANG([
 
 # A → β
 define([SRC_FILE_PATH], [../])
-define([SRC_REPO_NAME], [localhost])
+define([SRC_REPO_NAME], [localhost:~/])
 
 # set local image
 # A → β

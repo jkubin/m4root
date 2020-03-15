@@ -20,12 +20,12 @@ define([CSS_CLASS_RULE_SET], [
 	])
 
 	pushdef([CLASS_RULE_SET_KEY], [class{$1.$2.$3}key])
-	pushdef([CLASS_SURROUNDINGS], .urs [$1].NSP()$[1$3])
+	pushdef([CLASS_SURROUNDINGS], [$1].NSP()$[1$3])
 
 	# once the rule set is written to stylesheet, it undefine itself
 	# A → β
 	define(defn([CLASS_RULE_SET_KEY]), [undefine(]LB()defn([CLASS_RULE_SET_KEY])RB()[)divert(INTERNAL_STYLE_DATA)]FIRST_CLASS_RULE_SET($2)[{patsubst(patsubst(patsubst([[[$4]]], [#], [[#]]), [
-]), [;?])}divert(-1)
+]), [;*])}divert(-1)
 	])
 
 	popdef(

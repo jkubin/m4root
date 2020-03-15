@@ -17,7 +17,7 @@ define([INSERT_FILE], [
 
 	# ARG1 after the file processing removes unwanted trailing newline character
 	divert(CURRQU)dnl
-<div class="ADD_CLASS([src])"><code><span title="ARG3(GIT_RECORD)">ARG2(GIT_RECORD)</span> AH(patsubst([$1], [.*/]), defn([SRC_REPO_NAME]), SRC_FILE_PATH[$1])</code><pre class="NSP()pre"[]ifelse([$2], [], [], [ title="[$2]"])>ARG1(esyscmd([sed -f html/process_src.sed $1]))</pre></div>
+<div class="ADD_CLASS([src])"><pre[]ifelse([$2], [], [], [ title="[$2]"])>ARG1(esyscmd([sed -f html/process_src.sed $1]))</pre><code><span title="ARG3(GIT_RECORD)">ARG2(GIT_RECORD)</span>AH(patsubst([$1], [.*/]), SRC_REPO_NAME[$1], SRC_FILE_PATH[$1])</code></div>
 divert(-1)
 
 	# test return value from sed

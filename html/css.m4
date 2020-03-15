@@ -37,21 +37,17 @@ margin-right:.2em;
 font-size:1.5em;
 ])
 
-CSS_CLASS_RULE_SET([], [note, info, excl, warn], [], [
+CSS_CLASS_RULE_SET([.urs ], [note, info, excl, warn], [], [
 padding-top:.2em;
 padding-bottom:.4em;
 ])
 
-CSS_CLASS_RULE_SET([], [warn], [], [
+CSS_CLASS_RULE_SET([.urs ], [warn], [], [
 border-color:red;
 ])
 
-CSS_CLASS_RULE_SET([], [top], [], [
+CSS_CLASS_RULE_SET([ol], [refs], [ a:first-child], [
 text-decoration:none;
-])
-
-CSS_CLASS_RULE_SET([], [dot], [], [
-border-bottom:1px dotted #000;
 ])
 
 CSS_CLASS_RULE_SET([], [toc], [], [
@@ -103,7 +99,18 @@ white-space:pre;
 ])
 
 CSS_CLASS_RULE_SET([], [src], [], [
+
+background:#fff;
+border-radius:4px;
 position:relative;
+
+])
+
+CSS_CLASS_RULE_SET([], [src], [ pre], [
+
+background:none;
+position:relative;
+
 ])
 
 CSS_CLASS_RULE_SET([], [src], [ code], [
@@ -116,10 +123,11 @@ font-weight:bold;
 padding:2px 4px;
 position:absolute;
 right:0;
+top:0;
 
 ])
 
-CSS_CLASS_RULE_SET([], [src], [ a:visited], [
+CSS_CLASS_RULE_SET([], [src], [ a], [
 color:#333;
 ])
 
@@ -130,21 +138,29 @@ margin-right:.1em;
 
 ])
 
+CSS_CLASS_RULE_SET([], [dot], [], [
+
+border-bottom:1px dotted #000;
+cursor:help;
+
+])
+
 text-decoration:underline dotted;	<--- blbe to vypada :(
 
 CSS_CLASS_RULE_SET([], [src], [ code span], [
 
-cursor:help;
 border-bottom:1px dotted #000;
+cursor:help;
+margin-right:.6em;
 
 ])
 
 CSS_CLASS_RULE_SET([], [src], [ ol], [
 
 font-size:.8em;
-left:-2.1em;
+left:-2em;
 line-height:1.1;
-padding-top:8px;
+padding:9px 0;
 position:absolute;
 top:0;
 
@@ -153,10 +169,17 @@ top:0;
 # ADD_JAVASCRIPT([src])
 
 CSS_CLASS_RULE_SET([], [src], [ ol li], [
+
 margin:0;
+width:640px;
+
 ])
 
-CSS_CLASS_RULE_SET([], [usc, root], [ a:visited], [
+CSS_CLASS_RULE_SET([], [src], [ ol li:nth-child(even)], [
+background:#f5f5f5;
+])
+
+CSS_CLASS_RULE_SET([], [usc, root], [ a], [
 color:#333;
 ])
 
@@ -173,4 +196,32 @@ font-weight:normal;
 # remove bottom margin of <ul></ul> inside .rs-tip-major
 CSS_CLASS_RULE_SET([], [note], [ ul], [
 margin-bottom:0;
+])
+
+CSS_CLASS_RULE_SET([], [hx], [ a:first-child], [
+margin-right:0.5em;
+])
+
+CSS_CLASS_RULE_SET([.NSP()hx ], [nav], [], [
+
+visibility:hidden;
+
+])
+
+CSS_CLASS_RULE_SET([], [nav], [], [
+
+margin-left:0.7em;
+
+])
+
+CSS_CLASS_RULE_SET([], [nav], [ a], [
+text-decoration:none;
+])
+
+CSS_CLASS_RULE_SET([], [nav], [ a:first-child], [
+margin-right:0.5em;
+])
+
+CSS_CLASS_RULE_SET([.NSP()hx:hover ], [nav], [], [
+visibility:visible;
 ])
