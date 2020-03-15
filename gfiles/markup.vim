@@ -25,8 +25,10 @@ iabbrev <buffer> <unique> bri BRIDGEHEAD([dnl czech<cr>[],<cr>dnl english: _next
 iabbrev <buffer> <unique> btn BUTTON([<c-r>"])<esc>
 iabbrev <buffer> <unique> bu BUN([<c-r>"])<esc>
 iabbrev <buffer> <unique> cc CODE([<c-r>"])<esc>
+iabbrev <buffer> <unique> ccl CSS_CLASS_RULE_SET([], [%%%], [], [<cr>])<up><up>;;<c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> cha <c-l><cr>CHAPTER([dnl czech<cr>[],<cr>dnl english: _next_language_<cr><c-u>[%%%],<cr>])<left><c-o>%<c-o>0<down><right><c-r>=Eatchar('.')<cr>
 "iabbrev <buffer> <unique> ci CSS_ID([], [], [<cr>%%%<cr>])<left><c-o>%<right><right><c-r>=Eatchar('.')<cr>
+iabbrev <buffer> <unique> cid CSS_ID_RULE_SET([%%%], [], [<cr>])<up><up>;;<c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> cit CITE([<c-r>"])<esc>
 "iabbrev <buffer> <unique> cl CSS_CLASS([], [], [<cr>%%%<cr>])<left><c-o>%<right><right><c-r>=Eatchar('.')<cr>
 "iabbrev <buffer> <unique> cma CM()<c-r>=Eatchar('.')<cr>
@@ -109,6 +111,7 @@ iabbrev <buffer> <unique> sum SUMMARY([[dnl czech<cr><cr>],<cr>[dnl english: _ne
 iabbrev <buffer> <unique> sup SUP([<c-r>"])<esc>
 iabbrev <buffer> <unique> sw SECTION_WRAP([<cr><cr><cr><cr>])dnl SECTION_WRAP<up><up><c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> til TILE_BOX([[dnl czech<cr><cr>],<cr>[dnl english: _next_language_<cr>%%%<cr>]])<left><c-o>%<c-o>0<down><c-r>=Eatchar('.')<cr>
+iabbrev <buffer> <unique> tt TOOLTIP([<c-r>"], [])<c-o>T[<c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> ull ITEMIZEDLIST_WRAP([<cr><cr><cr><cr>])dnl ITEMIZEDLIST_WRAP<up><up><c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> ul UL([<cr><cr>])<up><c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> ulw ITEMIZEDLIST_WRAP([<cr><cr><cr><cr>])dnl ITEMIZEDLIST_WRAP<up><up><c-r>=Eatchar('.')<cr>
