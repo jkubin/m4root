@@ -15,6 +15,7 @@ iabbrev <buffer> <unique> apo []AP()<c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> arw ARTICLE_WRAP([<cr><cr><cr><cr>])dnl ARTICLE_WRAP<up><up><c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> asw ASIDE_WRAP([<cr><cr><cr><cr>])dnl ASIDE_WRAP<up><up><c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> bb BO([<c-r>"])<esc>
+iabbrev <buffer> <unique> bo BOLD([<c-r>"])<esc>
 iabbrev <buffer> <unique> bh BRIDGEHEAD([dnl czech<cr>[],<cr>dnl english: _next_language_<cr><c-u>[%%%],<cr>])<left><c-o>%<c-o>0<down><right><c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> bhm BRIDGEHEAD_MONO([dnl monolingual<cr>[],<cr>])<up><right><c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> bm BLOCKQUOTE_MONO([[dnl monolingual<cr><cr>]])<up><c-r>=Eatchar('.')<cr>
@@ -104,6 +105,7 @@ iabbrev <buffer> <unique> scn <c-l><cr>SECT1([dnl czech<cr>[],<cr>dnl english: _
 iabbrev <buffer> <unique> sm SMALL([<c-r>"])<esc>
 iabbrev <buffer> <unique> sp SPAN([<c-r>"], [%%%], [%%%])<left><c-o>%;;<c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> ss <c-l><cr>SECT1([dnl czech<cr>[],<cr>dnl english: _next_language_<cr><c-u>[%%%],<cr>])<left><c-o>%<c-o>0<down><right><c-r>=Eatchar('.')<cr>
+iabbrev <buffer> <unique> st STT([<c-r>"])<esc>
 "iabbrev <buffer> <unique> st STRONG([])%%%<c-o>T(<right><c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> subs SUB([<c-r>"])<esc>
 iabbrev <buffer> <unique> summ SUMMARY_MONO([[dnl monolingual<cr><cr>]])<up><c-r>=Eatchar('.')<cr>
@@ -115,6 +117,7 @@ iabbrev <buffer> <unique> tt TOOLTIP([<c-r>"], [])<c-o>T[<c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> ull ITEMIZEDLIST_WRAP([<cr><cr><cr><cr>])dnl ITEMIZEDLIST_WRAP<up><up><c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> ul UL([<cr><cr>])<up><c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> ulw ITEMIZEDLIST_WRAP([<cr><cr><cr><cr>])dnl ITEMIZEDLIST_WRAP<up><up><c-r>=Eatchar('.')<cr>
+iabbrev <buffer> <unique> un UN([<c-r>"])<esc>
 iabbrev <buffer> <unique> uw ITEMIZEDLIST_WRAP([<cr><cr><cr><cr>])dnl ITEMIZEDLIST_WRAP<up><up><c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> wa WARN(, defn([WORD_WARNING]), [[dnl czech<cr><cr>],<cr>[dnl english: _next_language_<cr>%%%<cr>]])<left><c-o>%<c-o>0<down><c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> wb []WBR()<c-r>=Eatchar('.')<cr>
