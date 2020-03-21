@@ -19,8 +19,8 @@ define([CSS_CLASS_RULE_SET], [
 		ROOT_ERROR([the rule set ‘$0($@)’ is redefined])
 	])
 
-	pushdef([CLASS_RULE_SET_KEY], [class{$1.$2.$3}key])
-	pushdef([CLASS_SURROUNDINGS], [$1].NSP()$[1$3])
+	define([CLASS_RULE_SET_KEY], [class{$1.$2.$3}key])
+	define([CLASS_SURROUNDINGS], [[$1]]ifelse([$2], [], [], [.NSP()])$[1[$3]])
 
 	# once the rule set is written to stylesheet, it undefine itself
 	# A → β
@@ -28,12 +28,13 @@ define([CSS_CLASS_RULE_SET], [
 ]), [;*])}divert(-1)
 	])
 
-	popdef(
+	ifelse([$2], [], [
 
-		[CLASS_RULE_SET_KEY],
-		[CLASS_SURROUNDINGS],
+		ADD_STYLE_TAG()
 
-	)
+		# add rule to stylesheet
+		indir(defn([CLASS_RULE_SET_KEY]))
+	])
 ])
 
 # A → β

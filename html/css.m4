@@ -2,8 +2,6 @@ __HEADER([Josef Kubin], [2019/12/24], [root_cz])
 ___DESCR([the resulting style sheet is embedded in the web page or can be extracted into a separated file])
 ___POINT([here are all CSS rules that are automatically added into the style sheet])
 
-# keep all rule sets sorted
-
 # TODO: id rule set is not finished
 # [id_name], [suffix], [… rule set …]
 CSS_ID_RULE_SET([one, two, three], [ x], [
@@ -201,13 +199,33 @@ CSS_CLASS_RULE_SET([], [note], [ ul], [
 margin-bottom:0;
 ])
 
-CSS_CLASS_RULE_SET([], [hx], [ a:first-child], [
-margin-right:.5em;
+CSS_CLASS_RULE_SET([], [hx], [], [
+position:relative;
 ])
 
-CSS_CLASS_RULE_SET([.NSP()hx ], [nav], [], [
+CSS_CLASS_RULE_SET([], [hx], [>a:first-of-type], [
+margin-right:.4em;
+])
 
+CSS_CLASS_RULE_SET([], [hx], [ sup:first-child], [
+
+font-size:.9em;
+left:-2.5em;
+line-height:normal;
+position:absolute;
 visibility:hidden;
+
+])
+
+CSS_CLASS_RULE_SET([], [hx], [:hover sup:first-child], [
+visibility:visible;
+])
+
+CSS_CLASS_RULE_SET([], [hx], [ sup:first-child a], [
+
+font-weight:normal;
+margin-right:.4em;
+text-decoration:none;
 
 ])
 
@@ -225,6 +243,9 @@ CSS_CLASS_RULE_SET([], [nav], [ a:first-child], [
 margin-right:.5em;
 ])
 
-CSS_CLASS_RULE_SET([.NSP()hx:hover ], [nav], [], [
-visibility:visible;
+CSS_CLASS_RULE_SET([.urs p[]LB()id^="NSP()TOCP-"RB()>a>b], [], [], [
+
+font-weight:normal;
+margin-right:.6em;
+
 ])
