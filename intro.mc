@@ -1822,7 +1822,7 @@ dnl english: _next_language_
 
 ITEMIZEDLIST_WRAP([
 
-LISTITEM([low_level_language], LANG([to je také výhoda!], [that's an advantage too!]), [[dnl czech
+LISTITEM([low_level_language], [[dnl czech
 univerzální jazyk nízké úrovně (podobně jako jazyk C)
 UL([LI([nemůže konkurovat úzce specializovaným jazykům])])
 ],
@@ -1851,11 +1851,11 @@ UL([LI([M4 is therefore demanding language])])
 
 LISTITEM([experience_dependent], [[dnl czech
 produktivita značně závisí na zkušenostech (možný problém s[]NB()termíny)
-UL([LI([schopnost myslet v[]NB()M4 (nebo v ABBR([CFG], [Context-Free Grammar – bezkontextová gramatika])) je nutnost])])
+UL([LI([schopnost myslet v[]NB()M4/ABBR([CFG], [Context-Free Grammar – bezkontextová gramatika]) je nutnost])])
 ],
 [dnl english: _next_language_
 productivity greatly depends on experience (problem with short-term deadlines)
-UL([LI([ability to think in M4 (or in ABBR([CFG], [Context-Free Grammar])) is essential necessity])])
+UL([LI([ability to think in M4/ABBR([CFG], [Context-Free Grammar]) is essential necessity])])
 ]])
 
 LISTITEM([hard_maintenance], [[dnl czech
