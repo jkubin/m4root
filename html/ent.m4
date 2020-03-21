@@ -5,7 +5,6 @@ ___POINT([html entities])
 # nbsp
 # A → β
 define([NB], [ifelse([$#], [0], [[$0]], [&nbsp;])])
-define([NB2], [&nbsp;&nbsp;])
 
 # <
 # A → β

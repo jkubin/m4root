@@ -10,7 +10,8 @@ ___POINT([one place to configure ALL generated web pages])
 
 # A → β
 # β
-define([RETURN_TO_TOC], [[]SUP([AH([☰], defn([WORD_CONTENT]), [#]ADD_ID_RULE(TOCP-defn([#ID])))AH([🡅], defn([WORD_TOP]), [#]NSP()TOCP)],, [nav])])
+#define([RETURN_TO_TOC], [[]SUP([AH([☰], defn([WORD_CONTENT]), [#]ADD_ID_RULE(TOCP-defn([#ID])))AH([🡅], defn([WORD_TOP]), [#]NSP()TOCP)],, [nav])])
+define([RETURN_TO_TOC], [<sup><a href="[#]NSP()TOCP" title="defn([WORD_TOP])">🡅</a><a href="[#]ADD_ID_RULE(TOCP-defn([#ID]))" title="defn([WORD_CONTENT])">☰</a></sup>])
 # or disable the links to TOC (if you do not like it)
 # A → ε
 #define([RETURN_TO_TOC])
@@ -22,15 +23,6 @@ define([RETURN_TO_TOC], [[]SUP([AH([☰], defn([WORD_CONTENT]), [#]ADD_ID_RULE(T
 # TODO: link to other language (not finished yet, if finished ever)
 # β
 #define([SWITCH_LANG], NB()[<a href="[#]">SUP([(en)])</a>])
-
-# anchor sign for captions and chapters (choose what you like)
-# β
-define([ANCHOR_SIGN], [ title="⚓"])
-#define([ANCHOR_SIGN], [ title="🔗"])
-
-# add a reference link to the heading
-# β
-define([REFERENCE_TO_HEADLINE], [<a href="[#]NSP()defn([#ID])"]defn([ANCHOR_SIGN])[>»</a>])
 
 # a folder containing generated files such as root files, vim shortcut files and M4 plugins
 # A → β
