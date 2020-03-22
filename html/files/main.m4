@@ -15,7 +15,7 @@ define([INSERT_FILE], [
 		ROOT_ERROR([git record for ‘$1’ not found, regenerate git database])
 	])
 
-	ADD_JAVASCRIPT_CODE_FOR_LINE_NUMBERS()
+	ADD_JAVASCRIPT_FOR_LINE_NUMBERS()
 
 	# ARG1 after the file processing removes unwanted trailing newline character
 	divert(CURRQU)dnl

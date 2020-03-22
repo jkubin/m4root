@@ -446,7 +446,7 @@ divert(-1)
 # A → β
 define([PROGRAMLISTING], [
 
-	ADD_JAVASCRIPT_CODE_FOR_LINE_NUMBERS()
+	ADD_JAVASCRIPT_FOR_LINE_NUMBERS()
 
 	divert(CURRQU)dnl
 <div class="ADD_CLASS([src])"><pre[]]defn([HTML_GLOBAL_ATTRIBUTES])>defn([PROCESS_RAW_CODE_TO_HTML_ENTITIES])[</pre></div>
