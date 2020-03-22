@@ -79,7 +79,7 @@ devel dev: rootb.m4 git.m4 test.m4
 #:clean/cle/del/cl	deletes all generated files
 .PHONY: clean cle del cl
 clean cle del cl:
-	$(RM) -r $(DEBUG_FILE) $(DOC_FILE) $(ORDER_FILE) $(REFS_ALL) $(FOLDERS) *.{mk,m4f}
+	$(RM) -r $(DEBUG_FILE) $(DOC_FILE) $(ORDER_FILE) $(REFS_ALL) $(FOLDERS) *.{mk,m4f} git.m4
 
 #:distclean/dcl/cld/dc	also deletes generated files also in all example folders
 .PHONY: distclean dcl cld dc
@@ -109,8 +109,8 @@ html_%.mk: rootb.m4 $(ORDER_FILE) refs_%.m4 lang.m4 headings.m4 mk/html.m4
 fhtml_%.mk: rootb.m4 $(ORDER_FILE) refs_%.m4 lang.m4 headings.m4 mk/fhtml.m4
 	m4 -DREFS_FILES='$(MAKE_REFS)' -DLANG_CODE='$*' $^ > $@
 
-git.m4: git.sh
-	./$< > $@
+git.m4: git.sh $(shell git ls-tree -r --name-only HEAD messages gfiles hello_world asm preproc)
+	./$^ > $@
 
 .PHONY: $(SUBDIRS)
 $(SUBDIRS):
