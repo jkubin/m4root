@@ -13,7 +13,7 @@ This part is focused on explanation of necessary, seemingly complex concepts of 
 
 # shortcut for article: "+yG
 
-<!-- "Generating code in M4: fundamentals" __SOURCE([20200322-16:00:18, fundamentals.mc, e396d0f, 25e0e69]) -->
+<!-- "Generating code in M4: fundamentals" __SOURCE([20200322-18:10:52, fundamentals.mc, e396d0f, e95dee8]) -->
 <style>.urs p[id^="m4-toc-"]>a>b{font-weight:normal;margin-right:.6em}.m4-hx{position:relative}.m4-hx>a:first-of-type{margin-right:.4em}.m4-hx sup:first-child{font-size:.9em;left:-2.5em;line-height:normal;position:absolute;visibility:hidden}.m4-hx:hover sup:first-child{visibility:visible}.m4-hx sup:first-child a{font-weight:normal;margin-right:.4em;text-decoration:none}</style>
 <h2 id="m4-toc">Content&nbsp;(<a href="../../clanky/generovani-kodu-v-m4-zaklady/" title="Generování kódu v M4: základy">Česká verze</a>)</h2>
 <p id="m4-toc-introduction"><a href="#m4-introduction"><b>1</b>Introduction</a></p>

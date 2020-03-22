@@ -285,7 +285,7 @@ File: html/jscompress.sed
 Author: Josef Kubin
 Started: 2020/03/22
 Note: m4root
-Description: removes unnecessary data from JavaScript code
+Description: removes unnecessary data from a JavaScript code
 Reason: embedded JavaScript as small as possible
 ---
 File: html/queues.m4
