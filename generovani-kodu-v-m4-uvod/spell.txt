@@ -2,7 +2,7 @@
 #
 # DO NOT EDIT! This file is generated automatically!
 #
-# __SOURCE([20200315-22:31:28, intro.mc, 216c6db, 34e1751])
+# __SOURCE([20200322-15:55:24, intro.mc, 6749209, c5d68fc])
 
 7
 Generování kódu v M4: úvod
@@ -872,9 +872,6 @@ nízké nároky na výpočetní zdroje
  Proč se vyhnout M4
 
 1823
-[to je také výhoda!]
-
-1823
 univerzální jazyk nízké úrovně (podobně jako jazyk C)
 nemůže konkurovat úzce specializovaným jazykům
 
@@ -888,7 +885,7 @@ M4 je proto náročný jazyk
 
 1823
 produktivita značně závisí na zkušenostech (možný problém s termíny)
-schopnost myslet v M4 (nebo v CFG (Context-Free Grammar – bezkontextová gramatika)) je nutnost
+schopnost myslet v M4/CFG (Context-Free Grammar – bezkontextová gramatika) je nutnost
 
 1823
 údržba špatně napsaného M4 kódu není jednoduchá

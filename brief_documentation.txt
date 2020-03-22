@@ -281,6 +281,13 @@ Note: root_cz
 Description: the resulting style sheet is embedded in the web page or can be extracted into a separated file
 Reason: here are all CSS rules that are automatically added into the style sheet
 ---
+File: html/jscompress.sed
+Author: Josef Kubin
+Started: 2020/03/22
+Note: m4root
+Description: removes unnecessary data from JavaScript code
+Reason: embedded JavaScript as small as possible
+---
 File: html/queues.m4
 Author: Josef Kubin
 Started: 2019/07/11

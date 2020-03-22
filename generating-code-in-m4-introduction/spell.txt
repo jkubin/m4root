@@ -2,7 +2,7 @@
 #
 # DO NOT EDIT! This file is generated automatically!
 #
-# __SOURCE([20200315-22:31:29, intro.mc, 216c6db, 34e1751])
+# __SOURCE([20200321-05:26:23, intro.mc, 6749209, c5d68fc])
 
 7
 Generating code in M4: introduction
@@ -868,9 +868,6 @@ low demands on computing resources
  Why to avoid M4
 
 1823
-[that's an advantage too!]
-
-1823
 low-level universal language (similar to C language)
 cannot compete with narrowly specialized languages
 
@@ -884,7 +881,7 @@ M4 is therefore demanding language
 
 1823
 productivity greatly depends on experience (problem with short-term deadlines)
-ability to think in M4 (or in CFG (Context-Free Grammar)) is essential necessity
+ability to think in M4/CFG (Context-Free Grammar) is essential necessity
 
 1823
 maintaining badly written M4 code is not easy
