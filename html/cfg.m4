@@ -11,10 +11,12 @@ ___POINT([one place to configure ALL generated web pages])
 # A → β
 # β
 #define([RETURN_TO_TOC], [[]SUP([AH([☰], defn([WORD_CONTENT]), [#]ADD_ID_RULE(TOCP-defn([#ID])))AH([🡅], defn([WORD_TOP]), [#]NSP()TOCP)],, [nav])])
-define([RETURN_TO_TOC], [<sup><a href="[#]NSP()TOCP" title="defn([WORD_TOP])">🡅</a><a href="[#]ADD_ID_RULE(TOCP-defn([#ID]))" title="defn([WORD_CONTENT])">☰</a></sup>])
+define([RETURN_TO_TOC], [<a href="[#]ADD_ID_RULE(TOCP-defn([#ID]))" title="defn([WORD_CONTENT])">☰</a>])
+define([GO_BACK_UP], [<sup><a href="[#]NSP()TOCP" title="defn([WORD_TOP])">🡅</a></sup>])
 # or disable the links to TOC (if you do not like it)
 # A → ε
 #define([RETURN_TO_TOC])
+#define([GO_BACK_UP])
 
 # links pointing to the top of the page; possible chars: 🠑ꜛ↑⇈⇧↾↿↟⤒
 # β
