@@ -52,7 +52,7 @@ define([doc_divert], defn([divert]))
 define([doc_ifelse], defn([ifelse]))
 define([doc_dnl], defn([dnl]))
 
-# comment out this paragraph if you do not like it
+# comment out this paragraph if you do not like it (note the right unpaired bracket)
 divert(0)dnl
 [#] vim:wrap:spell:spelllang=en
 This is a generated brief documentation from all source files.
@@ -66,6 +66,13 @@ changecom
 
 undefine(
 
+	[__file__],
+	[__gnu__],
+	[__line__],
+	[__os2__],
+	[__program__],
+	[__unix__],
+	[__windows__],
 	[builtin],
 	[changecom],
 	[changequote],
