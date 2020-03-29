@@ -69,7 +69,7 @@ define(SELECT_ARG1_WITHOUT_TRAILING_LF, patsubst($1, \s*))
 define(EXPAND_ARG1_WITHOUT_TRAILING_LF, patsubst($1, \s*))
 
 # puts number of arguments
-define(NAR, ifelse($#, 0, $0, $#))
+define(NAR, $#)
 
 # additional pair (payr is not a vocabulary word) symbols against unwanted expansion
 # A($1, $2, …, $n) → $1, $2, …, $n
