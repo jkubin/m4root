@@ -8,6 +8,9 @@
 # keep secondary generated files
 .SECONDARY:
 
+# prohibits unwanted surprises
+MAKEFLAGS += --no-builtin-rules
+
 
 SOURCE     = $(wildcard *.mc)
 DOC_FILE   = brief_documentation.txt
@@ -15,7 +18,7 @@ DEBUG_FILE = debug.m4
 ORDER_FILE = order.m4
 VPATH      = gfiles
 SUBDIRS    = gfiles hello_world preproc messages asm
-MONIT_DIRS = messages gfiles hello_world asm preproc
+MONITORED  = messages gfiles/*[bnqu].m4 hello_world asm preproc
 
 EMPTY =
 SPACE = $(EMPTY) $(EMPTY)
@@ -101,7 +104,7 @@ doc: $(DOC_FILE)
 #:test-uncommitted-git-changes/changes/gch	test for uncommitted git changes in monitored directories with source files
 .PHONY: test-uncommitted-git-changes changes gch
 test-uncommitted-git-changes changes gch:
-	git diff-files --name-status --exit-code $(MONIT_DIRS)
+	git diff-files --name-status --exit-code $(MONITORED)
 
 $(DOC_FILE): doc.m4 $(wildcard gfiles/*b.m4) $(shell find -name 'git.sh' -o -name '*.sed' -o -name 'Makefile' -o -name '*.m4' ! -path './messages/*' ! -path './gfiles/*' ! -path './hello_world/*' ! -path './preproc/*' ! -path './asm/*')
 	m4 $+ > $@
@@ -118,7 +121,7 @@ html_%.mk: rootb.m4 $(ORDER_FILE) refs_%.m4 lang.m4 headings.m4 mk/html.m4
 fhtml_%.mk: rootb.m4 $(ORDER_FILE) refs_%.m4 lang.m4 headings.m4 mk/fhtml.m4
 	m4 -DREFS_FILES='$(MAKE_REFS)' -DLANG_CODE='$*' $^ > $@
 
-git.m4: $(shell git ls-tree -r --name-only HEAD $(MONIT_DIRS))
+git.m4: $(shell git ls-tree -r --name-only HEAD $(MONITORED))
 	./git.sh $^ > $@
 
 .PHONY: $(SUBDIRS)
