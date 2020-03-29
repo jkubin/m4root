@@ -19,7 +19,7 @@ define([CONFIGURE_COMMAND_LINE], [
 define([ADD_LINKS_TO_INSERTED_FILES], [ifelse([$1], [], [], [dnl
 define([GIT_RECORD], defn(./FOLDER[$1]))ifelse(defn([GIT_RECORD]), [], [
 
-	ROOT_ERROR([git record for ‘$1’ not found, regenerate git database])
+	ROOT_ERROR([git record for ‘]./FOLDER[$1][’ not found, regenerate git database])
 ])dnl
 AH([$1], defn([SRC_REPO_NAME])FOLDER[$1], SRC_FILE_PATH[]FOLDER[$1]) $0(shift($@))])])
 
@@ -36,7 +36,7 @@ define([INSERT_LIST_OF_FILES], [
 ifelse(defn([ROOT_FILE]), [], [], [dnl
 define([GIT_RECORD], defn(./FOLDER_FOR_GENERATED_FILES[]ROOT_FILE))ifelse(defn([GIT_RECORD]), [], [
 
-	ROOT_ERROR([git record for ‘$1’ not found, regenerate git database])
+	ROOT_ERROR([git record for ‘]./FOLDER_FOR_GENERATED_FILES[]ROOT_FILE[’ not found, regenerate git database])
 ])dnl
 AH(defn([ROOT_FILE]), defn([SRC_REPO_NAME])FOLDER_FOR_GENERATED_FILES[]ROOT_FILE, SRC_FILE_PATH[]FOLDER_FOR_GENERATED_FILES[]ROOT_FILE) ])[]dnl
 ADD_LINKS_TO_INSERTED_FILES(PREFIX_FILES)dnl
@@ -44,7 +44,7 @@ undivert(REFERENCES_TO_FILES)dnl
 ADD_LINKS_TO_INSERTED_FILES(SOURCES)dnl
 define([GIT_RECORD], defn(./FOLDER[$1]))ifelse(defn([GIT_RECORD]), [], [
 
-	ROOT_ERROR([git record for ‘$1’ not found, regenerate git database])
+	ROOT_ERROR([git record for ‘]./FOLDER[$1][’ not found, regenerate git database])
 ])dnl
 GT() AH([$1], defn([SRC_REPO_NAME])FOLDER[$1], SRC_FILE_PATH[]FOLDER[$1])</div>
 divert(-1)
