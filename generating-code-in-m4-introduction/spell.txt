@@ -2,7 +2,7 @@
 #
 # DO NOT EDIT! This file is generated automatically!
 #
-# __SOURCE([20200322-18:10:52, intro.mc, 6749209, e95dee8])
+# __SOURCE([20200330-00:21:02, intro.mc, 24a8149, 3e0af85])
 
 7
 Generating code in M4: introduction
@@ -131,7 +131,7 @@ The M3 macro processor was also extended by Jim E. Weythman, the author of progr
 [note]
 
 255
-The (divert(-1), divert(0), divert(1), …, divert(2147483647)) keyword switches output queues.
+The HGKW([divert](AH([ℤ], [integer], [https://en.wikipedia.org/wiki/Integer])), 1, 5, divert(-1), divert(0), divert(1), …, divert(2147483647), common_code) keyword switches output queues.
 Argument  completely disables any text output.
 Argument  switches output to  (standard output).
 
@@ -223,9 +223,9 @@ The objective is to show the basic practical use of M4 language on examples.
 Context-free grammar
 
 454
-Context-free grammar (shortly CFG (Context-Free Grammar)) is a formal grammar in which all rules for rewriting have the  form.
+Context-free grammar (shortly CFG (Context-Free Grammar)) is a formal grammar in which all rules for rewriting have the HGKW(A[]NB()→[]NB()β, 1, context_free_grammar_rules) form.
 The nonterminal  is rewritten to an arbitrarily long  (the right side of the rewriting rule) string composed of terminals  or nonterminals .
-Kleene star (Wikipedia)  means that nonterminal  can be rewritten to  (epsilon – empty symbol) (rewriting rule ).
+Kleene star (Wikipedia) HGKW(*, 3, context_free_grammar_rules) means that nonterminal  can be rewritten to  (epsilon – empty symbol) (rewriting rule ).
 
 465
 [context-free grammar rewriting rules]
@@ -355,7 +355,7 @@ When the source code is passed through the macro processor, the  macro is rewrit
 If there are  or  comments in the source code, they must be hidden first.
 The characters  turn off original meaning and will be removed by the macro processor.
 
-M4   comments are hidden between characters:  
+M4  and  comments are hidden between default characters:  
 
 743
 [M4 as preprocessor with control characters: `']
@@ -374,7 +374,7 @@ Everything else applies as for default characters .
 [M4 as preprocessor with control characters: []]
 
 771
-M4   comments are hidden between parentheses:  
+M4  and  comments are hidden between parentheses:  
 
 778
 [M4 as preprocessor with control characters: []]
@@ -393,7 +393,7 @@ These characters cannot interfere with printable source code characters.
 [M4 as preprocessor with control characters: ␂␆]
 
 806
-M4   comments are hidden between non printable characters:  
+M4  and  comments are hidden between non printable characters:  
 
 813
 [M4 as preprocessor with control characters: ␂␆]
@@ -413,7 +413,7 @@ UTF-8 characters offer similar advantages to non printable characters.
 [M4 as preprocessor with control characters: ⟦⟧]
 
 843
-M4   comments are hidden between UTF-8 characters:  
+M4  and  comments are hidden between UTF-8 characters:  
 
 850
 [M4 as preprocessor with control characters: ⟦⟧]
@@ -504,15 +504,10 @@ Generating automaton
 
 1049
 Input symbols change the nodes of the automaton, thereby changing the rewriting rules for code generation.
-See the appendix for this example:
+See the appendix for this generating automaton:
 
 1058
 [ASCII art of generating automaton]
-
-1064
-The first symbol in the  state generates a header with brackets and inserts the first item.
-Then automaton make transition to  state in which only next items are added.
-The automaton remains in this state until all data has been processed.
 
 1076
 (GNU) make
@@ -872,12 +867,12 @@ low-level universal language (similar to C language)
 cannot compete with narrowly specialized languages
 
 1823
-nonexistent developer community (as of Autumn 2019)
+a relatively small developer community
 M4 is nearly forgotten language with small number of existing projects
 
 1823
 unusual programming paradigm requiring several prerequisites
-M4 is therefore demanding language
+M4 is therefore demanding language due to the prerequisites
 
 1823
 productivity greatly depends on experience (problem with short-term deadlines)

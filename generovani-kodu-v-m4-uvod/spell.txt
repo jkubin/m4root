@@ -2,7 +2,7 @@
 #
 # DO NOT EDIT! This file is generated automatically!
 #
-# __SOURCE([20200322-18:10:52, intro.mc, 6749209, e95dee8])
+# __SOURCE([20200330-00:21:02, intro.mc, 24a8149, 3e0af85])
 
 7
 Generování kódu v M4: úvod
@@ -133,7 +133,7 @@ Makro procesor M3 rozšířil také Jim E. Weythman, autor programové konstrukc
 [poznámka]
 
 255
-Klíčové slovo (divert(-1), divert(0), divert(1), …, divert(2147483647)) přepíná výstupní fronty.
+Klíčové slovo HGKW([divert](AH([ℤ], [celé číslo], [https://cs.wikipedia.org/wiki/Cel%C3%A9_%C4%8D%C3%ADslo])), 1, 5, divert(-1), divert(0), divert(1), …, divert(2147483647), common_code) přepíná výstupní fronty.
 Argument  zcela vypne jakýkoliv textový výstup.
 Argument  přepne výstup na  (standardní výstup).
 
@@ -224,9 +224,9 @@ Cílem tohoto úvodního dílu je hlavně ukázat praktické použití M4 na př
 Bezkontextová gramatika
 
 454
-Bezkontextová gramatika (krátce CFG (Context-Free Grammar – bezkontextová gramatika)) je formální gramatika, ve které mají všechna přepisovací pravidla tvar .
+Bezkontextová gramatika (krátce CFG (Context-Free Grammar – bezkontextová gramatika)) je formální gramatika, ve které mají všechna přepisovací pravidla tvar HGKW(A[]NB()→[]NB()β, 1, context_free_grammar_rules).
 Neterminál  se přepíše na libovolně dlouhý řetězec  (pravá strana přepisovacího pravidla) složený z terminálů  nebo neterminálů .
-Kleeneho hvězda (Wikipedie)  znamená, že se neterminál  může přepsat na  (epsilon – prázdný symbol) (přepisovací pravidlo ).
+Kleeneho hvězda (Wikipedie) HGKW(*, 3, context_free_grammar_rules) znamená, že se neterminál  může přepsat na  (epsilon – prázdný symbol) (přepisovací pravidlo ).
 
 465
 [přepisovací pravidla bezkontextové gramatiky]
@@ -357,7 +357,7 @@ Při průchodu zdrojového kódu makro procesorem se makro  přepíše zpátky n
 Vyskytují-li se ve vstupním kódu komentáře  nebo , je nutné je skrýt.
 Znaky  vypnou původní význam komentářů a budou odebrány při průchodu makro procesorem.
 
-Komentáře M4   jsou skryty mezi znaky:  
+Komentáře M4  a  jsou skryty mezi výchozí znaky:  
 
 743
 [M4 jako preprocesor s řídícími znaky: `']
@@ -376,7 +376,7 @@ Vše ostatní platí jako pro výchozí znaky .
 [M4 jako preprocesor s řídícími znaky: []]
 
 771
-Komentáře M4   jsou skryty mezi závorkami:  
+Komentáře M4  a  jsou skryty mezi závorkami:  
 
 778
 [M4 jako preprocesor s řídícími znaky: []]
@@ -395,7 +395,7 @@ Tyto znaky nemohou kolidovat s tisknutelnými znaky zdrojového kódu.
 [M4 jako preprocesor s řídícími znaky: ␂␆]
 
 806
-Komentáře M4   jsou skryty mezi netisknutelné znaky:  
+Komentáře M4  a  jsou skryty mezi netisknutelné znaky:  
 
 813
 [M4 jako preprocesor s řídícími znaky: ␂␆]
@@ -415,7 +415,7 @@ UTF-8 znaky nabízí podobné výhody jako netisknutelné znaky.
 [M4 jako preprocesor s řídícími znaky: ⟦⟧]
 
 843
-Komentáře M4   jsou skryty mezi UTF-8 znaky:  
+Komentáře M4  a  jsou skryty mezi UTF-8 znaky:  
 
 850
 [M4 jako preprocesor s řídícími znaky: ⟦⟧]
@@ -507,15 +507,10 @@ Generující automat
 
 1049
 Vstupní symboly mění uzly automatu, čímž zároveň mění přepisovací pravidla pro generování kódu.
-Tento příklad naleznete v příloze:
+Příklad generujícího automatu naleznete v příloze:
 
 1058
 [ASCII art generujícího automatu]
-
-1064
-První symbol ve stavu  vygeneruje záhlaví se závorkami a vloží první položku.
-Poté automat přejde do stavu , ve kterém se pouze přidávají další položky.
-Automat zůstává v tomto stavu, dokud nejsou zpracována všechna data.
 
 1076
 (GNU) make
@@ -876,12 +871,12 @@ univerzální jazyk nízké úrovně (podobně jako jazyk C)
 nemůže konkurovat úzce specializovaným jazykům
 
 1823
-neexistující komunita vývojářů (podzim 2019)
+poměrně malá komunita vývojářů
 M4 je téměř zapomenutý jazyk, málo existujících projektů
 
 1823
 neobvyklé programovací paradigma vyžadující splnění několika předpokladů
-M4 je proto náročný jazyk
+M4 je kvůli nutným předpokladům náročný jazyk
 
 1823
 produktivita značně závisí na zkušenostech (možný problém s termíny)

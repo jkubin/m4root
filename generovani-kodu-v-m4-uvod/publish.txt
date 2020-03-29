@@ -13,8 +13,8 @@ Makro procesor M4 se používá ke generování libovolně složitého kódu z&n
 
 # shortcut for article: "+yG
 
-<!-- "Generování kódu v M4: úvod" __SOURCE([20200322-18:10:52, intro.mc, 6749209, e95dee8]) -->
-<style>.urs p[id^="m4-toc-"]>a>b{font-weight:normal;margin-right:.6em}.m4-hx{position:relative}.m4-hx>a:first-of-type{margin-right:.4em}.m4-hx sup:first-child{font-size:.9em;left:-2.5em;line-height:normal;position:absolute;visibility:hidden}.m4-hx:hover sup:first-child{visibility:visible}.m4-hx sup:first-child a{font-weight:normal;margin-right:.4em;text-decoration:none}.m4-dot{border-bottom:1px dotted #000;cursor:help}.m4-note::before{content:"\1f5b9";margin-right:.2em;font-size:1.5em}.urs .m4-note,.urs .m4-info,.urs .m4-excl,.urs .m4-warn{padding-top:.2em;padding-bottom:.4em}.m4-note ul{margin-bottom:0}ol.m4-refs a:first-child{margin-right:.3em;text-decoration:none}p.m4-l2{padding-left:1em}.m4-un{text-decoration:underline}.m4-info::before{content:"\1f6c8";margin-right:.2em;font-size:1.5em}.m4-src{background:#fff;border-radius:4px;position:relative}.m4-src pre{background:none;position:relative}.m4-src code{border-radius:0 4px;border:1px solid #ddd;font-family:monospace,monospace;font-size:.7em;font-weight:bold;padding:2px 4px;position:absolute;right:0;top:0}.m4-src a{color:#333}.m4-src code::before{content:"git:";margin-right:.1em}.m4-src code span{border-bottom:1px dotted #000;cursor:help;margin-right:.6em}.m4-src ol{font-size:.8em;left:-2em;line-height:1.1;padding:9px 0;position:absolute;top:0}.m4-src ol li{margin:0;width:640px}.m4-src ol li:nth-child(even){background:#f5f5f5}.m4-usc,.m4-root{background:#fff;border-radius:4px;border:1px solid #ddd;color:#333;font-family:"Courier New",Courier,monospace;font-size:.8em;font-weight:bold;line-height:1.1;margin:0 0 11px;padding:8px}.m4-usc a,.m4-root a{color:#333}.m4-root::before{content:"~]# ";font-weight:normal}.m4-usc::before{content:"~]$ ";font-weight:normal}p.m4-l3{padding-left:2em}</style>
+<!-- "Generování kódu v M4: úvod" __SOURCE([20200330-00:21:02, intro.mc, 24a8149, 3e0af85]) -->
+<style>.urs p[id^="m4-toc-"]>a>b{font-weight:normal;margin-right:.6em}.m4-ch,.m4-bh{position:relative}.m4-ch a:first-child+a{margin-right:.4em}.m4-ch>a:first-child,.m4-bh>a:first-child{font-size:.9em;font-weight:normal;left:-1.2em;line-height:normal;position:absolute;text-decoration:none;visibility:hidden;padding-right:.3em}.m4-ch sup:last-child,.m4-bh sup:last-child{visibility:hidden;margin-left:.3em}.m4-ch sup:last-child a,.m4-bh sup:last-child a{text-decoration:none}.m4-ch:hover a:first-child,.m4-ch:hover sup:last-child,.m4-bh:hover a:first-child,.m4-bh:hover sup:last-child{visibility:visible}.m4-hg{border-bottom:1px dotted #000;cursor:help}.m4-note::before{content:"\1f5b9";margin-right:.2em;font-size:1.5em}.urs .m4-note,.urs .m4-info,.urs .m4-excl,.urs .m4-warn{padding-top:.2em;padding-bottom:.4em}.m4-note ul{margin-bottom:0}ol.m4-refs a:first-child{margin-right:.3em;text-decoration:none}p.m4-l2{padding-left:1em}.m4-un{text-decoration:underline}.m4-info::before{content:"\1f6c8";margin-right:.2em;font-size:1.5em}.m4-src{background:#fff;border-radius:4px;position:relative}.m4-src>a{background-color:hsla(0,0%,86%,.5);border-radius:0 4px;border:1px solid #ddd;font-size:.7em;padding:2px 4px;position:absolute;right:0;top:0}.m4-src>pre{background:none;position:relative}.m4-src>code{border-radius:0 4px;border:1px solid #ddd;font-size:.7em;font-weight:bold;padding:2px 4px;position:absolute;right:0;top:0}.m4-src>code a{margin-left:.6em}.m4-src>code>span+a{color:#333}.m4-src>code a+a{font-weight:normal}.m4-src>code::before{content:"git:";margin-right:.1em}.m4-src>code>span{text-decoration:underline dashed;cursor:help}.m4-src ol{font-size:.8em;left:-2em;line-height:1.1;padding:9px 0;position:absolute;top:0}.m4-src ol li{margin:0;width:640px}.m4-src ol li:nth-child(even){background:#f5f5f5}.m4-usc,.m4-root{background:#fff;border-radius:4px;border:1px solid #ddd;color:#333;font-family:monospace,monospace;font-size:.8em;font-weight:bold;line-height:1.1;margin:0 0 11px;padding:8px}.m4-usc a,.m4-root a{color:#333}.m4-root::before{content:"~]# ";font-weight:normal}.m4-usc::before{content:"~]$ ";font-weight:normal}p.m4-l3{padding-left:2em}</style>
 <h2 id="m4-toc">Obsah&nbsp;(<a href="../../texty/generating-code-in-m4-introduction/" title="Generating code in M4: introduction">English version</a>)</h2>
 <noscript><div title="pro informaci" class="rs-tip-major m4-info">Srozumitelnost ukázkového zdrojového kódu zvyšuje povolený JavaScript.</div></noscript>
 <p id="m4-toc-uvod"><a href="#m4-uvod"><b>1</b>Úvod</a></p>
@@ -40,7 +40,7 @@ Makro procesor M4 se používá ke generování libovolně složitého kódu z&n
 <p id="m4-toc-m4-priklady"><a href="#m4-m4-priklady"><b>C</b>M4 – příklady</a></p>
 <p id="m4-toc-proc-pouzivat-m4-a-proc-ne"><a href="#m4-proc-pouzivat-m4-a-proc-ne"><b>D</b>Proč používat M4 a&nbsp;proč ne?</a></p>
 <!-- article content -->
-<h2 id="m4-uvod" class="m4-hx"><sup><a href="#m4-toc" title="Nahoru">&#x1f845;</a><a href="#m4-toc-uvod" title="Obsah">☰</a></sup><a href="#m4-uvod" title="&#x1f517;">1</a>Úvod</h2>
+<h2 id="m4-uvod" class="m4-ch"><a href="#m4-toc-uvod" title="Obsah">☰</a><a href="#m4-uvod" title="&#x1f517;">1</a>Úvod<sup><a href="#m4-toc" title="Nahoru">&#x1f845;</a></sup></h2>
 <p>Čtenáři tohoto seriálu se naučí psát skripty pro strojové generování kódu.
 Strojově generovaný kód může být libovolně složitý a&nbsp;může obsahovat další vnitřní závislosti.
 Vzájemně závislé soubory se složitým kódem jsou pro člověka jen těžce udržitelné v&nbsp;konzistentním stavu.
@@ -48,7 +48,7 @@ Je už nutné použít nějaký mechanismus pro generování kódu.
 Generování kódu provádí nástroj určený pro transformaci textu – <strong>makro procesor</strong>.</p>
 <p id="m4-what-is-the-series-about">Seriál je zaměřen na praktické použití <strong>univerzálního makro procesoru M4</strong> (dále jen M4) pomocí malých příkladů.
 Popisuje také teoretický základ všech implementací.
-Cílem seriálu je seznámit čtenáře s&nbsp;tímto <span title="m4 – je program příkazové řádky" class="m4-dot">nástrojem</span> a&nbsp;také programovacím <span title="M4 – je programovací jazyk" class="m4-dot">jazykem</span>.<br>
+Cílem seriálu je seznámit čtenáře s&nbsp;tímto <span title="m4 – je program příkazové řádky" class="m4-hg">nástrojem</span> a&nbsp;také programovacím <span title="M4 – je programovací jazyk" class="m4-hg">jazykem</span>.<br>
 <a href="#m4-hlavni-pouziti-m4" title="Hlavní použití M4">Na co se používá</a>, jak se v&nbsp;něm programuje a&nbsp;jaké jsou jeho <a href="#m4-proc-generovat-kod-v-m4" title="&#x1f44d; Proč generovat kód v M4">výhody</a> a&nbsp;<a href="#m4-proc-se-vyhnout-m4" title="&#x1f44e; Proč se vyhnout M4">nevýhody</a>.</p>
 <div title="poznámka" class="rs-tip-major m4-note">Vícejazyčný seriál „<strong>Generování kódu v M4</strong>“ je generován M4 skripty<sup><a href="http://github.com/jkubin/m4root" title="Generování kódu v M4" id="m4-ref1">[1]</a></sup>,
 které (možná) usnadní psaní článků a&nbsp;seriálů pro <a href="https://www.root.cz/" title="Root.cz – informace nejen ze světa Linuxu">www.root.cz</a> také jiným autorům.
@@ -58,7 +58,7 @@ Všechny příklady používají přepisovací pravidla <a href="#m4-bezkontexto
 Později se naučíme používat <a href="#m4-vystupni-fronty" title="Výstupní fronty">výstupní fronty</a>,
 <a href="#m4-automaty" title="Automaty">automaty</a>, asociativní paměti, zásobníky a&nbsp;zásobníkové automaty.
 Naučíme se také psát <a href="#m4-testovaci-automat" title="Testovací automat">testovací automaty</a> pro testování vstupních dat.</p>
-<h3 id="m4-priklady-pro-ctenare" class="m4-hx"><sup><a href="#m4-toc" title="Nahoru">&#x1f845;</a><a href="#m4-toc-priklady-pro-ctenare" title="Obsah">☰</a></sup><a href="#m4-priklady-pro-ctenare" title="&#x1f517;">1.1</a>Příklady pro čtenáře</h3>
+<h3 id="m4-priklady-pro-ctenare" class="m4-ch"><a href="#m4-toc-priklady-pro-ctenare" title="Obsah">☰</a><a href="#m4-priklady-pro-ctenare" title="&#x1f517;">1.1</a>Příklady pro čtenáře<sup><a href="#m4-toc" title="Nahoru">&#x1f845;</a></sup></h3>
 <p>Příklady pro čtenáře tvoří komplementární část seriálu a&nbsp;budou do jisté míry vytvářeny na základě podnětů v&nbsp;diskuzi pod článkem.
 Na začátku každého dílu je popsána nějaká část jazyka M4 doplněná sadou příkladů na konci.
 Každý díl je možné číst v&nbsp;libovolném pořadí.</p>
@@ -69,7 +69,7 @@ Každý díl je možné číst v&nbsp;libovolném pořadí.</p>
 <li><a href="#m4-proc-pouzivat-m4-a-proc-ne" title="Proč používat M4 a proč ne?">Proč používat M4 a&nbsp;proč ne?</a></li>
 <li><a href="http://github.com/jkubin/m4root" title="Generování kódu v M4">http://github.com/jkubin/m4root</a> – složitější projekt generující HTML5 tohoto seriálu</li>
 </ul>
-<h2 id="m4-historie-makro-jazyku" class="m4-hx"><sup><a href="#m4-toc" title="Nahoru">&#x1f845;</a><a href="#m4-toc-historie-makro-jazyku" title="Obsah">☰</a></sup><a href="#m4-historie-makro-jazyku" title="&#x1f517;">2</a>Historie makro jazyků</h2>
+<h2 id="m4-historie-makro-jazyku" class="m4-ch"><a href="#m4-toc-historie-makro-jazyku" title="Obsah">☰</a><a href="#m4-historie-makro-jazyku" title="&#x1f517;">2</a>Historie makro jazyků<sup><a href="#m4-toc" title="Nahoru">&#x1f845;</a></sup></h2>
 <p>Makro jazyky byly vynalezeny v&nbsp;době, kdy dominoval jazyk symbolických adres – <abbr title="Jazyk Symbolických Adres – assembler">JSA</abbr>.
 Zdrojový kód JSA velmi často obsahuje shodné sekvence instrukcí odlišující se pouze hodnotami operandů.
 Shodné sekvence instrukcí je možné seskupit do jednoho slova, nebo-li <strong>makro instrukce</strong>.
@@ -79,13 +79,13 @@ Programování v&nbsp;JSA pomocí makro instrukcí je jednodušší, rychlejší
 <p>Později byly makro jazyky použity k&nbsp;rozšíření kompilovaných programovacích jazyků, protože umožnily psát zdrojový kód na vyšší úrovni abstrakce než jakou poskytuje samotný programovací jazyk.
 Rychlost, výkonnost a efektivita složitého programovacího jazyka nižší úrovně je zachována díky makro jazykům.
 Avšak je důležité dobře rozumět všem vrstvám kódu.</p>
-<h3 id="m4-gpm-general-purpose-macro-genera" class="m4-hx"><sup><a href="#m4-toc" title="Nahoru">&#x1f845;</a><a href="#m4-gpm-general-purpose-macro-genera">&#x1f517;</a></sup>GPM (General Purpose Macro-generator)</h3>
+<h3 id="m4-gpm-general-purpose-macro-genera" class="m4-bh"><a href="#m4-gpm-general-purpose-macro-genera">&#x1f517;</a>GPM (General Purpose Macro-generator)<sup><a href="#m4-toc" title="Nahoru">&#x1f845;</a></sup></h3>
 <p>Základní myšlenku přepisování textových řetězců s&nbsp;argumenty, které se přepíší do dalších rekurzivně přepisovatelných řetězců, představil
 <a href="https://en.wikipedia.org/wiki/Christopher_Strachey" title="Wikipedie"><span class="rs-person">Christopher Strachey</span></a> ve svém
 <abbr title="General Purpose Macro-generator">GPM</abbr><sup><a href="http://dx.doi.org/10.1093/comjnl/8.3.225" title="A&nbsp;General Purpose Macro-generator" id="m4-ref2">[2]</a></sup> v&nbsp;roce 1965.
 Další generace makro procesorů M3 a&nbsp;M4 původní <abbr title="General Purpose Macro-generator">GPM</abbr> v&nbsp;podstatě už jen rozšiřovaly.
 Základní myšlenka původního návrhu ale zůstala stejná.</p>
-<h3 id="m4-m3" class="m4-hx"><sup><a href="#m4-toc" title="Nahoru">&#x1f845;</a><a href="#m4-m3">&#x1f517;</a></sup>M3</h3>
+<h3 id="m4-m3" class="m4-bh"><a href="#m4-m3">&#x1f517;</a>M3<sup><a href="#m4-toc" title="Nahoru">&#x1f845;</a></sup></h3>
 <p><a href="https://cs.wikipedia.org/wiki/Dennis_Ritchie" title="Wikipedie"><span class="rs-person">Dennis Ritchie</span></a> převzal základní myšlenku <abbr title="General Purpose Macro-generator">GPM</abbr> a&nbsp;napsal vylepšený makro procesor pro generování zdrojového kódu programovacího jazyka C (1972), který sám navrhl.
 Nový <strong class="m4-un">m</strong>akro procesor napsal pro minipočítač AP-<strong class="m4-un">3</strong>, odtud jméno <strong>M3</strong>.
 Tento přímý předchůdce současného M4 dokázal výrazně ušetřit těžkou a&nbsp;časově náročnou práci, čímž zaujal vývojáře programující v&nbsp;jiných jazycích (<abbr title="FORmula TRANslation">FORTRAN</abbr>, <abbr title="COmmon Business-Oriented Language">COBOL</abbr>, <abbr title="Programming Language One">PL/I</abbr>, …).
@@ -100,16 +100,16 @@ Vývojáři upravovali M3 pro tyto jazyky čímž ho proměnili na univerzálně
 </ul>
 </div>
 <p>Makro procesor M3 rozšířil také <span class="rs-person">Jim E. Weythman</span>, autor programové konstrukce, která se používá téměř v&nbsp;každém M4 skriptu:</p>
-<div class="m4-src"><pre>divert(-1)
+<div class="m4-src"><pre id="m4-common-code">divert(-1)
 …
 define(…)
 …
 divert(0)dnl
-…</pre></div>
-<div title="poznámka" class="rs-tip-major m4-note">Klíčové slovo <code title="divert(-1), divert(0), divert(1), …, divert(2147483647)" class="m4-dot">divert(<a href="https://cs.wikipedia.org/wiki/Cel%C3%A9_%C4%8D%C3%ADslo" title="celé číslo">ℤ</a>)</code> přepíná výstupní fronty.
+…</pre><a href="#m4-common-code">&#x1f517;</a></div>
+<div title="poznámka" class="rs-tip-major m4-note">Klíčové slovo <code title="divert(-1), divert(0), divert(1), …, divert(2147483647)" class="m4-hg" data-id="m4-common-code" data-ln="1,5">divert(<a href="https://cs.wikipedia.org/wiki/Cel%C3%A9_%C4%8D%C3%ADslo" title="celé číslo">ℤ</a>)</code> přepíná výstupní fronty.
 Argument <code>-1</code> zcela vypne jakýkoliv textový výstup.
 Argument <code>0</code> přepne výstup na <code>stdout</code> (standardní výstup).</div>
-<h3 id="m4-m4" class="m4-hx"><sup><a href="#m4-toc" title="Nahoru">&#x1f845;</a><a href="#m4-m4">&#x1f517;</a></sup>M4</h3>
+<h3 id="m4-m4" class="m4-bh"><a href="#m4-m4">&#x1f517;</a>M4<sup><a href="#m4-toc" title="Nahoru">&#x1f845;</a></sup></h3>
 <p><a href="https://cs.wikipedia.org/wiki/Brian_Kernighan" title="Wikipedie"><span class="rs-person">Brian Kernighan</span></a> makro procesor M3 rozšířil na <a href="https://cs.wikipedia.org/wiki/Preprocesor" title="Wikipedie">preprocesor</a> jazyka FORTRAN 66,
 aby mohl vytvořit hybridní jazykovou nadstavbu pojmenovanou <abbr title="RATional FORtran"><strong>RATFOR</strong></abbr><sup><a href="https://wolfram.schneider.org/bsd/7thEdManVol2/ratfor/ratfor.pdf" title="RATFOR — A Preprocessor for a Rational Fortran" id="m4-ref3">[3]</a></sup>.
 Základní programové konstrukce této nadstavby (podmínky, cykly) jsou stejné jako v&nbsp;jazyce C.
@@ -140,31 +140,31 @@ Bylo by tedy značně nespravedlivé napsat, že autory makro procesoru M4 (1977
 <p><em>Obrázek <a href="#m4-the-authors" title="&#x1f517;">1</a>: Christopher Strachey<sup><a href="https://www.computerhope.com/people/christopher_strachey.htm" title="Christopher Strachey" id="m4-ref5">[5]</a></sup>,
 Dennis Ritchie<sup><a href="https://pc.zoznam.sk/novinka/zomrel-tvorca-unixu-jazyka-c" title="Dennis Ritchie" id="m4-ref6">[6]</a></sup>,
 Brian Kernighan<sup><a href="https://www.cs.cmu.edu/~mihaib/kernighan-interview/" title="Brian Kernighan" id="m4-ref7">[7]</a></sup></em></p>
-<h3 id="m4-gnu-m4" class="m4-hx"><sup><a href="#m4-toc" title="Nahoru">&#x1f845;</a><a href="#m4-gnu-m4">&#x1f517;</a></sup>GNU M4</h3>
+<h3 id="m4-gnu-m4" class="m4-bh"><a href="#m4-gnu-m4">&#x1f517;</a>GNU M4<sup><a href="#m4-toc" title="Nahoru">&#x1f845;</a></sup></h3>
 <p>Dnes existuje několik implementací lišící se od původní implementace spíše drobnostmi.
 Nejrozšířenější implementace M4 je <strong>GNU M4</strong> používaná pro <a href="https://en.wikipedia.org/wiki/GNU_Build_System" title="Wikipedie">Autotools</a>
 a&nbsp;pro překlad jednoduchého konfiguračního souboru <code>sendmail.mc</code> na složitý <code>sendmail.cf</code>.
 Autorem této implementace z&nbsp;roku 1990 je <a href="https://www.seindal.dk/rene/gnu/"><span class="rs-person">René Seindal</span></a>.
-Následující příkaz nainstaluje <strong title="s malým „m“" class="m4-dot">m4</strong>:</p>
+Následující příkaz nainstaluje <strong title="s malým „m“" class="m4-hg">m4</strong>:</p>
 <div id="m4-install" title="příkaz nainstaluje také další důležité balíčky" class="m4-root">dnf -y install make m4 pinfo</div>
 <p>Podrobný popis klíčových slov se nachází v&nbsp;dokumentaci<sup><a href="https://www.gnu.org/software/m4/manual/" title="GNU M4 - GNU macro processor" id="m4-ref8">[8]</a></sup>:</p>
 <div class="m4-src"><pre>~]$ <strong>pinfo m4</strong>
 ~]$ <strong>man m4</strong>
 ~]$ <strong>m4 --help</strong></pre></div>
-<h2 id="m4-zaklady-jazyka-m4" class="m4-hx"><sup><a href="#m4-toc" title="Nahoru">&#x1f845;</a><a href="#m4-toc-zaklady-jazyka-m4" title="Obsah">☰</a></sup><a href="#m4-zaklady-jazyka-m4" title="&#x1f517;">3</a>Základy jazyka M4</h2>
+<h2 id="m4-zaklady-jazyka-m4" class="m4-ch"><a href="#m4-toc-zaklady-jazyka-m4" title="Obsah">☰</a><a href="#m4-zaklady-jazyka-m4" title="&#x1f517;">3</a>Základy jazyka M4<sup><a href="#m4-toc" title="Nahoru">&#x1f845;</a></sup></h2>
 <p>Základem jazyka M4 je <strong>bezkontextová gramatika</strong>, <strong>automaty</strong>, <strong>zásobníky</strong> a&nbsp;<strong>výstupní fronty</strong>.
 Pro pochopení jazyka M4 je proto velmi důležité rozumět základním pojmům teorie formálních jazyků –
 co jsou <a href="https://cs.wikipedia.org/wiki/Termin%C3%A1ln%C3%AD_a_netermin%C3%A1ln%C3%AD_symbol" title="Wikipedie">terminální symboly</a> (stručně <strong>terminály</strong>) a&nbsp;neterminální symboly (stručně <strong>neterminály</strong>).
 Zmíněné pojmy si podrobněji vysvětlíme někdy později.
 Cílem tohoto úvodního dílu je hlavně ukázat praktické použití M4 na příkladech.</p>
-<h3 id="m4-bezkontextova-gramatika" class="m4-hx"><sup><a href="#m4-toc" title="Nahoru">&#x1f845;</a><a href="#m4-toc-bezkontextova-gramatika" title="Obsah">☰</a></sup><a href="#m4-bezkontextova-gramatika" title="&#x1f517;">3.1</a>Bezkontextová gramatika</h3>
-<p>Bezkontextová gramatika (krátce <abbr title="Context-Free Grammar – bezkontextová gramatika">CFG</abbr>) je <a href="#m4-formalni-gramatika-chomskeho-typ" title="Formální gramatika (Chomského typu)">formální gramatika</a>, ve které mají všechna přepisovací pravidla tvar <code>A&nbsp;→&nbsp;β</code>.
+<h3 id="m4-bezkontextova-gramatika" class="m4-ch"><a href="#m4-toc-bezkontextova-gramatika" title="Obsah">☰</a><a href="#m4-bezkontextova-gramatika" title="&#x1f517;">3.1</a>Bezkontextová gramatika<sup><a href="#m4-toc" title="Nahoru">&#x1f845;</a></sup></h3>
+<p>Bezkontextová gramatika (krátce <abbr title="Context-Free Grammar – bezkontextová gramatika">CFG</abbr>) je <a href="#m4-formalni-gramatika-chomskeho-typ" title="Formální gramatika (Chomského typu)">formální gramatika</a>, ve které mají všechna přepisovací pravidla tvar <code class="m4-hg" data-id="m4-context-free-grammar-rules" data-ln="1">A&nbsp;→&nbsp;β</code>.
 Neterminál <code>A</code> se přepíše na libovolně dlouhý řetězec <abbr title="pravá strana přepisovacího pravidla"><code>β</code></abbr> složený z&nbsp;terminálů <code>Σ</code> nebo neterminálů <code>N</code>.
-<a href="https://en.wikipedia.org/wiki/Kleene_star" title="Wikipedie">Kleeneho hvězda</a> <code>*</code> znamená, že se neterminál <code>A</code> může přepsat na <abbr title="epsilon – prázdný symbol"><code>ε</code></abbr> (přepisovací pravidlo <code>A&nbsp;→&nbsp;ε</code>).</p>
-<div class="m4-src"><pre title="přepisovací pravidla bezkontextové gramatiky">P: A → β
+<a href="https://en.wikipedia.org/wiki/Kleene_star" title="Wikipedie">Kleeneho hvězda</a> <code class="m4-hg" data-id="m4-context-free-grammar-rules" data-ln="3">*</code> znamená, že se neterminál <code>A</code> může přepsat na <abbr title="epsilon – prázdný symbol"><code>ε</code></abbr> (přepisovací pravidlo <code>A&nbsp;→&nbsp;ε</code>).</p>
+<div class="m4-src"><pre id="m4-context-free-grammar-rules" title="přepisovací pravidla bezkontextové gramatiky">P: A → β
    A ∈ N
-   β ∈ (N ∪ Σ)*</pre></div>
-<h4 id="m4-prepisovaci-pravidla-m4" class="m4-hx"><sup><a href="#m4-toc" title="Nahoru">&#x1f845;</a><a href="#m4-prepisovaci-pravidla-m4">&#x1f517;</a></sup>Přepisovací pravidla M4</h4>
+   β ∈ (N ∪ Σ)*</pre><a href="#m4-context-free-grammar-rules">&#x1f517;</a></div>
+<h4 id="m4-prepisovaci-pravidla-m4" class="m4-bh"><a href="#m4-prepisovaci-pravidla-m4">&#x1f517;</a>Přepisovací pravidla M4<sup><a href="#m4-toc" title="Nahoru">&#x1f845;</a></sup></h4>
 <p>Přepisovací pravidla M4 jsou stejná jako přepisovací pravidla bezkontextové gramatiky.</p>
 <div class="m4-src"><pre title="přepisovací pravidla M4"># A → β
 define(`A', `β')
@@ -180,29 +180,29 @@ define(`A', `β') → ε
 ifelse(`', `', `yes', `no') → yes
 ifelse(`', `', `ifdef(`dnl', `1', `0')', `no') → ifdef(`dnl', `1', `0') → 1
 …</pre></div>
-<h4 id="m4-rizeni-expanze-neterminalu" class="m4-hx"><sup><a href="#m4-toc" title="Nahoru">&#x1f845;</a><a href="#m4-rizeni-expanze-neterminalu">&#x1f517;</a></sup>Řízení expanze neterminálů</h4>
+<h4 id="m4-rizeni-expanze-neterminalu" class="m4-bh"><a href="#m4-rizeni-expanze-neterminalu">&#x1f517;</a>Řízení expanze neterminálů<sup><a href="#m4-toc" title="Nahoru">&#x1f845;</a></sup></h4>
 <p>Výchozí dvojice znaků <code>`'</code> v&nbsp;M4 řídí expanzi neterminálů.
 Klíčové slovo <code>changequote()</code> je může změnit na jiné znaky, například {<code>[]</code>, <strong><code>␂␆</code></strong>, <code>⟦⟧</code>}.
 Neterminály, které nechceme (ihned) expandovat, jsou obklopeny touto dvojicí znaků.
 Při průchodu makro procesorem jsou všechny symboly mezi touto dvojicí znaků <strong>terminálními symboly</strong> a&nbsp;vnější dvojice znaků je odstraněna.
 Další průchod již způsobí expanzi původně chráněných neterminálů.
 Dvojice řídících znaků se nastavuje na začátku kořenového souboru.</p>
-<h3 id="m4-automaty" class="m4-hx"><sup><a href="#m4-toc" title="Nahoru">&#x1f845;</a><a href="#m4-toc-automaty" title="Obsah">☰</a></sup><a href="#m4-automaty" title="&#x1f517;">3.2</a>Automaty</h3>
+<h3 id="m4-automaty" class="m4-ch"><a href="#m4-toc-automaty" title="Obsah">☰</a><a href="#m4-automaty" title="&#x1f517;">3.2</a>Automaty<sup><a href="#m4-toc" title="Nahoru">&#x1f845;</a></sup></h3>
 <p>Automaty slouží jako „přepínače“ pravidel gramatiky.
 Používají přepisovací pravidla gramatiky jako uzly a&nbsp;mění své stavy podle vstupních symbolů.
 Aktuálně používané přepisovací pravidlo produkuje do výstupní fronty (nebo do několika výstupních front)
 specifický kód, dokud automat nepřejde do jiného uzlu s&nbsp;jiným přepisovacím pravidlem.
 Příklady <a href="#m4-json-generujici-automat" title="[] JSON – generující automat">generujících automatů</a> jsou ukázány v&nbsp;příloze.</p>
-<h3 id="m4-vystupni-fronty" class="m4-hx"><sup><a href="#m4-toc" title="Nahoru">&#x1f845;</a><a href="#m4-toc-vystupni-fronty" title="Obsah">☰</a></sup><a href="#m4-vystupni-fronty" title="&#x1f517;">3.3</a>Výstupní fronty</h3>
+<h3 id="m4-vystupni-fronty" class="m4-ch"><a href="#m4-toc-vystupni-fronty" title="Obsah">☰</a><a href="#m4-vystupni-fronty" title="&#x1f517;">3.3</a>Výstupní fronty<sup><a href="#m4-toc" title="Nahoru">&#x1f845;</a></sup></h3>
 <p>Výstupní fronty jsou dočasné úložiště pro části výsledného kódu.
 Tyto části výsledného kódu jsou produkovány přepisovacími pravidly gramatiky, které přepisují vstupní symboly.
 Klíčové slovo <code>divert(ℤ)</code> nastavuje aktuální výstupní frontu.
 Na závěr jsou všechny neprázdné fronty vypsány ve vzestupném pořadí na standardní výstup a&nbsp;složí výsledný kód z&nbsp;částí kódu.
 <a href="#m4-html-vystupni-fronty" title="[] HTML – výstupní fronty">Výstupní fronty</a> jsou ukázány v&nbsp;příloze.</p>
 <div title="pro informaci" class="rs-tip-major m4-info"><strong>Zásobníky</strong> si ukážeme později.</div>
-<h2 id="m4-hlavni-pouziti-m4" class="m4-hx"><sup><a href="#m4-toc" title="Nahoru">&#x1f845;</a><a href="#m4-toc-hlavni-pouziti-m4" title="Obsah">☰</a></sup><a href="#m4-hlavni-pouziti-m4" title="&#x1f517;">4</a>Hlavní použití M4</h2>
+<h2 id="m4-hlavni-pouziti-m4" class="m4-ch"><a href="#m4-toc-hlavni-pouziti-m4" title="Obsah">☰</a><a href="#m4-hlavni-pouziti-m4" title="&#x1f517;">4</a>Hlavní použití M4<sup><a href="#m4-toc" title="Nahoru">&#x1f845;</a></sup></h2>
 <p>M4 se používá ke generování zdrojového kódu libovolného programovacího jazyka nebo jako preprocesor jakéhokoliv zdrojového kódu.</p>
-<h3 id="m4-generovani-kodu" class="m4-hx"><sup><a href="#m4-toc" title="Nahoru">&#x1f845;</a><a href="#m4-toc-generovani-kodu" title="Obsah">☰</a></sup><a href="#m4-generovani-kodu" title="&#x1f517;">4.1</a>Generování kódu</h3>
+<h3 id="m4-generovani-kodu" class="m4-ch"><a href="#m4-toc-generovani-kodu" title="Obsah">☰</a><a href="#m4-generovani-kodu" title="&#x1f517;">4.1</a>Generování kódu<sup><a href="#m4-toc" title="Nahoru">&#x1f845;</a></sup></h3>
 <p>M4 transformuje vstupní data ze souborů <abbr title="Macro Configuration"><code>.mc</code></abbr> na výsledná data následujícím příkazem:</p>
 <div id="m4-files-on-command-line" title="← nejobecnější.m4 … nejspeciálnější.m4 →" class="m4-usc">m4 root.m4 stem.m4 branch.m4 leaf.m4 input1.mc input2.mc &gt; output.file</div>
 <p>Během načítání souborů jsou prováděny dvě základní operace:</p>
@@ -216,7 +216,7 @@ Datové soubory <code>.mc</code> obvykle neobsahují žádná transformační pr
 <div title="vstupní kód → generování zdrojového kódu → soubor" class="m4-usc">cat input.mc | m4 root.m4 stem.m4 branch.m4 leaf.m4 - &gt; output.file</div>
 <div title="vstupní kód → generování zdrojového kódu → program" class="m4-usc">cat input.mc | m4 root.m4 stem.m4 branch.m4 leaf.m4 - | gcc -x c -o progr -</div>
 <p>Vyzkoušejte: <a href="#m4-priklady-generovani-kodu" title="Příklady generování kódu">Příklady generování kódu</a></p>
-<h3 id="m4-preprocesor" class="m4-hx"><sup><a href="#m4-toc" title="Nahoru">&#x1f845;</a><a href="#m4-toc-preprocesor" title="Obsah">☰</a></sup><a href="#m4-preprocesor" title="&#x1f517;">4.2</a>Preprocesor</h3>
+<h3 id="m4-preprocesor" class="m4-ch"><a href="#m4-toc-preprocesor" title="Obsah">☰</a><a href="#m4-preprocesor" title="&#x1f517;">4.2</a>Preprocesor<sup><a href="#m4-toc" title="Nahoru">&#x1f845;</a></sup></h3>
 <p>M4 může pracovat v&nbsp;režimu preprocesoru a může být také součástí kolony.
 Vstupní zdrojový kód jím prochází beze změny s&nbsp;výjimkou neterminálních symbolů.
 Nalezené neterminály jsou expandovány na terminály a&nbsp;odchází spolu se zdrojovým kódem na výstup.
@@ -225,46 +225,46 @@ Důležité je zvolit vhodný levý znak pro řízení expanze neterminálů, kt
 Kolize znaku je ale snadno řešitelná regulárním výrazem.</p>
 <div title="M4 jako preprocesor – obecně" class="m4-usc">m4 root.m4 stem.m4 branch.m4 leaf.m4 file.c &gt; preproc.file.c</div>
 <div title="M4 jako preprocesor – bez dočasného souboru" class="m4-usc">m4 root.m4 stem.m4 branch.m4 leaf.m4 file.c | gcc -x c -o progr -</div>
-<h4 id="m4-ba-vychozi-znaky" class="m4-hx"><sup><a href="#m4-toc" title="Nahoru">&#x1f845;</a><a href="#m4-ba-vychozi-znaky">&#x1f517;</a></sup><code>`'</code> Výchozí znaky</h4>
+<h4 id="m4-ba-vychozi-znaky" class="m4-bh"><a href="#m4-ba-vychozi-znaky">&#x1f517;</a><code>`'</code> Výchozí znaky<sup><a href="#m4-toc" title="Nahoru">&#x1f845;</a></sup></h4>
 <p>Konfliktní znak <code>`</code> ze vstupního zdrojového kódu je skryt do makra <code>`'LQ()</code>.
 Prázdný pár řídících znaků <code>`'</code> před makrem <code>LQ()</code> slouží jako <a href="#m4-h-zavorky-h-dnl" title="[] .h – závorky [], [,], [#], [dnl]">oddělovač symbolů</a>.
 Při průchodu zdrojového kódu makro procesorem se makro <code>`'LQ()</code> přepíše zpátky na původní znak <code>`</code> a&nbsp;prázdný pár <code>`'</code> je odstraněn.</p>
 <div title="M4 jako preprocesor s řídícími znaky: `'" class="m4-usc">sed 's/`/`'\''LQ()/g' any.src | m4 rootq.m4 leaf.m4 -</div>
 <p>Vyskytují-li se ve vstupním kódu komentáře <code>#</code> nebo <code>dnl</code>, je nutné je skrýt.
 Znaky <code>`'</code> <a href="#m4-h-zavorky-h-dnl" title="[] .h – závorky [], [,], [#], [dnl]">vypnou</a> původní význam komentářů a budou odebrány při průchodu makro procesorem.<br>
-Komentáře M4 <code>#</code> <code>dnl</code> jsou skryty mezi znaky: <code>`#'</code> <code>`dnl'</code></p>
+Komentáře M4 <code>#</code> a <code>dnl</code> jsou skryty mezi výchozí znaky: <code>`#'</code> <code>`dnl'</code></p>
 <div title="M4 jako preprocesor s řídícími znaky: `'" class="m4-usc">sed 's/`/`'\''LQ()/g;s/#\|\&lt;dnl\&gt;/`&amp;'\''/g' any.src | m4 rootq.m4 leaf.m4 -</div>
 <div title="M4 jako preprocesor s řídícími znaky jinak: `'" class="m4-usc">sed 's/`/`'\''LQ()/g;s/#/`#'\''/g;s/\&lt;dnl\&gt;/`dnl'\''/g' any.src | m4 …</div>
-<h4 id="m4-hranate-zavorky" class="m4-hx"><sup><a href="#m4-toc" title="Nahoru">&#x1f845;</a><a href="#m4-hranate-zavorky">&#x1f517;</a></sup><code>[]</code> Hranaté závorky</h4>
+<h4 id="m4-hranate-zavorky" class="m4-bh"><a href="#m4-hranate-zavorky">&#x1f517;</a><code>[]</code> Hranaté závorky<sup><a href="#m4-toc" title="Nahoru">&#x1f845;</a></sup></h4>
 <p>Použijeme-li pro <a href="#m4-rizeni-expanze-neterminalu" title="Řízení expanze neterminálů">řízení expanze neterminálů</a> hranaté závorky, stejným způsobem je skryta levá <code>[</code> hranatá závorka.
 Vše ostatní platí jako pro výchozí znaky <code>`'</code>.</p>
 <div title="M4 jako preprocesor s řídícími znaky: []" class="m4-usc">sed 's/\[/[]LB()/g' any.src | m4 rootb.m4 leaf.m4 - | …</div>
-<p>Komentáře M4 <code>#</code> <code>dnl</code> jsou skryty mezi závorkami: <code>[#]</code> <code>[dnl]</code></p>
+<p>Komentáře M4 <code>#</code> a <code>dnl</code> jsou skryty mezi závorkami: <code>[#]</code> <code>[dnl]</code></p>
 <div title="M4 jako preprocesor s řídícími znaky: []" class="m4-usc">sed 's/\[/[]LB()/g;s/#\|\&lt;dnl\&gt;/[&amp;]/g' any.src | m4 rootb.m4 leaf.m4 - | …</div>
 <div title="M4 jako preprocesor s řídícími znaky jinak: []" class="m4-usc">sed 's/\[/[]LB()/g;s/#/[#]/g;s/\&lt;dnl\&gt;/[dnl]/g' any.src | m4 rootb.m4 …</div>
-<h4 id="m4-netisknutelne-znaky" class="m4-hx"><sup><a href="#m4-toc" title="Nahoru">&#x1f845;</a><a href="#m4-netisknutelne-znaky">&#x1f517;</a></sup><code>␂␆</code> Netisknutelné znaky</h4>
+<h4 id="m4-netisknutelne-znaky" class="m4-bh"><a href="#m4-netisknutelne-znaky">&#x1f517;</a><code>␂␆</code> Netisknutelné znaky<sup><a href="#m4-toc" title="Nahoru">&#x1f845;</a></sup></h4>
 <p>Pro řízení expanze neterminálů lze použít netisknutelné znaky <strong><code>␂</code></strong> (<samp>0x02</samp>) a&nbsp;<strong><code>␆</code></strong> (<samp>0x06</samp>).
 Tyto znaky nemohou kolidovat s&nbsp;tisknutelnými znaky zdrojového kódu.</p>
 <div title="M4 jako preprocesor s řídícími znaky: ␂␆" class="m4-usc">m4 rootn.m4 leaf.m4 any.src | gcc …</div>
-<p>Komentáře M4 <code>#</code> <code>dnl</code> jsou skryty mezi netisknutelné znaky: <code>␂#␆</code> <code>␂dnl␆</code></p>
+<p>Komentáře M4 <code>#</code> a <code>dnl</code> jsou skryty mezi netisknutelné znaky: <code>␂#␆</code> <code>␂dnl␆</code></p>
 <div title="M4 jako preprocesor s řídícími znaky: ␂␆" class="m4-usc">sed 's/#\|\&lt;dnl\&gt;/␂&amp;␆/g' any.src | m4 rootn.m4 leaf.m4 - | gcc …</div>
 <div title="M4 jako preprocesor s řídícími znaky jinak: ␂␆" class="m4-usc">sed 's/#/␂#␆/g;s/\&lt;dnl\&gt;/␂dnl␆/g' any.src | m4 rootn.m4 leaf.m4 - | gcc …</div>
-<h4 id="m4-utf-8-znaky" class="m4-hx"><sup><a href="#m4-toc" title="Nahoru">&#x1f845;</a><a href="#m4-utf-8-znaky">&#x1f517;</a></sup><code>⟦⟧</code> UTF-8 znaky</h4>
+<h4 id="m4-utf-8-znaky" class="m4-bh"><a href="#m4-utf-8-znaky">&#x1f517;</a><code>⟦⟧</code> UTF-8 znaky<sup><a href="#m4-toc" title="Nahoru">&#x1f845;</a></sup></h4>
 <p>Expanzi neterminálů může také řídit vhodně zvolený pár UTF-8 znaků.
 Běžný zdrojový kód takové znaky neobsahuje, proto nemusíme řešit kolizi levého <code>⟦</code> znaku.
 UTF-8 znaky nabízí podobné výhody jako netisknutelné znaky.</p>
 <div title="M4 jako preprocesor s řídícími znaky: ⟦⟧" class="m4-usc">m4 rootu.m4 leaf.m4 any.src | gcc …</div>
-<p>Komentáře M4 <code>#</code> <code>dnl</code> jsou skryty mezi UTF-8 znaky: <code>⟦#⟧</code> <code>⟦dnl⟧</code></p>
+<p>Komentáře M4 <code>#</code> a <code>dnl</code> jsou skryty mezi UTF-8 znaky: <code>⟦#⟧</code> <code>⟦dnl⟧</code></p>
 <div title="M4 jako preprocesor s řídícími znaky: ⟦⟧" class="m4-usc">sed 's/#\|\&lt;dnl\&gt;/⟦&amp;⟧/g' any.src | m4 rootu.m4 leaf.m4 - | gcc …</div>
 <div title="M4 jako preprocesor s řídícími znaky jinak: ⟦⟧" class="m4-usc">sed 's/#/⟦#⟧/g;s/\&lt;dnl\&gt;/⟦dnl⟧/g' any.src | m4 rootu.m4 leaf.m4 - | gcc …</div>
 <p>Vyzkoušejte: <a href="#m4-priklady-preprocesoru" title="Příklady preprocesoru">Příklady preprocesoru</a></p>
-<h4 id="m4-smiseny-rezim" class="m4-hx"><sup><a href="#m4-toc" title="Nahoru">&#x1f845;</a><a href="#m4-smiseny-rezim">&#x1f517;</a></sup>Smíšený režim</h4>
+<h4 id="m4-smiseny-rezim" class="m4-bh"><a href="#m4-smiseny-rezim">&#x1f517;</a>Smíšený režim<sup><a href="#m4-toc" title="Nahoru">&#x1f845;</a></sup></h4>
 <p>Smíšený režim je kombinací předchozích režimů a&nbsp;je používán hlavně na pokusy.
 Data nejsou oddělena od transformačních pravidel.
 Listový soubor <code>leaf.m4</code> obsahuje definice těchto pravidel spolu se vstupními daty.</p>
 <div title="jak se naučit M4" class="m4-usc">m4 root.m4 leaf.m4</div>
 <p>Vyzkoušejte: <a href="#m4-m4-priklady" title="M4 – příklady">M4 – příklady</a></p>
-<h2 id="m4-predpoklady-pro-zvladnuti-m4" class="m4-hx"><sup><a href="#m4-toc" title="Nahoru">&#x1f845;</a><a href="#m4-toc-predpoklady-pro-zvladnuti-m4" title="Obsah">☰</a></sup><a href="#m4-predpoklady-pro-zvladnuti-m4" title="&#x1f517;">5</a>Předpoklady pro zvládnutí M4</h2>
+<h2 id="m4-predpoklady-pro-zvladnuti-m4" class="m4-ch"><a href="#m4-toc-predpoklady-pro-zvladnuti-m4" title="Obsah">☰</a><a href="#m4-predpoklady-pro-zvladnuti-m4" title="&#x1f517;">5</a>Předpoklady pro zvládnutí M4<sup><a href="#m4-toc" title="Nahoru">&#x1f845;</a></sup></h2>
 <p>Pro úspěšné zvládnutí tohoto makro jazyka je důležité splnit několik předpokladů.
 M4 není jednoduchý jazyk, protože není možné v&nbsp;něm myslet a&nbsp;programovat jako v&nbsp;běžném programovacím jazyce.
 Nejdůležitější je uvědomit si, že se v&nbsp;něm programují přepisovací pravidla gramatiky.
@@ -275,9 +275,9 @@ Každý řetězec je buď terminální nebo neterminální symbol včetně všec
 <li><strong>větví</strong> se <a href="#m4-vetveni-gramatikou" title="[] Větvení gramatikou">řetězením symbolů</a> nebo klíčovými slovy <code>ifelse()</code>, <code>ifdef()</code></li>
 </ul>
 </div>
-<h3 id="m4-zaklady-gramatik" class="m4-hx"><sup><a href="#m4-toc" title="Nahoru">&#x1f845;</a><a href="#m4-toc-zaklady-gramatik" title="Obsah">☰</a></sup><a href="#m4-zaklady-gramatik" title="&#x1f517;">5.1</a>Základy gramatik</h3>
+<h3 id="m4-zaklady-gramatik" class="m4-ch"><a href="#m4-toc-zaklady-gramatik" title="Obsah">☰</a><a href="#m4-zaklady-gramatik" title="&#x1f517;">5.1</a>Základy gramatik<sup><a href="#m4-toc" title="Nahoru">&#x1f845;</a></sup></h3>
 <p>Základem všech gramatik jsou přepisovací pravidla, jejichž podobu obecně popisuje:</p>
-<h4 id="m4-formalni-gramatika-chomskeho-typ" class="m4-hx"><sup><a href="#m4-toc" title="Nahoru">&#x1f845;</a><a href="#m4-formalni-gramatika-chomskeho-typ">&#x1f517;</a></sup>Formální gramatika (Chomského typu)</h4>
+<h4 id="m4-formalni-gramatika-chomskeho-typ" class="m4-bh"><a href="#m4-formalni-gramatika-chomskeho-typ">&#x1f517;</a>Formální gramatika (Chomského typu)<sup><a href="#m4-toc" title="Nahoru">&#x1f845;</a></sup></h4>
 <div class="m4-src"><pre>G = (N, Σ, P, S)
 N: konečná množina neterminálních symbolů
 Σ: konečná množina terminálních symbolů
@@ -290,9 +290,9 @@ S: je počáteční (startovací) symbol
 Jedna z&nbsp;podmnožin se jmenuje <a href="https://cs.wikipedia.org/wiki/Bezkontextov%C3%A1_gramatika" title="Wikipedie">bezkontextová gramatika</a>, krátce <abbr title="Context-Free Grammar – bezkontextová gramatika">CFG</abbr>.
 Jak již bylo dříve zmíněno, přepisovací pravidla CFG pracují stejně jako přepisovací pravidla jazyka M4.
 Některý z&nbsp;následujících dílů seriálu se podrobněji zaměří na formální gramatiky.</p>
-<h3 id="m4-zaklady-automatu" class="m4-hx"><sup><a href="#m4-toc" title="Nahoru">&#x1f845;</a><a href="#m4-toc-zaklady-automatu" title="Obsah">☰</a></sup><a href="#m4-zaklady-automatu" title="&#x1f517;">5.2</a>Základy automatů</h3>
+<h3 id="m4-zaklady-automatu" class="m4-ch"><a href="#m4-toc-zaklady-automatu" title="Obsah">☰</a><a href="#m4-zaklady-automatu" title="&#x1f517;">5.2</a>Základy automatů<sup><a href="#m4-toc" title="Nahoru">&#x1f845;</a></sup></h3>
 <p>Schopnost používat převážně dvoustavové automaty je zásadní věc pro psaní jednoduchých M4 skriptů, protože převážná většina skriptů používá <a href="#m4-c-maly-automat" title="[] C – malý automat">malé automaty</a>.</p>
-<h4 id="m4-testovaci-automat" class="m4-hx"><sup><a href="#m4-toc" title="Nahoru">&#x1f845;</a><a href="#m4-testovaci-automat">&#x1f517;</a></sup>Testovací automat</h4>
+<h4 id="m4-testovaci-automat" class="m4-bh"><a href="#m4-testovaci-automat">&#x1f517;</a>Testovací automat<sup><a href="#m4-toc" title="Nahoru">&#x1f845;</a></sup></h4>
 <p>Pořadí vstupních symbolů nebo jejich kontext lze otestovat automatem.
 Splňují-li vstupní symboly požadované vlastnosti, automat skončí v&nbsp;uzlu s&nbsp;dvojitým kroužkem, kterým se označuje akceptující stav.</p>
 <img src="https://i.iinfo.cz/images/149/dfa-1.png" alt="&#160;" width="274" height="155" id="m4-dfa-img" title="deterministický konečný automat (DFA)">
@@ -305,33 +305,30 @@ Automat je shodný s&nbsp;regulárním výrazem <code>(1*01*01*)*1*</code>.</em>
 # ---&gt;// S1 \\------&gt;/ S2 \---.1
 #     \\____//&lt;------\____/&lt;--'
 #                0</pre></div>
-<h4 id="m4-generujici-automat" class="m4-hx"><sup><a href="#m4-toc" title="Nahoru">&#x1f845;</a><a href="#m4-generujici-automat">&#x1f517;</a></sup>Generující automat</h4>
+<h4 id="m4-generujici-automat" class="m4-bh"><a href="#m4-generujici-automat">&#x1f517;</a>Generující automat<sup><a href="#m4-toc" title="Nahoru">&#x1f845;</a></sup></h4>
 <p>Vstupní symboly mění uzly automatu, čímž zároveň mění přepisovací pravidla pro generování kódu.
-<a href="#m4-json-generujici-automat" title="[] JSON – generující automat">Tento příklad</a> naleznete v&nbsp;příloze:</p>
+Příklad <a href="#m4-json-generujici-automat" title="[] JSON – generující automat">generujícího automatu</a> naleznete v&nbsp;příloze:</p>
 <div class="m4-src"><pre title="ASCII art generujícího automatu">#      _______      ___________
 # ---&gt;/ ERROR \---&gt;/ NEXT_ITEM \---.
 #     \_______/    \___________/&lt;--'</pre></div>
-<p>První symbol ve stavu <code>ERROR</code> vygeneruje záhlaví se závorkami a&nbsp;vloží první položku.
-Poté automat přejde do stavu <code>NEXT_ITEM</code>, ve kterém se pouze přidávají další položky.
-Automat zůstává v&nbsp;tomto stavu, dokud nejsou zpracována všechna data.</p>
-<h3 id="m4-gnu-make" class="m4-hx"><sup><a href="#m4-toc" title="Nahoru">&#x1f845;</a><a href="#m4-toc-gnu-make" title="Obsah">☰</a></sup><a href="#m4-gnu-make" title="&#x1f517;">5.3</a>(GNU) make</h3>
+<h3 id="m4-gnu-make" class="m4-ch"><a href="#m4-toc-gnu-make" title="Obsah">☰</a><a href="#m4-gnu-make" title="&#x1f517;">5.3</a>(GNU) make<sup><a href="#m4-toc" title="Nahoru">&#x1f845;</a></sup></h3>
 <p>Dobře navržený generátor kódu se obvykle skládá z&nbsp;několika menších souborů, jejichž pořadí, závislosti a&nbsp;parametry se zapisují do souboru <code>Makefile</code>.
 Dobrá znalost tvorby <code>Makefile</code> je proto základním předpokladem pro zvládnutí M4.
 Čtení a údržba zdrojového kódu celkově zabere vždy více času než jeho tvorba.
 Dobře strukturovaný <code>Makefile</code> proto zásadním způsobem přispívá k&nbsp;celkové přehlednosti výsledného generátoru kódu.</p>
 <div title="tímto tématem se budeme zabývat jindy" class="rs-tip-major m4-note">Spouštění <code>make</code><sup><a href="https://www.gnu.org/software/make/manual/make.html" title="GNU Make Manual" id="m4-ref10">[10]</a></sup> z&nbsp;editoru kódu pomocí vhodné klávesové zkratky zásadně urychluje vývoj M4 kódu.
 Soubor <code>~/.vimrc</code> obsahuje <code>nnoremap &lt;c-j&gt; :make&lt;cr&gt;</code>.</div>
-<h3 id="m4-vim" class="m4-hx"><sup><a href="#m4-toc" title="Nahoru">&#x1f845;</a><a href="#m4-toc-vim" title="Obsah">☰</a></sup><a href="#m4-vim" title="&#x1f517;">5.4</a>Vim</h3>
+<h3 id="m4-vim" class="m4-ch"><a href="#m4-toc-vim" title="Obsah">☰</a><a href="#m4-vim" title="&#x1f517;">5.4</a>Vim<sup><a href="#m4-toc" title="Nahoru">&#x1f845;</a></sup></h3>
 <p>Zvládnutí editoru Vim<sup><a href="https://www.vim.org/" title="Vim – všudypřítomný textový editor" id="m4-ref11">[11]</a></sup> je důležitým předpokladem pro pohodlí a&nbsp;rychlost psaní kódu M4.
 Vim zkratky, definované klíčovým slovem <code>iabbrev</code>, ušetří velké množství zbytečně napsaného textu.
 Tyto zkratky také významně snižují výskyt téměř neviditelných chyb způsobených nepárovou závorkou, čímž šetří ztracený čas vynaložený na ladění kódu.</p>
-<h3 id="m4-talent-a-cas" class="m4-hx"><sup><a href="#m4-toc" title="Nahoru">&#x1f845;</a><a href="#m4-toc-talent-a-cas" title="Obsah">☰</a></sup><a href="#m4-talent-a-cas" title="&#x1f517;">5.5</a>Talent a čas</h3>
+<h3 id="m4-talent-a-cas" class="m4-ch"><a href="#m4-toc-talent-a-cas" title="Obsah">☰</a><a href="#m4-talent-a-cas" title="&#x1f517;">5.5</a>Talent a čas<sup><a href="#m4-toc" title="Nahoru">&#x1f845;</a></sup></h3>
 <p>M4 obvykle nejde zcela zvládnout přes víkend, zvláště chybí-li základy<sup><a href="https://is.muni.cz/elportal/estud/fi/js06/ib005/Formalni_jazyky_a_automaty_I.pdf" title="Automaty a&nbsp;formální jazyky I" id="m4-ref12">[12]</a></sup>
 <a href="https://cs.wikipedia.org/wiki/Teorie_automat%C5%AF" title="Wikipedie">teorie&nbsp;automatů</a> a&nbsp;<a href="https://cs.wikipedia.org/wiki/Form%C3%A1ln%C3%AD_gramatika" title="Wikipedie">formálních&nbsp;gramatik</a>.
 Pro dokonalé zvládnutí M4 je nutné „odpřemýšlet si“ delší období a&nbsp;napsat určité množství špatného (složitého) M4 kódu, který z&nbsp;vlastní vůle přepíšete kvůli lepšímu nápadu.
 Tímto způsobem je možné postupně získat praxi.</p>
 <!-- article references -->
-<h2 id="m4-refs" class="m4-hx"><sup><a href="#m4-toc" title="Nahoru">&#x1f845;</a><a href="#m4-toc-refs" title="Obsah">☰</a></sup><a href="#m4-refs" title="&#x1f517;">6</a>Odkazy</h2>
+<h2 id="m4-refs" class="m4-ch"><a href="#m4-toc-refs" title="Obsah">☰</a><a href="#m4-refs" title="&#x1f517;">6</a>Odkazy<sup><a href="#m4-toc" title="Nahoru">&#x1f845;</a></sup></h2>
 <ol class="m4-refs">
 <li><a href="#m4-ref1" title="odkaz v textu">↑</a><strong>Generování kódu v M4</strong>, vícejazyčná šablona s&nbsp;příklady pro <a href="https://www.root.cz" title="Root.cz – informace nejen ze světa Linuxu">www.root.cz</a><br>
 <a href="http://github.com/jkubin/m4root">http://github.com/jkubin/m4root</a></li>
@@ -361,7 +358,7 @@ Tímto způsobem je možné postupně získat praxi.</p>
 <a href="https://is.muni.cz/publication/173173">https://is.muni.cz/publication/173173</a></li>
 </ol>
 <!-- appendix content -->
-<h2 id="m4-priklady-generovani-kodu" class="m4-hx"><sup><a href="#m4-toc" title="Nahoru">&#x1f845;</a><a href="#m4-toc-priklady-generovani-kodu" title="Obsah">☰</a></sup><a href="#m4-priklady-generovani-kodu" title="&#x1f517;">A</a>Příklady generování kódu</h2>
+<h2 id="m4-priklady-generovani-kodu" class="m4-ch"><a href="#m4-toc-priklady-generovani-kodu" title="Obsah">☰</a><a href="#m4-priklady-generovani-kodu" title="&#x1f517;">A</a>Příklady generování kódu<sup><a href="#m4-toc" title="Nahoru">&#x1f845;</a></sup></h2>
 <div title="pro informaci" class="rs-tip-major m4-info">Znaky {<code>`'</code>, <code>[]</code>, <strong><code>␂␆</code></strong>, <code>⟦⟧</code>} v&nbsp;názvu příkladu <a href="#m4-rizeni-expanze-neterminalu" title="Řízení expanze neterminálů">řídí expanzi neterminálů</a>.</div>
 <p id="m4-toc-vstupni-zdrojovy-kod" class="m4-l2"><a href="#m4-vstupni-zdrojovy-kod"><b>A.1</b><code>[]</code> Vstupní zdrojový kód</a></p>
 <p id="m4-toc-csv-nejjednodussi-priklad" class="m4-l2"><a href="#m4-csv-nejjednodussi-priklad"><b>A.2</b><code>[]</code> CSV – nejjednodušší příklad</a></p>
@@ -384,38 +381,38 @@ Tímto způsobem je možné postupně získat praxi.</p>
 <p id="m4-toc-bash-cmd-echo-aretezeca" class="m4-l2"><a href="#m4-bash-cmd-echo-aretezeca"><b>A.17</b><code>[]</code> Bash <code>~]$ echo 'řetězec'</code></a></p>
 <div title="poznámka" class="rs-tip-major m4-note">Příklady v&nbsp;této příloze jsou složitější a&nbsp;jejich cílem je ukázat praktické použití jazyka M4.
 Podrobněji budou vysvětleny později.</div>
-<h3 id="m4-vstupni-zdrojovy-kod" class="m4-hx"><sup><a href="#m4-toc" title="Nahoru">&#x1f845;</a><a href="#m4-toc-vstupni-zdrojovy-kod" title="Obsah">☰</a></sup><a href="#m4-vstupni-zdrojovy-kod" title="&#x1f517;">A.1</a><code>[]</code> Vstupní zdrojový kód</h3>
+<h3 id="m4-vstupni-zdrojovy-kod" class="m4-ch"><a href="#m4-toc-vstupni-zdrojovy-kod" title="Obsah">☰</a><a href="#m4-vstupni-zdrojovy-kod" title="&#x1f517;">A.1</a><code>[]</code> Vstupní zdrojový kód<sup><a href="#m4-toc" title="Nahoru">&#x1f845;</a></sup></h3>
 <p>Vstupní zdrojový kód je podobný <abbr title="Comma Separated Values">CSV</abbr>, který se převede na libovolně složitý cílový kód jiného jazyka pomocí <abbr title="Context-Free Grammar – bezkontextová gramatika">CFG</abbr>, automatů a&nbsp;výstupních front.
 Zásobníky v&nbsp;příkladech nejsou použity.
 Vstupní zdrojový kód obsahuje speciální znaky, které je nutné skrýt:</p>
-<div class="m4-src"><pre># 2018/05/15 Josef Kubin
+<div class="m4-src"><pre id="m4-messages-messages-raw-mc"># 2018/05/15 Josef Kubin
 
 ERROR([COMPLEX],     [!"#$%&amp;'()*+ ,-./:;&lt;=&gt;?@[\]^_`{|}~])
 QUERY([READABLE],    [Is badly written M4 code readable [N/y]?])
 ERROR([SUCCESS],     [Complex M4 code failed successfully.])
 WARNING([ADDICTIVE], [Programming in M4 is addictive!])
 ERROR([NOFAULT],     [It's not a language fault!])
-WARNING([NO_ERRORS], [No other errors detected.])</pre><code><span title="2020-01-06 16:21:10 +0100">b53eafe</span><a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/messages/messages_raw.mc" title="GitHub:~/messages/messages_raw.mc">messages_raw.mc</a></code></div>
+WARNING([NO_ERRORS], [No other errors detected.])</pre><code><span title="2020-01-06 16:21:10 +0100">b53eafe</span><a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/messages/messages_raw.mc" title="GitHub:~/messages/messages_raw.mc">messages_raw.mc</a><a href="#m4-messages-messages-raw-mc">&#x1f517;</a></code></div>
 <div title="poznámka" class="rs-tip-major m4-note">Vstupní soubor může také obsahovat poznámky, které nemusí být skryté v&nbsp;komentářích <code>#</code>, <code>dnl</code>, <code>ifelse([…])</code> nebo <code>[… někde uvnitř závorek …]</code>.</div>
-<h3 id="m4-csv-nejjednodussi-priklad" class="m4-hx"><sup><a href="#m4-toc" title="Nahoru">&#x1f845;</a><a href="#m4-toc-csv-nejjednodussi-priklad" title="Obsah">☰</a></sup><a href="#m4-csv-nejjednodussi-priklad" title="&#x1f517;">A.2</a><code>[]</code> CSV – nejjednodušší příklad</h3>
+<h3 id="m4-csv-nejjednodussi-priklad" class="m4-ch"><a href="#m4-toc-csv-nejjednodussi-priklad" title="Obsah">☰</a><a href="#m4-csv-nejjednodussi-priklad" title="&#x1f517;">A.2</a><code>[]</code> CSV – nejjednodušší příklad<sup><a href="#m4-toc" title="Nahoru">&#x1f845;</a></sup></h3>
 <p>Tento příklad nepoužívá výstupní fronty, pouze generuje <abbr title="Comma Separated Values">CSV</abbr> oddělené znakem <code>TAB</code>.</p>
-<div class="m4-src"><pre># A → β
+<div class="m4-src"><pre id="m4-messages-hello-csv-m4"># A → β
 define([ERROR], [
 
 	divert(0)dnl
 [$1]	$2
 divert(-1)
-])</pre><code><span title="2020-01-06 16:21:10 +0100">b53eafe</span><a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/messages/hello.csv.m4" title="GitHub:~/messages/hello.csv.m4">hello.csv.m4</a></code></div>
-<div title="příkaz" class="m4-usc">m4 <a href="https://raw.githubusercontent.com/jkubin/m4root/1c7cd84d8bdebee864226734097e3ef7c9c86cfa/gfiles/rootb.m4" title="GitHub:~/gfiles/rootb.m4">rootb.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/messages/hello.csv.m4" title="GitHub:~/messages/hello.csv.m4">hello.csv.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/messages/messages_raw.mc" title="GitHub:~/messages/messages_raw.mc">messages_raw.mc</a> &gt; <a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/messages/hello.csv" title="GitHub:~/messages/hello.csv">hello.csv</a></div>
-<div class="m4-src"><pre>COMPLEX	!"#$%&amp;'()*+,-./:;&lt;=&gt;?@[\]^_`{|}~
+])</pre><code><span title="2020-01-06 16:21:10 +0100">b53eafe</span><a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/messages/hello.csv.m4" title="GitHub:~/messages/hello.csv.m4">hello.csv.m4</a><a href="#m4-messages-hello-csv-m4">&#x1f517;</a></code></div>
+<div title="příkaz" class="m4-usc">m4 <a href="https://raw.githubusercontent.com/jkubin/m4root/c8ca92d97bf619b9cc7a3e9d0a89ea32654c5cb7/gfiles/rootb.m4" title="GitHub:~/gfiles/rootb.m4">rootb.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/messages/hello.csv.m4" title="GitHub:~/messages/hello.csv.m4">hello.csv.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/messages/messages_raw.mc" title="GitHub:~/messages/messages_raw.mc">messages_raw.mc</a> &gt; <a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/messages/hello.csv" title="GitHub:~/messages/hello.csv">hello.csv</a></div>
+<div class="m4-src"><pre id="m4-messages-hello-csv">COMPLEX	!"#$%&amp;'()*+,-./:;&lt;=&gt;?@[\]^_`{|}~
 SUCCESS	Complex M4 code failed successfully.
-NOFAULT	It's not a language fault!</pre><code><span title="2020-01-06 16:21:10 +0100">b53eafe</span><a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/messages/hello.csv" title="GitHub:~/messages/hello.csv">hello.csv</a></code></div>
-<h3 id="m4-csv-pocitadlo" class="m4-hx"><sup><a href="#m4-toc" title="Nahoru">&#x1f845;</a><a href="#m4-toc-csv-pocitadlo" title="Obsah">☰</a></sup><a href="#m4-csv-pocitadlo" title="&#x1f517;">A.3</a><code>[]</code> CSV – počítadlo</h3>
+NOFAULT	It's not a language fault!</pre><code><span title="2020-01-06 16:21:10 +0100">b53eafe</span><a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/messages/hello.csv" title="GitHub:~/messages/hello.csv">hello.csv</a><a href="#m4-messages-hello-csv">&#x1f517;</a></code></div>
+<h3 id="m4-csv-pocitadlo" class="m4-ch"><a href="#m4-toc-csv-pocitadlo" title="Obsah">☰</a><a href="#m4-csv-pocitadlo" title="&#x1f517;">A.3</a><code>[]</code> CSV – počítadlo<sup><a href="#m4-toc" title="Nahoru">&#x1f845;</a></sup></h3>
 <p>Příklad používá makro <code>COUNT_UP</code> z&nbsp;kořenového souboru, jehož <abbr title="pravá strana přepisovacího pravidla"><code>β</code></abbr> se zkopíruje do pravé strany makra <code>COUNTER</code>.
 Během první expanze <code>COUNTER</code> proběhne inicializace jeho startovací hodnoty.
 Další expanze vrátí číselný terminální symbol a&nbsp;proběhne zvýšení pomocného (globálního) symbolu o&nbsp;jedničku.
 <code>COUNTER</code> je malý automat.</p>
-<div class="m4-src"><pre># A → β
+<div class="m4-src"><pre id="m4-messages-counter-csv-m4"># A → β
 define([COUNTER], defn([COUNT_UP]))
 
 # init counter
@@ -427,27 +424,27 @@ define([ERROR], [
 	divert(0)dnl
 ERR_[]COUNTER	[$1]	$2
 divert(-1)
-])</pre><code><span title="2020-01-06 16:21:10 +0100">b53eafe</span><a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/messages/counter.csv.m4" title="GitHub:~/messages/counter.csv.m4">counter.csv.m4</a></code></div>
-<div title="příkaz" class="m4-usc">m4 <a href="https://raw.githubusercontent.com/jkubin/m4root/1c7cd84d8bdebee864226734097e3ef7c9c86cfa/gfiles/rootb.m4" title="GitHub:~/gfiles/rootb.m4">rootb.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/messages/counter.csv.m4" title="GitHub:~/messages/counter.csv.m4">counter.csv.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/messages/messages_raw.mc" title="GitHub:~/messages/messages_raw.mc">messages_raw.mc</a> &gt; <a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/messages/counter.csv" title="GitHub:~/messages/counter.csv">counter.csv</a></div>
-<div class="m4-src"><pre>ERR_1	COMPLEX	!"#$%&amp;'()*+,-./:;&lt;=&gt;?@[\]^_`{|}~
+])</pre><code><span title="2020-01-06 16:21:10 +0100">b53eafe</span><a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/messages/counter.csv.m4" title="GitHub:~/messages/counter.csv.m4">counter.csv.m4</a><a href="#m4-messages-counter-csv-m4">&#x1f517;</a></code></div>
+<div title="příkaz" class="m4-usc">m4 <a href="https://raw.githubusercontent.com/jkubin/m4root/c8ca92d97bf619b9cc7a3e9d0a89ea32654c5cb7/gfiles/rootb.m4" title="GitHub:~/gfiles/rootb.m4">rootb.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/messages/counter.csv.m4" title="GitHub:~/messages/counter.csv.m4">counter.csv.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/messages/messages_raw.mc" title="GitHub:~/messages/messages_raw.mc">messages_raw.mc</a> &gt; <a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/messages/counter.csv" title="GitHub:~/messages/counter.csv">counter.csv</a></div>
+<div class="m4-src"><pre id="m4-messages-counter-csv">ERR_1	COMPLEX	!"#$%&amp;'()*+,-./:;&lt;=&gt;?@[\]^_`{|}~
 ERR_2	SUCCESS	Complex M4 code failed successfully.
-ERR_3	NOFAULT	It's not a language fault!</pre><code><span title="2020-01-06 16:21:10 +0100">b53eafe</span><a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/messages/counter.csv" title="GitHub:~/messages/counter.csv">counter.csv</a></code></div>
-<h3 id="m4-upravy-specialnich-znaku" class="m4-hx"><sup><a href="#m4-toc" title="Nahoru">&#x1f845;</a><a href="#m4-toc-upravy-specialnich-znaku" title="Obsah">☰</a></sup><a href="#m4-upravy-specialnich-znaku" title="&#x1f517;">A.4</a><code title="jak se to dělá" style="cursor:help">&#x1f4a1;</code> Úpravy speciálních znaků</h3>
+ERR_3	NOFAULT	It's not a language fault!</pre><code><span title="2020-01-06 16:21:10 +0100">b53eafe</span><a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/messages/counter.csv" title="GitHub:~/messages/counter.csv">counter.csv</a><a href="#m4-messages-counter-csv">&#x1f517;</a></code></div>
+<h3 id="m4-upravy-specialnich-znaku" class="m4-ch"><a href="#m4-toc-upravy-specialnich-znaku" title="Obsah">☰</a><a href="#m4-upravy-specialnich-znaku" title="&#x1f517;">A.4</a><code title="jak se to dělá" style="cursor:help">&#x1f4a1;</code> Úpravy speciálních znaků<sup><a href="#m4-toc" title="Nahoru">&#x1f845;</a></sup></h3>
 <p>Každý typ výstupního kódu vyžaduje úpravu speciálních znaků.
 Klíčové slovo jazyka M4 <code>patsubst()</code> je nevhodné pro tento úkol.
 Všechny speciální znaky vstupního souboru proto napřed skryjeme do vhodně pojmenovaných maker pomocí regulárních výrazů.</p>
-<h4 id="m4-upraveny-vstupni-kod" class="m4-hx"><sup><a href="#m4-toc" title="Nahoru">&#x1f845;</a><a href="#m4-upraveny-vstupni-kod">&#x1f517;</a></sup>Upravený vstupní kód</h4>
-<div class="m4-src"><pre title="všechny speciální znaky jsou skryty do maker"># 2018/05/15 Josef Kubin
+<h4 id="m4-upraveny-vstupni-kod" class="m4-bh"><a href="#m4-upraveny-vstupni-kod">&#x1f517;</a>Upravený vstupní kód<sup><a href="#m4-toc" title="Nahoru">&#x1f845;</a></sup></h4>
+<div class="m4-src"><pre id="m4-messages-messages-mc" title="všechny speciální znaky jsou skryty do maker"># 2018/05/15 Josef Kubin
 
 ERROR([COMPLEX],     [[]EX()[]DQ()[#]$%[]AMP()[]AP()()*+,-./:;[]LT()=[]GT()?@[]LB()[]BS()[]RB()^_[]BQ(){|}~])
 QUERY([READABLE],    [Is badly written M4 code readable []LB()N/y[]RB()?])
 ERROR([SUCCESS],     [Complex M4 code failed successfully.])
 WARNING([ADDICTIVE], [Programming in M4 is addictive[]EX()])
 ERROR([NOFAULT],     [It[]AP()s not a language fault[]EX()])
-WARNING([NO_ERRORS], [No other errors detected.])</pre><code><span title="2020-03-09 00:12:55 +0100">cce57f8</span><a href="https://raw.githubusercontent.com/jkubin/m4root/cce57f8d115160db9d1fe475f7eca82e1f26df54/messages/messages.mc" title="GitHub:~/messages/messages.mc">messages.mc</a></code></div>
+WARNING([NO_ERRORS], [No other errors detected.])</pre><code><span title="2020-03-09 00:12:55 +0100">cce57f8</span><a href="https://raw.githubusercontent.com/jkubin/m4root/cce57f8d115160db9d1fe475f7eca82e1f26df54/messages/messages.mc" title="GitHub:~/messages/messages.mc">messages.mc</a><a href="#m4-messages-messages-mc">&#x1f517;</a></code></div>
 <p>Vytvoříme několik převodních souborů podle typu cílového kódu, makra pro hranaté závorky <code>LB()</code> a <code>RB()</code> jsou už definována v&nbsp;kořenovém souboru.</p>
-<h4 id="m4-prevodni-soubor-pro-xml-xslt-htm" class="m4-hx"><sup><a href="#m4-toc" title="Nahoru">&#x1f845;</a><a href="#m4-prevodni-soubor-pro-xml-xslt-htm">&#x1f517;</a></sup><code>[]</code> Převodní soubor pro XML, XSLT, HTML</h4>
-<div class="m4-src"><pre title="převodní soubor pro značkovací jazyky"># A → β
+<h4 id="m4-prevodni-soubor-pro-xml-xslt-htm" class="m4-bh"><a href="#m4-prevodni-soubor-pro-xml-xslt-htm">&#x1f517;</a><code>[]</code> Převodní soubor pro XML, XSLT, HTML<sup><a href="#m4-toc" title="Nahoru">&#x1f845;</a></sup></h4>
+<div class="m4-src"><pre id="m4-messages-markup-m4" title="převodní soubor pro značkovací jazyky"># A → β
 define([AMP], [&amp;amp;])
 define([AP], ['])
 define([BQ], [`])
@@ -455,9 +452,9 @@ define([BS], [\])
 define([DQ], ["])
 define([EX], [!])
 define([GT], [&amp;gt;])
-define([LT], [&amp;lt;])</pre><code><span title="2020-01-06 16:21:10 +0100">b53eafe</span><a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/messages/markup.m4" title="GitHub:~/messages/markup.m4">markup.m4</a></code></div>
-<h4 id="m4-prevodni-soubor-pro-c-json-ini-d" class="m4-hx"><sup><a href="#m4-toc" title="Nahoru">&#x1f845;</a><a href="#m4-prevodni-soubor-pro-c-json-ini-d">&#x1f517;</a></sup><code>[]</code> Převodní soubor pro C, JSON, INI: <code>&quot;řetězec&quot;</code></h4>
-<div class="m4-src"><pre title="převodní soubor pro zdrojový kód"># A → β
+define([LT], [&amp;lt;])</pre><code><span title="2020-01-06 16:21:10 +0100">b53eafe</span><a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/messages/markup.m4" title="GitHub:~/messages/markup.m4">markup.m4</a><a href="#m4-messages-markup-m4">&#x1f517;</a></code></div>
+<h4 id="m4-prevodni-soubor-pro-c-json-ini-d" class="m4-bh"><a href="#m4-prevodni-soubor-pro-c-json-ini-d">&#x1f517;</a><code>[]</code> Převodní soubor pro C, JSON, INI: <code>&quot;řetězec&quot;</code><sup><a href="#m4-toc" title="Nahoru">&#x1f845;</a></sup></h4>
+<div class="m4-src"><pre id="m4-messages-code-m4" title="převodní soubor pro zdrojový kód"># A → β
 define([AMP], [&amp;])
 define([AP], ['])
 define([BQ], [`])
@@ -465,9 +462,9 @@ define([BS], [\\])
 define([DQ], [\"])
 define([EX], [!])
 define([GT], [&gt;])
-define([LT], [&lt;])</pre><code><span title="2020-01-06 16:21:10 +0100">b53eafe</span><a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/messages/code.m4" title="GitHub:~/messages/code.m4">code.m4</a></code></div>
-<h4 id="m4-prevodni-soubor-pro-bash-dreteze" class="m4-hx"><sup><a href="#m4-toc" title="Nahoru">&#x1f845;</a><a href="#m4-prevodni-soubor-pro-bash-dreteze">&#x1f517;</a></sup><code>[]</code> Převodní soubor pro Bash: <code>&quot;řetězec&quot;</code></h4>
-<div class="m4-src"><pre title="převodní soubor pro Bash &quot;řetězce v uvozovkách&quot;"># A → β
+define([LT], [&lt;])</pre><code><span title="2020-01-06 16:21:10 +0100">b53eafe</span><a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/messages/code.m4" title="GitHub:~/messages/code.m4">code.m4</a><a href="#m4-messages-code-m4">&#x1f517;</a></code></div>
+<h4 id="m4-prevodni-soubor-pro-bash-dreteze" class="m4-bh"><a href="#m4-prevodni-soubor-pro-bash-dreteze">&#x1f517;</a><code>[]</code> Převodní soubor pro Bash: <code>&quot;řetězec&quot;</code><sup><a href="#m4-toc" title="Nahoru">&#x1f845;</a></sup></h4>
+<div class="m4-src"><pre id="m4-messages-doubleq-m4" title="převodní soubor pro Bash &quot;řetězce v uvozovkách&quot;"># A → β
 define([AMP], [&amp;])
 define([AP], ['])
 define([BQ], [\`])
@@ -475,9 +472,9 @@ define([BS], [\\])
 define([DQ], [\"])
 define([EX], ["\!"])
 define([GT], [&gt;])
-define([LT], [&lt;])</pre><code><span title="2020-01-06 16:21:10 +0100">b53eafe</span><a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/messages/doubleq.m4" title="GitHub:~/messages/doubleq.m4">doubleq.m4</a></code></div>
-<h4 id="m4-prevodni-soubor-pro-bash-areteze" class="m4-hx"><sup><a href="#m4-toc" title="Nahoru">&#x1f845;</a><a href="#m4-prevodni-soubor-pro-bash-areteze">&#x1f517;</a></sup><code>[]</code> Převodní soubor pro Bash: <code>&apos;řetězec&apos;</code></h4>
-<div class="m4-src"><pre title="převodní soubor pro Bash 'řetězce v apostrofech'"># A → β
+define([LT], [&lt;])</pre><code><span title="2020-01-06 16:21:10 +0100">b53eafe</span><a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/messages/doubleq.m4" title="GitHub:~/messages/doubleq.m4">doubleq.m4</a><a href="#m4-messages-doubleq-m4">&#x1f517;</a></code></div>
+<h4 id="m4-prevodni-soubor-pro-bash-areteze" class="m4-bh"><a href="#m4-prevodni-soubor-pro-bash-areteze">&#x1f517;</a><code>[]</code> Převodní soubor pro Bash: <code>&apos;řetězec&apos;</code><sup><a href="#m4-toc" title="Nahoru">&#x1f845;</a></sup></h4>
+<div class="m4-src"><pre id="m4-messages-apost-m4" title="převodní soubor pro Bash 'řetězce v apostrofech'"># A → β
 define([AMP], [&amp;])
 define([AP], ['\''])
 define([BQ], [`])
@@ -485,9 +482,9 @@ define([BS], [\])
 define([DQ], ["])
 define([EX], [!])
 define([GT], [&gt;])
-define([LT], [&lt;])</pre><code><span title="2020-01-06 16:21:10 +0100">b53eafe</span><a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/messages/apost.m4" title="GitHub:~/messages/apost.m4">apost.m4</a></code></div>
-<h4 id="m4-prevodni-soubor-pro-csv-m4-vrati" class="m4-hx"><sup><a href="#m4-toc" title="Nahoru">&#x1f845;</a><a href="#m4-prevodni-soubor-pro-csv-m4-vrati">&#x1f517;</a></sup><code>[]</code> Převodní soubor pro CSV, M4 (vrátí všechny znaky zpátky)</h4>
-<div class="m4-src"><pre title="převodní soubor vrátí všechny speciální znaky zpátky"># A → β
+define([LT], [&lt;])</pre><code><span title="2020-01-06 16:21:10 +0100">b53eafe</span><a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/messages/apost.m4" title="GitHub:~/messages/apost.m4">apost.m4</a><a href="#m4-messages-apost-m4">&#x1f517;</a></code></div>
+<h4 id="m4-prevodni-soubor-pro-csv-m4-vrati" class="m4-bh"><a href="#m4-prevodni-soubor-pro-csv-m4-vrati">&#x1f517;</a><code>[]</code> Převodní soubor pro CSV, M4 (vrátí všechny znaky zpátky)<sup><a href="#m4-toc" title="Nahoru">&#x1f845;</a></sup></h4>
+<div class="m4-src"><pre id="m4-messages-unchanged-m4" title="převodní soubor vrátí všechny speciální znaky zpátky"># A → β
 define([AMP], [&amp;])
 define([AP], ['])
 define([BQ], [`])
@@ -495,10 +492,10 @@ define([BS], [\])
 define([DQ], ["])
 define([EX], [!])
 define([GT], [&gt;])
-define([LT], [&lt;])</pre><code><span title="2020-01-10 04:42:49 +0100">f175bef</span><a href="https://raw.githubusercontent.com/jkubin/m4root/f175beff15b9090b034f064ff72ac7525813eb90/messages/unchanged.m4" title="GitHub:~/messages/unchanged.m4">unchanged.m4</a></code></div>
-<h3 id="m4-c-vystupni-fronta" class="m4-hx"><sup><a href="#m4-toc" title="Nahoru">&#x1f845;</a><a href="#m4-toc-c-vystupni-fronta" title="Obsah">☰</a></sup><a href="#m4-c-vystupni-fronta" title="&#x1f517;">A.5</a><code>[]</code> C – výstupní fronta</h3>
+define([LT], [&lt;])</pre><code><span title="2020-01-10 04:42:49 +0100">f175bef</span><a href="https://raw.githubusercontent.com/jkubin/m4root/f175beff15b9090b034f064ff72ac7525813eb90/messages/unchanged.m4" title="GitHub:~/messages/unchanged.m4">unchanged.m4</a><a href="#m4-messages-unchanged-m4">&#x1f517;</a></code></div>
+<h3 id="m4-c-vystupni-fronta" class="m4-ch"><a href="#m4-toc-c-vystupni-fronta" title="Obsah">☰</a><a href="#m4-c-vystupni-fronta" title="&#x1f517;">A.5</a><code>[]</code> C – výstupní fronta<sup><a href="#m4-toc" title="Nahoru">&#x1f845;</a></sup></h3>
 <p>Příklad používá jednu výstupní frontu na znaky <code>};</code> pro uzavření pole na konci skriptu.</p>
-<div class="m4-src"><pre># A → β
+<div class="m4-src"><pre id="m4-messages-array-c-m4"># A → β
 define([ERROR], [
 
 	divert(0)dnl
@@ -514,9 +511,9 @@ divert(0)dnl
 char *error[[]] = {
 divert(1)dnl
 };
-divert(-1)</pre><code><span title="2020-01-06 16:21:10 +0100">b53eafe</span><a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/messages/array.c.m4" title="GitHub:~/messages/array.c.m4">array.c.m4</a></code></div>
-<div title="příkaz" class="m4-usc">m4 <a href="https://raw.githubusercontent.com/jkubin/m4root/1c7cd84d8bdebee864226734097e3ef7c9c86cfa/gfiles/rootb.m4" title="GitHub:~/gfiles/rootb.m4">rootb.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/messages/array.c.m4" title="GitHub:~/messages/array.c.m4">array.c.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/messages/code.m4" title="GitHub:~/messages/code.m4">code.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/cce57f8d115160db9d1fe475f7eca82e1f26df54/messages/messages.mc" title="GitHub:~/messages/messages.mc">messages.mc</a> &gt; <a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/messages/array.c" title="GitHub:~/messages/array.c">array.c</a></div>
-<div class="m4-src"><pre>/*
+divert(-1)</pre><code><span title="2020-01-06 16:21:10 +0100">b53eafe</span><a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/messages/array.c.m4" title="GitHub:~/messages/array.c.m4">array.c.m4</a><a href="#m4-messages-array-c-m4">&#x1f517;</a></code></div>
+<div title="příkaz" class="m4-usc">m4 <a href="https://raw.githubusercontent.com/jkubin/m4root/c8ca92d97bf619b9cc7a3e9d0a89ea32654c5cb7/gfiles/rootb.m4" title="GitHub:~/gfiles/rootb.m4">rootb.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/messages/array.c.m4" title="GitHub:~/messages/array.c.m4">array.c.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/messages/code.m4" title="GitHub:~/messages/code.m4">code.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/cce57f8d115160db9d1fe475f7eca82e1f26df54/messages/messages.mc" title="GitHub:~/messages/messages.mc">messages.mc</a> &gt; <a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/messages/array.c" title="GitHub:~/messages/array.c">array.c</a></div>
+<div class="m4-src"><pre id="m4-messages-array-c">/*
  * DO NOT EDIT! This file is generated automatically!
  */
 
@@ -524,12 +521,12 @@ char *error[] = {
 	"!\"#$%&amp;'()*+,-./:;&lt;=&gt;?@[\\]^_`{|}~",
 	"Complex M4 code failed successfully.",
 	"It's not a language fault!",
-};</pre><code><span title="2020-01-06 16:21:10 +0100">b53eafe</span><a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/messages/array.c" title="GitHub:~/messages/array.c">array.c</a></code></div>
-<h3 id="m4-ini-externi-prikaz" class="m4-hx"><sup><a href="#m4-toc" title="Nahoru">&#x1f845;</a><a href="#m4-toc-ini-externi-prikaz" title="Obsah">☰</a></sup><a href="#m4-ini-externi-prikaz" title="&#x1f517;">A.6</a><code>[]</code> INI – externí příkaz</h3>
+};</pre><code><span title="2020-01-06 16:21:10 +0100">b53eafe</span><a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/messages/array.c" title="GitHub:~/messages/array.c">array.c</a><a href="#m4-messages-array-c">&#x1f517;</a></code></div>
+<h3 id="m4-ini-externi-prikaz" class="m4-ch"><a href="#m4-toc-ini-externi-prikaz" title="Obsah">☰</a><a href="#m4-ini-externi-prikaz" title="&#x1f517;">A.6</a><code>[]</code> INI – externí příkaz<sup><a href="#m4-toc" title="Nahoru">&#x1f845;</a></sup></h3>
 <p>Příklad spustí externí příkaz <code>date</code> a&nbsp;jeho výstup umístí do hranatých závorek.
 Výstupem externího příkazu jsou dvě položky oddělené čárkou.
 Makro <code>ARG1()</code> vybere první položku, protože druhá položka obsahuje nežádoucí znak nového řádku <code>LF</code> (<samp>0x0a</samp>).</p>
-<div class="m4-src"><pre># A → β
+<div class="m4-src"><pre id="m4-messages-hello-ini-m4"># A → β
 define([ERROR], [
 
 	divert(0)dnl
@@ -541,19 +538,19 @@ divert(0)dnl
 ; DONTE()
 
 LB()ARG1(esyscmd([date '+[hello_%Y%m%d],']))]
-divert(-1)</pre><code><span title="2020-02-11 02:32:35 +0100">9e13656</span><a href="https://raw.githubusercontent.com/jkubin/m4root/9e136564861374ce1aebcc3f02cfcc35748d9a30/messages/hello.ini.m4" title="GitHub:~/messages/hello.ini.m4">hello.ini.m4</a></code></div>
-<div title="příkaz" class="m4-usc">m4 <a href="https://raw.githubusercontent.com/jkubin/m4root/1c7cd84d8bdebee864226734097e3ef7c9c86cfa/gfiles/rootb.m4" title="GitHub:~/gfiles/rootb.m4">rootb.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/9e136564861374ce1aebcc3f02cfcc35748d9a30/messages/hello.ini.m4" title="GitHub:~/messages/hello.ini.m4">hello.ini.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/messages/code.m4" title="GitHub:~/messages/code.m4">code.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/cce57f8d115160db9d1fe475f7eca82e1f26df54/messages/messages.mc" title="GitHub:~/messages/messages.mc">messages.mc</a> &gt; <a href="https://raw.githubusercontent.com/jkubin/m4root/71ec8766735024010fae6775cdacaf1bf1698835/messages/hello.ini" title="GitHub:~/messages/hello.ini">hello.ini</a></div>
-<div class="m4-src"><pre>; DO NOT EDIT! This file is generated automatically!
+divert(-1)</pre><code><span title="2020-02-11 02:32:35 +0100">9e13656</span><a href="https://raw.githubusercontent.com/jkubin/m4root/9e136564861374ce1aebcc3f02cfcc35748d9a30/messages/hello.ini.m4" title="GitHub:~/messages/hello.ini.m4">hello.ini.m4</a><a href="#m4-messages-hello-ini-m4">&#x1f517;</a></code></div>
+<div title="příkaz" class="m4-usc">m4 <a href="https://raw.githubusercontent.com/jkubin/m4root/c8ca92d97bf619b9cc7a3e9d0a89ea32654c5cb7/gfiles/rootb.m4" title="GitHub:~/gfiles/rootb.m4">rootb.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/9e136564861374ce1aebcc3f02cfcc35748d9a30/messages/hello.ini.m4" title="GitHub:~/messages/hello.ini.m4">hello.ini.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/messages/code.m4" title="GitHub:~/messages/code.m4">code.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/cce57f8d115160db9d1fe475f7eca82e1f26df54/messages/messages.mc" title="GitHub:~/messages/messages.mc">messages.mc</a> &gt; <a href="https://raw.githubusercontent.com/jkubin/m4root/3e0af85672561eaa0954f98f375c960a8321f606/messages/hello.ini" title="GitHub:~/messages/hello.ini">hello.ini</a></div>
+<div class="m4-src"><pre id="m4-messages-hello-ini">; DO NOT EDIT! This file is generated automatically!
 
-[hello_20200306]
+[hello_20200328]
 COMPLEX="!\"#$%&amp;'()*+,-./:;&lt;=&gt;?@[\\]^_`{|}~"
 SUCCESS="Complex M4 code failed successfully."
-NOFAULT="It's not a language fault!"</pre><code><span title="2020-03-09 00:17:47 +0100">71ec876</span><a href="https://raw.githubusercontent.com/jkubin/m4root/71ec8766735024010fae6775cdacaf1bf1698835/messages/hello.ini" title="GitHub:~/messages/hello.ini">hello.ini</a></code></div>
-<h3 id="m4-h-hex-pocitadlo" class="m4-hx"><sup><a href="#m4-toc" title="Nahoru">&#x1f845;</a><a href="#m4-toc-h-hex-pocitadlo" title="Obsah">☰</a></sup><a href="#m4-h-hex-pocitadlo" title="&#x1f517;">A.7</a><code>[]</code> .h – hex počítadlo</h3>
+NOFAULT="It's not a language fault!"</pre><code><span title="2020-03-29 23:45:31 +0200">3e0af85</span><a href="https://raw.githubusercontent.com/jkubin/m4root/3e0af85672561eaa0954f98f375c960a8321f606/messages/hello.ini" title="GitHub:~/messages/hello.ini">hello.ini</a><a href="#m4-messages-hello-ini">&#x1f517;</a></code></div>
+<h3 id="m4-h-hex-pocitadlo" class="m4-ch"><a href="#m4-toc-h-hex-pocitadlo" title="Obsah">☰</a><a href="#m4-h-hex-pocitadlo" title="&#x1f517;">A.7</a><code>[]</code> .h – hex počítadlo<sup><a href="#m4-toc" title="Nahoru">&#x1f845;</a></sup></h3>
 <p>Příklad používá makro <code>COUNTER</code> pro číslování výsledných <abbr title="Preprocesor jazyka C">CPP</abbr> maker a&nbsp;jednu výstupní frontu.
 Fronta číslo <code>1</code> obsahuje direktivu preprocesoru <code>#endif</code> pro zakončení hlavičkového souboru.
 Převod dekadické hodnoty počítadla na dvoumístné hex-a číslo provádí klíčové slovo <code>eval()</code>.</p>
-<div class="m4-src"><pre># A → β
+<div class="m4-src"><pre id="m4-messages-messages-h-m4"># A → β
 define([COUNTER], defn([COUNT_UP]))
 
 # init counter
@@ -577,9 +574,9 @@ divert(0)dnl
 
 divert(1)
 #endif /* __ERROR_H */
-divert(-1)</pre><code><span title="2020-01-06 16:21:10 +0100">b53eafe</span><a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/messages/messages.h.m4" title="GitHub:~/messages/messages.h.m4">messages.h.m4</a></code></div>
-<div title="příkaz" class="m4-usc">m4 <a href="https://raw.githubusercontent.com/jkubin/m4root/1c7cd84d8bdebee864226734097e3ef7c9c86cfa/gfiles/rootb.m4" title="GitHub:~/gfiles/rootb.m4">rootb.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/messages/messages.h.m4" title="GitHub:~/messages/messages.h.m4">messages.h.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/cce57f8d115160db9d1fe475f7eca82e1f26df54/messages/messages.mc" title="GitHub:~/messages/messages.mc">messages.mc</a> &gt; <a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/messages/messages.h" title="GitHub:~/messages/messages.h">messages.h</a></div>
-<div class="m4-src"><pre>/*
+divert(-1)</pre><code><span title="2020-01-06 16:21:10 +0100">b53eafe</span><a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/messages/messages.h.m4" title="GitHub:~/messages/messages.h.m4">messages.h.m4</a><a href="#m4-messages-messages-h-m4">&#x1f517;</a></code></div>
+<div title="příkaz" class="m4-usc">m4 <a href="https://raw.githubusercontent.com/jkubin/m4root/c8ca92d97bf619b9cc7a3e9d0a89ea32654c5cb7/gfiles/rootb.m4" title="GitHub:~/gfiles/rootb.m4">rootb.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/messages/messages.h.m4" title="GitHub:~/messages/messages.h.m4">messages.h.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/cce57f8d115160db9d1fe475f7eca82e1f26df54/messages/messages.mc" title="GitHub:~/messages/messages.mc">messages.mc</a> &gt; <a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/messages/messages.h" title="GitHub:~/messages/messages.h">messages.h</a></div>
+<div class="m4-src"><pre id="m4-messages-messages-h">/*
  * DO NOT EDIT! This file is generated automatically!
  */
 
@@ -590,11 +587,11 @@ divert(-1)</pre><code><span title="2020-01-06 16:21:10 +0100">b53eafe</span><a h
 #define SUCCESS		0x01
 #define NOFAULT		0x02
 
-#endif /* __ERROR_H */</pre><code><span title="2020-01-06 16:21:10 +0100">b53eafe</span><a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/messages/messages.h" title="GitHub:~/messages/messages.h">messages.h</a></code></div>
-<h3 id="m4-c-maly-automat" class="m4-hx"><sup><a href="#m4-toc" title="Nahoru">&#x1f845;</a><a href="#m4-toc-c-maly-automat" title="Obsah">☰</a></sup><a href="#m4-c-maly-automat" title="&#x1f517;">A.8</a><code>[]</code> C – malý automat</h3>
+#endif /* __ERROR_H */</pre><code><span title="2020-01-06 16:21:10 +0100">b53eafe</span><a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/messages/messages.h" title="GitHub:~/messages/messages.h">messages.h</a><a href="#m4-messages-messages-h">&#x1f517;</a></code></div>
+<h3 id="m4-c-maly-automat" class="m4-ch"><a href="#m4-toc-c-maly-automat" title="Obsah">☰</a><a href="#m4-c-maly-automat" title="&#x1f517;">A.8</a><code>[]</code> C – malý automat<sup><a href="#m4-toc" title="Nahoru">&#x1f845;</a></sup></h3>
 <p>Příklad používá malý automat <code>NEW_LINE</code> pro generování znaku nového řádku <code>\n</code> a&nbsp;jednu výstupní frontu číslo <code>1</code> do které se vloží znaky <code>";</code> pro uzavření výsledného řetězce.
 Poprvé se <code>NEW_LINE</code> přepíše na <abbr title="epsilon – prázdný symbol"><code>ε</code></abbr>, podruhé a dále se přepíše na <code>\n</code>.</p>
-<div class="m4-src"><pre>#     NEW_LINE automaton
+<div class="m4-src"><pre id="m4-messages-stringl-c-m4">#     NEW_LINE automaton
 #      ___      ____
 # ---&gt;/ ε \---&gt;/ \n \---.
 #     \___/    \____/&lt;--'
@@ -616,17 +613,17 @@ divert(0)dnl
 
 char error[[]] =
 "divert(1)";
-divert(-1)</pre><code><span title="2020-01-06 16:21:10 +0100">b53eafe</span><a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/messages/stringl.c.m4" title="GitHub:~/messages/stringl.c.m4">stringl.c.m4</a></code></div>
-<div title="příkaz" class="m4-usc">m4 <a href="https://raw.githubusercontent.com/jkubin/m4root/1c7cd84d8bdebee864226734097e3ef7c9c86cfa/gfiles/rootb.m4" title="GitHub:~/gfiles/rootb.m4">rootb.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/messages/stringl.c.m4" title="GitHub:~/messages/stringl.c.m4">stringl.c.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/messages/code.m4" title="GitHub:~/messages/code.m4">code.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/cce57f8d115160db9d1fe475f7eca82e1f26df54/messages/messages.mc" title="GitHub:~/messages/messages.mc">messages.mc</a> &gt; <a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/messages/stringl.c" title="GitHub:~/messages/stringl.c">stringl.c</a></div>
-<div class="m4-src"><pre>/*
+divert(-1)</pre><code><span title="2020-01-06 16:21:10 +0100">b53eafe</span><a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/messages/stringl.c.m4" title="GitHub:~/messages/stringl.c.m4">stringl.c.m4</a><a href="#m4-messages-stringl-c-m4">&#x1f517;</a></code></div>
+<div title="příkaz" class="m4-usc">m4 <a href="https://raw.githubusercontent.com/jkubin/m4root/c8ca92d97bf619b9cc7a3e9d0a89ea32654c5cb7/gfiles/rootb.m4" title="GitHub:~/gfiles/rootb.m4">rootb.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/messages/stringl.c.m4" title="GitHub:~/messages/stringl.c.m4">stringl.c.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/messages/code.m4" title="GitHub:~/messages/code.m4">code.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/cce57f8d115160db9d1fe475f7eca82e1f26df54/messages/messages.mc" title="GitHub:~/messages/messages.mc">messages.mc</a> &gt; <a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/messages/stringl.c" title="GitHub:~/messages/stringl.c">stringl.c</a></div>
+<div class="m4-src"><pre id="m4-messages-stringl-c">/*
  * DO NOT EDIT! This file is generated automatically!
  */
 
 char error[] =
-"!\"#$%&amp;'()*+,-./:;&lt;=&gt;?@[\\]^_`{|}~\nComplex M4 code failed successfully.\nIt's not a language fault!";</pre><code><span title="2020-01-06 16:21:10 +0100">b53eafe</span><a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/messages/stringl.c" title="GitHub:~/messages/stringl.c">stringl.c</a></code></div>
-<h3 id="m4-c-maly-automat-2" class="m4-hx"><sup><a href="#m4-toc" title="Nahoru">&#x1f845;</a><a href="#m4-toc-c-maly-automat-2" title="Obsah">☰</a></sup><a href="#m4-c-maly-automat-2" title="&#x1f517;">A.9</a><code>[]</code> C – malý automat 2</h3>
+"!\"#$%&amp;'()*+,-./:;&lt;=&gt;?@[\\]^_`{|}~\nComplex M4 code failed successfully.\nIt's not a language fault!";</pre><code><span title="2020-01-06 16:21:10 +0100">b53eafe</span><a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/messages/stringl.c" title="GitHub:~/messages/stringl.c">stringl.c</a><a href="#m4-messages-stringl-c">&#x1f517;</a></code></div>
+<h3 id="m4-c-maly-automat-2" class="m4-ch"><a href="#m4-toc-c-maly-automat-2" title="Obsah">☰</a><a href="#m4-c-maly-automat-2" title="&#x1f517;">A.9</a><code>[]</code> C – malý automat 2<sup><a href="#m4-toc" title="Nahoru">&#x1f845;</a></sup></h3>
 <p>Tento příklad je podobný předchozímu, avšak každý řetězec je na novém řádku.</p>
-<div class="m4-src"><pre>#      NEW_LINE automaton
+<div class="m4-src"><pre id="m4-messages-string-c-m4">#      NEW_LINE automaton
 #      ___      ________
 # ---&gt;/ ε \---&gt;/ \n"LF" \---.
 #     \___/    \________/&lt;--'
@@ -649,22 +646,22 @@ divert(0)dnl
 
 char error[[]] =
 "divert(1)";
-divert(-1)</pre><code><span title="2020-01-06 16:21:10 +0100">b53eafe</span><a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/messages/string.c.m4" title="GitHub:~/messages/string.c.m4">string.c.m4</a></code></div>
-<div title="příkaz" class="m4-usc">m4 <a href="https://raw.githubusercontent.com/jkubin/m4root/1c7cd84d8bdebee864226734097e3ef7c9c86cfa/gfiles/rootb.m4" title="GitHub:~/gfiles/rootb.m4">rootb.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/messages/string.c.m4" title="GitHub:~/messages/string.c.m4">string.c.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/messages/code.m4" title="GitHub:~/messages/code.m4">code.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/cce57f8d115160db9d1fe475f7eca82e1f26df54/messages/messages.mc" title="GitHub:~/messages/messages.mc">messages.mc</a> &gt; <a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/messages/string.c" title="GitHub:~/messages/string.c">string.c</a></div>
-<div class="m4-src"><pre>/*
+divert(-1)</pre><code><span title="2020-01-06 16:21:10 +0100">b53eafe</span><a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/messages/string.c.m4" title="GitHub:~/messages/string.c.m4">string.c.m4</a><a href="#m4-messages-string-c-m4">&#x1f517;</a></code></div>
+<div title="příkaz" class="m4-usc">m4 <a href="https://raw.githubusercontent.com/jkubin/m4root/c8ca92d97bf619b9cc7a3e9d0a89ea32654c5cb7/gfiles/rootb.m4" title="GitHub:~/gfiles/rootb.m4">rootb.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/messages/string.c.m4" title="GitHub:~/messages/string.c.m4">string.c.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/messages/code.m4" title="GitHub:~/messages/code.m4">code.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/cce57f8d115160db9d1fe475f7eca82e1f26df54/messages/messages.mc" title="GitHub:~/messages/messages.mc">messages.mc</a> &gt; <a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/messages/string.c" title="GitHub:~/messages/string.c">string.c</a></div>
+<div class="m4-src"><pre id="m4-messages-string-c">/*
  * DO NOT EDIT! This file is generated automatically!
  */
 
 char error[] =
 "!\"#$%&amp;'()*+,-./:;&lt;=&gt;?@[\\]^_`{|}~\n"
 "Complex M4 code failed successfully.\n"
-"It's not a language fault!";</pre><code><span title="2020-01-06 16:21:10 +0100">b53eafe</span><a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/messages/string.c" title="GitHub:~/messages/string.c">string.c</a></code></div>
-<h3 id="m4-html-vystupni-fronty" class="m4-hx"><sup><a href="#m4-toc" title="Nahoru">&#x1f845;</a><a href="#m4-toc-html-vystupni-fronty" title="Obsah">☰</a></sup><a href="#m4-html-vystupni-fronty" title="&#x1f517;">A.10</a><code>[]</code> HTML – výstupní fronty</h3>
+"It's not a language fault!";</pre><code><span title="2020-01-06 16:21:10 +0100">b53eafe</span><a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/messages/string.c" title="GitHub:~/messages/string.c">string.c</a><a href="#m4-messages-string-c">&#x1f517;</a></code></div>
+<h3 id="m4-html-vystupni-fronty" class="m4-ch"><a href="#m4-toc-html-vystupni-fronty" title="Obsah">☰</a><a href="#m4-html-vystupni-fronty" title="&#x1f517;">A.10</a><code>[]</code> HTML – výstupní fronty<sup><a href="#m4-toc" title="Nahoru">&#x1f845;</a></sup></h3>
 <p>Příklad používá dvě výstupní fronty.
 Fronta číslo <code>1</code> obsahuje odstavce, fronta číslo <code>2</code> uzavírací značky HTML stránky.
 Navigační odkazy nemusí být nikde uloženy, jdou přímo na výstup.
 Zprávy typu <code>QUERY</code> a&nbsp;<code>WARNING</code> jsou zpracovány stejně jako zprávy typu <code>ERROR</code>.</p>
-<div class="m4-src"><pre># vim:ft=m4
+<div class="m4-src"><pre id="m4-messages-messages-html-m4"># vim:ft=m4
 
 # A → β
 # β
@@ -695,9 +692,9 @@ divert(1)dnl
 divert(2)dnl
 &lt;/body&gt;
 &lt;/html&gt;
-divert(-1)</pre><code><span title="2020-01-06 16:21:10 +0100">b53eafe</span><a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/messages/messages.html.m4" title="GitHub:~/messages/messages.html.m4">messages.html.m4</a></code></div>
-<div title="příkaz" class="m4-usc">m4 <a href="https://raw.githubusercontent.com/jkubin/m4root/1c7cd84d8bdebee864226734097e3ef7c9c86cfa/gfiles/rootb.m4" title="GitHub:~/gfiles/rootb.m4">rootb.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/messages/messages.html.m4" title="GitHub:~/messages/messages.html.m4">messages.html.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/messages/markup.m4" title="GitHub:~/messages/markup.m4">markup.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/cce57f8d115160db9d1fe475f7eca82e1f26df54/messages/messages.mc" title="GitHub:~/messages/messages.mc">messages.mc</a> &gt; <a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/messages/messages.html" title="GitHub:~/messages/messages.html">messages.html</a></div>
-<div class="m4-src"><pre>&lt;!-- DO NOT EDIT! This file is generated automatically! --&gt;
+divert(-1)</pre><code><span title="2020-01-06 16:21:10 +0100">b53eafe</span><a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/messages/messages.html.m4" title="GitHub:~/messages/messages.html.m4">messages.html.m4</a><a href="#m4-messages-messages-html-m4">&#x1f517;</a></code></div>
+<div title="příkaz" class="m4-usc">m4 <a href="https://raw.githubusercontent.com/jkubin/m4root/c8ca92d97bf619b9cc7a3e9d0a89ea32654c5cb7/gfiles/rootb.m4" title="GitHub:~/gfiles/rootb.m4">rootb.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/messages/messages.html.m4" title="GitHub:~/messages/messages.html.m4">messages.html.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/messages/markup.m4" title="GitHub:~/messages/markup.m4">markup.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/cce57f8d115160db9d1fe475f7eca82e1f26df54/messages/messages.mc" title="GitHub:~/messages/messages.mc">messages.mc</a> &gt; <a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/messages/messages.html" title="GitHub:~/messages/messages.html">messages.html</a></div>
+<div class="m4-src"><pre id="m4-messages-messages-html">&lt;!-- DO NOT EDIT! This file is generated automatically! --&gt;
 &lt;!doctype html&gt;
 &lt;html lang="en"&gt;
 	&lt;meta charset="utf-8"&gt;
@@ -719,11 +716,11 @@ divert(-1)</pre><code><span title="2020-01-06 16:21:10 +0100">b53eafe</span><a h
 	&lt;p id="NOFAULT"&gt;It's not a language fault!&lt;/p&gt;
 	&lt;p id="NO_ERRORS"&gt;No other errors detected.&lt;/p&gt;
 &lt;/body&gt;
-&lt;/html&gt;</pre><code><span title="2020-01-06 16:21:10 +0100">b53eafe</span><a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/messages/messages.html" title="GitHub:~/messages/messages.html">messages.html</a></code></div>
-<h3 id="m4-vetveni-gramatikou" class="m4-hx"><sup><a href="#m4-toc" title="Nahoru">&#x1f845;</a><a href="#m4-toc-vetveni-gramatikou" title="Obsah">☰</a></sup><a href="#m4-vetveni-gramatikou" title="&#x1f517;">A.11</a><code>[]</code> Větvení gramatikou</h3>
+&lt;/html&gt;</pre><code><span title="2020-01-06 16:21:10 +0100">b53eafe</span><a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/messages/messages.html" title="GitHub:~/messages/messages.html">messages.html</a><a href="#m4-messages-messages-html">&#x1f517;</a></code></div>
+<h3 id="m4-vetveni-gramatikou" class="m4-ch"><a href="#m4-toc-vetveni-gramatikou" title="Obsah">☰</a><a href="#m4-vetveni-gramatikou" title="&#x1f517;">A.11</a><code>[]</code> Větvení gramatikou<sup><a href="#m4-toc" title="Nahoru">&#x1f845;</a></sup></h3>
 <p>Příklad ukazuje <a href="#m4-nonterminals-for-branches">větvení gramatikou</a>, argumenty maker se ignorují.
 Vstupní neterminály se přepisují na terminály <code title="&#x1f41b;">ERROR → &#x1f41b;</code>, <code title="&#x1f41c;">QUERY → &#x1f41c;</code>, <code title="&#x1f41d;">WARNING → &#x1f41d;</code>.</p>
-<div class="m4-src"><pre># A → β
+<div class="m4-src"><pre id="m4-messages-insect-txt-m4"># A → β
 # β
 define([ERROR], [
 
@@ -737,16 +734,16 @@ define([QUERY],   defn([ERROR]))
 define([WARNING], defn([ERROR]))
 define([ERROR_INSECT],   [&#x1f41b;])
 define([QUERY_INSECT],   [&#x1f41c;])
-define([WARNING_INSECT], [&#x1f41d;])</pre><code><span title="2020-01-06 16:21:10 +0100">b53eafe</span><a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/messages/insect.txt.m4" title="GitHub:~/messages/insect.txt.m4">insect.txt.m4</a></code></div>
-<div title="příkaz" class="m4-usc">m4 <a href="https://raw.githubusercontent.com/jkubin/m4root/1c7cd84d8bdebee864226734097e3ef7c9c86cfa/gfiles/rootb.m4" title="GitHub:~/gfiles/rootb.m4">rootb.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/messages/insect.txt.m4" title="GitHub:~/messages/insect.txt.m4">insect.txt.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/cce57f8d115160db9d1fe475f7eca82e1f26df54/messages/messages.mc" title="GitHub:~/messages/messages.mc">messages.mc</a> &gt; <a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/messages/insect.txt" title="GitHub:~/messages/insect.txt">insect.txt</a></div>
-<div class="m4-src"><pre>&#x1f41b;&#x1f41c;&#x1f41b;&#x1f41d;&#x1f41b;&#x1f41d;</pre><code><span title="2020-01-06 16:21:10 +0100">b53eafe</span><a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/messages/insect.txt" title="GitHub:~/messages/insect.txt">insect.txt</a></code></div>
-<h3 id="m4-json-generujici-automat" class="m4-hx"><sup><a href="#m4-toc" title="Nahoru">&#x1f845;</a><a href="#m4-toc-json-generujici-automat" title="Obsah">☰</a></sup><a href="#m4-json-generujici-automat" title="&#x1f517;">A.12</a><code>[]</code> JSON – generující automat</h3>
+define([WARNING_INSECT], [&#x1f41d;])</pre><code><span title="2020-01-06 16:21:10 +0100">b53eafe</span><a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/messages/insect.txt.m4" title="GitHub:~/messages/insect.txt.m4">insect.txt.m4</a><a href="#m4-messages-insect-txt-m4">&#x1f517;</a></code></div>
+<div title="příkaz" class="m4-usc">m4 <a href="https://raw.githubusercontent.com/jkubin/m4root/c8ca92d97bf619b9cc7a3e9d0a89ea32654c5cb7/gfiles/rootb.m4" title="GitHub:~/gfiles/rootb.m4">rootb.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/messages/insect.txt.m4" title="GitHub:~/messages/insect.txt.m4">insect.txt.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/cce57f8d115160db9d1fe475f7eca82e1f26df54/messages/messages.mc" title="GitHub:~/messages/messages.mc">messages.mc</a> &gt; <a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/messages/insect.txt" title="GitHub:~/messages/insect.txt">insect.txt</a></div>
+<div class="m4-src"><pre id="m4-messages-insect-txt">&#x1f41b;&#x1f41c;&#x1f41b;&#x1f41d;&#x1f41b;&#x1f41d;</pre><code><span title="2020-01-06 16:21:10 +0100">b53eafe</span><a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/messages/insect.txt" title="GitHub:~/messages/insect.txt">insect.txt</a><a href="#m4-messages-insect-txt">&#x1f517;</a></code></div>
+<h3 id="m4-json-generujici-automat" class="m4-ch"><a href="#m4-toc-json-generujici-automat" title="Obsah">☰</a><a href="#m4-json-generujici-automat" title="&#x1f517;">A.12</a><code>[]</code> JSON – generující automat<sup><a href="#m4-toc" title="Nahoru">&#x1f845;</a></sup></h3>
 <p>Příklad používá dvě výstupní fronty a&nbsp;jeden generující automat.
 První chybová zpráva <code>ERROR([…])</code> ve stavu <code>ERROR</code> vygeneruje záhlaví se závorkami a&nbsp;vypíše na výstup první záznam.
 Automat přejde do stavu <code>NEXT_ITEM</code> což je <abbr title="takové pravidlo se používá jako pravá strana jiného přepisovacího pravidla"><code>β</code> pravidlo</abbr>.
 Následující chybové zprávy ve stavu <code>NEXT_ITEM</code> pouze vypisují na výstup jednotlivé záznamy.
 Na závěr výstupní fronty číslo <code>1</code> a&nbsp;<code>2</code> vypíšou znaky <code>]</code> a&nbsp;<code>}}</code> čímž zakončí výsledný JSON.</p>
-<div class="m4-src"><pre>#      _______      ___________
+<div class="m4-src"><pre id="m4-messages-atm-json-m4">#      _______      ___________
 # ---&gt;/ ERROR \---&gt;/ NEXT_ITEM \---.
 #     \_______/    \___________/&lt;--'
 
@@ -777,17 +774,17 @@ divert(0)dnl
 	"_comment": "DONTE()"dnl
 divert(2)dnl
 }}
-divert(-1)</pre><code><span title="2020-01-06 16:21:10 +0100">b53eafe</span><a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/messages/atm.json.m4" title="GitHub:~/messages/atm.json.m4">atm.json.m4</a></code></div>
-<div title="příkaz" class="m4-usc">m4 <a href="https://raw.githubusercontent.com/jkubin/m4root/1c7cd84d8bdebee864226734097e3ef7c9c86cfa/gfiles/rootb.m4" title="GitHub:~/gfiles/rootb.m4">rootb.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/messages/atm.json.m4" title="GitHub:~/messages/atm.json.m4">atm.json.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/messages/code.m4" title="GitHub:~/messages/code.m4">code.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/cce57f8d115160db9d1fe475f7eca82e1f26df54/messages/messages.mc" title="GitHub:~/messages/messages.mc">messages.mc</a> &gt; <a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/messages/atm.json" title="GitHub:~/messages/atm.json">atm.json</a></div>
-<div class="m4-src"><pre>{"generating_automaton": {
+divert(-1)</pre><code><span title="2020-01-06 16:21:10 +0100">b53eafe</span><a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/messages/atm.json.m4" title="GitHub:~/messages/atm.json.m4">atm.json.m4</a><a href="#m4-messages-atm-json-m4">&#x1f517;</a></code></div>
+<div title="příkaz" class="m4-usc">m4 <a href="https://raw.githubusercontent.com/jkubin/m4root/c8ca92d97bf619b9cc7a3e9d0a89ea32654c5cb7/gfiles/rootb.m4" title="GitHub:~/gfiles/rootb.m4">rootb.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/messages/atm.json.m4" title="GitHub:~/messages/atm.json.m4">atm.json.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/messages/code.m4" title="GitHub:~/messages/code.m4">code.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/cce57f8d115160db9d1fe475f7eca82e1f26df54/messages/messages.mc" title="GitHub:~/messages/messages.mc">messages.mc</a> &gt; <a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/messages/atm.json" title="GitHub:~/messages/atm.json">atm.json</a></div>
+<div class="m4-src"><pre id="m4-messages-atm-json">{"generating_automaton": {
 	"_comment": "DO NOT EDIT! This file is generated automatically!",
 	"error": [
 		{"COMPLEX": "!\"#$%&amp;'()*+,-./:;&lt;=&gt;?@[\\]^_`{|}~"},
 		{"SUCCESS": "Complex M4 code failed successfully."},
 		{"NOFAULT": "It's not a language fault!"}
 	]
-}}</pre><code><span title="2020-01-06 16:21:10 +0100">b53eafe</span><a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/messages/atm.json" title="GitHub:~/messages/atm.json">atm.json</a></code></div>
-<h4 id="m4-json-pojmenovane-fronty" class="m4-hx"><sup><a href="#m4-toc" title="Nahoru">&#x1f845;</a><a href="#m4-toc-json-pojmenovane-fronty" title="Obsah">☰</a></sup><a href="#m4-json-pojmenovane-fronty" title="&#x1f517;">A.12.1</a><code>[]</code> JSON – pojmenované fronty</h4>
+}}</pre><code><span title="2020-01-06 16:21:10 +0100">b53eafe</span><a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/messages/atm.json" title="GitHub:~/messages/atm.json">atm.json</a><a href="#m4-messages-atm-json">&#x1f517;</a></code></div>
+<h4 id="m4-json-pojmenovane-fronty" class="m4-ch"><a href="#m4-toc-json-pojmenovane-fronty" title="Obsah">☰</a><a href="#m4-json-pojmenovane-fronty" title="&#x1f517;">A.12.1</a><code>[]</code> JSON – pojmenované fronty<sup><a href="#m4-toc" title="Nahoru">&#x1f845;</a></sup></h4>
 <p>Příklad zpracovává další zprávy typu <code>QUERY</code> a&nbsp;<code>WARNING</code>.
 Používá tři automaty a&nbsp;šest výstupních front.
 Generujeme-li složitější zdrojový kód, brzy narazíme na problém udržení konzistence indexů pro výstupní fronty.
@@ -801,8 +798,8 @@ $0_NAME → ERROR_NAME → error
 $0_QU → QUERY_QU → 0
 $0_END → QUERY_END → 1
 $0_NAME → QUERY_NAME → query
-…</pre></div>
-<div class="m4-src"><pre># DO NOT WRITE INDEXES MANUALLY, use counter!
+…</pre><a href="#m4-nonterminals-for-branches">&#x1f517;</a></div>
+<div class="m4-src"><pre id="m4-messages-qnames-json-m4"># DO NOT WRITE INDEXES MANUALLY, use counter!
 define([QUERY_QU],     0)
 define([QUERY_END],    1)
 define([ERROR_QU],     2)
@@ -853,9 +850,9 @@ divert(0)dnl
 	"_comment": "DONTE()"dnl
 divert(LAST_QUEUE)
 }}
-divert(-1)</pre><code><span title="2020-01-06 16:21:10 +0100">b53eafe</span><a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/messages/qnames.json.m4" title="GitHub:~/messages/qnames.json.m4">qnames.json.m4</a></code></div>
-<div title="příkaz" class="m4-usc">m4 <a href="https://raw.githubusercontent.com/jkubin/m4root/1c7cd84d8bdebee864226734097e3ef7c9c86cfa/gfiles/rootb.m4" title="GitHub:~/gfiles/rootb.m4">rootb.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/messages/qnames.json.m4" title="GitHub:~/messages/qnames.json.m4">qnames.json.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/messages/code.m4" title="GitHub:~/messages/code.m4">code.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/cce57f8d115160db9d1fe475f7eca82e1f26df54/messages/messages.mc" title="GitHub:~/messages/messages.mc">messages.mc</a> &gt; <a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/messages/qnames.json" title="GitHub:~/messages/qnames.json">qnames.json</a></div>
-<div class="m4-src"><pre>{"queue_names": {
+divert(-1)</pre><code><span title="2020-01-06 16:21:10 +0100">b53eafe</span><a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/messages/qnames.json.m4" title="GitHub:~/messages/qnames.json.m4">qnames.json.m4</a><a href="#m4-messages-qnames-json-m4">&#x1f517;</a></code></div>
+<div title="příkaz" class="m4-usc">m4 <a href="https://raw.githubusercontent.com/jkubin/m4root/c8ca92d97bf619b9cc7a3e9d0a89ea32654c5cb7/gfiles/rootb.m4" title="GitHub:~/gfiles/rootb.m4">rootb.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/messages/qnames.json.m4" title="GitHub:~/messages/qnames.json.m4">qnames.json.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/messages/code.m4" title="GitHub:~/messages/code.m4">code.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/cce57f8d115160db9d1fe475f7eca82e1f26df54/messages/messages.mc" title="GitHub:~/messages/messages.mc">messages.mc</a> &gt; <a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/messages/qnames.json" title="GitHub:~/messages/qnames.json">qnames.json</a></div>
+<div class="m4-src"><pre id="m4-messages-qnames-json">{"queue_names": {
 	"_comment": "DO NOT EDIT! This file is generated automatically!",
 	"query": [
 		{"READABLE": "Is badly written M4 code readable [N/y]?"}
@@ -869,13 +866,13 @@ divert(-1)</pre><code><span title="2020-01-06 16:21:10 +0100">b53eafe</span><a h
 		{"ADDICTIVE": "Programming in M4 is addictive!"},
 		{"NO_ERRORS": "No other errors detected."}
 	]
-}}</pre><code><span title="2020-01-06 16:21:10 +0100">b53eafe</span><a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/messages/qnames.json" title="GitHub:~/messages/qnames.json">qnames.json</a></code></div>
-<h4 id="m4-json-generovane-indexy-front" class="m4-hx"><sup><a href="#m4-toc" title="Nahoru">&#x1f845;</a><a href="#m4-toc-json-generovane-indexy-front" title="Obsah">☰</a></sup><a href="#m4-json-generovane-indexy-front" title="&#x1f517;">A.12.2</a><code>[]</code> JSON – generované indexy front</h4>
+}}</pre><code><span title="2020-01-06 16:21:10 +0100">b53eafe</span><a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/messages/qnames.json" title="GitHub:~/messages/qnames.json">qnames.json</a><a href="#m4-messages-qnames-json">&#x1f517;</a></code></div>
+<h4 id="m4-json-generovane-indexy-front" class="m4-ch"><a href="#m4-toc-json-generovane-indexy-front" title="Obsah">☰</a><a href="#m4-json-generovane-indexy-front" title="&#x1f517;">A.12.2</a><code>[]</code> JSON – generované indexy front<sup><a href="#m4-toc" title="Nahoru">&#x1f845;</a></sup></h4>
 <p>Během vývoje se často mění pořadí a&nbsp;počet výstupních front, což také vyžaduje častou změnu jejich indexů.
 Indexy je proto vhodné generovat.
 Můžeme pak používat prakticky neomezený počet front.
 Následující příklad ukazuje, jak se tyto indexy generují.</p>
-<div class="m4-src"><pre># defines a counter for output queues
+<div class="m4-src"><pre id="m4-messages-queues-m4"># defines a counter for output queues
 # A → β
 define([QUEUE_INDEX], defn([COUNT_UP]))
 
@@ -897,8 +894,8 @@ define([LAST_QUEUE],   QUEUE_INDEX)
 # A → β
 define([WARNING_NAME], [warning])
 define([ERROR_NAME],   [error])
-define([QUERY_NAME],   [query])</pre><code><span title="2020-01-06 16:21:10 +0100">b53eafe</span><a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/messages/queues.m4" title="GitHub:~/messages/queues.m4">queues.m4</a></code></div>
-<div class="m4-src"><pre>#      _________      ___________
+define([QUERY_NAME],   [query])</pre><code><span title="2020-01-06 16:21:10 +0100">b53eafe</span><a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/messages/queues.m4" title="GitHub:~/messages/queues.m4">queues.m4</a><a href="#m4-messages-queues-m4">&#x1f517;</a></code></div>
+<div class="m4-src"><pre id="m4-messages-messages-json-m4">#      _________      ___________
 # ---&gt;/  ERROR  \---&gt;/ NEXT_ITEM \---.
 #     |  QUERY  |    \___________/&lt;--'
 #     \_WARNING_/
@@ -935,9 +932,9 @@ divert(0)dnl
 	"_comment": "DONTE()"dnl
 divert(LAST_QUEUE)
 }}
-divert(-1)</pre><code><span title="2020-01-06 16:21:10 +0100">b53eafe</span><a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/messages/messages.json.m4" title="GitHub:~/messages/messages.json.m4">messages.json.m4</a></code></div>
-<div title="příkaz" class="m4-usc">m4 <a href="https://raw.githubusercontent.com/jkubin/m4root/1c7cd84d8bdebee864226734097e3ef7c9c86cfa/gfiles/rootb.m4" title="GitHub:~/gfiles/rootb.m4">rootb.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/messages/queues.m4" title="GitHub:~/messages/queues.m4">queues.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/messages/messages.json.m4" title="GitHub:~/messages/messages.json.m4">messages.json.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/messages/code.m4" title="GitHub:~/messages/code.m4">code.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/cce57f8d115160db9d1fe475f7eca82e1f26df54/messages/messages.mc" title="GitHub:~/messages/messages.mc">messages.mc</a> &gt; <a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/messages/messages.json" title="GitHub:~/messages/messages.json">messages.json</a></div>
-<div class="m4-src"><pre>{"messages": {
+divert(-1)</pre><code><span title="2020-01-06 16:21:10 +0100">b53eafe</span><a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/messages/messages.json.m4" title="GitHub:~/messages/messages.json.m4">messages.json.m4</a><a href="#m4-messages-messages-json-m4">&#x1f517;</a></code></div>
+<div title="příkaz" class="m4-usc">m4 <a href="https://raw.githubusercontent.com/jkubin/m4root/c8ca92d97bf619b9cc7a3e9d0a89ea32654c5cb7/gfiles/rootb.m4" title="GitHub:~/gfiles/rootb.m4">rootb.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/messages/queues.m4" title="GitHub:~/messages/queues.m4">queues.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/messages/messages.json.m4" title="GitHub:~/messages/messages.json.m4">messages.json.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/messages/code.m4" title="GitHub:~/messages/code.m4">code.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/cce57f8d115160db9d1fe475f7eca82e1f26df54/messages/messages.mc" title="GitHub:~/messages/messages.mc">messages.mc</a> &gt; <a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/messages/messages.json" title="GitHub:~/messages/messages.json">messages.json</a></div>
+<div class="m4-src"><pre id="m4-messages-messages-json">{"messages": {
 	"_comment": "DO NOT EDIT! This file is generated automatically!",
 	"query": [
 		{"READABLE": "Is badly written M4 code readable [N/y]?"}
@@ -951,12 +948,12 @@ divert(-1)</pre><code><span title="2020-01-06 16:21:10 +0100">b53eafe</span><a h
 		{"ADDICTIVE": "Programming in M4 is addictive!"},
 		{"NO_ERRORS": "No other errors detected."}
 	]
-}}</pre><code><span title="2020-01-06 16:21:10 +0100">b53eafe</span><a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/messages/messages.json" title="GitHub:~/messages/messages.json">messages.json</a></code></div>
-<h3 id="m4-ini-nespojity-index-front" class="m4-hx"><sup><a href="#m4-toc" title="Nahoru">&#x1f845;</a><a href="#m4-toc-ini-nespojity-index-front" title="Obsah">☰</a></sup><a href="#m4-ini-nespojity-index-front" title="&#x1f517;">A.13</a><code>[]</code> INI – nespojitý index front</h3>
+}}</pre><code><span title="2020-01-06 16:21:10 +0100">b53eafe</span><a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/messages/messages.json" title="GitHub:~/messages/messages.json">messages.json</a><a href="#m4-messages-messages-json">&#x1f517;</a></code></div>
+<h3 id="m4-ini-nespojity-index-front" class="m4-ch"><a href="#m4-toc-ini-nespojity-index-front" title="Obsah">☰</a><a href="#m4-ini-nespojity-index-front" title="&#x1f517;">A.13</a><code>[]</code> INI – nespojitý index front<sup><a href="#m4-toc" title="Nahoru">&#x1f845;</a></sup></h3>
 <p>Příklad používá tři automaty a&nbsp;dvě výstupní fronty číslo <code>2</code> a&nbsp;<code>4</code> definované v&nbsp;odděleném souboru.
 Názvy INI sekcí jsou generovány řetězením symbolů.
 Příklad používá stejný soubor pro výstupní fronty jako <a href="#m4-json-generovane-indexy-front" title="[] JSON – generované indexy front">příklad</a> pro generování JSON.</p>
-<div class="m4-src"><pre>#      _________      ___________
+<div class="m4-src"><pre id="m4-messages-messages-ini-m4">#      _________      ___________
 # ---&gt;/  ERROR  \---&gt;/ NEXT_ITEM \---.
 #     |  QUERY  |    \___________/&lt;--'
 #     \_WARNING_/
@@ -988,9 +985,9 @@ divert(-1)
 
 divert(0)dnl
 ; DONTE()
-divert(-1)</pre><code><span title="2020-01-17 01:43:51 +0100">c145bef</span><a href="https://raw.githubusercontent.com/jkubin/m4root/c145bef4ecbbcf7b40cd7d57d24febc403139d76/messages/messages.ini.m4" title="GitHub:~/messages/messages.ini.m4">messages.ini.m4</a></code></div>
-<div title="příkaz" class="m4-usc">m4 <a href="https://raw.githubusercontent.com/jkubin/m4root/1c7cd84d8bdebee864226734097e3ef7c9c86cfa/gfiles/rootb.m4" title="GitHub:~/gfiles/rootb.m4">rootb.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/c145bef4ecbbcf7b40cd7d57d24febc403139d76/messages/messages.ini.m4" title="GitHub:~/messages/messages.ini.m4">messages.ini.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/messages/queues.m4" title="GitHub:~/messages/queues.m4">queues.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/messages/code.m4" title="GitHub:~/messages/code.m4">code.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/cce57f8d115160db9d1fe475f7eca82e1f26df54/messages/messages.mc" title="GitHub:~/messages/messages.mc">messages.mc</a> &gt; <a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/messages/messages.ini" title="GitHub:~/messages/messages.ini">messages.ini</a></div>
-<div class="m4-src"><pre>; DO NOT EDIT! This file is generated automatically!
+divert(-1)</pre><code><span title="2020-01-17 01:43:51 +0100">c145bef</span><a href="https://raw.githubusercontent.com/jkubin/m4root/c145bef4ecbbcf7b40cd7d57d24febc403139d76/messages/messages.ini.m4" title="GitHub:~/messages/messages.ini.m4">messages.ini.m4</a><a href="#m4-messages-messages-ini-m4">&#x1f517;</a></code></div>
+<div title="příkaz" class="m4-usc">m4 <a href="https://raw.githubusercontent.com/jkubin/m4root/c8ca92d97bf619b9cc7a3e9d0a89ea32654c5cb7/gfiles/rootb.m4" title="GitHub:~/gfiles/rootb.m4">rootb.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/c145bef4ecbbcf7b40cd7d57d24febc403139d76/messages/messages.ini.m4" title="GitHub:~/messages/messages.ini.m4">messages.ini.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/messages/queues.m4" title="GitHub:~/messages/queues.m4">queues.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/messages/code.m4" title="GitHub:~/messages/code.m4">code.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/cce57f8d115160db9d1fe475f7eca82e1f26df54/messages/messages.mc" title="GitHub:~/messages/messages.mc">messages.mc</a> &gt; <a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/messages/messages.ini" title="GitHub:~/messages/messages.ini">messages.ini</a></div>
+<div class="m4-src"><pre id="m4-messages-messages-ini">; DO NOT EDIT! This file is generated automatically!
 
 [query]
 READABLE="Is badly written M4 code readable [N/y]?"
@@ -1002,10 +999,10 @@ NOFAULT="It's not a language fault!"
 
 [warning]
 ADDICTIVE="Programming in M4 is addictive!"
-NO_ERRORS="No other errors detected."</pre><code><span title="2020-01-06 16:21:10 +0100">b53eafe</span><a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/messages/messages.ini" title="GitHub:~/messages/messages.ini">messages.ini</a></code></div>
-<h3 id="m4-xml-smisene-zpravy" class="m4-hx"><sup><a href="#m4-toc" title="Nahoru">&#x1f845;</a><a href="#m4-toc-xml-smisene-zpravy" title="Obsah">☰</a></sup><a href="#m4-xml-smisene-zpravy" title="&#x1f517;">A.14</a><code>[]</code> XML – smíšené zprávy</h3>
+NO_ERRORS="No other errors detected."</pre><code><span title="2020-01-06 16:21:10 +0100">b53eafe</span><a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/messages/messages.ini" title="GitHub:~/messages/messages.ini">messages.ini</a><a href="#m4-messages-messages-ini">&#x1f517;</a></code></div>
+<h3 id="m4-xml-smisene-zpravy" class="m4-ch"><a href="#m4-toc-xml-smisene-zpravy" title="Obsah">☰</a><a href="#m4-xml-smisene-zpravy" title="&#x1f517;">A.14</a><code>[]</code> XML – smíšené zprávy<sup><a href="#m4-toc" title="Nahoru">&#x1f845;</a></sup></h3>
 <p>Příklad používá jednu výstupní frontu číslo <code>1</code> pro uzavírací značku <code>&lt;/messages&gt;</code>.</p>
-<div class="m4-src"><pre># A → β
+<div class="m4-src"><pre id="m4-messages-mixed-xml-m4"># A → β
 # β
 define([ERROR], [
 
@@ -1027,9 +1024,9 @@ divert(0)dnl
 &lt;messages&gt;
 divert(1)dnl
 &lt;/messages&gt;
-divert(-1)</pre><code><span title="2020-01-06 16:21:10 +0100">b53eafe</span><a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/messages/mixed.xml.m4" title="GitHub:~/messages/mixed.xml.m4">mixed.xml.m4</a></code></div>
-<div title="příkaz" class="m4-usc">m4 <a href="https://raw.githubusercontent.com/jkubin/m4root/1c7cd84d8bdebee864226734097e3ef7c9c86cfa/gfiles/rootb.m4" title="GitHub:~/gfiles/rootb.m4">rootb.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/messages/queues.m4" title="GitHub:~/messages/queues.m4">queues.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/messages/mixed.xml.m4" title="GitHub:~/messages/mixed.xml.m4">mixed.xml.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/messages/markup.m4" title="GitHub:~/messages/markup.m4">markup.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/cce57f8d115160db9d1fe475f7eca82e1f26df54/messages/messages.mc" title="GitHub:~/messages/messages.mc">messages.mc</a> &gt; <a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/messages/mixed.xml" title="GitHub:~/messages/mixed.xml">mixed.xml</a></div>
-<div class="m4-src"><pre>&lt;!-- DO NOT EDIT! This file is generated automatically! --&gt;
+divert(-1)</pre><code><span title="2020-01-06 16:21:10 +0100">b53eafe</span><a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/messages/mixed.xml.m4" title="GitHub:~/messages/mixed.xml.m4">mixed.xml.m4</a><a href="#m4-messages-mixed-xml-m4">&#x1f517;</a></code></div>
+<div title="příkaz" class="m4-usc">m4 <a href="https://raw.githubusercontent.com/jkubin/m4root/c8ca92d97bf619b9cc7a3e9d0a89ea32654c5cb7/gfiles/rootb.m4" title="GitHub:~/gfiles/rootb.m4">rootb.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/messages/queues.m4" title="GitHub:~/messages/queues.m4">queues.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/messages/mixed.xml.m4" title="GitHub:~/messages/mixed.xml.m4">mixed.xml.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/messages/markup.m4" title="GitHub:~/messages/markup.m4">markup.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/cce57f8d115160db9d1fe475f7eca82e1f26df54/messages/messages.mc" title="GitHub:~/messages/messages.mc">messages.mc</a> &gt; <a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/messages/mixed.xml" title="GitHub:~/messages/mixed.xml">mixed.xml</a></div>
+<div class="m4-src"><pre id="m4-messages-mixed-xml">&lt;!-- DO NOT EDIT! This file is generated automatically! --&gt;
 &lt;?xml version="1.0" encoding="utf-8"?&gt;
 &lt;messages&gt;
 	&lt;error&gt;
@@ -1056,10 +1053,10 @@ divert(-1)</pre><code><span title="2020-01-06 16:21:10 +0100">b53eafe</span><a h
 		&lt;name&gt;NO_ERRORS&lt;/name&gt;
 		&lt;value&gt;No other errors detected.&lt;/value&gt;
 	&lt;/warning&gt;
-&lt;/messages&gt;</pre><code><span title="2020-01-06 16:21:10 +0100">b53eafe</span><a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/messages/mixed.xml" title="GitHub:~/messages/mixed.xml">mixed.xml</a></code></div>
-<h3 id="m4-xml-oddelene-zpravy" class="m4-hx"><sup><a href="#m4-toc" title="Nahoru">&#x1f845;</a><a href="#m4-toc-xml-oddelene-zpravy" title="Obsah">☰</a></sup><a href="#m4-xml-oddelene-zpravy" title="&#x1f517;">A.15</a><code>[]</code> XML – oddělené zprávy</h3>
+&lt;/messages&gt;</pre><code><span title="2020-01-06 16:21:10 +0100">b53eafe</span><a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/messages/mixed.xml" title="GitHub:~/messages/mixed.xml">mixed.xml</a><a href="#m4-messages-mixed-xml">&#x1f517;</a></code></div>
+<h3 id="m4-xml-oddelene-zpravy" class="m4-ch"><a href="#m4-toc-xml-oddelene-zpravy" title="Obsah">☰</a><a href="#m4-xml-oddelene-zpravy" title="&#x1f517;">A.15</a><code>[]</code> XML – oddělené zprávy<sup><a href="#m4-toc" title="Nahoru">&#x1f845;</a></sup></h3>
 <p>Příklad seskupuje zprávy podle jejich typu pomocí výstupních front.</p>
-<div class="m4-src"><pre># A → β
+<div class="m4-src"><pre id="m4-messages-messages-xml-m4"># A → β
 # β
 define([ERROR], [
 
@@ -1098,9 +1095,9 @@ divert(0)dnl
 &lt;messages&gt;
 divert(LAST_QUEUE)dnl
 &lt;/messages&gt;
-divert(-1)</pre><code><span title="2020-01-06 16:21:10 +0100">b53eafe</span><a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/messages/messages.xml.m4" title="GitHub:~/messages/messages.xml.m4">messages.xml.m4</a></code></div>
-<div title="příkaz" class="m4-usc">m4 <a href="https://raw.githubusercontent.com/jkubin/m4root/1c7cd84d8bdebee864226734097e3ef7c9c86cfa/gfiles/rootb.m4" title="GitHub:~/gfiles/rootb.m4">rootb.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/messages/queues.m4" title="GitHub:~/messages/queues.m4">queues.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/messages/messages.xml.m4" title="GitHub:~/messages/messages.xml.m4">messages.xml.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/messages/markup.m4" title="GitHub:~/messages/markup.m4">markup.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/cce57f8d115160db9d1fe475f7eca82e1f26df54/messages/messages.mc" title="GitHub:~/messages/messages.mc">messages.mc</a> &gt; <a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/messages/messages.xml" title="GitHub:~/messages/messages.xml">messages.xml</a></div>
-<div class="m4-src"><pre>&lt;!-- DO NOT EDIT! This file is generated automatically! --&gt;
+divert(-1)</pre><code><span title="2020-01-06 16:21:10 +0100">b53eafe</span><a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/messages/messages.xml.m4" title="GitHub:~/messages/messages.xml.m4">messages.xml.m4</a><a href="#m4-messages-messages-xml-m4">&#x1f517;</a></code></div>
+<div title="příkaz" class="m4-usc">m4 <a href="https://raw.githubusercontent.com/jkubin/m4root/c8ca92d97bf619b9cc7a3e9d0a89ea32654c5cb7/gfiles/rootb.m4" title="GitHub:~/gfiles/rootb.m4">rootb.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/messages/queues.m4" title="GitHub:~/messages/queues.m4">queues.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/messages/messages.xml.m4" title="GitHub:~/messages/messages.xml.m4">messages.xml.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/messages/markup.m4" title="GitHub:~/messages/markup.m4">markup.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/cce57f8d115160db9d1fe475f7eca82e1f26df54/messages/messages.mc" title="GitHub:~/messages/messages.mc">messages.mc</a> &gt; <a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/messages/messages.xml" title="GitHub:~/messages/messages.xml">messages.xml</a></div>
+<div class="m4-src"><pre id="m4-messages-messages-xml">&lt;!-- DO NOT EDIT! This file is generated automatically! --&gt;
 &lt;?xml version="1.0" encoding="utf-8"?&gt;
 &lt;messages&gt;
 	&lt;query&gt;
@@ -1133,9 +1130,9 @@ divert(-1)</pre><code><span title="2020-01-06 16:21:10 +0100">b53eafe</span><a h
 			&lt;value&gt;No other errors detected.&lt;/value&gt;
 		&lt;/item&gt;
 	&lt;/warning&gt;
-&lt;/messages&gt;</pre><code><span title="2020-01-06 16:21:10 +0100">b53eafe</span><a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/messages/messages.xml" title="GitHub:~/messages/messages.xml">messages.xml</a></code></div>
-<h3 id="m4-bash-cmd-echo-dretezecd" class="m4-hx"><sup><a href="#m4-toc" title="Nahoru">&#x1f845;</a><a href="#m4-toc-bash-cmd-echo-dretezecd" title="Obsah">☰</a></sup><a href="#m4-bash-cmd-echo-dretezecd" title="&#x1f517;">A.16</a><code>[]</code> Bash <code>~]$ echo &quot;řetězec&quot;</code></h3>
-<div class="m4-src"><pre># A → β
+&lt;/messages&gt;</pre><code><span title="2020-01-06 16:21:10 +0100">b53eafe</span><a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/messages/messages.xml" title="GitHub:~/messages/messages.xml">messages.xml</a><a href="#m4-messages-messages-xml">&#x1f517;</a></code></div>
+<h3 id="m4-bash-cmd-echo-dretezecd" class="m4-ch"><a href="#m4-toc-bash-cmd-echo-dretezecd" title="Obsah">☰</a><a href="#m4-bash-cmd-echo-dretezecd" title="&#x1f517;">A.16</a><code>[]</code> Bash <code>~]$ echo &quot;řetězec&quot;</code><sup><a href="#m4-toc" title="Nahoru">&#x1f845;</a></sup></h3>
+<div class="m4-src"><pre id="m4-messages-doubleq-sh-m4"># A → β
 # β
 define([ERROR], [
 
@@ -1153,9 +1150,9 @@ divert(0)dnl
 #
 [#] DONTE()
 
-divert(-1)</pre><code><span title="2020-01-06 16:21:10 +0100">b53eafe</span><a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/messages/doubleq.sh.m4" title="GitHub:~/messages/doubleq.sh.m4">doubleq.sh.m4</a></code></div>
-<div title="příkaz" class="m4-usc">m4 <a href="https://raw.githubusercontent.com/jkubin/m4root/1c7cd84d8bdebee864226734097e3ef7c9c86cfa/gfiles/rootb.m4" title="GitHub:~/gfiles/rootb.m4">rootb.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/messages/doubleq.sh.m4" title="GitHub:~/messages/doubleq.sh.m4">doubleq.sh.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/messages/doubleq.m4" title="GitHub:~/messages/doubleq.m4">doubleq.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/cce57f8d115160db9d1fe475f7eca82e1f26df54/messages/messages.mc" title="GitHub:~/messages/messages.mc">messages.mc</a> &gt; <a href="https://raw.githubusercontent.com/jkubin/m4root/d4b77335acdf481207b0380be43d57fe6d32fc5e/messages/doubleq.sh" title="GitHub:~/messages/doubleq.sh">doubleq.sh</a></div>
-<div class="m4-src"><pre>#!/bin/bash
+divert(-1)</pre><code><span title="2020-01-06 16:21:10 +0100">b53eafe</span><a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/messages/doubleq.sh.m4" title="GitHub:~/messages/doubleq.sh.m4">doubleq.sh.m4</a><a href="#m4-messages-doubleq-sh-m4">&#x1f517;</a></code></div>
+<div title="příkaz" class="m4-usc">m4 <a href="https://raw.githubusercontent.com/jkubin/m4root/c8ca92d97bf619b9cc7a3e9d0a89ea32654c5cb7/gfiles/rootb.m4" title="GitHub:~/gfiles/rootb.m4">rootb.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/messages/doubleq.sh.m4" title="GitHub:~/messages/doubleq.sh.m4">doubleq.sh.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/messages/doubleq.m4" title="GitHub:~/messages/doubleq.m4">doubleq.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/cce57f8d115160db9d1fe475f7eca82e1f26df54/messages/messages.mc" title="GitHub:~/messages/messages.mc">messages.mc</a> &gt; <a href="https://raw.githubusercontent.com/jkubin/m4root/d4b77335acdf481207b0380be43d57fe6d32fc5e/messages/doubleq.sh" title="GitHub:~/messages/doubleq.sh">doubleq.sh</a></div>
+<div class="m4-src"><pre id="m4-messages-doubleq-sh">#!/bin/bash
 #
 # DO NOT EDIT! This file is generated automatically!
 
@@ -1164,9 +1161,9 @@ echo "Is badly written M4 code readable [N/y]?"
 echo "Complex M4 code failed successfully."
 echo "Programming in M4 is addictive"\!""
 echo "It's not a language fault"\!""
-echo "No other errors detected."</pre><code><span title="2020-01-10 13:31:12 +0100">d4b7733</span><a href="https://raw.githubusercontent.com/jkubin/m4root/d4b77335acdf481207b0380be43d57fe6d32fc5e/messages/doubleq.sh" title="GitHub:~/messages/doubleq.sh">doubleq.sh</a></code></div>
-<h3 id="m4-bash-cmd-echo-aretezeca" class="m4-hx"><sup><a href="#m4-toc" title="Nahoru">&#x1f845;</a><a href="#m4-toc-bash-cmd-echo-aretezeca" title="Obsah">☰</a></sup><a href="#m4-bash-cmd-echo-aretezeca" title="&#x1f517;">A.17</a><code>[]</code> Bash <code>~]$ echo 'řetězec'</code></h3>
-<div class="m4-src"><pre># A → β
+echo "No other errors detected."</pre><code><span title="2020-01-10 13:31:12 +0100">d4b7733</span><a href="https://raw.githubusercontent.com/jkubin/m4root/d4b77335acdf481207b0380be43d57fe6d32fc5e/messages/doubleq.sh" title="GitHub:~/messages/doubleq.sh">doubleq.sh</a><a href="#m4-messages-doubleq-sh">&#x1f517;</a></code></div>
+<h3 id="m4-bash-cmd-echo-aretezeca" class="m4-ch"><a href="#m4-toc-bash-cmd-echo-aretezeca" title="Obsah">☰</a><a href="#m4-bash-cmd-echo-aretezeca" title="&#x1f517;">A.17</a><code>[]</code> Bash <code>~]$ echo 'řetězec'</code><sup><a href="#m4-toc" title="Nahoru">&#x1f845;</a></sup></h3>
+<div class="m4-src"><pre id="m4-messages-apost-sh-m4"># A → β
 # β
 define([ERROR], [
 
@@ -1184,9 +1181,9 @@ divert(0)dnl
 #
 [#] DONTE()
 
-divert(-1)</pre><code><span title="2020-01-06 16:21:10 +0100">b53eafe</span><a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/messages/apost.sh.m4" title="GitHub:~/messages/apost.sh.m4">apost.sh.m4</a></code></div>
-<div title="příkaz" class="m4-usc">m4 <a href="https://raw.githubusercontent.com/jkubin/m4root/1c7cd84d8bdebee864226734097e3ef7c9c86cfa/gfiles/rootb.m4" title="GitHub:~/gfiles/rootb.m4">rootb.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/messages/apost.sh.m4" title="GitHub:~/messages/apost.sh.m4">apost.sh.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/messages/apost.m4" title="GitHub:~/messages/apost.m4">apost.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/cce57f8d115160db9d1fe475f7eca82e1f26df54/messages/messages.mc" title="GitHub:~/messages/messages.mc">messages.mc</a> &gt; <a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/messages/apost.sh" title="GitHub:~/messages/apost.sh">apost.sh</a></div>
-<div class="m4-src"><pre>#!/bin/bash
+divert(-1)</pre><code><span title="2020-01-06 16:21:10 +0100">b53eafe</span><a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/messages/apost.sh.m4" title="GitHub:~/messages/apost.sh.m4">apost.sh.m4</a><a href="#m4-messages-apost-sh-m4">&#x1f517;</a></code></div>
+<div title="příkaz" class="m4-usc">m4 <a href="https://raw.githubusercontent.com/jkubin/m4root/c8ca92d97bf619b9cc7a3e9d0a89ea32654c5cb7/gfiles/rootb.m4" title="GitHub:~/gfiles/rootb.m4">rootb.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/messages/apost.sh.m4" title="GitHub:~/messages/apost.sh.m4">apost.sh.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/messages/apost.m4" title="GitHub:~/messages/apost.m4">apost.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/cce57f8d115160db9d1fe475f7eca82e1f26df54/messages/messages.mc" title="GitHub:~/messages/messages.mc">messages.mc</a> &gt; <a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/messages/apost.sh" title="GitHub:~/messages/apost.sh">apost.sh</a></div>
+<div class="m4-src"><pre id="m4-messages-apost-sh">#!/bin/bash
 #
 # DO NOT EDIT! This file is generated automatically!
 
@@ -1195,13 +1192,13 @@ echo 'Is badly written M4 code readable [N/y]?'
 echo 'Complex M4 code failed successfully.'
 echo 'Programming in M4 is addictive!'
 echo 'It'\''s not a language fault!'
-echo 'No other errors detected.'</pre><code><span title="2020-01-06 16:21:10 +0100">b53eafe</span><a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/messages/apost.sh" title="GitHub:~/messages/apost.sh">apost.sh</a></code></div>
-<h2 id="m4-priklady-preprocesoru" class="m4-hx"><sup><a href="#m4-toc" title="Nahoru">&#x1f845;</a><a href="#m4-toc-priklady-preprocesoru" title="Obsah">☰</a></sup><a href="#m4-priklady-preprocesoru" title="&#x1f517;">B</a>Příklady preprocesoru</h2>
+echo 'No other errors detected.'</pre><code><span title="2020-01-06 16:21:10 +0100">b53eafe</span><a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/messages/apost.sh" title="GitHub:~/messages/apost.sh">apost.sh</a><a href="#m4-messages-apost-sh">&#x1f517;</a></code></div>
+<h2 id="m4-priklady-preprocesoru" class="m4-ch"><a href="#m4-toc-priklady-preprocesoru" title="Obsah">☰</a><a href="#m4-priklady-preprocesoru" title="&#x1f517;">B</a>Příklady preprocesoru<sup><a href="#m4-toc" title="Nahoru">&#x1f845;</a></sup></h2>
 <div title="pro informaci" class="rs-tip-major m4-info">Znaky {<code>`'</code>, <code>[]</code>, <strong><code>␂␆</code></strong>, <code>⟦⟧</code>} v&nbsp;názvu příkladu <a href="#m4-rizeni-expanze-neterminalu" title="Řízení expanze neterminálů">řídí expanzi neterminálů</a>.</div>
 <p id="m4-toc-ba-preprocesor-jazyka-c-a-m4" class="m4-l2"><a href="#m4-ba-preprocesor-jazyka-c-a-m4"><b>B.1</b><code>`'</code> Preprocesor jazyka C&nbsp;a&nbsp;M4</a></p>
 <p id="m4-toc-ba-css-vlozeni-souboru-komentar" class="m4-l2"><a href="#m4-ba-css-vlozeni-souboru-komentar"><b>B.2</b><code>`'</code> CSS – vložení souboru, komentář</a></p>
 <p id="m4-toc-bash-netisknutelne-znaky" class="m4-l2"><a href="#m4-bash-netisknutelne-znaky"><b>B.3</b><strong><code>␂␆</code></strong> Bash – netisknutelné znaky</a></p>
-<h3 id="m4-ba-preprocesor-jazyka-c-a-m4" class="m4-hx"><sup><a href="#m4-toc" title="Nahoru">&#x1f845;</a><a href="#m4-toc-ba-preprocesor-jazyka-c-a-m4" title="Obsah">☰</a></sup><a href="#m4-ba-preprocesor-jazyka-c-a-m4" title="&#x1f517;">B.1</a><code>`'</code> Preprocesor jazyka C&nbsp;a&nbsp;M4</h3>
+<h3 id="m4-ba-preprocesor-jazyka-c-a-m4" class="m4-ch"><a href="#m4-toc-ba-preprocesor-jazyka-c-a-m4" title="Obsah">☰</a><a href="#m4-ba-preprocesor-jazyka-c-a-m4" title="&#x1f517;">B.1</a><code>`'</code> Preprocesor jazyka C&nbsp;a&nbsp;M4<sup><a href="#m4-toc" title="Nahoru">&#x1f845;</a></sup></h3>
 <p>Direktivy <a href="https://cs.wikipedia.org/wiki/Preprocesor_jazyka_C" title="Preprocesor jazyka C">CPP</a> jsou pro M4 jednořádkový komentář, což brání nežádoucí expanzi stejně pojmenovaných maker.
 Definujeme-li bezpečnější makro <code>SAF()</code>, stejně pojmenované makro <code>SAF ()</code> nebude přepsáno.
 Jmenný prostor <abbr title="Preprocesor jazyka C">CPP</abbr> tak <strong>může</strong> být zcela oddělen od jmenného prostoru M4.
@@ -1209,14 +1206,14 @@ Problematický znak <code>`</code> je skryt do makra <code>LQ()</code>.
 Apostrof <code>'</code> ve zdrojovém kódu ničemu nevadí.
 Apostrof uvnitř makra <code>ORD<del style="color:red"><span style="color:rgba(0,0,0,.75)">()</span></del></code> je skryt do makra <code>RQ()</code>.
 Všimněte si jmen funkcí <code>define ()</code> nebo <code>ifelse ()</code> a&nbsp;kde je expandován <code>SYMBOL</code>.</p>
-<div class="m4-src"><pre># ORDinary and SAFe macros have different expansion:
+<div class="m4-src"><pre id="m4-preproc-file-c-m4"># ORDinary and SAFe macros have different expansion:
 
 # A → β
 define(`ORD', `$0_M4 RQ()SYMBOL`'RQ()')
 define(`SAF', `ifelse(`$#', `0', ``$0'', `($1) * ($1)	/* $0_M4 SYMBOL */')')
 
-divert(0)dnl</pre><code><span title="2020-01-06 16:21:10 +0100">b53eafe</span><a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/preproc/file.c.m4" title="GitHub:~/preproc/file.c.m4">file.c.m4</a></code></div>
-<div class="m4-src"><pre>/*
+divert(0)dnl</pre><code><span title="2020-01-06 16:21:10 +0100">b53eafe</span><a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/preproc/file.c.m4" title="GitHub:~/preproc/file.c.m4">file.c.m4</a><a href="#m4-preproc-file-c-m4">&#x1f517;</a></code></div>
+<div class="m4-src"><pre id="m4-preproc-file-c">/*
  * DONTE()
  */
 
@@ -1246,9 +1243,9 @@ int main(void)
 	ifelse (bar);		/* SYMBOL() */
 
 	return 0;
-}</pre><code><span title="2020-01-06 16:21:10 +0100">b53eafe</span><a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/preproc/file.c" title="GitHub:~/preproc/file.c">file.c</a></code></div>
-<div title="příkaz" class="m4-usc">m4 -DSYMBOL='Hello, world!' <a href="https://raw.githubusercontent.com/jkubin/m4root/71ec8766735024010fae6775cdacaf1bf1698835/gfiles/rootq.m4" title="GitHub:~/gfiles/rootq.m4">rootq.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/preproc/file.c.m4" title="GitHub:~/preproc/file.c.m4">file.c.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/preproc/file.c" title="GitHub:~/preproc/file.c">file.c</a> &gt; <a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/preproc/preproc.file.c" title="GitHub:~/preproc/preproc.file.c">preproc.file.c</a></div>
-<div class="m4-src"><pre>/*
+}</pre><code><span title="2020-01-06 16:21:10 +0100">b53eafe</span><a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/preproc/file.c" title="GitHub:~/preproc/file.c">file.c</a><a href="#m4-preproc-file-c">&#x1f517;</a></code></div>
+<div title="příkaz" class="m4-usc">m4 -DSYMBOL='Hello, world!' <a href="https://raw.githubusercontent.com/jkubin/m4root/c8ca92d97bf619b9cc7a3e9d0a89ea32654c5cb7/gfiles/rootq.m4" title="GitHub:~/gfiles/rootq.m4">rootq.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/preproc/file.c.m4" title="GitHub:~/preproc/file.c.m4">file.c.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/preproc/file.c" title="GitHub:~/preproc/file.c">file.c</a> &gt; <a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/preproc/preproc.file.c" title="GitHub:~/preproc/preproc.file.c">preproc.file.c</a></div>
+<div class="m4-src"><pre id="m4-preproc-preproc-file-c">/*
  * DO NOT EDIT! This file is generated automatically!
  */
 
@@ -1278,15 +1275,15 @@ int main(void)
 	ifelse (bar);		/* Hello, world! */
 
 	return 0;
-}</pre><code><span title="2020-01-06 16:21:10 +0100">b53eafe</span><a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/preproc/preproc.file.c" title="GitHub:~/preproc/preproc.file.c">preproc.file.c</a></code></div>
-<h3 id="m4-ba-css-vlozeni-souboru-komentar" class="m4-hx"><sup><a href="#m4-toc" title="Nahoru">&#x1f845;</a><a href="#m4-toc-ba-css-vlozeni-souboru-komentar" title="Obsah">☰</a></sup><a href="#m4-ba-css-vlozeni-souboru-komentar" title="&#x1f517;">B.2</a><code>`'</code> CSS – vložení souboru, komentář</h3>
+}</pre><code><span title="2020-01-06 16:21:10 +0100">b53eafe</span><a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/preproc/preproc.file.c" title="GitHub:~/preproc/preproc.file.c">preproc.file.c</a><a href="#m4-preproc-preproc-file-c">&#x1f517;</a></code></div>
+<h3 id="m4-ba-css-vlozeni-souboru-komentar" class="m4-ch"><a href="#m4-toc-ba-css-vlozeni-souboru-komentar" title="Obsah">☰</a><a href="#m4-ba-css-vlozeni-souboru-komentar" title="&#x1f517;">B.2</a><code>`'</code> CSS – vložení souboru, komentář<sup><a href="#m4-toc" title="Nahoru">&#x1f845;</a></sup></h3>
 <p>CSS používá znak <code>#</code> pro kódy barev, což je také začátek jednořádkového M4 komentáře.
 Klíčové slovo <code>changecom(/*,*/)</code> nastaví víceřádkový komentář <code>/* … */</code> a&nbsp;přepíše se na <abbr title="epsilon – prázdný symbol"><code>ε</code></abbr>.
 Komentáře se vypínají stejným klíčovým slovem <code>changecom</code> bez parametrů.</p>
-<div class="m4-src"><pre title="soubor vložený makro procesorem">.foo {
+<div class="m4-src"><pre id="m4-preproc-foo-css" title="soubor vložený makro procesorem">.foo {
 	border: WIDTH 2px 1px;
-}</pre><code><span title="2020-02-11 02:32:35 +0100">9e13656</span><a href="https://raw.githubusercontent.com/jkubin/m4root/9e136564861374ce1aebcc3f02cfcc35748d9a30/preproc/foo.css" title="GitHub:~/preproc/foo.css">foo.css</a></code></div>
-<div class="m4-src"><pre># CSS preprocessor
+}</pre><code><span title="2020-02-11 02:32:35 +0100">9e13656</span><a href="https://raw.githubusercontent.com/jkubin/m4root/9e136564861374ce1aebcc3f02cfcc35748d9a30/preproc/foo.css" title="GitHub:~/preproc/foo.css">foo.css</a><a href="#m4-preproc-foo-css">&#x1f517;</a></code></div>
+<div class="m4-src"><pre id="m4-preproc-file-css-m4"># CSS preprocessor
 
 define(`WIDTH', `3px')
 define(`TOP', `#f00')
@@ -1296,8 +1293,8 @@ define(`SITE', `www.root.cz')
 define(`IMAGE', `m4tux.png')
 define(`PATH', `https://SITE/IMAGE')
 
-divert(0)dnl</pre><code><span title="2020-02-11 02:32:35 +0100">9e13656</span><a href="https://raw.githubusercontent.com/jkubin/m4root/9e136564861374ce1aebcc3f02cfcc35748d9a30/preproc/file.css.m4" title="GitHub:~/preproc/file.css.m4">file.css.m4</a></code></div>
-<div class="m4-src"><pre>/* DONTE() */changecom(/*,*/)
+divert(0)dnl</pre><code><span title="2020-02-11 02:32:35 +0100">9e13656</span><a href="https://raw.githubusercontent.com/jkubin/m4root/9e136564861374ce1aebcc3f02cfcc35748d9a30/preproc/file.css.m4" title="GitHub:~/preproc/file.css.m4">file.css.m4</a><a href="#m4-preproc-file-css-m4">&#x1f517;</a></code></div>
+<div class="m4-src"><pre id="m4-preproc-file-css">/* DONTE() */changecom(/*,*/)
 /* DONTE() */
 
 include(`foo.css')dnl
@@ -1309,9 +1306,9 @@ include(`foo.css')dnl
 }
 
 /* DONTE() */
-changecom/* DONTE() */changecom(/*,*/)</pre><code><span title="2020-02-11 02:32:35 +0100">9e13656</span><a href="https://raw.githubusercontent.com/jkubin/m4root/9e136564861374ce1aebcc3f02cfcc35748d9a30/preproc/file.css" title="GitHub:~/preproc/file.css">file.css</a></code></div>
-<div title="příkaz" class="m4-usc">m4 -DSYMBOL='Hello, world!' <a href="https://raw.githubusercontent.com/jkubin/m4root/71ec8766735024010fae6775cdacaf1bf1698835/gfiles/rootq.m4" title="GitHub:~/gfiles/rootq.m4">rootq.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/9e136564861374ce1aebcc3f02cfcc35748d9a30/preproc/file.css.m4" title="GitHub:~/preproc/file.css.m4">file.css.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/9e136564861374ce1aebcc3f02cfcc35748d9a30/preproc/file.css" title="GitHub:~/preproc/file.css">file.css</a> &gt; <a href="https://raw.githubusercontent.com/jkubin/m4root/9e136564861374ce1aebcc3f02cfcc35748d9a30/preproc/preproc.file.css" title="GitHub:~/preproc/preproc.file.css">preproc.file.css</a></div>
-<div class="m4-src"><pre>/* DO NOT EDIT! This file is generated automatically! */
+changecom/* DONTE() */changecom(/*,*/)</pre><code><span title="2020-02-11 02:32:35 +0100">9e13656</span><a href="https://raw.githubusercontent.com/jkubin/m4root/9e136564861374ce1aebcc3f02cfcc35748d9a30/preproc/file.css" title="GitHub:~/preproc/file.css">file.css</a><a href="#m4-preproc-file-css">&#x1f517;</a></code></div>
+<div title="příkaz" class="m4-usc">m4 -DSYMBOL='Hello, world!' <a href="https://raw.githubusercontent.com/jkubin/m4root/c8ca92d97bf619b9cc7a3e9d0a89ea32654c5cb7/gfiles/rootq.m4" title="GitHub:~/gfiles/rootq.m4">rootq.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/9e136564861374ce1aebcc3f02cfcc35748d9a30/preproc/file.css.m4" title="GitHub:~/preproc/file.css.m4">file.css.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/9e136564861374ce1aebcc3f02cfcc35748d9a30/preproc/file.css" title="GitHub:~/preproc/file.css">file.css</a> &gt; <a href="https://raw.githubusercontent.com/jkubin/m4root/9e136564861374ce1aebcc3f02cfcc35748d9a30/preproc/preproc.file.css" title="GitHub:~/preproc/preproc.file.css">preproc.file.css</a></div>
+<div class="m4-src"><pre id="m4-preproc-preproc-file-css">/* DO NOT EDIT! This file is generated automatically! */
 /* DONTE() */
 
 .foo {
@@ -1325,19 +1322,19 @@ changecom/* DONTE() */changecom(/*,*/)</pre><code><span title="2020-02-11 02:32:
 }
 
 /* DONTE() */
-/* DO NOT EDIT! This file is generated automatically! */</pre><code><span title="2020-02-11 02:32:35 +0100">9e13656</span><a href="https://raw.githubusercontent.com/jkubin/m4root/9e136564861374ce1aebcc3f02cfcc35748d9a30/preproc/preproc.file.css" title="GitHub:~/preproc/preproc.file.css">preproc.file.css</a></code></div>
-<h3 id="m4-bash-netisknutelne-znaky" class="m4-hx"><sup><a href="#m4-toc" title="Nahoru">&#x1f845;</a><a href="#m4-toc-bash-netisknutelne-znaky" title="Obsah">☰</a></sup><a href="#m4-bash-netisknutelne-znaky" title="&#x1f517;">B.3</a><strong><code>␂␆</code></strong> Bash – netisknutelné znaky</h3>
+/* DO NOT EDIT! This file is generated automatically! */</pre><code><span title="2020-02-11 02:32:35 +0100">9e13656</span><a href="https://raw.githubusercontent.com/jkubin/m4root/9e136564861374ce1aebcc3f02cfcc35748d9a30/preproc/preproc.file.css" title="GitHub:~/preproc/preproc.file.css">preproc.file.css</a><a href="#m4-preproc-preproc-file-css">&#x1f517;</a></code></div>
+<h3 id="m4-bash-netisknutelne-znaky" class="m4-ch"><a href="#m4-toc-bash-netisknutelne-znaky" title="Obsah">☰</a><a href="#m4-bash-netisknutelne-znaky" title="&#x1f517;">B.3</a><strong><code>␂␆</code></strong> Bash – netisknutelné znaky<sup><a href="#m4-toc" title="Nahoru">&#x1f845;</a></sup></h3>
 <p>Bash používá oba znaky, <code>`</code> a <code>[</code>.
 Nechceme-li je skrývat do makra <code>LQ()</code> nebo <code>LB()</code>, můžeme použít pro <a href="#m4-rizeni-expanze-neterminalu" title="Řízení expanze neterminálů">řízení expanze neterminálů</a> netisknutelné znaky, viz. příklad:</p>
-<div class="m4-src"><pre># vim:mps+=␂\:␆
+<div class="m4-src"><pre id="m4-preproc-file-sh-m4"># vim:mps+=␂\:␆
 
 # A → β
 define(␂LEFT␆, ␂$␂#␆␆)
 define(␂OP␆, ␂-eq␆)
 define(␂RIGHT␆, ␂0␆)
 
-divert(0)dnl</pre><code><span title="2020-01-06 16:21:10 +0100">b53eafe</span><a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/preproc/file.sh.m4" title="GitHub:~/preproc/file.sh.m4">file.sh.m4</a></code></div>
-<div class="m4-src"><pre>#!/bin/bash
+divert(0)dnl</pre><code><span title="2020-01-06 16:21:10 +0100">b53eafe</span><a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/preproc/file.sh.m4" title="GitHub:~/preproc/file.sh.m4">file.sh.m4</a><a href="#m4-preproc-file-sh-m4">&#x1f517;</a></code></div>
+<div class="m4-src"><pre id="m4-preproc-file-sh">#!/bin/bash
 #
 ␂#␆ DONTE()
 
@@ -1346,9 +1343,9 @@ HELLO=`echo 'SYMBOL'`
 if [[ LEFT OP RIGHT ]]
 then
 	echo $HELLO
-fi</pre><code><span title="2020-01-06 16:21:10 +0100">b53eafe</span><a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/preproc/file.sh" title="GitHub:~/preproc/file.sh">file.sh</a></code></div>
-<div title="příkaz" class="m4-usc">m4 -DSYMBOL='Hello, world!' <a href="https://raw.githubusercontent.com/jkubin/m4root/71ec8766735024010fae6775cdacaf1bf1698835/gfiles/rootn.m4" title="GitHub:~/gfiles/rootn.m4">rootn.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/preproc/file.sh.m4" title="GitHub:~/preproc/file.sh.m4">file.sh.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/preproc/file.sh" title="GitHub:~/preproc/file.sh">file.sh</a> &gt; <a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/preproc/preproc.file.sh" title="GitHub:~/preproc/preproc.file.sh">preproc.file.sh</a></div>
-<div class="m4-src"><pre>#!/bin/bash
+fi</pre><code><span title="2020-01-06 16:21:10 +0100">b53eafe</span><a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/preproc/file.sh" title="GitHub:~/preproc/file.sh">file.sh</a><a href="#m4-preproc-file-sh">&#x1f517;</a></code></div>
+<div title="příkaz" class="m4-usc">m4 -DSYMBOL='Hello, world!' <a href="https://raw.githubusercontent.com/jkubin/m4root/c8ca92d97bf619b9cc7a3e9d0a89ea32654c5cb7/gfiles/rootn.m4" title="GitHub:~/gfiles/rootn.m4">rootn.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/preproc/file.sh.m4" title="GitHub:~/preproc/file.sh.m4">file.sh.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/preproc/file.sh" title="GitHub:~/preproc/file.sh">file.sh</a> &gt; <a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/preproc/preproc.file.sh" title="GitHub:~/preproc/preproc.file.sh">preproc.file.sh</a></div>
+<div class="m4-src"><pre id="m4-preproc-preproc-file-sh">#!/bin/bash
 #
 # DO NOT EDIT! This file is generated automatically!
 
@@ -1357,17 +1354,17 @@ HELLO=`echo 'Hello, world!'`
 if [[ $# -eq 0 ]]
 then
 	echo $HELLO
-fi</pre><code><span title="2020-01-06 16:21:10 +0100">b53eafe</span><a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/preproc/preproc.file.sh" title="GitHub:~/preproc/preproc.file.sh">preproc.file.sh</a></code></div>
-<h2 id="m4-m4-priklady" class="m4-hx"><sup><a href="#m4-toc" title="Nahoru">&#x1f845;</a><a href="#m4-toc-m4-priklady" title="Obsah">☰</a></sup><a href="#m4-m4-priklady" title="&#x1f517;">C</a>M4 – příklady</h2>
+fi</pre><code><span title="2020-01-06 16:21:10 +0100">b53eafe</span><a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/preproc/preproc.file.sh" title="GitHub:~/preproc/preproc.file.sh">preproc.file.sh</a><a href="#m4-preproc-preproc-file-sh">&#x1f517;</a></code></div>
+<h2 id="m4-m4-priklady" class="m4-ch"><a href="#m4-toc-m4-priklady" title="Obsah">☰</a><a href="#m4-m4-priklady" title="&#x1f517;">C</a>M4 – příklady<sup><a href="#m4-toc" title="Nahoru">&#x1f845;</a></sup></h2>
 <div title="pro informaci" class="rs-tip-major m4-info">Znaky {<code>`'</code>, <code>[]</code>, <strong><code>␂␆</code></strong>, <code>⟦⟧</code>} v&nbsp;názvu příkladu <a href="#m4-rizeni-expanze-neterminalu" title="Řízení expanze neterminálů">řídí expanzi neterminálů</a>.</div>
 <p id="m4-toc-json-leva-zavorka-b" class="m4-l2"><a href="#m4-json-leva-zavorka-b"><b>C.1</b><code>[]</code> JSON – levá závorka <code>[</code></a></p>
 <p id="m4-toc-bash-pocitadla" class="m4-l2"><a href="#m4-bash-pocitadla"><b>C.2</b><code>[]</code> Bash – počítadla</a></p>
 <p id="m4-toc-h-zavorky-h-dnl" class="m4-l2"><a href="#m4-h-zavorky-h-dnl"><b>C.3</b><code>[]</code> .h – závorky <code>[]</code>, <code>[,]</code>, <code>[#]</code>, <code>[dnl]</code></a></p>
 <p id="m4-toc-awk-priklady-bezpecnejsich-maker" class="m4-l2"><a href="#m4-awk-priklady-bezpecnejsich-maker"><b>C.4</b><code>[]</code> AWK – příklady bezpečnějších maker</a></p>
-<h3 id="m4-json-leva-zavorka-b" class="m4-hx"><sup><a href="#m4-toc" title="Nahoru">&#x1f845;</a><a href="#m4-toc-json-leva-zavorka-b" title="Obsah">☰</a></sup><a href="#m4-json-leva-zavorka-b" title="&#x1f517;">C.1</a><code>[]</code> JSON – levá závorka <code>[</code></h3>
+<h3 id="m4-json-leva-zavorka-b" class="m4-ch"><a href="#m4-toc-json-leva-zavorka-b" title="Obsah">☰</a><a href="#m4-json-leva-zavorka-b" title="&#x1f517;">C.1</a><code>[]</code> JSON – levá závorka <code>[</code><sup><a href="#m4-toc" title="Nahoru">&#x1f845;</a></sup></h3>
 <p>Uvnitř hranatých závorek <code>[… se neterminály neexpandují …]</code>.
 Proto je levá hranatá závorka <code>[</code> nahrazena makrem <code>LB()</code> z&nbsp;kořenového souboru.</p>
-<div class="m4-src"><pre># JSON
+<div class="m4-src"><pre id="m4-hello-world-json-m4"># JSON
 
 divert(0)dnl
 {"foo": {
@@ -1375,19 +1372,19 @@ divert(0)dnl
 	"bar": LB()
 		{"baz": "SYMBOL"}
 	]
-}}</pre><code><span title="2020-01-06 16:21:10 +0100">b53eafe</span><a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/hello_world/json.m4" title="GitHub:~/hello_world/json.m4">json.m4</a></code></div>
-<div title="příkaz" class="m4-usc">m4 -DSYMBOL='Hello, world!' <a href="https://raw.githubusercontent.com/jkubin/m4root/1c7cd84d8bdebee864226734097e3ef7c9c86cfa/gfiles/rootb.m4" title="GitHub:~/gfiles/rootb.m4">rootb.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/hello_world/json.m4" title="GitHub:~/hello_world/json.m4">json.m4</a> &gt; <a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/hello_world/hello_world.json" title="GitHub:~/hello_world/hello_world.json">hello_world.json</a></div>
-<div class="m4-src"><pre>{"foo": {
+}}</pre><code><span title="2020-01-06 16:21:10 +0100">b53eafe</span><a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/hello_world/json.m4" title="GitHub:~/hello_world/json.m4">json.m4</a><a href="#m4-hello-world-json-m4">&#x1f517;</a></code></div>
+<div title="příkaz" class="m4-usc">m4 -DSYMBOL='Hello, world!' <a href="https://raw.githubusercontent.com/jkubin/m4root/c8ca92d97bf619b9cc7a3e9d0a89ea32654c5cb7/gfiles/rootb.m4" title="GitHub:~/gfiles/rootb.m4">rootb.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/hello_world/json.m4" title="GitHub:~/hello_world/json.m4">json.m4</a> &gt; <a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/hello_world/hello_world.json" title="GitHub:~/hello_world/hello_world.json">hello_world.json</a></div>
+<div class="m4-src"><pre id="m4-hello-world-hello-world-json">{"foo": {
 	"_comment": "DO NOT EDIT! This file is generated automatically!",
 	"bar": [
 		{"baz": "Hello, world!"}
 	]
-}}</pre><code><span title="2020-01-06 16:21:10 +0100">b53eafe</span><a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/hello_world/hello_world.json" title="GitHub:~/hello_world/hello_world.json">hello_world.json</a></code></div>
-<h3 id="m4-bash-pocitadla" class="m4-hx"><sup><a href="#m4-toc" title="Nahoru">&#x1f845;</a><a href="#m4-toc-bash-pocitadla" title="Obsah">☰</a></sup><a href="#m4-bash-pocitadla" title="&#x1f517;">C.2</a><code>[]</code> Bash – počítadla</h3>
+}}</pre><code><span title="2020-01-06 16:21:10 +0100">b53eafe</span><a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/hello_world/hello_world.json" title="GitHub:~/hello_world/hello_world.json">hello_world.json</a><a href="#m4-hello-world-hello-world-json">&#x1f517;</a></code></div>
+<h3 id="m4-bash-pocitadla" class="m4-ch"><a href="#m4-toc-bash-pocitadla" title="Obsah">☰</a><a href="#m4-bash-pocitadla" title="&#x1f517;">C.2</a><code>[]</code> Bash – počítadla<sup><a href="#m4-toc" title="Nahoru">&#x1f845;</a></sup></h3>
 <p>Počítadla <code>COUNT_UP</code> a&nbsp;<code>COUNT_DOWN</code> jsou definována v&nbsp;kořenovém souboru.
 Neterminály<br><code>[… uvnitř závorek …]</code> nebudou expandovány, pouze se odeberou vnější závorky.
 Nutno použít makro <code>LB()</code> z&nbsp;kořenového souboru.</p>
-<div class="m4-src"><pre># A → β
+<div class="m4-src"><pre id="m4-hello-world-sh-m4"># A → β
 define([LEFT], [$[#]])
 define([OP], [-eq])
 define([RIGHT], [0])
@@ -1419,9 +1416,9 @@ fi
 if LB()LB() LEFT OP RIGHT ]]
 then
 	echo '__COUNTUP__] SYMBOL LB()__COUNTDN__'
-fi</pre><code><span title="2020-01-06 16:21:10 +0100">b53eafe</span><a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/hello_world/sh.m4" title="GitHub:~/hello_world/sh.m4">sh.m4</a></code></div>
-<div title="příkaz" class="m4-usc">m4 -DSYMBOL='Hello, world!' <a href="https://raw.githubusercontent.com/jkubin/m4root/1c7cd84d8bdebee864226734097e3ef7c9c86cfa/gfiles/rootb.m4" title="GitHub:~/gfiles/rootb.m4">rootb.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/hello_world/sh.m4" title="GitHub:~/hello_world/sh.m4">sh.m4</a> &gt; <a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/hello_world/hello_world.sh" title="GitHub:~/hello_world/hello_world.sh">hello_world.sh</a></div>
-<div class="m4-src"><pre>#!/bin/bash
+fi</pre><code><span title="2020-01-06 16:21:10 +0100">b53eafe</span><a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/hello_world/sh.m4" title="GitHub:~/hello_world/sh.m4">sh.m4</a><a href="#m4-hello-world-sh-m4">&#x1f517;</a></code></div>
+<div title="příkaz" class="m4-usc">m4 -DSYMBOL='Hello, world!' <a href="https://raw.githubusercontent.com/jkubin/m4root/c8ca92d97bf619b9cc7a3e9d0a89ea32654c5cb7/gfiles/rootb.m4" title="GitHub:~/gfiles/rootb.m4">rootb.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/hello_world/sh.m4" title="GitHub:~/hello_world/sh.m4">sh.m4</a> &gt; <a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/hello_world/hello_world.sh" title="GitHub:~/hello_world/hello_world.sh">hello_world.sh</a></div>
+<div class="m4-src"><pre id="m4-hello-world-hello-world-sh">#!/bin/bash
 #
 # DO NOT EDIT! This file is generated automatically!
 
@@ -1438,13 +1435,13 @@ fi
 if [[ $# -eq 0 ]]
 then
 	echo '12] Hello, world! [8'
-fi</pre><code><span title="2020-01-06 16:21:10 +0100">b53eafe</span><a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/hello_world/hello_world.sh" title="GitHub:~/hello_world/hello_world.sh">hello_world.sh</a></code></div>
-<h3 id="m4-h-zavorky-h-dnl" class="m4-hx"><sup><a href="#m4-toc" title="Nahoru">&#x1f845;</a><a href="#m4-toc-h-zavorky-h-dnl" title="Obsah">☰</a></sup><a href="#m4-h-zavorky-h-dnl" title="&#x1f517;">C.3</a><code>[]</code> .h – závorky <code>[]</code>, <code>[,]</code>, <code>[#]</code>, <code>[dnl]</code></h3>
+fi</pre><code><span title="2020-01-06 16:21:10 +0100">b53eafe</span><a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/hello_world/hello_world.sh" title="GitHub:~/hello_world/hello_world.sh">hello_world.sh</a><a href="#m4-hello-world-hello-world-sh">&#x1f517;</a></code></div>
+<h3 id="m4-h-zavorky-h-dnl" class="m4-ch"><a href="#m4-toc-h-zavorky-h-dnl" title="Obsah">☰</a><a href="#m4-h-zavorky-h-dnl" title="&#x1f517;">C.3</a><code>[]</code> .h – závorky <code>[]</code>, <code>[,]</code>, <code>[#]</code>, <code>[dnl]</code><sup><a href="#m4-toc" title="Nahoru">&#x1f845;</a></sup></h3>
 <p>Prázdný pár <code>[]</code> (nebo prázdný symbol v&nbsp;závorkách <code>[ε]</code>) slouží jako oddělovač symbolů.
 Závorky kolem znaku komentáře <code>[#]</code> vypnou jeho původní význam, stejně jako vypnou význam <em>silnějšího</em> M4 komentáře <code>[dnl]</code>.
 Vypnou také původní význam čárky <code>[,]</code> jako oddělovače argumentů maker.
 Tyto symboly se stanou obyčejnými terminálními symboly bez jakéhokoliv vedlejšího efektu.</p>
-<div class="m4-src"><pre># A → β
+<div class="m4-src"><pre id="m4-hello-world-h-m4"># A → β
 define([HELLO], [HELLO_WORLD])
 
 divert(0)dnl
@@ -1457,9 +1454,9 @@ divert(0)dnl
 
 [#]define HELLO	SYMBOL
 
-[#]endif /* __[]HELLO[]_H */</pre><code><span title="2020-02-13 14:50:23 +0100">ce5cd99</span><a href="https://raw.githubusercontent.com/jkubin/m4root/ce5cd99832d8062a8d20b2b4eb39fd482c6f1769/hello_world/h.m4" title="GitHub:~/hello_world/h.m4">h.m4</a></code></div>
-<div title="příkaz" class="m4-usc">m4 -DSYMBOL='Hello, world!' <a href="https://raw.githubusercontent.com/jkubin/m4root/1c7cd84d8bdebee864226734097e3ef7c9c86cfa/gfiles/rootb.m4" title="GitHub:~/gfiles/rootb.m4">rootb.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/ce5cd99832d8062a8d20b2b4eb39fd482c6f1769/hello_world/h.m4" title="GitHub:~/hello_world/h.m4">h.m4</a> &gt; <a href="https://raw.githubusercontent.com/jkubin/m4root/6b10c6c67a04e8172b361ce5852b934c774a4faf/hello_world/hello_world.h" title="GitHub:~/hello_world/hello_world.h">hello_world.h</a></div>
-<div class="m4-src"><pre>/*
+[#]endif /* __[]HELLO[]_H */</pre><code><span title="2020-02-13 14:50:23 +0100">ce5cd99</span><a href="https://raw.githubusercontent.com/jkubin/m4root/ce5cd99832d8062a8d20b2b4eb39fd482c6f1769/hello_world/h.m4" title="GitHub:~/hello_world/h.m4">h.m4</a><a href="#m4-hello-world-h-m4">&#x1f517;</a></code></div>
+<div title="příkaz" class="m4-usc">m4 -DSYMBOL='Hello, world!' <a href="https://raw.githubusercontent.com/jkubin/m4root/c8ca92d97bf619b9cc7a3e9d0a89ea32654c5cb7/gfiles/rootb.m4" title="GitHub:~/gfiles/rootb.m4">rootb.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/ce5cd99832d8062a8d20b2b4eb39fd482c6f1769/hello_world/h.m4" title="GitHub:~/hello_world/h.m4">h.m4</a> &gt; <a href="https://raw.githubusercontent.com/jkubin/m4root/6b10c6c67a04e8172b361ce5852b934c774a4faf/hello_world/hello_world.h" title="GitHub:~/hello_world/hello_world.h">hello_world.h</a></div>
+<div class="m4-src"><pre id="m4-hello-world-hello-world-h">/*
  * dnl DO NOT EDIT! This file is generated automatically!
  */
 
@@ -1468,28 +1465,28 @@ divert(0)dnl
 
 #define HELLO_WORLD	Hello, world!
 
-#endif /* __HELLO_WORLD_H */</pre><code><span title="2020-02-13 14:51:13 +0100">6b10c6c</span><a href="https://raw.githubusercontent.com/jkubin/m4root/6b10c6c67a04e8172b361ce5852b934c774a4faf/hello_world/hello_world.h" title="GitHub:~/hello_world/hello_world.h">hello_world.h</a></code></div>
-<h3 id="m4-awk-priklady-bezpecnejsich-maker" class="m4-hx"><sup><a href="#m4-toc" title="Nahoru">&#x1f845;</a><a href="#m4-toc-awk-priklady-bezpecnejsich-maker" title="Obsah">☰</a></sup><a href="#m4-awk-priklady-bezpecnejsich-maker" title="&#x1f517;">C.4</a><code>[]</code> AWK – příklady bezpečnějších maker</h3>
+#endif /* __HELLO_WORLD_H */</pre><code><span title="2020-02-13 14:51:13 +0100">6b10c6c</span><a href="https://raw.githubusercontent.com/jkubin/m4root/6b10c6c67a04e8172b361ce5852b934c774a4faf/hello_world/hello_world.h" title="GitHub:~/hello_world/hello_world.h">hello_world.h</a><a href="#m4-hello-world-hello-world-h">&#x1f517;</a></code></div>
+<h3 id="m4-awk-priklady-bezpecnejsich-maker" class="m4-ch"><a href="#m4-toc-awk-priklady-bezpecnejsich-maker" title="Obsah">☰</a><a href="#m4-awk-priklady-bezpecnejsich-maker" title="&#x1f517;">C.4</a><code>[]</code> AWK – příklady bezpečnějších maker<sup><a href="#m4-toc" title="Nahoru">&#x1f845;</a></sup></h3>
 <p>Univerzální výstraha <code>DONTE</code> se ignoruje bez závorek, stejně jako <code>LB</code>, <code>RB</code>, …
 Taková makra explicitně vytváří vývojář skriptů, prohlédněte si kořenový soubor.</p>
-<div class="m4-src"><pre># AWK
+<div class="m4-src"><pre id="m4-hello-world-awk-m4"># AWK
 
 divert(0)dnl
 #!/bin/awk -f
 #
 [# DONTE()] ---&gt; "DONTE()"
 
-BEGIN { print "DONTE[]() LB () LB() SYMBOL ]" }</pre><code><span title="2020-01-06 23:32:45 +0100">3a8a5dd</span><a href="https://raw.githubusercontent.com/jkubin/m4root/3a8a5dd754e3ccaad3641a3469597647710ca68d/hello_world/awk.m4" title="GitHub:~/hello_world/awk.m4">awk.m4</a></code></div>
-<div title="příkaz" class="m4-usc">m4 -DSYMBOL='Hello, world!' <a href="https://raw.githubusercontent.com/jkubin/m4root/1c7cd84d8bdebee864226734097e3ef7c9c86cfa/gfiles/rootb.m4" title="GitHub:~/gfiles/rootb.m4">rootb.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/3a8a5dd754e3ccaad3641a3469597647710ca68d/hello_world/awk.m4" title="GitHub:~/hello_world/awk.m4">awk.m4</a> &gt; <a href="https://raw.githubusercontent.com/jkubin/m4root/3a8a5dd754e3ccaad3641a3469597647710ca68d/hello_world/hello_world.awk" title="GitHub:~/hello_world/hello_world.awk">hello_world.awk</a></div>
-<div class="m4-src"><pre>#!/bin/awk -f
+BEGIN { print "DONTE[]() LB () LB() SYMBOL ]" }</pre><code><span title="2020-01-06 23:32:45 +0100">3a8a5dd</span><a href="https://raw.githubusercontent.com/jkubin/m4root/3a8a5dd754e3ccaad3641a3469597647710ca68d/hello_world/awk.m4" title="GitHub:~/hello_world/awk.m4">awk.m4</a><a href="#m4-hello-world-awk-m4">&#x1f517;</a></code></div>
+<div title="příkaz" class="m4-usc">m4 -DSYMBOL='Hello, world!' <a href="https://raw.githubusercontent.com/jkubin/m4root/c8ca92d97bf619b9cc7a3e9d0a89ea32654c5cb7/gfiles/rootb.m4" title="GitHub:~/gfiles/rootb.m4">rootb.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/3a8a5dd754e3ccaad3641a3469597647710ca68d/hello_world/awk.m4" title="GitHub:~/hello_world/awk.m4">awk.m4</a> &gt; <a href="https://raw.githubusercontent.com/jkubin/m4root/3a8a5dd754e3ccaad3641a3469597647710ca68d/hello_world/hello_world.awk" title="GitHub:~/hello_world/hello_world.awk">hello_world.awk</a></div>
+<div class="m4-src"><pre id="m4-hello-world-hello-world-awk">#!/bin/awk -f
 #
 # DONTE() ---&gt; "DO NOT EDIT! This file is generated automatically!"
 
-BEGIN { print "DONTE() LB () [ Hello, world! ]" }</pre><code><span title="2020-01-06 23:32:45 +0100">3a8a5dd</span><a href="https://raw.githubusercontent.com/jkubin/m4root/3a8a5dd754e3ccaad3641a3469597647710ca68d/hello_world/hello_world.awk" title="GitHub:~/hello_world/hello_world.awk">hello_world.awk</a></code></div>
-<h2 id="m4-proc-pouzivat-m4-a-proc-ne" class="m4-hx"><sup><a href="#m4-toc" title="Nahoru">&#x1f845;</a><a href="#m4-toc-proc-pouzivat-m4-a-proc-ne" title="Obsah">☰</a></sup><a href="#m4-proc-pouzivat-m4-a-proc-ne" title="&#x1f517;">D</a>Proč používat M4 a&nbsp;proč ne?</h2>
+BEGIN { print "DONTE() LB () [ Hello, world! ]" }</pre><code><span title="2020-01-06 23:32:45 +0100">3a8a5dd</span><a href="https://raw.githubusercontent.com/jkubin/m4root/3a8a5dd754e3ccaad3641a3469597647710ca68d/hello_world/hello_world.awk" title="GitHub:~/hello_world/hello_world.awk">hello_world.awk</a><a href="#m4-hello-world-hello-world-awk">&#x1f517;</a></code></div>
+<h2 id="m4-proc-pouzivat-m4-a-proc-ne" class="m4-ch"><a href="#m4-toc-proc-pouzivat-m4-a-proc-ne" title="Obsah">☰</a><a href="#m4-proc-pouzivat-m4-a-proc-ne" title="&#x1f517;">D</a>Proč používat M4 a&nbsp;proč ne?<sup><a href="#m4-toc" title="Nahoru">&#x1f845;</a></sup></h2>
 <p id="m4-toc-proc-generovat-kod-v-m4" class="m4-l2"><a href="#m4-proc-generovat-kod-v-m4"><b>D.1</b><code>&#x1f44d;</code> Proč generovat kód v&nbsp;M4</a></p>
 <p id="m4-toc-proc-se-vyhnout-m4" class="m4-l2"><a href="#m4-proc-se-vyhnout-m4"><b>D.2</b><code>&#x1f44e;</code> Proč se vyhnout M4</a></p>
-<h3 id="m4-proc-generovat-kod-v-m4" class="m4-hx"><sup><a href="#m4-toc" title="Nahoru">&#x1f845;</a><a href="#m4-toc-proc-generovat-kod-v-m4" title="Obsah">☰</a></sup><a href="#m4-proc-generovat-kod-v-m4" title="&#x1f517;">D.1</a><code>&#x1f44d;</code> Proč generovat kód v&nbsp;M4</h3>
+<h3 id="m4-proc-generovat-kod-v-m4" class="m4-ch"><a href="#m4-toc-proc-generovat-kod-v-m4" title="Obsah">☰</a><a href="#m4-proc-generovat-kod-v-m4" title="&#x1f517;">D.1</a><code>&#x1f44d;</code> Proč generovat kód v&nbsp;M4<sup><a href="#m4-toc" title="Nahoru">&#x1f845;</a></sup></h3>
 <ul>
 <li id="m4-direct-use-of-cfg">přímé použití <a href="#m4-bezkontextova-gramatika" title="Bezkontextová gramatika">bezkontextové gramatiky</a> (rekurze zdarma)
 <ul><li>pro transformaci dat stačí napsat minimum M4 kódu</li></ul></li>
@@ -1502,18 +1499,18 @@ BEGIN { print "DONTE() LB () [ Hello, world! ]" }</pre><code><span title="2020-0
 <li id="m4-significantly-faster-code-gener">výrazně vyšší rychlost generování kódu (ve srovnání s&nbsp;XSLT)
 <ul><li>nízké nároky na výpočetní zdroje</li></ul></li>
 </ul>
-<h3 id="m4-proc-se-vyhnout-m4" class="m4-hx"><sup><a href="#m4-toc" title="Nahoru">&#x1f845;</a><a href="#m4-toc-proc-se-vyhnout-m4" title="Obsah">☰</a></sup><a href="#m4-proc-se-vyhnout-m4" title="&#x1f517;">D.2</a><code>&#x1f44e;</code> Proč se vyhnout M4</h3>
+<h3 id="m4-proc-se-vyhnout-m4" class="m4-ch"><a href="#m4-toc-proc-se-vyhnout-m4" title="Obsah">☰</a><a href="#m4-proc-se-vyhnout-m4" title="&#x1f517;">D.2</a><code>&#x1f44e;</code> Proč se vyhnout M4<sup><a href="#m4-toc" title="Nahoru">&#x1f845;</a></sup></h3>
 <ul>
 <li id="m4-low-level-language">univerzální jazyk nízké úrovně (podobně jako jazyk C)
 <ul><li>nemůže konkurovat úzce specializovaným jazykům</li></ul></li>
-<li id="m4-forgotten-language">neexistující komunita vývojářů (podzim 2019)
+<li id="m4-nearly-forgotten-language">poměrně malá komunita vývojářů
 <ul><li>M4 je téměř zapomenutý jazyk, málo existujících projektů</li></ul></li>
 <li id="m4-unusual-language">neobvyklé programovací paradigma vyžadující splnění <a href="#m4-predpoklady-pro-zvladnuti-m4" title="Předpoklady pro zvládnutí M4">několika předpokladů</a>
-<ul><li>M4 je proto náročný jazyk</li></ul></li>
+<ul><li>M4 je kvůli nutným předpokladům náročný jazyk</li></ul></li>
 <li id="m4-experience-dependent">produktivita značně závisí na zkušenostech (možný problém s&nbsp;termíny)
 <ul><li>schopnost myslet v&nbsp;M4/<abbr title="Context-Free Grammar – bezkontextová gramatika">CFG</abbr> je nutnost</li></ul></li>
-<li id="m4-hard-maintenance">údržba špatně napsaného M4 kódu není jednoduchá
+<li id="m4-maintenance-could-be-hard">údržba špatně napsaného M4 kódu není jednoduchá
 <ul><li>existující M4 kód je snadné proměnit ve zmatek (nutný dohled!)</li></ul></li>
 </ul>
-<script>var m4_pre=document.getElementsByTagName("pre");for(var e of m4_pre){var p=e.parentElement,n=e.innerHTML.split('\n').length,o=document.createElement("ol");for(var i=0;i<n;i++)o.appendChild(document.createElement("li"));p.insertBefore(o,p.firstChild)}</script>
+<script>var m4_w=document.getElementsByClassName("m4-hg"),m4_p=document.getElementsByTagName("pre"),m4_a=[];for(var e of m4_w){var c=e.dataset.id;if(c){if(!m4_a[c])m4_a[c]=[];m4_a[c].push(e)}}for(var d of m4_p){var a,b=d.parentElement,m=d.innerHTML.split('\n').length,n=document.createElement("ol");for(var i=0;i<m;i++)n.appendChild(document.createElement("li"));if(a=m4_a[d.id]){for(var e of a){var k=e.dataset.ln.split(','),l=n.childNodes,h=[];for(var f of k)h.push(l[f-1]);e.onmouseover=(function(g){return function(){for(var f of g)f.style.backgroundColor='red'}})(h);e.onmouseout=(function(g){return function(){for(var f of g)f.style=null}})(h)}}b.insertBefore(n,d)}</script>
 <!-- end of html generated by M4 -->
