@@ -1,3 +1,4 @@
+# vim:ts=40:sw=40
 __HEADER([Josef Kubin], [2019/07/11], [root_cz])
 ___DESCR([definitions of output queues])
 ___POINT([each target file format has a specific queue list])
@@ -25,7 +26,7 @@ define([ALL_PARTS_ITEMS],	QUEUE_INDEX)
 define([ALL_PARTS_LIST_END],	QUEUE_INDEX)
 define([APPENDIX_CONTENT_START],	QUEUE_INDEX)
 define([APPENDIX_NAVIGATION],	QUEUE_INDEX)
-define([APPENDIX_CONTENT],		QUEUE_INDEX)
+define([APPENDIX_CONTENT],	QUEUE_INDEX)
 define([JAVASCRIPT_CODE],	QUEUE_INDEX)
 define([JAVASCRIPT_CODE_END],	QUEUE_INDEX)
 define([END_OF_ARTICLE],	QUEUE_INDEX)

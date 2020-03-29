@@ -9,7 +9,7 @@ define([CONFIGURE_COMMAND_LINE], [
 	# pushdef is used to overlay global macros
 	# A → β
 	pushdef([FOLDER],	[$1])
-	pushdef([PROGRAM],	[$2])
+	pushdef([COMMAND],	[$2])
 	pushdef([ROOT_FILE],	[$3])
 	pushdef([PREFIX_FILES], [$4])
 	pushdef([SOURCES],	[$5])
@@ -32,7 +32,7 @@ define([INSERT_LIST_OF_FILES], [
 	ifelse([$#], [1], [
 
 		divert(CURRQU)dnl
-<div title="defn([WORD_COMMAND])" class="ADD_CLASS([usc])">defn([PROGRAM]) dnl
+<div title="defn([WORD_COMMAND])" class="ADD_CLASS([usc])">defn([COMMAND]) dnl
 ifelse(defn([ROOT_FILE]), [], [], [dnl
 define([GIT_RECORD], defn(./FOLDER_FOR_GENERATED_FILES[]ROOT_FILE))ifelse(defn([GIT_RECORD]), [], [
 
@@ -56,7 +56,7 @@ divert(-1)
 
 			[FOLDER],
 			[PREFIX_FILES],
-			[PROGRAM],
+			[COMMAND],
 			[ROOT_FILE],
 			[SOURCES],
 

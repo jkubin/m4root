@@ -62,7 +62,7 @@ define([CREATE_REFERENCE], [
 	# filter permitted characters
 	ifelse(patsubst([[$1]], [[0-9A-Za-z_]]), [], [], [
 
-		ROOT_ERROR([forbidden characters found in $2([$1], …)])
+		ROOT_ERROR([forbidden character(s) found in $2([$1], …)])
 	])
 
 	# translit upper case to lower case, change underscore to dash
