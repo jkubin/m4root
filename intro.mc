@@ -45,13 +45,13 @@ The code generation is performed by a[]NB()tool for text transformation – BO([
 PARA([what_is_the_series_about], [[dnl czech
 Seriál je zaměřen na praktické použití BO([univerzálního makro procesoru M4]) (dále jen M4) pomocí malých příkladů.
 Popisuje také teoretický základ všech implementací.
-Cílem seriálu je seznámit čtenáře s[]NB()tímto SPAN([nástrojem], [m4 – je program příkazové řádky], [dot]) a[]NB()také programovacím SPAN([jazykem], [M4 – je programovací jazyk], [dot]).[]BR()
+Cílem seriálu je seznámit čtenáře s[]NB()tímto SPAN([nástrojem], [m4 – je program příkazové řádky], [hg]) a[]NB()také programovacím SPAN([jazykem], [M4 – je programovací jazyk], [hg]).[]BR()
 LINK([Na co se používá], [main_uses_of_m4]), jak se v[]NB()něm programuje a[]NB()jaké jsou jeho LINK([výhody], [why_to_use_m4]) a[]NB()LINK([nevýhody], [why_not_use]).
 ],
 [dnl english: _next_language_
 The series focus on the practical use of the BO([universal macro processor M4]) (hereafter M4) using small examples.
 It also describes the theoretical part of all its implementations.
-The aim of the series is to acquaint the reader with this SPAN([tool], [m4 – is a command line program], [dot]) and also the programming SPAN([language], [M4 – is a programming language], [dot]).
+The aim of the series is to acquaint the reader with this SPAN([tool], [m4 – is a command line program], [hg]) and also the programming SPAN([language], [M4 – is a programming language], [hg]).
 LINK([What is it used for], [main_uses_of_m4]), how to program in it and its LINK([advantages], [why_to_use_m4]) and LINK([disadvantages], [why_not_use]).
 ]])
 
@@ -243,7 +243,7 @@ Makro procesor M3 rozšířil také PERSON([Jim E. Weythman]), autor programové
 The M3 macro processor was also extended by PERSON([Jim E. Weythman]), the author of program construction, which is used in almost every M4 script:
 ]])
 
-PROGRAMLISTING([dnl
+PROGRAMLISTING([common_code], [dnl
 [divert(-1)
 …
 define(…)
@@ -253,12 +253,12 @@ divert(0)dnl
 ])dnl PROGRAMLISTING
 
 NOTE(, defn([WORD_NOTE]), [[dnl czech
-Klíčové slovo CODE([[divert](AH([ℤ], [celé číslo], [https://cs.wikipedia.org/wiki/Cel%C3%A9_%C4%8D%C3%ADslo]))], [divert(-1), divert(0), divert(1), …, divert(2147483647)], [dot]) přepíná výstupní fronty.
+Klíčové slovo HGKW([[divert](AH([ℤ], [celé číslo], [https://cs.wikipedia.org/wiki/Cel%C3%A9_%C4%8D%C3%ADslo]))], [1, 5], [divert(-1), divert(0), divert(1), …, divert(2147483647)], [common_code]) přepíná výstupní fronty.
 Argument CODE([-1]) zcela vypne jakýkoliv textový výstup.
 Argument CODE([0]) přepne výstup na CODE_M4([stdout]) (standardní výstup).
 ],
 [dnl english: _next_language_
-The CODE([[divert](AH([ℤ], [integer], [https://en.wikipedia.org/wiki/Integer]))], [divert(-1), divert(0), divert(1), …, divert(2147483647)], [dot]) keyword switches output queues.
+The HGKW([[divert](AH([ℤ], [integer], [https://en.wikipedia.org/wiki/Integer]))], [1, 5], [divert(-1), divert(0), divert(1), …, divert(2147483647)], [common_code]) keyword switches output queues.
 Argument CODE([-1]) completely disables any text output.
 Argument CODE([0]) switches output to CODE([stdout]) (standard output).
 ]])
@@ -396,14 +396,14 @@ Dnes existuje několik implementací lišící se od původní implementace spí
 Nejrozšířenější implementace M4 je BO([GNU M4]) používaná pro AH([Autotools], [Wikipedie], [https://en.wikipedia.org/wiki/GNU_Build_System])
 a[]NB()pro překlad jednoduchého konfiguračního souboru CODE([sendmail.mc]) na složitý CODE([sendmail.cf]).
 Autorem této implementace z[]NB()roku 1990 je AH([PERSON([René Seindal])], [https://www.seindal.dk/rene/gnu/]).
-Následující příkaz nainstaluje BO([m4], [s malým „m“], [dot]):
+Následující příkaz nainstaluje BO([m4], [s malým „m“], [hg]):
 ],
 [dnl english: _next_language_
 Today, there are several implementations that differ from the original implementation rather by small details.
 The most common implementation of M4 is the BO([GNU M4]) used for AH([Autotools], [Wikipedia], [https://en.wikipedia.org/wiki/GNU_Build_System])
 and for translating the simple CODE([sendmail.mc]) configuration file to complex CODE([sendmail.cf]).
 The author of this implementation (1990) is AH([PERSON([René Seindal])], [https://www.seindal.dk/rene/gnu/]).
-To install BO([m4], [with small letter „m“], [dot]), type the following command:
+To install BO([m4], [with small letter „m“], [hg]), type the following command:
 ]])
 
 COMMAND_ROOT([install], LANG([příkaz nainstaluje také další důležité balíčky], [the command also installs other important packages]), [dnl
@@ -452,17 +452,17 @@ dnl english: _next_language_
 ])
 
 PARA([[dnl czech
-Bezkontextová gramatika (krátce ABBR([CFG], [Context-Free Grammar – bezkontextová gramatika])) je LINK([formální gramatika], [formal_grammar_chomsky]), ve které mají všechna přepisovací pravidla tvar CODE([A[]NB()→[]NB()β]).
+Bezkontextová gramatika (krátce ABBR([CFG], [Context-Free Grammar – bezkontextová gramatika])) je LINK([formální gramatika], [formal_grammar_chomsky]), ve které mají všechna přepisovací pravidla tvar HGKW([A[]NB()→[]NB()β], 1, [context_free_grammar_rules]).
 Neterminál CODE_M4([A]) se přepíše na libovolně dlouhý řetězec ABBR([CODE([β])], [pravá strana přepisovacího pravidla]) složený z[]NB()terminálů CODE([Σ]) nebo neterminálů CODE([N]).
-AH([Kleeneho hvězda], [Wikipedie], [https://en.wikipedia.org/wiki/Kleene_star]) CODE([*]) znamená, že se neterminál CODE_M4([A]) může přepsat na ABBR([CODE([ε])], [epsilon – prázdný symbol]) (přepisovací pravidlo CODE([A[]NB()→[]NB()ε])).
+AH([Kleeneho hvězda], [Wikipedie], [https://en.wikipedia.org/wiki/Kleene_star]) HGKW([*], 3, [context_free_grammar_rules]) znamená, že se neterminál CODE_M4([A]) může přepsat na ABBR([CODE([ε])], [epsilon – prázdný symbol]) (přepisovací pravidlo CODE([A[]NB()→[]NB()ε])).
 ],
 [dnl english: _next_language_
-Context-free grammar (shortly ABBR([CFG], [Context-Free Grammar])) is a[]NB()LINK([formal grammar], [formal_grammar_chomsky]) in which all rules for rewriting have the CODE([A[]NB()→[]NB()β]) form.
+Context-free grammar (shortly ABBR([CFG], [Context-Free Grammar])) is a[]NB()LINK([formal grammar], [formal_grammar_chomsky]) in which all rules for rewriting have the HGKW([A[]NB()→[]NB()β], 1, [context_free_grammar_rules]) form.
 The nonterminal CODE_M4([A]) is rewritten to an arbitrarily long ABBR([CODE([β])], [the right side of the rewriting rule]) string composed of terminals CODE([Σ]) or nonterminals CODE([N]).
-AH([Kleene star], [Wikipedia], [https://en.wikipedia.org/wiki/Kleene_star]) CODE([*]) means that nonterminal CODE_M4([A]) can be rewritten to ABBR([CODE([ε])], [epsilon – empty symbol]) (rewriting rule CODE([A[]NB()→[]NB()ε])).
+AH([Kleene star], [Wikipedia], [https://en.wikipedia.org/wiki/Kleene_star]) HGKW([*], 3, [context_free_grammar_rules]) means that nonterminal CODE_M4([A]) can be rewritten to ABBR([CODE([ε])], [epsilon – empty symbol]) (rewriting rule CODE([A[]NB()→[]NB()ε])).
 ]])
 
-PROGRAMLISTING(, LANG([přepisovací pravidla bezkontextové gramatiky], [context-free grammar rewriting rules]), [dnl
+PROGRAMLISTING([context_free_grammar_rules], LANG([přepisovací pravidla bezkontextové gramatiky], [context-free grammar rewriting rules]), [dnl
 P: A → β
    A ∈ N
    β ∈ (N ∪ Σ)*
@@ -732,12 +732,12 @@ sed 's/LQ()/`'\''[LQ()]/g' any.src | m4 rootq.m4 leaf.m4 -
 PARA([[dnl czech
 Vyskytují-li se ve vstupním kódu komentáře CODE_M4([#]) nebo CODE_M4([dnl]), je nutné je skrýt.
 Znaky CODE_M4([`']) LINK([vypnou], [symbols_in_brackets]) původní význam komentářů a budou odebrány při průchodu makro procesorem.[]BR()
-Komentáře M4 CODE_M4([#]) CODE_M4([dnl]) jsou skryty mezi znaky: CODE_M4([`#']) CODE_M4([`dnl'])
+Komentáře M4 CODE_M4([#]) a CODE_M4([dnl]) jsou skryty mezi výchozí znaky: CODE_M4([`#']) CODE_M4([`dnl'])
 ],
 [dnl english: _next_language_
 If there are CODE_M4([#]) or CODE_M4([dnl]) comments in the source code, they must be hidden first.
 The characters CODE_M4([`']) LINK([turn off], [symbols_in_brackets]) original meaning and will be removed by the macro processor.[]BR()
-M4 CODE_M4([#]) CODE_M4([dnl]) comments are hidden between characters: CODE_M4([`#']) CODE_M4([`dnl'])
+M4 CODE_M4([#]) and CODE_M4([dnl]) comments are hidden between default characters: CODE_M4([`#']) CODE_M4([`dnl'])
 ]])
 
 COMMAND_USR(, defn([common_title_for_regex])[: `'], [dnl
@@ -769,10 +769,10 @@ sed 's/\LB()/[[]LB()]/g' any.src | m4 rootb.m4 leaf.m4 - | …
 ])
 
 PARA([[dnl czech
-Komentáře M4 CODE_M4([#]) CODE_M4([dnl]) jsou skryty mezi závorkami: CODE_M4([[#]]) CODE_M4([[dnl]])
+Komentáře M4 CODE_M4([#]) a CODE_M4([dnl]) jsou skryty mezi závorkami: CODE_M4([[#]]) CODE_M4([[dnl]])
 ],
 [dnl english: _next_language_
-M4 CODE_M4([#]) CODE_M4([dnl]) comments are hidden between parentheses: CODE_M4([[#]]) CODE_M4([[dnl]])
+M4 CODE_M4([#]) and CODE_M4([dnl]) comments are hidden between parentheses: CODE_M4([[#]]) CODE_M4([[dnl]])
 ]])
 
 COMMAND_USR(, defn([common_title_for_regex])[: []], [dnl
@@ -804,10 +804,10 @@ m4 rootn.m4 leaf.m4 any.src | gcc …
 ])
 
 PARA([[dnl czech
-Komentáře M4 CODE_M4([#]) CODE_M4([dnl]) jsou skryty mezi netisknutelné znaky: CODE_M4([␂#␆]) CODE_M4([␂dnl␆])
+Komentáře M4 CODE_M4([#]) a CODE_M4([dnl]) jsou skryty mezi netisknutelné znaky: CODE_M4([␂#␆]) CODE_M4([␂dnl␆])
 ],
 [dnl english: _next_language_
-M4 CODE_M4([#]) CODE_M4([dnl]) comments are hidden between non printable characters: CODE_M4([␂#␆]) CODE_M4([␂dnl␆])
+M4 CODE_M4([#]) and CODE_M4([dnl]) comments are hidden between non printable characters: CODE_M4([␂#␆]) CODE_M4([␂dnl␆])
 ]])
 
 COMMAND_USR(, defn([common_title_for_regex])[: ␂␆], [dnl
@@ -841,10 +841,10 @@ m4 rootu.m4 leaf.m4 any.src | gcc …
 ])
 
 PARA([[dnl czech
-Komentáře M4 CODE_M4([#]) CODE_M4([dnl]) jsou skryty mezi UTF-8 znaky: CODE_M4([⟦#⟧]) CODE_M4([⟦dnl⟧])
+Komentáře M4 CODE_M4([#]) a CODE_M4([dnl]) jsou skryty mezi UTF-8 znaky: CODE_M4([⟦#⟧]) CODE_M4([⟦dnl⟧])
 ],
 [dnl english: _next_language_
-M4 CODE_M4([#]) CODE_M4([dnl]) comments are hidden between UTF-8 characters: CODE_M4([⟦#⟧]) CODE_M4([⟦dnl⟧])
+M4 CODE_M4([#]) and CODE_M4([dnl]) comments are hidden between UTF-8 characters: CODE_M4([⟦#⟧]) CODE_M4([⟦dnl⟧])
 ]])
 
 COMMAND_USR(, defn([common_title_for_regex])[: ⟦⟧], [dnl
@@ -1037,8 +1037,8 @@ PROGRAMLISTING(, [ASCII art ]LANG([jako dokumentace M4 kódu], [for M4 code docu
 #      ___V__/   0    ____
 # --->// S1 \\------>/ S2 \---.1
 #     \\____//<------\____/<--'
-#                0
-])dnl PROGRAMLISTING
+[#]                0
+])dnl PROGRAMLISTING note: The [#] or [dnl] on the last line have to be in brackets!
 
 BRIDGEHEAD([generating_automaton], [dnl czech
 [Generující automat],
@@ -1048,20 +1048,20 @@ dnl english: _next_language_
 
 PARA([[dnl czech
 Vstupní symboly mění uzly automatu, čímž zároveň mění přepisovací pravidla pro generování kódu.
-LINK([Tento příklad], [json_generating_automaton]) naleznete v[]NB()příloze:
+Příklad LINK([generujícího automatu], [json_generating_automaton]) naleznete v[]NB()příloze:
 ],
 [dnl english: _next_language_
 Input symbols change the nodes of the automaton, thereby changing the rewriting rules for code generation.
-See the appendix for LINK([this example], [json_generating_automaton]):
+See the appendix for LINK([this generating automaton], [json_generating_automaton]):
 ]])
 
 PROGRAMLISTING(, [ASCII art ]LANG([generujícího automatu], [of generating automaton]), [dnl
-#      _______      ___________
-# --->/ ERROR \--->/ NEXT_ITEM \---.
-#     \_______/    \___________/<--'
-])dnl PROGRAMLISTING
+[#]      _______      ___________
+[#] --->/ ERROR \--->/ NEXT_ITEM \---.
+[#]     \_______/    \___________/<--'
+])dnl PROGRAMLISTING note: The [#] or [dnl] on the last line have to be in brackets!
 
-PARA([[dnl czech
+_PARA([[dnl czech
 První symbol ve stavu CODE_M4([ERROR]) vygeneruje záhlaví se závorkami a[]NB()vloží první položku.
 Poté automat přejde do stavu CODE_M4([NEXT_ITEM]), ve kterém se pouze přidávají další položky.
 Automat zůstává v[]NB()tomto stavu, dokud nejsou zpracována všechna data.
@@ -1831,22 +1831,22 @@ low-level universal language (similar to C language)
 UL([LI([cannot compete with narrowly specialized languages])])
 ]])
 
-LISTITEM([forgotten_language], [[dnl czech
-neexistující komunita vývojářů (podzim 2019)
+LISTITEM([nearly_forgotten_language], [[dnl czech
+poměrně malá komunita vývojářů
 UL([LI([M4 je téměř zapomenutý jazyk, málo existujících projektů])])
 ],
 [dnl english: _next_language_
-nonexistent developer community (as of Autumn 2019)
+a relatively small developer community
 UL([LI([M4 is nearly forgotten language with small number of existing projects])])
 ]])
 
 LISTITEM([unusual_language], [[dnl czech
 neobvyklé programovací paradigma vyžadující splnění LINK([několika předpokladů], [prerequisites_for_mastering])
-UL([LI([M4 je proto náročný jazyk])])
+UL([LI([M4 je kvůli nutným předpokladům náročný jazyk])])
 ],
 [dnl english: _next_language_
 unusual programming paradigm requiring LINK([several prerequisites], [prerequisites_for_mastering])
-UL([LI([M4 is therefore demanding language])])
+UL([LI([M4 is therefore demanding language due to the prerequisites])])
 ]])
 
 LISTITEM([experience_dependent], [[dnl czech
@@ -1858,7 +1858,7 @@ productivity greatly depends on experience (problem with short-term deadlines)
 UL([LI([ability to think in M4/ABBR([CFG], [Context-Free Grammar]) is essential necessity])])
 ]])
 
-LISTITEM([hard_maintenance], [[dnl czech
+LISTITEM([maintenance_could_be_hard], [[dnl czech
 údržba špatně napsaného M4 kódu není jednoduchá
 UL([LI([existující M4 kód je snadné proměnit ve zmatek (nutný dohled!)])])
 ],
