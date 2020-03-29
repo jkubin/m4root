@@ -1,4 +1,4 @@
-__HEADER([Josef Kubin], [skeletonVIM_CREATION_DATE], [skeletonVIM_DIRECTORY])
+__HEADER([Your Name], [skeletonVIM_CREATION_DATE], [skeletonVIM_DIRECTORY])
 __THANKS([])
 ___DESCR([])
 ___POINT([])
