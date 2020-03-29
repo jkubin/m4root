@@ -18,12 +18,18 @@ s/\[/`/g
 s/]/'/g
 
 # necessary changes for unpaired characters
-/^define(`LB', `.*$/s//define(`LB', `[')/
-/^define(`RB', `.*$/s//define(`RB', `]')/
+/^define(`LB', `ifelse.*$/s//define(`LB', `[')/
+/^define(`RB', `ifelse.*$/s//define(`RB', `]')/
 
 # ord(`) is 96; ord(') is 39
 /^define(`LQ', .*$/s//define(`LQ', `ifelse(`$#', `0', ``$0'', `changequote([,])format([%c], 96)changequote`'')')/
 /^define(`RQ', .*$/s//define(`RQ', `ifelse(`$#', `0', ``$0'', `changequote([,])format([%c], 39)changequote`'')')/
+
+# for simplified root0b
+# 
+# ord(`) is 96; ord(') is 39
+/^define(`LB', `changequote.*$/s//define(`LQ', `changequote([,])format([%c], 96)changequote`'')/
+/^define(`RB', `changequote.*$/s//define(`RQ', `changequote([,])format([%c], 39)changequote`'')/
 
 # set aliases
 /define(`LL',/s/LB/LQ/

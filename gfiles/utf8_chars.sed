@@ -18,13 +18,18 @@ s/\[/⟦/g
 s/]/⟧/g
 
 # necessary changes for unpaired characters
-/^\(define(⟦LB⟧, ⟦\).*$/s//\1[⟧)/
-/^\(define(⟦RB⟧, ⟦\).*$/s//\1]⟧)/
+/^\(define(⟦LB⟧, ⟦\)ifelse.*$/s//\1[⟧)/
+/^\(define(⟦RB⟧, ⟦\)ifelse.*$/s//\1]⟧)/
 
 # echo -n '⟦⟧' | hexdump -e ' 1/1 "%d, "'
 # echo -n '⟦⟧' | od -t u1
 /^\(define(⟦LU⟧, ⟦\).*$/s//\1ifelse(⟦$#⟧, ⟦0⟧, ⟦⟦$0⟧⟧, ⟦changequote`'format(`%c%c%c', 226, 159, 166)changequote(⟦,⟧)⟧)⟧)/
 /^\(define(⟦RU⟧, ⟦\).*$/s//\1ifelse(⟦$#⟧, ⟦0⟧, ⟦⟦$0⟧⟧, ⟦changequote`'format(`%c%c%c', 226, 159, 167)changequote(⟦,⟧)⟧)⟧)/
+
+# for simplified root0b
+# 
+/^define(⟦LB⟧, ⟦changequote.*$/s//define(⟦LU⟧, ⟦changequote`'format(`%c%c%c', 226, 159, 166)changequote(⟦,⟧)⟧)/
+/^define(⟦RB⟧, ⟦changequote.*$/s//define(⟦RU⟧, ⟦changequote`'format(`%c%c%c', 226, 159, 167)changequote(⟦,⟧)⟧)/
 
 # set aliases
 /define(⟦LL⟧,/s/LB/LU/
