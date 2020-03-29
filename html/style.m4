@@ -1,15 +1,19 @@
 __HEADER([Josef Kubin], [2019/12/24], [root_cz])
-___DESCR([creates a style sheet in the reserved namespace])
+___DESCR([combine selectors and creates a style sheet in the reserved namespace])
 ___POINT([the style sheet contains only the things that are actually used])
 
-#      ______________________      _____________________
-# --->/ FIRST_CLASS_RULE_SET \--->/ NEXT_CLASS_RULE_SET \---.
-#     \______________________/    \_____________________/<--'
-#
+# three nested loops combine selectors for a ruleset
 # A → β
-define([NEXT_CLASS_RULE_SET], [ifelse([$1], [], [], [[,]pushdef([.$1], defn([CLASS_RULE_SET_KEY]))CLASS_SURROUNDINGS([$1])[]$0(shift($@))])])
-define([FIRST_CLASS_RULE_SET], [pushdef([.$1], defn([CLASS_RULE_SET_KEY]))CLASS_SURROUNDINGS([$1])[]NEXT_CLASS_RULE_SET(shift($@))])
+define([CLASS_SELECTORS_COMBINE], [CLASS_SELECTORS_MIDDLE_LOOP($@)[]ifelse(NAR($1), [1], [], [$0(BRAC(shift($1)), [$2], [$3])])])
+define([CLASS_SELECTORS_MIDDLE_LOOP], [CLASS_SELECTORS_INNER_LOOP($@)[]ifelse(NAR($2), [1], [], [$0([$1], BRAC(shift($2)), [$3])])])
+define([CLASS_SELECTORS_INNER_LOOP], [CSS_EPSILON_FIRST[]SELECT_ARG1($1)[]CLASS_SELECTORS_MIDDLE($2)[]SELECT_ARG1($3)[]ifelse(NAR($3), [1], [], [$0([$1], [$2], BRAC(shift($3)))])])
+define([CLASS_SELECTORS_MIDDLE], [ifelse([$1], [], [], [pushdef([.$1], defn([CLASS_RULE_SET_KEY]))[.NSP()$1]])])
 
+#      CSS_EPSILON_FIRST
+#      ___      ___
+# --->/ ε \--->/ , \---.
+#     \___/    \___/<--'
+#
 # process CSS definitions
 # A → β
 define([CSS_CLASS_RULE_SET], [
@@ -19,15 +23,16 @@ define([CSS_CLASS_RULE_SET], [
 		ROOT_ERROR([the rule set ‘$0($@)’ is redefined])
 	])
 
+	define([CSS_EPSILON_FIRST], [define([CSS_EPSILON_FIRST], [[,]])])
 	define([CLASS_RULE_SET_KEY], [class{$1.$2.$3}key])
-	define([CLASS_SURROUNDINGS], [[$1]]ifelse([$2], [], [], [.NSP()])$[1[$3]])
 
-	# once the rule set is written to stylesheet, it undefine itself
+	# once the CSS rule set is written to stylesheet, it undefine itself (therefore it cannot be duplicated)
 	# A → β
-	define(defn([CLASS_RULE_SET_KEY]), [undefine(]LB()defn([CLASS_RULE_SET_KEY])RB()[)divert(INTERNAL_STYLE_DATA)]FIRST_CLASS_RULE_SET($2)[{patsubst(patsubst(patsubst([[[$4]]], [#], [[#]]), [
+	define(defn([CLASS_RULE_SET_KEY]), [undefine(]LB()defn([CLASS_RULE_SET_KEY])RB()[)divert(INTERNAL_STYLE_DATA)]CLASS_SELECTORS_COMBINE([$1], [$2], [$3])[{patsubst(patsubst(patsubst([[[$4]]], [#], [[#]]), [
 ]), [;*])}divert(-1)
 	])
 
+	# If the second argument is empty, it inserts the rule set directly into the CSS
 	ifelse([$2], [], [
 
 		ADD_STYLE_TAG()
