@@ -15,10 +15,10 @@ iabbrev <buffer> <unique> apo []AP()<c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> arw ARTICLE_WRAP([<cr><cr><cr><cr>])dnl ARTICLE_WRAP<up><up><c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> asw ASIDE_WRAP([<cr><cr><cr><cr>])dnl ASIDE_WRAP<up><up><c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> bb BO([<c-r>"])<esc>
-iabbrev <buffer> <unique> bo BOLD([<c-r>"])<esc>
 iabbrev <buffer> <unique> bh BRIDGEHEAD([dnl czech<cr>[],<cr>dnl english: _next_language_<cr><c-u>[%%%],<cr>])<left><c-o>%<c-o>0<down><right><c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> bhm BRIDGEHEAD_MONO([dnl monolingual<cr>[],<cr>])<up><right><c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> bm BLOCKQUOTE_MONO([[dnl monolingual<cr><cr>]])<up><c-r>=Eatchar('.')<cr>
+iabbrev <buffer> <unique> bo BOLD([<c-r>"])<esc>
 "iabbrev <buffer> <unique> bo BO([])<left><left><c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> bq BLOCKQUOTE([[dnl czech<cr><cr>],<cr>[dnl english: _next_language_<cr>%%%<cr>]])<left><c-o>%<c-o>0<down><c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> br []BR()<c-r>=Eatchar('.')<cr>
@@ -26,10 +26,10 @@ iabbrev <buffer> <unique> bri BRIDGEHEAD([dnl czech<cr>[],<cr>dnl english: _next
 iabbrev <buffer> <unique> btn BUTTON([<c-r>"])<esc>
 iabbrev <buffer> <unique> bu BUN([<c-r>"])<esc>
 iabbrev <buffer> <unique> cc CODE([<c-r>"])<esc>
-iabbrev <buffer> <unique> ccl CSS_CLASS_RULE_SET([], [%%%], [], [<cr>])<up><up>;;<c-r>=Eatchar('.')<cr>
+iabbrev <buffer> <unique> ccr CSS_CLASS_RULE_SET([[]],	[%%%],	[[]], [<cr>])<up><up>;;<c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> cha <c-l><cr>CHAPTER([dnl czech<cr>[],<cr>dnl english: _next_language_<cr><c-u>[%%%],<cr>])<left><c-o>%<c-o>0<down><right><c-r>=Eatchar('.')<cr>
 "iabbrev <buffer> <unique> ci CSS_ID([], [], [<cr>%%%<cr>])<left><c-o>%<right><right><c-r>=Eatchar('.')<cr>
-iabbrev <buffer> <unique> cid CSS_ID_RULE_SET([%%%], [], [<cr>])<up><up>;;<c-r>=Eatchar('.')<cr>
+iabbrev <buffer> <unique> cir CSS_ID_RULE_SET([%%%], [[]], [<cr>])<up><up>;;<c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> cit CITE([<c-r>"])<esc>
 "iabbrev <buffer> <unique> cl CSS_CLASS([], [], [<cr>%%%<cr>])<left><c-o>%<right><right><c-r>=Eatchar('.')<cr>
 "iabbrev <buffer> <unique> cma CM()<c-r>=Eatchar('.')<cr>
@@ -61,6 +61,9 @@ iabbrev <buffer> <unique> fw FIGURE_WRAP([<cr><cr><cr><cr>])dnl FIGURE_WRAP<up><
 iabbrev <buffer> <unique> gr GRAY([<c-r>"])<esc>
 iabbrev <buffer> <unique> gt []GT()<c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> hew HEADER_WRAP([<cr><cr><cr><cr>])dnl HEADER_WRAP<up><up><c-r>=Eatchar('.')<cr>
+iabbrev <buffer> <unique> hgk HGKW([<c-r>"], [%%%], [%%%])<left><c-o>%;;<c-r>=Eatchar('.')<cr>
+iabbrev <buffer> <unique> hgl HGLN([<c-r>"], [])<c-o>T[<c-r>=Eatchar('.')<cr>
+iabbrev <buffer> <unique> hgm HGMC([<c-r>"], [%%%], [%%%])<left><c-o>%;;<c-r>=Eatchar('.')<cr>
 "iabbrev <buffer> <unique> hh H1([])<left><left><c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> hr HORIZONTAL_RULE()<c-r>=Eatchar('.')<cr>
 "iabbrev <buffer> <unique> ii LI([<c-r>"])<esc>
@@ -95,7 +98,7 @@ iabbrev <buffer> <unique> pp PARA([[dnl czech<cr><cr>],<cr>[dnl english: _next_l
 "iabbrev <buffer> <unique> pp P([])%%%<c-o>T(<right><c-r>=Eatchar('.')<cr>
 "iabbrev <buffer> <unique> prl PRE_LANG([[dnl czech<cr><cr>],<cr>[dnl english: _next_language_<cr>%%%<cr>]])<left><c-o>%<c-o>0<down><c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> prog PROGRESS([],,,,, [value="22" max="100"])<c-r>=Eatchar('.')<cr>
-iabbrev <buffer> <unique> pr PROGRAMLISTING([dnl<cr><cr>])dnl PROGRAMLISTING<up><c-r>=Eatchar('.')<cr>
+iabbrev <buffer> <unique> pr PROGRAMLISTING([dnl<cr><cr>])dnl PROGRAMLISTING note: The [#] or [dnl] on the last line have to be in brackets!<up><c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> qm QM([<c-r>"])<c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> qq QUOTE([<c-r>"])<esc>
 iabbrev <buffer> <unique> ref []REF([], [%%%], [%%%])<c-o>T(<right><c-r>=Eatchar('.')<cr>
@@ -105,8 +108,8 @@ iabbrev <buffer> <unique> scn <c-l><cr>SECT1([dnl czech<cr>[],<cr>dnl english: _
 iabbrev <buffer> <unique> sm SMALL([<c-r>"])<esc>
 iabbrev <buffer> <unique> sp SPAN([<c-r>"], [%%%], [%%%])<left><c-o>%;;<c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> ss <c-l><cr>SECT1([dnl czech<cr>[],<cr>dnl english: _next_language_<cr><c-u>[%%%],<cr>])<left><c-o>%<c-o>0<down><right><c-r>=Eatchar('.')<cr>
-iabbrev <buffer> <unique> st STT([<c-r>"])<esc>
 "iabbrev <buffer> <unique> st STRONG([])%%%<c-o>T(<right><c-r>=Eatchar('.')<cr>
+iabbrev <buffer> <unique> st STT([<c-r>"])<esc>
 iabbrev <buffer> <unique> subs SUB([<c-r>"])<esc>
 iabbrev <buffer> <unique> summ SUMMARY_MONO([[dnl monolingual<cr><cr>]])<up><c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> sum SUMMARY([[dnl czech<cr><cr>],<cr>[dnl english: _next_language_<cr>%%%<cr>]])<left><c-o>%<c-o>0<down><c-r>=Eatchar('.')<cr>
