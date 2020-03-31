@@ -38,7 +38,7 @@ pushdef([SET_UNIQ_KEY_FOR_LINK], [
 		# already has a value?
 		ifdef(defn([UNIQ]), [
 
-			ROOT_ERROR([internal reference ‘$0(]BRAC(defn([#ID]))[, …)’ is not unique, first occurrence on:]defn(defn([UNIQ])))
+			ROOT_ERROR([internal reference ‘$0(]BRAC(defn([#ID]))[, …)’ is not unique, the first occurrence on:]defn(defn([UNIQ])))
 		])
 
 		# assign (file:line) value for later error message
@@ -59,7 +59,7 @@ define([CREATE_REFERENCE], [
 		ROOT_ERROR([$1 collides with a macro name; use different name])
 	])
 
-	# filter permitted characters
+	# remove permitted characters, remains forbidden char(s)
 	ifelse(patsubst([[$1]], [[0-9A-Za-z_]]), [], [], [
 
 		ROOT_ERROR([forbidden character(s) found in $2([$1], …)])
@@ -80,8 +80,8 @@ define([CREATE_REFERENCE], [
 	# assign value for later error message (file:line)
 	define(defn([UNIQ]), __file__:__line__)
 
-	# create reference to identifier
-	PRINT_LINE(anch.[$1], defn([STRING]))
+	# print ordinary reference to an identifier
+	PRINT_ORDINARY_RULE(defn([FILE_PREFIX]).anch.[$1], defn([STRING]))
 ])
 
 # β
@@ -105,59 +105,29 @@ pushdef([PROCESS_ID_UNPAIRED], [
 	])
 ])
 
-# anchors are shortened to a reasonable length (should not be a problem)
+# the resulting string must be tested
 # β
-pushdef([ANCHORS_SED], [
-
-	define([SED_FILE], [anchors.sed])
-])
-
-# captions are also filenames, so they must not be truncated unless we want strange filenames
-# β
-pushdef([CAPTIONS_SED], [
-
-	define([SED_FILE], [captions.sed])
-])
-
-# transliterate problematic characters for heredoc and expand SELITM to terminals
-# the new line from the resulting string is removed by ARG1
-# execute sed as an external command for strings
-# β
-pushdef([EXECUTE_SED], [
+pushdef([TEST_STRING], [
 
 	ifelse(NAR(SELITM), [1], [], [
 
 		ROOT_ERROR([comma is not protected, use square brackets: ‘,’ → [,] $0(]BRAC(defn([SELITM]))[)])
 	])
 
-	define([STRING], ARG1(esyscmd([sed -f ]SED_FILE[ << EOF]
-translit(defn([SELITM]), [*$`'@#], [xdbath])
-[EOF])))
-
-	# stop if an error occurred
-	ifelse(sysval, [0], [], [
-
-		ROOT_ERROR([an external command error occured])
-	])
-])
-
-# the resulting string must be tested
-# β
-pushdef([TEST_RESULT], [
-
-	# is string is empty?
-	ifelse(defn([STRING]), [], [
+	# FIXME: filter all punct char class, test \n
+	# string is empty?
+	ifelse(patsubst(BRAC(defn([SELITM])), [[%]]), [], [
 
 		ROOT_ERROR([anchor is empty, write an [:alnum:]+ content please])
 	])
 
 	# create a unique string
-	define([UNIQ], defn([FILE_PREFIX], [STRING]))
+	define([UNIQ], defn([FILE_PREFIX], [SELITM]))
 
 	# already has a value?
 	ifdef(defn([UNIQ]), [
 
-		ROOT_ERROR([anchor ‘]defn([STRING])[’ from $0(]BRAC(defn([SELITM]))[) is not unique, first occurrence on:]defn(defn([UNIQ])))
+		ROOT_ERROR([anchor ‘]defn([SELITM])[’ from $0(]BRAC(defn([SELITM]))[) is not unique, the first occurrence on:]defn(defn([UNIQ])))
 	])
 
 	# assign (file:line) value for later error message
@@ -170,10 +140,10 @@ define([CAPTION], [
 	# input files are defined in TOC_FILE_NAME
 	ifdef(__file__, [], [
 
-		ROOT_ERROR([new input file found, open the ‘]TOC_FILE_NAME[’ and include it in the file list])
+		ROOT_ERROR([a new input file found, open the ‘]TOC_FILE_NAME[’ and include it in the file list])
 	])
 
-	]defn([MULTILINGUAL_HEADINGS], [CAPTIONS_SED], [EXECUTE_SED], [TEST_RESULT])[
+	]defn([MULTILINGUAL_HEADINGS], [TEST_STRING])[
 
 	define([FILE_PREFIX], __file__.LANG_CODE)
 
@@ -183,24 +153,39 @@ define([CAPTION], [
 	define([SELITM], SELITM)
 
 	divert(NAVIGATION_LOGIC)dnl
-NAVIGATION(__file__, LANG_CODE, defn([SELITM]), defn([STRING]), defn(__file__))
+NAVIGATION(__file__, LANG_CODE, defn([SELITM]), defn(__file__))
 divert(-1)
 ])
 
 # A → β
 define([NAVIGATION], [dnl
 [define([$1.$2.capt], [$3])
-define([$1.$2.anch], [$4])
-define([$5.$2.capt], [$3])
-define([$5.$2.anch], [$4])
-define([#.$2.$3], [$5])]
+filedefine([$1.$2.anch], [
+$3
+])
+define([$4.$2.capt], [$3])
+filedefine([$4.$2.anch], [
+$3
+])
+define([#.$2.$3], [$4])]
+])
+
+# string have to be expanded
+# A → β
+define([PREPARING_FOR_REGEX], [
+
+	divert(ANCHORS)dnl
+anch[define([$1], ]LBR()
+translit([$2], [*$`'@#], [xdbath])
+RBR()[)]
+divert(-1)
 ])
 
 # A → β
-define([PRINT_LINE], [
+define([PRINT_ORDINARY_RULE], [
 
 	divert(ANCHORS)dnl
-[define(]BRAC(defn([FILE_PREFIX]).[$1])[, [$2])]
+[define([$1], [$2])]
 divert(-1)
 ])
 
@@ -210,11 +195,11 @@ pushdef([PRINT_ITEMS], [
 	# if identifier is not empty, create reference to caption
 	ifelse(defn([#ID]), [], [], [
 
-		PRINT_LINE(capt.defn([REFERENCE_KEY]), defn([SELITM]))
+		PRINT_ORDINARY_RULE(defn([FILE_PREFIX]).capt.defn([REFERENCE_KEY]), defn([SELITM]))
 	])
 
-	# create html anchor
-	PRINT_LINE(anch.defn([REFERENCE_KEY]), defn([STRING]))
+	# print anchor
+	PREPARING_FOR_REGEX(defn([FILE_PREFIX]).anch.defn([REFERENCE_KEY]), defn([SELITM]))
 
 	# create string from caption for testing
 	divert(ANCHORS)dnl
@@ -224,15 +209,13 @@ divert(-1)
 
 # A → β
 # β
-define([CHAPTER], defn([MULTILINGUAL_HEADINGS], [ANCHORS_SED], [EXECUTE_SED], [TEST_RESULT])[
+define([CHAPTER], defn([MULTILINGUAL_HEADINGS], [TEST_STRING], [SET_UNIQ_KEY_FOR_LINK], [PRINT_ITEMS])[
 
 	define([DOC_NODE], defn([$0]))
-
-	]defn([SET_UNIQ_KEY_FOR_LINK], [PRINT_ITEMS])[
 ])
 
 # A → β
-define([SECT1], defn([MULTILINGUAL_HEADINGS], [ANCHORS_SED], [EXECUTE_SED], [TEST_RESULT])[
+define([SECT1], defn([MULTILINGUAL_HEADINGS], [TEST_STRING], [SET_UNIQ_KEY_FOR_LINK], [PRINT_ITEMS])[
 
 	# logic flow test
 	ifelse(
@@ -245,12 +228,10 @@ define([SECT1], defn([MULTILINGUAL_HEADINGS], [ANCHORS_SED], [EXECUTE_SED], [TES
 
 	# set automaton to the current node
 	define([DOC_NODE], defn([$0]))
-
-	]defn([SET_UNIQ_KEY_FOR_LINK], [PRINT_ITEMS])[
 ])
 
 # A → β
-define([SECT2], defn([MULTILINGUAL_HEADINGS], [ANCHORS_SED], [EXECUTE_SED], [TEST_RESULT])[
+define([SECT2], defn([MULTILINGUAL_HEADINGS], [TEST_STRING], [SET_UNIQ_KEY_FOR_LINK], [PRINT_ITEMS])[
 
 	# logic flow test
 	ifelse(
@@ -262,8 +243,6 @@ define([SECT2], defn([MULTILINGUAL_HEADINGS], [ANCHORS_SED], [EXECUTE_SED], [TES
 
 	# set automaton to the current node
 	define([DOC_NODE], defn([$0]))
-
-	]defn([SET_UNIQ_KEY_FOR_LINK], [PRINT_ITEMS])[
 ])
 
 # A → β
@@ -306,8 +285,8 @@ define([ARTICLE_WRAP],			defn([PROCESS_ID], [EXPAND_LAST]))
 define([ASIDE_WRAP],			defn([PROCESS_ID], [EXPAND_LAST]))
 define([BLOCKQUOTE],			defn([PROCESS_ID]))
 define([BLOCKQUOTE_MONO],		defn([PROCESS_ID]))
-define([BRIDGEHEAD],			defn([MULTILINGUAL_HEADINGS], [ANCHORS_SED], [EXECUTE_SED], [TEST_RESULT], [SET_UNIQ_KEY_FOR_LINK], [PRINT_ITEMS]))
-define([BRIDGEHEAD_MONO],		defn([MONOLINGUAL_HEADINGS], [ANCHORS_SED], [EXECUTE_SED], [TEST_RESULT], [SET_UNIQ_KEY_FOR_LINK], [PRINT_ITEMS]))
+define([BRIDGEHEAD],			defn([MULTILINGUAL_HEADINGS], [TEST_STRING], [SET_UNIQ_KEY_FOR_LINK], [PRINT_ITEMS]))
+define([BRIDGEHEAD_MONO],		defn([MONOLINGUAL_HEADINGS], [TEST_STRING], [SET_UNIQ_KEY_FOR_LINK], [PRINT_ITEMS]))
 define([COMMAND_ROOT],			defn([PROCESS_ID]))
 define([COMMAND_USR],			defn([PROCESS_ID]))
 define([DESCRIPTION_LIST_DESC],		defn([PROCESS_ID]))
@@ -364,15 +343,12 @@ define([WARN],				defn([PROCESS_ID]))
 # forget local β rules (good for frozen files)
 popdef(
 
-	[ANCHORS_SED],
-	[CAPTIONS_SED],
-	[EXECUTE_SED],
 	[LANG_REC],
 	[MONO_REC],
 	[PRINT_ITEMS],
 	[PROCESS_ID],
 	[PROCESS_ID_UNPAIRED],
 	[SET_UNIQ_KEY_FOR_LINK],
-	[TEST_RESULT],
+	[TEST_STRING],
 
 )
