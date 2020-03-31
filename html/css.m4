@@ -172,7 +172,7 @@ margin-left:.6em;
 
 CSS_CLASS_RULE_SET([[]],	[src],	[[>code>span+a]], [
 
-color:#333;
+color:inherit;
 
 ])
 
@@ -238,7 +238,7 @@ cursor:help;
 
 CSS_CLASS_RULE_SET([[]],	[usc, root],	[[ a]], [
 
-color:#333;
+color:inherit;
 
 ])
 
@@ -334,7 +334,7 @@ margin-right:.5em;
 
 ])
 
-# if the middle bracket is sempty, put the ruleset unconditionally to stylesheet
+# if the middle bracket is sempty, place the ruleset unconditionally in the stylesheet
 CSS_CLASS_RULE_SET([[.urs ]],	[],	[[p[]LB()id^="NSP()TOCP-"RB()>a>b]], [
 
 font-weight:normal;
