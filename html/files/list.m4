@@ -17,7 +17,7 @@ define([CONFIGURE_COMMAND_LINE], [
 
 # A → β
 define([ADD_LINKS_TO_INSERTED_FILES], [ifelse([$1], [], [], [dnl
-define([GIT_RECORD], defn(./FOLDER[$1]))ifelse(defn([GIT_RECORD]), [], [
+define([GIT_CSV], defn(./FOLDER[$1]))ifelse(defn([GIT_CSV]), [], [
 
 	ROOT_ERROR([git record for ‘]./FOLDER[$1][’ not found, regenerate git database])
 ])dnl
@@ -34,7 +34,7 @@ define([INSERT_LIST_OF_FILES], [
 		divert(CURRQU)dnl
 <div title="defn([WORD_COMMAND])" class="ADD_CLASS([usc])">defn([COMMAND]) dnl
 ifelse(defn([ROOT_FILE]), [], [], [dnl
-define([GIT_RECORD], defn(./FOLDER_FOR_GENERATED_FILES[]ROOT_FILE))ifelse(defn([GIT_RECORD]), [], [
+define([GIT_CSV], defn(./FOLDER_FOR_GENERATED_FILES[]ROOT_FILE))ifelse(defn([GIT_CSV]), [], [
 
 	ROOT_ERROR([git record for ‘]./FOLDER_FOR_GENERATED_FILES[]ROOT_FILE[’ not found, regenerate git database])
 ])dnl
@@ -42,7 +42,7 @@ AH(defn([ROOT_FILE]), defn([SRC_REPO_NAME])FOLDER_FOR_GENERATED_FILES[]ROOT_FILE
 ADD_LINKS_TO_INSERTED_FILES(PREFIX_FILES)dnl
 undivert(REFERENCES_TO_FILES)dnl
 ADD_LINKS_TO_INSERTED_FILES(SOURCES)dnl
-define([GIT_RECORD], defn(./FOLDER[$1]))ifelse(defn([GIT_RECORD]), [], [
+define([GIT_CSV], defn(./FOLDER[$1]))ifelse(defn([GIT_CSV]), [], [
 
 	ROOT_ERROR([git record for ‘]./FOLDER[$1][’ not found, regenerate git database])
 ])dnl
@@ -64,7 +64,7 @@ divert(-1)
 	], [
 		INSERT_FILE(defn([FOLDER])[$1])
 
-# GIT_RECORD for AH() is already set in INSERT_FILE
+# GIT_CSV for AH() is already set in INSERT_FILE
 divert(REFERENCES_TO_FILES)dnl
 AH([$1], defn([SRC_REPO_NAME])FOLDER[$1], SRC_FILE_PATH[]FOLDER[$1]) dnl
 divert(-1)

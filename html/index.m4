@@ -12,7 +12,7 @@ define([OTHER_LANGUAGE])
 
 # path for generated files
 # A → β
-#define([SRC_FILE_PATH], [https://raw.githubusercontent.com/jkubin/m4root/ARG1(GIT_RECORD)/])
+#define([SRC_FILE_PATH], [https://raw.githubusercontent.com/jkubin/m4root/ARG1(GIT_CSV)/])
 define([SRC_FILE_PATH], [../])
 
 # name of repository

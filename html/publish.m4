@@ -17,7 +17,7 @@ define([IMG_SRC], [$2])
 define([OTHER_LANGUAGE], defn([OTHER_LANG_PATH]))
 
 # path for generated files
-define([SRC_FILE_PATH], [https://raw.githubusercontent.com/jkubin/m4root/ARG1(GIT_RECORD)/])
+define([SRC_FILE_PATH], [https://raw.githubusercontent.com/jkubin/m4root/ARG1(GIT_CSV)/])
 
 # name for repository
 define([SRC_REPO_NAME], defn([WORD_SRC])[GitHub
