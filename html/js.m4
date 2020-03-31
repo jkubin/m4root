@@ -62,19 +62,20 @@ define([ADD_JAVASCRIPT_FOR_LINE_NUMBERS], [
  * /!\ keep all global variables in dedicated namespace: m4_*
  * /!\ keep all variable names consistent with the file jscompress.js because
  * lengthy JavaScript is eventually compressed to a smaller one-line script
+ *
+ * NSP() is a global CSS namespace prefix defined in configuration
  */
-var m4_keywords = document.getElementsByClassName("]NSP()[hg"),
-		// NSP() is a global CSS namespace prefix
+let m4_keywords = document.getElementsByClassName("]NSP()[hg"),
 		m4_all_pre_tags = document.getElementsByTagName("pre"),
 		m4_associative_array_of_keywords = [];
 
 /*
- * the following code find keywords pointing to the preformatted-source-code
- * and add them to the array in associative array
+ * the following code finds keywords pointing to the preformatted-source-code
+ * and adds them to the array in an associative array
  */
-for (var keyword of m4_keywords) {
+for (let keyword of m4_keywords) {
 
-	var highlight_source_code_id = keyword.dataset.id;
+	let highlight_source_code_id = keyword.dataset.id;
 
 	if (highlight_source_code_id) {
 
@@ -88,30 +89,30 @@ for (var keyword of m4_keywords) {
 /*
  * the following code links keywords with the appropriate lines of source code which highlight
  */
-for (var highlighted_source_code of m4_all_pre_tags) {
+for (let highlighted_source_code of m4_all_pre_tags) {
 
-	var all_highlighting_keywords,
-		container_element = highlighted_source_code.parentElement,
+	let all_highlighting_keywords,
+		container_element = highlighted_source_code.parentNode,
 		number_of_lines_of_code = highlighted_source_code.innerHTML.split('\n').length,
 		ordered_list = document.createElement("ol");
 
-	for (var i = 0; i < number_of_lines_of_code; i++)
+	for (let i = 0; i < number_of_lines_of_code; i++)
 		ordered_list.appendChild(document.createElement("li"));
 
 	/*
-	 * if id="…" is an attribute in the highlighted_source_code <pre></ pre>
-	 * tag and it is referenced by a keyword or several keywords
+	 * if the ID <pre id="highlighted-source-code"></ pre> is an attribute
+	 * and it is referenced by a keyword or several keywords
 	 */
 	if (all_highlighting_keywords =
 		m4_associative_array_of_keywords[highlighted_source_code.id]) {
 
-		for (var keyword of all_highlighting_keywords) {
+		for (let keyword of all_highlighting_keywords) {
 
-			var lines_to_highlight = keyword.dataset.ln.split(','),
+			let lines_to_highlight = keyword.dataset.ln.split(','),
 				list_item = ordered_list.childNodes,
 				lines_of_code_to_highlight = [];
 
-			for (var line of lines_to_highlight)
+			for (let line of lines_to_highlight)
 				lines_of_code_to_highlight.push(list_item[line - 1]);
 
 			/*
@@ -122,7 +123,7 @@ for (var highlighted_source_code of m4_all_pre_tags) {
 
 				return function() {
 
-					for (var line of lines)
+					for (let line of lines)
 						line.style.backgroundColor='red';
 				}
 
@@ -132,7 +133,7 @@ for (var highlighted_source_code of m4_all_pre_tags) {
 
 				return function() {
 
-					for (var line of lines)
+					for (let line of lines)
 						line.style=null;
 					/*
 					 * the line.style.backgroundColor='initial';
