@@ -120,8 +120,10 @@ define([CHAPTER], defn([MULTILINGUAL_HEADINGS], [SET_ANCHOR])[
 
 	# increment index
 	CHAPTER_IDX
-	define([SECT1_IDX_val], 1)
-	define([SECT2_IDX_val], 1)
+
+	# assign indexes
+	define([SECT1_IDX_val], 0)
+	define([SECT2_IDX_val], 0)
 
 	define([#S1])
 	define([#S2])
@@ -137,7 +139,10 @@ define([CHAPTER], defn([MULTILINGUAL_HEADINGS], [SET_ANCHOR])[
 define([SECT1], defn([MULTILINGUAL_HEADINGS], [SET_ANCHOR])[
 
 	# increment index
-	define([#S1], .SECT1_IDX)
+	SECT1_IDX
+
+	# assign indexes
+	define([#S1], .SECT1_IDX_val)
 	define([SECT2_IDX_val], 0)
 	define([#S2])
 	define([INDENT_LEVEL], [ class="ADD_CLASS([l2])"])
@@ -152,8 +157,11 @@ define([SECT1], defn([MULTILINGUAL_HEADINGS], [SET_ANCHOR])[
 define([SECT2], defn([MULTILINGUAL_HEADINGS], [SET_ANCHOR])[
 
 	# increment index
+	SECT2_IDX
+
+	# assign indexes
 	define([#S1], .SECT1_IDX_val)
-	define([#S2], .SECT2_IDX)
+	define([#S2], .SECT2_IDX_val)
 	define([INDENT_LEVEL], [ class="ADD_CLASS([l3])"])
 	define([HEADING_TAG], [h4])
 
@@ -523,7 +531,7 @@ divert(CURRQU)popdef([CURRQU])dnl
 define([BRIDGEHEAD_MONO], defn([MONOLINGUAL_HEADINGS], [SET_ANCHOR])[
 
 	divert(CURRQU)dnl
-<HEADING_TAG]defn([HTML_BRIDGEHEAD_ATTRIBUTES])[><a href="[#]NSP()defn([#ID])">🔗</a>SELITM]defn([GO_BACK_UP])[</HEADING_TAG>
+<HEADING_TAG]defn([HTML_BRIDGEHEAD_ATTRIBUTES])[><a href="[#]NSP()defn([#ID])" title="⚓">🔗</a>SELITM]defn([GO_BACK_UP])[</HEADING_TAG>
 divert(-1)
 ])
 
@@ -531,7 +539,7 @@ divert(-1)
 define([BRIDGEHEAD], defn([MULTILINGUAL_HEADINGS], [SET_ANCHOR])[
 
 	divert(CURRQU)dnl
-<HEADING_TAG]defn([HTML_BRIDGEHEAD_ATTRIBUTES])[><a href="[#]NSP()defn([#ID])">🔗</a>SELITM]defn([GO_BACK_UP])[</HEADING_TAG>
+<HEADING_TAG]defn([HTML_BRIDGEHEAD_ATTRIBUTES])[><a href="[#]NSP()defn([#ID])" title="⚓">🔗</a>SELITM]defn([GO_BACK_UP])[</HEADING_TAG>
 divert(-1)
 ])
 
