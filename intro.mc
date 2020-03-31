@@ -452,17 +452,17 @@ dnl english: _next_language_
 ])
 
 PARA([[dnl czech
-Bezkontextová gramatika (krátce ABBR([CFG], [Context-Free Grammar – bezkontextová gramatika])) je LINK([formální gramatika], [formal_grammar_chomsky]), ve které mají všechna přepisovací pravidla tvar HGKW([A[]NB()→[]NB()β], 1, [context_free_grammar_rules]).
+Bezkontextová gramatika (krátce ABBR([CFG], [Context-Free Grammar – bezkontextová gramatika])) je LINK([formální gramatika], [formal_grammar_chomsky]), ve které mají všechna přepisovací pravidla tvar HGKW([A[]NB()→[]NB()β], 1, [all_context_free_grammar_rules]).
 Neterminál CODE_M4([A]) se přepíše na libovolně dlouhý řetězec ABBR([CODE([β])], [pravá strana přepisovacího pravidla]) složený z[]NB()terminálů CODE([Σ]) nebo neterminálů CODE([N]).
-AH([Kleeneho hvězda], [Wikipedie], [https://en.wikipedia.org/wiki/Kleene_star]) HGKW([*], 3, [context_free_grammar_rules]) znamená, že se neterminál CODE_M4([A]) může přepsat na ABBR([CODE([ε])], [epsilon – prázdný symbol]) (přepisovací pravidlo CODE([A[]NB()→[]NB()ε])).
+AH([Kleeneho hvězda], [Wikipedie], [https://en.wikipedia.org/wiki/Kleene_star]) HGKW([*], 3, [all_context_free_grammar_rules]) znamená, že se neterminál CODE_M4([A]) může přepsat na ABBR([CODE([ε])], [epsilon – prázdný symbol]) (přepisovací pravidlo CODE([A[]NB()→[]NB()ε])).
 ],
 [dnl english: _next_language_
-Context-free grammar (shortly ABBR([CFG], [Context-Free Grammar])) is a[]NB()LINK([formal grammar], [formal_grammar_chomsky]) in which all rules for rewriting have the HGKW([A[]NB()→[]NB()β], 1, [context_free_grammar_rules]) form.
+Context-free grammar (shortly ABBR([CFG], [Context-Free Grammar])) is a[]NB()LINK([formal grammar], [formal_grammar_chomsky]) in which all rules for rewriting have the HGKW([A[]NB()→[]NB()β], 1, [all_context_free_grammar_rules]) form.
 The nonterminal CODE_M4([A]) is rewritten to an arbitrarily long ABBR([CODE([β])], [the right side of the rewriting rule]) string composed of terminals CODE([Σ]) or nonterminals CODE([N]).
-AH([Kleene star], [Wikipedia], [https://en.wikipedia.org/wiki/Kleene_star]) HGKW([*], 3, [context_free_grammar_rules]) means that nonterminal CODE_M4([A]) can be rewritten to ABBR([CODE([ε])], [epsilon – empty symbol]) (rewriting rule CODE([A[]NB()→[]NB()ε])).
+AH([Kleene star], [Wikipedia], [https://en.wikipedia.org/wiki/Kleene_star]) HGKW([*], 3, [all_context_free_grammar_rules]) means that nonterminal CODE_M4([A]) can be rewritten to ABBR([CODE([ε])], [epsilon – empty symbol]) (rewriting rule CODE([A[]NB()→[]NB()ε])).
 ]])
 
-PROGRAMLISTING([context_free_grammar_rules], LANG([přepisovací pravidla bezkontextové gramatiky], [context-free grammar rewriting rules]), [dnl
+PROGRAMLISTING([all_context_free_grammar_rules], LANG([přepisovací pravidla bezkontextové gramatiky], [context-free grammar rewriting rules]), [dnl
 P: A → β
    A ∈ N
    β ∈ (N ∪ Σ)*
@@ -480,7 +480,6 @@ Přepisovací pravidla M4 jsou stejná jako přepisovací pravidla bezkontextov�
 [dnl english: _next_language_
 The rules for rewriting are the same for context-free grammar and M4.
 ]])
-The M4 rewriting rules are the same as context-free grammar rewriting rules.
 
 PROGRAMLISTING(, LANG([přepisovací pravidla M4], [M4 rewriting rules]), [dnl
 [# A → β
