@@ -14,7 +14,7 @@
 		</item>
 		<item>
 			<name>SUCCESS</name>
-			<value>Complex M4 code failed successfully.</value>
+			<value>Too complex M4 code failed successfully.</value>
 		</item>
 		<item>
 			<name>NOFAULT</name>
