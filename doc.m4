@@ -25,7 +25,7 @@ define([__HEADER], [
 
 	doc_divert(0)doc_dnl
 ---
-__FILE_NAME: __file__
+__FILE_NAME: doc___file__
 __AUTHOR_NAME: $1
 __CREATION_DATE: $2
 __HEADER_NOTE: $3
@@ -48,9 +48,10 @@ define([___USAGE], defn([__THANKS]))
 
 # create aliases for the necessary keywords
 # A → β
+define([doc___file__], defn([__file__]))
 define([doc_divert], defn([divert]))
-define([doc_ifelse], defn([ifelse]))
 define([doc_dnl], defn([dnl]))
+define([doc_ifelse], defn([ifelse]))
 
 # comment out this paragraph if you do not like it (note the right unpaired bracket)
 divert(0)dnl
