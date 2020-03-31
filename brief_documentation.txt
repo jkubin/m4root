@@ -60,13 +60,6 @@ Description: generic examples how to use M4 as preprocessor
 Reason: M4 as preprocessor
 Usage: make h && make
 ---
-File: captions.sed
-Author: Josef Kubin
-Started: 2019/08/25
-Note: m4root
-Description: the script converts the caption string to the string used for filenames; resulting string is not truncated
-Reason: full-length lower case ASCII strings for file names
----
 File: if20/kiosk_preproc.m4
 Author: Josef Kubin
 Started: 2020/02/05
@@ -178,6 +171,13 @@ Description: maintains consistent files with square bracket files
 Reason: one hand-written file to generate additional files
 Usage: make h && make
 ---
+File: tmp/refs.m4
+Author: Josef Kubin
+Started: 2019/12/11
+Note: root_cz
+Description: tests logic flow (CHAPTER → SECT1 → SECT2) and generates references for anchors
+Reason: extracts all IDs from files and create associative pair
+---
 File: tmp/git.m4
 Author: Josef Kubin
 Started: 2020/03/08
@@ -185,12 +185,26 @@ Note: m4root
 Description: extracts important data from the git repository to create M4 macros
 Reason: subsequent faster code processing
 ---
+File: tmp/refs_cs.m4
+Author: Josef Kubin
+Started: 2019/12/11
+Note: root_cz
+Description: (this is a generated file) associative memory to linking references, contains captions and ID
+Reason: linking links and simple database
+---
 File: tmp/style.m4
 Author: Josef Kubin
 Started: 2019/12/24
 Note: root_cz
 Description: creates a style sheet in the reserved namespace
 Reason: the style sheet contains only the things that are actually used
+---
+File: tmp/refs_en.m4
+Author: Josef Kubin
+Started: 2019/12/11
+Note: root_cz
+Description: (this is a generated file) associative memory to linking references, contains captions and ID
+Reason: linking links and simple database
 ---
 File: tmp/publish.sed
 Author: Josef Kubin
@@ -431,13 +445,6 @@ Description: keeps two ASM files consistent for both Intel and AT&T notation; us
 Reason: two ASM file formats generated from one metafile
 Usage: make h && make
 ---
-File: anchors.sed
-Author: Josef Kubin
-Started: 2019/08/25
-Note: m4root
-Description: the script converts a caption string in UTF-8 to HTML anchors; the resulting string is truncated to 32 characters
-Reason: truncated lower case ASCII strings for anchors
----
 File: aux.m4
 Author: Josef Kubin
 Started: 2019/12/07
@@ -508,6 +515,13 @@ Started: 2019/12/15
 Note: root_cz
 Description: processes one simple macro with files to complex block of html code
 Reason: converts list of files from command line to html code
+---
+File: refs/refs.sed
+Author: Josef Kubin
+Started: 2020/03/30
+Note: m4root
+Description: converts strings for anchors/files to a plain-text-string format
+Reason: generate references at the lightning speed
 ---
 File: refs/demo.m4
 Author: Josef Kubin
