@@ -205,13 +205,13 @@ line-height:1.1;
 padding:9px 0;
 position:absolute;
 top:0;
+width:100%;
 
 ])
 
 CSS_CLASS_RULE_SET([[]],	[src],	[[ ol li]], [
 
 margin:0;
-width:640px;
 
 ])
 
@@ -296,8 +296,6 @@ margin-left:.3em;
 
 ])
 
-TODO: kdyz bude treti set oddelen carkou, pak to zretezit s prostrednim s carkama
-TODO: udelat vnorene cykly
 CSS_CLASS_RULE_SET([[]],	[ch, bh],	[[ sup:last-child a]], [
 
 text-decoration:none;
