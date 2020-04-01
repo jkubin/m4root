@@ -8,10 +8,10 @@ ___POINT([HTML5 block-level elements])
 
 # html tag attributes (at the end of this file will be forgotten)
 # β
-pushdef([ID_1],	[ifelse([$#], [1], [], [$1], [], [], [ id="FIND_AND_ADD_ID_RULE_SET([$1])"])])
-pushdef([ID_1_PROGRAMLISTING_ANCHOR],	[ifelse([$#], [1], [], [$1], [], [], [<a href="[#]FIND_AND_ADD_ID_RULE_SET([$1])">🔗</a>])])
-pushdef([TITLE_2],	[ifelse([$#], [2], [], [$2], [], [], [ title="[$2]"])])
-pushdef([CLASS_3],	[ifelse([$#], [3], [], [$3], [], [], [ class="ADD_CLASS([$3])"])])
+pushdef([ID_1],		[ifelse([$#], [1], [], [$1], [], [], [ id="FIND_AND_ADD_ID_RULE_SET([$1])"])])
+pushdef([ID_1_PROGRAMLISTING_ANCHOR],	[ifelse([$#], [1], [], [$1], [], [], [<a href="[#]FIND_AND_ADD_ID_RULE_SET([$1])" title="⚓">🔗</a>])])
+pushdef([TITLE_2],		[ifelse([$#], [2], [], [$2], [], [], [ title="[$2]"])])
+pushdef([CLASS_3],		[ifelse([$#], [3], [], [$3], [], [], [ class="ADD_CLASS([$3])"])])
 pushdef([CLASS_3_EXCL],	[ class="rs-tip-major ADD_CLASS([excl])ifelse([$#], [3], [], [$3], [], [], [ ADD_CLASS([$3])])"])
 pushdef([CLASS_3_BRIDGEHEAD],	[ class="ADD_CLASS([bh])[]ifelse([$#], [3], [], [$3], [], [], [ ADD_CLASS([$3])])"])
 pushdef([CLASS_3_HEADING],	[ class="ADD_CLASS([ch])[]ifelse([$#], [3], [], [$3], [], [], [ ADD_CLASS([$3])])"])
@@ -21,7 +21,7 @@ pushdef([CLASS_3_ROOT_CMD],	[ class="ADD_CLASS([root])[]ifelse([$#], [3], [], [$
 pushdef([CLASS_3_TILE],	[ class="rs-tile[]ifelse([$#], [3], [], [$3], [], [], [ ADD_CLASS([$3])])"])
 pushdef([CLASS_3_USR_CMD],	[ class="ADD_CLASS([usc])[]ifelse([$#], [3], [], [$3], [], [], [ ADD_CLASS([$3])])"])
 pushdef([CLASS_3_WARN],	[ class="rs-tip-major ADD_CLASS([warn])ifelse([$#], [3], [], [$3], [], [], [ ADD_CLASS([$3])])"])
-pushdef([STYLE_4],	[ifelse([$#], [4], [], [$4], [], [], [ style="[$4]"])])
+pushdef([STYLE_4],		[ifelse([$#], [4], [], [$4], [], [], [ style="[$4]"])])
 pushdef([ANYTHING_5],	[ifelse([$#], [5], [], [$5], [], [], [ [$5]])])
 
 # html tag attributes groups
@@ -36,7 +36,7 @@ pushdef([HTML_ROOT_CMD_ATTRIBUTES],	defn([ID_1], [TITLE_2], [CLASS_3_ROOT_CMD], 
 pushdef([HTML_USR_CMD_ATTRIBUTES],	defn([ID_1], [TITLE_2], [CLASS_3_USR_CMD], [STYLE_4], [ANYTHING_5]))
 pushdef([HTML_WARN_ATTRIBUTES],	defn([ID_1], [TITLE_2], [CLASS_3_WARN], [STYLE_4], [ANYTHING_5]))
 
-# convert {&, >, <} to html entities, strip trailing white chars
+# convert {'&', '>', '<'} to html entities, strip trailing white chars
 # β
 pushdef([PROCESS_RAW_CODE_TO_HTML_ENTITIES], [patsubst(patsubst(patsubst(patsubst(define([#], [[[[[$$#]]]]])indir([#], $@), [\s*]), [&], [&amp;]), [<], [&lt;]), [>], [&gt;])])
 
@@ -70,14 +70,20 @@ pushdef([HTML_MULTILINGUAL], [
 divert(-1)
 ])
 
+#      ___________      ______
+# --->/ PEREX_IMG \--->/ path \
+#     \___________/    \______/
+#
 # A → β
 define([PEREX_IMG], defn([TEST_ATM])[
+
 	# transition to the next node (redefine itself to image path)
 	define([$0], ../[$1])
 ])
 
 # A → β
 define([CAPTION], defn([TEST_ATM])[
+
 	define([FILE_PREFIX], __file__.LANG_CODE)
 
 	# init counter for chapters
@@ -98,8 +104,13 @@ define([CAPTION], defn([TEST_ATM])[
 	define([$0], EXPAND_LANG(]defn([EXPAND_LAST])[))
 ])
 
+#      _______      ________
+# --->/ PEREX \--->/ string \
+#     \_______/    \________/
+#
 # A → β
 define([PEREX], defn([TEST_ATM])[
+
 	# transition to the next node (redefine itself to the selected string)
 	define([$0], SELECT_LANG_WITHOUT_TRAILING_LF(]defn([EXPAND_LAST])[))
 ])
@@ -585,9 +596,9 @@ define([DESCRIPTION_LIST_WRAP],	defn([DIV_WRAP]))
 define([##DESCRIPTION_LIST_WRAP>],	[dl])
 define([DETAILS_WRAP],	defn([DIV_WRAP]))
 define([##DETAILS_WRAP>],	[details])
-define([DIV],	defn([HTML_MULTILINGUAL]))
-define([##DIV>],	[div])
-define([DIV_MONO],	defn([HTML_MONOLINGUAL]))
+define([DIV],		defn([HTML_MULTILINGUAL]))
+define([##DIV>],		[div])
+define([DIV_MONO],		defn([HTML_MONOLINGUAL]))
 define([##DIV_MONO>],	[div])
 define([##DIV_WRAP>],	[div])
 define([FIGCAPTION],	defn([HTML_MULTILINGUAL]))
@@ -598,35 +609,35 @@ define([FIGURE_WRAP],	defn([DIV_WRAP]))
 define([##FIGURE_WRAP>],	[figure])
 define([FOOTER_WRAP],	defn([DIV_WRAP]))
 define([##FOOTER_WRAP>],	[footer])
-define([FORM_WRAP],	defn([DIV_WRAP]))
+define([FORM_WRAP],		defn([DIV_WRAP]))
 define([##FORM_WRAP>],	[form])
 define([HEADER_WRAP],	defn([DIV_WRAP]))
 define([##HEADER_WRAP>],	[header])
 define([HORIZONTAL_RULE],	defn([HTML_UNPAIRED_TAG]))
 define([##HORIZONTAL_RULE>],	[hr])
-define([INPUT],	defn([HTML_UNPAIRED_TAG]))
-define([##INPUT>],	[input])
+define([INPUT],		defn([HTML_UNPAIRED_TAG]))
+define([##INPUT>],		[input])
 define([ITEMIZEDLIST_WRAP],	defn([DIV_WRAP]))
 define([##ITEMIZEDLIST_WRAP>],	[ul])
-define([LISTITEM],	defn([HTML_MULTILINGUAL]))
+define([LISTITEM],		defn([HTML_MULTILINGUAL]))
 define([##LISTITEM>],	[li])
 define([LISTITEM_MONO],	defn([HTML_MONOLINGUAL]))
 define([##LISTITEM_MONO>],	[li])
-define([MAIN_WRAP],	defn([DIV_WRAP]))
+define([MAIN_WRAP],		defn([DIV_WRAP]))
 define([##MAIN_WRAP>],	[main])
-define([NAV],	defn([HTML_MULTILINGUAL]))
-define([NAV_MONO],	defn([HTML_MONOLINGUAL]))
+define([NAV],		defn([HTML_MULTILINGUAL]))
+define([NAV_MONO],		defn([HTML_MONOLINGUAL]))
 define([##NAV_MONO>],	[nav])
-define([##NAV>],	[nav])
+define([##NAV>],		[nav])
 define([ORDEREDLIST_WRAP],	defn([DIV_WRAP]))
 define([##ORDEREDLIST_WRAP>],	[ol])
-define([PARA],	defn([HTML_MULTILINGUAL]))
-define([PARA_MONO],	defn([HTML_MONOLINGUAL]))
+define([PARA],		defn([HTML_MULTILINGUAL]))
+define([PARA_MONO],		defn([HTML_MONOLINGUAL]))
 define([##PARA_MONO>],	[p])
 define([##PARA>],	[p])
 define([SECTION_WRAP],	defn([DIV_WRAP]))
 define([##SECTION_WRAP>],	[section])
-define([SUMMARY],	defn([HTML_MULTILINGUAL]))
+define([SUMMARY],		defn([HTML_MULTILINGUAL]))
 define([SUMMARY_MONO],	defn([HTML_MONOLINGUAL]))
 define([##SUMMARY_MONO>],	[summary])
 define([##SUMMARY>],	[summary])
@@ -635,7 +646,7 @@ define([TABLE_CAPTION],	defn([HTML_MULTILINGUAL]))
 define([##TABLE_CAPTION_MONO>],	[caption])
 define([TABLE_CAPTION_MONO],	defn([HTML_MONOLINGUAL]))
 define([##TABLE_COL>],	[col])
-define([TABLE_COL],	defn([HTML_UNPAIRED_TAG]))
+define([TABLE_COL],		defn([HTML_UNPAIRED_TAG]))
 define([##TABLE_COLGROUP_WRAP>],	[colgroup])
 define([TABLE_COLGROUP_WRAP],	defn([DIV_WRAP]))
 define([TABLE_DATA],	defn([HTML_MULTILINGUAL]))
