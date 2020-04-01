@@ -190,10 +190,10 @@ margin-right:.1em;
 ])
 
 border-bottom:1px dotted #000;
-CSS_CLASS_RULE_SET([[]],	[src],	[[>code>span]], [
+CSS_CLASS_RULE_SET([[]],	[src],	[[>code>span:first-child]], [
 
 text-decoration:underline dashed;
-cursor:help;
+cursor:pointer;
 
 ])
 
@@ -269,7 +269,7 @@ position:relative;
 
 ])
 
-CSS_CLASS_RULE_SET([[]],	[ch],	[[ a:first-child+a]], [
+CSS_CLASS_RULE_SET([[]],	[ch],	[[>a:first-child+a]], [
 
 margin-right:.4em;
 

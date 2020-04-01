@@ -65,6 +65,7 @@ define([ADD_JAVASCRIPT_FOR_LINE_NUMBERS], [
  *
  * NSP() is a global CSS namespace prefix defined in configuration
  */
+
 let m4_keywords = document.getElementsByClassName("]NSP()[hg"),
 		m4_all_pre_tags = document.getElementsByTagName("pre"),
 		m4_associative_array_of_keywords = [];
@@ -87,14 +88,51 @@ for (let keyword of m4_keywords) {
 }
 
 /*
- * the following code links keywords with the appropriate lines of source code which highlight
+ * copy information from attributes to dedicated element
+ * in order to easily copy & paste embedded data
+ */
+function m4_add_info() {
+
+	var parent_node = this.parentNode, source_info;
+
+	if (this.source_info) {
+
+		if (this.source_info.isConnected)
+			parent_node.removeChild(this.source_info);
+		else
+			parent_node.appendChild(this.source_info);
+
+		return;
+	}
+
+	source_info = document.createElement("span");
+	source_info.appendChild(document.createTextNode(this.title));
+	source_info.appendChild(document.createElement("br"));
+	source_info.appendChild(document.createTextNode(this.nextSibling.title.split('\n')[1]));
+	this.source_info = source_info;
+	parent_node.appendChild(document.createElement("br"));
+
+	// append final element to the DOM tree
+	parent_node.appendChild(source_info);
+}
+
+/*
+ * the following code links keywords with the appropriate lines
+ * of source code which highlights
  */
 for (let highlighted_source_code of m4_all_pre_tags) {
 
 	let all_highlighting_keywords,
-		container_element = highlighted_source_code.parentNode,
+		parent_node = highlighted_source_code.parentNode,
+		next_sibling = highlighted_source_code.nextSibling,
 		number_of_lines_of_code = highlighted_source_code.innerHTML.split('\n').length,
 		ordered_list = document.createElement("ol");
+
+	/*
+	 * add event handler for additional info
+	 */
+	if (next_sibling && next_sibling.tagName == 'CODE')
+		next_sibling.firstChild.onclick = m4_add_info;
 
 	for (let i = 0; i < number_of_lines_of_code; i++)
 		ordered_list.appendChild(document.createElement("li"));
@@ -147,11 +185,11 @@ for (let highlighted_source_code of m4_all_pre_tags) {
 	}
 
 	/*
-	 * append the ordered list to the DOM tree into container_element
+	 * append the ordered list to the DOM tree into parent_node
 	 * as the first child just before the <pre>…</ pre> tag
 	 * Z-index is not explicitly set because the elements are in natural Z order
 	 */
-	container_element.insertBefore(ordered_list, highlighted_source_code);
+	parent_node.insertBefore(ordered_list, highlighted_source_code);
 }
 
 EOF]))divert(-1)
