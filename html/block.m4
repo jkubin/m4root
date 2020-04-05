@@ -9,7 +9,7 @@ ___POINT([HTML5 block-level elements])
 # html tag attributes (at the end of this file will be forgotten)
 # β
 pushdef([ID_1],		[ifelse([$#], [1], [], [$1], [], [], [ id="FIND_AND_ADD_ID_RULE_SET([$1])"])])
-pushdef([ID_1_PROGRAMLISTING_ANCHOR],	[ifelse([$#], [1], [], [$1], [], [], [<a href="[#]FIND_AND_ADD_ID_RULE_SET([$1])" title="⚓">🔗</a>])])
+pushdef([ID_1_ANCHOR],	[ifelse([$#], [1], [], [$1], [], [], [<a href="[#]FIND_AND_ADD_ID_RULE_SET([$1])" title="⚓">🔗</a>])])
 pushdef([TITLE_2],		[ifelse([$#], [2], [], [$2], [], [], [ title="[$2]"])])
 pushdef([CLASS_3],		[ifelse([$#], [3], [], [$3], [], [], [ class="ADD_CLASS([$3])"])])
 pushdef([CLASS_3_EXCL],	[ class="rs-tip-major ADD_CLASS([excl])ifelse([$#], [3], [], [$3], [], [], [ ADD_CLASS([$3])])"])
@@ -468,24 +468,24 @@ divert(-1)
 # A → β
 define([PROGRAMLISTING], [
 
-	ADD_JAVASCRIPT_FOR_LINE_NUMBERS()
+	ADD_JAVASCRIPT_FOR_SOURCE_CODE()
 
 	divert(CURRQU)dnl
-<div class="ADD_CLASS([src])"><pre[]]defn([HTML_GLOBAL_ATTRIBUTES])>defn([PROCESS_RAW_CODE_TO_HTML_ENTITIES])</pre>defn([ID_1_PROGRAMLISTING_ANCHOR])[</div>
+<div class="ADD_CLASS([src])"><pre[]]defn([HTML_GLOBAL_ATTRIBUTES])>defn([PROCESS_RAW_CODE_TO_HTML_ENTITIES])</pre>defn([ID_1_ANCHOR])[</div>
 divert(-1)
 ])
 
 # A → β
 define([COMMAND_USR], [
 	divert(CURRQU)dnl
-<div[]]defn([HTML_USR_CMD_ATTRIBUTES])>defn([PROCESS_RAW_CODE_TO_HTML_ENTITIES])[</div>
+<div[]]defn([HTML_USR_CMD_ATTRIBUTES])><div>defn([PROCESS_RAW_CODE_TO_HTML_ENTITIES])</div>defn([ID_1_ANCHOR])[</div>
 divert(-1)
 ])
 
 # A → β
 define([COMMAND_ROOT], [
 	divert(CURRQU)dnl
-<div[]]defn([HTML_ROOT_CMD_ATTRIBUTES])>defn([PROCESS_RAW_CODE_TO_HTML_ENTITIES])[</div>
+<div[]]defn([HTML_ROOT_CMD_ATTRIBUTES])><div>defn([PROCESS_RAW_CODE_TO_HTML_ENTITIES])</div>defn([ID_1_ANCHOR])[</div>
 divert(-1)
 ])
 
@@ -696,7 +696,7 @@ popdef(
 	[HTML_USR_CMD_ATTRIBUTES],
 	[HTML_WARN_ATTRIBUTES],
 	[ID_1],
-	[ID_1_PROGRAMLISTING_ANCHOR],
+	[ID_1_ANCHOR],
 	[PROCESS_RAW_CODE_TO_HTML_ENTITIES],
 	[SET_ANCHOR],
 	[STYLE_4],
