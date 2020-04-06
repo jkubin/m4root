@@ -17,11 +17,11 @@ define([CONFIGURE_COMMAND_LINE], [
 
 # A → β
 define([ADD_LINKS_TO_INSERTED_FILES], [ifelse([$1], [], [], [dnl
-define([GIT_CSV], defn(./FOLDER[$1]))ifelse(defn([GIT_CSV]), [], [
+define([GIT_CSV], defn(./defn([FOLDER])[$1]))ifelse(defn([GIT_CSV]), [], [
 
-	ROOT_ERROR([git record for ‘]./FOLDER[$1][’ not found, regenerate git database])
+	ROOT_ERROR([git record for ‘]./defn([FOLDER])[$1][’ not found, regenerate git database])
 ])dnl
-AH([$1], defn([SRC_REPO_NAME])FOLDER[$1], SRC_FILE_PATH[]FOLDER[$1]) $0(shift($@))])])
+AH([$1], defn([SRC_REPO_NAME], [FOLDER])[$1], SRC_FILE_PATH[]defn([FOLDER])[$1]) $0(shift($@))])])
 
 # processes variable number of files, the last file is _ALWAYS_ output.file
 # INSERT_LIST_OF_FILES([input_file1.src], [input_file2.src], [input_file3.src], …, [output.file])
@@ -32,7 +32,7 @@ define([INSERT_LIST_OF_FILES], [
 	ifelse([$#], [1], [
 
 		divert(CURRQU)dnl
-<div title="defn([WORD_COMMAND])" class="ADD_CLASS([usc])">defn([COMMAND]) dnl
+<div id="defn(__file__.mono.defn([FOLDER])[$1]):cmd" title="defn([WORD_COMMAND])" class="ADD_CLASS([usc])"><div>defn([COMMAND]) dnl
 ifelse(defn([ROOT_FILE]), [], [], [dnl
 define([GIT_CSV], defn(./FOLDER_FOR_GENERATED_FILES[]ROOT_FILE))ifelse(defn([GIT_CSV]), [], [
 
@@ -46,7 +46,7 @@ define([GIT_CSV], defn(./FOLDER[$1]))ifelse(defn([GIT_CSV]), [], [
 
 	ROOT_ERROR([git record for ‘]./FOLDER[$1][’ not found, regenerate git database])
 ])dnl
-GT() AH([$1], defn([SRC_REPO_NAME])FOLDER[$1], SRC_FILE_PATH[]FOLDER[$1])</div>
+GT() AH([$1], defn([SRC_REPO_NAME], [FOLDER])[$1], SRC_FILE_PATH[]defn([FOLDER])[$1])</div><a href="[#]defn(__file__.mono.defn([FOLDER])[$1]):cmd" title="⚓">🔗</a></div>
 divert(-1)
 
 		INSERT_FILE(defn([FOLDER])[$1])
@@ -66,7 +66,7 @@ divert(-1)
 
 # GIT_CSV for AH() is already set in INSERT_FILE
 divert(REFERENCES_TO_FILES)dnl
-AH([$1], defn([SRC_REPO_NAME])FOLDER[$1], SRC_FILE_PATH[]FOLDER[$1]) dnl
+AH([$1], defn([SRC_REPO_NAME])defn([FOLDER])[$1], SRC_FILE_PATH[]defn([FOLDER])[$1]) dnl
 divert(-1)
 
 		# right recursive loop

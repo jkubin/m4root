@@ -15,11 +15,16 @@ define([INSERT_FILE], [
 		ROOT_ERROR([git record for ‘$1’ not found, regenerate git database])
 	])
 
-	ADD_JAVASCRIPT_FOR_LINE_NUMBERS()
+	ifdef(__file__.mono.[$1], [], [
+
+		ROOT_WARNING([reference for ‘$1’ not found; run ‘make -B refs …’ to regenerate file references])
+	])
+
+	ADD_JAVASCRIPT_FOR_SOURCE_CODE()
 
 	# ARG1 after the file processing removes unwanted trailing newline character
 	divert(CURRQU)dnl
-<div class="ADD_CLASS([src])"><pre id="NSP()patsubst([$1], [[/_.]], [-])"[]ifelse([$2], [], [], [ title="[$2]"])>ARG1(esyscmd([sed -f html/process_src.sed $1]))</pre><code><span title="ARG3(GIT_CSV)">ARG2(GIT_CSV)</span>AH(patsubst([$1], [.*/]), defn([SRC_REPO_NAME])[$1], defn([SRC_FILE_PATH])[$1])<a href="[#]NSP()patsubst([$1], [[/_.]], [-])" title="⚓">🔗</a></code></div>
+<div class="ADD_CLASS([src])"><pre id="defn(__file__.mono.[$1])"[]ifelse([$2], [], [], [ title="[$2]"])>ARG1(esyscmd([sed -f html/process_src.sed $1]))</pre><code><span title="ARG3(GIT_CSV)">ARG2(GIT_CSV)</span>AH(patsubst([$1], [.*/]), defn([SRC_REPO_NAME])[$1], SRC_FILE_PATH[$1])<a href="[#]defn(__file__.mono.[$1])" title="⚓">🔗</a></code></div>
 divert(-1)
 
 	# test return value from sed
