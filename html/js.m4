@@ -26,8 +26,8 @@ define([ADD_JAVASCRIPT_TAGS], [
 
 	divert(JAVASCRIPT_DISABLED)dnl
 <noscript><div title="defn([WORD_INFORMATION])" class="rs-tip-major ADD_CLASS([info])">LANG(dnl
-[Srozumitelnost ukázkového zdrojového kódu zvyšuje povolený JavaScript],
-[The clarity of the sample source code increases JavaScript enabled]).</div></noscript>
+[Srozumitelnost ukázek zdrojového kódu zvyšuje povolený JavaScript],
+[Enabling JavaScript enhances the clarity of the source code samples]).</div></noscript>
 divert(JAVASCRIPT_CODE)dnl
 <script>dnl
 divert(JAVASCRIPT_CODE_END)dnl
@@ -35,39 +35,38 @@ divert(JAVASCRIPT_CODE_END)dnl
 divert(-1)
 ])
 
-#      _________________________________      __________
-# --->/ ADD_JAVASCRIPT_FOR_LINE_NUMBERS \--->/ undefine \
-#     \_________________________________/    \__________/
+#      ________________________________      __________
+# --->/ ADD_JAVASCRIPT_FOR_SOURCE_CODE \--->/ undefine \
+#     \________________________________/    \__________/
 #
 # A → β
-define([ADD_JAVASCRIPT_FOR_LINE_NUMBERS], [
+define([ADD_JAVASCRIPT_FOR_SOURCE_CODE], [
 
-	undefine([ADD_JAVASCRIPT_FOR_LINE_NUMBERS])
+	undefine([ADD_JAVASCRIPT_FOR_SOURCE_CODE])
 
 	ADD_JAVASCRIPT_TAGS()
 
 	divert(JAVASCRIPT_CODE)ARG1(esyscmd([sed -f html/js_compress.sed << EOF
-
 /*
- * a line to highlight in preformatted-source-code
- * <code data-ln="2" data-id="preformatted-source-code">keyword</ code>
+ * tag to highlight a line in a preformatted_source_code.m4
+ * <code class="m4-hgl" data-m4_preformatted_source_code.m4="2">keyword</ code>
  *
- * several lines to highlight in preformatted-source-code
- * <code data-ln="1,3,6,2" data-id="preformatted-source-code">keyword</ code>
+ * tag to highlight several lines in a preformatted-source-code.m4
+ * <code class="m4-hgl" data-m4_preformatted_source_code.m4="1,3,6,2">keyword</ code>
  * 
  * this is a preformatted target source code with lines to highlight
- * <pre id="preformatted-source-code">…</ pre>
+ * <pre id="m4_preformatted_source_code">…</ pre>
  *
  * Notes:
- * /!\ keep all global variables in dedicated namespace: m4_*
+ * /!\ keep all global variables in the dedicated namespace: m4_*
  * /!\ keep all variable names consistent with the file jscompress.js because
  * lengthy JavaScript is eventually compressed to a smaller one-line script
  *
- * NSP() is a global CSS namespace prefix defined in configuration
+ * NSP() is a global CSS namespace prefix defined in the configuration file
  */
 
-let m4_keywords = document.getElementsByClassName("]NSP()[hg"),
-		m4_all_pre_tags = document.getElementsByTagName("pre"),
+let m4_keywords = document.getElementsByClassName("]NSP()[hgl"),
+		m4_all_sources = document.getElementsByClassName("]NSP()[src"),
 		m4_associative_array_of_keywords = [];
 
 /*
@@ -76,20 +75,20 @@ let m4_keywords = document.getElementsByClassName("]NSP()[hg"),
  */
 for (let keyword of m4_keywords) {
 
-	let highlight_source_code_id = keyword.dataset.id;
+	let source_node = Object.keys(keyword.dataset), item;
 
-	if (highlight_source_code_id) {
+	for (let item of source_node) {
 
-		if (!m4_associative_array_of_keywords[highlight_source_code_id])
-			m4_associative_array_of_keywords[highlight_source_code_id] = [];
+		if (!m4_associative_array_of_keywords[item])
+			m4_associative_array_of_keywords[item] = [];
 
-		m4_associative_array_of_keywords[highlight_source_code_id].push(keyword);
+		m4_associative_array_of_keywords[item].push(keyword);
 	}
 }
 
 /*
  * copy information from attributes to dedicated element
- * in order to easily copy & paste embedded data
+ * in order to easily copy&paste embedded data
  */
 function m4_add_info() {
 
@@ -105,14 +104,12 @@ function m4_add_info() {
 		return;
 	}
 
-	source_info = document.createElement("span");
+	source_info = document.createElement("div");
 	source_info.appendChild(document.createTextNode(this.title));
 	source_info.appendChild(document.createElement("br"));
 	source_info.appendChild(document.createTextNode(this.nextSibling.title.split('\n')[1]));
 	this.source_info = source_info;
-	parent_node.appendChild(document.createElement("br"));
 
-	// append final element to the DOM tree
 	parent_node.appendChild(source_info);
 }
 
@@ -120,54 +117,57 @@ function m4_add_info() {
  * the following code links keywords with the appropriate lines
  * of source code which highlights
  */
-for (let highlighted_source_code of m4_all_pre_tags) {
+for (let source_node of m4_all_sources) {
 
 	let all_highlighting_keywords,
-		parent_node = highlighted_source_code.parentNode,
-		next_sibling = highlighted_source_code.nextSibling,
-		number_of_lines_of_code = highlighted_source_code.innerHTML.split('\n').length,
-		ordered_list = document.createElement("ol");
+		pre_node = source_node.firstElementChild,
+		source_info = pre_node.nextElementSibling,
+		lines_of_code = pre_node.innerHTML.split('\n').length,
+		striped_background = document.createElement("pre");
+
+	striped_background.setAttribute("class", "rear");
 
 	/*
 	 * add event handler for additional info
 	 */
-	if (next_sibling && next_sibling.tagName == 'CODE')
-		next_sibling.firstChild.onclick = m4_add_info;
+	if (source_info && source_info.tagName == "CODE")
+		source_info.firstChild.onclick = m4_add_info;
 
-	for (let i = 0; i < number_of_lines_of_code; i++)
-		ordered_list.appendChild(document.createElement("li"));
+	// add stripes to background
+	for (let i = 0; i < lines_of_code; i++)
+		striped_background.appendChild(document.createElement("div"));
 
 	/*
-	 * if the ID <pre id="highlighted-source-code"></ pre> is an attribute
+	 * if the <pre id="m4_highlighted_source_code"></ pre> is ID attribute
 	 * and it is referenced by a keyword or several keywords
 	 */
 	if (all_highlighting_keywords =
-		m4_associative_array_of_keywords[highlighted_source_code.id]) {
+		m4_associative_array_of_keywords[pre_node.id]) {
 
 		for (let keyword of all_highlighting_keywords) {
 
-			let lines_to_highlight = keyword.dataset.ln.split(','),
-				list_item = ordered_list.childNodes,
+			let lines_to_highlight = keyword.dataset[pre_node.id].split(','),
+				stripe = striped_background.childNodes,
 				lines_of_code_to_highlight = [];
 
 			for (let line of lines_to_highlight)
-				lines_of_code_to_highlight.push(list_item[line - 1]);
+				lines_of_code_to_highlight.push(stripe[line - 1]);
 
 			/*
 			 * attach mouse event handlers to the keyword in order to
 			 * highlight appropriate list items in the parent ordered list
 			 */
-			keyword.onmouseover=(function(lines) {
+			keyword.onmouseover = (function(lines) {
 
 				return function() {
 
 					for (let line of lines)
-						line.style.backgroundColor='red';
+						line.style.backgroundColor='greenyellow';
 				}
 
 			})(lines_of_code_to_highlight);
 
-			keyword.onmouseout=(function(lines) {
+			keyword.onmouseout = (function(lines) {
 
 				return function() {
 
@@ -185,11 +185,11 @@ for (let highlighted_source_code of m4_all_pre_tags) {
 	}
 
 	/*
-	 * append the ordered list to the DOM tree into parent_node
+	 * append the striped element to the DOM tree into source_node
 	 * as the first child just before the <pre>…</ pre> tag
 	 * Z-index is not explicitly set because the elements are in natural Z order
 	 */
-	parent_node.insertBefore(ordered_list, highlighted_source_code);
+	source_node.insertBefore(striped_background, pre_node);
 }
 
 EOF]))divert(-1)

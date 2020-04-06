@@ -1,6 +1,6 @@
 __HEADER([Josef Kubin], [2019/12/11], [root_cz])
 ___DESCR([tests logic flow (CHAPTER → SECT1 → SECT2) and generates references for anchors])
-___POINT([extracts all IDs from files and create associative pair])
+___POINT([extracts all IDs from files and creates hashing pair])
 
 # create aliases to existing macros
 # A → β
@@ -105,6 +105,23 @@ pushdef([PROCESS_ID_UNPAIRED], [
 	])
 ])
 
+# FIXME: unfinished
+# A → β
+define([TEST_CHARS_IN_STRING], [
+
+	# test punct chars
+	ifelse(patsubst([[$1]], [[%]]), [], [
+
+		ROOT_ERROR([write an [:alnum:]+ chars please])
+	])
+
+	ifelse(patsubst([[$1]], [
+]), [$1], [], [
+
+		ROOT_ERROR([‘$1’ contains prohibited char '\n'])
+	])
+])
+
 # the resulting string must be tested
 # β
 pushdef([TEST_STRING], [
@@ -114,14 +131,9 @@ pushdef([TEST_STRING], [
 		ROOT_ERROR([comma is not protected, use square brackets: ‘,’ → [,] $0(]BRAC(defn([SELITM]))[)])
 	])
 
-	# FIXME: filter all punct char class, test \n
-	# string is empty?
-	ifelse(patsubst(BRAC(defn([SELITM])), [[%]]), [], [
+	TEST_CHARS_IN_STRING(defn([SELITM]))
 
-		ROOT_ERROR([anchor is empty, write an [:alnum:]+ content please])
-	])
-
-	# create a unique string
+	# create a unique string for test
 	define([UNIQ], defn([FILE_PREFIX], [SELITM]))
 
 	# already has a value?
@@ -133,6 +145,7 @@ pushdef([TEST_STRING], [
 	# assign (file:line) value for later error message
 	define(defn([UNIQ]), __file__:__line__)
 ])
+
 
 # A → β
 define([CAPTION], [
@@ -267,7 +280,7 @@ divert(0)dnl
 [
 __HEADER([Josef Kubin], [2019/12/11], [root_cz])
 ___DESCR([(this is a generated file) associative memory to linking references, contains captions and ID])
-___POINT([linking links and simple database])
+___POINT([simple hash database for linking references])
 ]
 # A → β
 divert(ANCHORS)dnl
@@ -287,8 +300,6 @@ define([BLOCKQUOTE],			defn([PROCESS_ID]))
 define([BLOCKQUOTE_MONO],		defn([PROCESS_ID]))
 define([BRIDGEHEAD],			defn([MULTILINGUAL_HEADINGS], [TEST_STRING], [SET_UNIQ_KEY_FOR_LINK], [PRINT_ITEMS]))
 define([BRIDGEHEAD_MONO],		defn([MONOLINGUAL_HEADINGS], [TEST_STRING], [SET_UNIQ_KEY_FOR_LINK], [PRINT_ITEMS]))
-define([COMMAND_ROOT],			defn([PROCESS_ID]))
-define([COMMAND_USR],			defn([PROCESS_ID]))
 define([DESCRIPTION_LIST_DESC],		defn([PROCESS_ID]))
 define([DESCRIPTION_LIST_DESC_MONO],	defn([PROCESS_ID]))
 define([DESCRIPTION_LIST_TERM],		defn([PROCESS_ID]))
@@ -306,7 +317,6 @@ define([FOOTER_WRAP],			defn([PROCESS_ID], [EXPAND_LAST]))
 define([FORM_WRAP],			defn([PROCESS_ID], [EXPAND_LAST]))
 define([HEADER_WRAP],			defn([PROCESS_ID], [EXPAND_LAST]))
 define([HORIZONTAL_RULE],		defn([PROCESS_ID_UNPAIRED]))
-define([IMAGEDATA],			defn([PROCESS_ID]))
 define([INFO],				defn([PROCESS_ID]))
 define([ITEMIZEDLIST_WRAP],		defn([PROCESS_ID], [EXPAND_LAST]))
 define([LISTITEM],			defn([PROCESS_ID]))
@@ -320,7 +330,6 @@ define([NOTE_WRAP],			defn([PROCESS_ID], [EXPAND_LAST]))
 define([ORDEREDLIST_WRAP],		defn([PROCESS_ID], [EXPAND_LAST]))
 define([PARA],				defn([PROCESS_ID]))
 define([PARA_MONO],			defn([PROCESS_ID]))
-define([PROGRAMLISTING],		defn([PROCESS_ID]))
 define([SECTION_WRAP],			defn([PROCESS_ID], [EXPAND_LAST]))
 define([SUMMARY],			defn([PROCESS_ID]))
 define([SUMMARY_MONO],			defn([PROCESS_ID]))
