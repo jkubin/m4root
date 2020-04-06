@@ -60,12 +60,14 @@ iabbrev <buffer> <unique> fim FIGCAPTION_MONO([[dnl monolingual<cr><cr>]])dnl FI
 iabbrev <buffer> <unique> fw FIGURE_WRAP([<cr><cr><cr><cr>])dnl FIGURE_WRAP<up><up><c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> gr GRAY([<c-r>"])<esc>
 iabbrev <buffer> <unique> gt []GT()<c-r>=Eatchar('.')<cr>
+iabbrev <buffer> <unique> hc HCODE([<c-r>"], [[[%%%], [%%%]]])<left><c-o>%;;<c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> hew HEADER_WRAP([<cr><cr><cr><cr>])dnl HEADER_WRAP<up><up><c-r>=Eatchar('.')<cr>
-iabbrev <buffer> <unique> hgk HGKW([<c-r>"], [%%%], [%%%])<left><c-o>%;;<c-r>=Eatchar('.')<cr>
-iabbrev <buffer> <unique> hgl HGLN([<c-r>"], [])<c-o>T[<c-r>=Eatchar('.')<cr>
-iabbrev <buffer> <unique> hgm HGMC([<c-r>"], [%%%], [%%%])<left><c-o>%;;<c-r>=Eatchar('.')<cr>
 "iabbrev <buffer> <unique> hh H1([])<left><left><c-r>=Eatchar('.')<cr>
+"iabbrev <buffer> <unique> hh HTEXT([<c-r>"], [[[%%%], [%%%]]])<left><c-o>%;;<c-r>=Eatchar('.')<cr>
+iabbrev <buffer> <unique> hm HCODE_M4([<c-r>"], [[[%%%], [%%%]]])<left><c-o>%;;<c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> hr HORIZONTAL_RULE()<c-r>=Eatchar('.')<cr>
+iabbrev <buffer> <unique> hx HEXPL([<c-r>"], [[[%%%], [%%%]]])<left><c-o>%;;<c-r>=Eatchar('.')<cr>
+iabbrev <buffer> <unique> hxm HEXPL_M4([<c-r>"], [[[%%%], [%%%]]])<left><c-o>%;;<c-r>=Eatchar('.')<cr>
 "iabbrev <buffer> <unique> ii LI([<c-r>"])<esc>
 iabbrev <buffer> <unique> im IMAGEDATA([],dnl id<cr>[%%%],dnl title<cr>[],dnl class<cr>[],dnl style<cr>[],dnl anything<cr>[%%%, %%%],dnl [local_img, server_img]<cr>[[dnl czech<cr>%%%<cr>],<cr>[dnl english: _next_language_<cr>%%%<cr>]])<left><c-o>%<right><right><c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> inf INFO(, defn([WORD_INFORMATION]), [[dnl czech<cr><cr>],<cr>[dnl english: _next_language_<cr>%%%<cr>]])<left><c-o>%<c-o>0<down><c-r>=Eatchar('.')<cr>
