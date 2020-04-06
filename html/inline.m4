@@ -1,18 +1,19 @@
-# vim:ts=8:sw=8
+# vim:ts=20:sw=20
 
 __HEADER([Josef Kubin], [2019/12/28], [root_cz])
-___DESCR([basic set of inline elements with a subset of global attributes])
+___DESCR([inline elements with a subset of global attributes])
 ___POINT([HTML5 inline elements])
 
-# WARNING: keep all HTML tags with spell.m4 file 1:1
+# WARNING: keep all HTML tags 1:1 with spell.m4
 
 # global attributes for most tags
 # β
-pushdef([TITLE_2],	[[]ifelse([$2], [], [], [ title="[$2]"])])
-pushdef([XTITLE_2],	[[]ifelse([$2], [], [], [ title="$2"])])
-pushdef([CLASS_3],	[ifelse([$3], [], [], [ class="ADD_CLASS([$3])"])])
-pushdef([STYLE_4],	[ifelse([$4], [], [], [ style="[$4]"])])
-pushdef([ID_5],	[ifelse([$5], [], [], [ id="FIND_AND_ADD_ID_RULE_SET([$5])"])])
+pushdef([TITLE_2],		[[]ifelse([$2], [], [], [ title="[$2]"])])
+pushdef([XTITLE_2],		[[]ifelse([$2], [], [], [ title="$2"])])
+pushdef([CLASS_3],		[ifelse([$3], [], [], [ class="ADD_CLASS([$3])"])])
+pushdef([CLASS_3_EXPL],	[ class="ADD_CLASS([hg])[]ifelse([$3], [], [], [ ADD_CLASS([$3])])"])	TODO: doresit pro vsechno
+pushdef([STYLE_4],		[ifelse([$4], [], [], [ style="[$4]"])])
+pushdef([ID_5],		[ifelse([$5], [], [], [ id="FIND_AND_ADD_ID_RULE_SET([$5])"])])
 pushdef([ANYTHING_6],	[ifelse([$6], [], [], [ [$6]])])
 
 # global attributes group
@@ -27,6 +28,7 @@ define([BUN],	[BO([$1], [$2], [un])])
 define([CODE_BLUE],	[CODE([$1], [$2], [bl])])
 define([CODE_M4U],	[CODE_M4([$1], [$2], [un])])
 define([CODE_UND],	[CODE([$1], [$2], [un])])
+define([EXPL],	[SPAN([$1], [$2], [hg])])
 define([QUOTE],	[ifelse([$#], [0], [[$0]], [„$1“])])
 define([WBR],	[ifelse([$#], [0], [[$0]], [<wbr>])])
 
@@ -53,20 +55,14 @@ define([PERSON],	[ifelse([$#], [0], [[$0]], ]BRAC([<span class="rs-person"]defn(
 # β
 pushdef([VAR_TITLE_2],	[ifelse([$#], [2], [], [$2], [], [], [ title="[$2]"])])
 pushdef([VAR_CLASS_3],	[ifelse([$#], [3], [], [$3], [], [], [ class="ADD_CLASS([$3])"])])
-pushdef([VAR_CLASS_3_HIGHLIGHT],	[ class="ADD_CLASS([hg])[]ifelse([$#], [3], [], [$3], [], [], [ ADD_CLASS([$3])])"])
+pushdef([VAR_CLASS_3_HGL],	[ class="ADD_CLASS([hgl])[]ifelse([$#], [3], [], [$3], [], [], [ ADD_CLASS([$3])])"])
 pushdef([VAR_STYLE_4],	[ifelse([$#], [4], [], [$4], [], [], [ style="[$4]"])])
-pushdef([VAR_ID_5],	[ifelse([$#], [5], [], [$5], [], [], [ id="FIND_AND_ADD_ID_RULE_SET([$5])"])])
+pushdef([VAR_ID_5],		[ifelse([$#], [5], [], [$5], [], [], [ id="FIND_AND_ADD_ID_RULE_SET([$5])"])])
 pushdef([VAR_REL_6],	[ifelse([$#], [6], [], [$6], [], [], [ rel="[$6]"])])
 pushdef([VAR_ANYTHING_6],	[ifelse([$#], [6], [], [$6], [], [], [ [$6]])])
 pushdef([VAR_ANYTHING_7],	[ifelse([$#], [7], [], [$7], [], [], [ [$7]])])
 
-# β
-pushdef([VAR_TITLE_3],	[ifelse([$#], [3], [], [$3], [], [], [ title="[$3]"])])
-pushdef([VAR_CLASS_4_HIGHLIGHT],	[ class="ADD_CLASS([hg])[]ifelse([$#], [4], [], [$4], [], [], [ ADD_CLASS([$4])])"])
-pushdef([VAR_STYLE_5],	[ifelse([$#], [5], [], [$5], [], [], [ style="[$5]"])])
-pushdef([VAR_ID_6],	[ifelse([$#], [6], [], [$6], [], [], [ id="FIND_AND_ADD_ID_RULE_SET([$6])"])])
-
-# this is only an example, how to solve the problem of excessive commas
+# this is only an example, how to solve the problem of excessive commas (how to avoid coma :-)
 #define([AHTR],	[AH([$1], ifelse([$#], [2], [], [[$2]]),,,, ifelse([$#], [3], [], [[$3]]), ]defn([SELECT_LAST])[)])
 # how to use AHTR(…), an example how to reduce the amount of commas
 #
@@ -77,8 +73,8 @@ pushdef([VAR_ID_6],	[ifelse([$#], [6], [], [$6], [], [], [ id="FIND_AND_ADD_ID_R
 # AHTR([text],, [my_rel], [URL])	---> <a href="URL" rel="my_rel">text</a>
 
 # β
-pushdef([CREATE_INLINE_ELEMENT],	[define([$1], [ifelse($][#, 0, ]BRAC(BRAC($[0]))[, ]BRAC([<$2]defn([HTML_GLOBAL_ATTRIBUTES])[>$][1</$2>])[)])])
-pushdef([CREATE_INLINE_ELEMENT_EXPAND],	[define([$1], [ifelse($][#, 0, ]BRAC(BRAC($[0]))[, ]BRAC([<$2]defn([XTITLE_2], [CLASS_3], [STYLE_4], [ID_5], [ANYTHING_6])[>$][1</$2>])[)])])
+pushdef([CREATE_INLINE_ELEMENT],		[define([$1], [ifelse($][#, 0, ]BRAC(BRAC($[0]))[, ]BRAC([<$2]defn([HTML_GLOBAL_ATTRIBUTES])[>$][1</$2>])[)])])
+pushdef([CREATE_INLINE_ELEMENT_EXPAND],		[define([$1], [ifelse($][#, 0, ]BRAC(BRAC($[0]))[, ]BRAC([<$2]defn([XTITLE_2], [CLASS_3], [STYLE_4], [ID_5], [ANYTHING_6])[>$][1</$2>])[)])])
 pushdef([CREATE_INLINE_ELEMENT_SPECIAL],	[define([$1], [ifelse($][#, 0, ]BRAC(BRAC($[0]))[, ]BRAC([$2])[)])])
 
 CREATE_INLINE_ELEMENT([ABBR],	[abbr])
@@ -113,117 +109,98 @@ CREATE_INLINE_ELEMENT_EXPAND([XSPAN],	[span])
 CREATE_INLINE_ELEMENT_SPECIAL([AH],	[<a href="]defn([SELECT_LAST])"defn([VAR_TITLE_2], [VAR_CLASS_3], [VAR_STYLE_4], [VAR_ID_5], [VAR_REL_6], [VAR_ANYTHING_7])[>$1</a>])
 CREATE_INLINE_ELEMENT_SPECIAL([CODE_M4],	[<code]defn([HTML_GLOBAL_ATTRIBUTES])[>[$1]</code>])
 
-# β
-pushdef([FIND_LINK_IN_REFS], [
-
-	# find anchor in the refs_xx.m4
-	pushdef([ANCH], defn(defn([FILE_PREFIX]).anch.]defn([SELECT_LAST])[))
-
-	ifelse(defn([ANCH]), [], [
-
-		ROOT_WARNING([$0([$1], …, [‘$2’ not found]); run ‘make -B refs …’ to regenerate reference list])
-	])
-])
-
-# Highlight line(s) in source code by default color.
+# keyword to highlight line(s) in source code
 # how to use:
-# HGLN([1, 2, 3], [reference_to_source_code])
-# HGLN([1, 2, 3], [my description], [reference_to_source_code])
-# HGLN([1, 2, 3], [my description], [my_class], [reference_to_source_code])
+# HCODE([keyword], [[[1, 2, 3], [reference_to_preformatted_code]]])
+# HCODE([keyword], [my title], [[[1, 2, 3], [reference_to_preformatted_code]]])
+# HCODE([keyword], [my title], [my_class], [[[1, 2, 3], [reference_to_preformatted_code]]])
 # ...
-# A → β
-define([HGLN],	[pushdef([CURRQU], divnum)divert(-1)
+# HCODE([keyword], [[[1, 2, 3], [path/file.x]]])
+# HCODE([keyword], [my title], [[[1, 2, 3], [path/file.x]]])
+# HCODE([keyword], [my title], [my_class], [[[1, 2, 3], [path/file.x]]])
+# ...
+
+# β
+pushdef([BETA1], [pushdef([CURRQU], divnum)divert(-1)
 
 	ifelse(eval([$# < 2]), [1], [
 
 		ROOT_ERROR([the $0(…) requires at least 2 arguments])
 	])
 
-	# use binary character 0xa0 instead of &nbsp;
-	ifelse(patsubst([[$1]], [[-0-9,  ]]), [], [], [
-
-		ROOT_ERROR([forbidden character(s) found in $0([$1], …)])
-	])
-
-	]defn([FIND_LINK_IN_REFS])[
-
-divert(CURRQU)dnl
-<code[]]defn([VAR_TITLE_2], [VAR_CLASS_3_HIGHLIGHT], [VAR_STYLE_4], [VAR_ID_5], [VAR_ANYTHING_6])[ data-id="]NSP()[defn([ANCH])">$1</code>popdef([CURRQU], [ANCH])dnl
+	CREATE_DATASET(dnl
 ])
 
-# Keyword to highlight line(s) in source code by default color.
-# how to use:
-# HGKW([keyword], [1, 2, 3], [reference_to_source_code])
-# HGKW([keyword], [1, 2, 3], [my description], [reference_to_source_code])
-# HGKW([keyword], [1, 2, 3], [my description], [my_class], [reference_to_source_code])
-# ...
-# A → β
-define([HGKW],	[pushdef([CURRQU], divnum)divert(-1)
-
-	ifelse(eval([$# < 3]), [1], [
-
-		ROOT_ERROR([the $0(…) requires at least 3 arguments])
-	])
-
-	ifelse(patsubst([[$2]], [[-0-9, ]]), [], [], [
-
-		ROOT_ERROR([forbidden character(s) found in $0(…, [$2], …)])
-	])
-
-	]defn([FIND_LINK_IN_REFS])[
+# β
+pushdef([BETA2], [)
 
 divert(CURRQU)dnl
-<code[]]defn([VAR_TITLE_3], [VAR_CLASS_4_HIGHLIGHT], [VAR_STYLE_5], [VAR_ID_6], [VAR_ANYTHING_7])[ data-id="]NSP()[defn([ANCH])" data-ln="patsubst([[$2]], [ ])">$1</code>popdef([CURRQU], [ANCH])dnl
-])
+<$0_TAG[]])
 
-# Keyword for multi-colored highlighting line(s) in source code (not yet finished).
-# how to use:
-# HGMC([keyword], ['red':[1, 2, 3], 'teal':[5, 6], '#0f0':[8, 9]], [reference_to_source_code])
-# HGMC([keyword], ['red':[1, 2, 3], 'teal':[5, 6], '#0f0':[8, 9]], [my description], [reference_to_source_code])
-# HGMC([keyword], ['red':[1, 2, 3], 'teal':[5, 6], '#0f0':[8, 9]], [my description], [my_class], [reference_to_source_code])
-# ...
+# β
+pushdef([BETA3], [defn([DATA_SET])>$1</$0_TAG>popdef([CURRQU], [DATA_SET_KEY], [DATA_SET])])
+pushdef([BETA4], [defn([DATA_SET])>[$1]</$0_TAG>popdef([CURRQU], [DATA_SET_KEY], [DATA_SET])])
+pushdef([SUPER_BETA], defn([BETA1], [EXPAND_LAST], [BETA2], [VAR_TITLE_2], [VAR_CLASS_3_HGL], [VAR_STYLE_4], [VAR_ID_5], [VAR_ANYTHING_6]))
+
 # A → β
-define([HGMC],	[pushdef([CURRQU], divnum)divert(-1)
+define([HCODE], defn([SUPER_BETA], [BETA3]))
+define([HCODE_M4], defn([SUPER_BETA], [BETA4]))
+define([HEXPL], defn([SUPER_BETA], [BETA3]))
+define([HEXPL_M4], defn([SUPER_BETA], [BETA4]))
 
-	ifelse(eval([$# < 3]), [1], [
+# A → β
+define([HCODE_M4_TAG], [code])
+define([HCODE_TAG], [code])
+define([HEXPL_M4_TAG], [span])
 
-		ROOT_ERROR([the $0(…) requires at least 3 arguments])
+# A → β
+define([REMOVE_SPACES],	[translit([[$1]], [ ])])
+define([SELECT_ARG2],	[[$2]])
+
+# A → β
+define([CREATE_DATASET], [
+
+	ifelse([$1], [], [], [
+
+		define([DATA_SET_KEY], defn(__file__.mono.SELECT_ARG2($1)))
+
+		ifelse(defn([DATA_SET_KEY]), [], [
+
+			ROOT_WARNING([key for data set ‘]SELECT_ARG2($1)[’ not found; run ‘make -B refs …’ to regenerate reference list])
+		])
+
+		define([DATA_SET], defn([DATA_SET]) data-defn([DATA_SET_KEY])="REMOVE_SPACES(SELECT_ARG1($1))")
+
+		$0(shift($@))
 	])
-
-	ifelse(patsubst([[$2]], [[-0-9a-z:()#, []]]), [], [], [
-
-		ROOT_ERROR([forbidden character(s) found in $0(…, [$2], …)])
-	])
-
-	]defn([FIND_LINK_IN_REFS])[
-
-divert(CURRQU)dnl
-<code[]]defn([VAR_TITLE_3], [VAR_CLASS_4_HIGHLIGHT], [VAR_STYLE_5], [VAR_ID_6], [VAR_ANYTHING_7])[ data-id="]NSP()[defn([ANCH])" data-mc="patsubst([[$2]], [ ])">$1</code>popdef([CURRQU], [ANCH])dnl
 ])
 
 # forget local β rules (good for frozen files)
 popdef(
 
 	[ANYTHING_6],
+	[BETA1],
+	[BETA2],
+	[BETA3],
+	[BETA4],
 	[CLASS_3],
+	[CLASS_3_EXPL],
 	[CREATE_INLINE_ELEMENT],
 	[CREATE_INLINE_ELEMENT_EXPAND],
 	[CREATE_INLINE_ELEMENT_SPECIAL],
-	[FIND_LINK_IN_REFS],
 	[HTML_GLOBAL_ATTRIBUTES],
 	[ID_5],
 	[STYLE_4],
+	[SUPER_BETA],
 	[TITLE_2],
+	[VAR_ANYTHING_6],
 	[VAR_ANYTHING_7],
 	[VAR_CLASS_3],
-	[VAR_CLASS_4_HIGHLIGHT],
+	[VAR_CLASS_3_HGL],
 	[VAR_ID_5],
-	[VAR_ID_6],
 	[VAR_REL_6],
 	[VAR_STYLE_4],
-	[VAR_STYLE_5],
 	[VAR_TITLE_2],
-	[VAR_TITLE_3],
 	[XTITLE_2],
 
 )
