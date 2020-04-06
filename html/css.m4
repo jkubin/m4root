@@ -106,8 +106,14 @@ font-weight:bold;
 
 ])
 
-font-family:"Courier New",Courier,monospace;
 CSS_CLASS_RULE_SET([[]],	[usc, root],	[[]], [
+
+position:relative;
+
+])
+
+font-family:"Courier New",Courier,monospace;
+CSS_CLASS_RULE_SET([[]],	[usc, root],	[[>div]], [
 
 background:#fff;
 border-radius:4px;
@@ -126,15 +132,17 @@ CSS_CLASS_RULE_SET([[]],	[src],	[[]], [
 
 background:#fff;
 border-radius:4px;
+counter-reset:NSP()nl;
 position:relative;
 
 ])
 
-CSS_CLASS_RULE_SET([[]],	[src],	[[>a]], [
+font-weight:normal;
+CSS_CLASS_RULE_SET([[]],	[src, usc, root],	[[>a]], [
 
 background-color:hsla(0,0%,86%,.5);
-border-radius:0 4px;
 border:1px solid #ddd;
+border-radius:0 4px;
 font-size:.7em;
 padding:2px 4px;
 position:absolute;
@@ -160,6 +168,7 @@ font-weight:bold;
 padding:2px 4px;
 position:absolute;
 right:0;
+text-align:right;
 top:0;
 
 ])
@@ -167,6 +176,15 @@ top:0;
 CSS_CLASS_RULE_SET([[]],	[src],	[[>code a]], [
 
 margin-left:.6em;
+
+])
+
+font-weight:normal;
+CSS_CLASS_RULE_SET([[]],	[src],	[[>code>div]], [
+
+background:#eee;
+font-weight:initial;
+text-align:left;
 
 ])
 
@@ -182,47 +200,65 @@ font-weight:normal;
 
 ])
 
-CSS_CLASS_RULE_SET([[]],	[src],	[[>code::before]], [
+# superfluous noise
+_CSS_CLASS_RULE_SET([[]],	[src],	[[>code::before]], [
 
-content:"git:";
-margin-right:.1em;
+content:"git";
+font-weight:normal;
+margin-right:.5em;
 
 ])
 
-border-bottom:1px dotted #000;
 CSS_CLASS_RULE_SET([[]],	[src],	[[>code>span:first-child]], [
 
-text-decoration:underline dashed;
 cursor:pointer;
+text-decoration:#f04c23 underline dashed;
 
 ])
 
-CSS_CLASS_RULE_SET([[]],	[src],	[[ ol]], [
+CSS_CLASS_RULE_SET([[]],	[src],	[[ pre.rear]], [
 
-font-size:.8em;
-left:-2em;
-line-height:1.1;
-padding:9px 0;
+left:0;
+overflow:visible;
+padding-left:0;
+padding-right:0;
 position:absolute;
 top:0;
-width:100%;
 
 ])
 
-CSS_CLASS_RULE_SET([[]],	[src],	[[ ol li]], [
+CSS_CLASS_RULE_SET([[]],	[src],	[[ pre.rear div]], [
 
-margin:0;
+position:relative;
 
 ])
 
-CSS_CLASS_RULE_SET([[]],	[src],	[[ ol li:nth-child(even)]], [
+CSS_CLASS_RULE_SET([[]],	[src],	[[ pre.rear div:nth-child(even)]], [
 
 background:#f5f5f5;
 
 ])
 
+CSS_CLASS_RULE_SET([[]],	[src],	[[ pre.rear div::before]], [
+
+content:counter(NSP()nl);
+counter-increment:NSP()nl;
+left:-3em;
+position:absolute;
+text-align:right;
+top:0;
+width:2.5em;
+
+])
+
+CSS_CLASS_RULE_SET([[]],	[src],	[[ pre.rear div::after]], [
+
+content:" ";
+
+])
+
 border-bottom:1px dashed #000;
-CSS_CLASS_RULE_SET([[]],	[hg],	[[]], [
+CSS_CLASS_RULE_SET([[]],	[hg, hgl],	[[]], [
 
 border-bottom:1px dotted #000;
 cursor:help;
@@ -236,20 +272,20 @@ cursor:help;
 
 ])
 
-CSS_CLASS_RULE_SET([[]],	[usc, root],	[[ a]], [
+CSS_CLASS_RULE_SET([[]],	[usc, root],	[[ div a]], [
 
 color:inherit;
 
 ])
 
-CSS_CLASS_RULE_SET([[]],	[usc],	[[::before]], [
+CSS_CLASS_RULE_SET([[]],	[usc],	[[ div::before]], [
 
 content:"CMD() ";
 font-weight:normal;
 
 ])
 
-CSS_CLASS_RULE_SET([[]],	[root],	[[::before]], [
+CSS_CLASS_RULE_SET([[]],	[root],	[[ div::before]], [
 
 content:"ROO() ";
 font-weight:normal;
@@ -335,9 +371,18 @@ margin-right:.5em;
 ])
 
 # if the middle bracket is sempty, place the ruleset unconditionally in the stylesheet
+
+# add space between number and chapter text
 CSS_CLASS_RULE_SET([[.urs ]],	[],	[[p[]LB()id^="NSP()TOCP-"RB()>a>b]], [
 
 font-weight:normal;
 margin-right:.6em;
+
+])
+
+# do not break the text in the middle
+CSS_CLASS_RULE_SET([[.urs code]],	[],	[[]], [
+
+display:inline-block;
 
 ])
