@@ -9,7 +9,8 @@ ___POINT([HTML5 block-level elements])
 # html tag attributes (at the end of this file will be forgotten)
 # β
 pushdef([ID_1],		[ifelse([$#], [1], [], [$1], [], [], [ id="FIND_AND_ADD_ID_RULE_SET([$1])"])])
-pushdef([ID_1_ANCHOR],	[ifelse([$#], [1], [], [$1], [], [], [<a href="[#]FIND_AND_ADD_ID_RULE_SET([$1])" title="⚓">🔗</a>])])
+pushdef([ID_1_MONO],	[ifelse([$#], [1], [], [$1], [], [], [ id="FIND_AND_ADD_ID_RULE_SET_MONO([$1])"])])
+pushdef([ID_1_ANCHOR],	[ifelse([$#], [1], [], [$1], [], [], [<a href="[#]FIND_AND_ADD_ID_RULE_SET_MONO([$1])" title="⚓">🔗</a>])])
 pushdef([TITLE_2],		[ifelse([$#], [2], [], [$2], [], [], [ title="[$2]"])])
 pushdef([CLASS_3],		[ifelse([$#], [3], [], [$3], [], [], [ class="ADD_CLASS([$3])"])])
 pushdef([CLASS_3_EXCL],	[ class="rs-tip-major ADD_CLASS([excl])ifelse([$#], [3], [], [$3], [], [], [ ADD_CLASS([$3])])"])
@@ -26,15 +27,16 @@ pushdef([ANYTHING_5],	[ifelse([$#], [5], [], [$5], [], [], [ [$5]])])
 
 # html tag attributes groups
 # β
-pushdef([HTML_EXCL_ATTRIBUTES],	defn([ID_1], [TITLE_2], [CLASS_3_EXCL], [STYLE_4], [ANYTHING_5]))
+pushdef([HTML_EXCL_ATTRIBUTES],	defn([ID_1_MONO], [TITLE_2], [CLASS_3_EXCL], [STYLE_4], [ANYTHING_5]))
 pushdef([HTML_GLOBAL_ATTRIBUTES],	defn([ID_1], [TITLE_2], [CLASS_3], [STYLE_4], [ANYTHING_5]))
+pushdef([HTML_MONO_GLOBAL_ATTRIBUTES],	defn([ID_1_MONO], [TITLE_2], [CLASS_3], [STYLE_4], [ANYTHING_5]))
 pushdef([HTML_HEADING_ATTRIBUTES],	[ id="ADD_ID_RULE(defn([#ID]))"]defn([TITLE_2], [CLASS_3_HEADING], [STYLE_4], [ANYTHING_5]))
 pushdef([HTML_BRIDGEHEAD_ATTRIBUTES],	[ id="ADD_ID_RULE(defn([#ID]))"]defn([TITLE_2], [CLASS_3_BRIDGEHEAD], [STYLE_4], [ANYTHING_5]))
-pushdef([HTML_INFO_ATTRIBUTES],	defn([ID_1], [TITLE_2], [CLASS_3_INFO], [STYLE_4], [ANYTHING_5]))
-pushdef([HTML_NOTE_ATTRIBUTES],	defn([ID_1], [TITLE_2], [CLASS_3_NOTE], [STYLE_4], [ANYTHING_5]))
-pushdef([HTML_ROOT_CMD_ATTRIBUTES],	defn([ID_1], [TITLE_2], [CLASS_3_ROOT_CMD], [STYLE_4], [ANYTHING_5]))
-pushdef([HTML_USR_CMD_ATTRIBUTES],	defn([ID_1], [TITLE_2], [CLASS_3_USR_CMD], [STYLE_4], [ANYTHING_5]))
-pushdef([HTML_WARN_ATTRIBUTES],	defn([ID_1], [TITLE_2], [CLASS_3_WARN], [STYLE_4], [ANYTHING_5]))
+pushdef([HTML_INFO_ATTRIBUTES],	defn([ID_1_MONO], [TITLE_2], [CLASS_3_INFO], [STYLE_4], [ANYTHING_5]))
+pushdef([HTML_NOTE_ATTRIBUTES],	defn([ID_1_MONO], [TITLE_2], [CLASS_3_NOTE], [STYLE_4], [ANYTHING_5]))
+pushdef([HTML_ROOT_CMD_ATTRIBUTES],	defn([ID_1_MONO], [TITLE_2], [CLASS_3_ROOT_CMD], [STYLE_4], [ANYTHING_5]))
+pushdef([HTML_USR_CMD_ATTRIBUTES],	defn([ID_1_MONO], [TITLE_2], [CLASS_3_USR_CMD], [STYLE_4], [ANYTHING_5]))
+pushdef([HTML_WARN_ATTRIBUTES],	defn([ID_1_MONO], [TITLE_2], [CLASS_3_WARN], [STYLE_4], [ANYTHING_5]))
 
 # convert {'&', '>', '<'} to html entities, strip trailing white chars
 # β
@@ -59,7 +61,7 @@ pushdef([SET_ANCHOR], [
 # β
 pushdef([HTML_MONOLINGUAL], [
 	divert(CURRQU)dnl
-<defn([##$0>])]defn([HTML_GLOBAL_ATTRIBUTES])[>EXPAND_ARG1_WITHOUT_TRAILING_LF(]defn([EXPAND_LAST])[)</defn([##$0>])>
+<defn([##$0>])]defn([HTML_MONO_GLOBAL_ATTRIBUTES])[>EXPAND_ARG1_WITHOUT_TRAILING_LF(]defn([EXPAND_LAST])[)</defn([##$0>])>
 divert(-1)
 ])
 
@@ -298,7 +300,7 @@ define([LINK], [pushdef([CURRQU], divnum)divert(-1)
 	])
 
 	# find link in refs
-	pushdef([ANCH], defn(defn([PREF]).anch.[$2]))
+	pushdef([ANCH], ifdef(defn([PREF]).anch.[$2], [defn(defn([PREF]).anch.[$2])], [defn(__file__.mono.[$2])]))
 
 	ifelse(defn([ANCH]), [], [
 
@@ -385,8 +387,8 @@ define([IMAGEDATA], [
 	]defn([FIND_IMG_DIM])[
 
 	divert(CURRQU)dnl
-<img src="IMG_SRC($6)" alt="[&#160;]" width="ARG1(IMAGE_DIM)" height="ARG2(IMAGE_DIM)"]defn([HTML_GLOBAL_ATTRIBUTES])[>
-<p><em>WORD_IMAGE <a href="[#]NSP()defn(defn([FILE_PREFIX]).anch.[$1])" title="🔗">COUNTER_FOR_IMAGES</a>: EXPAND_LANG_WITHOUT_TRAILING_LF(]defn([EXPAND_LAST])[)</em></p>
+<img src="IMG_SRC($6)" alt="[&#160;]" width="ARG1(IMAGE_DIM)" height="ARG2(IMAGE_DIM)"]defn([HTML_MONO_GLOBAL_ATTRIBUTES])[>
+<p><em>WORD_IMAGE <a href="[#]NSP()defn(__file__.mono.[$1])" title="🔗">COUNTER_FOR_IMAGES</a>: EXPAND_LANG_WITHOUT_TRAILING_LF(]defn([EXPAND_LAST])[)</em></p>
 divert(-1)
 ])
 
@@ -471,7 +473,7 @@ define([PROGRAMLISTING], [
 	ADD_JAVASCRIPT_FOR_SOURCE_CODE()
 
 	divert(CURRQU)dnl
-<div class="ADD_CLASS([src])"><pre[]]defn([HTML_GLOBAL_ATTRIBUTES])>defn([PROCESS_RAW_CODE_TO_HTML_ENTITIES])</pre>defn([ID_1_ANCHOR])[</div>
+<div class="ADD_CLASS([src])"><pre[]]defn([HTML_MONO_GLOBAL_ATTRIBUTES])>defn([PROCESS_RAW_CODE_TO_HTML_ENTITIES])</pre>defn([ID_1_ANCHOR])[</div>
 divert(-1)
 ])
 
@@ -558,7 +560,7 @@ divert(-1)
 pushdef([HTML_UNPAIRED_TAG], [
 
 	divert(CURRQU)dnl
-<defn([##$0>])]defn([HTML_GLOBAL_ATTRIBUTES])[>
+<defn([##$0>])]defn([HTML_MONO_GLOBAL_ATTRIBUTES])[>
 divert(-1)
 ])
 
@@ -687,6 +689,7 @@ popdef(
 	[HTML_BRIDGEHEAD_ATTRIBUTES],
 	[HTML_EXCL_ATTRIBUTES],
 	[HTML_GLOBAL_ATTRIBUTES],
+	[HTML_MONO_GLOBAL_ATTRIBUTES],
 	[HTML_INFO_ATTRIBUTES],
 	[HTML_MONOLINGUAL],
 	[HTML_MULTILINGUAL],
