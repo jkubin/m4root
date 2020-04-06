@@ -101,8 +101,10 @@ define([LINK], [pushdef([CURRQU], divnum)divert(-1)
 		ROOT_ERROR([$0($@) is not defined])
 	])
 
-	# find link in refs
-	ifelse(defn(defn([PREF]).anch.[$2]), [], [
+	# find link in refs (for test)
+	pushdef([ANCH], ifdef(defn([PREF]).anch.[$2], [defn(defn([PREF]).anch.[$2])], [defn(__file__.mono.[$2])]))
+
+	ifelse(defn([ANCH]), [], [
 
 		ROOT_WARNING([$0([$1], [‘$2’ not found], [$3], [$4]); run ‘make -B refs …’ to regenerate])
 	])
@@ -122,7 +124,7 @@ define([LINK], [pushdef([CURRQU], divnum)divert(-1)
 	])
 
 	divert(CURRQU)dnl
-CAPT[]popdef([CURRQU], [PREF], [CAPT])dnl
+CAPT[]popdef([CURRQU], [PREF], [ANCH], [CAPT])dnl
 ])
 
 # append reference to the end of spell checking file
@@ -140,6 +142,7 @@ divert(CURRQU)popdef([CURRQU])dnl
 
 # extracts data from AH(…) which has variable number of parameters, see html/inline.m4
 # A → β
+# β
 define([AH], [ifelse(
 	[$#], [0], [],
 	[$#], [1], [],
@@ -147,6 +150,23 @@ define([AH], [ifelse(
 	[$2], [], [$1],
 	[$1 ([$2])])[]dnl
 ])
+
+# A → β
+define([HEXPL], defn([AH]))
+
+# A → β
+# β
+define([HCODE_M4], [ifelse(
+	[$#], [0], [],
+	[$#], [1], [],
+	[$#], [2], [],
+	[$2], [], [],
+	[([$2])])[]dnl
+])
+
+# A → β
+define([HCODE], defn([HCODE_M4]))
+define([HEXPL_M4], defn([HCODE_M4]))
 
 # A → β
 define([BR], [
@@ -200,6 +220,7 @@ define([CODE_BLUE],	defn([CODE]))
 define([CODE_M4U],	defn([CODE]))
 define([CODE_M4],	defn([CODE]))
 define([CODE_UND],	defn([CODE]))
+define([EXPL],		defn([BO]))
 define([GRAY],		defn([BO]))
 define([PERSON],	defn([BO]))
 
