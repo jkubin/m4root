@@ -88,11 +88,14 @@ for (let keyword of m4_keywords) {
 
 /*
  * copy information from attributes to dedicated element
- * in order to easily copy&paste embedded data
+ * in order to copy&paste embedded data in one mouse click
  */
 function m4_add_info() {
 
-	var parent_node = this.parentNode, source_info;
+	var parent_node = this.parentNode,
+		source_path,
+		source_date,
+		source_info;
 
 	if (this.source_info) {
 
@@ -105,12 +108,28 @@ function m4_add_info() {
 	}
 
 	source_info = document.createElement("div");
-	source_info.appendChild(document.createTextNode(this.title));
-	source_info.appendChild(document.createElement("br"));
-	source_info.appendChild(document.createTextNode(this.nextSibling.title.split('\n')[1]));
-	this.source_info = source_info;
+	source_date = document.createElement("div");
+	source_path = document.createElement("div");
 
-	parent_node.appendChild(source_info);
+	/*
+	 * this is important for the development of articles
+	 * for easy copying and pasting
+	 * made for standard browsers (not IE) that I use
+	 */
+	if (window.getSelection)
+		source_date.onclick = source_path.onclick = function () {
+			const selected_text = window.getSelection();
+			const selected_range = document.createRange();
+			selected_range.selectNodeContents(this);
+			selected_text.removeAllRanges();
+			selected_text.addRange(selected_range);
+		}
+
+	source_date.appendChild(document.createTextNode(this.title));
+	source_path.appendChild(document.createTextNode(this.nextSibling.title.split('\n')[1]));
+	source_info.appendChild(source_date);
+	source_info.appendChild(source_path);
+	parent_node.appendChild(this.source_info = source_info);
 }
 
 /*
@@ -146,41 +165,15 @@ for (let source_node of m4_all_sources) {
 
 		for (let keyword of all_highlighting_keywords) {
 
-			let lines_to_highlight = keyword.dataset[pre_node.id].split(','),
-				stripe = striped_background.childNodes,
-				lines_of_code_to_highlight = [];
+			let lines_to_highlight = keyword.dataset[pre_node.id].split(',');
 
-			for (let line of lines_to_highlight)
-				lines_of_code_to_highlight.push(stripe[line - 1]);
+			for (let line of lines_to_highlight) {
 
-			/*
-			 * attach mouse event handlers to the keyword in order to
-			 * highlight appropriate list items in the parent ordered list
-			 */
-			keyword.onmouseover = (function(lines) {
+				if (!keyword.lines_of_code_to_highlight)
+					keyword.lines_of_code_to_highlight = [];
 
-				return function() {
-
-					for (let line of lines)
-						line.style.backgroundColor='greenyellow';
-				}
-
-			})(lines_of_code_to_highlight);
-
-			keyword.onmouseout = (function(lines) {
-
-				return function() {
-
-					for (let line of lines)
-						line.style=null;
-					/*
-					 * the line.style.backgroundColor='initial';
-					 * is buggy in google-chrome
-					 * (it does not set original background color)
-					 */
-				}
-
-			})(lines_of_code_to_highlight);
+				keyword.lines_of_code_to_highlight.push(striped_background.childNodes[line - 1]);
+			}
 		}
 	}
 
@@ -190,6 +183,25 @@ for (let source_node of m4_all_sources) {
 	 * Z-index is not explicitly set because the elements are in natural Z order
 	 */
 	source_node.insertBefore(striped_background, pre_node);
+}
+
+/*
+ * attach event handlers to the keyword in order to
+ * highlight appropriate lines
+ */
+for (let keyword of m4_keywords) {
+
+	keyword.onmouseover = function() {
+
+		for (let line of this.lines_of_code_to_highlight)
+			line.style.backgroundColor='greenyellow';
+	}
+
+	keyword.onmouseout = function() {
+
+		for (let line of this.lines_of_code_to_highlight)
+			line.style=null;
+	}
 }
 
 EOF]))divert(-1)
