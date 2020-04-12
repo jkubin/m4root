@@ -2,7 +2,7 @@
 #
 # DO NOT EDIT! This file is generated automatically!
 #
-# __SOURCE([20200331-19:43:49, intro.mc, 24a8149, 9156810])
+# __SOURCE([20200413-00:30:56, intro.mc, 362d697, b6f58e6])
 
 7
 Generování kódu v M4: úvod
@@ -133,7 +133,7 @@ Makro procesor M3 rozšířil také Jim E. Weythman, autor programové konstrukc
 [poznámka]
 
 255
-Klíčové slovo HGKW([divert](AH([ℤ], [celé číslo], [https://cs.wikipedia.org/wiki/Cel%C3%A9_%C4%8D%C3%ADslo])), 1, 5, divert(-1), divert(0), divert(1), …, divert(2147483647), common_code) přepíná výstupní fronty.
+Klíčové slovo (divert(-1), divert(0), divert(1), …, divert(2147483647)) přepíná výstupní fronty.
 Argument  zcela vypne jakýkoliv textový výstup.
 Argument  přepne výstup na  (standardní výstup).
 
@@ -224,9 +224,9 @@ Cílem tohoto úvodního dílu je hlavně ukázat praktické použití M4 na př
 Bezkontextová gramatika
 
 454
-Bezkontextová gramatika (krátce CFG (Context-Free Grammar – bezkontextová gramatika)) je formální gramatika, ve které mají všechna přepisovací pravidla tvar HGKW(A[]NB()→[]NB()β, 1, all_context_free_grammar_rules).
+Bezkontextová gramatika (krátce CFG (Context-Free Grammar – bezkontextová gramatika)) je formální gramatika, ve které mají všechna přepisovací pravidla tvar .
 Neterminál  se přepíše na libovolně dlouhý řetězec  (pravá strana přepisovacího pravidla) složený z terminálů  nebo neterminálů .
-Kleeneho hvězda (Wikipedie) HGKW(*, 3, all_context_free_grammar_rules) znamená, že se neterminál  může přepsat na  (epsilon – prázdný symbol) (přepisovací pravidlo ).
+Kleeneho hvězda (Wikipedie)  znamená, že se neterminál  může přepsat na  (epsilon – prázdný symbol) (přepisovací pravidlo ).
 
 465
 [přepisovací pravidla bezkontextové gramatiky]
@@ -253,7 +253,7 @@ Tato vlastnost je velmi důležitá pro režim preprocesoru.
 
 518
 Výchozí dvojice znaků  v M4 řídí expanzi neterminálů.
-Klíčové slovo  je může změnit na jiné znaky, například {, , }.
+Klíčové slovo  je může změnit na jiné znaky, například {(hranaté závorky), (netisknutelné znaky), (UTF-8 znaky)}.
 Neterminály, které nechceme (ihned) expandovat, jsou obklopeny touto dvojicí znaků.
 Při průchodu makro procesorem jsou všechny symboly mezi touto dvojicí znaků terminálními symboly a vnější dvojice znaků je odstraněna.
 Další průchod již způsobí expanzi původně chráněných neterminálů.
@@ -542,7 +542,7 @@ Talent a čas
 1128
 M4 obvykle nejde zcela zvládnout přes víkend, zvláště chybí-li základy
 teorie automatů (Wikipedie) a formálních gramatik (Wikipedie).
-Pro dokonalé zvládnutí M4 je nutné „odpřemýšlet si“ delší období a napsat určité množství špatného (složitého) M4 kódu, který z vlastní vůle přepíšete kvůli lepšímu nápadu.
+Ke zvládnutí jazyka M4 je nutné v něm programovat delší období a napsat množství špatného (složitého) M4 kódu, který z vlastní vůle přepíšete kvůli lepšímu nápadu.
 Tímto způsobem je možné postupně získat praxi.
 
 1145
@@ -579,7 +579,7 @@ Vstupní soubor může také obsahovat poznámky, které nemusí být skryté v 
  CSV – nejjednodušší příklad
 
 1194
-Tento příklad nepoužívá výstupní fronty, pouze generuje CSV (Comma Separated Values) oddělené znakem .
+Tento příklad nepoužívá výstupní fronty, pouze vypisuje CSV (Comma Separated Values) oddělené znakem .
 
 1204
  CSV – počítadlo
@@ -587,7 +587,7 @@ Tento příklad nepoužívá výstupní fronty, pouze generuje CSV (Comma Separa
 1210
 Příklad používá makro  z kořenového souboru, jehož  (pravá strana přepisovacího pravidla) se zkopíruje do pravé strany makra .
 Během první expanze  proběhne inicializace jeho startovací hodnoty.
-Další expanze vrátí číselný terminální symbol a proběhne zvýšení pomocného (globálního) symbolu o jedničku.
+Další expanze vrátí číselný terminální symbol a proběhne zvýšení vnitřního pomocného (globálního) symbolu o jedničku.
  je malý automat.
 
 1226
@@ -677,93 +677,96 @@ Tento příklad je podobný předchozímu, avšak každý řetězec je na novém
 
 1398
 Příklad používá dvě výstupní fronty.
-Fronta číslo  obsahuje odstavce, fronta číslo  uzavírací značky HTML stránky.
+Fronta číslo  obsahuje odstavce,
+fronta číslo  uzavírací značky HTML stránky.
 Navigační odkazy nemusí být nikde uloženy, jdou přímo na výstup.
 Zprávy typu  a  jsou zpracovány stejně jako zprávy typu .
 
-1415
+1416
  Větvení gramatikou
 
-1421
+1422
 Příklad ukazuje větvení gramatikou, argumenty maker se ignorují.
-Vstupní neterminály se přepisují na terminály (🐛), (🐜), (🐝).
+Vstupní neterminály se přepisují na terminály (🐛),
+(🐜),
+(🐝).
 
-1433
+1438
  JSON – generující automat
 
-1439
+1444
 Příklad používá dvě výstupní fronty a jeden generující automat.
 První chybová zpráva  ve stavu  vygeneruje záhlaví se závorkami a vypíše na výstup první záznam.
 Automat přejde do stavu  což je  pravidlo (takové pravidlo se používá jako pravá strana jiného přepisovacího pravidla).
 Následující chybové zprávy ve stavu  pouze vypisují na výstup jednotlivé záznamy.
 Na závěr výstupní fronty číslo  a  vypíšou znaky  a  čímž zakončí výsledný JSON.
 
-1457
+1462
  JSON – pojmenované fronty
 
-1463
+1468
 Příklad zpracovává další zprávy typu  a .
 Používá tři automaty a šest výstupních front.
 Generujeme-li složitější zdrojový kód, brzy narazíme na problém udržení konzistence indexů pro výstupní fronty.
 Abychom se vyhnuli zmatku, pojmenujeme si fronty a místo čísel používáme jména.
 
-1476
+1481
 Abychom nemuseli definovat podobná pravidla, zkopírujeme si pravou stranu 
 (je to také  pravidlo (takové pravidlo se používá jako pravá strana jiného přepisovacího pravidla)) do pravé strany pravidel  a .
 Proměnná  se přepíše na jméno makra a zřetězí se s dalším symbolem.
 Nově vzniklý neterminál se přepíše na odpovídající terminální symbol (číslo fronty nebo jméno).
 
-1487
+1492
 [větvení gramatikou v M4]
 
-1500
+1505
  JSON – generované indexy front
 
-1506
+1511
 Během vývoje se často mění pořadí a počet výstupních front, což také vyžaduje častou změnu jejich indexů.
 Indexy je proto vhodné generovat.
 Můžeme pak používat prakticky neomezený počet front.
 Následující příklad ukazuje, jak se tyto indexy generují.
 
-1522
+1527
  INI – nespojitý index front
 
-1528
+1533
 Příklad používá tři automaty a dvě výstupní fronty číslo  a  definované v odděleném souboru.
 Názvy INI sekcí jsou generovány řetězením symbolů.
 Příklad používá stejný soubor pro výstupní fronty jako příklad pro generování JSON.
 
-1542
+1547
  XML – smíšené zprávy
 
-1548
+1553
 Příklad používá jednu výstupní frontu číslo  pro uzavírací značku .
 
-1558
+1563
  XML – oddělené zprávy
 
-1564
+1569
 Příklad seskupuje zprávy podle jejich typu pomocí výstupních front.
 
-1574
+1579
  Bash 
 
-1583
+1588
  Bash 
 
-1592
+1597
 Příklady preprocesoru
 
-1592
+1597
 [pro informaci]
 
-1592
+1597
 Znaky {, , , } v názvu příkladu řídí expanzi neterminálů.
 
-1598
+1603
  Preprocesor jazyka C a M4
 
-1604
+1609
 Direktivy CPP (Preprocesor jazyka C) jsou pro M4 jednořádkový komentář, což brání nežádoucí expanzi stejně pojmenovaných maker.
 Definujeme-li bezpečnější makro , stejně pojmenované makro  nebude přepsáno.
 Jmenný prostor CPP (Preprocesor jazyka C) tak může být zcela oddělen od jmenného prostoru M4.
@@ -772,117 +775,116 @@ Apostrof  ve zdrojovém kódu ničemu nevadí.
 Apostrof uvnitř makra  je skryt do makra .
 Všimněte si jmen funkcí  nebo  a kde je expandován .
 
-1626
+1631
  CSS – vložení souboru, komentář
 
-1632
+1637
 CSS používá znak  pro kódy barev, což je také začátek jednořádkového M4 komentáře.
 Klíčové slovo  nastaví víceřádkový komentář  a přepíše se na  (epsilon – prázdný symbol).
 Komentáře se vypínají stejným klíčovým slovem  bez parametrů.
 
-1643
+1648
 [soubor vložený makro procesorem]
 
-1647
+1652
  Bash – netisknutelné znaky
 
-1653
+1658
 Bash používá oba znaky,  a .
 Nechceme-li je skrývat do makra  nebo , můžeme použít pro řízení expanze neterminálů netisknutelné znaky, viz. příklad:
 
-1665
+1670
 M4 – příklady
 
-1665
+1670
 [pro informaci]
 
-1665
+1670
 Znaky {, , , } v názvu příkladu řídí expanzi neterminálů.
 
-1672
+1677
  JSON – levá závorka 
 
-1678
+1683
 Uvnitř hranatých závorek .
 Proto je levá hranatá závorka  nahrazena makrem  z kořenového souboru.
 
-1690
+1695
  Bash – počítadla
 
-1696
+1701
 Počítadla  a  jsou definována v kořenovém souboru.
-Neterminály
- nebudou expandovány, pouze se odeberou vnější závorky.
+Neterminály  nebudou expandovány, pouze se odeberou vnější závorky.
 Nutno použít makro  z kořenového souboru.
 
-1710
+1715
  .h – závorky , , , 
 
-1716
+1721
 Prázdný pár  (nebo prázdný symbol v závorkách ) slouží jako oddělovač symbolů.
 Závorky kolem znaku komentáře  vypnou jeho původní význam, stejně jako vypnou význam silnějšího M4 komentáře .
 Vypnou také původní význam čárky  jako oddělovače argumentů maker.
 Tyto symboly se stanou obyčejnými terminálními symboly bez jakéhokoliv vedlejšího efektu.
 
-1732
+1737
  AWK – příklady bezpečnějších maker
 
-1738
+1743
 Univerzální výstraha  se ignoruje bez závorek, stejně jako , , …
 Taková makra explicitně vytváří vývojář skriptů, prohlédněte si kořenový soubor.
 
-1752
+1757
 Proč používat M4 a proč ne?
 
-1752
+1757
 [pro informaci]
 
-1752
+1757
 Znaky {, , , } v názvu příkladu řídí expanzi neterminálů.
 
-1760
+1765
  Proč generovat kód v M4
 
-1766
+1771
 přímé použití bezkontextové gramatiky (rekurze zdarma)
 pro transformaci dat stačí napsat minimum M4 kódu
 
-1766
+1771
 přímé použití automatů
 možnost vymodelovat si potřebné algoritmy (M4 nepotřebuje verze)
 
-1766
+1771
 přímé použití zásobníků
 zásobníky propojené s automaty rozšiřují možnosti generátoru kódu
 
-1766
+1771
 přímé použití výstupních front pro dočasné uložení výsledných částí kódu
 jednotlivé fronty jsou na závěr vypsány na výstup ve vzestupném pořadí
 
-1766
+1771
 výrazně vyšší rychlost generování kódu (ve srovnání s XSLT)
 nízké nároky na výpočetní zdroje
 
-1816
+1821
  Proč se vyhnout M4
 
-1822
+1827
 univerzální jazyk nízké úrovně (podobně jako jazyk C)
-nemůže konkurovat úzce specializovaným jazykům
+výměnou poskytuje ohromnou flexibilitu jako UNIX
 
-1822
-poměrně malá komunita vývojářů
+1827
+(téměř) neexistující komunita vývojářů (podzim 2019)
 M4 je téměř zapomenutý jazyk, málo existujících projektů
 
-1822
+1827
 neobvyklé programovací paradigma vyžadující splnění několika předpokladů
-M4 je kvůli nutným předpokladům náročný jazyk
+proto lze M4 považovat za náročný jazyk
 
-1822
+1827
 produktivita značně závisí na zkušenostech (možný problém s termíny)
-schopnost myslet v M4/CFG (Context-Free Grammar – bezkontextová gramatika) je nutnost
+psaní M4 skriptů vyžaduje jiný způsob myšlení
 
-1822
+1827
 údržba špatně napsaného M4 kódu není jednoduchá
 existující M4 kód je snadné proměnit ve zmatek (nutný dohled!)
 

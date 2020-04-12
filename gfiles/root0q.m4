@@ -23,6 +23,10 @@ define(`BRAC', `[$@]')
 define(`LQ', `changequote([,])format([%c], 96)changequote`'')
 define(`RQ', `changequote([,])format([%c], 39)changequote`'')
 
+# print warning to stderr if something will be problematic
+define(`ROOT_WARNING', `errprint(__file__:__line__`: warning: $*
+')')
+
 # 'abort script if something goes wrong, print the reason to stderr
 define(`ROOT_ERROR', `errprint(__file__:__line__`: error: $*
 ')m4exit(1)')

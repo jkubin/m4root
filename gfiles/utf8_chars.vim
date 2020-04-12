@@ -46,7 +46,7 @@ iabbrev <buffer> <unique> di divert()dnl0<c-d><c-o>T(<c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> dii divert(-1)0<c-d><c-r>=Eatchar('\s')<cr>
 "iabbrev <buffer> <unique> din divert(1)dnl0<c-d><c-o>T1<esc><c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> dio divert(0)dnl<cr><c-u><c-r>=Eatchar('\s')<cr>
-iabbrev <buffer> <unique> div divert()dnl<c-o>T(<c-r>=Eatchar('.')<cr>
+iabbrev <buffer> <unique> dive divert()dnl<c-o>T(<c-r>=Eatchar('.')<cr>
 "iabbrev <buffer> <unique> dive divert()dnl0<c-d><c-o>T(<c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> diven divert(1)dnl0<c-d><c-o>T(<esc><c-r>=Eatchar('.')<cr>
 "iabbrev <buffer> <unique> divn divnum<c-r>=Eatchar('\s')<cr>
@@ -123,7 +123,7 @@ iabbrev <buffer> <unique> ,q `'<c-r>=Eatchar('.')<cr>
 "iabbrev <buffer> <unique> reg regexp(⟦$⟧, ⟦%%%⟧, ⟦%%%⟧)<c-o>T$<c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> rrr ⟦⟧RR()<c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> saf ifelse(⟦$#⟧, ⟦0⟧, ⟦⟦$0⟧⟧, ⟦<c-r>"⟧)<c-r>=Eatchar('.')<cr>
-iabbrev <buffer> <unique> sh shift($@)
+iabbrev <buffer> <unique> shi shift($@)
 iabbrev <buffer> <unique> sin sinclude(⟦⟧)<left><left><c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> sn SND()<left><c-r>=Eatchar('.')<cr>
 "iabbrev <buffer> <unique> sub substr(⟦$⟧, ⟦%%%⟧, ⟦%%%⟧)<c-o>T$<c-r>=Eatchar('.')<cr>

@@ -8,6 +8,10 @@ ___POINT([multilingual targets])
 define([SERIES_NAME],	[Generování kódu v M4])
 define([LANG_VERSION],	[Česká verze])
 
+# sets the appropriate locale for a command
+define([LANG_LOCALES],	[LANG=cs_CZ.utf8])
+define([DATE_COMMAND],	defn([LANG_LOCALES])[ date '+[%-e. %B %Y],'])
+
 # preview + publish
 define([SENTENCE_ALL_PARTS],	[Všechny díly seriálu])
 define([TITLE_INPUT_FILES], 	[vstupní soubory])
@@ -23,6 +27,7 @@ define([WORD_REFERENCES],	[Odkazy])
 define([WORD_SOURCE],	[odkaz v textu])
 define([WORD_SRC],	[Zdroj: ])
 define([WORD_TOP],	[Nahoru])
+define([WORD_UPDATED],	[aktualizováno])
 define([WORD_WARNING],	[varování])
 
 # another language

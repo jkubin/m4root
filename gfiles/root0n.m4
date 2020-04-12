@@ -23,6 +23,10 @@ define(BRAC, [$@])
 define(LN, changequote`'format(`%c', 2)changequote(,))
 define(RN, changequote`'format(`%c', 6)changequote(,))
 
+# print warning to stderr if something will be problematic
+define(ROOT_WARNING, errprint(__file__:__line__: warning: $*
+))
+
 # 'abort script if something goes wrong, print the reason to stderr
 define(ROOT_ERROR, errprint(__file__:__line__: error: $*
 )m4exit(1))

@@ -8,6 +8,10 @@ ___POINT([multilingual targets])
 define([SERIES_NAME],	[Generating code in M4])
 define([LANG_VERSION],	[English version])
 
+# sets the appropriate locale for a command
+define([LANG_LOCALES],	[LANG=en_US.UTF-8 ])
+define([DATE_COMMAND],	defn([LANG_LOCALES])[ date '+[%B %-e, %Y],'])
+
 # preview + publish
 define([SENTENCE_ALL_PARTS],	[Series breakdown])
 define([TITLE_INPUT_FILES], 	[input files])
@@ -23,6 +27,7 @@ define([WORD_REFERENCES],	[References])
 define([WORD_SOURCE],	[link in the text])
 define([WORD_SRC],	[Source: ])
 define([WORD_TOP],	[Top])
+define([WORD_UPDATED],	[updated])
 define([WORD_WARNING],	[warning])
 
 # another language

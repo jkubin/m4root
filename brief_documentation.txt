@@ -90,7 +90,7 @@ Author: Josef Kubin
 Started: 2019/12/11
 Note: root_cz
 Description: tests logic flow (CHAPTER → SECT1 → SECT2) and generates references for anchors
-Reason: extracts all IDs from files and create associative pair
+Reason: extracts all IDs from files and creates hashing pair
 ---
 File: hello_world/Makefile
 Author: Josef Kubin
@@ -171,6 +171,13 @@ Description: maintains consistent files with square bracket files
 Reason: one hand-written file to generate additional files
 Usage: make h && make
 ---
+File: refs_mono.m4
+Author: Josef Kubin
+Started: 2020/04/01
+Note: m4root
+Description: (this is a generated file) associative memory for linking files
+Reason: simple hash database for files
+---
 File: tmp/refs.m4
 Author: Josef Kubin
 Started: 2019/12/11
@@ -213,6 +220,13 @@ Note: m4root
 Description: convert problematic multi-byte UTF-8 characters (CMS refuses them) to HTML entities
 Reason: converts multi-byte UTF-8 characters to HTML entities for Content Management System
 ---
+File: tmp/hgl.m4
+Author: Josef Kubin
+Started: 2020/04/04
+Note: html
+Description: 
+Reason: 
+---
 File: ver.m4
 Author: Josef Kubin
 Started: 2019/12/22
@@ -226,6 +240,13 @@ Started: 2019/08/25
 Note: root_cz
 Description: definitions of queues; table of content; languages
 Reason: source files and their order
+---
+File: refs.sed
+Author: Josef Kubin
+Started: 2020/03/30
+Note: m4root
+Description: converts strings for anchors/files to a plain-text-string format
+Reason: generate references at the lightning speed
 ---
 File: lang.m4
 Author: Josef Kubin
@@ -322,7 +343,7 @@ File: html/style.m4
 Author: Josef Kubin
 Started: 2019/12/24
 Note: root_cz
-Description: combine selectors and creates a style sheet in the reserved namespace
+Description: combine selectors and creates a style sheet (in the reserved namespace)
 Reason: the style sheet contains only the things that are actually used
 ---
 File: html/block.m4
@@ -357,7 +378,7 @@ File: html/inline.m4
 Author: Josef Kubin
 Started: 2019/12/28
 Note: root_cz
-Description: basic set of inline elements with a subset of global attributes
+Description: inline elements with a subset of global attributes
 Reason: HTML5 inline elements
 ---
 File: html/publish.sed
@@ -428,7 +449,7 @@ Author: Josef Kubin
 Started: 2019/12/11
 Note: root_cz
 Description: (this is a generated file) associative memory to linking references, contains captions and ID
-Reason: linking links and simple database
+Reason: simple hash database for linking references
 ---
 File: spell.m4
 Author: Josef Kubin
@@ -445,6 +466,13 @@ Description: keeps two ASM files consistent for both Intel and AT&T notation; us
 Reason: two ASM file formats generated from one metafile
 Usage: make h && make
 ---
+File: file_refs.m4
+Author: Josef Kubin
+Started: 2020/04/01
+Note: m4root
+Description: (this is a generated file) associative memory for linking files
+Reason: simple hash database for files
+---
 File: aux.m4
 Author: Josef Kubin
 Started: 2019/12/07
@@ -457,7 +485,7 @@ Author: Josef Kubin
 Started: 2019/12/11
 Note: root_cz
 Description: (this is a generated file) associative memory to linking references, contains captions and ID
-Reason: linking links and simple database
+Reason: simple hash database for linking references
 ---
 File: mk/fhtml.m4
 Author: Josef Kubin
@@ -479,6 +507,14 @@ Started: 2020/01/11
 Note: mk
 Description: the script creates rules for Makefile to generate XML files
 Reason: generated XML files
+---
+File: bug.m4
+Author: Josef Kubin
+Started: 2020/04/01
+Note: m4root
+Description: 
+Reason: 
+Usage: m4 bug.m4
 ---
 File: brackets.sed
 Author: Josef Kubin
@@ -516,12 +552,12 @@ Note: root_cz
 Description: processes one simple macro with files to complex block of html code
 Reason: converts list of files from command line to html code
 ---
-File: refs/refs.sed
+File: refs/mono.m4
 Author: Josef Kubin
-Started: 2020/03/30
-Note: m4root
-Description: converts strings for anchors/files to a plain-text-string format
-Reason: generate references at the lightning speed
+Started: 2020/03/29
+Note: refs
+Description: references to monolingual macros
+Reason: breakdown of references
 ---
 File: refs/demo.m4
 Author: Josef Kubin
@@ -542,11 +578,4 @@ Author: Josef Kubin
 Started: 2020/03/29
 Note: refs
 Description: sends unwanted output from other scripts to trash
-Reason: less work; none nearly duplicit files
----
-File: refs/files.m4
-Author: Josef Kubin
-Started: 2020/03/29
-Note: refs
-Description: replaces other file TODO: dodelat popis
-Reason: 
+Reason: less work; almost no duplicate files
