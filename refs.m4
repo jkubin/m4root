@@ -81,7 +81,7 @@ define([CREATE_REFERENCE], [
 	define(defn([UNIQ]), __file__:__line__)
 
 	# print ordinary reference to an identifier
-	PRINT_ORDINARY_RULE(defn([FILE_PREFIX]).anch.[$1], defn([STRING]))
+	PRINT_ORDINARY_RULE(defn([FILE_PREFIX]).anch.[$1], defn([NSP], [STRING]))
 ])
 
 # β
@@ -212,7 +212,7 @@ pushdef([PRINT_ITEMS], [
 	])
 
 	# print anchor
-	PREPARING_FOR_REGEX(defn([FILE_PREFIX]).anch.defn([REFERENCE_KEY]), defn([SELITM]))
+	PREPARING_FOR_REGEX(defn([FILE_PREFIX]).anch.defn([REFERENCE_KEY]), defn([NSP], [SELITM]))
 
 	# create string from caption for testing
 	divert(ANCHORS)dnl
