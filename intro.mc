@@ -45,13 +45,13 @@ The code generation is performed by a[]NB()tool for text transformation – BO([
 PARA([what_is_the_series_about], [[dnl czech
 Seriál je zaměřen na praktické použití BO([univerzálního makro procesoru M4]) (dále jen M4) pomocí malých příkladů.
 Popisuje také teoretický základ všech implementací.
-Cílem seriálu je seznámit čtenáře s[]NB()tímto SPAN([nástrojem], [m4 – je program příkazové řádky], [hg]) a[]NB()také programovacím SPAN([jazykem], [M4 – je programovací jazyk], [hg]).[]BR()
+Cílem seriálu je seznámit čtenáře s[]NB()tímto EXPL([nástrojem], [m4 – je program příkazové řádky]) a[]NB()také programovacím EXPL([jazykem], [M4 – je programovací jazyk]).[]BR()
 LINK([Na co se používá], [main_uses_of_m4]), jak se v[]NB()něm programuje a[]NB()jaké jsou jeho LINK([výhody], [why_to_use_m4]) a[]NB()LINK([nevýhody], [why_not_use]).
 ],
 [dnl english: _next_language_
 The series focus on the practical use of the BO([universal macro processor M4]) (hereafter M4) using small examples.
 It also describes the theoretical part of all its implementations.
-The aim of the series is to acquaint the reader with this SPAN([tool], [m4 – is a command line program], [hg]) and also the programming SPAN([language], [M4 – is a programming language], [hg]).
+The aim of the series is to acquaint the reader with this EXPL([tool], [m4 – is a command line program]) and also the programming EXPL([language], [M4 – is a programming language]).
 LINK([What is it used for], [main_uses_of_m4]), how to program in it and its LINK([advantages], [why_to_use_m4]) and LINK([disadvantages], [why_not_use]).
 ]])
 
@@ -253,12 +253,12 @@ divert(0)dnl
 ])dnl PROGRAMLISTING
 
 NOTE(, defn([WORD_NOTE]), [[dnl czech
-Klíčové slovo HGKW([[divert](AH([ℤ], [celé číslo], [https://cs.wikipedia.org/wiki/Cel%C3%A9_%C4%8D%C3%ADslo]))], [1, 5], [divert(-1), divert(0), divert(1), …, divert(2147483647)], [common_code]) přepíná výstupní fronty.
+Klíčové slovo HCODE([[divert](AH([ℤ], [celé číslo], [https://cs.wikipedia.org/wiki/Cel%C3%A9_%C4%8D%C3%ADslo]))], [divert(-1), divert(0), divert(1), …, divert(2147483647)], [[[1, 5], [common_code]]]) přepíná výstupní fronty.
 Argument CODE([-1]) zcela vypne jakýkoliv textový výstup.
 Argument CODE([0]) přepne výstup na CODE_M4([stdout]) (standardní výstup).
 ],
 [dnl english: _next_language_
-The HGKW([[divert](AH([ℤ], [integer], [https://en.wikipedia.org/wiki/Integer]))], [1, 5], [divert(-1), divert(0), divert(1), …, divert(2147483647)], [common_code]) keyword switches output queues.
+The HCODE([[divert](AH([ℤ], [integer], [https://en.wikipedia.org/wiki/Integer]))], [divert(-1), divert(0), divert(1), …, divert(2147483647)], [[[1, 5], [common_code]]]) keyword switches output queues.
 Argument CODE([-1]) completely disables any text output.
 Argument CODE([0]) switches output to CODE([stdout]) (standard output).
 ]])
@@ -452,14 +452,14 @@ dnl english: _next_language_
 ])
 
 PARA([[dnl czech
-Bezkontextová gramatika (krátce ABBR([CFG], [Context-Free Grammar – bezkontextová gramatika])) je LINK([formální gramatika], [formal_grammar_chomsky]), ve které mají všechna přepisovací pravidla tvar HGKW([A[]NB()→[]NB()β], 1, [all_context_free_grammar_rules]).
+Bezkontextová gramatika (krátce ABBR([CFG], [Context-Free Grammar – bezkontextová gramatika])) je LINK([formální gramatika], [formal_grammar_chomsky]), ve které mají všechna přepisovací pravidla tvar HCODE([A → β], [[[1], [all_context_free_grammar_rules]]]).
 Neterminál CODE_M4([A]) se přepíše na libovolně dlouhý řetězec ABBR([CODE([β])], [pravá strana přepisovacího pravidla]) složený z[]NB()terminálů CODE([Σ]) nebo neterminálů CODE([N]).
-AH([Kleeneho hvězda], [Wikipedie], [https://en.wikipedia.org/wiki/Kleene_star]) HGKW([*], 3, [all_context_free_grammar_rules]) znamená, že se neterminál CODE_M4([A]) může přepsat na ABBR([CODE([ε])], [epsilon – prázdný symbol]) (přepisovací pravidlo CODE([A[]NB()→[]NB()ε])).
+AH([Kleeneho hvězda], [Wikipedie], [https://en.wikipedia.org/wiki/Kleene_star]) HCODE([*], [[[3], [all_context_free_grammar_rules]]]) znamená, že se neterminál CODE_M4([A]) může přepsat na ABBR([CODE([ε])], [epsilon – prázdný symbol]) (přepisovací pravidlo CODE([A → ε])).
 ],
 [dnl english: _next_language_
-Context-free grammar (shortly ABBR([CFG], [Context-Free Grammar])) is a[]NB()LINK([formal grammar], [formal_grammar_chomsky]) in which all rules for rewriting have the HGKW([A[]NB()→[]NB()β], 1, [all_context_free_grammar_rules]) form.
+Context-free grammar (shortly ABBR([CFG], [Context-Free Grammar])) is a[]NB()LINK([formal grammar], [formal_grammar_chomsky]) in which all rules for rewriting have the HCODE([A → β], [[[1], [all_context_free_grammar_rules]]]) form.
 The nonterminal CODE_M4([A]) is rewritten to an arbitrarily long ABBR([CODE([β])], [the right side of the rewriting rule]) string composed of terminals CODE([Σ]) or nonterminals CODE([N]).
-AH([Kleene star], [Wikipedia], [https://en.wikipedia.org/wiki/Kleene_star]) HGKW([*], 3, [all_context_free_grammar_rules]) means that nonterminal CODE_M4([A]) can be rewritten to ABBR([CODE([ε])], [epsilon – empty symbol]) (rewriting rule CODE([A[]NB()→[]NB()ε])).
+AH([Kleene star], [Wikipedia], [https://en.wikipedia.org/wiki/Kleene_star]) HCODE([*], [[[3], [all_context_free_grammar_rules]]]) means that nonterminal CODE_M4([A]) can be rewritten to ABBR([CODE([ε])], [epsilon – empty symbol]) (rewriting rule CODE([A → ε])).
 ]])
 
 PROGRAMLISTING([all_context_free_grammar_rules], LANG([přepisovací pravidla bezkontextové gramatiky], [context-free grammar rewriting rules]), [dnl
@@ -475,13 +475,13 @@ dnl english: _next_language_
 ])
 
 PARA([[dnl czech
-Přepisovací pravidla M4 jsou stejná jako přepisovací pravidla bezkontextové gramatiky.
+Přepisovací pravidla M4 HEXPL([jsou stejná], [[[1], [all_context_free_grammar_rules]], [[2], [rewriting_rules]]]) jako přepisovací pravidla bezkontextové gramatiky.
 ],
 [dnl english: _next_language_
-The rules for rewriting are the same for context-free grammar and M4.
+The rules for rewriting HEXPL([are the same], [[[1], [all_context_free_grammar_rules]], [[2], [rewriting_rules]]]) for context-free grammar and M4.
 ]])
 
-PROGRAMLISTING(, LANG([přepisovací pravidla M4], [M4 rewriting rules]), [dnl
+PROGRAMLISTING([rewriting_rules], LANG([přepisovací pravidla M4], [M4 rewriting rules]), [dnl
 [# A → β
 define(`A', `β')
 
@@ -501,7 +501,7 @@ All keywords can be renamed or turned off completely.
 This feature is crucial for the preprocessor mode.
 ]])
 
-PROGRAMLISTING(, LANG([klíčová slova M4 jsou neterminály], [M4 keywords are nonterminals]), [dnl
+PROGRAMLISTING([keywords_are_nonterminals], LANG([klíčová slova M4 jsou neterminály], [M4 keywords are nonterminals]), [dnl
 [divert(ℤ) → ε
 define(`A', `β') → ε
 ifelse(`', `', `yes', `no') → yes
@@ -517,7 +517,7 @@ dnl english: _next_language_
 
 PARA([[dnl czech
 Výchozí dvojice znaků CODE([`']) v[]NB()M4 řídí expanzi neterminálů.
-Klíčové slovo CODE_M4([changequote()]) je může změnit na jiné znaky, například {CODE_M4([[]]), BO([CODE([␂␆])]), CODE([⟦⟧])}.
+Klíčové slovo CODE_M4([changequote()]) je může změnit na jiné znaky, například {EXPL_M4([[]], [hranaté závorky]), BO([EXPL_M4([␂␆], [netisknutelné znaky])]), EXPL_M4([⟦⟧], [UTF-8 znaky])}.
 Neterminály, které nechceme (ihned) expandovat, jsou obklopeny touto dvojicí znaků.
 Při průchodu makro procesorem jsou všechny symboly mezi touto dvojicí znaků BO([terminálními symboly]) a[]NB()vnější dvojice znaků je odstraněna.
 Další průchod již způsobí expanzi původně chráněných neterminálů.
@@ -525,7 +525,7 @@ Dvojice řídících znaků se nastavuje na začátku kořenového souboru.
 ],
 [dnl english: _next_language_
 The default character pair CODE([`']) in M4 controls the expansion of nonterminals.
-The keyword CODE_M4([changequote()]) can change them to other characters, for example {CODE_M4([[]]), BO([CODE([␂␆])]), CODE([⟦⟧])}.
+The keyword CODE_M4([changequote()]) can change them to other characters, for example {EXPL_M4([[]], [square brackets]), BO([EXPL_M4([␂␆], [nonprintable characters])]), EXPL_M4([⟦⟧], [UTF-8 characters])}.
 The nonterminals that we do not want to (immediately) expand are surrounded by this pair of characters.
 When passing through the macro processor, all the symbols between this character pair are BO([terminal symbols]) and the outer character pair is removed.
 The next pass will cause the expansion of the originally protected nonterminals.
@@ -547,9 +547,9 @@ specifický kód, dokud automat nepřejde do jiného uzlu s[]NB()jiným přepiso
 Příklady LINK([generujících automatů], [json_generating_automaton]) jsou ukázány v[]NB()příloze.
 ],
 [dnl english: _next_language_
+Automata serve as QUOTE([switches]) of grammar rules.
 Automata use the grammar rules for rewriting as nodes and change their states according to input symbols.
 The currently used rule produces a specific code to the output queue (or several output queues) until the automaton moves to another node with a[]NB()different rule.
-Automata serve as QUOTE([switches]) of grammar rules.
 The examples of LINK([generating automata], [json_generating_automaton]) are in appendix.
 ]])
 
@@ -944,10 +944,10 @@ dnl english: _next_language_
 ])
 
 PARA([[dnl czech
-Základem všech gramatik jsou přepisovací pravidla, jejichž podobu obecně popisuje:
+Základem všech gramatik jsou HEXPL([přepisovací pravidla], [[[6], [formal_definition]]]), jejichž podobu obecně popisuje:
 ],
 [dnl english: _next_language_
-All grammars are based on the rules for rewriting and their forms are generally described:
+All grammars are based on the HEXPL([rules for rewriting], [[[6], [formal_definition]]]) and their forms are generally described:
 ]])
 
 BRIDGEHEAD([formal_grammar_chomsky], [dnl czech
@@ -956,12 +956,12 @@ dnl english: _next_language_
 [Formal grammar (Chomsky type)],
 ])
 
-PROGRAMLISTING([dnl
+PROGRAMLISTING([formal_definition], [dnl
 G = (N, Σ, P, S)
-N: LANG([konečná množina neterminálních symbolů], [finite set of nonterminal symbols])
-Σ: LANG([konečná množina terminálních symbolů], [finite set of terminal symbols])
+N: LANG([konečná množina neterminálních symbolů], [a finite set of nonterminal symbols])
+Σ: LANG([konečná množina terminálních symbolů], [a finite set of terminal symbols])
    N ∩ Σ = ø
-P: LANG([konečná množina přepisovacích pravidel], [finite set of production (rewrite) rules])
+P: LANG([konečná množina přepisovacích pravidel], [a finite set of production (rewrite) rules])
    (N ∪ Σ)* N (N ∪ Σ)* → (N ∪ Σ)*
 S: LANG([je počáteční (startovací) symbol], [is the start symbol])
    S ∈ N
@@ -1128,13 +1128,13 @@ dnl english: _next_language_
 PARA([[dnl czech
 M4 obvykle nejde zcela zvládnout přes víkend, zvláště chybí-li základy[]REF([Automaty a[]NB()formální jazyky I], [Učební text FI MU], [https://is.muni.cz/elportal/estud/fi/js06/ib005/Formalni_jazyky_a_automaty_I.pdf])
 AH([teorie[]NB()automatů], [Wikipedie], [https://cs.wikipedia.org/wiki/Teorie_automat%C5%AF]) a[]NB()AH([formálních[]NB()gramatik], [Wikipedie], [https://cs.wikipedia.org/wiki/Form%C3%A1ln%C3%AD_gramatika]).
-Pro dokonalé zvládnutí M4 je nutné QUOTE([odpřemýšlet si]) delší období a[]NB()napsat určité množství špatného (složitého) M4 kódu, který z[]NB()vlastní vůle přepíšete kvůli lepšímu nápadu.
+Ke zvládnutí jazyka M4 je nutné v[]NB()něm programovat delší období a[]NB()napsat množství špatného (složitého) M4 kódu, který z[]NB()vlastní vůle přepíšete kvůli lepšímu nápadu.
 Tímto způsobem je možné postupně získat praxi.
 ],
 [dnl english: _next_language_
 M4 usually cannot be mastered over the weekend, especially when the fundamentals[]REF([Automaty a[]NB()formální jazyky I], [Učební text FI MU], [https://is.muni.cz/elportal/estud/fi/js06/ib005/Formalni_jazyky_a_automaty_I.pdf]) of
 AH([automata theory], [Wikipedia], [https://en.wikipedia.org/wiki/Automata_theory]) and AH([formal[]NB()grammars], [Wikipedia], [https://en.wikipedia.org/wiki/Formal_grammar]) are lacking.
-To master the M4, you need to spend a[]NB()longer period of time and write certain amounts of bad (complex) M4 code that you rewrite for a[]NB()better idea.
+In order to master the M4 language, it is necessary to program in a[]NB()longer period of time and write amounts of bad (complex) M4 code that you rewrite for a[]NB()better idea.
 In this way it is possible to gradually gain practice.
 ]])
 
@@ -1192,10 +1192,10 @@ dnl english: _next_language_
 ])
 
 PARA([[dnl czech
-Tento příklad nepoužívá výstupní fronty, pouze generuje ABBR([CSV], [Comma Separated Values]) oddělené znakem CODE([TAB]).
+Tento příklad nepoužívá výstupní fronty, HEXPL([pouze vypisuje], [[[5], [messages/hello.csv.m4]], [[1-3], [messages/hello.csv]]]) ABBR([CSV], [Comma Separated Values]) oddělené znakem CODE([TAB]).
 ],
 [dnl english: _next_language_
-This example does not use output queues, it only generates ABBR([CSV], [Comma Separated Values]) separated by CODE([TAB]).
+This example does not use output queues, HEXPL([it only prints], [[[5], [messages/hello.csv.m4]], [[1-3], [messages/hello.csv]]]) ABBR([CSV], [Comma Separated Values]) separated by CODE([TAB]).
 ]])
 
 INSERT_FILES_RAW_MESSAGES([hello.csv.m4], [hello.csv])
@@ -1208,15 +1208,15 @@ dnl english: _next_language_
 ])
 
 PARA([[dnl czech
-Příklad používá makro CODE_M4([COUNT_UP]) z[]NB()kořenového souboru, jehož ABBR([CODE([β])], [pravá strana přepisovacího pravidla]) se zkopíruje do pravé strany makra CODE_M4([COUNTER]).
-Během první expanze CODE_M4([COUNTER]) proběhne inicializace jeho startovací hodnoty.
-Další expanze vrátí číselný terminální symbol a[]NB()proběhne zvýšení pomocného (globálního) symbolu o[]NB()jedničku.
+Příklad používá makro CODE_M4([COUNT_UP]) z[]NB()kořenového souboru, jehož ABBR([CODE([β])], [pravá strana přepisovacího pravidla]) se zkopíruje do pravé strany makra HCODE_M4([COUNTER], [[[2], [messages/counter.csv.m4]]]).
+Během první expanze HCODE_M4([COUNTER], [[[5], [messages/counter.csv.m4]]]) proběhne inicializace jeho startovací hodnoty.
+HEXPL([Další expanze], [[[11], [messages/counter.csv.m4]]]) vrátí číselný terminální symbol a[]NB()proběhne zvýšení vnitřního pomocného (globálního) symbolu o[]NB()jedničku.
 CODE_M4([COUNTER]) je malý automat.
 ],
 [dnl english: _next_language_
-The example uses the CODE_M4([COUNT_UP]) macro from the root file whose ABBR([CODE([β])], [the right side of the rewriting rule]) is copied to the right side of the CODE_M4([COUNTER]) macro.
-During the first expansion of CODE_M4([COUNTER]) its initial value is initialized.
-Further expansion returns the numeric terminal symbol and increases the auxiliary (global) symbol by one.
+The example uses the CODE_M4([COUNT_UP]) macro from the root file whose ABBR([CODE([β])], [the right side of the rewriting rule]) is copied to the right side of the HCODE_M4([COUNTER], [[[2], [messages/counter.csv.m4]]]) macro.
+During the first expansion of HCODE_M4([COUNTER], [[[5], [messages/counter.csv.m4]]]) its initial value is initialized.
+HEXPL([Further expansion], [[[11], [messages/counter.csv.m4]]]) returns the numeric terminal symbol and increases the inner auxiliary (global) symbol by one.
 CODE_M4([COUNTER]) is a[]NB()small automaton.
 ]])
 
@@ -1306,10 +1306,10 @@ dnl english: _next_language_
 ])
 
 PARA([[dnl czech
-Příklad používá jednu výstupní frontu na znaky CODE([};]) pro uzavření pole na konci skriptu.
+Příklad používá jednu HEXPL([výstupní frontu], [[[15], [messages/array.c.m4]]]) na znaky HCODE([};], [[[16], [messages/array.c.m4]], [[9], [messages/array.c]]]) pro uzavření HEXPL([pole], [[[6-8], [messages/array.c]], [[5], [messages/array.c.m4]]]) na konci skriptu.
 ],
 [dnl english: _next_language_
-The example uses one output queue for characters CODE([};]) to close the array at the end.
+The example uses one HEXPL([output queue], [[[15], [messages/array.c.m4]]]) for characters HCODE([};], [[[16], [messages/array.c.m4]], [[9], [messages/array.c]]]) to close the HEXPL([array], [[[6-8], [messages/array.c]], [[5], [messages/array.c.m4]]]) at the end.
 ]])
 
 INSERT_FILES_MESSAGES_CODE([array.c.m4], [array.c])
@@ -1322,12 +1322,12 @@ dnl english: _next_language_
 ])
 
 PARA([[dnl czech
-Příklad spustí externí příkaz CODE([date]) a[]NB()jeho výstup umístí do hranatých závorek.
+Příklad spustí externí příkaz HCODE([date], [[[12], [messages/hello.ini.m4]], [[3], [messages/hello.ini]]]) a[]NB()jeho výstup umístí do hranatých závorek.
 Výstupem externího příkazu jsou dvě položky oddělené čárkou.
 Makro CODE_M4([ARG1()]) vybere první položku, protože druhá položka obsahuje nežádoucí znak nového řádku CODE([LF]) (SAMP([0x0a])).
 ],
 [dnl english: _next_language_
-The example runs an external CODE([date]) command and places its output in square brackets.
+The example runs an external HCODE([date], [[[12], [messages/hello.ini.m4]], [[3], [messages/hello.ini]]]) command and places its output in square brackets.
 The output of an external command are two comma-separated items.
 The CODE_M4([ARG1()]) macro selects the first item because the second item contains an unwanted CODE([LF]) (SAMP([0x0a])) new line character.
 ]])
@@ -1342,13 +1342,13 @@ dnl english: _next_language_
 ])
 
 PARA([[dnl czech
-Příklad používá makro CODE_M4([COUNTER]) pro číslování výsledných ABBR([CPP], [Preprocesor jazyka C]) maker a[]NB()jednu výstupní frontu.
-Fronta číslo CODE([1]) obsahuje direktivu preprocesoru CODE_M4([#endif]) pro zakončení hlavičkového souboru.
+Příklad používá makro HCODE_M4([COUNTER], [[[2], [messages/messages.h.m4]]]) pro číslování výsledných ABBR([CPP], [Preprocesor jazyka C]) HEXPL([maker], [[[11], [messages/messages.h.m4]], [[8-10], [messages/messages.h]]]) a[]NB()jednu výstupní frontu.
+Fronta číslo HCODE([1], [[[23], [messages/messages.h.m4]]]) obsahuje direktivu preprocesoru HCODE_M4([#endif], [[[24], [messages/messages.h.m4]], [[12], [messages/messages.h]]]) pro zakončení hlavičkového souboru.
 Převod dekadické hodnoty počítadla na dvoumístné hex-a číslo provádí klíčové slovo CODE_M4([eval()]).
 ],
 [dnl english: _next_language_
-The example uses the CODE_M4([COUNTER]) macro to number the resulting ABBR([CPP], [C preprocessor]) macros and one output queue.
-The queue number CODE([1]) contains the preprocessor directive CODE_M4([#endif]) to terminate the header file.
+The example uses the HCODE_M4([COUNTER], [[[2], [messages/messages.h.m4]]]) macro to number the resulting ABBR([CPP], [C preprocessor]) HEXPL([macros], [[[11], [messages/messages.h.m4]], [[8-10], [messages/messages.h]]]) and one output queue.
+The queue number HCODE([1], [[[23], [messages/messages.h.m4]]]) contains the preprocessor directive HCODE_M4([#endif], [[[24], [messages/messages.h.m4]], [[12], [messages/messages.h]]]) to terminate the header file.
 The decimal value of the counter is converted to the two-digit hex digit by keyword CODE_M4([eval()]).
 ]])
 
@@ -1362,11 +1362,11 @@ dnl english: _next_language_
 ])
 
 PARA([[dnl czech
-Příklad používá malý automat CODE([NEW_LINE]) pro generování znaku nového řádku CODE([\n]) a[]NB()jednu výstupní frontu číslo CODE([1]) do které se vloží znaky CODE([";]) pro uzavření výsledného řetězce.
+Příklad používá HEXPL([malý automat], [[[1-4], [messages/stringl.c.m4]]]) HCODE([NEW_LINE], [[[7], [messages/stringl.c.m4]]]) pro generování znaku nového řádku CODE([\n]) a[]NB()jednu výstupní frontu číslo HCODE([1], [[[22], [messages/stringl.c.m4]]]) do které se vloží znaky CODE([";]) pro uzavření výsledného řetězce.
 Poprvé se CODE([NEW_LINE]) přepíše na ABBR([CODE([ε])], [epsilon – prázdný symbol]), podruhé a dále se přepíše na CODE([\n]).
 ],
 [dnl english: _next_language_
-The example uses a[]NB()small automaton CODE([NEW_LINE]) to generate a[]NB()newline CODE([\n]) character and one output queue number CODE([1]) containing CODE([";]) characters to terminate resulting string.
+The example uses HEXPL([a[]NB()small automaton], [[[1-4], [messages/stringl.c.m4]]]) HCODE([NEW_LINE], [[[7], [messages/stringl.c.m4]]]) to generate a[]NB()newline CODE([\n]) character and one output queue number HCODE([1], [[[22], [messages/stringl.c.m4]]]) containing CODE([";]) characters to terminate resulting string.
 Run the first time CODE([NEW_LINE]), is rewritten to ABBR([CODE([ε])], [epsilon – empty symbol]), in all following ones, it is rewritten to CODE([\n]).
 ]])
 
@@ -1396,17 +1396,18 @@ dnl english: _next_language_
 ])
 
 PARA([[dnl czech
-Příklad používá dvě výstupní fronty.
-Fronta číslo CODE([1]) obsahuje odstavce, fronta číslo CODE([2]) uzavírací značky HTML stránky.
-Navigační odkazy nemusí být nikde uloženy, jdou přímo na výstup.
-Zprávy typu CODE([QUERY]) a[]NB()CODE([WARNING]) jsou zpracovány stejně jako zprávy typu CODE([ERROR]).
+Příklad používá HEXPL([dvě výstupní fronty], [[[9, 27, 29], [messages/messages.html.m4]]]).
+Fronta číslo HCODE([1], [[[9, 27], [messages/messages.html.m4]]]) obsahuje HEXPL([odstavce], [[[10], [messages/messages.html.m4]], [[16-21], [messages/messages.html]]]),
+fronta číslo HCODE([2], [[[29], [messages/messages.html.m4]]]) HEXPL([uzavírací značky HTML], [[[30-31], [messages/messages.html.m4]], [[22-23], [messages/messages.html]]]) stránky.
+HEXPL([Navigační odkazy], [[[8], [messages/messages.html.m4]], [[9-14], [messages/messages.html]]]) nemusí být nikde uloženy, HEXPL([jdou přímo na výstup], [[[7], [messages/messages.html.m4]]]).
+Zprávy typu HCODE([QUERY], [[[15], [messages/messages.html.m4]]]) a[]NB()HCODE([WARNING], [[[16], [messages/messages.html.m4]]]) jsou zpracovány stejně jako zprávy typu HCODE([ERROR], [[[5-12], [messages/messages.html.m4]]]).
 ],
 [dnl english: _next_language_
-The example uses two output queues.
-The queue number CODE([1]) contains paragraphs.
-The queue number CODE([2]) contains closing HTML tags.
-Navigation links do not have to be stored anywhere, they go straight to the output.
-The CODE([QUERY]) and CODE([WARNING]) messages are processed in the same way as the CODE([ERROR]) messages.
+The example uses HEXPL([two output queues], [[[9, 27, 29], [messages/messages.html.m4]]]).
+The queue number HCODE([1], [[[9, 27], [messages/messages.html.m4]]]) contains HEXPL([paragraphs], [[[10], [messages/messages.html.m4]], [[16-21], [messages/messages.html]]]).
+The queue number HCODE([2], [[[29], [messages/messages.html.m4]]]) contains HEXPL([closing HTML tags], [[[30-31], [messages/messages.html.m4]], [[22-23], [messages/messages.html]]]).
+HEXPL([Navigation links], [[[8], [messages/messages.html.m4]], [[9-14], [messages/messages.html]]]) do not have to be stored anywhere, they go straight to the output.
+The HCODE([QUERY], [[[15], [messages/messages.html.m4]]]) and HCODE([WARNING], [[[16], [messages/messages.html.m4]]]) messages are processed in the same way as the HCODE([ERROR], [[[5-12], [messages/messages.html.m4]]]) messages.
 ]])
 
 INSERT_FILES_MESSAGES_MARKUP([messages.html.m4], [messages.html])
@@ -1420,11 +1421,15 @@ dnl english: _next_language_
 
 PARA([[dnl czech
 Příklad ukazuje LINK([větvení gramatikou], [nonterminals_for_branches]), argumenty maker se ignorují.
-Vstupní neterminály se přepisují na terminály CODE_M4([ERROR → 🐛], [🐛]), CODE_M4([QUERY → 🐜], [🐜]), CODE_M4([WARNING → 🐝], [🐝]).
+Vstupní neterminály se přepisují na terminály HCODE_M4([ERROR → 🐛], [🐛], [[[6, 13], [messages/insect.txt.m4]]]),
+HCODE_M4([QUERY → 🐜], [🐜], [[[6, 14], [messages/insect.txt.m4]]]),
+HCODE_M4([WARNING → 🐝], [🐝], [[[6, 15], [messages/insect.txt.m4]]]).
 ],
 [dnl english: _next_language_
 The example shows LINK([branching by grammar], [nonterminals_for_branches]), macro arguments are ignored.
-Input nonterminals are rewritten to terminals CODE_M4([ERROR → 🐛], [🐛]), CODE_M4([QUERY → 🐜], [🐜]), CODE_M4([WARNING → 🐝], [🐝]).
+Input nonterminals are rewritten to terminals HCODE_M4([ERROR → 🐛], [🐛], [[[6, 13], [messages/insect.txt.m4]]]),
+HCODE_M4([QUERY → 🐜], [🐜], [[[6, 14], [messages/insect.txt.m4]]]),
+HCODE_M4([WARNING → 🐝], [🐝], [[[6, 15], [messages/insect.txt.m4]]]).
 ]])
 
 INSERT_FILES_MESSAGES([insect.txt.m4], [insect.txt])
@@ -1437,18 +1442,18 @@ dnl english: _next_language_
 ])
 
 PARA([[dnl czech
-Příklad používá dvě výstupní fronty a[]NB()jeden generující automat.
-První chybová zpráva CODE_M4([ERROR([…])]) ve stavu CODE([ERROR]) vygeneruje záhlaví se závorkami a[]NB()vypíše na výstup první záznam.
-Automat přejde do stavu CODE([NEXT_ITEM]) což je ABBR([CODE([β]) pravidlo], [takové pravidlo se používá jako pravá strana jiného přepisovacího pravidla]).
-Následující chybové zprávy ve stavu CODE([NEXT_ITEM]) pouze vypisují na výstup jednotlivé záznamy.
-Na závěr výstupní fronty číslo CODE([1]) a[]NB()CODE([2]) vypíšou znaky CODE([RB()]) a[]NB()CODE([}}]) čímž zakončí výsledný JSON.
+Příklad používá HEXPL([dvě výstupní fronty], [[[14, 30], [messages/atm.json.m4]]]) a[]NB()jeden generující automat.
+První chybová zpráva CODE_M4([ERROR([…])]) ve stavu HCODE([ERROR], [[[6-17], [messages/atm.json.m4]]]) vygeneruje HEXPL([záhlaví se závorkami], [[[12, 15], [messages/atm.json.m4]], [[3, 7], [messages/atm.json]]]) a[]NB()vypíše na výstup HEXPL([první záznam], [[[13], [messages/atm.json.m4]], [[4], [messages/atm.json]]]).
+HEXPL([Automat přejde], [[[8, 9], [messages/atm.json.m4]]]) do stavu HCODE([NEXT_ITEM], [[[20-25], [messages/atm.json.m4]]]) což je ABBR([CODE([β]) pravidlo], [takové pravidlo se používá jako pravá strana jiného přepisovacího pravidla]).
+Následující chybové zprávy ve stavu CODE([NEXT_ITEM]) pouze vypisují na výstup HEXPL([jednotlivé záznamy], [[[23], [messages/atm.json.m4]], [[5, 6], [messages/atm.json]]]).
+Na závěr výstupní fronty číslo HCODE([1], [[[14], [messages/atm.json.m4]]]) a[]NB()HCODE([2], [[[30], [messages/atm.json.m4]]]) vypíšou znaky HCODE([RB()], [[[15], [messages/atm.json.m4]], [[7], [messages/atm.json]]]) a[]NB()HCODE([}}], [[[31], [messages/atm.json.m4]], [[8], [messages/atm.json]]]) čímž zakončí výsledný JSON.
 ],
 [dnl english: _next_language_
-The example uses two output queues and one generating automaton.
-The first CODE_M4([ERROR([…])]) error message in the CODE([ERROR]) state generates a[]NB()header with brackets and outputs the first record.
-The automaton goes to the state CODE([NEXT_ITEM]) which is a[]NB()ABBR([CODE([β]) rule], [the rule is used as the right side of another rewriting rule]).
-The following error messages in the CODE([NEXT_ITEM]) state only output individual records.
-At the end the output queue number CODE([1]) and number CODE([2]) print the characters CODE([RB()]) and CODE([}}]) to close the resulting JSON.
+The example uses HEXPL([two output queues], [[[14, 30], [messages/atm.json.m4]]]) and one generating automaton.
+The first CODE_M4([ERROR([…])]) error message in the HCODE([ERROR], [[[6-17], [messages/atm.json.m4]]]) state generates HEXPL([a[]NB()header with brackets], [[[12, 15], [messages/atm.json.m4]], [[3, 7], [messages/atm.json]]]) and outputs HEXPL([the first record], [[[13], [messages/atm.json.m4]], [[4], [messages/atm.json]]]).
+HEXPL([The automaton goes], [[[8, 9], [messages/atm.json.m4]]]) to the state HCODE([NEXT_ITEM], [[[20-25], [messages/atm.json.m4]]]) which is a[]NB()ABBR([CODE([β]) rule], [the rule is used as the right side of another rewriting rule]).
+The following error messages in the CODE([NEXT_ITEM]) state only output HEXPL([individual records], [[[23], [messages/atm.json.m4]], [[5, 6], [messages/atm.json]]]).
+At the end the output queue number HCODE([1], [[[14], [messages/atm.json.m4]]]) and number HCODE([2], [[[30], [messages/atm.json.m4]]]) print the characters HCODE([RB()], [[[15], [messages/atm.json.m4]], [[7], [messages/atm.json]]]) and HCODE([}}], [[[31], [messages/atm.json.m4]], [[8], [messages/atm.json]]]) to close the resulting JSON.
 ]])
 
 INSERT_FILES_MESSAGES_CODE([atm.json.m4], [atm.json])
@@ -1526,13 +1531,13 @@ dnl english: _next_language_
 ])
 
 PARA([[dnl czech
-Příklad používá tři automaty a[]NB()dvě výstupní fronty číslo CODE([2]) a[]NB()CODE([4]) definované v[]NB()odděleném souboru.
-Názvy INI sekcí jsou generovány řetězením symbolů.
+Příklad používá tři automaty a[]NB()dvě výstupní fronty číslo HEXPL([CODE([2]) a[]NB()CODE([4])], [[[10, 26], [messages/messages.ini.m4]]]) definované v[]NB()odděleném souboru.
+HEXPL([Názvy INI sekcí], [[[11], [messages/messages.ini.m4]], [[3, 6, 11], [messages/messages.ini]]]) jsou generovány řetězením symbolů.
 Příklad používá stejný soubor pro výstupní fronty jako LINK([příklad], [json_symbolic_queue_names]) pro generování JSON.
 ],
 [dnl english: _next_language_
 The example uses three automata and two output queues number CODE([2]) and CODE([4]) defined in a[]NB()separate file.
-INI section names are generated by symbol chaining.
+HEXPL([INI section names], [[[11], [messages/messages.ini.m4]], [[3, 6, 11], [messages/messages.ini]]]) are generated by symbol chaining.
 The example uses the same file for output queues as the LINK([example], [json_symbolic_queue_names]) to generate JSON.
 ]])
 
@@ -1546,10 +1551,10 @@ dnl english: _next_language_
 ])
 
 PARA([[dnl czech
-Příklad používá jednu výstupní frontu číslo CODE([1]) pro uzavírací značku CODE([[]LT()/messages[]GT()]).
+Příklad používá jednu výstupní frontu číslo HCODE([1], [[[21], [messages/mixed.xml.m4]]]) pro uzavírací značku HCODE([[]LT()/messages[]GT()], [[[22], [messages/mixed.xml.m4]], [[28], [messages/mixed.xml]]]).
 ],
 [dnl english: _next_language_
-The example uses one output queue number CODE([1]) for the CODE([[]LT()/messages[]GT()]) closing tag.
+The example uses one output queue number HCODE([1], [[[21], [messages/mixed.xml.m4]]]) for the HCODE([[]LT()/messages[]GT()], [[[22], [messages/mixed.xml.m4]], [[28], [messages/mixed.xml]]]) closing tag.
 ]])
 
 INSERT_FILES_MESSAGES_QUEUES_MARKUP([mixed.xml.m4], [mixed.xml])
@@ -1603,21 +1608,21 @@ dnl english: _next_language_
 
 PARA([[dnl czech
 Direktivy AH([CPP], [Preprocesor jazyka C], [https://cs.wikipedia.org/wiki/Preprocesor_jazyka_C]) jsou pro M4 jednořádkový komentář, což brání nežádoucí expanzi stejně pojmenovaných maker.
-Definujeme-li bezpečnější makro CODE([SAF()]), stejně pojmenované makro CODE([SAF ()]) nebude přepsáno.
+Definujeme-li bezpečnější makro HCODE([SAF()], [[[5], [preproc/file.c.m4]], [[12], [preproc/file.c]]]), stejně pojmenované makro HCODE([SAF ()], [[[8, 11], [preproc/file.c]]]) nebude přepsáno.
 Jmenný prostor ABBR([CPP], [Preprocesor jazyka C]) tak BO([může]) být zcela oddělen od jmenného prostoru M4.
-Problematický znak CODE([LQ()]) je skryt do makra CODE_M4([LQ()]).
-Apostrof CODE([RQ()]) ve zdrojovém kódu ničemu nevadí.
-Apostrof uvnitř makra CODE([ORD[]DEL([SPAN([()],,, [color:rgba(0,0,0,.75)])],,, [color:red])]) je skryt do makra CODE_M4([RQ()]).
-Všimněte si jmen funkcí CODE_M4([define ()]) nebo CODE_M4([ifelse ()]) a[]NB()kde je expandován CODE([SYMBOL]).
+Problematický znak CODE([LQ()]) je skryt do makra HCODE_M4([LQ()], [[[24], [preproc/file.c]]]).
+Apostrof HCODE([RQ()], [[[13, 14], [preproc/file.c]], [[13, 14], [preproc/preproc.file.c]]]) ve zdrojovém kódu ničemu nevadí.
+Apostrof uvnitř makra HCODE([ORD[]DEL([SPAN([()],,, [color:rgba(0,0,0,.75)])],,, [color:red])], [[[4], [preproc/file.c.m4]]]) je skryt do makra CODE_M4([RQ()]).
+Všimněte si jmen funkcí HCODE_M4([define ()], [[[17, 27], [preproc/file.c]], [[17, 27], [preproc/preproc.file.c]]]) nebo HCODE_M4([ifelse ()], [[[18, 28], [preproc/file.c]], [[18, 28], [preproc/preproc.file.c]]]) a[]NB()kde je expandován CODE([SYMBOL]).
 ],
 [dnl english: _next_language_
 The AH([CPP], [C preprocessor], [https://en.wikipedia.org/wiki/C_preprocessor]) directives are a[]NB()one-line comment for M4 preventing unwanted expansion of the same named macros.
-If we define a[]NB()safer CODE([SAF()]) macro, the similar CODE([SAF ()]) macro will not be overwritten.
+If we define a[]NB()safer HCODE([SAF()], [[[5], [preproc/file.c.m4]], [[12], [preproc/file.c]]]) macro, the similar HCODE([SAF ()], [[[8, 11], [preproc/file.c]]]) macro will not be overwritten.
 Thus, the ABBR([CPP], [C preprocessor]) namespace BO([can be]) completely separated from the M4 namespace.
-The problematic (backquote) character CODE([LQ()]) is hidden in the CODE_M4([LQ()]) macro.
-The apostrophe CODE([']) does not matter in the source code.
-Apostrophe inside CODE([ORD[]DEL([SPAN([()],,, [color:rgba(0,0,0,.75)])],,, [color:red])]) macro is hidden in CODE_M4([RQ()]) macro.
-Note the CODE_M4([define ()]) or CODE_M4([ifelse ()]) function names and where the CODE_M4([SYMBOL]) is expanded.
+The problematic (backquote) character CODE([LQ()]) is hidden in the HCODE_M4([LQ()], [[[24], [preproc/file.c]]]) macro.
+The apostrophe HCODE(['], [[[13, 14], [preproc/file.c]], [[13, 14], [preproc/preproc.file.c]]]) does not matter in the source code.
+Apostrophe inside HCODE([ORD[]DEL([SPAN([()],,, [color:rgba(0,0,0,.75)])],,, [color:red])], [[[4], [preproc/file.c.m4]]]) macro is hidden in CODE_M4([RQ()]) macro.
+Note the HCODE_M4([define ()], [[[17, 27], [preproc/file.c]], [[17, 27], [preproc/preproc.file.c]]]) or HCODE_M4([ifelse ()], [[[18, 28], [preproc/file.c]], [[18, 28], [preproc/preproc.file.c]]]) function names and where the CODE_M4([SYMBOL]) is expanded.
 ]])
 
 INSERT_FILES_PREPROC([q], [file.c])
@@ -1677,11 +1682,11 @@ dnl english: _next_language_
 
 PARA([[dnl czech
 Uvnitř hranatých závorek CODE_M4([[… se neterminály neexpandují …]]).
-Proto je levá hranatá závorka CODE([LB()]) nahrazena makrem CODE_M4([LB()]) z[]NB()kořenového souboru.
+Proto je levá hranatá závorka CODE([LB()]) nahrazena makrem HCODE_M4([LB()], [[[6], [hello_world/json.m4]], [[3], [hello_world/hello_world.json]]]) z[]NB()kořenového souboru.
 ],
 [dnl english: _next_language_
 The CODE_M4([[… nonterminals are not expanded …]]) inside square brackets.
-Therefore, the left square bracket CODE([LB()]) is replaced by the CODE_M4([LB()]) macro defined in the root file.
+Therefore, the left square bracket CODE([LB()]) is replaced by the HCODE_M4([LB()], [[[6], [hello_world/json.m4]], [[3], [hello_world/hello_world.json]]]) macro defined in the root file.
 ]])
 
 INSERT_FILES_HELLO_WORLD([b], [json])
@@ -1695,13 +1700,13 @@ dnl english: _next_language_
 
 PARA([[dnl czech
 Počítadla CODE_M4([COUNT_UP]) a[]NB()CODE_M4([COUNT_DOWN]) jsou definována v[]NB()kořenovém souboru.
-Neterminály[]BR()CODE_M4([[… uvnitř závorek …]]) nebudou expandovány, pouze se odeberou vnější závorky.
-Nutno použít makro CODE_M4([LB()]) z[]NB()kořenového souboru.
+HEXPL([Neterminály], [[[2-4], [hello_world/sh.m4]]]) HCODE_M4([[… uvnitř závorek …]], [[[20], [hello_world/sh.m4]], [[5], [hello_world/hello_world.sh]]]) nebudou expandovány, pouze se odeberou vnější závorky.
+Nutno použít makro HCODE_M4([LB()], [[[30], [hello_world/sh.m4]], [[15], [hello_world/hello_world.sh]]]) z[]NB()kořenového souboru.
 ],
 [dnl english: _next_language_
 The CODE_M4([COUNT_UP]) and CODE_M4([COUNT_DOWN]) counters are defined in the root file.
-The CODE_M4([[… nonterminals inside brackets …]]) will not be expanded, only the outer brackets will be removed.
-The CODE_M4([LB()]) macro defined in the root file must be used.
+The HEXPL([nonterminals], [[[2-4], [hello_world/sh.m4]]]) HCODE_M4([[… inside brackets …]], [[[20], [hello_world/sh.m4]], [[5], [hello_world/hello_world.sh]]]) will not be expanded, only the outer brackets will be removed.
+The HCODE_M4([LB()], [[[30], [hello_world/sh.m4]], [[15], [hello_world/hello_world.sh]]]) macro defined in the root file must be used.
 ]])
 
 INSERT_FILES_HELLO_WORLD([b], [sh])
@@ -1823,38 +1828,38 @@ ITEMIZEDLIST_WRAP([
 
 LISTITEM([low_level_language], [[dnl czech
 univerzální jazyk nízké úrovně (podobně jako jazyk C)
-UL([LI([nemůže konkurovat úzce specializovaným jazykům])])
+UL([LI([výměnou poskytuje ohromnou flexibilitu jako UNIX])])
 ],
 [dnl english: _next_language_
 low-level universal language (similar to C language)
-UL([LI([cannot compete with narrowly specialized languages])])
+UL([LI([in return it provides tremendous flexibility as UNIX])])
 ]])
 
 LISTITEM([nearly_forgotten_language], [[dnl czech
-poměrně malá komunita vývojářů
+(téměř) neexistující komunita vývojářů (podzim 2019)
 UL([LI([M4 je téměř zapomenutý jazyk, málo existujících projektů])])
 ],
 [dnl english: _next_language_
-a relatively small developer community
+(almost) nonexistent developer community (as of Autumn 2019)
 UL([LI([M4 is nearly forgotten language with small number of existing projects])])
 ]])
 
 LISTITEM([unusual_language], [[dnl czech
 neobvyklé programovací paradigma vyžadující splnění LINK([několika předpokladů], [prerequisites_for_mastering])
-UL([LI([M4 je kvůli nutným předpokladům náročný jazyk])])
+UL([LI([proto lze M4 považovat za náročný jazyk])])
 ],
 [dnl english: _next_language_
 unusual programming paradigm requiring LINK([several prerequisites], [prerequisites_for_mastering])
-UL([LI([M4 is therefore demanding language due to the prerequisites])])
+UL([LI([therefore, M4 can be considered a challenging language])])
 ]])
 
 LISTITEM([experience_dependent], [[dnl czech
 produktivita značně závisí na zkušenostech (možný problém s[]NB()termíny)
-UL([LI([schopnost myslet v[]NB()M4/ABBR([CFG], [Context-Free Grammar – bezkontextová gramatika]) je nutnost])])
+UL([LI([psaní M4 skriptů vyžaduje jiný způsob myšlení])])
 ],
 [dnl english: _next_language_
 productivity greatly depends on experience (problem with short-term deadlines)
-UL([LI([ability to think in M4/ABBR([CFG], [Context-Free Grammar]) is essential necessity])])
+UL([LI([writing M4 scripts requires a different way of thinking])])
 ]])
 
 LISTITEM([maintenance_could_be_hard], [[dnl czech
