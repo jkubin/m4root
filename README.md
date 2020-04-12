@@ -2,7 +2,7 @@
 ![m4tux](img/m4tux.png?raw=true)
 1. install packages
 ```
-# dnf -y install m4 pinfo make tidy
+# dnf -y install m4 pinfo make tidy git-core langpacks-cs
 ```
 2. generate files to generate other files
 ```
@@ -16,7 +16,7 @@ $ make
 ```
 $ make cl
 ```
-# For developers
+# article development
 ```
 $ make h
 $ make cl
