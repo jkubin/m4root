@@ -29,6 +29,11 @@ define([GO_BACK_UP], [<sup><a href="[#]defn([NSP], [TOCP])" title="defn([WORD_TO
 # A → β
 define([FOLDER_FOR_GENERATED_FILES], [gfiles/])
 
+# the default color of the lines to highlight the source code
+# A → β
+#define([DEFAULT_HIGHLIGHT_COLOR], [greenyellow])
+define([DEFAULT_HIGHLIGHT_COLOR], [lawngreen])
+
 ################################################################################
 #
 # Technical Notes:
