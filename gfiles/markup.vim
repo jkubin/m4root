@@ -25,11 +25,12 @@ iabbrev <buffer> <unique> br []BR()<c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> bri BRIDGEHEAD([dnl czech<cr>[],<cr>dnl english: _next_language_<cr><c-u>[%%%],<cr>])<left><c-o>%<c-o>0<down><right><c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> btn BUTTON([<c-r>"])<esc>
 iabbrev <buffer> <unique> bu BUN([<c-r>"])<esc>
+iabbrev <buffer> <unique> cbr CSS_BARE_ID_RULE_SET([[]],	[%%%], [[]], [<cr>])<up><up>;;<c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> cc CODE([<c-r>"])<esc>
 iabbrev <buffer> <unique> ccr CSS_CLASS_RULE_SET([[]],	[%%%],	[[]], [<cr>])<up><up>;;<c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> cha <c-l><cr>CHAPTER([dnl czech<cr>[],<cr>dnl english: _next_language_<cr><c-u>[%%%],<cr>])<left><c-o>%<c-o>0<down><right><c-r>=Eatchar('.')<cr>
 "iabbrev <buffer> <unique> ci CSS_ID([], [], [<cr>%%%<cr>])<left><c-o>%<right><right><c-r>=Eatchar('.')<cr>
-iabbrev <buffer> <unique> cir CSS_ID_RULE_SET([%%%], [[]], [<cr>])<up><up>;;<c-r>=Eatchar('.')<cr>
+iabbrev <buffer> <unique> cir CSS_ID_RULE_SET([[]],	[%%%], [[]], [<cr>])<up><up>;;<c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> cit CITE([<c-r>"])<esc>
 "iabbrev <buffer> <unique> cl CSS_CLASS([], [], [<cr>%%%<cr>])<left><c-o>%<right><right><c-r>=Eatchar('.')<cr>
 "iabbrev <buffer> <unique> cma CM()<c-r>=Eatchar('.')<cr>
@@ -60,19 +61,21 @@ iabbrev <buffer> <unique> fim FIGCAPTION_MONO([[dnl monolingual<cr><cr>]])dnl FI
 iabbrev <buffer> <unique> fw FIGURE_WRAP([<cr><cr><cr><cr>])dnl FIGURE_WRAP<up><up><c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> gr GRAY([<c-r>"])<esc>
 iabbrev <buffer> <unique> gt []GT()<c-r>=Eatchar('.')<cr>
-iabbrev <buffer> <unique> hc HCODE([<c-r>"], [[[%%%], [%%%]]])<left><c-o>%;;<c-r>=Eatchar('.')<cr>
+iabbrev <buffer> <unique> hc HCODE([<c-r>"], [[[%%%], [%%%]]%%%])<left><c-o>%;;<c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> hew HEADER_WRAP([<cr><cr><cr><cr>])dnl HEADER_WRAP<up><up><c-r>=Eatchar('.')<cr>
 "iabbrev <buffer> <unique> hh H1([])<left><left><c-r>=Eatchar('.')<cr>
 "iabbrev <buffer> <unique> hh HTEXT([<c-r>"], [[[%%%], [%%%]]])<left><c-o>%;;<c-r>=Eatchar('.')<cr>
-iabbrev <buffer> <unique> hm HCODE_M4([<c-r>"], [[[%%%], [%%%]]])<left><c-o>%;;<c-r>=Eatchar('.')<cr>
+iabbrev <buffer> <unique> hm HCODE_M4([<c-r>"], [[[%%%], [%%%]]%%%])<left><c-o>%;;<c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> hr HORIZONTAL_RULE()<c-r>=Eatchar('.')<cr>
-iabbrev <buffer> <unique> hx HEXPL([<c-r>"], [[[%%%], [%%%]]])<left><c-o>%;;<c-r>=Eatchar('.')<cr>
-iabbrev <buffer> <unique> hxm HEXPL_M4([<c-r>"], [[[%%%], [%%%]]])<left><c-o>%;;<c-r>=Eatchar('.')<cr>
+iabbrev <buffer> <unique> hx HEXPL([<c-r>"], [[[%%%], [%%%]]%%%])<left><c-o>%;;<c-r>=Eatchar('.')<cr>
+iabbrev <buffer> <unique> hxm HEXPL_M4([<c-r>"], [[[%%%], [%%%]]%%%])<left><c-o>%;;<c-r>=Eatchar('.')<cr>
 "iabbrev <buffer> <unique> ii LI([<c-r>"])<esc>
 iabbrev <buffer> <unique> im IMAGEDATA([],dnl id<cr>[%%%],dnl title<cr>[],dnl class<cr>[],dnl style<cr>[],dnl anything<cr>[%%%, %%%],dnl [local_img, server_img]<cr>[[dnl czech<cr>%%%<cr>],<cr>[dnl english: _next_language_<cr>%%%<cr>]])<left><c-o>%<right><right><c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> inf INFO(, defn([WORD_INFORMATION]), [[dnl czech<cr><cr>],<cr>[dnl english: _next_language_<cr>%%%<cr>]])<left><c-o>%<c-o>0<down><c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> ins INS([<c-r>"])<esc>
 iabbrev <buffer> <unique> lan LANG([<c-r>"], [])<left><left><c-r>=Eatchar('.')<cr>
+iabbrev <buffer> <unique> ,. , [[[%%%], [%%%]]%%%]<left><c-o>%;;<c-r>=Eatchar('.')<cr>
+iabbrev <buffer> <unique> ,/ , [[%%%], [%%%]]<left><c-o>%;;<c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> lii LI([<c-r>"])<esc>
 iabbrev <buffer> <unique> lim LISTITEM_MONO([[dnl monolingual<cr><cr>]])<up><c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> lit LISTITEM([[dnl czech<cr><cr>],<cr>[dnl english: _next_language_<cr>%%%<cr>]])dnl LISTITEM<up><up><up><up><c-r>=Eatchar('.')<cr>
