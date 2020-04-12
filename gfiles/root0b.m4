@@ -19,6 +19,10 @@ define([BRAC], [[$@]])
 define([LB], [changequote`'format(`%c', 91)changequote([,])])
 define([RB], [changequote`'format(`%c', 93)changequote([,])])
 
+# print warning to stderr if something will be problematic
+define([ROOT_WARNING], [errprint(__file__:__line__[: warning: $*
+])])
+
 # 'abort script if something goes wrong, print the reason to stderr
 define([ROOT_ERROR], [errprint(__file__:__line__[: error: $*
 ])m4exit(1)])
