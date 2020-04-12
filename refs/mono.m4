@@ -3,6 +3,12 @@ ___DESCR([references to monolingual macros])
 ___POINT([breakdown of references])
 
 # A → β
+define([COUNTER], defn([COUNT_UP]))
+
+# counter is an index for source code tags for more compact HTML and JavaScript
+COUNTER(0)
+
+# A → β
 define([ADD_FILE_ITEM], [
 
 		divert(0)dnl
@@ -13,7 +19,8 @@ divert(-1)
 # A → β
 define([INSERT_FILE], [
 
-	ADD_FILE_ITEM(__file__.mono.[$1]ifdef([file://$1], [:])defn([file://$1]), translit(NSP()[[$1]], [-/:A-Z], [___a-z])[]ifdef([file://$1], [:])defn([file://$1]))
+	ADD_FILE_ITEM(__file__.mono.[$1]ifdef([file://$1], [-])defn([file://$1]), translit(NSP()[[$1]], [./A-Z], [-_a-z])[]ifdef([file://$1], [-])defn([file://$1]))
+	ADD_FILE_ITEM(__file__.dset.[$1]ifdef([file://$1], [-])defn([file://$1]), COUNTER)
 
 	ifdef([file://$1], [
 
@@ -61,7 +68,7 @@ define([CREATE_REFERENCE], [
 	define(defn([UNIQ]), __file__:__line__)
 
 	# print ordinary reference to an identifier
-	ADD_FILE_ITEM(__file__.mono.[$1], translit(NSP()[[$1]], [-A-Z], [_a-z]))
+	ADD_FILE_ITEM(__file__.mono.[$1], translit(NSP()[[$1]], [_A-Z], [-a-z]))
 ])
 
 define([PROCESS_ID], [
@@ -78,7 +85,19 @@ define([PROCESS_ID], [
 define([COMMAND_ROOT],			defn([PROCESS_ID]))
 define([COMMAND_USR],			defn([PROCESS_ID]))
 define([IMAGEDATA],			defn([PROCESS_ID]))
-define([PROGRAMLISTING],		defn([PROCESS_ID]))
+
+define([PROGRAMLISTING],		defn([PROCESS_ID])[
+
+	define([SOURCE_FIELD_COUNTER], COUNTER)
+
+	# if more than 1 param, then the $[1] is surely #ID
+	ifelse(
+		[$#], [1], [],
+		[$1], [], [], [
+
+		ADD_FILE_ITEM(__file__.dset.[$1], SOURCE_FIELD_COUNTER)
+	])
+])
 
 divert(0)dnl
 [#] DONTE()

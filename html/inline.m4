@@ -11,7 +11,7 @@ ___POINT([HTML5 inline elements])
 pushdef([TITLE_2],		[[]ifelse([$2], [], [], [ title="[$2]"])])
 pushdef([XTITLE_2],		[[]ifelse([$2], [], [], [ title="$2"])])
 pushdef([CLASS_3],		[ifelse([$3], [], [], [ class="ADD_CLASS([$3])"])])
-pushdef([CLASS_3_EXPL],	[ class="ADD_CLASS([hg])[]ifelse([$3], [], [], [ ADD_CLASS([$3])])"])	TODO: doresit pro vsechno
+pushdef([CLASS_3_EXPL],	[ class="ADD_CLASS([hg])[]ifelse([$3], [], [], [ ADD_CLASS([$3])])"])
 pushdef([STYLE_4],		[ifelse([$4], [], [], [ style="[$4]"])])
 pushdef([ID_5],		[ifelse([$5], [], [], [ id="FIND_AND_ADD_ID_RULE_SET([$5])"])])
 pushdef([ANYTHING_6],	[ifelse([$6], [], [], [ [$6]])])
@@ -29,6 +29,7 @@ define([CODE_BLUE],	[CODE([$1], [$2], [bl])])
 define([CODE_M4U],	[CODE_M4([$1], [$2], [un])])
 define([CODE_UND],	[CODE([$1], [$2], [un])])
 define([EXPL],	[SPAN([$1], [$2], [hg])])
+define([EXPL_M4],	[CODE_M4([$1], [$2], [hg])])
 define([QUOTE],	[ifelse([$#], [0], [[$0]], [„$1“])])
 define([WBR],	[ifelse([$#], [0], [[$0]], [<wbr>])])
 
@@ -152,6 +153,7 @@ define([HEXPL_M4], defn([SUPER_BETA], [BETA4]))
 define([HCODE_M4_TAG], [code])
 define([HCODE_TAG], [code])
 define([HEXPL_M4_TAG], [span])
+define([HEXPL_TAG], [span])
 
 # A → β
 define([REMOVE_SPACES],	[translit([[$1]], [ ])])
@@ -162,14 +164,14 @@ define([CREATE_DATASET], [
 
 	ifelse([$1], [], [], [
 
-		define([DATA_SET_KEY], defn(__file__.mono.SELECT_ARG2($1)))
+		define([DATA_SET_KEY], defn(__file__.dset.SELECT_ARG2($1)))
 
 		ifelse(defn([DATA_SET_KEY]), [], [
 
 			ROOT_WARNING([key for data set ‘]SELECT_ARG2($1)[’ not found; run ‘make -B refs …’ to regenerate reference list])
 		])
 
-		define([DATA_SET], defn([DATA_SET]) data-defn([DATA_SET_KEY])="REMOVE_SPACES(SELECT_ARG1($1))")
+		define([DATA_SET], defn([DATA_SET]) data-defn([DATA_SET_KEY])='REMOVE_SPACES(SELECT_ARG1($1))')
 
 		$0(shift($@))
 	])
