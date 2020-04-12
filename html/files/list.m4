@@ -32,7 +32,7 @@ define([INSERT_LIST_OF_FILES], [
 	ifelse([$#], [1], [
 
 		divert(CURRQU)dnl
-<div id="defn(__file__.mono.defn([FOLDER])[$1]):cmd" title="defn([WORD_COMMAND])" class="ADD_CLASS([usc])"><div>defn([COMMAND]) dnl
+<div id="ADD_ID_RULE(defn(__file__.mono.defn([FOLDER])[$1])-command)" title="defn([WORD_COMMAND])" class="ADD_CLASS([usc])"><div>defn([COMMAND]) dnl
 ifelse(defn([ROOT_FILE]), [], [], [dnl
 define([GIT_CSV], defn(./FOLDER_FOR_GENERATED_FILES[]ROOT_FILE))ifelse(defn([GIT_CSV]), [], [
 
@@ -46,7 +46,7 @@ define([GIT_CSV], defn(./FOLDER[$1]))ifelse(defn([GIT_CSV]), [], [
 
 	ROOT_ERROR([git record for ‘]./FOLDER[$1][’ not found, regenerate git database])
 ])dnl
-GT() AH([$1], defn([SRC_REPO_NAME], [FOLDER])[$1], SRC_FILE_PATH[]defn([FOLDER])[$1])</div><a href="[#]defn(__file__.mono.defn([FOLDER])[$1]):cmd" title="⚓">🔗</a></div>
+GT() AH([$1], defn([SRC_REPO_NAME], [FOLDER])[$1], SRC_FILE_PATH[]defn([FOLDER])[$1])</div><a href="[#]defn(__file__.mono.defn([FOLDER])[$1])-command" title="⚓">🔗</a></div>
 divert(-1)
 
 		INSERT_FILE(defn([FOLDER])[$1])
