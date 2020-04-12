@@ -16,6 +16,7 @@ SOURCE     = $(wildcard *.mc)
 DOC_FILE   = brief_documentation.txt
 DEBUG_FILE = debug.m4
 ORDER_FILE = order.m4
+REFS_MONO  = refs_mono.m4
 VPATH      = gfiles
 SUBDIRS    = gfiles hello_world preproc messages asm
 MONITORED  = messages gfiles/*[bnqu].m4 hello_world asm preproc
@@ -28,7 +29,7 @@ LANG_CODES = $(patsubst lang_%.m4,%,$(wildcard lang_*.m4))
 REQ_LANGS  = $(filter-out $(ex)$(exclude), $(LANG_CODES))
 MAKE_HTML  = $(patsubst %,html_%.mk,$(REQ_LANGS))
 MAKE_FHTML = $(patsubst %,fhtml_%.mk,$(REQ_LANGS))
-MAKE_REFS  = $(patsubst %,refs_%.m4,$(REQ_LANGS))
+REFS_LANG  = $(patsubst %,refs_%.m4,$(REQ_LANGS))
 REFS_ALL   = $(patsubst %,refs_%.m4,$(LANG_CODES))
 LANGS_ALL  = $(subst $(SPACE),$(COMMA),$(LANG_CODES))
 FILE_LIST  = $(subst $(SPACE),$(COMMA),$(SOURCE))
@@ -65,7 +66,7 @@ debug dbg trunc d:
 
 #:refs	regenerate references
 .PHONY: refs
-refs: $(MAKE_REFS)
+refs: $(REFS_LANG)
 
 
 #:test/t	this target is for M4 script development
@@ -79,8 +80,14 @@ test t: debug dev
 #devel dev: rootb.m4 cfg.m4 queues.m4 style.m4 css.m4 inline.m4 test.m4
 #devel dev: rootb.m4 test.m4
 #devel dev: rootb.m4 cfg.m4 queues.m4 style.m4 css.m4 js.m4 test.m4
-devel dev: rootb.m4 cfg.m4 queues.m4 style.m4 test.m4
+devel dev: rootb.m4 cfg.m4 queues.m4 style.m4 css.m4 test.m4
 	m4 $^
+
+#:new	sets the global flag to remove the "updated April 11, 2020" note at the top of the page
+.PHONY: new
+new:
+	$(eval FLAGS += -DNEW_ARTICLE )
+	@:
 
 
 #:clean/cle/del/cl	deletes all generated files
@@ -112,14 +119,17 @@ $(DOC_FILE): doc.m4 $(wildcard gfiles/*b.m4) $(shell find -name 'git.sh' -o -nam
 $(ORDER_FILE): rootb.m4 toc.m4 toc_list.m4
 	m4 -DALL_LANGS='$(LANGS_ALL)' -DFILE_LIST='$(FILE_LIST)' $^ > $@
 
-refs_%.m4: rootb.m4 lang_%.m4 toc.m4 $(ORDER_FILE) lang.m4 headings.m4 refs.m4
-	m4 -DLANG_CODE='$*' $^ $(SOURCE) | sed -f refs/refs.sed > $@
+$(REFS_MONO): rootb.m4 refs/queues.m4 html/cfg.m4 refs/mono.m4 refs/demo.m4 refs/msg.m4 refs/list.m4 git.m4
+	m4 $^ $(SOURCE) > $@
+
+refs_%.m4: rootb.m4 lang_%.m4 toc.m4 $(ORDER_FILE) lang.m4 headings.m4 html/cfg.m4 refs.m4
+	m4 -DLANG_CODE='$*' $^ $(SOURCE) | sed -f refs.sed > $@
 
 html_%.mk: rootb.m4 $(ORDER_FILE) refs_%.m4 lang.m4 headings.m4 mk/html.m4
-	m4 -DREFS_FILES='$(MAKE_REFS)' -DLANG_CODE='$*' $^ > $@
+	m4 -DREFS_FILES='$(REFS_LANG) $(REFS_MONO)' -DLANG_CODE='$*' $^ > $@
 
 fhtml_%.mk: rootb.m4 $(ORDER_FILE) refs_%.m4 lang.m4 headings.m4 mk/fhtml.m4
-	m4 -DREFS_FILES='$(MAKE_REFS)' -DLANG_CODE='$*' $^ > $@
+	m4 -DREFS_FILES='$(REFS_LANG) $(REFS_MONO)' -DLANG_CODE='$*' $^ > $@
 
 git.m4: $(shell git ls-tree -r --name-only HEAD $(MONITORED))
 	./git.sh $^ > $@
