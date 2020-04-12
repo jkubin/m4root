@@ -4,17 +4,25 @@ __HEADER([Josef Kubin], [2019/12/24], [root_cz])
 ___DESCR([the resulting style sheet is embedded in the web page or can be extracted into a separated file])
 ___POINT([all CSS rules; a subset will be selected into the final style sheet])
 
-# TODO: id rule set is not finished
-# [id_name], [suffix], [… rule set …]
-CSS_ID_RULE_SET([one, two, three],	[[ x]], [
+# [[prefix1], [prefix2], …], [id_name1, id_name2], [[suffix1], [suffix2], …], [… rule set …]
+CSS_ID_RULE_SET([[]],	defn([NSP], [TOCP]),	[[]], [
 
-not-finished:yet;
+position:relative;
 
 ])
 
-# How to write a CSS class rule set:
-#
-# [[prefix1], [prefix2], …], [my_class1, my_class2, …], [[suffix1], [suffix2], …], [… rule set …]
+CSS_ID_RULE_SET([[]],	defn([NSP], [TOCP]),	[[ div]], [
+
+color:#666;
+position:absolute;
+right:0;
+text-align:right;
+top:0;
+
+])
+
+
+# [[prefix1], [prefix2], …], [class_name1, class_name2, …], [[suffix1], [suffix2], …], [… rule set …]
 CSS_CLASS_RULE_SET([[]],	[note],	[[::before]], [
 
 content:"\1f5b9";
@@ -184,6 +192,7 @@ CSS_CLASS_RULE_SET([[]],	[src],	[[>code>div]], [
 
 background:#eee;
 font-weight:initial;
+padding:0 2px;
 text-align:left;
 
 ])
@@ -200,7 +209,7 @@ font-weight:normal;
 
 ])
 
-# superfluous noise
+# git revision number is obvious
 _CSS_CLASS_RULE_SET([[]],	[src],	[[>code::before]], [
 
 content:"git";
@@ -258,9 +267,16 @@ content:" ";
 ])
 
 border-bottom:1px dashed #000;
-CSS_CLASS_RULE_SET([[]],	[hg, hgl],	[[]], [
+CSS_CLASS_RULE_SET([[]],	[hg],	[[]], [
 
 border-bottom:1px dotted #000;
+cursor:help;
+
+])
+
+CSS_CLASS_RULE_SET([[]],	[hgl],	[[]], [
+
+border-bottom:1px dashed #000;
 cursor:help;
 
 ])
@@ -305,40 +321,39 @@ position:relative;
 
 ])
 
-CSS_CLASS_RULE_SET([[]],	[ch],	[[>a:first-child+a]], [
+CSS_CLASS_RULE_SET([[]],	[ch],	[[>span:first-child+a]], [
 
 margin-right:.4em;
 
 ])
 
 font-size:.65em;
-CSS_CLASS_RULE_SET([[]],	[ch, bh],	[[>a:first-child]], [
+CSS_CLASS_RULE_SET([[]],	[ch, bh],	[[>span:first-child]], [
 
 font-size:.9em;
 font-weight:normal;
 left:-1.2em;
 line-height:normal;
 position:absolute;
-text-decoration:none;
-visibility:hidden;
 padding-right:.3em;
 
 ])
 
-CSS_CLASS_RULE_SET([[]],	[ch, bh],	[[ sup:last-child]], [
+CSS_CLASS_RULE_SET([[]],	[ch, bh],	[[>sup:last-child]], [
 
 visibility:hidden;
 margin-left:.3em;
 
 ])
 
-CSS_CLASS_RULE_SET([[]],	[ch, bh],	[[ sup:last-child a]], [
+CSS_CLASS_RULE_SET([[]],	[ch, bh],	[[>span:first-child>a], [>sup:last-child>a]], [
 
 text-decoration:none;
+visibility:hidden;
 
 ])
 
-CSS_CLASS_RULE_SET([[]],	[ch, bh],	[[:hover a:first-child], [:hover sup:last-child]], [
+CSS_CLASS_RULE_SET([[]],	[ch, bh],	[[:hover>span:first-child>a], [:hover>sup:last-child>a]], [
 
 visibility:visible;
 
@@ -373,7 +388,7 @@ margin-right:.5em;
 # if the middle bracket is sempty, place the ruleset unconditionally in the stylesheet
 
 # add space between number and chapter text
-CSS_CLASS_RULE_SET([[.urs ]],	[],	[[p[]LB()id^="NSP()TOCP-"RB()>a>b]], [
+CSS_CLASS_RULE_SET([[.urs ]],	[],	[[p[]BRAC(id$="TOCP")>a>b]], [
 
 font-weight:normal;
 margin-right:.6em;
@@ -381,8 +396,14 @@ margin-right:.6em;
 ])
 
 # do not break the text in the middle
-CSS_CLASS_RULE_SET([[.urs code]],	[],	[[]], [
+_CSS_CLASS_RULE_SET([[.urs p>code]],	[],	[[]], [
 
 display:inline-block;
+
+])
+
+_CSS_CLASS_RULE_SET([[.urs a>code]],	[],	[[]], [
+
+display:inline;
 
 ])

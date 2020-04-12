@@ -1,20 +1,20 @@
 __HEADER([Josef Kubin], [2019/12/24], [root_cz])
-___DESCR([combine selectors and creates a style sheet in the reserved namespace])
+___DESCR([combine selectors and creates a style sheet (in the reserved namespace)])
 ___POINT([the style sheet contains only the things that are actually used])
 
 # three nested loops combine selectors for a ruleset
 # A → β
-define([CLASS_SELECTORS_COMBINE], [CLASS_SELECTORS_MIDDLE_LOOP($@)[]ifelse(NAR($1), [1], [], [$0(BRAC(shift($1)), [$2], [$3])])])
-define([CLASS_SELECTORS_MIDDLE_LOOP], [CLASS_SELECTORS_INNER_LOOP($@)[]ifelse(NAR($2), [1], [], [$0([$1], BRAC(shift($2)), [$3])])])
-define([CLASS_SELECTORS_INNER_LOOP], [CSS_EPSILON_FIRST[]SELECT_ARG1($1)[]CLASS_SELECTORS_MIDDLE($2)[]SELECT_ARG1($3)[]ifelse(NAR($3), [1], [], [$0([$1], [$2], BRAC(shift($3)))])])
-define([CLASS_SELECTORS_MIDDLE], [ifelse([$1], [], [], [pushdef([.$1], defn([CLASS_RULE_SET_KEY]))[.NSP()$1]])])
+define([CSS_SELECTORS_COMBINE], [CSS_SELECTORS_MIDDLE_LOOP($@)[]ifelse(NAR($1), [1], [], [$0(BRAC(shift($1)), [$2], [$3])])])
+define([CSS_SELECTORS_MIDDLE_LOOP], [CSS_SELECTORS_INNER_LOOP($@)[]ifelse(NAR($2), [1], [], [$0([$1], BRAC(shift($2)), [$3])])])
+define([CSS_SELECTORS_INNER_LOOP], [CSS_EPSILON_FIRST[]SELECT_ARG1($1)[]CSS_SELECTORS_MIDDLE($2)[]SELECT_ARG1($3)[]ifelse(NAR($3), [1], [], [$0([$1], [$2], BRAC(shift($3)))])])
+define([CSS_SELECTORS_MIDDLE], [ifelse([$1], [], [], [pushdef(defn([CSS_TYPE])[$1], defn([CSS_RULE_SET_KEY]))defn([CSS_TYPE], [NSP])[$1]])])
 
 #      CSS_EPSILON_FIRST
 #      ___      ___
 # --->/ ε \--->/ , \---.
 #     \___/    \___/<--'
 #
-# process CSS definitions
+# process CSS class definitions
 # A → β
 define([CSS_CLASS_RULE_SET], [
 
@@ -23,12 +23,15 @@ define([CSS_CLASS_RULE_SET], [
 		ROOT_ERROR([the rule set ‘$0($@)’ is redefined])
 	])
 
+	# reset automaton
 	define([CSS_EPSILON_FIRST], [define([CSS_EPSILON_FIRST], [[,]])])
-	define([CLASS_RULE_SET_KEY], [class{$1.$2.$3}key])
+
+	# set auxiliary macro
+	define([CSS_RULE_SET_KEY], [class{$1.$2.$3}key])
 
 	# once the CSS rule set is written to stylesheet, it undefine itself (therefore it cannot be duplicated)
 	# A → β
-	define(defn([CLASS_RULE_SET_KEY]), [undefine(]LB()defn([CLASS_RULE_SET_KEY])RB()[)divert(INTERNAL_STYLE_DATA)]CLASS_SELECTORS_COMBINE([$1], [$2], [$3])[{patsubst(patsubst(patsubst([[[$4]]], [#], [[#]]), [
+	define(defn([CSS_RULE_SET_KEY]), [undefine(]LB()defn([CSS_RULE_SET_KEY])RB()[)divert(INTERNAL_STYLE_DATA)]pushdef([CSS_TYPE], [.])CSS_SELECTORS_COMBINE([$1], [$2], [$3])popdef([CSS_TYPE])[{patsubst(patsubst(patsubst([[[$4]]], [#], [[#]]), [
 ]), [;*])}divert(-1)
 	])
 
@@ -37,13 +40,45 @@ define([CSS_CLASS_RULE_SET], [
 
 		ADD_STYLE_TAG()
 
-		# add rule to stylesheet
-		indir(defn([CLASS_RULE_SET_KEY]))
+		# add the rule set to stylesheet
+		indir(defn([CSS_RULE_SET_KEY]))
+	])
+])
+
+#      CSS_EPSILON_FIRST
+#      ___      ___
+# --->/ ε \--->/ , \---.
+#     \___/    \___/<--'
+#
+# process CSS id definitions
+# A → β
+define([CSS_ID_RULE_SET], [
+
+	ifelse([$2], [], [
+
+		ROOT_ERROR([the second argument cannot be empty ‘$0([$1], [$2], …)’])
+	])
+
+	ifdef([id{$1#$2#$3}key], [
+
+		ROOT_ERROR([the rule set ‘$0($@)’ is redefined])
+	])
+
+	# reset automaton
+	define([CSS_EPSILON_FIRST], [define([CSS_EPSILON_FIRST], [[,]])])
+
+	# set auxiliary macro
+	define([CSS_RULE_SET_KEY], [id{$1#$2#$3}key])
+
+	# once the CSS rule set is written to stylesheet, it undefine itself (therefore it cannot be duplicated)
+	# A → β
+	define(defn([CSS_RULE_SET_KEY]), [undefine(]LB()defn([CSS_RULE_SET_KEY])RB()[)divert(INTERNAL_STYLE_DATA)]pushdef([NSP])pushdef([CSS_TYPE], [[#]])CSS_SELECTORS_COMBINE([$1], [$2], [$3])popdef([CSS_TYPE], [NSP])[{patsubst(patsubst(patsubst([[[$4]]], [#], [[#]]), [
+]), [;*])}divert(-1)
 	])
 ])
 
 # A → β
-define([ADD_CLASS_RULE_SET], [
+define([ADD_CSS_RULE_SET], [
 
 	popdef([$1])
 
@@ -89,11 +124,11 @@ define([ADD_CLASS_ITEM], [
 
 			ADD_STYLE_TAG()
 
-			ADD_CLASS_RULE_SET([.$1], defn([.$1]))
+			ADD_CSS_RULE_SET([.$1], defn([.$1]))
 		])
 	], [
 
-		ROOT_ERROR([unknown class ‘$1’])
+		ROOT_ERROR([unknown class ‘.$1’])
 	])
 
 	ifelse([$#], [1], [], [
@@ -111,13 +146,30 @@ define([ADD_CLASS], [ifdef([$0 $1], [], [pushdef([CURRQU], divnum)divert(-1)
 	ADD_CLASS_ITEM(patsubst([$1], [ +], [,]))
 
 	# define class name(s)
-	define([$0 $1], NSP()patsubst([$1], [ +], [ NSP()]))
+	define([$0 $1], defn([NSP])patsubst([$1], [ +], [ defn([NSP])]))
 
 	divert(CURRQU)popdef([CURRQU])dnl
 ])defn([$0 $1])])
 
-# unfinished
 # A → β
-define([FIND_AND_ADD_ID_RULE_SET], [NSP()defn(defn([FILE_PREFIX]).anch.[$1])])
-define([FIND_AND_ADD_ID_RULE_SET_MONO], [defn(__file__.mono.[$1])])
-define([ADD_ID_RULE], [NSP()[$1]])
+define([FIND_AND_ADD_ID_RULE_SET], [ADD_ID_RULE(defn(defn([FILE_PREFIX]).anch.[$1]))])
+define([FIND_AND_ADD_ID_RULE_SET_MONO], [ADD_ID_RULE(defn(__file__.mono.[$1]))])
+
+define([ADD_ID_RULE], [ifdef([$0 $1], [], [pushdef([CURRQU], divnum)divert(-1)
+
+	ifelse([$1], [], [
+
+		ROOT_WARNING([id string is empty])
+	])
+
+	ifelse(defn([[#]$1]), [], [], [
+
+		ADD_STYLE_TAG()
+
+		ADD_CSS_RULE_SET([[#]$1], defn([[#]$1]))
+	])
+
+	define([$0 $1], [$1])
+
+	divert(CURRQU)popdef([CURRQU])dnl
+])defn([$0 $1])])
