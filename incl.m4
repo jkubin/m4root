@@ -26,10 +26,10 @@ The result of the series is also a set of sample scripts for generating code.
 # A → β
 define([APPENDIX_APPEND_CODE], [
 	INFO(, defn([WORD_INFORMATION]), [[dnl czech
-Znaky {CODE([`']), CODE_M4([[]]), BO([CODE([␂␆])]), CODE([⟦⟧])} v[]NB()názvu příkladu LINK([řídí expanzi neterminálů], [expansion_control]).
+Znaky {CODE([`']), CODE_M4([[]]), BO([CODE([␂␆])]), CODE([⟦⟧])} v[]NB()názvu příkladu LINK([řídí expanzi neterminálů], [expansion_control], [intro.mc]).
 ],
 [dnl english: _next_language_
-Chars. {CODE([`']), CODE_M4([[]]), BO([CODE([␂␆])]), CODE([⟦⟧])} in the name controls the LINK([expansion of nonterminals], [expansion_control]).
+Chars. {CODE([`']), CODE_M4([[]]), BO([CODE([␂␆])]), CODE([⟦⟧])} in the name controls the LINK([expansion of nonterminals], [expansion_control], [intro.mc]).
 ]])
 ])
 

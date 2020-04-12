@@ -102,7 +102,7 @@ define([LINK], [pushdef([CURRQU], divnum)divert(-1)
 	])
 
 	# find link in refs (for test)
-	pushdef([ANCH], ifdef(defn([PREF]).anch.[$2], [defn(defn([PREF]).anch.[$2])], [defn(__file__.mono.[$2])]))
+	pushdef([ANCH], ifdef(__file__.mono.[$2], [defn(__file__.mono.[$2])], [defn(defn([PREF]).anch.[$2])]))
 
 	ifelse(defn([ANCH]), [], [
 
@@ -221,6 +221,7 @@ define([CODE_M4U],	defn([CODE]))
 define([CODE_M4],	defn([CODE]))
 define([CODE_UND],	defn([CODE]))
 define([EXPL],		defn([BO]))
+define([EXPL_M4],	defn([CODE]))
 define([GRAY],		defn([BO]))
 define([PERSON],	defn([BO]))
 
