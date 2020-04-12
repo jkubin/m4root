@@ -48,54 +48,27 @@ define([ADD_JAVASCRIPT_FOR_SOURCE_CODE], [
 
 	divert(JAVASCRIPT_CODE)ARG1(esyscmd([sed -f html/js_compress.sed << EOF
 /*
- * tag to highlight a line in a preformatted_source_code.m4
- * <code class="m4-hgl" data-m4_preformatted_source_code.m4="2">keyword</ code>
- *
- * tag to highlight several lines in a preformatted-source-code.m4
- * <code class="m4-hgl" data-m4_preformatted_source_code.m4="1,3,6,2">keyword</ code>
- * 
- * this is a preformatted target source code with lines to highlight
- * <pre id="m4_preformatted_source_code">…</ pre>
- *
  * Notes:
  * /!\ keep all global variables in the dedicated namespace: m4_*
- * /!\ keep all variable names consistent with the file jscompress.js because
+ * /!\ keep all variable names consistent with the file js_compress.js because
  * lengthy JavaScript is eventually compressed to a smaller one-line script
  *
  * NSP() is a global CSS namespace prefix defined in the configuration file
  */
 
-let m4_keywords = document.getElementsByClassName("]NSP()[hgl"),
-		m4_all_sources = document.getElementsByClassName("]NSP()[src"),
-		m4_associative_array_of_keywords = [];
-
-/*
- * the following code finds keywords pointing to the preformatted-source-code
- * and adds them to the array in an associative array
- */
-for (let keyword of m4_keywords) {
-
-	let source_node = Object.keys(keyword.dataset), item;
-
-	for (let item of source_node) {
-
-		if (!m4_associative_array_of_keywords[item])
-			m4_associative_array_of_keywords[item] = [];
-
-		m4_associative_array_of_keywords[item].push(keyword);
-	}
-}
-
 /*
  * copy information from attributes to dedicated element
+ * this is important for the development of articles
  * in order to copy&paste embedded data in one mouse click
+ * made for standard browsers (not IE) that I use
  */
 function m4_add_info() {
 
-	var parent_node = this.parentNode,
-		source_path,
+	var
+		parent_node = this.parentNode,
 		source_date,
-		source_info;
+		source_info,
+		source_path;
 
 	if (this.source_info) {
 
@@ -107,15 +80,10 @@ function m4_add_info() {
 		return;
 	}
 
-	source_info = document.createElement("div");
 	source_date = document.createElement("div");
+	source_info = document.createElement("div");
 	source_path = document.createElement("div");
 
-	/*
-	 * this is important for the development of articles
-	 * for easy copying and pasting
-	 * made for standard browsers (not IE) that I use
-	 */
 	if (window.getSelection)
 		source_date.onclick = source_path.onclick = function () {
 			const selected_text = window.getSelection();
@@ -123,7 +91,7 @@ function m4_add_info() {
 			selected_range.selectNodeContents(this);
 			selected_text.removeAllRanges();
 			selected_text.addRange(selected_range);
-		}
+		};
 
 	source_date.appendChild(document.createTextNode(this.title));
 	source_path.appendChild(document.createTextNode(this.nextSibling.title.split('\n')[1]));
@@ -132,19 +100,23 @@ function m4_add_info() {
 	parent_node.appendChild(this.source_info = source_info);
 }
 
-/*
- * the following code links keywords with the appropriate lines
- * of source code which highlights
- */
-for (let source_node of m4_all_sources) {
+let m4_sources = document.getElementsByClassName("]NSP()[src"),
+	m4_keywords = document.getElementsByClassName("]NSP()[hgl");
 
-	let all_highlighting_keywords,
+/*
+ * shaded stripes to source code
+ * additional information that the onclick handler displays
+ */
+for (let source_node of m4_sources) {
+
+	let
+		line,
 		pre_node = source_node.firstElementChild,
-		source_info = pre_node.nextElementSibling,
 		lines_of_code = pre_node.innerHTML.split('\n').length,
+		source_info = pre_node.nextElementSibling,
 		striped_background = document.createElement("pre");
 
-	striped_background.setAttribute("class", "rear");
+	striped_background.className = "rear";
 
 	/*
 	 * add event handler for additional info
@@ -152,56 +124,126 @@ for (let source_node of m4_all_sources) {
 	if (source_info && source_info.tagName == "CODE")
 		source_info.firstChild.onclick = m4_add_info;
 
-	// add stripes to background
-	for (let i = 0; i < lines_of_code; i++)
+	/*
+	 * create and append stripes
+	 */
+	for (line = 0; line < lines_of_code; line++)
 		striped_background.appendChild(document.createElement("div"));
 
 	/*
-	 * if the <pre id="m4_highlighted_source_code"></ pre> is ID attribute
-	 * and it is referenced by a keyword or several keywords
-	 */
-	if (all_highlighting_keywords =
-		m4_associative_array_of_keywords[pre_node.id]) {
-
-		for (let keyword of all_highlighting_keywords) {
-
-			let lines_to_highlight = keyword.dataset[pre_node.id].split(',');
-
-			for (let line of lines_to_highlight) {
-
-				if (!keyword.lines_of_code_to_highlight)
-					keyword.lines_of_code_to_highlight = [];
-
-				keyword.lines_of_code_to_highlight.push(striped_background.childNodes[line - 1]);
-			}
-		}
-	}
-
-	/*
-	 * append the striped element to the DOM tree into source_node
-	 * as the first child just before the <pre>…</ pre> tag
+	 * append the element with stripes to the DOM tree into source node as
+	 * the first child just before the <pre>…</ pre> tag
 	 * Z-index is not explicitly set because the elements are in natural Z order
 	 */
 	source_node.insertBefore(striped_background, pre_node);
 }
 
 /*
- * attach event handlers to the keyword in order to
- * highlight appropriate lines
+ * the following code finds keywords pointing to the preformatted-source-code
+ * the following code links keywords with the appropriate lines
+ * of source code which highlights
  */
-for (let keyword of m4_keywords) {
+for (let hgl_keyword of m4_keywords) {
 
-	keyword.onmouseover = function() {
+	let
+		item,
+		source_indexes = Object.keys(hgl_keyword.dataset),
+		source_node;
 
-		for (let line of this.lines_of_code_to_highlight)
-			line.style.backgroundColor='greenyellow';
+	/*
+	 * unfold each dataset item into separated arrays
+	 * associated with the source code
+	 */
+	for (item of source_indexes) {
+
+		source_node = m4_sources[item];
+
+		if (!source_node.highlighting_keywords)
+			source_node.highlighting_keywords = [];
+
+		source_node.highlighting_keywords.push({
+			node: hgl_keyword,
+			value: hgl_keyword.dataset[item]
+		});
 	}
+}
 
-	keyword.onmouseout = function() {
+/*
+ * if the source node is referenced by keyword or several keywords
+ */
+for (let source_node of m4_sources) {
 
-		for (let line of this.lines_of_code_to_highlight)
-			line.style=null;
+	if (source_node.highlighting_keywords) {
+
+		let
+			color_item,
+			color_json,
+			color_names,
+			color_resulting,
+			end_line,
+			line,
+			item,
+			lines_to_highlight,
+			num_range,
+			striped_background = source_node.firstElementChild;
+
+		for (item of source_node.highlighting_keywords) {
+
+			if (item.value.indexOf(":") > -1)
+				color_json = JSON.parse("{" + item.value + "}");
+			else if (item.value.indexOf("-") > -1)
+				color_json = {"": item.value};
+			else
+				color_json = {"": JSON.parse("[" + item.value + "]")};
+
+			if (!item.node.highlight_lines)
+				item.node.highlight_lines = [];
+
+			color_names = Object.keys(color_json);
+
+			for (color_item of color_names) {
+
+				lines_to_highlight = color_json[color_item];
+				color_resulting = color_item ? color_item : "]defn([DEFAULT_HIGHLIGHT_COLOR])[";
+
+				if (typeof lines_to_highlight === "string") {
+
+					num_range = lines_to_highlight.split('-');
+					end_line = parseInt(num_range[1]);
+
+					for (line = num_range[0] - 1; line < end_line; line++)
+						item.node.highlight_lines.push({
+							node: striped_background.children[line],
+							value: color_resulting
+						});
+
+				} else
+					for (line of lines_to_highlight)
+						item.node.highlight_lines.push({
+							node: striped_background.children[line - 1],
+							value: color_resulting
+						});
+			}
+		}
 	}
+}
+
+/*
+ * attach event handlers to the keyword in order to highlight appropriate lines
+ */
+for (let hgl_keyword of m4_keywords) {
+
+	hgl_keyword.onmouseover = function() {
+
+		for (let line of this.highlight_lines)
+			line.node.style.backgroundColor = line.value;
+	};
+
+	hgl_keyword.onmouseout = function() {
+
+		for (let line of this.highlight_lines)
+			line.node.style=null;
+	};
 }
 
 EOF]))divert(-1)

@@ -25,7 +25,7 @@ s/\s*\([[:punct:]]\)\s*/\1/g
 s/;}/}/g
 
 # fix keywords stuck to adjacent word
-s/;else/;else /g
+s/\(\<const\|\<else\|\<let\|\<var\)\([[:lower:]]\)/\1 \2/g
 
 # additional new line from sed removed by comma
 s/^/[[/
@@ -36,25 +36,36 @@ s/$/]],/
 # global variables are in the dedicated namespace: m4_*
 
 s/\<m4_add_info\>/m4_i/g
-s/\<m4_all_pre_tags\>/m4_p/g
-s/\<m4_associative_array_of_keywords\>/m4_a/g
-s/\<m4_keywords\>/m4_w/g
+s/\<m4_keywords\>/m4_k/g
+s/\<m4_sources\>/m4_s/g
 
 # local variables are converted to single letter names (in aphabetical order)
 
-s/\<all_highlighting_keywords\>/a/g
-s/\<highlight_source_code_id\>/b/g
-s/\<highlighted_source_code\>/c/g
-s/\<keyword\>/d/g
-s/\<line\>/e/g
-s/\<lines\>/f/g
-s/\<lines_of_code_to_highlight\>/g/g
-s/\<lines_to_highlight\>/h/g
-s/\<list_item\>/k/g
-s/\<number_of_lines_of_code\>/l/g
-s/\<ordered_list\>/m/g
-s/\<parent_node\>/n/g
-s/\<source_info\>/o/g
+s/\<color_item\>/a/g
+s/\<color_json\>/b/g
+s/\<color_names\>/c/g
+s/\<color_resulting\>/d/g
+s/\<end_line\>/e/g
+s/\<hgl_keyword\>/f/g
+s/\<highlight_lines\>/g/g
+s/\<highlighting_keywords\>/h/g
+s/\<item\>/k/g
+s/\<line\>/l/g
+s/\<lines_of_code\>/m/g
+s/\<lines_to_highlight\>/n/g
+s/\<node\>/o/g
+s/\<num_range\>/p/g
+s/\<parent_node\>/q/g
+s/\<pre_node\>/r/g
+s/\<selected_range\>/s/g
+s/\<selected_text\>/t/g
+s/\<source_date\>/u/g
+s/\<source_indexes\>/v/g
+s/\<source_info\>/w/g
+s/\<source_node\>/x/g
+s/\<source_path\>/y/g
+s/\<striped_background\>/z/g
+s/\<value\>/_/g
 
 # the letters below are for regexes above, letters {i, j} are reserved for loops
 # use Vim:
