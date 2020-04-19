@@ -178,6 +178,7 @@ define([BO],		[ifelse([$#], [0], [[$0]], [$2], [], [$1], [$1 ([$2])])])
 define([QM],		[ifelse([$#], [0], [[$0]], [$2], [], [„$1“], [„$1“ ([$2])])])
 
 # A → β
+# A → ε
 # β
 define([ABBR],		defn([BO]))
 define([ACRO],		defn([BO]))
@@ -202,6 +203,7 @@ define([QUOTE],		defn([QM]))
 define([SAMP],		defn([CODE]))
 define([SMALL],		defn([BO]))
 define([SPAN],		defn([BO]))
+define([SPN])
 define([STT],		defn([BO]))
 define([SUB],		defn([BO]))
 define([SUP],		defn([BO]))
