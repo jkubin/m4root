@@ -316,7 +316,7 @@ Author: Josef Kubin
 Started: 2020/03/22
 Note: m4root
 Description: removes unnecessary data from a JavaScript code; translates my long self_descriptive funny variable names to single letter names
-Reason: embedded JavaScript as small as possible
+Reason: JavaScript as small as possible
 ---
 File: html/preview.m4
 Author: Josef Kubin

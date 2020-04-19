@@ -13,7 +13,7 @@ This part is focused on explanation of necessary, seemingly complex concepts of 
 
 # shortcut for article: "+yG
 
-<!-- "Generating code in M4: fundamentals" __SOURCE([20200419-15:56:57, fundamentals.mc, e396d0f, 97b1c1a]) -->
+<!-- "Generating code in M4: fundamentals" __SOURCE([20200419-22:13:28, fundamentals.mc, e396d0f, b8d7f9d]) -->
 <style>.urs p[id$="-toc"]>a>b{font-weight:normal;margin-right:.6em}.m4-src.A .a{background:lawngreen}.m4-src.S .s{font-weight:bold}.m4-src.X .x{visibility:hidden}.m4-ch,.m4-bh,.m4-src,.m4-usc,.m4-root{position:relative}.m4-bh>a:first-child::before,.m4-ch>a:first-child::before{font-size:.9em;font-weight:normal;position:absolute;right:100%;width:1.1em}.m4-ch>a:first-child::before{content:"\2630"}.m4-ch>a:first-child+a{margin-right:.4em}.m4-ch>a:last-child::before,.m4-bh>a:last-child::before{content:"\1f845";font-size:.65em;margin-left:.3em;position:absolute}.m4-ch>a:first-child,.m4-ch>a:last-child,.m4-bh>a:first-child,.m4-bh>a:last-child{opacity:0}.m4-ch:hover>a:first-child,.m4-ch:hover>a:last-child,.m4-bh:hover>a:first-child,.m4-bh:hover>a:last-child{opacity:1}#m4--toc{position:relative}#m4--toc div{color:#888;position:absolute;right:0;text-align:right;top:0}</style>
 <div id="m4--toc"><h2>Content&nbsp;(<a href="../../clanky/generovani-kodu-v-m4-zaklady/" title="Generování kódu v M4: základy">Česká verze</a>)</h2><div>updated<br>April 19, 2020</div></div>
 <p id="m4-introduction-toc"><a href="#m4-introduction"><b>1</b>Introduction</a></p>
