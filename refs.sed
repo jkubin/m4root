@@ -9,7 +9,7 @@ x
 N
 
 # convert uppercase letters to lovercase
-s/[[:upper:]]/\l&/g
+s/.*/\L&/
 
 # transliterate lovercase UTF-8 to ASCII
 y/áčďéěíňóřšťúůýž/acdeeinorstuuyz/
@@ -33,7 +33,7 @@ x
 N
 
 # convert uppercase letters to lovercase
-s/[[:upper:]]/\l&/g
+s/.*/\L&/
 
 # transliterate lowercase UTF-8 to ASCII
 y/áčďéěíňóřšťúůýž/acdeeinorstuuyz/
