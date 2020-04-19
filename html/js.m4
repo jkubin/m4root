@@ -68,11 +68,12 @@ define([ADD_JAVASCRIPT_FOR_SOURCE_CODE], [
  * I am pretty sure it will not conflict with any name today.
  */
 
-function M4_is_beautiful(all_keywords, all_sources) {
+function M4_is_beautiful(all_keywords, all_sources,
+	classname_for_striped_bckg, default_color) {
 
 var
 
-	color_name,
+	different_color,
 	hgl_item,
 	hgl_keyword,
 	highlighting_classes = [],
@@ -148,10 +149,10 @@ for (source_node of all_sources) {
 	/*
 	 * the <pre>…</ pre> tag is used as a stripe container because it has exactly
 	 * the same CSS paddings, line-size, corners, …, as the <pre>…</ pre> with
-	 * a source code; stripe sizes will follow every CSS change in the tag
+	 * a source code; stripe sizes will follow every CSS future change in the pre tag
 	 */
 	striped_background = document.createElement("pre");
-	striped_background.className = "]defn([NSP], [CLASS_REAR])[";
+	striped_background.className = classname_for_striped_bckg;
 
 	/*
 	 * adds an event handler to display additional source code information
@@ -184,7 +185,7 @@ for (source_node of all_sources) {
  * data-0=":[1,2,3],red:[7,8,9],#abc:[10]"
  * data-0=":[1-3],red:[7-9]"
  *         ^^^^^^
- * highlights lines by default color (always the first pseudo-JSON item)
+ * highlights lines by default color (it is always the first pseudo-JSON item)
  *
  * data-0=":[A,B,C,1-3],red:[7-9]"
  *           ^^^^^
@@ -209,7 +210,7 @@ for (hgl_keyword of all_keywords) {
 
 		source_node = all_sources[i];
 
-		// create custom attribute
+		// create a custom attribute to the object
 		if (!source_node.highlighting_keywords)
 			source_node.highlighting_keywords = [];
 
@@ -269,7 +270,7 @@ for (source_node of all_sources) {
 	for (hgl_item of source_node.highlighting_keywords) {
 
 		/*
-		 * the first step to transform input pseudo JSON by regexp
+		 * first step to transform input pseudo JSON using regexp
 		 */
 		hgl_item.value =
 			hgl_item.value.replace(/[A-Z]|[a-z]+|#[\da-f]{3,6}|\d+-\d+/g,
@@ -370,7 +371,7 @@ for (source_node of all_sources) {
 		 */
 		if (highlighting_classes.length) {
 
-			// create custom attribute
+			// create a custom attribute to the object
 			if (!hgl_item.node.highlighting_classes)
 				hgl_item.node.highlighting_classes = [];
 
@@ -389,7 +390,7 @@ for (source_node of all_sources) {
 		 */
 		if (highlighting_lines.length) {
 
-			// create custom attribute
+			// create a custom attribute to the object
 			if (!hgl_item.node.highlighting_lines)
 				hgl_item.node.highlighting_lines = [];
 
@@ -397,18 +398,18 @@ for (source_node of all_sources) {
 			 * iterate color names and select appropriate arrays of
 			 * lines to highlight
 			 */
-			for (color_name of highlighting_lines) {
+			for (different_color of highlighting_lines) {
 
-				lines_to_highlight = parsed_json[color_name];
+				lines_to_highlight = parsed_json[different_color];
 
 				/*
 				 * set a default color, if the color name is empty
 				 * "": [1, 2, 3] ---> "a_default_color": [1, 2, 3]
 				 */
 				resulting_color =
-					color_name ?
-					color_name :
-					"]defn([DEFAULT_HIGHLIGHT_COLOR])[";
+					different_color ?
+					different_color :
+					default_color;
 
 				/*
 				 * appends array of data to the keyword
@@ -424,8 +425,11 @@ for (source_node of all_sources) {
 	}
 }
 }
-M4_is_beautiful(document.getElementsByClassName("]defn([NSP], [CLASS_HGL])["),
-	document.getElementsByClassName("]defn([NSP], [CLASS_SRC])["));
+M4_is_beautiful(
+	document.getElementsByClassName("]defn([NSP], [CLASS_HGL])["),
+	document.getElementsByClassName("]defn([NSP], [CLASS_SRC])["),
+	"]defn([NSP], [CLASS_REAR])[",
+	"]defn([DEFAULT_HIGHLIGHT_COLOR])[");
 
 EOF]))divert(-1)
 ]defn([TEST_RESULT_OF_AN_EXTERNAL_COMMAND]))
