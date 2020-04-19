@@ -396,14 +396,14 @@ Dnes existuje několik implementací lišící se od původní implementace spí
 Nejrozšířenější implementace M4 je BO([GNU M4]) používaná pro AH([Autotools], [Wikipedie], [https://en.wikipedia.org/wiki/GNU_Build_System])
 a[]NB()pro překlad jednoduchého konfiguračního souboru CODE([sendmail.mc]) na složitý CODE([sendmail.cf]).
 Autorem této implementace z[]NB()roku 1990 je AH([PERSON([René Seindal])], [https://www.seindal.dk/rene/gnu/]).
-Následující příkaz nainstaluje BO([m4], [s malým „m“], [hg]):
+Následující příkaz nainstaluje BO([m4], [s malým „m“], [xp]):
 ],
 [dnl english: _next_language_
 Today, there are several implementations that differ from the original implementation rather by small details.
 The most common implementation of M4 is the BO([GNU M4]) used for AH([Autotools], [Wikipedia], [https://en.wikipedia.org/wiki/GNU_Build_System])
 and for translating the simple CODE([sendmail.mc]) configuration file to complex CODE([sendmail.cf]).
 The author of this implementation (1990) is AH([PERSON([René Seindal])], [https://www.seindal.dk/rene/gnu/]).
-To install BO([m4], [with small letter „m“], [hg]), type the following command:
+To install BO([m4], [with small letter „m“], [xp]), type the following command:
 ]])
 
 COMMAND_ROOT([install], LANG([příkaz nainstaluje také další důležité balíčky], [the command also installs other important packages]), [dnl
@@ -454,18 +454,18 @@ dnl english: _next_language_
 PARA([[dnl czech
 Bezkontextová gramatika (krátce ABBR([CFG], [Context-Free Grammar – bezkontextová gramatika])) je LINK([formální gramatika], [formal_grammar_chomsky]), ve které mají všechna přepisovací pravidla tvar HCODE([A → β], [[[1], [all_context_free_grammar_rules]]]).
 Neterminál CODE_M4([A]) se přepíše na libovolně dlouhý řetězec ABBR([CODE([β])], [pravá strana přepisovacího pravidla]) složený z[]NB()terminálů CODE([Σ]) nebo neterminálů CODE([N]).
-AH([Kleeneho hvězda], [Wikipedie], [https://en.wikipedia.org/wiki/Kleene_star]) HCODE([*], [[[3], [all_context_free_grammar_rules]]]) znamená, že se neterminál CODE_M4([A]) může přepsat na ABBR([CODE([ε])], [epsilon – prázdný symbol]) (přepisovací pravidlo CODE([A → ε])).
+AH([Kleeneho hvězda], [Wikipedie], [https://en.wikipedia.org/wiki/Kleene_star]) HCODE([*], [[[A], [all_context_free_grammar_rules]]]) znamená, že se neterminál CODE_M4([A]) může přepsat na ABBR([CODE([ε])], [epsilon – prázdný symbol]) (přepisovací pravidlo CODE([A → ε])).
 ],
 [dnl english: _next_language_
 Context-free grammar (shortly ABBR([CFG], [Context-Free Grammar])) is a[]NB()LINK([formal grammar], [formal_grammar_chomsky]) in which all rules for rewriting have the HCODE([A → β], [[[1], [all_context_free_grammar_rules]]]) form.
 The nonterminal CODE_M4([A]) is rewritten to an arbitrarily long ABBR([CODE([β])], [the right side of the rewriting rule]) string composed of terminals CODE([Σ]) or nonterminals CODE([N]).
-AH([Kleene star], [Wikipedia], [https://en.wikipedia.org/wiki/Kleene_star]) HCODE([*], [[[3], [all_context_free_grammar_rules]]]) means that nonterminal CODE_M4([A]) can be rewritten to ABBR([CODE([ε])], [epsilon – empty symbol]) (rewriting rule CODE([A → ε])).
+AH([Kleene star], [Wikipedia], [https://en.wikipedia.org/wiki/Kleene_star]) HCODE([*], [[[A], [all_context_free_grammar_rules]]]) means that nonterminal CODE_M4([A]) can be rewritten to ABBR([CODE([ε])], [epsilon – empty symbol]) (rewriting rule CODE([A → ε])).
 ]])
 
 PROGRAMLISTING([all_context_free_grammar_rules], LANG([přepisovací pravidla bezkontextové gramatiky], [context-free grammar rewriting rules]), [dnl
 P: A → β
    A ∈ N
-   β ∈ (N ∪ Σ)*
+   β ∈ (N ∪ Σ)SPN([*], a)
 ])dnl PROGRAMLISTING
 
 BRIDGEHEAD([m4_rules], [dnl czech
@@ -962,19 +962,24 @@ N: LANG([konečná množina neterminálních symbolů], [a finite set of nonterm
 Σ: LANG([konečná množina terminálních symbolů], [a finite set of terminal symbols])
    N ∩ Σ = ø
 P: LANG([konečná množina přepisovacích pravidel], [a finite set of production (rewrite) rules])
-   (N ∪ Σ)* N (N ∪ Σ)* → (N ∪ Σ)*
+   SPN([(N ∪ Σ)*], x) SPN([N], s) SPN([(N ∪ Σ)*], x) → SPN([(N ∪ Σ)*], s)
 S: LANG([je počáteční (startovací) symbol], [is the start symbol])
    S ∈ N
 ])dnl PROGRAMLISTING
 
 PARA([[dnl czech
-AH([Formální gramatika], [Wikipedie], [https://cs.wikipedia.org/wiki/Form%C3%A1ln%C3%AD_gramatika]) popisuje AH([podmnožiny], [Wikipedie – Chomského hierarchie], [https://cs.wikipedia.org/wiki/Chomsk%C3%A9ho_hierarchie]) přepisovacích pravidel AH([formálního jazyka], [Wikipedie], [https://cs.wikipedia.org/wiki/Form%C3%A1ln%C3%AD_jazyk]).
-Jedna z[]NB()podmnožin se jmenuje AH([bezkontextová gramatika], [Wikipedie], [https://cs.wikipedia.org/wiki/Bezkontextov%C3%A1_gramatika]), krátce ABBR([CFG], [Context-Free Grammar – bezkontextová gramatika]).
+AH([Formální gramatika], [Wikipedie], [https://cs.wikipedia.org/wiki/Form%C3%A1ln%C3%AD_gramatika]) popisuje AH([podmnožiny], [Wikipedie – Chomského hierarchie], [https://cs.wikipedia.org/wiki/Chomsk%C3%A9ho_hierarchie])
+přepisovacích pravidel AH([formálního jazyka], [Wikipedie], [https://cs.wikipedia.org/wiki/Form%C3%A1ln%C3%AD_jazyk]).
+Jedna z[]NB()podmnožin se jmenuje HEXPL([AH([bezkontextová gramatika], [Wikipedie], [https://cs.wikipedia.org/wiki/Bezkontextov%C3%A1_gramatika])], [[[S,X], [formal_definition]]]),
+krátce ABBR([CFG], [Context-Free Grammar – bezkontextová gramatika]).
 Jak již bylo dříve zmíněno, přepisovací pravidla CFG pracují stejně jako přepisovací pravidla jazyka M4.
 Některý z[]NB()následujících dílů seriálu se podrobněji zaměří na formální gramatiky.
 ],
 [dnl english: _next_language_
-The AH([Formal grammar], [Wikipedia], [https://en.wikipedia.org/wiki/Formal_grammar]) describes the AH([subsets], [Wikipedia – Chomsky hierarchy], [https://en.wikipedia.org/wiki/Chomsky_hierarchy]) of the AH([formal language], [Wikipedia], [https://en.wikipedia.org/wiki/Formal_language]) rewriting rules and one of the subsets is called AH([context-free grammar], [Wikipedia], [https://en.wikipedia.org/wiki/Context-free_grammar]), shortly ABBR([CFG], [Context-Free Grammar]).
+The AH([Formal grammar], [Wikipedia], [https://en.wikipedia.org/wiki/Formal_grammar]) describes the AH([subsets], [Wikipedia – Chomsky hierarchy], [https://en.wikipedia.org/wiki/Chomsky_hierarchy]) of the
+AH([formal language], [Wikipedia], [https://en.wikipedia.org/wiki/Formal_language])
+rewriting rules and one of the subsets is called HEXPL([AH([context-free grammar], [Wikipedia], [https://en.wikipedia.org/wiki/Context-free_grammar])], [[[S,X], [formal_definition]]]),
+shortly ABBR([CFG], [Context-Free Grammar]).
 As mentioned earlier, the CFG rewriting rules work the same as the M4 rewriting rules.
 Some of the following episodes of this series will focus on formal grammar in detail.
 ]])
@@ -1208,13 +1213,13 @@ dnl english: _next_language_
 ])
 
 PARA([[dnl czech
-Příklad používá makro CODE_M4([COUNT_UP]) z[]NB()kořenového souboru, jehož ABBR([CODE([β])], [pravá strana přepisovacího pravidla]) se zkopíruje do pravé strany makra HCODE_M4([COUNTER], [[[2], [messages/counter.csv.m4]]]).
+Příklad používá makro HCODE_M4([COUNT_UP], [[[A], [messages/counter.csv.m4]]]) z[]NB()kořenového souboru, jehož ABBR([CODE([β])], [pravá strana přepisovacího pravidla]) se zkopíruje do pravé strany makra HCODE_M4([COUNTER], [[[2], [messages/counter.csv.m4]]]).
 Během první expanze HCODE_M4([COUNTER], [[[5], [messages/counter.csv.m4]]]) proběhne inicializace jeho startovací hodnoty.
 HEXPL([Další expanze], [[[11], [messages/counter.csv.m4]]]) vrátí číselný terminální symbol a[]NB()proběhne zvýšení vnitřního pomocného (globálního) symbolu o[]NB()jedničku.
 CODE_M4([COUNTER]) je malý automat.
 ],
 [dnl english: _next_language_
-The example uses the CODE_M4([COUNT_UP]) macro from the root file whose ABBR([CODE([β])], [the right side of the rewriting rule]) is copied to the right side of the HCODE_M4([COUNTER], [[[2], [messages/counter.csv.m4]]]) macro.
+The example uses the HCODE_M4([COUNT_UP], [[[A], [messages/counter.csv.m4]]]) macro from the root file whose ABBR([CODE([β])], [the right side of the rewriting rule]) is copied to the right side of the HCODE_M4([COUNTER], [[[2], [messages/counter.csv.m4]]]) macro.
 During the first expansion of HCODE_M4([COUNTER], [[[5], [messages/counter.csv.m4]]]) its initial value is initialized.
 HEXPL([Further expansion], [[[11], [messages/counter.csv.m4]]]) returns the numeric terminal symbol and increases the inner auxiliary (global) symbol by one.
 CODE_M4([COUNTER]) is a[]NB()small automaton.
@@ -1480,22 +1485,22 @@ To avoid confusion, we use queue names instead of numbers.
 
 PARA([[dnl czech
 Abychom nemuseli definovat podobná pravidla, zkopírujeme si pravou stranu CODE([ERROR])[]BR()(je to také ABBR([CODE([β]) pravidlo], [takové pravidlo se používá jako pravá strana jiného přepisovacího pravidla])) do pravé strany pravidel CODE([QUERY]) a[]NB()CODE([WARNING]).
-Proměnná CODE([$[0]]) se přepíše na jméno makra a[]NB()zřetězí se s[]NB()dalším symbolem.
+Proměnná HCODE([$[0]], [[[A], [nonterminals_for_branches]]]) se přepíše na jméno makra a[]NB()zřetězí se s[]NB()dalším symbolem.
 Nově vzniklý neterminál se přepíše na odpovídající terminální symbol (číslo fronty nebo jméno).
 ],
 [dnl english: _next_language_
 To avoid having to define similar rules, we copy the right side of CODE([ERROR]) (it is also a[]NB()ABBR([CODE([β]) rule], [the rule is used as the right side of another rewriting rule])) to the right side of the CODE([QUERY]) and CODE([WARNING]) rules.
-The CODE([$[0]]) variable is rewritten to the name of the macro and concatenated with another symbol.
+The HCODE([$[0]], [[[A], [nonterminals_for_branches]]]) variable is rewritten to the name of the macro and concatenated with another symbol.
 The newly formed nonterminal is rewritten to the corresponding terminal symbol (queue number or name).
 ]])
 
 PROGRAMLISTING([nonterminals_for_branches], LANG([větvení gramatikou v M4], [grammar branching in M4]), [dnl
-$[0]_QU → ERROR_QU → 2
-$[0]_END → ERROR_END → 3
-$[0]_NAME → ERROR_NAME → error
-$[0]_QU → QUERY_QU → 0
-$[0]_END → QUERY_END → 1
-$[0]_NAME → QUERY_NAME → query
+SPN([$[0]], a)_QU → ERROR_QU → 2
+SPN([$[0]], a)_END → ERROR_END → 3
+SPN([$[0]], a)_NAME → ERROR_NAME → error
+SPN([$[0]], a)_QU → QUERY_QU → 0
+SPN([$[0]], a)_END → QUERY_END → 1
+SPN([$[0]], a)_NAME → QUERY_NAME → query
 …
 ])dnl PROGRAMLISTING
 
@@ -1531,12 +1536,12 @@ dnl english: _next_language_
 ])
 
 PARA([[dnl czech
-Příklad používá tři automaty a[]NB()dvě výstupní fronty číslo HEXPL([CODE([2]) a[]NB()CODE([4])], [[[10, 26], [messages/messages.ini.m4]]]) definované v[]NB()odděleném souboru.
+Příklad používá tři automaty a[]NB()dvě výstupní fronty číslo HCODE([2], [[[10, 26], [messages/messages.ini.m4]]]) a[]NB()HCODE([4], [[[10, 26], [messages/messages.ini.m4]]]) definované v[]NB()odděleném souboru.
 HEXPL([Názvy INI sekcí], [[[11], [messages/messages.ini.m4]], [[3, 6, 11], [messages/messages.ini]]]) jsou generovány řetězením symbolů.
 Příklad používá stejný soubor pro výstupní fronty jako LINK([příklad], [json_symbolic_queue_names]) pro generování JSON.
 ],
 [dnl english: _next_language_
-The example uses three automata and two output queues number CODE([2]) and CODE([4]) defined in a[]NB()separate file.
+The example uses three automata and two output queues number HCODE([2], [[[10, 26], [messages/messages.ini.m4]]]) and HCODE([4], [[[10, 26], [messages/messages.ini.m4]]]) defined in a[]NB()separate file.
 HEXPL([INI section names], [[[11], [messages/messages.ini.m4]], [[3, 6, 11], [messages/messages.ini]]]) are generated by symbol chaining.
 The example uses the same file for output queues as the LINK([example], [json_symbolic_queue_names]) to generate JSON.
 ]])
@@ -1846,11 +1851,11 @@ UL([LI([M4 is nearly forgotten language with small number of existing projects])
 
 LISTITEM([unusual_language], [[dnl czech
 neobvyklé programovací paradigma vyžadující splnění LINK([několika předpokladů], [prerequisites_for_mastering])
-UL([LI([proto lze M4 považovat za náročný jazyk])])
+UL([LI([BOLD([právě proto]) lze M4 považovat za náročný jazyk])])
 ],
 [dnl english: _next_language_
 unusual programming paradigm requiring LINK([several prerequisites], [prerequisites_for_mastering])
-UL([LI([therefore, M4 can be considered a challenging language])])
+UL([LI([BOLD([that is why]) the M4 can be considered a challenging language])])
 ]])
 
 LISTITEM([experience_dependent], [[dnl czech
