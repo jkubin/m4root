@@ -20,21 +20,23 @@ pushdef([CLASS_3_INFO],	[ class="rs-tip-major ADD_CLASS([info])ifelse([$#], [3],
 pushdef([CLASS_3_NOTE],	[ class="rs-tip-major ADD_CLASS([note])ifelse([$#], [3], [], [$3], [], [], [ ADD_CLASS([$3])])"])
 pushdef([CLASS_3_ROOT_CMD],	[ class="ADD_CLASS([root])[]ifelse([$#], [3], [], [$3], [], [], [ ADD_CLASS([$3])])"])
 pushdef([CLASS_3_TILE],	[ class="rs-tile[]ifelse([$#], [3], [], [$3], [], [], [ ADD_CLASS([$3])])"])
-pushdef([CLASS_3_USR_CMD],	[ class="ADD_CLASS([usc])[]ifelse([$#], [3], [], [$3], [], [], [ ADD_CLASS([$3])])"])
+pushdef([CLASS_3_SRC],	[ class="ADD_CLASS([src])ifelse([$#], [3], [], [$3], [], [], [ ADD_CLASS([$3])])"])
+pushdef([CLASS_3_USR_CMD],	[ class="ADD_CLASS([usc])ifelse([$#], [3], [], [$3], [], [], [ ADD_CLASS([$3])])"])
 pushdef([CLASS_3_WARN],	[ class="rs-tip-major ADD_CLASS([warn])ifelse([$#], [3], [], [$3], [], [], [ ADD_CLASS([$3])])"])
 pushdef([STYLE_4],		[ifelse([$#], [4], [], [$4], [], [], [ style="[$4]"])])
 pushdef([ANYTHING_5],	[ifelse([$#], [5], [], [$5], [], [], [ [$5]])])
 
 # html tag attributes groups
 # β
+pushdef([HTML_BRIDGEHEAD_ATTRIBUTES],	[ id="ADD_ID_RULE(defn([#ID]))"]defn([TITLE_2], [CLASS_3_BRIDGEHEAD], [STYLE_4], [ANYTHING_5]))
 pushdef([HTML_EXCL_ATTRIBUTES],	defn([ID_1_MONO], [TITLE_2], [CLASS_3_EXCL], [STYLE_4], [ANYTHING_5]))
 pushdef([HTML_GLOBAL_ATTRIBUTES],	defn([ID_1], [TITLE_2], [CLASS_3], [STYLE_4], [ANYTHING_5]))
-pushdef([HTML_MONO_GLOBAL_ATTRIBUTES],	defn([ID_1_MONO], [TITLE_2], [CLASS_3], [STYLE_4], [ANYTHING_5]))
 pushdef([HTML_HEADING_ATTRIBUTES],	[ id="ADD_ID_RULE(defn([#ID]))"]defn([TITLE_2], [CLASS_3_HEADING], [STYLE_4], [ANYTHING_5]))
-pushdef([HTML_BRIDGEHEAD_ATTRIBUTES],	[ id="ADD_ID_RULE(defn([#ID]))"]defn([TITLE_2], [CLASS_3_BRIDGEHEAD], [STYLE_4], [ANYTHING_5]))
 pushdef([HTML_INFO_ATTRIBUTES],	defn([ID_1_MONO], [TITLE_2], [CLASS_3_INFO], [STYLE_4], [ANYTHING_5]))
+pushdef([HTML_MONO_GLOBAL_ATTRIBUTES],	defn([ID_1_MONO], [TITLE_2], [CLASS_3], [STYLE_4], [ANYTHING_5]))
 pushdef([HTML_NOTE_ATTRIBUTES],	defn([ID_1_MONO], [TITLE_2], [CLASS_3_NOTE], [STYLE_4], [ANYTHING_5]))
 pushdef([HTML_ROOT_CMD_ATTRIBUTES],	defn([ID_1_MONO], [TITLE_2], [CLASS_3_ROOT_CMD], [STYLE_4], [ANYTHING_5]))
+pushdef([HTML_SOURCE_CODE_ATTRIBUTES],	defn([ID_1_MONO], [TITLE_2], [CLASS_3_SRC], [STYLE_4], [ANYTHING_5]))
 pushdef([HTML_USR_CMD_ATTRIBUTES],	defn([ID_1_MONO], [TITLE_2], [CLASS_3_USR_CMD], [STYLE_4], [ANYTHING_5]))
 pushdef([HTML_WARN_ATTRIBUTES],	defn([ID_1_MONO], [TITLE_2], [CLASS_3_WARN], [STYLE_4], [ANYTHING_5]))
 
@@ -491,7 +493,7 @@ define([PROGRAMLISTING], [
 	ADD_JAVASCRIPT_FOR_SOURCE_CODE()
 
 	divert(CURRQU)dnl
-<div class="ADD_CLASS([src])"><pre[]]defn([HTML_MONO_GLOBAL_ATTRIBUTES])>defn([PROCESS_RAW_CODE_TO_HTML_ENTITIES])</pre>defn([ID_1_ANCHOR])[</div>
+<div[]]defn([HTML_SOURCE_CODE_ATTRIBUTES])><pre>defn([PROCESS_RAW_CODE_TO_HTML_ENTITIES])</pre>defn([ID_1_ANCHOR])[</div>
 divert(-1)
 ])
 
@@ -700,6 +702,7 @@ popdef(
 	[CLASS_3_INFO],
 	[CLASS_3_NOTE],
 	[CLASS_3_ROOT_CMD],
+	[CLASS_3_SRC],
 	[CLASS_3_TILE],
 	[CLASS_3_USR_CMD],
 	[CLASS_3_WARN],
@@ -707,12 +710,13 @@ popdef(
 	[HTML_BRIDGEHEAD_ATTRIBUTES],
 	[HTML_EXCL_ATTRIBUTES],
 	[HTML_GLOBAL_ATTRIBUTES],
-	[HTML_MONO_GLOBAL_ATTRIBUTES],
 	[HTML_INFO_ATTRIBUTES],
 	[HTML_MONOLINGUAL],
+	[HTML_MONO_GLOBAL_ATTRIBUTES],
 	[HTML_MULTILINGUAL],
 	[HTML_NOTE_ATTRIBUTES],
 	[HTML_ROOT_CMD_ATTRIBUTES],
+	[HTML_SOURCE_CODE_ATTRIBUTES],
 	[HTML_UNPAIRED_TAG],
 	[HTML_USR_CMD_ATTRIBUTES],
 	[HTML_WARN_ATTRIBUTES],

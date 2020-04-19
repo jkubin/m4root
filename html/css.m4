@@ -101,7 +101,7 @@ font-weight:bold;
 
 ])
 
-CSS_CLASS_RULE_SET([[]],	[ch, bh, src, usc, root],	[[]], [
+CSS_CLASS_RULE_SET([[]],	[ch, bh, usc, root],	[[]], [
 
 position:relative;
 
@@ -123,10 +123,12 @@ padding:8px;
 
 ])
 
-CSS_CLASS_RULE_SET([[]],	[src],	[[]], [
-
+# solved in JavaScript
 background:#fff;
 border-radius:4px;
+
+CSS_CLASS_RULE_SET([[]],	[src],	[[]], [
+
 counter-reset:NSP()nl;
 
 ])
@@ -149,13 +151,6 @@ top:0;
 CSS_CLASS_RULE_SET([[]],	[src, usc, root],	[[>a::before]], [
 
 content:"\1f517";
-
-])
-
-CSS_CLASS_RULE_SET([[]],	[src],	[[>pre]], [
-
-background:none;
-position:relative;
 
 ])
 
@@ -241,7 +236,7 @@ top:0;
 
 ])
 
-CSS_CLASS_RULE_SET([[]],	[src],	[[ pre.NSP()rear div]], [
+CSS_CLASS_RULE_SET([[]],	[src],	[[], [>pre], [ pre.NSP()rear div]], [
 
 position:relative;
 
