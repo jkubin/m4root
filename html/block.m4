@@ -232,7 +232,7 @@ define([APPENDIX], [
 	APPENDIX_IDX(65)
 
 	divert(APPENDIX_NAVIG_DATA)dnl
-<hr>dnl
+<hr>
 divert(-1)
 	]defn([APPENDIX_MODE])[
 
