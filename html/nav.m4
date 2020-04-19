@@ -37,6 +37,11 @@ ifelse(defn([REF]), defn([REF_NEXT]), [
 	# increment chapter index for rerences
 	CHAPTER_IDX
 
+	# assign indexes
+	define([#S0], CHAPTER_IDX_val)
+	define([#S1])
+	define([#S2])
+
 	# set link to references
 	define([#ID], defn([NSP], [TOC_REFS]))
 
@@ -46,7 +51,7 @@ ifelse(defn([REF]), defn([REF_NEXT]), [
 <p id="defn([#ID], [TOCP])"><a href="[#]defn([#ID])"><b>CHAPTER_IDX_val()</b>WORD_REFERENCES</a></p>
 divert(ARTICLE_REFER_CAPT)dnl
 <!-- article references -->
-<h2 id="defn([#ID])" class="ADD_CLASS([ch])">]defn([RETURN_TO_TOC])[<a href="[#]defn([#ID])" title="🔗">CHAPTER_IDX_val</a>WORD_REFERENCES]defn([GO_BACK_UP])[</h2>
+<h2 id="defn([#ID])" class="ADD_CLASS([ch])">]defn([RETURN_TO_TOC], [CHAPTER_INDEX])[WORD_REFERENCES]defn([GO_BACK_UP])[</h2>
 divert(-1)
 ])
 
@@ -92,7 +97,7 @@ divert(-1)
 	divert(CHAPTER_NAVIG_DATA)dnl
 <p id="defn([#ID], [TOCP])"><a href="[#]defn([#ID])"><b>CHAPTER_IDX_val()</b>SENTENCE_ALL_PARTS</a></p>
 divert(ALL_PARTS_LIST)dnl
-<h2 id="defn([#ID])" class="ADD_CLASS([ch])">]defn([RETURN_TO_TOC])[<a href="[#]defn([#ID])" title="🔗">CHAPTER_IDX_val</a>SENTENCE_ALL_PARTS]defn([GO_BACK_UP])[</h2>
+<h2 id="defn([#ID])" class="ADD_CLASS([ch])">]defn([RETURN_TO_TOC], [CHAPTER_INDEX])[SENTENCE_ALL_PARTS]defn([GO_BACK_UP])[</h2>
 <ol>
 divert(ALL_PARTS_LIST_END)dnl
 </ol>

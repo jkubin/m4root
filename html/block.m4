@@ -10,7 +10,7 @@ ___POINT([HTML5 block-level elements])
 # β
 pushdef([ID_1],		[ifelse([$#], [1], [], [$1], [], [], [ id="FIND_AND_ADD_ID_RULE_SET([$1])"])])
 pushdef([ID_1_MONO],	[ifelse([$#], [1], [], [$1], [], [], [ id="FIND_AND_ADD_ID_RULE_SET_MONO([$1])"])])
-pushdef([ID_1_ANCHOR],	[ifelse([$#], [1], [], [$1], [], [], [<a href="[#]FIND_AND_ADD_ID_RULE_SET_MONO([$1])" title="⚓">🔗</a>])])
+pushdef([ID_1_ANCHOR],	[ifelse([$#], [1], [], [$1], [], [], [<a href="[#]FIND_AND_ADD_ID_RULE_SET_MONO([$1])" title="⚓"></a>])])
 pushdef([TITLE_2],		[ifelse([$#], [2], [], [$2], [], [], [ title="[$2]"])])
 pushdef([CLASS_3],		[ifelse([$#], [3], [], [$3], [], [], [ class="ADD_CLASS([$3])"])])
 pushdef([CLASS_3_EXCL],	[ class="rs-tip-major ADD_CLASS([excl])ifelse([$#], [3], [], [$3], [], [], [ ADD_CLASS([$3])])"])
@@ -38,7 +38,7 @@ pushdef([HTML_ROOT_CMD_ATTRIBUTES],	defn([ID_1_MONO], [TITLE_2], [CLASS_3_ROOT_C
 pushdef([HTML_USR_CMD_ATTRIBUTES],	defn([ID_1_MONO], [TITLE_2], [CLASS_3_USR_CMD], [STYLE_4], [ANYTHING_5]))
 pushdef([HTML_WARN_ATTRIBUTES],	defn([ID_1_MONO], [TITLE_2], [CLASS_3_WARN], [STYLE_4], [ANYTHING_5]))
 
-# convert {'&', '>', '<'} to html entities, strip trailing white chars
+# convert {'&', '<', '>'} to html entities, strip trailing white chars
 # β
 pushdef([PROCESS_RAW_CODE_TO_HTML_ENTITIES], [patsubst(patsubst(patsubst(patsubst(define([#], [[[[[$$#]]]]])indir([#], $@), [\s*]), [&], [&amp;]), [<], [&lt;]), [>], [&gt;])])
 
@@ -92,10 +92,6 @@ define([CAPTION], defn([TEST_ATM])[
 	define([CHAPTER_IDX], defn([COUNT_UP]))
 	CHAPTER_IDX(0)
 
-	# starting letter for annex: ord('A') is 65
-	define([APPENDIX_IDX], defn([COUNT_UP]))
-	APPENDIX_IDX(65)
-
 	# init counters for sections
 	define([SECT1_IDX], defn([COUNT_UP]))
 	define([SECT2_IDX], defn([COUNT_UP]))
@@ -122,9 +118,9 @@ pushdef([CHAPTER_COMMON_CODE], [
 	define([CURRQU], ARTICLE_CONTENT)
 
 	divert(CHAPTER_NAVIG_DATA)dnl
-<p id="defn([#ID], [TOCP])"INDENT_LEVEL><a href="[#]defn([#ID])"><b>defn([CHAPTER_IDX_val], [#S1], [#S2])</b>SELITM</a></p>
+<p id="defn([#ID], [TOCP])"INDENT_LEVEL><a href="[#]defn([#ID])"><b>defn([#S0], [#S1], [#S2])</b>SELITM</a></p>
 divert(CURRQU)dnl
-<HEADING_TAG]defn([HTML_HEADING_ATTRIBUTES])>defn([RETURN_TO_TOC])[<a href="[#]defn([#ID])" title="🔗">defn([CHAPTER_IDX_val], [#S1], [#S2])</a>SELITM]defn([GO_BACK_UP])[</HEADING_TAG>
+<HEADING_TAG]defn([HTML_HEADING_ATTRIBUTES])>defn([RETURN_TO_TOC], [CHAPTER_INDEX])[SELITM]defn([GO_BACK_UP])[</HEADING_TAG>
 divert(-1)
 ])
 
@@ -138,6 +134,7 @@ define([CHAPTER], defn([MULTILINGUAL_HEADINGS], [SET_ANCHOR])[
 	define([SECT1_IDX_val], 0)
 	define([SECT2_IDX_val], 0)
 
+	define([#S0], CHAPTER_IDX_val)
 	define([#S1])
 	define([#S2])
 	define([INDENT_LEVEL])
@@ -153,11 +150,13 @@ define([SECT1], defn([MULTILINGUAL_HEADINGS], [SET_ANCHOR])[
 
 	# increment index
 	SECT1_IDX
+	define([SECT2_IDX_val], 0)
 
 	# assign indexes
+	define([#S0], CHAPTER_IDX_val)
 	define([#S1], .SECT1_IDX_val)
-	define([SECT2_IDX_val], 0)
 	define([#S2])
+
 	define([INDENT_LEVEL], [ class="ADD_CLASS([l2])"])
 	define([HEADING_TAG], [h3])
 
@@ -173,8 +172,10 @@ define([SECT2], defn([MULTILINGUAL_HEADINGS], [SET_ANCHOR])[
 	SECT2_IDX
 
 	# assign indexes
+	define([#S0], CHAPTER_IDX_val)
 	define([#S1], .SECT1_IDX_val)
 	define([#S2], .SECT2_IDX_val)
+
 	define([INDENT_LEVEL], [ class="ADD_CLASS([l3])"])
 	define([HEADING_TAG], [h4])
 
@@ -182,15 +183,6 @@ define([SECT2], defn([MULTILINGUAL_HEADINGS], [SET_ANCHOR])[
 
 	define([HEADING_TAG], [h5])
 ])
-
-#      <hr> tag automaton (used in table of content as a separator)
-#      ______      ___
-# --->/ <hr> \--->/ ε \---.
-#     \______/    \___/<--'
-#
-# A → β
-define([APPENDIX_SEPARATOR], [<hr>
-define([$0])])
 
 # β
 define([APPENDIX_MODE], defn([MULTILINGUAL_HEADINGS], [SET_ANCHOR])[
@@ -200,14 +192,19 @@ define([APPENDIX_MODE], defn([MULTILINGUAL_HEADINGS], [SET_ANCHOR])[
 	define([SECT1_IDX_val], 0)
 	define([SECT2_IDX_val], 0)
 
+	# assign indexes
+	define([#S0], APPENDIX_LETTER)
+	define([#S1])
+	define([#S2])
+
 	# set the current queue
 	define([CURRQU], APPENDIX_CONTENT)
 
 	divert(APPENDIX_NAVIG_DATA)dnl
-APPENDIX_SEPARATOR<p id="defn([#ID], [TOCP])"><a href="[#]defn([#ID])"><b>APPENDIX_LETTER</b>SELITM</a></p>
+<p id="defn([#ID], [TOCP])"><a href="[#]defn([#ID])"><b>defn([#S0], [#S1], [#S2])</b>SELITM</a></p>
 divert(APPENDIX_NAVIGATION)dnl
 undivert(CURRQU)dnl
-<h2]defn([HTML_HEADING_ATTRIBUTES])>defn([RETURN_TO_TOC])[<a href="[#]defn([#ID])" title="🔗">APPENDIX_LETTER</a>SELITM]defn([GO_BACK_UP])[</h2>
+<h2]defn([HTML_HEADING_ATTRIBUTES])>defn([RETURN_TO_TOC], [CHAPTER_INDEX])[SELITM]defn([GO_BACK_UP])[</h2>
 divert(-1)
 
 	# size of the following headings
@@ -228,10 +225,21 @@ divert(-1)
 #     \_SECT2_/    \_SECT2_APPENDIX_/<--'
 #
 # A → β
-define([APPENDIX], defn([APPENDIX_MODE])[
+define([APPENDIX], [
 
+	# starting letter is 65: ord('A')
+	define([APPENDIX_IDX], defn([COUNT_UP]))
+	APPENDIX_IDX(65)
+
+	divert(APPENDIX_NAVIG_DATA)dnl
+<hr>dnl
+divert(-1)
+	]defn([APPENDIX_MODE])[
+
+	# initialization for the appendix is done
 	# transition to the next node
 	define([$0], defn([APPENDIX_MODE]))
+
 	define([SECT1], defn([SECT1_APPENDIX]))
 	define([SECT2], defn([SECT2_APPENDIX]))
 ])
@@ -243,10 +251,15 @@ define([SECT1_APPENDIX], defn([MULTILINGUAL_HEADINGS], [SET_ANCHOR])[
 	SECT1_IDX
 	define([SECT2_IDX_val], 0)
 
+	# assign indexes
+	define([#S0], APPENDIX_LETTER)
+	define([#S1], .SECT1_IDX_val)
+	define([#S2])
+
 	divert(APPENDIX_NAVIGATION)dnl
-<p id="defn([#ID], [TOCP])" class="ADD_CLASS([l2])"><a href="[#]defn([#ID])"><b>APPENDIX_LETTER.SECT1_IDX_val</b>SELITM</a></p>
+<p id="defn([#ID], [TOCP])" class="ADD_CLASS([l2])"><a href="[#]defn([#ID])"><b>defn([#S0], [#S1], [#S2])</b>SELITM</a></p>
 divert(CURRQU)dnl
-<h3]defn([HTML_HEADING_ATTRIBUTES])>defn([RETURN_TO_TOC])[<a href="[#]defn([#ID])" title="🔗">APPENDIX_LETTER.SECT1_IDX_val</a>SELITM]defn([GO_BACK_UP])[</h3>
+<h3]defn([HTML_HEADING_ATTRIBUTES])>defn([RETURN_TO_TOC], [CHAPTER_INDEX])[SELITM]defn([GO_BACK_UP])[</h3>
 divert(-1)
 
 	# size of the following headings
@@ -259,10 +272,15 @@ define([SECT2_APPENDIX], defn([MULTILINGUAL_HEADINGS], [SET_ANCHOR])[
 	# increment index
 	SECT2_IDX
 
+	# assign indexes
+	define([#S0], APPENDIX_LETTER)
+	define([#S1], .SECT1_IDX_val)
+	define([#S2], .SECT2_IDX_val)
+
 	divert(APPENDIX_NAVIGATION)dnl
-<p id="defn([#ID], [TOCP])" class="ADD_CLASS([l3])"><a href="[#]defn([#ID])"><b>APPENDIX_LETTER.SECT1_IDX_val.SECT2_IDX_val</b>SELITM</a></p>
+<p id="defn([#ID], [TOCP])" class="ADD_CLASS([l3])"><a href="[#]defn([#ID])"><b>defn([#S0], [#S1], [#S2])</b>SELITM</a></p>
 divert(CURRQU)dnl
-<h4]defn([HTML_HEADING_ATTRIBUTES])>defn([RETURN_TO_TOC])[<a href="[#]defn([#ID])" title="🔗">APPENDIX_LETTER.SECT1_IDX_val.SECT2_IDX_val</a>SELITM]defn([GO_BACK_UP])[</h4>
+<h4]defn([HTML_HEADING_ATTRIBUTES])>defn([RETURN_TO_TOC], [CHAPTER_INDEX])[SELITM]defn([GO_BACK_UP])[</h4>
 divert(-1)
 
 	# size of the following headings
@@ -510,7 +528,7 @@ define([REF], [pushdef([CURRQU], divnum)divert(-1)
 	# create new entry for all references under the article
 	divert(ARTICLE_REFERENCES)dnl
 <ol class="ADD_CLASS([refs])">
-<li>ifelse(defn([CURRQU]), [-1], [], [<a href="[#]REF_SYMBOL" title="WORD_SOURCE">↑</a>])<strong>$1</strong>ifelse([$2], [], [], [, $2])[]BR()
+<li>ifelse(defn([CURRQU]), [-1], [], [<a href="[#]REF_SYMBOL" title="WORD_SOURCE"></a>])<strong>$1</strong>ifelse([$2], [], [], [, $2])[]BR()
 <a href="[$3]">[$3]</a></li>
 divert(END_OF_REFERENCES)dnl
 </ol>
@@ -533,7 +551,7 @@ define([REF_NEXT], [pushdef([CURRQU], divnum)divert(-1)
 		define([{$1|$2|$3}], REF_VALUE)
 
 		divert(ARTICLE_REFERENCES)dnl
-<li>ifelse(defn([CURRQU]), [-1], [], [<a href="[#]REF_SYMBOL" title="WORD_SOURCE">↑</a>])<strong>$1</strong>ifelse([$2], [], [], [, $2])[]BR()
+<li>ifelse(defn([CURRQU]), [-1], [], [<a href="[#]REF_SYMBOL" title="WORD_SOURCE"></a>])<strong>$1</strong>ifelse([$2], [], [], [, $2])[]BR()
 <a href="[$3]">[$3]</a></li>
 divert(CURRQU)popdef([CURRQU])dnl
 <sup><a href="[$3]" title="$1" id="REF_SYMBOL">BRAC(REF_VALUE)</a></sup>dnl
@@ -544,7 +562,7 @@ divert(CURRQU)popdef([CURRQU])dnl
 define([BRIDGEHEAD_MONO], defn([MONOLINGUAL_HEADINGS], [SET_ANCHOR])[
 
 	divert(CURRQU)dnl
-<HEADING_TAG]defn([HTML_BRIDGEHEAD_ATTRIBUTES])[><span><a href="[#]defn([#ID])" title="⚓">🔗</a></span>SELITM]defn([GO_BACK_UP])[</HEADING_TAG>
+<HEADING_TAG]defn([HTML_BRIDGEHEAD_ATTRIBUTES])>defn([BRIDGEHEAD_ANCHOR])[SELITM]defn([GO_BACK_UP])[</HEADING_TAG>
 divert(-1)
 ])
 
@@ -552,7 +570,7 @@ divert(-1)
 define([BRIDGEHEAD], defn([MULTILINGUAL_HEADINGS], [SET_ANCHOR])[
 
 	divert(CURRQU)dnl
-<HEADING_TAG]defn([HTML_BRIDGEHEAD_ATTRIBUTES])[><span><a href="[#]defn([#ID])" title="⚓">🔗</a></span>SELITM]defn([GO_BACK_UP])[</HEADING_TAG>
+<HEADING_TAG]defn([HTML_BRIDGEHEAD_ATTRIBUTES])>defn([BRIDGEHEAD_ANCHOR])[SELITM]defn([GO_BACK_UP])[</HEADING_TAG>
 divert(-1)
 ])
 

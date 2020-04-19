@@ -10,16 +10,10 @@ ___POINT([one place to configure ALL generated web pages])
 
 # A → β
 # β
-define([RETURN_TO_TOC], [<span><a href="[#]ADD_ID_RULE(defn([#ID], [TOCP]))" title="defn([WORD_CONTENT])">☰</a></span>])
-define([GO_BACK_UP], [<sup><a href="[#]defn([NSP], [TOCP])" title="defn([WORD_TOP])">🡅</a></sup>])
-# or disable the links to TOC (if you do not like it)
-# A → ε
-#define([RETURN_TO_TOC])
-#define([GO_BACK_UP])
-
-# links pointing to the top of the page; possible chars: 🠑ꜛ↑⇈⇧↾↿↟⤒
-# β
-#define([ESCAPE_FROM_TOC], NB2()[AH([🡅], defn([WORD_TOP]), [top], [#])])
+define([BRIDGEHEAD_ANCHOR],	[<a href="[#]defn([#ID])" title="⚓"></a>])
+define([CHAPTER_INDEX],		[<a href="[#]defn([#ID])" title="⚓">defn([#S0], [#S1], [#S2])</a>])
+define([GO_BACK_UP],		[<a href="[#]defn([NSP], [TOCP])" title="defn([WORD_TOP])"></a>])
+define([RETURN_TO_TOC],		[<a href="[#]ADD_ID_RULE(defn([#ID], [TOCP]))" title="defn([WORD_CONTENT])"></a>])
 
 # TODO: link to other language (not finished yet, if finished ever)
 # β
@@ -29,7 +23,7 @@ define([GO_BACK_UP], [<sup><a href="[#]defn([NSP], [TOCP])" title="defn([WORD_TO
 # A → β
 define([FOLDER_FOR_GENERATED_FILES], [gfiles/])
 
-# the default color of the lines to highlight the source code
+# the default color to highlight the source code
 # A → β
 #define([DEFAULT_HIGHLIGHT_COLOR], [greenyellow])
 define([DEFAULT_HIGHLIGHT_COLOR], [lawngreen])
@@ -38,7 +32,7 @@ define([DEFAULT_HIGHLIGHT_COLOR], [lawngreen])
 #
 # Technical Notes:
 #
-# - max. length (32) of html anchors is hard-coded in the sed file "anchors.sed"
+# - max. length (32) of html anchors is hard-coded in the sed file "refs.sed"
 # - sed file "html/publish.sed" finally converts multibyte UTF-8 characters to HTML entities
 #
 ################################################################################
@@ -58,6 +52,7 @@ define([TOC_REFS],	[refs])
 define([NSP],		[m4-])
 #define([NSP],		[foo-])
 #define([NSP],		[usr-])
-# or disable it (risky, anchors and CSS may interfere with the parent page)
+#define([NSP],		[pepa-])
+# or disable it (risky, anchors and CSS _WILL_ interfere with the parent page)
 # A → ε
 #define([NSP])
