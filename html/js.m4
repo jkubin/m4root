@@ -39,8 +39,10 @@ divert(-1)
 # $ ---> \$
 # ` ---> \`
 # `
-# /!\ disable M4 macro variables
+# /!\ disable M4 macro variables also
 # $0 ---> \$[0]
+# $# ---> \$[#]
+# $@ ---> \$[@]
 #      ________________________________      __________
 # --->/ ADD_JAVASCRIPT_FOR_SOURCE_CODE \--->/ undefine \
 #     \________________________________/    \__________/
@@ -55,11 +57,11 @@ define([ADD_JAVASCRIPT_FOR_SOURCE_CODE], [
 	divert(JAVASCRIPT_CODE)ARG1(esyscmd([sed -f html/js_packer.sed << EOF
 /*
  * Notes:
- * /!\ keep all global names of variables in the dedicated namespace: m4_*
- * /!\ keep all variable names consistent with the file js_compress.js because
- *
  * NSP is a global CSS namespace prefix defined in the configuration file
+ * /!\ keep all global names of variables in the dedicated namespace: m4_*
+ * /!\ keep all variable names consistent with the file js_packer.js because
  * lengthy JavaScript is eventually packed to a smaller one-line script
+ *
  *
  * The only global JavaScript name is: "M4_is_beautiful()"
  * It's not irony, it's an unrecognized truth.
@@ -117,7 +119,7 @@ function add_info() {
 	source_info = document.createElement("div");
 	source_path = document.createElement("div");
 
-	// MSIE ignores it (I also ignore him)
+	// MSIE ignores it
 	if (window.getSelection)
 		source_date.onclick = source_path.onclick = function () {
 			const selected_text = window.getSelection();
@@ -144,15 +146,15 @@ for (source_node of all_sources) {
 	source_info = pre_node.nextElementSibling;
 
 	/*
-	 * the <pre>…</ pre> ta is used as a stripe container because it has exactly
+	 * the <pre>…</ pre> tag is used as a stripe container because it has exactly
 	 * the same CSS paddings, line-size, corners, …, as the <pre>…</ pre> with
-	 * a source code; stripe sizes will follow every CSS change
+	 * a source code; stripe sizes will follow every CSS change in the tag
 	 */
 	striped_background = document.createElement("pre");
 	striped_background.className = "]defn([NSP], [CLASS_REAR])[";
 
 	/*
-	 * adds event handler for additional info
+	 * adds an event handler to display additional source code information
 	 */
 	if (source_info && source_info.tagName == "CODE")
 		source_info.firstChild.onclick = add_info;
@@ -172,7 +174,7 @@ for (source_node of all_sources) {
 }
 
 /*
- * the JavaScript processes datasets from <tag data-0="…">keyword</tag> in the
+ * the JavaScript processes datasets from <tag data-0="…">keyword</ tag> in the
  * following JSON-like format (quotes are omitted):
  *
  * data-0="1"
@@ -182,14 +184,14 @@ for (source_node of all_sources) {
  * data-0=":[1,2,3],red:[7,8,9],#abc:[10]"
  * data-0=":[1-3],red:[7-9]"
  *         ^^^^^^
- * highlight lines by default color (always the first item)
+ * highlights lines by default color (always the first pseudo-JSON item)
  *
  * data-0=":[A,B,C,1-3],red:[7-9]"
  *           ^^^^^
- * highlight all strings in the source code marked by classes a,b,c
+ * highlights all strings in the source code marked by classes a,b,c
  *
  * the following code connects keywords with the appropriate lines
- * of source code for line highlights
+ * of source code for interactive line highlighting (onmouseover)
  */
 for (hgl_keyword of all_keywords) {
 
@@ -274,7 +276,7 @@ for (source_node of all_sources) {
 				'"\$&"').replace(/^:/, '"":');
 
 		/*
-		 * wraps the string in parentheses
+		 * wraps the processed string in parentheses to JSON
 		 */
 		hgl_item.value =
 			/:/.test(hgl_item.value) ?
@@ -282,7 +284,7 @@ for (source_node of all_sources) {
 			'{"":[' + hgl_item.value + ']}';
 
 		/*
-		 * converts raw string to final structured JSON data
+		 * converts raw string to a final structured JSON data
 		 * the data contains only color names and line numbers
 		 */
 		parsed_json = JSON.parse(hgl_item.value, function (key, value) {
@@ -295,7 +297,7 @@ for (source_node of all_sources) {
 				highlighting_classes.push(value);
 
 				/*
-				 * remove letter from JSON
+				 * removes a letter from the final JSON
 				 */
 				return undefined;
 			}
@@ -320,7 +322,7 @@ for (source_node of all_sources) {
 
 			/*
 			 * converts line numbers to the index for an array
-			 * removes forbidden values
+			 * removes forbidden integer values
 			 */
 			if (Number.isInteger(value))
 				return value > 0 ?
@@ -343,7 +345,7 @@ for (source_node of all_sources) {
 				highlighting_sequence = [];
 
 				/*
-				 * if an array is empty, remove it
+				 * if concatenated array is empty, removes it
 				 */
 				return value.length ?
 					value :
@@ -352,7 +354,7 @@ for (source_node of all_sources) {
 
 			/*
 			 * there are possible modifications of the final JSON
-			 * object (final JSON is not modified)
+			 * object (the final JSON is not modified)
 			 */
 			if (typeof value === 'object')
 				return value;
@@ -364,7 +366,7 @@ for (source_node of all_sources) {
 		});
 
 		/*
-		 * append higlighting classes to a keyword
+		 * append higlighting classes and source code to a keyword
 		 */
 		if (highlighting_classes.length) {
 
