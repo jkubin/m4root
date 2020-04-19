@@ -5,6 +5,8 @@ ___DESCR([the resulting style sheet is embedded in the web page or can be extrac
 ___POINT([all CSS rules; a subset will be selected into the final style sheet])
 
 # [[prefix1], [prefix2], …], [class_name1, class_name2, …], [[suffix1], [suffix2], …], [… rule set …]
+# if the middle bracket set is sempty, place the ruleset unconditionally in the stylesheet
+
 # 🖹
 CSS_CLASS_RULE_SET([[]],	[note],	[[::before]], [
 
@@ -224,9 +226,9 @@ text-decoration:#f04c23 underline dashed;
 ])
 
 # class names for JavaScript code
+define([CLASS_HGL],		[hgl])
 define([CLASS_REAR],	[rear])
 define([CLASS_SRC],		[src])
-define([CLASS_HGL],		[hgl])
 
 CSS_CLASS_RULE_SET([[]],	[src],	[[ pre.NSP()rear]], [
 
@@ -379,26 +381,6 @@ opacity:1;
 
 ])
 
-CSS_CLASS_RULE_SET([[]],	[nav],	[[]], [
-
-margin-left:.7em;
-
-])
-
-CSS_CLASS_RULE_SET([[]],	[nav],	[[ a]], [
-
-text-decoration:none;
-
-])
-
-CSS_CLASS_RULE_SET([[]],	[nav],	[[ a:first-child]], [
-
-margin-right:.5em;
-
-])
-
-# if the middle bracket is sempty, place the ruleset unconditionally in the stylesheet
-
 # add space between number and chapter text
 CSS_CLASS_RULE_SET([[.urs ]],	[],	[[p[]BRAC(id$="TOCP")>a>b]], [
 
@@ -414,7 +396,7 @@ display:inline-block;
 
 ])
 
-# the default highlight color is an global macro
+# definition of the default highlight color is in the html/cfg.m4
 CSS_CLASS_RULE_SET([[.NSP()src.A ]],	[],	[[.a]], [
 
 background:defn([DEFAULT_HIGHLIGHT_COLOR]);

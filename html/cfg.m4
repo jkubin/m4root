@@ -13,7 +13,7 @@ ___POINT([one place to configure ALL generated web pages])
 define([BRIDGEHEAD_ANCHOR],	[<a href="[#]defn([#ID])" title="⚓"></a>])
 define([CHAPTER_INDEX],		[<a href="[#]defn([#ID])" title="⚓">defn([#S0], [#S1], [#S2])</a>])
 define([GO_BACK_UP],		[<a href="[#]defn([NSP], [TOCP])" title="defn([WORD_TOP])"></a>])
-define([RETURN_TO_TOC],		[<a href="[#]ADD_ID_RULE(defn([#ID], [TOCP]))" title="defn([WORD_CONTENT])"></a>])
+define([RETURN_TO_TOC],		[<a href="[#]defn([#ID], [TOCP])" title="defn([WORD_CONTENT])"></a>])
 
 # TODO: link to other language (not finished yet, if finished ever)
 # β
@@ -47,12 +47,14 @@ define([TOCP],		[-toc])
 define([TOC_ALL_PARTS],	[all-parts])
 define([TOC_REFS],	[refs])
 
-# namespace prefix:
+# html template namespace prefix:
 # A → β
 define([NSP],		[m4-])
 #define([NSP],		[foo-])
 #define([NSP],		[usr-])
 #define([NSP],		[pepa-])
-# or disable it (risky, anchors and CSS _WILL_ interfere with the parent page)
+
+# or deactivate it completely
+# /!\ risky, anchors and CSS class names _WILL_INTERFERE_ with the parent page /!\
 # A → ε
 #define([NSP])
