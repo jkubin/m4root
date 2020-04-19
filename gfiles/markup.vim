@@ -63,6 +63,7 @@ iabbrev <buffer> <unique> gr GRAY([<c-r>"])<esc>
 iabbrev <buffer> <unique> gt []GT()<c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> hc HCODE([<c-r>"], [[[%%%], [%%%]]%%%])<left><c-o>%;;<c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> hew HEADER_WRAP([<cr><cr><cr><cr>])dnl HEADER_WRAP<up><up><c-r>=Eatchar('.')<cr>
+iabbrev <buffer> <unique> hg SPN([<c-r>"], )<left><c-r>=Eatchar('.')<cr>
 "iabbrev <buffer> <unique> hh H1([])<left><left><c-r>=Eatchar('.')<cr>
 "iabbrev <buffer> <unique> hh HTEXT([<c-r>"], [[[%%%], [%%%]]])<left><c-o>%;;<c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> hm HCODE_M4([<c-r>"], [[[%%%], [%%%]]%%%])<left><c-o>%;;<c-r>=Eatchar('.')<cr>
