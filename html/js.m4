@@ -63,7 +63,7 @@ define([ADD_JAVASCRIPT_FOR_SOURCE_CODE], [
  * lengthy JavaScript is eventually packed to a smaller one-line script
  *
  *
- * The only global JavaScript name is: "M4_is_beautiful()"
+ * The only global JavaScript symbol is: "M4_is_beautiful()"
  * It's not irony, it's an unrecognized truth.
  * I am pretty sure it will not conflict with any name today.
  */
@@ -172,6 +172,9 @@ for (source_node of all_sources) {
 	 * Z-index is not explicitly set because the elements are in natural Z order
 	 */
 	source_node.insertBefore(striped_background, pre_node);
+
+	// set the transparency of the source code background
+	pre_node.style.background = "none";
 }
 
 /*
@@ -425,11 +428,13 @@ for (source_node of all_sources) {
 	}
 }
 }
+
+// the only global JavaScript symbol will not conflict with other global symbols
 M4_is_beautiful(
 	document.getElementsByClassName("]defn([NSP], [CLASS_HGL])["),
 	document.getElementsByClassName("]defn([NSP], [CLASS_SRC])["),
 	"]defn([NSP], [CLASS_REAR])[",
-	"]defn([DEFAULT_HIGHLIGHT_COLOR])[");
+	"]defn([DEFAULT_HIGHLIGHT_COLOR])[")
 
 EOF]))divert(-1)
 ]defn([TEST_RESULT_OF_AN_EXTERNAL_COMMAND]))
