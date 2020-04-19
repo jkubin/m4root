@@ -5,6 +5,7 @@ ___DESCR([the resulting style sheet is embedded in the web page or can be extrac
 ___POINT([all CSS rules; a subset will be selected into the final style sheet])
 
 # [[prefix1], [prefix2], …], [class_name1, class_name2, …], [[suffix1], [suffix2], …], [… rule set …]
+# 🖹
 CSS_CLASS_RULE_SET([[]],	[note],	[[::before]], [
 
 content:"\1f5b9";
@@ -13,6 +14,7 @@ font-size:1.5em;
 
 ])
 
+# ⚠
 CSS_CLASS_RULE_SET([[]],	[warn],	[[::before]], [
 
 content:"\26a0";
@@ -22,6 +24,7 @@ font-size:1.5em;
 
 ])
 
+# ❕
 CSS_CLASS_RULE_SET([[]],	[excl],	[[::before]], [
 
 content:"\2755";
@@ -30,6 +33,7 @@ font-size:1.5em;
 
 ])
 
+# 🛈
 CSS_CLASS_RULE_SET([[]],	[info],	[[::before]], [
 
 content:"\1f6c8";
@@ -51,6 +55,7 @@ border-color:red;
 
 ])
 
+# ↑
 CSS_CLASS_RULE_SET([[ol]],	[refs],	[[ a:first-child::before]], [
 
 content:"\2191";
@@ -138,6 +143,7 @@ top:0;
 
 ])
 
+# 🔗
 CSS_CLASS_RULE_SET([[]],	[src, usc, root],	[[>a::before]], [
 
 content:"\1f517";
@@ -194,6 +200,7 @@ font-weight:normal;
 
 ])
 
+# 🔗
 CSS_CLASS_RULE_SET([[]],	[src],	[[>code a+a::before]], [
 
 content:"\1f517";
@@ -322,12 +329,14 @@ width:1.1em;
 
 ])
 
+# 🔗
 CSS_CLASS_RULE_SET([[]],	[bh],	[[>a:first-child::before]], [
 
 content:"\1f517";
 
 ])
 
+# ☰
 CSS_CLASS_RULE_SET([[]],	[ch],	[[>a:first-child::before]], [
 
 content:"\2630";
@@ -348,6 +357,7 @@ line-height:normal;
 
 ])
 
+# 🡅
 CSS_CLASS_RULE_SET([[]],	[ch, bh],	[[>a:last-child::before]], [
 
 content:"\1f845";
