@@ -46,7 +46,7 @@ define([GIT_CSV], defn(./FOLDER[$1]))ifelse(defn([GIT_CSV]), [], [
 
 	ROOT_ERROR([git record for ‘]./FOLDER[$1][’ not found, regenerate git database])
 ])dnl
-GT() AH([$1], defn([SRC_REPO_NAME], [FOLDER])[$1], SRC_FILE_PATH[]defn([FOLDER])[$1])</div><a href="[#]defn(__file__.mono.defn([FOLDER])[$1])-command" title="⚓">🔗</a></div>
+GT() AH([$1], defn([SRC_REPO_NAME], [FOLDER])[$1], SRC_FILE_PATH[]defn([FOLDER])[$1])</div><a href="[#]defn(__file__.mono.defn([FOLDER])[$1])-command" title="⚓"></a></div>
 divert(-1)
 
 		INSERT_FILE(defn([FOLDER])[$1])
