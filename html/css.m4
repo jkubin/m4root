@@ -4,24 +4,6 @@ __HEADER([Josef Kubin], [2019/12/24], [root_cz])
 ___DESCR([the resulting style sheet is embedded in the web page or can be extracted into a separated file])
 ___POINT([all CSS rules; a subset will be selected into the final style sheet])
 
-# [[prefix1], [prefix2], …], [id_name1, id_name2], [[suffix1], [suffix2], …], [… rule set …]
-CSS_ID_RULE_SET([[]],	defn([NSP], [TOCP]),	[[]], [
-
-position:relative;
-
-])
-
-CSS_ID_RULE_SET([[]],	defn([NSP], [TOCP]),	[[ div]], [
-
-color:#666;
-position:absolute;
-right:0;
-text-align:right;
-top:0;
-
-])
-
-
 # [[prefix1], [prefix2], …], [class_name1, class_name2, …], [[suffix1], [suffix2], …], [… rule set …]
 CSS_CLASS_RULE_SET([[]],	[note],	[[::before]], [
 
@@ -69,18 +51,16 @@ border-color:red;
 
 ])
 
+CSS_CLASS_RULE_SET([[ol]],	[refs],	[[ a:first-child::before]], [
+
+content:"\2191";
+
+])
+
 CSS_CLASS_RULE_SET([[ol]],	[refs],	[[ a:first-child]], [
 
 margin-right:.3em;
 text-decoration:none;
-
-])
-
-CSS_CLASS_RULE_SET([[]],	[toc],	[[]], [
-
-font-size:.5em;
-text-decoration:none;
-vertical-align:super;
 
 ])
 
@@ -114,7 +94,7 @@ font-weight:bold;
 
 ])
 
-CSS_CLASS_RULE_SET([[]],	[usc, root],	[[]], [
+CSS_CLASS_RULE_SET([[]],	[ch, bh, src, usc, root],	[[]], [
 
 position:relative;
 
@@ -141,7 +121,6 @@ CSS_CLASS_RULE_SET([[]],	[src],	[[]], [
 background:#fff;
 border-radius:4px;
 counter-reset:NSP()nl;
-position:relative;
 
 ])
 
@@ -156,6 +135,12 @@ padding:2px 4px;
 position:absolute;
 right:0;
 top:0;
+
+])
+
+CSS_CLASS_RULE_SET([[]],	[src, usc, root],	[[>a::before]], [
+
+content:"\1f517";
 
 ])
 
@@ -209,7 +194,13 @@ font-weight:normal;
 
 ])
 
-# git revision number is obvious
+CSS_CLASS_RULE_SET([[]],	[src],	[[>code a+a::before]], [
+
+content:"\1f517";
+
+])
+
+# removed (the hash revision of the git is pretty self-explanatory)
 _CSS_CLASS_RULE_SET([[]],	[src],	[[>code::before]], [
 
 content:"git";
@@ -225,7 +216,12 @@ text-decoration:#f04c23 underline dashed;
 
 ])
 
-CSS_CLASS_RULE_SET([[]],	[src],	[[ pre.rear]], [
+# class names for JavaScript code
+define([CLASS_REAR],	[rear])
+define([CLASS_SRC],		[src])
+define([CLASS_HGL],		[hgl])
+
+CSS_CLASS_RULE_SET([[]],	[src],	[[ pre.NSP()rear]], [
 
 left:0;
 overflow:visible;
@@ -236,19 +232,19 @@ top:0;
 
 ])
 
-CSS_CLASS_RULE_SET([[]],	[src],	[[ pre.rear div]], [
+CSS_CLASS_RULE_SET([[]],	[src],	[[ pre.NSP()rear div]], [
 
 position:relative;
 
 ])
 
-CSS_CLASS_RULE_SET([[]],	[src],	[[ pre.rear div:nth-child(even)]], [
+CSS_CLASS_RULE_SET([[]],	[src],	[[ pre.NSP()rear div:nth-child(even)]], [
 
 background:#f5f5f5;
 
 ])
 
-CSS_CLASS_RULE_SET([[]],	[src],	[[ pre.rear div::before]], [
+CSS_CLASS_RULE_SET([[]],	[src],	[[ pre.NSP()rear div::before]], [
 
 content:counter(NSP()nl);
 counter-increment:NSP()nl;
@@ -260,14 +256,15 @@ width:2.5em;
 
 ])
 
-CSS_CLASS_RULE_SET([[]],	[src],	[[ pre.rear div::after]], [
+# <div></div> must not be empty
+CSS_CLASS_RULE_SET([[]],	[src],	[[ pre.NSP()rear div::after]], [
 
 content:" ";
 
 ])
 
-border-bottom:1px dashed #000;
-CSS_CLASS_RULE_SET([[]],	[hg],	[[]], [
+# used for an explanation of an ambiguous word
+CSS_CLASS_RULE_SET([[]],	[xp],	[[]], [
 
 border-bottom:1px dotted #000;
 cursor:help;
@@ -315,55 +312,60 @@ margin-bottom:0;
 
 ])
 
-CSS_CLASS_RULE_SET([[]],	[ch, bh],	[[]], [
-
-position:relative;
-
-])
-
-CSS_CLASS_RULE_SET([[]],	[ch],	[[>span:first-child+a]], [
-
-margin-right:.4em;
-
-])
-
-font-size:.65em;
-CSS_CLASS_RULE_SET([[]],	[ch, bh],	[[>span:first-child]], [
+CSS_CLASS_RULE_SET([[]],	[bh, ch],	[[>a:first-child::before]], [
 
 font-size:.9em;
 font-weight:normal;
-left:-1.2em;
-line-height:normal;
 position:absolute;
-padding-right:.3em;
+right:100%;
+width:1.1em;
 
 ])
 
-CSS_CLASS_RULE_SET([[]],	[ch, bh],	[[>sup:last-child]], [
+CSS_CLASS_RULE_SET([[]],	[bh],	[[>a:first-child::before]], [
 
-visibility:hidden;
-margin-left:.3em;
-
-])
-
-CSS_CLASS_RULE_SET([[]],	[ch, bh],	[[>span:first-child>a], [>sup:last-child>a]], [
-
-text-decoration:none;
-visibility:hidden;
+content:"\1f517";
 
 ])
 
-CSS_CLASS_RULE_SET([[]],	[ch, bh],	[[:hover>span:first-child>a], [:hover>sup:last-child>a]], [
+CSS_CLASS_RULE_SET([[]],	[ch],	[[>a:first-child::before]], [
 
-visibility:visible;
+content:"\2630";
 
 ])
 
-_CSS_CLASS_RULE_SET([[]],	[ch],	[[ a:first-child]], [
+CSS_CLASS_RULE_SET([[]],	[ch],	[[>a:first-child+a]], [
 
-font-weight:normal;
 margin-right:.4em;
-text-decoration:none;
+
+])
+
+_CSS_CLASS_RULE_SET([[]],	[ch, bh],	[[>a:first-child]], [
+
+font-size:.9em;
+font-weight:normal;
+line-height:normal;
+
+])
+
+CSS_CLASS_RULE_SET([[]],	[ch, bh],	[[>a:last-child::before]], [
+
+content:"\1f845";
+font-size:.65em;
+margin-left:.3em;
+position:absolute;
+
+])
+
+CSS_CLASS_RULE_SET([[]],	[ch, bh],	[[>a:first-child], [>a:last-child]], [
+
+opacity:0;
+
+])
+
+CSS_CLASS_RULE_SET([[]],	[ch, bh],	[[:hover>a:first-child], [:hover>a:last-child]], [
+
+opacity:1;
 
 ])
 
@@ -402,8 +404,39 @@ display:inline-block;
 
 ])
 
-_CSS_CLASS_RULE_SET([[.urs a>code]],	[],	[[]], [
+# the default highlight color is an global macro
+CSS_CLASS_RULE_SET([[.NSP()src.A ]],	[],	[[.a]], [
 
-display:inline;
+background:defn([DEFAULT_HIGHLIGHT_COLOR]);
+
+])
+
+# s = strong
+CSS_CLASS_RULE_SET([[.NSP()src.S ]],	[],	[[.s]], [
+
+font-weight:bold;
+
+])
+
+CSS_CLASS_RULE_SET([[.NSP()src.X ]],	[],	[[.x]], [
+
+visibility:hidden;
+
+])
+
+# [[prefix1], [prefix2], …], [id_name1, id_name2], [[suffix1], [suffix2], …], [… rule set …]
+CSS_ID_RULE_SET([[]],	defn([NSP], [TOCP]),	[[]], [
+
+position:relative;
+
+])
+
+CSS_ID_RULE_SET([[]],	defn([NSP], [TOCP]),	[[ div]], [
+
+color:#888;
+position:absolute;
+right:0;
+text-align:right;
+top:0;
 
 ])
