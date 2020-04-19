@@ -1,5 +1,5 @@
 # __HEADER([Josef Kubin], [2020/03/22], [m4root])
-# ___DESCR([removes unnecessary data from a JavaScript code])
+# ___DESCR([removes unnecessary data from a JavaScript code; translates my long self_descriptive funny variable names to single letter names])
 # ___POINT([embedded JavaScript as small as possible])
 
 # uncomment the following commands to skip compression (for JavaScript debugging)
@@ -24,48 +24,44 @@ s/\s*\([[:punct:]]\)\s*/\1/g
 # remove unnecessary semicolons
 s/;}/}/g
 
-# fix keywords stuck to adjacent word
+# fix JavaScript keywords stuck to an adjacent word
 s/\(\<const\|\<else\|\<let\|\<var\)\([[:lower:]]\)/\1 \2/g
 
 # additional new line from sed removed by comma
 s/^/[[/
 s/$/]],/
 
-# translate my long self_descriptive funny variable names to shorter names
+# local variables are translated to single letter names (in aphabetical order)
 
-# global variables are in the dedicated namespace: m4_*
-
-s/\<m4_add_info\>/m4_i/g
-s/\<m4_keywords\>/m4_k/g
-s/\<m4_sources\>/m4_s/g
-
-# local variables are converted to single letter names (in aphabetical order)
-
-s/\<color_item\>/a/g
-s/\<color_json\>/b/g
-s/\<color_names\>/c/g
-s/\<color_resulting\>/d/g
-s/\<end_line\>/e/g
+s/\<add_info\>/a/g
+s/\<all_keywords\>/b/g
+s/\<all_sources\>/c/g
+s/\<color_name\>/d/g
+s/\<hgl_item\>/e/g
 s/\<hgl_keyword\>/f/g
-s/\<highlight_lines\>/g/g
-s/\<highlighting_keywords\>/h/g
-s/\<item\>/k/g
-s/\<line\>/l/g
-s/\<lines_of_code\>/m/g
-s/\<lines_to_highlight\>/n/g
-s/\<node\>/o/g
-s/\<num_range\>/p/g
-s/\<parent_node\>/q/g
-s/\<pre_node\>/r/g
-s/\<selected_range\>/s/g
-s/\<selected_text\>/t/g
-s/\<source_date\>/u/g
-s/\<source_indexes\>/v/g
-s/\<source_info\>/w/g
-s/\<source_node\>/x/g
-s/\<source_path\>/y/g
-s/\<striped_background\>/z/g
-s/\<value\>/_/g
+s/\<highlighting_classes\>/g/g
+s/\<highlighting_lines\>/h/g
+s/\<highlighting_sequence\>/k/g
+s/\<highlighting_keywords\>/m/g
+s/\<key\>/n/g
+s/\<last_line\>/o/g
+s/\<line_range\>/p/g
+s/\<lines_of_code\>/q/g
+s/\<lines_to_highlight\>/r/g
+s/\<node\>/s/g
+s/\<parent_node\>/t/g
+s/\<parsed_json\>/u/g
+s/\<pre_node\>/v/g
+s/\<resulting_color\>/w/g
+s/\<selected_range\>/x/g
+s/\<selected_text\>/y/g
+s/\<source_date\>/z/g
+s/\<source_indexes\>/_/g
+s/\<source_info\>/A/g
+s/\<source_node\>/B/g
+s/\<source_path\>/C/g
+s/\<striped_background\>/D/g
+s/\<value\>/E/g
 
 # the letters below are for regexes above, letters {i, j} are reserved for loops
 # use Vim:
