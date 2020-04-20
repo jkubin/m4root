@@ -59,8 +59,8 @@ define([ADD_JAVASCRIPT_FOR_SOURCE_CODE], [
  * Notes:
  * NSP is a global CSS namespace prefix defined in the configuration file
  * /!\ keep all global names of variables in the dedicated namespace: m4_*
- * /!\ keep all variable names consistent with the file js_packer.js because
- * lengthy JavaScript is eventually packed to a smaller one-line script
+ * /!\ keep all variable names consistent with the file html/js_packer.sed
+ * because lengthy JavaScript is eventually packed to a smaller one-line script
  *
  *
  * The only global JavaScript symbol is: "M4_is_beautiful()"
