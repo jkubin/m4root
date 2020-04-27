@@ -1,12 +1,33 @@
 __HEADER([Josef Kubin], [2019/12/15], [root_cz])
-___DESCR([source files contains M4 keywords and forbidden characters, therefore must be processed])
-___POINT([any input files must be processed first])
+___DESCR([processes input file; converts forbidden characters])
+___POINT([inserts (snippet) the source file into HTML])
 
-# processes file content and puts result into <pre title="src.file">…</pre>
+# insert whole file
 # INSERT_FILE([path/src.file])
-# INSERT_FILE([path/src.file], [ additional comment in title])
+# INSERT_FILE([path/src.file], [comment])
+#
+# insert whole file; apply (several) RE to specific keywords to color
+# INSERT_FILE([path/src.file], [comment], [s/\<foo\>/<span class=a>&<\x2fspan>/g;s/\<bar\>/<span class=b>&<\x2fspan>/g])
+#
+# insert source code snippet from 10 to the EOF
+# INSERT_FILE([path/src.file], [comment], [RE], [10])
+#
+# insert source code snippet from 10 to 20
+# INSERT_FILE([path/src.file], [comment], [RE], [10, 20])
+#
+# insert source code snippet from 10 to the line that meets END_RE
+# INSERT_FILE([path/src.file], [comment], [RE], [10, [/END_RE/]])
+#
+# insert source code snippet from 1 to the line that meets END_RE
+# INSERT_FILE([path/src.file], [comment], [RE], [, [/END_RE/]])
+#
 # A → β
 define([INSERT_FILE], [
+
+	ifelse(eval([$# > 0 && $# < 5]), [1], [], [
+
+		ROOT_ERROR([‘$0($@)’ wrong number of arguments])
+	])
 
 	define([GIT_CSV], defn([./$1]))
 
@@ -22,14 +43,53 @@ define([INSERT_FILE], [
 
 	ADD_JAVASCRIPT_FOR_SOURCE_CODE()
 
-	# ARG1 after the file processing removes unwanted trailing newline character
 	divert(CURRQU)dnl
-<div id="ADD_ID_RULE(defn(__file__.mono.[$1]))"ifelse([$2], [], [], [ title="[$2]"]) class="ADD_CLASS([src])"><pre>ARG1(esyscmd([sed -f html/process_src.sed $1]))</pre><code><span title="ARG3(GIT_CSV)">ARG2(GIT_CSV)</span>AH(patsubst([$1], [.*/]), defn([SRC_REPO_NAME])[$1], SRC_FILE_PATH[$1])<a href="[#]defn(__file__.mono.[$1])" title="⚓"></a></code></div>
+<div id="ADD_ID_RULE(defn(__file__.mono.[$1]))"ifelse([$2], [], [], [ title="[$2]"]) class="ADD_CLASS([src])"RESET_THE_LINE_COUNTER($4)><pre>INSERT_A_CLIPPED_FILE([$1], [$3], $4)</pre><code><span title="ARG3(GIT_CSV)">ARG2(GIT_CSV)</span><a href="SRC_FILE_PATH[$1]" title="defn([SRC_REPO_NAME])[$1]">patsubst([$1], [.*/])</a><a href="[#]defn(__file__.mono.[$1])" title="⚓"></a></code></div>
 divert(-1)
 
-	# test return value from sed
+	# test return value from sed; show sed command if something failed
 	ifelse(sysval, [0], [], [
 
-		ROOT_ERROR([‘$0($@)’])
+		ROOT_ERROR([‘$0($@)’ → $ ]defn([RESULTING_SED_COMMAND_FOR_CLIPPING]))
 	])
+])
+
+# ARG1 after the file processing removes unwanted trailing newline character
+# A → β
+define([SET_CLIPPING_PARAMETERS], [dnl
+define([RESULTING_SED_COMMAND_FOR_CLIPPING], [sed -ne '$3,$4{' -f html/process_src.sed -e '$2' -e '$3s/^/\x5b\x5b/;$4$5;p}' $1])dnl
+ARG1(esyscmd(defn([RESULTING_SED_COMMAND_FOR_CLIPPING])))dnl
+])
+
+# A → β
+define([INSERT_A_CLIPPED_FILE], [SET_CLIPPING_PARAMETERS(
+	[$1],
+	[$2],
+	ifelse([$3], [], [1], [[$3]]),
+	ifelse([$4], [], [$], [[$4]]),
+	ifelse([$4], [], [[s/$/\x5d\x5d,/]], [$4], [$], [[s/$/\x5d\x5d,/]], [[s/$/\n…\x5d\x5d,/]]))dnl
+])
+
+dnl	ifelse([$3], [], [[s/^/\x5b\x5b/]], [$3], [1], [[s/^/\x5b\x5b/]], [[s/^/\x5b\x5b…\n/]]),
+
+# A → β
+define([RESET_THE_LINE_COUNTER], [divert(-1)
+
+	ifelse(patsubst([[$1]], [[0-9]]), [], [], [
+
+		ROOT_ERROR([‘the parameter of $0(…, [$1])’ must be only a number or empty])
+	])
+
+	ifelse(
+		[$1], [], [],
+		[$1], [1], [],
+		[$1], [2], [],
+		[
+
+		divert(CURRQU)dnl
+ style="counter-reset:defn([SRC_CNTR]) decr($1)"dnl
+divert(-1)
+	])
+
+	divert(CURRQU)dnl
 ])
