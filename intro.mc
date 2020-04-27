@@ -1203,7 +1203,9 @@ Tento příklad nepoužívá výstupní fronty, HEXPL([pouze vypisuje], [[[5], [
 This example does not use output queues, HEXPL([it only prints], [[[5], [messages/hello.csv.m4]], [[1-3], [messages/hello.csv]]]) ABBR([CSV], [Comma Separated Values]) separated by CODE([TAB]).
 ]])
 
-INSERT_FILES_RAW_MESSAGES([hello.csv.m4], [hello.csv])
+INSERT_FILE([messages/hello.csv.m4])
+COMMAND_LINE(m4, gfiles/rootb.m4, messages/hello.csv.m4, messages/messages_raw.mc, messages/hello.csv)
+INSERT_FILE([messages/hello.csv])
 
 
 SECT1([dnl czech
@@ -1225,7 +1227,9 @@ HEXPL([Further expansion], [[[11], [messages/counter.csv.m4]]]) returns the nume
 CODE_M4([COUNTER]) is a[]NB()small automaton.
 ]])
 
-INSERT_FILES_RAW_MESSAGES([counter.csv.m4], [counter.csv])
+INSERT_FILE([messages/counter.csv.m4])
+COMMAND_LINE([m4], [gfiles/rootb.m4], [messages/counter.csv.m4], [messages/messages_raw.mc], [messages/counter.csv])
+INSERT_FILE([messages/counter.csv])
 
 
 SECT1([dnl czech
@@ -1317,7 +1321,9 @@ Příklad používá jednu HEXPL([výstupní frontu], [[[15], [messages/array.c.
 The example uses one HEXPL([output queue], [[[15], [messages/array.c.m4]]]) for characters HCODE([};], [[[16], [messages/array.c.m4]], [[9], [messages/array.c]]]) to close the HEXPL([array], [[[6-8], [messages/array.c]], [[5], [messages/array.c.m4]]]) at the end.
 ]])
 
-INSERT_FILES_MESSAGES_CODE([array.c.m4], [array.c])
+INSERT_FILE([messages/array.c.m4])
+COMMAND_LINE([m4], [gfiles/rootb.m4], [messages/array.c.m4], [messages/code.m4], [messages/messages.mc], [messages/array.c])
+INSERT_FILE([messages/array.c])
 
 
 SECT1([dnl czech
@@ -1337,7 +1343,9 @@ The output of an external command are two comma-separated items.
 The CODE_M4([ARG1()]) macro selects the first item because the second item contains an unwanted CODE([LF]) (SAMP([0x0a])) new line character.
 ]])
 
-INSERT_FILES_MESSAGES_CODE([hello.ini.m4], [hello.ini])
+INSERT_FILE([messages/hello.ini.m4])
+COMMAND_LINE([m4], [gfiles/rootb.m4], [messages/hello.ini.m4], [messages/code.m4], [messages/messages.mc], [messages/hello.ini])
+INSERT_FILE([messages/hello.ini])
 
 
 SECT1([dnl czech
@@ -1357,7 +1365,9 @@ The queue number HCODE([1], [[[23], [messages/messages.h.m4]]]) contains the pre
 The decimal value of the counter is converted to the two-digit hex digit by keyword CODE_M4([eval()]).
 ]])
 
-INSERT_FILES_MESSAGES([messages.h.m4], [messages.h])
+INSERT_FILE([messages/messages.h.m4])
+COMMAND_LINE([m4], [gfiles/rootb.m4], [messages/messages.h.m4], [messages/messages.mc], [messages/messages.h])
+INSERT_FILE([messages/messages.h])
 
 
 SECT1([small_automaton], [dnl czech
@@ -1375,7 +1385,9 @@ The example uses HEXPL([a[]NB()small automaton], [[[1-4], [messages/stringl.c.m4
 Run the first time CODE([NEW_LINE]), is rewritten to ABBR([CODE([ε])], [epsilon – empty symbol]), in all following ones, it is rewritten to CODE([\n]).
 ]])
 
-INSERT_FILES_MESSAGES_CODE([stringl.c.m4], [stringl.c])
+INSERT_FILE([messages/stringl.c.m4])
+COMMAND_LINE([m4], [gfiles/rootb.m4], [messages/stringl.c.m4], [messages/code.m4], [messages/messages.mc], [messages/stringl.c])
+INSERT_FILE([messages/stringl.c])
 
 
 SECT1([dnl czech
@@ -1391,7 +1403,9 @@ Tento příklad je podobný předchozímu, avšak každý řetězec je na novém
 This example is similar to the previous one, but each string is on a[]NB()new line.
 ]])
 
-INSERT_FILES_MESSAGES_CODE([string.c.m4], [string.c])
+INSERT_FILE([messages/string.c.m4])
+COMMAND_LINE([m4], [gfiles/rootb.m4], [messages/string.c.m4], [messages/code.m4], [messages/messages.mc], [messages/string.c])
+INSERT_FILE([messages/string.c])
 
 
 SECT1([output_queues_html], [dnl czech
@@ -1415,7 +1429,9 @@ HEXPL([Navigation links], [[[8], [messages/messages.html.m4]], [[9-14], [message
 The HCODE([QUERY], [[[15], [messages/messages.html.m4]]]) and HCODE([WARNING], [[[16], [messages/messages.html.m4]]]) messages are processed in the same way as the HCODE([ERROR], [[[5-12], [messages/messages.html.m4]]]) messages.
 ]])
 
-INSERT_FILES_MESSAGES_MARKUP([messages.html.m4], [messages.html])
+INSERT_FILE([messages/messages.html.m4])
+COMMAND_LINE([m4], [gfiles/rootb.m4], [messages/messages.html.m4], [messages/markup.m4], [messages/messages.mc], [messages/messages.html])
+INSERT_FILE([messages/messages.html])
 
 
 SECT1([branching_in_m4], [dnl czech
@@ -1437,7 +1453,9 @@ HCODE_M4([QUERY → 🐜], [🐜], [[[6, 14], [messages/insect.txt.m4]]]),
 HCODE_M4([WARNING → 🐝], [🐝], [[[6, 15], [messages/insect.txt.m4]]]).
 ]])
 
-INSERT_FILES_MESSAGES([insect.txt.m4], [insect.txt])
+INSERT_FILE([messages/insect.txt.m4])
+COMMAND_LINE([m4], [gfiles/rootb.m4], [messages/insect.txt.m4], [messages/messages.mc], [messages/insect.txt])
+INSERT_FILE([messages/insect.txt])
 
 
 SECT1([json_generating_automaton], [dnl czech
@@ -1461,7 +1479,9 @@ The following error messages in the CODE([NEXT_ITEM]) state only output HEXPL([i
 At the end the output queue number HCODE([1], [[[14], [messages/atm.json.m4]]]) and number HCODE([2], [[[30], [messages/atm.json.m4]]]) print the characters HCODE([RB()], [[[15], [messages/atm.json.m4]], [[7], [messages/atm.json]]]) and HCODE([}}], [[[31], [messages/atm.json.m4]], [[8], [messages/atm.json]]]) to close the resulting JSON.
 ]])
 
-INSERT_FILES_MESSAGES_CODE([atm.json.m4], [atm.json])
+INSERT_FILE([messages/atm.json.m4])
+COMMAND_LINE([m4], [gfiles/rootb.m4], [messages/atm.json.m4], [messages/code.m4], [messages/messages.mc], [messages/atm.json])
+INSERT_FILE([messages/atm.json])
 
 
 SECT2([json_branch], [dnl czech
@@ -1504,7 +1524,9 @@ SPN([$[0]], a)_NAME → QUERY_NAME → query
 …
 ])dnl PROGRAMLISTING
 
-INSERT_FILES_MESSAGES_CODE([qnames.json.m4], [qnames.json])
+INSERT_FILE([messages/qnames.json.m4])
+COMMAND_LINE([m4], [gfiles/rootb.m4], [messages/qnames.json.m4], [messages/code.m4], [messages/messages.mc], [messages/qnames.json])
+INSERT_FILE([messages/qnames.json])
 
 
 SECT2([json_symbolic_queue_names], [dnl czech
@@ -1526,7 +1548,10 @@ We can then use a[]NB()virtually unlimited number of queues.
 The following example shows how these indexes are generated.
 ]])
 
-INSERT_FILES_MESSAGES_CODE([queues.m4], [messages.json.m4], [messages.json])
+INSERT_FILE([messages/queues.m4])
+INSERT_FILE([messages/messages.json.m4])
+COMMAND_LINE([m4], [gfiles/rootb.m4], [messages/queues.m4], [messages/messages.json.m4], [messages/code.m4], [messages/messages.mc], [messages/messages.json])
+INSERT_FILE([messages/messages.json])
 
 
 SECT1([dnl czech
@@ -1546,7 +1571,9 @@ HEXPL([INI section names], [[[11], [messages/messages.ini.m4]], [[3, 6, 11], [me
 The example uses the same file for output queues as the LINK([example], [json_symbolic_queue_names]) to generate JSON.
 ]])
 
-INSERT_FILES_MESSAGES_QUEUES_CODE([messages.ini.m4], [messages.ini])
+INSERT_FILE([messages/messages.ini.m4])
+COMMAND_LINE([m4], [gfiles/rootb.m4], [messages/messages.ini.m4], [messages/queues.m4], [messages/code.m4], [messages/messages.mc], [messages/messages.ini])
+INSERT_FILE([messages/messages.ini])
 
 
 SECT1([dnl czech
@@ -1562,7 +1589,9 @@ Příklad používá jednu výstupní frontu číslo HCODE([1], [[[21], [message
 The example uses one output queue number HCODE([1], [[[21], [messages/mixed.xml.m4]]]) for the HCODE([[]LT()/messages[]GT()], [[[22], [messages/mixed.xml.m4]], [[28], [messages/mixed.xml]]]) closing tag.
 ]])
 
-INSERT_FILES_MESSAGES_QUEUES_MARKUP([mixed.xml.m4], [mixed.xml])
+INSERT_FILE([messages/mixed.xml.m4])
+COMMAND_LINE([m4], [gfiles/rootb.m4], [messages/queues.m4], [messages/mixed.xml.m4], [messages/markup.m4], [messages/messages.mc], [messages/mixed.xml])
+INSERT_FILE([messages/mixed.xml])
 
 
 SECT1([dnl czech
@@ -1578,7 +1607,9 @@ Příklad seskupuje zprávy podle jejich typu pomocí výstupních front.
 The example groups messages by their type using output queues.
 ]])
 
-INSERT_FILES_MESSAGES_QUEUES_MARKUP([messages.xml.m4], [messages.xml])
+INSERT_FILE([messages/messages.xml.m4])
+COMMAND_LINE([m4], [gfiles/rootb.m4], [messages/queues.m4], [messages/messages.xml.m4], [messages/markup.m4], [messages/messages.mc], [messages/messages.xml])
+INSERT_FILE([messages/messages.xml])
 
 
 SECT1([dnl czech
@@ -1587,7 +1618,9 @@ dnl english: _next_language_
 [CODE_M4([[]]) Bash CODE([CMD() echo []DQ()string[]DQ()])],
 ])
 
-INSERT_FILES_MESSAGES_DOUBLEQ([doubleq.sh.m4], [doubleq.sh])
+INSERT_FILE([messages/doubleq.sh.m4])
+COMMAND_LINE([m4], [gfiles/rootb.m4], [messages/doubleq.sh.m4], [messages/doubleq.m4], [messages/messages.mc], [messages/doubleq.sh])
+INSERT_FILE([messages/doubleq.sh])
 
 
 SECT1([dnl czech
@@ -1596,7 +1629,9 @@ dnl english: _next_language_
 [CODE_M4([[]]) Bash CODE([CMD() echo 'string'])],
 ])
 
-INSERT_FILES_MESSAGES_APOSTROPHE([apost.sh.m4], [apost.sh])
+INSERT_FILE([messages/apost.sh.m4])
+COMMAND_LINE([m4], [gfiles/rootb.m4], [messages/apost.sh.m4], [messages/apost.m4], [messages/messages.mc], [messages/apost.sh])
+INSERT_FILE([messages/apost.sh])
 
 
 APPENDIX([preproc_examples], [dnl czech
@@ -1630,7 +1665,10 @@ Apostrophe inside HCODE([ORD[]DEL([SPAN([()],,, [color:rgba(0,0,0,.75)])],,, [co
 Note the HCODE_M4([define ()], [[[17, 27], [preproc/file.c]], [[17, 27], [preproc/preproc.file.c]]]) or HCODE_M4([ifelse ()], [[[18, 28], [preproc/file.c]], [[18, 28], [preproc/preproc.file.c]]]) function names and where the CODE_M4([SYMBOL]) is expanded.
 ]])
 
-INSERT_FILES_PREPROC([q], [file.c])
+INSERT_FILE([preproc/file.c.m4])
+INSERT_FILE([preproc/file.c])
+COMMAND_LINE([m4 -DSYMBOL='Hello, world!'], [gfiles/rootq.m4], [preproc/file.c.m4], [preproc/file.c], [preproc/preproc.file.c])
+INSERT_FILE([preproc/preproc.file.c])
 
 
 SECT1([dnl czech
@@ -1651,7 +1689,10 @@ The comments can be turned off with the same CODE_M4([changecom]) keyword withou
 ]])
 
 INSERT_FILE([preproc/foo.css], LANG([soubor vložený makro procesorem], [file embedded by the macro processor]))
-INSERT_FILES_PREPROC([q], [file.css])
+INSERT_FILE([preproc/file.css.m4])
+INSERT_FILE([preproc/file.css])
+COMMAND_LINE([m4 -DSYMBOL='Hello, world!'], [gfiles/rootq.m4], [preproc/file.css.m4], [preproc/file.css], [preproc/preproc.file.css])
+INSERT_FILE([preproc/preproc.file.css])
 
 
 SECT1([nprint_bash], [dnl czech
@@ -1669,7 +1710,10 @@ Bash uses both CODE([LQ()]) and CODE([LB()]) characters.
 If we do not want to hide them either in an CODE_M4([LQ()]) or CODE_M4([LB()]) macro, we can use nonprintable characters for LINK([expansion control], [expansion_control]), see the example:
 ]])
 
-INSERT_FILES_PREPROC([n], [file.sh])
+INSERT_FILE([preproc/file.sh.m4])
+INSERT_FILE([preproc/file.sh])
+COMMAND_LINE([m4 -DSYMBOL='Hello, world!'], [gfiles/rootn.m4], [preproc/file.sh.m4], [preproc/file.sh], [preproc/preproc.file.sh])
+INSERT_FILE([preproc/preproc.file.sh])
 
 
 APPENDIX([m4_on_examples], [dnl czech
@@ -1694,7 +1738,9 @@ The CODE_M4([[… nonterminals are not expanded …]]) inside square brackets.
 Therefore, the left square bracket CODE([LB()]) is replaced by the HCODE_M4([LB()], [[[6], [hello_world/json.m4]], [[3], [hello_world/hello_world.json]]]) macro defined in the root file.
 ]])
 
-INSERT_FILES_HELLO_WORLD([b], [json])
+INSERT_FILE([hello_world/json.m4])
+COMMAND_LINE([m4 -DSYMBOL='Hello, world!'], [gfiles/rootb.m4], [hello_world/json.m4], [hello_world/hello_world.json])
+INSERT_FILE([hello_world/hello_world.json])
 
 
 SECT1([dnl czech
@@ -1714,7 +1760,9 @@ The HEXPL([nonterminals], [[[2-4], [hello_world/sh.m4]]]) HCODE_M4([[… inside 
 The HCODE_M4([LB()], [[[30], [hello_world/sh.m4]], [[15], [hello_world/hello_world.sh]]]) macro defined in the root file must be used.
 ]])
 
-INSERT_FILES_HELLO_WORLD([b], [sh])
+INSERT_FILE([hello_world/sh.m4])
+COMMAND_LINE([m4 -DSYMBOL='Hello, world!'], [gfiles/rootb.m4], [hello_world/sh.m4], [hello_world/hello_world.sh])
+INSERT_FILE([hello_world/hello_world.sh])
 
 
 SECT1([symbols_in_brackets], [dnl czech
@@ -1736,7 +1784,9 @@ They also turn off the original meaning of the comma CODE_M4([[,]]) as a[]NB()ma
 These symbols become ordinary terminal symbols without any side effect.
 ]])
 
-INSERT_FILES_HELLO_WORLD([b], [h])
+INSERT_FILE([hello_world/h.m4])
+COMMAND_LINE([m4 -DSYMBOL='Hello, world!'], [gfiles/rootb.m4], [hello_world/h.m4], [hello_world/hello_world.h])
+INSERT_FILE([hello_world/hello_world.h])
 
 
 SECT1([safe_example], [dnl czech
@@ -1754,7 +1804,9 @@ The universal alert CODE_M4([DONTE]) is ignored without parentheses, such as for
 Such macros are explicitly created by a[]NB()script developer, see the root file.
 ]])
 
-INSERT_FILES_HELLO_WORLD([b], [awk])
+INSERT_FILE([hello_world/awk.m4])
+COMMAND_LINE([m4 -DSYMBOL='Hello, world!'], [gfiles/rootb.m4], [hello_world/awk.m4], [hello_world/hello_world.awk])
+INSERT_FILE([hello_world/hello_world.awk])
 
 
 # A → ε
