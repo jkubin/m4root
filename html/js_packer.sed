@@ -15,7 +15,7 @@ s:\s*//.*$::
 s:\n\s*::
 ba}
 
-# remove multi-line C comments /* … */
+# remove /* multi-line C comments */
 s:/\*[^*]*\*\+\([^/*][^*]*\*\+\)*/::g
 
 # remove white characters surrounding punctuations

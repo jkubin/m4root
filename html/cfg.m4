@@ -37,9 +37,7 @@ define([DEFAULT_HIGHLIGHT_COLOR], [lawngreen])
 #
 ################################################################################
 #
-# HTML configuration (do not change it unless you know what you are doing):
-#
-# Table Of Content Prefix; caption; refs; all parts of the series
+# HTML ID configuration (do not change it unless you know what you are doing):
 
 # A → β
 define([REFIT],		[ref])

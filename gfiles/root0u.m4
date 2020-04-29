@@ -4,7 +4,7 @@ dnl DO NOT EDIT! This file is generated automatically!
 dnl
 divert(-1)changequote(⟦,⟧)
 
-# LOUD alert for unsuspecting users
+# LOUD alert for unsuspecting users (donte is not a vocabulary word)
 define(⟦DONTE⟧, ⟦DO NOT EDIT! This file is generated automatically!⟧)
 
 # number of arguments
@@ -27,6 +27,6 @@ define(⟦RU⟧, ⟦changequote`'format(`%c%c%c', 226, 159, 167)changequote(⟦,
 define(⟦ROOT_WARNING⟧, ⟦errprint(__file__:__line__⟦: warning: $*
 ⟧)⟧)
 
-# 'abort script if something goes wrong, print the reason to stderr
+# abort script if something goes wrong, print the reason to stderr
 define(⟦ROOT_ERROR⟧, ⟦errprint(__file__:__line__⟦: error: $*
 ⟧)m4exit(1)⟧)

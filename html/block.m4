@@ -85,6 +85,10 @@ define([PEREX_IMG], defn([TEST_ATM])[
 	define([$0], ../[$1])
 ])
 
+#      _________      ________
+# --->/ CAPTION \--->/ string \
+#     \_________/    \________/
+#
 # A → β
 define([CAPTION], defn([TEST_ATM])[
 

@@ -56,9 +56,6 @@ define([ADD_JAVASCRIPT_FOR_SOURCE_CODE], [
 
 	divert(JAVASCRIPT_CODE)ARG1(esyscmd([sed -f html/js_packer.sed << EOF
 /*
- * Notes:
- * NSP is a global CSS namespace prefix defined in the configuration file
- * /!\ keep all global names of variables in the dedicated namespace: m4_*
  * /!\ keep all variable names consistent with the file html/js_packer.sed
  * because lengthy JavaScript is eventually packed to a smaller one-line script
  *
@@ -93,8 +90,8 @@ var
 	striped_background;
 
 /*
- * copy information from attributes to dedicated element
- * this is important for the development of articles
+ * copy information from attributes to a dedicated element
+ * this is important for the development of the articles
  * in order to copy&paste embedded data in one mouse click
  * made for standard browsers (not MSIE) that I use
  */
@@ -149,7 +146,8 @@ for (source_node of all_sources) {
 	/*
 	 * the <pre>…</ pre> tag is used as a stripe container because it has exactly
 	 * the same CSS paddings, line-size, corners, …, as the <pre>…</ pre> with
-	 * a source code; stripe sizes will follow every CSS future change in the pre tag
+	 * a source code; stripe sizes will follow every CSS future change in
+	 * the <pre>…</ pre> tag
 	 */
 	striped_background = document.createElement("pre");
 	striped_background.className = classname_for_striped_bckg;
@@ -184,13 +182,13 @@ for (source_node of all_sources) {
  * data-0="1"
  * data-0="1,2,3"
  * data-0="1-3"
- * data-0="1-3,7-9"
- * data-0=":[1,2,3],red:[7,8,9],#abc:[10]"
- * data-0=":[1-3],red:[7-9]"
- *         ^^^^^^
+ * data-0="1-3,5,7-9"
+ * data-0=":[1,2,3,5],red:[7,8,9],#abc:[10]"
+ * data-0=":[1-3,5],red:[7-9]"
+ *         ^^^^^^^^
  * highlights lines by default color (it is always the first pseudo-JSON item)
  *
- * data-0=":[A,B,C,1-3],red:[7-9]"
+ * data-0=":[A,B,C,1-3,5],red:[7-9]"
  *           ^^^^^
  * highlights all strings in the source code marked by classes a,b,c
  *
@@ -219,7 +217,7 @@ for (hgl_keyword of all_keywords) {
 
 		/*
 		 * adds a value from data set to source node
-		 * data-1="6" ---> "6"
+		 * data-1="8" ---> "8"
 		 */
 		source_node.highlighting_keywords.push({
 			node: hgl_keyword,
@@ -273,14 +271,14 @@ for (source_node of all_sources) {
 	for (hgl_item of source_node.highlighting_keywords) {
 
 		/*
-		 * first step to transform input pseudo JSON using regexp
+		 * the first step is to transform input pseudo-JSON using regexp
 		 */
 		hgl_item.value =
 			hgl_item.value.replace(/[A-Z]|[a-z]+|#[\da-f]{3,6}|\d+-\d+/g,
 				'"\$&"').replace(/^:/, '"":');
 
 		/*
-		 * wraps the processed string in parentheses to JSON
+		 * wraps the processed string in parentheses to the raw JSON string
 		 */
 		hgl_item.value =
 			/:/.test(hgl_item.value) ?
@@ -370,7 +368,7 @@ for (source_node of all_sources) {
 		});
 
 		/*
-		 * append higlighting classes and source code to a keyword
+		 * append higlighting classes and a source code to a keyword
 		 */
 		if (highlighting_classes.length) {
 
