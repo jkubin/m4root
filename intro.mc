@@ -1180,7 +1180,7 @@ Stacks in the examples are not used.
 The input source code contains special characters that must be hidden:
 ]])
 
-INSERT_FILE([messages/messages_raw.mc])
+INSERT_FILE([messages/messages_raw.mc],, [s/\<ERROR\>/<span class=r>&<\x2fspan>/g])
 
 NOTE(, defn([WORD_NOTE]), [[dnl czech
 Vstupní soubor může také obsahovat poznámky, které nemusí být skryté v[]NB()komentářích CODE_M4([#]), CODE_M4([dnl]), CODE_M4([ifelse([…])]) nebo CODE_M4([[… někde uvnitř závorek …]]).
@@ -1197,14 +1197,14 @@ dnl english: _next_language_
 ])
 
 PARA([[dnl czech
-Tento příklad nepoužívá výstupní fronty, HEXPL([pouze vypisuje], [[[A, 5], [messages/hello.csv.m4]], [[1-3], [messages/hello.csv]], [[3, 5, 7], [messages/messages_raw.mc]]]) ABBR([CSV], [Comma Separated Values]) oddělené znakem CODE([TAB]).
+Tento příklad nepoužívá výstupní fronty, HEXPL([pouze vypisuje], [[[A, R, 5], [messages/hello.csv.m4]], [[1-3], [messages/hello.csv]], [[R, 3, 5, 7], [messages/messages_raw.mc]]]) ABBR([CSV], [Comma Separated Values]) oddělené znakem CODE([TAB]).
 ],
 [dnl english: _next_language_
-This example does not use output queues, HEXPL([it only prints], [[[A, 5], [messages/hello.csv.m4]], [[1-3], [messages/hello.csv]], [[3, 5, 7], [messages/messages_raw.mc]]]) ABBR([CSV], [Comma Separated Values]) separated by CODE([TAB]).
+This example does not use output queues, HEXPL([it only prints], [[[A, R, 5], [messages/hello.csv.m4]], [[1-3], [messages/hello.csv]], [[R, 3, 5, 7], [messages/messages_raw.mc]]]) ABBR([CSV], [Comma Separated Values]) separated by CODE([TAB]).
 ]])
 
-INSERT_FILE([messages/hello.csv.m4],, [s/\<ERROR\>/<span class=a>&<\x2fspan>/g])
-COMMAND_LINE(m4, gfiles/rootb.m4, messages/hello.csv.m4, messages/messages_raw.mc, messages/hello.csv)
+INSERT_FILE([messages/hello.csv.m4],, [s/\<ERROR\>/<span class=r>&<\x2fspan>/g])
+COMMAND_LINE([m4], [gfiles/rootb.m4], [messages/hello.csv.m4], [messages/messages_raw.mc], [messages/hello.csv])
 INSERT_FILE([messages/hello.csv])
 
 

@@ -401,6 +401,12 @@ background:defn([DEFAULT_HIGHLIGHT_COLOR]);
 
 ])
 
+CSS_CLASS_RULE_SET([[.NSP()src.R .r]],	[],	[[]], [
+
+background:red;
+
+])
+
 # s = strong
 CSS_CLASS_RULE_SET([[.NSP()src.S ]],	[],	[[.s]], [
 
