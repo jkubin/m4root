@@ -118,7 +118,7 @@ $(DOC_FILE): doc.m4 $(wildcard gfiles/*b.m4) $(shell find -name 'git.sh' -o -nam
 $(ORDER_FILE): rootb.m4 toc.m4 toc_list.m4
 	m4 -DALL_LANGS='$(LANGS_ALL)' -DFILE_LIST='$(FILE_LIST)' $^ > $@
 
-$(REFS_MONO): rootb.m4 refs/queues.m4 html/cfg.m4 refs/mono.m4 refs/demo.m4 refs/msg.m4 refs/list.m4 git.m4
+$(REFS_MONO): rootb.m4 refs/queues.m4 html/cfg.m4 refs/mono.m4 git.m4
 	m4 $^ $(SOURCE) > $@
 
 refs_%.m4: rootb.m4 lang_%.m4 toc.m4 $(ORDER_FILE) lang.m4 headings.m4 html/cfg.m4 refs.m4
