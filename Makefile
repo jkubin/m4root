@@ -78,12 +78,11 @@ test t: debug dev
 .PHONY: devel dev
 #devel dev: rootb.m4 git.m4 test.m4
 #devel dev: rootb.m4 cfg.m4 queues.m4 style.m4 css.m4 inline.m4 test.m4
-#devel dev: rootb.m4 test.m4
 #devel dev: rootb.m4 cfg.m4 queues.m4 style.m4 css.m4 js.m4 test.m4
 devel dev: rootb.m4 cfg.m4 queues.m4 style.m4 css.m4 test.m4
 	m4 $^
 
-#:new	sets the global flag to remove the "updated April 11, 2020" note at the top of the page
+#:new	sets the global flag to remove the "updated April 11, 2020" note at the top of the page (usage: $ make new article)
 .PHONY: new
 new:
 	$(eval FLAGS += -DNEW_ARTICLE )
