@@ -14,7 +14,3 @@ s/>/\&gt;/g
 # transform nonprintable characters to printable UTF8 characters
 s/\x02/␂/g
 s/\x06/␆/g
-
-# protects source content against unwanted M4 expansion, comma removes unwanted trailing LF
-1s/^/[[/
-$s/$/]],/
