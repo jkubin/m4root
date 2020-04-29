@@ -5,7 +5,7 @@ ___DESCR([the resulting style sheet is embedded in the web page or can be extrac
 ___POINT([all CSS rules; a subset will be selected into the final style sheet])
 
 # [[prefix1], [prefix2], …], [class_name1, class_name2, …], [[suffix1], [suffix2], …], [… rule set …]
-# if the middle bracket set is sempty, place the ruleset unconditionally in the stylesheet
+# if the middle bracket set is sempty, M4 template unconditionally places the rule set in the style sheet
 
 # 🖹
 CSS_CLASS_RULE_SET([[]],	[note],	[[::before]], [
@@ -127,9 +127,12 @@ padding:8px;
 background:#fff;
 border-radius:4px;
 
+# counter name for the source code
+define([SRC_CNTR], defn([NSP])[nl])
+
 CSS_CLASS_RULE_SET([[]],	[src],	[[]], [
 
-counter-reset:NSP()nl;
+counter-reset:defn([SRC_CNTR]);
 
 ])
 
@@ -250,8 +253,8 @@ background:#f5f5f5;
 
 CSS_CLASS_RULE_SET([[]],	[src],	[[ pre.NSP()rear div::before]], [
 
-content:counter(NSP()nl);
-counter-increment:NSP()nl;
+content:counter(defn([SRC_CNTR]));
+counter-increment:defn([SRC_CNTR]);
 left:-3em;
 position:absolute;
 text-align:right;
@@ -309,10 +312,11 @@ font-weight:normal;
 
 ])
 
-# remove bottom margin of <ul></ul> inside .rs-tip-major
+# modifies margins of <ul></ul> if used in .rs-tip-major
 CSS_CLASS_RULE_SET([[]],	[note],	[[ ul]], [
 
 margin-bottom:0;
+margin-left:1em;
 
 ])
 
@@ -391,8 +395,7 @@ display:inline-block;
 
 ])
 
-# definition of the default highlight color is in the html/cfg.m4
-CSS_CLASS_RULE_SET([[.NSP()src.A ]],	[],	[[.a]], [
+CSS_CLASS_RULE_SET([[.NSP()src.A .a], [.NSP()src.B .b], [.NSP()src.C .c]],	[],	[[]], [
 
 background:defn([DEFAULT_HIGHLIGHT_COLOR]);
 
