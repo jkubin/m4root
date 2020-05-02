@@ -269,6 +269,13 @@ cursor:help;
 
 ])
 
+# intentionally similar to <abbr title="…">…</abbr>
+CSS_CLASS_RULE_SET([[]],	[xp],	[[:active::after]], [
+
+content:" (" attr(title) ")"
+
+])
+
 CSS_CLASS_RULE_SET([[]],	[hgl],	[[]], [
 
 border-bottom:1px dashed #000;
@@ -386,7 +393,7 @@ display:inline-block;
 
 ])
 
-CSS_CLASS_RULE_SET([[.NSP()src.A .a], [.NSP()src.B .b], [.NSP()src.C .c]],	[],	[[]], [
+CSS_CLASS_RULE_SET([[.NSP()src.A .a], [.NSP()src.B .b], [.NSP()src.C .c], [.NSP()src.D .d]],	[],	[[]], [
 
 background:defn([DEFAULT_HIGHLIGHT_COLOR]);
 
