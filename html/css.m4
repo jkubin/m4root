@@ -393,7 +393,7 @@ display:inline-block;
 
 ])
 
-CSS_CLASS_RULE_SET([[.NSP()src.A .a], [.NSP()src.B .b], [.NSP()src.C .c], [.NSP()src.D .d]],	[],	[[]], [
+CSS_CLASS_RULE_SET([[.NSP()src.A .a], [.NSP()src.B .b], [.NSP()src.C .c], [.NSP()src.D .d], [.NSP()src.E .e], [.NSP()src.F .f], [.NSP()src.G .g]],	[],	[[]], [
 
 background:defn([DEFAULT_HIGHLIGHT_COLOR]);
 
