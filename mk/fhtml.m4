@@ -20,7 +20,7 @@ defn([TARGET_FOLDER]) \
 divert(2)dnl
 TARGET_FOLDER/%.html: html_$2.m4f %.m4 $1 nav.m4
 	m4 -DOUTPUT_FILE='$[@]' $(FLAGS)-R $^ | sed -f brackets.sed > $[@]
-	@tidy -qe $[@]
+	tidy -qe $[@]
 
 TARGET_FOLDER/publish.txt: html_$2.m4f publish.m4 $1 nav.m4
 	m4 -DSOURCE='$1' $(FLAGS)-R $^ | sed -f html/publish.sed -f brackets.sed > $[@]
