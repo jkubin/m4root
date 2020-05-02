@@ -152,8 +152,8 @@ define([ADD_CLASS], [ifdef([$0 $1], [], [pushdef([CURRQU], divnum)divert(-1)
 ])defn([$0 $1])])
 
 # A → β
-define([FIND_AND_ADD_ID_RULE_SET], [ADD_ID_RULE(defn(defn([FILE_PREFIX]).anch.[$1]))])
-define([FIND_AND_ADD_ID_RULE_SET_MONO], [ADD_ID_RULE(defn(__file__.mono.[$1]))])
+define([ADD_ID_ANCH], [ADD_ID_RULE(defn(defn([FILE_PREFIX]).anch.[$1]))])
+define([ADD_ID_MONO], [ADD_ID_RULE(defn(__file__.mono.[$1]))])
 
 define([ADD_ID_RULE], [ifdef([$0 $1], [], [pushdef([CURRQU], divnum)divert(-1)
 

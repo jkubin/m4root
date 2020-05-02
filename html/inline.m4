@@ -13,7 +13,7 @@ pushdef([XTITLE_2],		[[]ifelse([$2], [], [], [ title="$2"])])
 pushdef([CLASS_3],		[ifelse([$3], [], [], [ class="ADD_CLASS([$3])"])])
 pushdef([CLASS_3_EXPL],	[ class="ADD_CLASS([xp])[]ifelse([$3], [], [], [ ADD_CLASS([$3])])"])
 pushdef([STYLE_4],		[ifelse([$4], [], [], [ style="[$4]"])])
-pushdef([ID_5],		[ifelse([$5], [], [], [ id="FIND_AND_ADD_ID_RULE_SET([$5])"])])
+pushdef([ID_5],		[ifelse([$5], [], [], [ id="ADD_ID_ANCH([$5])"])])
 pushdef([ANYTHING_6],	[ifelse([$6], [], [], [ [$6]])])
 
 # global attributes group
@@ -59,7 +59,7 @@ pushdef([VAR_TITLE_2],	[ifelse([$#], [2], [], [$2], [], [], [ title="[$2]"])])
 pushdef([VAR_CLASS_3],	[ifelse([$#], [3], [], [$3], [], [], [ class="ADD_CLASS([$3])"])])
 pushdef([VAR_CLASS_3_HGL],	[ class="ADD_CLASS([hgl])[]ifelse([$#], [3], [], [$3], [], [], [ ADD_CLASS([$3])])"])
 pushdef([VAR_STYLE_4],	[ifelse([$#], [4], [], [$4], [], [], [ style="[$4]"])])
-pushdef([VAR_ID_5],		[ifelse([$#], [5], [], [$5], [], [], [ id="FIND_AND_ADD_ID_RULE_SET([$5])"])])
+pushdef([VAR_ID_5],		[ifelse([$#], [5], [], [$5], [], [], [ id="ADD_ID_ANCH([$5])"])])
 pushdef([VAR_REL_6],	[ifelse([$#], [6], [], [$6], [], [], [ rel="[$6]"])])
 pushdef([VAR_ANYTHING_6],	[ifelse([$#], [6], [], [$6], [], [], [ [$6]])])
 pushdef([VAR_ANYTHING_7],	[ifelse([$#], [7], [], [$7], [], [], [ [$7]])])
@@ -165,11 +165,12 @@ define([CREATE_DATASET], [
 
 	ifelse([$1], [], [], [
 
+		# find the record in the hash database of references
 		define([DATA_SET_KEY], defn(__file__.dset.SELECT_ARG2($1)))
 
 		ifelse(defn([DATA_SET_KEY]), [], [
 
-			ROOT_WARNING([key for data set ‘]SELECT_ARG2($1)[’ not found; run ‘make -B refs …’ to regenerate reference list])
+			ROOT_WARNING([the key ‘]__file__.dset.SELECT_ARG2($1)[’ not found, fix your reference or run ‘make -B refs …’ to regenerate reference list])
 		])
 
 		define([DATA_SET], defn([DATA_SET]) data-defn([DATA_SET_KEY])="REMOVE_SPACES(SELECT_ARG1($1))")
