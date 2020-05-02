@@ -8,21 +8,22 @@ ___POINT([HTML5 block-level elements])
 
 # html tag attributes (at the end of this file will be forgotten)
 # β
-pushdef([ID_1],		[ifelse([$#], [1], [], [$1], [], [], [ id="FIND_AND_ADD_ID_RULE_SET([$1])"])])
-pushdef([ID_1_MONO],	[ifelse([$#], [1], [], [$1], [], [], [ id="FIND_AND_ADD_ID_RULE_SET_MONO([$1])"])])
-pushdef([ID_1_ANCHOR],	[ifelse([$#], [1], [], [$1], [], [], [<a href="[#]FIND_AND_ADD_ID_RULE_SET_MONO([$1])" title="⚓"></a>])])
+pushdef([ID_1],		[ifelse([$#], [1], [], [$1], [], [], [ id="ADD_ID_ANCH([$1])"])])
+pushdef([ID_1_MONO],	[ifelse([$#], [1], [], [$1], [], [], [ id="ADD_ID_MONO([$1])"])])
+pushdef([ID_1_ANCHOR],	[ifelse([$#], [1], [], [$1], [], [], [<a href="[#]ADD_ID_MONO([$1])" title="⚓"></a>])])
 pushdef([TITLE_2],		[ifelse([$#], [2], [], [$2], [], [], [ title="[$2]"])])
 pushdef([CLASS_3],		[ifelse([$#], [3], [], [$3], [], [], [ class="ADD_CLASS([$3])"])])
-pushdef([CLASS_3_EXCL],	[ class="rs-tip-major ADD_CLASS([excl])ifelse([$#], [3], [], [$3], [], [], [ ADD_CLASS([$3])])"])
-pushdef([CLASS_3_BRIDGEHEAD],	[ class="ADD_CLASS([bh])[]ifelse([$#], [3], [], [$3], [], [], [ ADD_CLASS([$3])])"])
-pushdef([CLASS_3_HEADING],	[ class="ADD_CLASS([ch])[]ifelse([$#], [3], [], [$3], [], [], [ ADD_CLASS([$3])])"])
-pushdef([CLASS_3_INFO],	[ class="rs-tip-major ADD_CLASS([info])ifelse([$#], [3], [], [$3], [], [], [ ADD_CLASS([$3])])"])
-pushdef([CLASS_3_NOTE],	[ class="rs-tip-major ADD_CLASS([note])ifelse([$#], [3], [], [$3], [], [], [ ADD_CLASS([$3])])"])
-pushdef([CLASS_3_ROOT_CMD],	[ class="ADD_CLASS([root])[]ifelse([$#], [3], [], [$3], [], [], [ ADD_CLASS([$3])])"])
-pushdef([CLASS_3_TILE],	[ class="rs-tile[]ifelse([$#], [3], [], [$3], [], [], [ ADD_CLASS([$3])])"])
-pushdef([CLASS_3_SRC],	[ class="ADD_CLASS([src])ifelse([$#], [3], [], [$3], [], [], [ ADD_CLASS([$3])])"])
-pushdef([CLASS_3_USR_CMD],	[ class="ADD_CLASS([usc])ifelse([$#], [3], [], [$3], [], [], [ ADD_CLASS([$3])])"])
-pushdef([CLASS_3_WARN],	[ class="rs-tip-major ADD_CLASS([warn])ifelse([$#], [3], [], [$3], [], [], [ ADD_CLASS([$3])])"])
+pushdef([CLASS_3_SUFFIX],	[ifelse([$#], [3], [], [$3], [], [], [ ADD_CLASS([$3])])"])		<--- Keep it up!
+pushdef([CLASS_3_EXCL],	[ class="rs-tip-major ADD_CLASS([excl])]defn([CLASS_3_SUFFIX]))
+pushdef([CLASS_3_BRIDGEHEAD],	[ class="ADD_CLASS([bh])]defn([CLASS_3_SUFFIX]))
+pushdef([CLASS_3_HEADING],	[ class="ADD_CLASS([ch])]defn([CLASS_3_SUFFIX]))
+pushdef([CLASS_3_INFO],	[ class="rs-tip-major ADD_CLASS([info])]defn([CLASS_3_SUFFIX]))
+pushdef([CLASS_3_NOTE],	[ class="rs-tip-major ADD_CLASS([note])]defn([CLASS_3_SUFFIX]))
+pushdef([CLASS_3_ROOT_CMD],	[ class="ADD_CLASS([root])]defn([CLASS_3_SUFFIX]))
+pushdef([CLASS_3_TILE],	[ class="rs-tile]defn([CLASS_3_SUFFIX]))
+pushdef([CLASS_3_SRC],	[ class="ADD_CLASS([src])]defn([CLASS_3_SUFFIX]))
+pushdef([CLASS_3_USR_CMD],	[ class="ADD_CLASS([usc])]defn([CLASS_3_SUFFIX]))
+pushdef([CLASS_3_WARN],	[ class="rs-tip-major ADD_CLASS([warn])]defn([CLASS_3_SUFFIX]))
 pushdef([STYLE_4],		[ifelse([$#], [4], [], [$4], [], [], [ style="[$4]"])])
 pushdef([ANYTHING_5],	[ifelse([$#], [5], [], [$5], [], [], [ [$5]])])
 
@@ -295,13 +296,13 @@ divert(-1)
 
 # a hyperlink to a paragraph, code, headline, …, even into other html page in different language
 # LINK([hyperlink], [INTERNAL_ID])
-# LINK([hyperlink], [EXTERNAL_ID], source.mc)
-# LINK([hyperlink to another language], [EXTERNAL_ID], source.mc, en)
+# LINK([hyperlink], [EXTERNAL_ID], [source.mc])
+# LINK([hyperlink to another language], [EXTERNAL_ID], [source.mc], [en])
 #
-# both IDs must be the same in order to dereference the text
+# both IDs must be the same in order to dereference the referenced caption
 # LINK([INTERNAL_ID], [INTERNAL_ID])
-# LINK([EXTERNAL_ID], [EXTERNAL_ID], source.mc)
-# LINK([EXTERNAL_ID], [EXTERNAL_ID], source.mc, en)
+# LINK([EXTERNAL_ID], [EXTERNAL_ID], [source.mc])
+# LINK([EXTERNAL_ID], [EXTERNAL_ID], [source.mc], [en])
 # A → β
 define([LINK], [pushdef([CURRQU], divnum)divert(-1)
 
@@ -336,7 +337,7 @@ define([LINK], [pushdef([CURRQU], divnum)divert(-1)
 
 	ifelse(defn([TITLE]), [], [], [
 
-		# temporarily redefine macros
+		# temporarily redefine macros (disable the original meaning)
 		pushdef([BO], defn([FST]))
 		pushdef([CODE], defn([SELECT_ARG1]))
 		pushdef([CODE_M4], defn([SELECT_ARG1]))
@@ -504,14 +505,14 @@ divert(-1)
 # A → β
 define([COMMAND_USR], [
 	divert(CURRQU)dnl
-<div[]]defn([HTML_USR_CMD_ATTRIBUTES])><div>defn([PROCESS_RAW_CODE_TO_HTML_ENTITIES])</div>defn([ID_1_ANCHOR])[</div>
+<div[]]defn([HTML_USR_CMD_ATTRIBUTES])><pre>defn([PROCESS_RAW_CODE_TO_HTML_ENTITIES])</pre>defn([ID_1_ANCHOR])[</div>
 divert(-1)
 ])
 
 # A → β
 define([COMMAND_ROOT], [
 	divert(CURRQU)dnl
-<div[]]defn([HTML_ROOT_CMD_ATTRIBUTES])><div>defn([PROCESS_RAW_CODE_TO_HTML_ENTITIES])</div>defn([ID_1_ANCHOR])[</div>
+<div[]]defn([HTML_ROOT_CMD_ATTRIBUTES])><pre>defn([PROCESS_RAW_CODE_TO_HTML_ENTITIES])</pre>defn([ID_1_ANCHOR])[</div>
 divert(-1)
 ])
 
@@ -707,6 +708,7 @@ popdef(
 	[CLASS_3_NOTE],
 	[CLASS_3_ROOT_CMD],
 	[CLASS_3_SRC],
+	[CLASS_3_SUFFIX],
 	[CLASS_3_TILE],
 	[CLASS_3_USR_CMD],
 	[CLASS_3_WARN],

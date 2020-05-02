@@ -107,28 +107,19 @@ position:relative;
 
 ])
 
-font-family:"Courier New",Courier,monospace;
-CSS_CLASS_RULE_SET([[]],	[usc, root],	[[>div]], [
+CSS_CLASS_RULE_SET([[]],	[usc, root],	[[>pre]], [
 
-background:#fff;
-border-radius:4px;
-border:1px solid #ddd;
-color:#333;
-font-family:monospace,monospace;
-font-size:.8em;
 font-weight:bold;
-line-height:1.1;
-margin:0 0 11px;
-padding:8px;
+white-space:normal;
+word-break:normal;
 
 ])
 
-# solved in JavaScript
-background:#fff;
-border-radius:4px;
-
 # counter name for the source code
 define([SRC_CNTR], defn([NSP])[nl])
+
+background:#fff;
+border-radius:4px;
 
 CSS_CLASS_RULE_SET([[]],	[src],	[[]], [
 
@@ -292,20 +283,20 @@ cursor:help;
 
 ])
 
-CSS_CLASS_RULE_SET([[]],	[usc, root],	[[ div a]], [
+CSS_CLASS_RULE_SET([[]],	[usc, root],	[[>pre a]], [
 
 color:inherit;
 
 ])
 
-CSS_CLASS_RULE_SET([[]],	[usc],	[[ div::before]], [
+CSS_CLASS_RULE_SET([[]],	[usc],	[[ pre::before]], [
 
 content:"CMD() ";
 font-weight:normal;
 
 ])
 
-CSS_CLASS_RULE_SET([[]],	[root],	[[ div::before]], [
+CSS_CLASS_RULE_SET([[]],	[root],	[[ pre::before]], [
 
 content:"ROO() ";
 font-weight:normal;

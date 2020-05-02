@@ -60,9 +60,9 @@ define([FILES_ON_THE_COMMAND_LINE], [
 		])
 
 		divert(CURRQU)dnl
-<div id="ADD_ID_RULE(defn([#ID])-command)" title="defn([WORD_COMMAND])" class="ADD_CLASS(defn([COMMAND_LINE_CLASS]))"><div>dnl
+<div id="ADD_ID_RULE(defn([#ID])-command)" title="defn([WORD_COMMAND])" class="ADD_CLASS(defn([COMMAND_LINE_CLASS]))"><pre>dnl
 undivert(REFERENCES_TO_FILES)dnl
-GT() <a href="SRC_FILE_PATH[$1]" title="defn([SRC_REPO_NAME])[$1]">patsubst([$1], [.*/])</a></div><a href="[#]defn([#ID])-command" title="⚓"></a></div>
+GT() <a href="SRC_FILE_PATH[$1]" title="defn([SRC_REPO_NAME])[$1]">patsubst([$1], [.*/])</a></pre><a href="[#]defn([#ID])-command" title="⚓"></a></div>
 divert(-1)
 
 	], [
