@@ -110,7 +110,7 @@ mostlyclean mcl clm cll mc:
 .PHONY: doc
 doc: $(DOC_FILE)
 
-$(DOC_FILE): doc.m4 $(wildcard gfiles/*b.m4) $(shell find -name 'git.sh' -o -name '*.sed' -o -name 'Makefile' -o -name '*.m4' ! -path './messages/*' ! -path './gfiles/*' ! -path './hello_world/*' ! -path './preproc/*' ! -path './asm/*')
+$(DOC_FILE): doc.m4 html/hgl.js $(wildcard gfiles/*b.m4) $(shell find -name 'git.sh' -o -name '*.sed' -o -name 'Makefile' -o -name '*.m4' ! -path './messages/*' ! -path './gfiles/*' ! -path './hello_world/*' ! -path './preproc/*' ! -path './asm/*')
 	m4 $+ > $@
 
 #:test-uncommitted-git-changes/changes/gch	test for uncommitted git changes in monitored directories with source files
