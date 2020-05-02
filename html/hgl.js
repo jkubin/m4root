@@ -120,9 +120,6 @@ for (source_node of all_sources) {
 	 * Z-index is not explicitly set because the elements are in natural Z order
 	 */
 	source_node.insertBefore(striped_background, pre_node);
-
-	// set the transparency of the source code background
-	pre_node.style.background = "none";
 }
 
 /*
