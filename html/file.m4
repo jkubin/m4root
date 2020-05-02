@@ -12,7 +12,7 @@ ___POINT([source file (possibly snippet) in format for HTML])
 #
 # sometimes it is needed Multi-Line Highlighting
 # the whole file is inserted into the sed buffer as a one long string for multi-line regex processing
-# INSERT_FILE_MLH([path/file.src], [title], [RE for Multi Line Highlighting)
+# INSERT_FILE_MLH([path/file.src], [title], [RE for Multi Line Highlighting])
 #
 # insert source code snippet from 10 to the EOF
 # INSERT_FILE([path/file.src], [title], [RE], [10])
