@@ -191,10 +191,12 @@ PERSON([Dennis Ritchie]) was also a[]NB()co-creator of UNIX and therefore:
 ITEMIZEDLIST_WRAP([
 
 LISTITEM([[dnl czech
-M4 je minimalistický a[]NB()rychlý, AH([dělá jednu věc a[]NB()tu dělá dobře], [Filosofie UNIX-u], [https://cs.wikipedia.org/wiki/Filosofie_Unixu])
+M4 je minimalistický a[]NB()rychlý, AH([dělá jednu věc a[]NB()tu dělá dobře], [Filosofie UNIX-u
+Wikipedie], [https://cs.wikipedia.org/wiki/Filosofie_Unixu])
 ],
 [dnl english: _next_language_
-M4 is minimalist and fast, AH([it does one thing and it does well], [UNIX philosophy], [https://en.wikipedia.org/wiki/Unix_philosophy])
+M4 is minimalist and fast, AH([it does one thing and it does well], [UNIX philosophy
+Wikipedia], [https://en.wikipedia.org/wiki/Unix_philosophy])
 ]])
 
 LISTITEM([[dnl czech
@@ -453,19 +455,19 @@ dnl english: _next_language_
 
 PARA([[dnl czech
 Bezkontextová gramatika (krátce ABBR([CFG], [Context-Free Grammar – bezkontextová gramatika])) je LINK([formální gramatika], [formal_grammar_chomsky]), ve které mají všechna přepisovací pravidla tvar HCODE([A → β], [[[1], [all_context_free_grammar_rules]]]).
-Neterminál CODE_M4([A]) se přepíše na libovolně dlouhý řetězec ABBR([CODE([β])], [pravá strana přepisovacího pravidla]) složený z[]NB()terminálů HCODE([Σ], [[[A], [all_context_free_grammar_rules]]]) nebo neterminálů HCODE([N], [[[B], [all_context_free_grammar_rules]]]).
-HEXPL([AH([Kleeneho hvězda], [Wikipedie], [https://en.wikipedia.org/wiki/Kleene_star])], [[[C], [all_context_free_grammar_rules]]]) znamená, že se neterminál CODE_M4([A]) může přepsat na ABBR([CODE([ε])], [epsilon – prázdný symbol]) (přepisovací pravidlo CODE([A → ε])).
+Neterminál HCODE_M4([A], [[[D], [all_context_free_grammar_rules]]]) se HEXPL([přepíše], [[[E], [all_context_free_grammar_rules]]]) na libovolně dlouhý řetězec ABBR([HCODE([β], [[[F], [all_context_free_grammar_rules]]])], [pravá strana přepisovacího pravidla]) složený z[]NB()terminálů HCODE([Σ], [[[A], [all_context_free_grammar_rules]]]) HEXPL([nebo], [[[G], [all_context_free_grammar_rules]]]) neterminálů HCODE([N], [[[B], [all_context_free_grammar_rules]]]).
+HEXPL([AH([Kleeneho hvězda], [Wikipedie], [https://en.wikipedia.org/wiki/Kleene_star])], [[[C], [all_context_free_grammar_rules]]]) znamená, že se neterminál HCODE_M4([A], [[[D], [all_context_free_grammar_rules]]]) může přepsat na ABBR([CODE([ε])], [epsilon – prázdný symbol]) (přepisovací pravidlo HCODE([A → ε], [[[5,6], [rewriting_rules]]])).
 ],
 [dnl english: _next_language_
 Context-free grammar (shortly ABBR([CFG], [Context-Free Grammar])) is a[]NB()LINK([formal grammar], [formal_grammar_chomsky]) in which all rules for rewriting have the HCODE([A → β], [[[1], [all_context_free_grammar_rules]]]) form.
-The nonterminal CODE_M4([A]) is rewritten to an arbitrarily long ABBR([CODE([β])], [the right side of the rewriting rule]) string composed of terminals HCODE([Σ], [[[A], [all_context_free_grammar_rules]]]) or nonterminals HCODE([N], [[[B], [all_context_free_grammar_rules]]]).
-HEXPL([AH([Kleene star], [Wikipedia], [https://en.wikipedia.org/wiki/Kleene_star])], [[[C], [all_context_free_grammar_rules]]]) means that nonterminal CODE_M4([A]) can be rewritten to ABBR([CODE([ε])], [epsilon – empty symbol]) (rewriting rule CODE([A → ε])).
+The nonterminal HCODE_M4([A], [[[D], [all_context_free_grammar_rules]]]) is HEXPL([rewritten], [[[E], [all_context_free_grammar_rules]]]) to an arbitrarily long ABBR([HCODE([β], [[[F], [all_context_free_grammar_rules]]])], [the right side of the rewriting rule]) string composed of terminals HCODE([Σ], [[[A], [all_context_free_grammar_rules]]]) HEXPL([or], [[[G], [all_context_free_grammar_rules]]]) nonterminals HCODE([N], [[[B], [all_context_free_grammar_rules]]]).
+HEXPL([AH([Kleene star], [Wikipedia], [https://en.wikipedia.org/wiki/Kleene_star])], [[[C], [all_context_free_grammar_rules]]]) means that nonterminal HCODE_M4([A], [[[D], [all_context_free_grammar_rules]]]) can be rewritten to ABBR([CODE([ε])], [epsilon – empty symbol]) (rewriting rule HCODE([A → ε], [[[5,6], [rewriting_rules]]])).
 ]])
 
 PROGRAMLISTING([all_context_free_grammar_rules], LANG([přepisovací pravidla bezkontextové gramatiky], [context-free grammar rewriting rules]), [dnl
-P: A → β
-   A ∈ SPN([N], b)
-   β ∈ (SPN([N], b) ∪ SPN([Σ], a))SPN([*], c)
+P: SPN([A], d) SPN([→], e) SPN([β], f)
+   SPN([A], d) ∈ SPN([N], b)
+   SPN([β], f) ∈ (SPN([N], b) SPN([∪], g) SPN([Σ], a))SPN([*], c)
 ])dnl PROGRAMLISTING
 
 BRIDGEHEAD([m4_rules], [dnl czech
@@ -1199,10 +1201,10 @@ dnl english: _next_language_
 ])
 
 PARA([[dnl czech
-Tento příklad nepoužívá výstupní fronty, HEXPL([pouze vypisuje], [[[A, R, 5], [messages/hello.csv.m4]], [[1-3], [messages/hello.csv]], [[R, 3, 5, 7], [messages/messages_raw.mc]]]) ABBR([CSV], [Comma Separated Values]) oddělené znakem CODE([TAB]).
+Tento příklad nepoužívá výstupní fronty, HEXPL([pouze vypisuje], [[[A, R, 5], [messages/hello.csv.m4]], [[1-3], [messages/hello.csv]], [[R, 3, 5, 7], [messages/messages_raw.mc]]]) ABBR([CSV], [Comma Separated Values]) oddělené znakem CODE([TAB]) na HEXPL([standardní výstup], [[[4], [messages/hello.csv.m4]]]).
 ],
 [dnl english: _next_language_
-This example does not use output queues, HEXPL([it only prints], [[[A, R, 5], [messages/hello.csv.m4]], [[1-3], [messages/hello.csv]], [[R, 3, 5, 7], [messages/messages_raw.mc]]]) ABBR([CSV], [Comma Separated Values]) separated by CODE([TAB]).
+This example does not use output queues, HEXPL([it only prints], [[[A, R, 5], [messages/hello.csv.m4]], [[1-3], [messages/hello.csv]], [[R, 3, 5, 7], [messages/messages_raw.mc]]]) ABBR([CSV], [Comma Separated Values]) separated by CODE([TAB]) to HEXPL([standard output], [[[4], [messages/hello.csv.m4]]]).
 ]])
 
 INSERT_FILE([messages/hello.csv.m4],, [s/\<ERROR\>/<span class=r>&<\x2fspan>/g])
@@ -1359,15 +1361,19 @@ dnl english: _next_language_
 PARA([[dnl czech
 Příklad používá makro HCODE_M4([COUNTER], [[[A, 2], [messages/messages.h.m4]]]) pro číslování výsledných ABBR([CPP], [Preprocesor jazyka C]) HEXPL([maker], [[[11], [messages/messages.h.m4]], [[8-10], [messages/messages.h]]]) a[]NB()jednu výstupní frontu.
 Fronta číslo HCODE([1], [[[23], [messages/messages.h.m4]]]) obsahuje direktivu preprocesoru HCODE_M4([#endif], [[[24], [messages/messages.h.m4]], [[12], [messages/messages.h]]]) pro zakončení hlavičkového souboru.
-Převod dekadické hodnoty počítadla na dvoumístné hex-a číslo provádí klíčové slovo CODE_M4([eval()]).
+Převod dekadické hodnoty počítadla na HEXPL([dvoumístné hex-a číslo], [[[B], [messages/messages.h.m4]]]) provádí klíčové slovo HCODE_M4([eval()], [[[C], [messages/messages.h.m4]]]).
 ],
 [dnl english: _next_language_
 The example uses the HCODE_M4([COUNTER], [[[A, 2], [messages/messages.h.m4]]]) macro to number the resulting ABBR([CPP], [C preprocessor]) HEXPL([macros], [[[11], [messages/messages.h.m4]], [[8-10], [messages/messages.h]]]) and one output queue.
 The queue number HCODE([1], [[[23], [messages/messages.h.m4]]]) contains the preprocessor directive HCODE_M4([#endif], [[[24], [messages/messages.h.m4]], [[12], [messages/messages.h]]]) to terminate the header file.
-The decimal value of the counter is converted to the two-digit hex digit by keyword CODE_M4([eval()]).
+The decimal value of the counter is converted to the HEXPL([two-digit hex], [[[B], [messages/messages.h.m4]]]) by keyword HCODE_M4([eval()], [[[C], [messages/messages.h.m4]]]).
 ]])
 
-INSERT_FILE([messages/messages.h.m4],, [s/\<COUNTER\>\((0)\)\?/<span class=a>&<\x2fspan>/g])
+INSERT_FILE([messages/messages.h.m4],, [
+s/\<COUNTER\>\((0)\)\?/<span class=a>&<\x2fspan>/g
+/\<eval\>/s/\<16, 2\>/<span class=b>&<\x2fspan>/g
+s/\<eval\>/<span class=c>&<\x2fspan>/
+])
 COMMAND_LINE([m4], [gfiles/rootb.m4], [messages/messages.h.m4], [messages/messages.mc], [messages/messages.h])
 INSERT_FILE([messages/messages.h])
 
