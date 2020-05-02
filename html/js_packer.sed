@@ -1,10 +1,8 @@
 # __HEADER([Josef Kubin], [2020/03/22], [m4root])
-# ___DESCR([removes unnecessary data from a JavaScript code; translates my long self_descriptive funny variable names to single letter names])
-# ___POINT([JavaScript as small as possible])
+# ___DESCR([removes unnecessary data from a JavaScript code; translates long_self_descriptive funny variables to single letters])
+# ___POINT([one-line JavaScript as small as possible])
 
-# uncomment the following commands to skip compression (for JavaScript debugging)
-#1s/^/[[/
-#$s/$/]],/
+# uncomment the "b" command to skip compression for JavaScript debugging (if something behaves strangely avoid packer)
 #b
 
 # convert multi-line source code to one long line;
@@ -26,10 +24,6 @@ s/;}/}/g
 
 # fix JavaScript keywords stuck to an adjacent word
 s/\(\<const\|\<else\|\<let\|\<var\)\([[:lower:]]\)/\1 \2/g
-
-# additional new line from sed is removed by comma:
-s/^/[[/
-s/$/]],/
 
 # local variables are translated to single letter names (in aphabetical order)
 
@@ -70,7 +64,7 @@ s/\<value\>/F/g
 # '<,'>s:./g$:/g:
 # '<,'>s:^\(.\)\(.*\)/g:\2\1/g:
 
-# y^V31j	<--- copy column of 31 letters to the Vim register "
+# y^V31j	<--- an example, how to select and copy column of 31 letters to the Vim register " (and paste them to the above regexes)
 
 #a
 #b
