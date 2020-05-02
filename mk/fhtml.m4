@@ -36,7 +36,7 @@ TABLE_OF_CONTENT(LANG_CODE)
 
 # define Makefile names
 # A → β
-define([ALL_SUBTARGETS],	[all_]LANG_CODE [all]LANG_CODE LANG_CODE)
+define([ALL_SUBTARGETS],	[all_]LANG_CODE [a]LANG_CODE LANG_CODE)
 define([CLEAN_SUBTARGETS],	[clean_]LANG_CODE [cl_]LANG_CODE [cl]LANG_CODE [c]LANG_CODE)
 define([PUBLISH_FILES],		[PUBLISH_]LANG_CODE)
 define([PREVIEW_FILES],		[PREVIEW_]LANG_CODE)
@@ -100,6 +100,6 @@ html_[]LANG_CODE.mk: ;
 $(FOLDER_NAMES):
 	mkdir -p $@
 
-FROZEN_FILE: rootb.m4 queues.m4 aux.m4 ent.m4 cfg.m4 inline.m4 headings.m4 block.m4 ver.m4 style.m4 lang_[]LANG_CODE.m4 css.m4 js.m4 git.m4 REFS_FILES order.m4 lang.m4 incl.m4 file.m4 cmd.m4
-	m4 -F $@ -DLANG_CODE='LANG_CODE' $^
+FROZEN_FILE: $(JAVASCRIPT) rootb.m4 queues.m4 aux.m4 ent.m4 cfg.m4 inline.m4 headings.m4 block.m4 ver.m4 style.m4 lang_[]LANG_CODE.m4 css.m4 js.m4 git.m4 REFS_FILES order.m4 lang.m4 incl.m4 file.m4 cmd.m4
+	m4 -F $@ -DLANG_CODE='LANG_CODE' $(filter-out $(JAVASCRIPT) , $^)
 
