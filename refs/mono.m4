@@ -5,7 +5,7 @@ ___POINT([breakdown of references])
 # A → β
 define([COUNTER], defn([COUNT_UP]))
 
-# counter is an index for source code tags for more compact HTML and JavaScript
+# counter is an index for dataset in a <tag … data-n₁="…" data-n₂="…">…</tag>
 COUNTER(0)
 
 # A → β
@@ -17,25 +17,40 @@ divert(-1)
 ])
 
 # A → β
+# β
 define([INSERT_FILE], [
 
-	ADD_FILE_ITEM(__file__.mono.[$1]ifdef([file://$1], [-])defn([file://$1]), translit(NSP()[[$1]], [./A-Z], [-_a-z])[]ifdef([file://$1], [-])defn([file://$1]))
-	ADD_FILE_ITEM(__file__.dset.[$1]ifdef([file://$1], [-])defn([file://$1]), COUNTER)
+	define([PATH_TO_FILE], ARG1($1))
+	define([DISCRIMINATOR], ARG2($1))
 
-	ifdef([file://$1], [
+	ifdef(__file__.defn([PATH_TO_FILE]), [
 
-		define([file://$1], incr(defn([file://$1])))
+		ifdef(__file__.defn([PATH_TO_FILE], [DISCRIMINATOR]), [
+
+			ROOT_ERROR([$0([$1], …) is duplicit (first: ]defn(__file__.defn([PATH_TO_FILE], [DISCRIMINATOR]))[). Append an ID [_a-z0-9]: $0([path/file,id]) to make it unique.])
+		])
+
+		define(__file__.defn([PATH_TO_FILE], [DISCRIMINATOR]), __file__:__line__)
 	], [
-		esyscmd([test -f '$1'])
+		esyscmd([test -f ']defn([PATH_TO_FILE])['])
 
 		ifelse(sysval, [0], [], [
 
-			ROOT_ERROR([file ‘$1’ does not exist])
+			ROOT_ERROR([the file ‘]defn([PATH_TO_FILE])[’ does not exist])
 		])
 
-		define([file://$1], 2)
+		define(__file__.defn([PATH_TO_FILE]), __file__:__line__)
 	])
+
+	ADD_FILE_ITEM(__file__.mono.defn([PATH_TO_FILE])[]ifelse(defn([DISCRIMINATOR]), [], [], [[,]]defn([DISCRIMINATOR])),
+	translit(NSP()defn([PATH_TO_FILE]), [./A-Z], [-_a-z])[]ifelse(defn([DISCRIMINATOR]), [], [], -defn([DISCRIMINATOR])))
+
+	ADD_FILE_ITEM(__file__.dset.defn([PATH_TO_FILE])[]ifelse(defn([DISCRIMINATOR]), [], [], [[,]]defn([DISCRIMINATOR])),
+	COUNTER)
 ])
+
+# A → β
+define([INSERT_FILE_MLH], defn([INSERT_FILE]))
 
 # A → β
 define([CREATE_REFERENCE], [
