@@ -5,7 +5,7 @@
 <meta charset="utf-8">
 <title>Generování kódu v M4: základy</title>
 <link rel="stylesheet" type="text/css" href="../html/preview.css">
-<style>.urs p[id$="-toc"]>a>b{font-weight:normal;margin-right:.6em}.m4-src.A .a{background:lawngreen}.m4-src.S .s{font-weight:bold}.m4-src.X .x{visibility:hidden}.m4-ch,.m4-bh,.m4-usc,.m4-root{position:relative}.m4-bh>a:first-child::before,.m4-ch>a:first-child::before{font-size:.9em;font-weight:normal;position:absolute;right:100%;width:1.1em}.m4-ch>a:first-child::before{content:"\2630"}.m4-ch>a:first-child+a{margin-right:.4em}.m4-ch>a:last-child::before,.m4-bh>a:last-child::before{content:"\1f845";font-size:.65em;margin-left:.3em;position:absolute}.m4-ch>a:first-child,.m4-ch>a:last-child,.m4-bh>a:first-child,.m4-bh>a:last-child{opacity:0}.m4-ch:hover>a:first-child,.m4-ch:hover>a:last-child,.m4-bh:hover>a:first-child,.m4-bh:hover>a:last-child{opacity:1}#m4--toc{position:relative}#m4--toc div{color:#888;position:absolute;right:0;text-align:right;top:0}</style>
+<style>.urs p[id$="-toc"]>a>b{font-weight:normal;margin-right:.6em}.m4-src.A .a,.m4-src.B .b,.m4-src.C .c,.m4-src.D .d{background:lawngreen}.m4-src.R .r{background:red}.m4-src.S .s{font-weight:bold}.m4-src.X .x{visibility:hidden}.m4-ch,.m4-bh,.m4-usc,.m4-root{position:relative}.m4-bh>a:first-child::before,.m4-ch>a:first-child::before{font-size:.9em;font-weight:normal;position:absolute;right:100%;width:1.1em}.m4-ch>a:first-child::before{content:"\2630"}.m4-ch>a:first-child+a{margin-right:.4em}.m4-ch>a:last-child::before,.m4-bh>a:last-child::before{content:"\1f845";font-size:.65em;margin-left:.3em;position:absolute}.m4-ch>a:first-child,.m4-ch>a:last-child,.m4-bh>a:first-child,.m4-bh>a:last-child{opacity:0}.m4-ch:hover>a:first-child,.m4-ch:hover>a:last-child,.m4-bh:hover>a:first-child,.m4-bh:hover>a:last-child{opacity:1}#m4--toc{position:relative}#m4--toc div{color:#888;position:absolute;right:0;text-align:right;top:0}</style>
 <meta name="author" content="Josef Kubín">
 <meta name="description" content="Makro procesor M4 se používá ke generování libovolně složitého kódu z&nbsp;jednoduchého zdrojového kódu.
 Tento díl je zaměřen na vysvětlení potřebných, zdánlivě složitých pojmů teoretické informatiky.">
@@ -34,7 +34,7 @@ Tento díl je zaměřen na vysvětlení potřebných, zdánlivě složitých poj
 				<div class="perex__impressum">
 						<span class="perex__author">Josef Kubín</span>
 						<span class="perex__date">
-							<span itemprop="datePublished">20. 4. 2020</span>
+							<span itemprop="datePublished">2. 5. 2020</span>
 						</span>
 				</div>
 				<p itemprop="description">Makro procesor M4 se používá ke generování libovolně složitého kódu z&nbsp;jednoduchého zdrojového kódu.
@@ -52,7 +52,7 @@ Tento díl je zaměřen na vysvětlení potřebných, zdánlivě složitých poj
 <!-- Sklik-kontext-start -->
 <div class=" layout-article-content">
 <div class="php-urs urs">
-<div id="m4--toc"><h2>Obsah&nbsp;(<a href="../generating-code-in-m4-fundamentals/preview.html" title="Generating code in M4: fundamentals">English version</a>)</h2><div>aktualizováno<br>20. dubna 2020</div></div>
+<div id="m4--toc"><h2>Obsah&nbsp;(<a href="../generating-code-in-m4-fundamentals/preview.html" title="Generating code in M4: fundamentals">English version</a>)</h2><div>aktualizováno<br>2. května 2020</div></div>
 <p id="m4-uvod-toc"><a href="#m4-uvod"><b>1</b>Úvod</a></p>
 <!-- article content -->
 <h2 id="m4-uvod" class="m4-ch"><a href="#m4-uvod-toc" title="Obsah"></a><a href="#m4-uvod" title="⚓">1</a>Úvod<a href="#m4--toc" title="Nahoru"></a></h2>

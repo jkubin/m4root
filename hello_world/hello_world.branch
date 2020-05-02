@@ -1,2 +1,2 @@
-Witaj świecie!
-HELLO(BRANCH) → HELLO(6) → HELLO_$1 → HELLO_6 → Witaj świecie!
+Hello, world!
+HELLO(BRANCH) → HELLO(0) → HELLO_$1 → HELLO_0 → Hello, world!
