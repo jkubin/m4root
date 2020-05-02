@@ -13,7 +13,7 @@ The introductory part of the series contains its history, the basic principles o
 
 # shortcut for article: "+yG
 
-<!-- "Generating code in M4: introduction" __SOURCE([20200502-18:28:04, intro.mc, 9a76c9b, 9a76c9b]) -->
+<!-- "Generating code in M4: introduction" __SOURCE([20200502-23:39:12, intro.mc, f532633, f532633]) -->
 <style>.urs p[id$="-toc"]>a>b{font-weight:normal;margin-right:.6em}.m4-src.A .a,.m4-src.B .b,.m4-src.C .c,.m4-src.D .d,.m4-src.E .e,.m4-src.F .f,.m4-src.G .g{background:lawngreen}.m4-src.R .r{background:red}.m4-src.S .s{font-weight:bold}.m4-src.X .x{visibility:hidden}.m4-ch,.m4-bh,.m4-usc,.m4-root{position:relative}.m4-bh>a:first-child::before,.m4-ch>a:first-child::before{font-size:.9em;font-weight:normal;position:absolute;right:100%;width:1.1em}.m4-ch>a:first-child::before{content:"\2630"}.m4-ch>a:first-child+a{margin-right:.4em}.m4-ch>a:last-child::before,.m4-bh>a:last-child::before{content:"\1f845";font-size:.65em;margin-left:.3em;position:absolute}.m4-ch>a:first-child,.m4-ch>a:last-child,.m4-bh>a:first-child,.m4-bh>a:last-child{opacity:0}.m4-ch:hover>a:first-child,.m4-ch:hover>a:last-child,.m4-bh:hover>a:first-child,.m4-bh:hover>a:last-child{opacity:1}.m4-xp{border-bottom:1px dotted #000;cursor:help}.m4-xp:active::after{content:" (" attr(title) ")"}.m4-note::before{content:"\1f5b9";margin-right:.2em;font-size:1.5em}.urs .m4-note,.urs .m4-info,.urs .m4-excl,.urs .m4-warn{padding-top:.2em;padding-bottom:.4em}.m4-note ul{margin-bottom:0;margin-left:1em}ol.m4-refs a:first-child::before{content:"\2191"}ol.m4-refs a:first-child{margin-right:.3em;text-decoration:none}p.m4-l2{padding-left:1em}.m4-bh>a:first-child::before{content:"\1f517"}.m4-un{text-decoration:underline}.m4-info::before{content:"\1f6c8";margin-right:.2em;font-size:1.5em}.m4-src{counter-reset:m4-nl}.m4-src>a,.m4-usc>a,.m4-root>a{background-color:hsla(0,0%,86%,.5);border:1px solid #ddd;border-radius:0 4px;font-size:.7em;padding:2px 4px;position:absolute;right:0;top:0}.m4-src>a::before,.m4-usc>a::before,.m4-root>a::before{content:"\1f517"}.m4-src>code{border-radius:0 4px;border:1px solid #ddd;font-size:.7em;font-weight:bold;padding:2px 4px;position:absolute;right:0;text-align:right;top:0}.m4-src>code a{margin-left:.6em}.m4-src>code>div{background:#eee;font-weight:initial;padding:0 2px;text-align:left}.m4-src>code>span+a{color:inherit}.m4-src>code a+a{font-weight:normal}.m4-src>code a+a::before{content:"\1f517"}.m4-src>code>span:first-child{cursor:pointer;text-decoration:#f04c23 underline dashed}.m4-src pre.m4-rear{left:0;overflow:visible;padding-left:0;padding-right:0;position:absolute;top:0}.m4-src,.m4-src>pre,.m4-src pre.m4-rear div{position:relative}.m4-src pre.m4-rear div:nth-child(even){background:#f5f5f5}.m4-src pre.m4-rear div::before{content:counter(m4-nl);counter-increment:m4-nl;left:-3em;position:absolute;text-align:right;top:0;width:2.5em}.m4-src pre.m4-rear div::after{content:" "}.m4-hgl{border-bottom:1px dashed #000;cursor:help}.m4-usc>pre,.m4-root>pre{font-weight:bold;white-space:normal;word-break:normal}.m4-usc>pre a,.m4-root>pre a{color:inherit}.m4-root pre::before{content:"~]# ";font-weight:normal}.m4-usc pre::before{content:"~]$ ";font-weight:normal}p.m4-l3{padding-left:2em}#m4--toc{position:relative}#m4--toc div{color:#888;position:absolute;right:0;text-align:right;top:0}</style>
 <div id="m4--toc"><h2>Content&nbsp;(<a href="../../clanky/generovani-kodu-v-m4-uvod/" title="Generování kódu v M4: úvod">Česká verze</a>)</h2><div>updated<br>May 2, 2020</div></div>
 <noscript><div title="for information" class="rs-tip-major m4-info">Enabling JavaScript enhances the clarity of the source code samples.</div></noscript>
@@ -552,8 +552,8 @@ char *error[] = {
 messages/array.c">array.c</a><a href="#m4-messages_array-c" title="⚓"></a></code></div>
 <h3 id="m4-ini-an-external-command" class="m4-ch"><a href="#m4-ini-an-external-command-toc" title="Content"></a><a href="#m4-ini-an-external-command" title="⚓">A.6</a><code>[]</code> INI:  an external command<a href="#m4--toc" title="Top"></a></h3>
 <p>The example runs an external <code class="m4-hgl" data-21="12" data-22="3">date</code> command and places its output in square brackets.
-The output of an external command are two comma-separated items.
-The <code>ARG1()</code> macro selects the first item because the second item contains an unwanted <code>LF</code> (<samp>0x0a</samp>) new line character.</p>
+The output of an external command are <span class="m4-hgl" data-21="A">two comma-separated items</span>.
+The <code class="m4-hgl" data-21="C">ARG1()</code> macro <span class="m4-hgl" data-21="B">selects the first item</span> because the second item contains an unwanted <code>LF</code> (<samp>0x0a</samp>) new line character.</p>
 <div id="m4-messages_hello-ini-m4" class="m4-src"><pre># A → β
 define([ERROR], [
 
@@ -565,7 +565,7 @@ divert(-1)
 divert(0)dnl
 ; DONTE()
 
-LB()ARG1(esyscmd([date '+[hello_%Y%m%d],']))]
+LB()<span class=c>ARG1</span>(esyscmd([date '+<span class=b>[hello_%Y%m%d]</span><span class=a>,</span>']))]
 divert(-1)</pre><code><span title="2020-02-11 02:32:35 +0100">9e13656</span><a href="https://raw.githubusercontent.com/jkubin/m4root/9e136564861374ce1aebcc3f02cfcc35748d9a30/messages/hello.ini.m4" title="Source: GitHub
 messages/hello.ini.m4">hello.ini.m4</a><a href="#m4-messages_hello-ini-m4" title="⚓"></a></code></div>
 <div id="m4-messages_hello-ini-command" title="command" class="m4-usc"><pre>m4 <a href="https://raw.githubusercontent.com/jkubin/m4root/d07c94e78006c10cfd350694f579604a1816c672/gfiles/rootb.m4" title="Source: GitHub
@@ -595,7 +595,7 @@ define([<span class=a>COUNTER</span>], defn([COUNT_UP]))
 define([ERROR], [
 
 	divert(0)dnl
-[#define $1		0x]<span class=c>eval</span>(<span class=a>COUNTER</span>, <span class=b>16, 2</span>)
+[#define $1		0x]<span class=c>eval(</span><span class=a>COUNTER</span>, <span class=b>16, 2</span><span class=c>)</span>
 divert(-1)
 ])
 
@@ -781,7 +781,7 @@ messages/messages.html">messages.html</a></pre><a href="#m4-messages_messages-ht
 &lt;/html&gt;</pre><code><span title="2020-03-31 19:30:06 +0200">9156810</span><a href="https://raw.githubusercontent.com/jkubin/m4root/91568108231a0a6510905d67a6b33dfd0d6ecd39/messages/messages.html" title="Source: GitHub
 messages/messages.html">messages.html</a><a href="#m4-messages_messages-html" title="⚓"></a></code></div>
 <h3 id="m4-branching-by-grammar" class="m4-ch"><a href="#m4-branching-by-grammar-toc" title="Content"></a><a href="#m4-branching-by-grammar" title="⚓">A.11</a><code>[]</code> Branching by grammar<a href="#m4--toc" title="Top"></a></h3>
-<p>The example shows <a href="#m4-nonterminals-for-branches">branching by grammar</a>, macro arguments are ignored.
+<p>The example shows <a href="#m4-branching-by-grammar-basic-pr" title="Branching by grammar – basic principle">branching by grammar</a>, macro arguments are ignored.
 Input nonterminals are rewritten to terminals <code title="&#x1f41b;" class="m4-hgl" data-31="6,13" data-32="A">ERROR → &#x1f41b;</code>,
 <code title="&#x1f41c;" class="m4-hgl" data-31="6,14" data-32="B">QUERY → &#x1f41c;</code>,
 <code title="&#x1f41d;" class="m4-hgl" data-31="6,15" data-32="C">WARNING → &#x1f41d;</code>.</p>
@@ -866,9 +866,10 @@ messages/atm.json">atm.json</a><a href="#m4-messages_atm-json" title="⚓"></a><
 <p>The example processes other types of messages <code>QUERY</code> and <code>WARNING</code>.
 It uses three automata and six output queues.
 If we generate more complex source code, we will soon encounter the problem of maintaining index consistency for output queues.
-To avoid confusion, we use queue names instead of numbers.</p>
-<p>To avoid having to define similar rules, we copy the right side of <code>ERROR</code> (it is also a&nbsp;<abbr title="the rule is used as the right side of another rewriting rule"><code>β</code> rule</abbr>) to the right side of the <code>QUERY</code> and <code>WARNING</code> rules.
-The <code class="m4-hgl" data-35="A">$0</code> variable is rewritten to <span class="m4-hgl" data-35="B">the name of the macro</span> and <span class="m4-hgl" data-35="C">concatenated with another symbol</span>.
+To avoid confusion, we use queue names instead of numbers.
+To avoid having to define similar rules, we copy the right side of <code>ERROR</code> (it is also a&nbsp;<abbr title="the rule is used as the right side of another rewriting rule"><code>β</code> rule</abbr>) to the right side of the <code>QUERY</code> and <code>WARNING</code> rules.</p>
+<h5 id="m4-branching-by-grammar-basic-pr" class="m4-bh"><a href="#m4-branching-by-grammar-basic-pr" title="⚓"></a>Branching by grammar – basic principle<a href="#m4--toc" title="Top"></a></h5>
+<p>The <code class="m4-hgl" data-35="A">$0</code> variable is replaced by <span class="m4-hgl" data-35="B">the name of the macro</span> and <span class="m4-hgl" data-35="C">concatenated with another symbol</span>.
 <span class="m4-hgl" data-35="B,C">The newly formed nonterminal</span> is rewritten to the corresponding <span class="m4-hgl" data-35="D">terminal symbol</span> (queue number or name).</p>
 <div id="m4-nonterminals-for-branches" title="grammar branching in M4" class="m4-src"><pre><span class=a>$0</span>_QU → <span class=b>ERROR</span><span class=c>_QU</span> → <span class=d>2</span>
 <span class=a>$0</span>_END → <span class=b>ERROR</span><span class=c>_END</span> → <span class=d>3</span>
@@ -954,7 +955,7 @@ messages/qnames.json">qnames.json</a></pre><a href="#m4-messages_qnames-json-com
 messages/qnames.json">qnames.json</a><a href="#m4-messages_qnames-json" title="⚓"></a></code></div>
 <h4 id="m4-json-generated-queue-indexes" class="m4-ch"><a href="#m4-json-generated-queue-indexes-toc" title="Content"></a><a href="#m4-json-generated-queue-indexes" title="⚓">A.12.2</a><code>[]</code> JSON:  generated queue indexes<a href="#m4--toc" title="Top"></a></h4>
 <p>During development, the order and number of output queues often change, which also requires frequent changes of their indexes.
-It is therefore appropriate to generate indexes.
+<span class="m4-hgl" data-38="A">It is therefore appropriate to generate indexes</span>.
 We can then use a&nbsp;virtually unlimited number of queues.
 The following example shows how these indexes are generated.</p>
 <div id="m4-messages_queues-m4" class="m4-src"><pre># defines a counter for output queues
@@ -966,14 +967,14 @@ QUEUE_INDEX(0)
 
 # symbolic names for indices of output queues
 # A → β
-define([QUERY_QU],     QUEUE_INDEX)
-define([QUERY_END],    QUEUE_INDEX)
-define([ERROR_QU],     QUEUE_INDEX)
-define([ERROR_END],    QUEUE_INDEX)
-define([WARNING_QU],   QUEUE_INDEX)
-define([WARNING_END],  QUEUE_INDEX)
+define([QUERY_QU],     <span class=a>QUEUE_INDEX</span>)
+define([QUERY_END],    <span class=a>QUEUE_INDEX</span>)
+define([ERROR_QU],     <span class=a>QUEUE_INDEX</span>)
+define([ERROR_END],    <span class=a>QUEUE_INDEX</span>)
+define([WARNING_QU],   <span class=a>QUEUE_INDEX</span>)
+define([WARNING_END],  <span class=a>QUEUE_INDEX</span>)
 # Keep it last!
-define([LAST_QUEUE],   QUEUE_INDEX)
+define([LAST_QUEUE],   <span class=a>QUEUE_INDEX</span>)
 
 # names of message types
 # A → β
@@ -1045,7 +1046,7 @@ messages/messages.json">messages.json</a></pre><a href="#m4-messages_messages-js
 messages/messages.json">messages.json</a><a href="#m4-messages_messages-json" title="⚓"></a></code></div>
 <h3 id="m4-ini-discontinuous-queue-index" class="m4-ch"><a href="#m4-ini-discontinuous-queue-index-toc" title="Content"></a><a href="#m4-ini-discontinuous-queue-index" title="⚓">A.13</a><code>[]</code> INI:  discontinuous queue index<a href="#m4--toc" title="Top"></a></h3>
 <p>The example uses three automata and two output queues number <code class="m4-hgl" data-41="10,26">2</code> and <code class="m4-hgl" data-41="10,26">4</code> defined in a&nbsp;separate file.
-<span class="m4-hgl" data-41="11" data-42="3,6,11">INI section names</span> are generated by symbol chaining.
+<span class="m4-hgl" data-41="11" data-42="3,6,11">INI section names</span> are generated by <span class="m4-hgl" data-41="A,R">symbol chaining</span>.
 The example uses the same file for output queues as the <a href="#m4-json-generated-queue-indexes" title="[] JSON:  generated queue indexes">example</a> to generate JSON.</p>
 <div id="m4-messages_messages-ini-m4" class="m4-src"><pre>#      _________      ___________
 # ---&gt;/  ERROR  \---&gt;/ NEXT_ITEM \---.
@@ -1057,7 +1058,7 @@ The example uses the same file for output queues as the <a href="#m4-json-genera
 define([ERROR], [
 
 	divert($0_QU)
-BRAC($0_NAME)
+BRAC(<span class=r>$0</span><span class=a>_NAME</span>)
 [$1]="$2"
 divert(-1)
 
@@ -1416,7 +1417,7 @@ int main(void)
 }</pre><code><span title="2020-01-06 16:21:10 +0100">b53eafe</span><a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/preproc/preproc.file.c" title="Source: GitHub
 preproc/preproc.file.c">preproc.file.c</a><a href="#m4-preproc_preproc-file-c" title="⚓"></a></code></div>
 <h3 id="m4-ba-css-file-inclusion-comment" class="m4-ch"><a href="#m4-ba-css-file-inclusion-comment-toc" title="Content"></a><a href="#m4-ba-css-file-inclusion-comment" title="⚓">B.2</a><code>`'</code> CSS:  file inclusion, comment<a href="#m4--toc" title="Top"></a></h3>
-<p>CSS uses the <code>#</code> character for color codes, which is also the beginning of a&nbsp;one-line M4 comment.
+<p>CSS uses the <code class="m4-hgl" data-55="A">#</code> character for color codes, which is also the beginning of a&nbsp;one-line M4 comment.
 The <code class="m4-hgl" data-56="A">changecom(/*,*/)</code> keyword sets a&nbsp;multiline <code>/* … */</code> comment and rewrites itself into <abbr title="epsilon – empty symbol"><code>ε</code></abbr>.
 The comments can be turned off with the same <code class="m4-hgl" data-56="B">changecom</code> keyword without parameters.</p>
 <div id="m4-preproc_foo-css" title="file embedded by the macro processor" class="m4-src"><pre>.foo {
@@ -1426,9 +1427,9 @@ preproc/foo.css">foo.css</a><a href="#m4-preproc_foo-css" title="⚓"></a></code
 <div id="m4-preproc_file-css-m4" class="m4-src"><pre># CSS preprocessor
 
 define(`WIDTH', `3px')
-define(`TOP', `#f00')
-define(`SIDES', `#0f0')
-define(`BOTTOM', `#00f')
+define(`TOP', `<span class=a>#</span>f00')
+define(`SIDES', `<span class=a>#</span>0f0')
+define(`BOTTOM', `<span class=a>#</span>00f')
 define(`SITE', `www.root.cz')
 define(`IMAGE', `m4tux.png')
 define(`PATH', `https://SITE/IMAGE')
@@ -1676,7 +1677,7 @@ hello_world/hello_world.awk">hello_world.awk</a><a href="#m4-hello_world_hello_w
 <h3 id="m4-why-to-avoid-m4" class="m4-ch"><a href="#m4-why-to-avoid-m4-toc" title="Content"></a><a href="#m4-why-to-avoid-m4" title="⚓">D.2</a><code>&#x1f44e;</code> Why to avoid M4<a href="#m4--toc" title="Top"></a></h3>
 <ul>
 <li id="m4-low-level-language">low-level universal language (similar to C language)
-<ul><li>in return it provides tremendous flexibility as UNIX</li></ul></li>
+<ul><li>which in return it provides tremendous flexibility as UNIX</li></ul></li>
 <li id="m4-nearly-forgotten-language">(almost) nonexistent developer community (as of Autumn 2019)
 <ul><li>M4 is nearly forgotten language with small number of existing projects</li></ul></li>
 <li id="m4-unusual-language">unusual programming paradigm requiring <a href="#m4-prerequisites-for-mastering-m" title="Prerequisites for mastering M4">several prerequisites</a>
