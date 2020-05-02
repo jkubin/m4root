@@ -8,6 +8,7 @@ augroup my_filetypedetect
 	autocmd!
 
 	autocmd BufNewFile,BufRead *.make,*.mk setlocal filetype=make		" makefile
+	autocmd BufNewFile,BufRead *.mc setlocal wrap			" m4 macro configuration
 
 	" http://vim.wikia.com/wiki/Automatically_open_the_quickfix_window_on_:make
 	autocmd QuickFixCmdPost [^l]* nested cwindow
