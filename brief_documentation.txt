@@ -241,6 +241,13 @@ Note: html
 Description: 
 Reason: 
 ---
+File: tmp/cnv.m4
+Author: Josef Kubin
+Started: 2020/04/27
+Note: m4root
+Description: 
+Reason: 
+---
 File: ver.m4
 Author: Josef Kubin
 Started: 2019/12/22
@@ -536,13 +543,6 @@ Started: 2020/03/13
 Note: m4root
 Description: prints visible words to estimate their amount
 Reason: output only visible text
----
-File: cnv.m4
-Author: Josef Kubin
-Started: 2020/04/27
-Note: m4root
-Description: 
-Reason: 
 ---
 File: refs/mono.m4
 Author: Josef Kubin
