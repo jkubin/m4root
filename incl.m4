@@ -22,7 +22,7 @@ The result of the series is also a set of sample scripts for generating code.
 ]])
 ])
 
-# common code in annex
+# common code in all appendices
 # A → β
 define([APPENDIX_APPEND_CODE], [
 	INFO(, defn([WORD_INFORMATION]), [[dnl czech
