@@ -1725,11 +1725,11 @@ dnl english: _next_language_
 
 PARA([[dnl czech
 Bash používá oba znaky, CODE([LQ()]) a CODE([LB()]).
-Nechceme-li je skrývat do makra CODE_M4([LQ()]) nebo CODE_M4([LB()]), můžeme použít pro LINK([řízení expanze neterminálů], [expansion_control]) HEXPL([netisknutelné znaky], [[[A], [preproc/file.sh.m4]], [[A], [preproc/file.sh]]]), viz. příklad:
+Nechceme-li je skrývat do makra CODE_M4([LQ()]) nebo CODE_M4([LB()]), můžeme použít pro LINK([řízení expanze neterminálů], [expansion_control]) HEXPL([netisknutelné znaky], [zobrazené jako UTF-8 znaky], [[[A], [preproc/file.sh.m4]], [[A], [preproc/file.sh]]]), viz. příklad:
 ],
 [dnl english: _next_language_
 Bash uses both CODE([LQ()]) and CODE([LB()]) characters.
-If we do not want to hide them either in an CODE_M4([LQ()]) or CODE_M4([LB()]) macro, we can use HEXPL([nonprintable characters], [[[A], [preproc/file.sh.m4]], [[A], [preproc/file.sh]]]) for LINK([expansion control], [expansion_control]), see the example:
+If we do not want to hide them either in an CODE_M4([LQ()]) or CODE_M4([LB()]) macro, we can use HEXPL([nonprintable characters], [displayed as UTF-8 characters], [[[A], [preproc/file.sh.m4]], [[A], [preproc/file.sh]]]) for LINK([expansion control], [expansion_control]), see the example:
 ]])
 
 INSERT_FILE([preproc/file.sh.m4],, [s/[␂␆]/<span class=a>&<\x2fspan>/g])
