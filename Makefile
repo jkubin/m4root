@@ -30,13 +30,14 @@ LANG_CODES = $(patsubst lang_%.m4,%,$(wildcard lang_*.m4))
 REQ_LANGS  = $(filter-out $(ex)$(exclude), $(LANG_CODES))
 MAKE_HTML  = $(patsubst %,html_%.mk,$(REQ_LANGS))
 MAKE_FHTML = $(patsubst %,fhtml_%.mk,$(REQ_LANGS))
+MAKE_INCLL = $(patsubst %,*_%.mk,$(REQ_LANGS))
 REFS_LANG  = $(patsubst %,refs_%.m4,$(REQ_LANGS))
 REFS_ALL   = $(patsubst %,refs_%.m4,$(LANG_CODES))
 LANGS_ALL  = $(subst $(SPACE),$(COMMA),$(LANG_CODES))
 FILE_LIST  = $(subst $(SPACE),$(COMMA),$(SOURCE))
 CLSUBDIRS  = $(SUBDIRS:%=clean-%)
 
--include $(wildcard *.mk)
+-include $(wildcard $(MAKE_INCLL))
 
 
 #:all	creates all files
@@ -135,10 +136,10 @@ refs_%.m4: rootb.m4 lang_%.m4 toc.m4 $(ORDER_FILE) lang.m4 headings.m4 html/cfg.
 	m4 -DLANG_CODE='$*' $^ $(SOURCE) | sed -f refs.sed > $@
 
 html_%.mk: rootb.m4 $(ORDER_FILE) refs_%.m4 lang.m4 headings.m4 mk/html.m4
-	m4 -DREFS_FILES='$(REFS_LANG) $(REFS_MONO)' -DLANG_CODE='$*' $^ > $@
+	m4 -DLANG_CODE='$*' -DREFS_FILES='$(REFS_LANG) $(REFS_MONO)' $^ > $@
 
 fhtml_%.mk: rootb.m4 $(ORDER_FILE) refs_%.m4 lang.m4 headings.m4 mk/fhtml.m4
-	m4 -DREFS_FILES='$(REFS_LANG) $(REFS_MONO)' -DLANG_CODE='$*' $^ > $@
+	m4 -DLANG_CODE='$*' -DREFS_FILES='$(REFS_LANG) $(REFS_MONO)' $^ > $@
 
 git.m4: $(shell git ls-tree -r --name-only HEAD $(MONITORED))
 	./git.sh $^ > $@
