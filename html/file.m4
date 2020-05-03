@@ -36,30 +36,30 @@ define([INSERT_FILE], [
 	])
 
 	# first is file name, the second is ID (not used here)
-	define([FILE], ARG1($1))
+	define([#FILE], ARG1($1))
 
 	# finds a git record from a hash database
-	define([GIT_CSV], defn([./]defn([FILE])))
+	define([GIT_CSV], defn([./]defn([#FILE])))
 
 	ifelse(defn([GIT_CSV]), [], [
 
-		ROOT_ERROR([git record for ‘]defn([FILE])[’ not found, regenerate git database])
+		ROOT_ERROR([git record for ‘]defn([#FILE])[’ not found, regenerate git database])
 	])
 
 	# finds a file id record from a hash database
-	define([#ID], defn(__file__.mono.defn([FILE])))
+	define([#ID], defn(__file__.mono.defn([#FILE])))
 
 	ifelse(defn([#ID]), [], [
 
 		# ROOT_WARNING([reference for ‘$1’ not found; run ‘make -B refs …’ to regenerate file references])
-		ROOT_ERROR([id record for the key ‘]__file__.mono.defn([FILE])[’ not found, regenerate file references])
+		ROOT_ERROR([id record for the key ‘]__file__.mono.defn([#FILE])[’ not found, regenerate file references])
 	])
 
 	ADD_JAVASCRIPT_FOR_SOURCE_CODE()
 
 	divert(CURRQU)dnl
-<div id="ADD_ID_RULE(defn([#ID]))"ifelse([$2], [], [], [ title="[$2]"]) class="ADD_CLASS([src])"SET_CSS_LINE_COUNTER($4)><pre>$0_SET_PARAMETERS(defn([FILE]),
-[$3], $4)</pre><code><span title="ARG3(GIT_CSV)">ARG2(GIT_CSV)</span><a href="SRC_FILE_PATH[]defn([FILE])" title="defn([SRC_REPO_NAME], [FILE])">patsubst(defn([FILE]),
+<div id="ADD_ID_RULE(defn([#ID]))"ifelse([$2], [], [], [ title="[$2]"]) class="ADD_CLASS([src])"SET_CSS_LINE_COUNTER($4)><pre>$0_SET_PARAMETERS(defn([#FILE]),
+[$3], $4)</pre><code><span title="ARG3(GIT_CSV)">ARG2(GIT_CSV)</span><a href="SRC_FILE_PATH[]defn([#FILE])" title="defn([SRC_REPO_NAME], [#FILE])">patsubst(defn([#FILE]),
 [.*/])</a><a href="[#]defn([#ID])" title="⚓"></a></code></div>
 divert(-1)
 
