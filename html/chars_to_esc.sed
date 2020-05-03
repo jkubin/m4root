@@ -3,11 +3,11 @@
 # ___POINT([problematic characters in source code must be processed first])
 
 # hide M4 and HTML problematic characters to https://en.wikipedia.org/wiki/Escape_sequences_in_C
-s/&/\\x26/g
-s/</\\x3c/g
-s/>/\\x3e/g
-s/\[/\\x5b/g
-s/]/\\x5d/g
+s/&/\\x26;/g
+s/</\\x3c;/g
+s/>/\\x3e;/g
+s/\[/\\x5b;/g
+s/]/\\x5d;/g
 
 # transform nonprintable characters to printable UTF8 characters
 s/\x02/␂/g
