@@ -14,7 +14,7 @@ ifelse(defn([CURRENT_INDEX]), [], [
 # if multilingual pages are generated
 ifelse(defn(OTHER_LANG_CODE.[LANG_VERSION]), [], [], [
 
-	# create HTML code to next language
+	# create an HTML link to another language
 	define([SWITCH_TO_ANOTHER_LANGUAGE],
 	NB()(<a href="../defn([OTHER_LANGUAGE])defn(CURRENT_INDEX.OTHER_LANG_CODE.anch)/defn([OUTPUT_FILE])" title="defn(CURRENT_INDEX.OTHER_LANG_CODE.capt)">defn(OTHER_LANG_CODE.[LANG_VERSION])</a>))
 ])
@@ -22,7 +22,7 @@ ifelse(defn(OTHER_LANG_CODE.[LANG_VERSION]), [], [], [
 # this is the beginning of the page
 divert(START_OF_NAVIGATION)dnl table of content
 dnl
-<div id="ADD_ID_RULE(defn([NSP], [TOCP]))"><h2>defn([WORD_CONTENT], [SWITCH_TO_ANOTHER_LANGUAGE])</h2>ifdef([NEW_ARTICLE], [],
+<div id="ADD_ID_RULE(defn([NSP], [TOC_ANCH]))"><h2>defn([WORD_CONTENT], [SWITCH_TO_ANOTHER_LANGUAGE])</h2>ifdef([NEW_ARTICLE], [],
 [<div>WORD_UPDATED<br>ARG1(esyscmd(defn([DATE_COMMAND])))</div>])</div>
 divert(END_OF_NAVIGATION)dnl
 <!-- article content -->
@@ -48,10 +48,10 @@ ifelse(defn([REF]), defn([REF_NEXT]), [
 	# add item to navigation and below the page
 	# it have to be here because it is the last but one index, it can not be in the REF automaton
 	divert(CHAPTER_NAVIG_DATA)dnl
-<p id="defn([#ID], [TOCP])"><a href="[#]defn([#ID])"><b>defn([#S0], [#S1], [#S2])</b>WORD_REFERENCES</a></p>
+<p id="defn([#ID], [TOC_ANCH])"><a href="[#]defn([#ID])"><b>defn([#S0], [#S1], [#S2])</b>WORD_REFERENCES</a></p>
 divert(ARTICLE_REFER_CAPT)dnl
 <!-- article references -->
-<h2 id="defn([#ID])" class="ADD_CLASS([ch])">]defn([RETURN_TO_TOC], [CHAPTER_INDEX], [WORD_REFERENCES], [GO_BACK_UP])[</h2>
+<h2 id="defn([#ID])" class="ADD_CLASS([ch])">]defn([BACK_TO_TOC], [CHAPTER_INDEXES], [WORD_REFERENCES], [GO_BACK_UP])[</h2>
 divert(-1)
 ])
 
@@ -100,9 +100,9 @@ divert(-1)
 
 	# add item to navigation and below the page
 	divert(CHAPTER_NAVIG_DATA)dnl
-<p id="defn([#ID], [TOCP])"><a href="[#]defn([#ID])"><b>defn([#S0], [#S1], [#S2])</b>SENTENCE_ALL_PARTS</a></p>
+<p id="defn([#ID], [TOC_ANCH])"><a href="[#]defn([#ID])"><b>defn([#S0], [#S1], [#S2])</b>SENTENCE_ALL_PARTS</a></p>
 divert(ALL_PARTS_LIST)dnl
-<h2 id="defn([#ID])" class="ADD_CLASS([ch])">]defn([RETURN_TO_TOC], [CHAPTER_INDEX], [SENTENCE_ALL_PARTS], [GO_BACK_UP])[</h2>
+<h2 id="defn([#ID])" class="ADD_CLASS([ch])">]defn([BACK_TO_TOC], [CHAPTER_INDEXES], [SENTENCE_ALL_PARTS], [GO_BACK_UP])[</h2>
 <ol>
 divert(ALL_PARTS_LIST_END)dnl
 </ol>

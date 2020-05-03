@@ -59,6 +59,12 @@ pushdef([SET_ANCHOR], [
 	], [
 		define([#ID], defn(defn([FILE_PREFIX]).anch.defn([SELITM])))
 	])
+
+	# init indices
+	# A → ε
+	define([#S0])
+	define([#S1])
+	define([#S2])
 ])
 
 # β
@@ -125,9 +131,9 @@ pushdef([CHAPTER_COMMON_CODE], [
 	define([CURRQU], ARTICLE_CONTENT)
 
 	divert(CHAPTER_NAVIG_DATA)dnl
-<p id="defn([#ID], [TOCP])"INDENT_LEVEL><a href="[#]defn([#ID])"><b>defn([#S0], [#S1], [#S2])</b>SELITM</a></p>
+<p id="defn([#ID], [TOC_ANCH])"INDENT_LEVEL><a href="[#]defn([#ID])"><b>defn([#S0], [#S1], [#S2])</b>SELITM</a></p>
 divert(CURRQU)dnl
-<HEADING_TAG]defn([HTML_HEADING_ATTRIBUTES])>defn([RETURN_TO_TOC], [CHAPTER_INDEX])[SELITM]defn([GO_BACK_UP])[</HEADING_TAG>
+<HEADING_TAG]defn([HTML_HEADING_ATTRIBUTES])>defn([BACK_TO_TOC], [CHAPTER_INDEXES])[SELITM]defn([GO_BACK_UP])[</HEADING_TAG>
 divert(-1)
 ])
 
@@ -142,8 +148,6 @@ define([CHAPTER], defn([MULTILINGUAL_HEADINGS], [SET_ANCHOR])[
 	define([SECT2_IDX_val], 0)
 
 	define([#S0], CHAPTER_IDX_val)
-	define([#S1])
-	define([#S2])
 	define([INDENT_LEVEL])
 	define([HEADING_TAG], [h2])
 
@@ -162,7 +166,6 @@ define([SECT1], defn([MULTILINGUAL_HEADINGS], [SET_ANCHOR])[
 	# assign indexes
 	define([#S0], CHAPTER_IDX_val)
 	define([#S1], .SECT1_IDX_val)
-	define([#S2])
 
 	define([INDENT_LEVEL], [ class="ADD_CLASS([l2])"])
 	define([HEADING_TAG], [h3])
@@ -201,17 +204,15 @@ define([APPENDIX_MODE], defn([MULTILINGUAL_HEADINGS], [SET_ANCHOR])[
 
 	# assign indexes
 	define([#S0], APPENDIX_LETTER)
-	define([#S1])
-	define([#S2])
 
 	# set the current queue
 	define([CURRQU], APPENDIX_CONTENT)
 
 	divert(APPENDIX_NAVIG_DATA)dnl
-<p id="defn([#ID], [TOCP])"><a href="[#]defn([#ID])"><b>defn([#S0], [#S1], [#S2])</b>SELITM</a></p>
+<p id="defn([#ID], [TOC_ANCH])"><a href="[#]defn([#ID])"><b>defn([#S0], [#S1], [#S2])</b>SELITM</a></p>
 divert(APPENDIX_NAVIGATION)dnl
 undivert(CURRQU)dnl
-<h2]defn([HTML_HEADING_ATTRIBUTES])>defn([RETURN_TO_TOC], [CHAPTER_INDEX])[SELITM]defn([GO_BACK_UP])[</h2>
+<h2]defn([HTML_HEADING_ATTRIBUTES])>defn([BACK_TO_TOC], [CHAPTER_INDEXES])[SELITM]defn([GO_BACK_UP])[</h2>
 divert(-1)
 
 	# size of the following headings
@@ -261,12 +262,11 @@ define([SECT1_APPENDIX], defn([MULTILINGUAL_HEADINGS], [SET_ANCHOR])[
 	# assign indexes
 	define([#S0], APPENDIX_LETTER)
 	define([#S1], .SECT1_IDX_val)
-	define([#S2])
 
 	divert(APPENDIX_NAVIGATION)dnl
-<p id="defn([#ID], [TOCP])" class="ADD_CLASS([l2])"><a href="[#]defn([#ID])"><b>defn([#S0], [#S1], [#S2])</b>SELITM</a></p>
+<p id="defn([#ID], [TOC_ANCH])" class="ADD_CLASS([l2])"><a href="[#]defn([#ID])"><b>defn([#S0], [#S1], [#S2])</b>SELITM</a></p>
 divert(CURRQU)dnl
-<h3]defn([HTML_HEADING_ATTRIBUTES])>defn([RETURN_TO_TOC], [CHAPTER_INDEX])[SELITM]defn([GO_BACK_UP])[</h3>
+<h3]defn([HTML_HEADING_ATTRIBUTES])>defn([BACK_TO_TOC], [CHAPTER_INDEXES])[SELITM]defn([GO_BACK_UP])[</h3>
 divert(-1)
 
 	# size of the following headings
@@ -285,9 +285,9 @@ define([SECT2_APPENDIX], defn([MULTILINGUAL_HEADINGS], [SET_ANCHOR])[
 	define([#S2], .SECT2_IDX_val)
 
 	divert(APPENDIX_NAVIGATION)dnl
-<p id="defn([#ID], [TOCP])" class="ADD_CLASS([l3])"><a href="[#]defn([#ID])"><b>defn([#S0], [#S1], [#S2])</b>SELITM</a></p>
+<p id="defn([#ID], [TOC_ANCH])" class="ADD_CLASS([l3])"><a href="[#]defn([#ID])"><b>defn([#S0], [#S1], [#S2])</b>SELITM</a></p>
 divert(CURRQU)dnl
-<h4]defn([HTML_HEADING_ATTRIBUTES])>defn([RETURN_TO_TOC], [CHAPTER_INDEX])[SELITM]defn([GO_BACK_UP])[</h4>
+<h4]defn([HTML_HEADING_ATTRIBUTES])>defn([BACK_TO_TOC], [CHAPTER_INDEXES])[SELITM]defn([GO_BACK_UP])[</h4>
 divert(-1)
 
 	# size of the following headings
@@ -526,7 +526,7 @@ define([REF], [pushdef([CURRQU], divnum)divert(-1)
 
 	# set reference index, create symbol and an unique tuple
 	define([REF_COUNTER], [1])
-	define([REF_SYMBOL], defn([NSP], [REFIT], [REF_COUNTER]))
+	define([REF_SYMBOL], defn([NSP], [REF_ANCH], [REF_COUNTER]))
 	define([{$1|$2|$3}], REF_COUNTER)
 
 	# transition to the next node
@@ -554,7 +554,7 @@ define([REF_NEXT], [pushdef([CURRQU], divnum)divert(-1)
 ], [
 		# increment counter for new ref value
 		define([REF_VALUE], define([REF_COUNTER], incr(REF_COUNTER))REF_COUNTER)
-		define([REF_SYMBOL], defn([NSP], [REFIT])REF_VALUE)
+		define([REF_SYMBOL], defn([NSP], [REF_ANCH])REF_VALUE)
 		define([{$1|$2|$3}], REF_VALUE)
 
 		divert(ARTICLE_REFERENCES)dnl
@@ -569,7 +569,7 @@ divert(CURRQU)popdef([CURRQU])dnl
 define([BRIDGEHEAD_MONO], defn([MONOLINGUAL_HEADINGS], [SET_ANCHOR])[
 
 	divert(CURRQU)dnl
-<HEADING_TAG]defn([HTML_BRIDGEHEAD_ATTRIBUTES])>defn([BRIDGEHEAD_ANCHOR])[SELITM]defn([GO_BACK_UP])[</HEADING_TAG>
+<HEADING_TAG]defn([HTML_BRIDGEHEAD_ATTRIBUTES])>defn([CHAPTER_INDEXES])[SELITM]defn([GO_BACK_UP])[</HEADING_TAG>
 divert(-1)
 ])
 
@@ -577,7 +577,7 @@ divert(-1)
 define([BRIDGEHEAD], defn([MULTILINGUAL_HEADINGS], [SET_ANCHOR])[
 
 	divert(CURRQU)dnl
-<HEADING_TAG]defn([HTML_BRIDGEHEAD_ATTRIBUTES])>defn([BRIDGEHEAD_ANCHOR])[SELITM]defn([GO_BACK_UP])[</HEADING_TAG>
+<HEADING_TAG]defn([HTML_BRIDGEHEAD_ATTRIBUTES])>defn([CHAPTER_INDEXES])[SELITM]defn([GO_BACK_UP])[</HEADING_TAG>
 divert(-1)
 ])
 
