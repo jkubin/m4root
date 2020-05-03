@@ -22,6 +22,10 @@ VPATH      = gfiles
 SUBDIRS    = gfiles hello_world preproc messages asm
 MONITORED  = messages gfiles/*[bnqu].m4 hello_world asm preproc
 
+
+# in case of problems with inserting and coloring the file, debug flag prints the resulting sed command on stderr
+#FLAGS = -DDEBUG_SED
+
 EMPTY =
 SPACE = $(EMPTY) $(EMPTY)
 COMMA = ,
@@ -88,7 +92,7 @@ devel dev: rootb.m4 cfg.m4 queues.m4 style.m4 css.m4 test.m4
 #:new	sets the global flag to remove the "updated April 11, 2020" note at the top of the page (usage: $ make new article)
 .PHONY: new
 new:
-	$(eval FLAGS += -DNEW_ARTICLE )
+	$(eval FLAGS += -DNEW_ARTICLE)
 	@:
 
 

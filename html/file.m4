@@ -68,6 +68,10 @@ divert(-1)
 
 		ROOT_ERROR([‘$0($@)’ → $ ]defn([SED_COMMAND_TO_INSERT_A_FILE]))
 	])
+
+	# in case of problems, print the resulting sed command to insert the file and color on stderr
+	ifdef([DEBUG_SED], [errprint(defn([SED_COMMAND_TO_INSERT_A_FILE])
+)])
 ])
 
 # the whole file is inserted into the sed buffer as a one long string for multi-line regex processing
