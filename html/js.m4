@@ -35,8 +35,8 @@ define([ADD_JAVASCRIPT_FOR_SOURCE_CODE], [
 
 	# the only global JavaScript symbol must not conflict with other symbol in the parent HTML page
 	divert(JAVASCRIPT_CODE)dnl
-var m4_tpl={undivert([html/init.js])};dnl
-m4_tpl.init(dnl
+var m4root={undivert([html/init.js])};dnl
+m4root.init(dnl
 document.getElementsByClassName("defn([NSP], [CLASS_HGL])"),dnl
 document.getElementsByClassName("defn([NSP], [CLASS_SRC])"),dnl
 "defn([NSP], [CLASS_REAR])",dnl
