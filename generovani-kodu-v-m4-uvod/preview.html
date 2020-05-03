@@ -52,7 +52,7 @@
 <!-- Sklik-kontext-start -->
 <div class=" layout-article-content">
 <div class="php-urs urs">
-<div id="m4--toc"><h2>Obsah</h2><div>aktualizováno<br>3. května 2020</div></div>
+<div id="m4--toc"><h2>Obsah&nbsp;(<a href="../generating-code-in-m4-introduction/preview.html" title="Generating code in M4: introduction">English version</a>)</h2><div>aktualizováno<br>3. května 2020</div></div>
 <noscript><div title="pro informaci" class="rs-tip-major m4-info">Srozumitelnost ukázek zdrojového kódu zvyšuje povolený JavaScript.</div></noscript>
 <p id="m4-uvod-toc"><a href="#m4-uvod"><b>1</b>Úvod</a></p>
 <p id="m4-priklady-pro-ctenare-toc" class="m4-l2"><a href="#m4-priklady-pro-ctenare"><b>1.1</b>Příklady pro čtenáře</a></p>
@@ -634,7 +634,7 @@ define([COUNTER], defn([COUNT_UP]))
 define([ERROR], [
 
 	divert(0)dnl
-[#define $1		0x]eval(<span class=a>COUNTER</span>, 16, 2)
+[#define $1		0x]<span class=c>eval(</span><span class=a>COUNTER</span>, <span class=b>16, 2</span><span class=c>)</span>
 divert(-1)
 ])
 
