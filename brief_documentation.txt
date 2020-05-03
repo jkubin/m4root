@@ -308,8 +308,8 @@ File: html/js.m4
 Author: Josef Kubin
 Started: 2020/03/08
 Note: html
-Description: here is the logic for adding JavaScript(s) to the appropriate queue
-Reason: code decomposition
+Description: here the processed parts of JavaScript-s are composed into the final script
+Reason: code decomposition to simplify difficult things
 ---
 File: html/chars_to_esc.sed
 Author: Josef Kubin
@@ -336,7 +336,7 @@ File: html/js_packer.sed
 Author: Josef Kubin
 Started: 2020/03/22
 Note: m4root
-Description: removes unnecessary data from a JavaScript code; translates long_self_descriptive funny variables to single letters
+Description: removes unnecessary data from a JavaScript code; translates long_self_descriptive_funny_variables to single letters
 Reason: one-line JavaScript as small as possible
 ---
 File: html/preview.m4
@@ -359,13 +359,6 @@ Started: 2020/04/26
 Note: html
 Description: processes a command with a list of input files, the last file is the output file
 Reason: HTML code from the command line
----
-File: html/esc_to_entities.sed
-Author: Josef Kubin
-Started: 2020/01/09
-Note: m4root
-Description: transforms esc sequences to HTML entities or to ASCII
-Reason: post processing after M4 scripts
 ---
 File: html/queues.m4
 Author: Josef Kubin
@@ -415,6 +408,13 @@ Started: 2020/01/14
 Note: html
 Description: solution for html entities which must be hidden
 Reason: html entities
+---
+File: html/esc_to_ent.sed
+Author: Josef Kubin
+Started: 2020/01/09
+Note: m4root
+Description: transforms esc sequences to HTML entities or to ASCII
+Reason: post processing after M4 scripts
 ---
 File: html/inline.m4
 Author: Josef Kubin
