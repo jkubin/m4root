@@ -69,6 +69,8 @@ iabbrev <buffer> <unique> hm HCODE_M4([<c-r>"], [[[%%%], [%%%]]%%%])<left><c-o>%
 iabbrev <buffer> <unique> hr HORIZONTAL_RULE()<c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> hx HEXPL([<c-r>"], [[[%%%], [%%%]]%%%])<left><c-o>%;;<c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> hxm HEXPL_M4([<c-r>"], [[[%%%], [%%%]]%%%])<left><c-o>%;;<c-r>=Eatchar('.')<cr>
+iabbrev <buffer> <unique> ifi INSERT_FILE([])<left><left><c-r>=Eatchar('.')<cr>
+iabbrev <buffer> <unique> ifm INSERT_FILE_MLH([])<left><left><c-r>=Eatchar('.')<cr>
 "iabbrev <buffer> <unique> ii LI([<c-r>"])<esc>
 iabbrev <buffer> <unique> im IMAGEDATA([],dnl id<cr>[%%%],dnl title<cr>[],dnl class<cr>[],dnl style<cr>[],dnl anything<cr>[%%%, %%%],dnl [local_img, server_img]<cr>[[dnl czech<cr>%%%<cr>],<cr>[dnl english: _next_language_<cr>%%%<cr>]])<left><c-o>%<right><right><c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> inf INFO(, defn([WORD_INFORMATION]), [[dnl czech<cr><cr>],<cr>[dnl english: _next_language_<cr>%%%<cr>]])<left><c-o>%<c-o>0<down><c-r>=Eatchar('.')<cr>
@@ -112,6 +114,7 @@ iabbrev <buffer> <unique> sa SAMP([<c-r>"])<esc>
 iabbrev <buffer> <unique> scn <c-l><cr>SECT1([dnl czech<cr>[],<cr>dnl english: _next_language_<cr><c-u>[%%%],<cr>])<left><c-o>%<c-o>0<down><right><c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> sm SMALL([<c-r>"])<esc>
 iabbrev <buffer> <unique> spn SPN([<c-r>"], )<left><c-r>=Eatchar('.')<cr>
+iabbrev <buffer> <unique> spp s/<c-o>m`/<span class=%%%>&<\x2fspan>/%%%<c-o>``<c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> sp SPAN([<c-r>"], [%%%], [%%%])<left><c-o>%;;<c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> ss <c-l><cr>SECT1([dnl czech<cr>[],<cr>dnl english: _next_language_<cr><c-u>[%%%],<cr>])<left><c-o>%<c-o>0<down><right><c-r>=Eatchar('.')<cr>
 "iabbrev <buffer> <unique> st STRONG([])%%%<c-o>T(<right><c-r>=Eatchar('.')<cr>
