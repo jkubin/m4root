@@ -78,13 +78,13 @@ define([INSERT_FILE_MLH], defn([INSERT_FILE]))
 # ARG1 after the file processing removes unwanted trailing LF
 # A → β
 define([INSERT_FILE_SET_PARAMETERS_REGEX], [dnl
-define([SED_COMMAND_TO_INSERT_A_FILE], [sed -ne '$3,$4{' -f html/process_src.sed -e '$2' -e '$3s/^/\x5b\x5b/;$4$5;p}' $1])dnl
+define([SED_COMMAND_TO_INSERT_A_FILE], [sed -ne '$3,$4{' -f html/chars_to_esc.sed -e '$2' -e '$3s/^/\x5b\x5b/;$4$5;p}' $1])dnl
 ARG1(esyscmd(defn([SED_COMMAND_TO_INSERT_A_FILE])))dnl
 ])
 
 # A → β
 define([INSERT_FILE_MLH_SET_PARAMETERS_REGEX], [dnl
-define([SED_COMMAND_TO_INSERT_A_FILE], [sed -ne '$3{:a;N;$4!ba' -f html/process_src.sed -e '$2' -e 's/^/\x5b\x5b/;$5;p}' $1])dnl
+define([SED_COMMAND_TO_INSERT_A_FILE], [sed -ne '$3{:a;N;$4!ba' -f html/chars_to_esc.sed -e '$2' -e 's/^/\x5b\x5b/;$5;p}' $1])dnl
 ARG1(esyscmd(defn([SED_COMMAND_TO_INSERT_A_FILE])))dnl
 ])
 
