@@ -1836,9 +1836,9 @@ These symbols become ordinary terminal symbols without any side effect.
 ]])
 
 INSERT_FILE([hello_world/h.m4],, [
-s/\\x5b\\x5d/<span class=a>&<\x2fspan>/g
-s/\\x5b#\\x5d/<span class=b>&<\x2fspan>/
-s/\\x5bdnl\\x5d/<span class=c>&<\x2fspan>/
+s/\\x5b;\\x5d;/<span class=a>&<\x2fspan>/g
+s/\\x5b;#\\x5d;/<span class=b>&<\x2fspan>/
+s/\\x5b;dnl\\x5d;/<span class=c>&<\x2fspan>/
 ])
 COMMAND_LINE([m4 -DSYMBOL='Hello, world!'], [gfiles/rootb.m4], [hello_world/h.m4], [hello_world/hello_world.h])
 INSERT_FILE([hello_world/hello_world.h])
