@@ -455,12 +455,12 @@ dnl english: _next_language_
 
 PARA([[dnl czech
 Bezkontextová gramatika (krátce ABBR([CFG], [Context-Free Grammar – bezkontextová gramatika])) je LINK([formální gramatika], [formal_grammar_chomsky]), ve které mají všechna přepisovací pravidla tvar HCODE([A → β], [[[1], [all_context_free_grammar_rules]]]).
-Neterminál HCODE_M4([A], [[[D], [all_context_free_grammar_rules]]]) se HEXPL([přepíše], [[[E], [all_context_free_grammar_rules]]]) na libovolně dlouhý řetězec ABBR([HCODE([β], [[[F], [all_context_free_grammar_rules]]])], [pravá strana přepisovacího pravidla]) složený z[]NB()terminálů HCODE([Σ], [[[A], [all_context_free_grammar_rules]]]) HEXPL([nebo], [[[G], [all_context_free_grammar_rules]]]) neterminálů HCODE([N], [[[B], [all_context_free_grammar_rules]]]).
+Neterminál HCODE_M4([A], [[[D], [all_context_free_grammar_rules]]]) se HEXPL([přepíše], [[[E], [all_context_free_grammar_rules]]]) na libovolně dlouhý řetězec ABBR([HCODE([β], [[[F], [all_context_free_grammar_rules]]])], [pravá strana přepisovacího pravidla]) složený z[]NB()HEXPL([neterminálů CODE([N])], [[[B], [all_context_free_grammar_rules]]]) HEXPL([nebo], [[[G], [all_context_free_grammar_rules]]]) HEXPL([terminálů CODE([Σ])], [[[A], [all_context_free_grammar_rules]]]).
 HEXPL([AH([Kleeneho hvězda], [Wikipedie], [https://en.wikipedia.org/wiki/Kleene_star])], [[[C], [all_context_free_grammar_rules]]]) znamená, že se neterminál HCODE_M4([A], [[[D], [all_context_free_grammar_rules]]]) může přepsat na ABBR([CODE([ε])], [epsilon – prázdný symbol]) (přepisovací pravidlo HCODE([A → ε], [[[5,6], [rewriting_rules]]])).
 ],
 [dnl english: _next_language_
 Context-free grammar (shortly ABBR([CFG], [Context-Free Grammar])) is a[]NB()LINK([formal grammar], [formal_grammar_chomsky]) in which all rules for rewriting have the HCODE([A → β], [[[1], [all_context_free_grammar_rules]]]) form.
-The nonterminal HCODE_M4([A], [[[D], [all_context_free_grammar_rules]]]) is HEXPL([rewritten], [[[E], [all_context_free_grammar_rules]]]) to an arbitrarily long ABBR([HCODE([β], [[[F], [all_context_free_grammar_rules]]])], [the right side of the rewriting rule]) string composed of terminals HCODE([Σ], [[[A], [all_context_free_grammar_rules]]]) HEXPL([or], [[[G], [all_context_free_grammar_rules]]]) nonterminals HCODE([N], [[[B], [all_context_free_grammar_rules]]]).
+The nonterminal HCODE_M4([A], [[[D], [all_context_free_grammar_rules]]]) is HEXPL([rewritten], [[[E], [all_context_free_grammar_rules]]]) to an arbitrarily long ABBR([HCODE([β], [[[F], [all_context_free_grammar_rules]]])], [the right side of the rewriting rule]) string composed of HEXPL([nonterminals CODE([N])], [[[B], [all_context_free_grammar_rules]]]) HEXPL([or], [[[G], [all_context_free_grammar_rules]]]) HEXPL([terminals CODE([Σ])], [[[A], [all_context_free_grammar_rules]]]).
 HEXPL([AH([Kleene star], [Wikipedia], [https://en.wikipedia.org/wiki/Kleene_star])], [[[C], [all_context_free_grammar_rules]]]) means that nonterminal HCODE_M4([A], [[[D], [all_context_free_grammar_rules]]]) can be rewritten to ABBR([CODE([ε])], [epsilon – empty symbol]) (rewriting rule HCODE([A → ε], [[[5,6], [rewriting_rules]]])).
 ]])
 
@@ -1231,7 +1231,10 @@ HEXPL([Further expansion], [[[B], [messages/counter.csv.m4]]]) returns the numer
 CODE_M4([COUNTER]) is a[]NB()small automaton.
 ]])
 
-INSERT_FILE([messages/counter.csv.m4],, [s/\<COUNT_UP\>/<span class=a>&<\x2fspan>/;/\<ERR_\>/s/\<COUNTER\>/<span class=b>&<\x2fspan>/])
+INSERT_FILE([messages/counter.csv.m4],, [
+s/\<COUNT_UP\>/<span class=a>&<\x2fspan>/
+/\<ERR_\>/s/\<COUNTER\>/<span class=b>&<\x2fspan>/
+])
 COMMAND_LINE([m4], [gfiles/rootb.m4], [messages/counter.csv.m4], [messages/messages_raw.mc], [messages/counter.csv])
 INSERT_FILE([messages/counter.csv])
 
@@ -1337,12 +1340,12 @@ dnl english: _next_language_
 ])
 
 PARA([[dnl czech
-Příklad spustí externí příkaz HCODE([date], [[[12], [messages/hello.ini.m4]], [[3], [messages/hello.ini]]]) a[]NB()jeho výstup umístí do hranatých závorek.
+Příklad spustí externí příkaz HCODE([date], [[[D], [messages/hello.ini.m4]], [[3], [messages/hello.ini]]]) a[]NB()jeho výstup umístí do hranatých závorek.
 Výstupem externího příkazu jsou HEXPL([dvě položky oddělené čárkou], [[[A], [messages/hello.ini.m4]]]).
 Makro HCODE_M4([ARG1()], [[[C], [messages/hello.ini.m4]]]) HEXPL([vybere první položku], [[[B], [messages/hello.ini.m4]]]), protože druhá položka obsahuje nežádoucí znak nového řádku CODE([LF]) (SAMP([0x0a])).
 ],
 [dnl english: _next_language_
-The example runs an external HCODE([date], [[[12], [messages/hello.ini.m4]], [[3], [messages/hello.ini]]]) command and places its output in square brackets.
+The example runs an external HCODE([date], [[[D], [messages/hello.ini.m4]], [[3], [messages/hello.ini]]]) command and places its output in square brackets.
 The output of an external command are HEXPL([two comma-separated items], [[[A], [messages/hello.ini.m4]]]).
 The HCODE_M4([ARG1()], [[[C], [messages/hello.ini.m4]]]) macro HEXPL([selects the first item], [[[B], [messages/hello.ini.m4]]]) because the second item contains an unwanted CODE([LF]) (SAMP([0x0a])) new line character.
 ]])
@@ -1351,7 +1354,8 @@ INSERT_FILE([messages/hello.ini.m4],, [
 /\<esyscmd\>/{
 s/+\([^,]*\)/+<span class=b>\1<\x2fspan>/
 s/,/<span class=a>&<\x2fspan>/
-s/\<ARG1\>/<span class=c>&<\x2fspan>/
+s/ARG1/<span class=c>&<\x2fspan>/
+s/date \x27[^\x27]\+\x27/<span class=d>&<\x2fspan>/
 }
 ])
 COMMAND_LINE([m4], [gfiles/rootb.m4], [messages/hello.ini.m4], [messages/code.m4], [messages/messages.mc], [messages/hello.ini])
@@ -1377,8 +1381,11 @@ The decimal value of the counter is converted to the HEXPL([two-digit hex], [[[B
 
 INSERT_FILE([messages/messages.h.m4],, [
 s/\<COUNTER\>\((0)\)\?/<span class=a>&<\x2fspan>/g
-/\<eval\>/s/\<16, 2\>/<span class=b>&<\x2fspan>/g
-/\<eval\>/{s/\<eval(/<span class=c>&<\x2fspan>/;s/)/<span class=c>&<\x2fspan>/}
+/\<eval(/{
+s//<span class=c>&<\x2fspan>/
+s/\<16, 2\>/<span class=b>&<\x2fspan>/
+s/)/<span class=c>&<\x2fspan>/
+}
 ])
 COMMAND_LINE([m4], [gfiles/rootb.m4], [messages/messages.h.m4], [messages/messages.mc], [messages/messages.h])
 INSERT_FILE([messages/messages.h])
@@ -1829,9 +1836,9 @@ These symbols become ordinary terminal symbols without any side effect.
 ]])
 
 INSERT_FILE([hello_world/h.m4],, [
-s/&#x5b;&#x5d;/<span class=a>&<\x2fspan>/g
-s/&#x5b;#&#x5d;/<span class=b>&<\x2fspan>/
-s/&#x5b;dnl&#x5d;/<span class=c>&<\x2fspan>/
+s/\\x5b\\x5d/<span class=a>&<\x2fspan>/g
+s/\\x5b#\\x5d/<span class=b>&<\x2fspan>/
+s/\\x5bdnl\\x5d/<span class=c>&<\x2fspan>/
 ])
 COMMAND_LINE([m4 -DSYMBOL='Hello, world!'], [gfiles/rootb.m4], [hello_world/h.m4], [hello_world/hello_world.h])
 INSERT_FILE([hello_world/hello_world.h])
@@ -1853,13 +1860,17 @@ Such macros are explicitly created by a[]NB()script developer, see the root file
 ]])
 
 INSERT_FILE([hello_world/awk.m4],, [
-/\<BEGIN\>/s/\<DONTE\>/<span class=a>&<\x2fspan>/
-/\<BEGIN\>/s/\<LB\>/<span class=b>&<\x2fspan>/
+/\<BEGIN\>/{
+s/\<DONTE\>/<span class=a>&<\x2fspan>/
+s/\<LB\>/<span class=b>&<\x2fspan>/
+}
 ])
 COMMAND_LINE([m4 -DSYMBOL='Hello, world!'], [gfiles/rootb.m4], [hello_world/awk.m4], [hello_world/hello_world.awk])
 INSERT_FILE([hello_world/hello_world.awk],, [
-/\<BEGIN\>/s/\<DONTE\>/<span class=a>&<\x2fspan>/
-/\<BEGIN\>/s/\<LB\>/<span class=b>&<\x2fspan>/
+/\<BEGIN\>/{
+s/\<DONTE\>/<span class=a>&<\x2fspan>/
+s/\<LB\>/<span class=b>&<\x2fspan>/
+}
 ])
 
 
