@@ -7,6 +7,10 @@ divert(-1)changequote(,)
 # LOUD alert for unsuspecting users (donte is not a vocabulary word)
 define(DONTE, DO NOT EDIT! This file is generated automatically!)
 
+# puts a left/right unpaired symbol to skip the non-terminal control
+define(LN, changequote`'format(`%c', 2)changequote(,))
+define(RN, changequote`'format(`%c', 6)changequote(,))
+
 # number of arguments
 define(NAR, $#)
 
@@ -18,10 +22,6 @@ define(ARG3,	$3)
 # puts additional pair (payr is not a vocabulary word) of symbols
 define(PAYR, $@)
 define(BRAC, [$@])
-
-# puts a left/right unpaired symbol bypassing the non-terminal control
-define(LN, changequote`'format(`%c', 2)changequote(,))
-define(RN, changequote`'format(`%c', 6)changequote(,))
 
 # print warning to stderr if something will be problematic
 define(ROOT_WARNING, errprint(__file__:__line__: warning: $*

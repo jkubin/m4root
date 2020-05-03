@@ -311,6 +311,13 @@ Note: html
 Description: here is the logic for adding JavaScript(s) to the appropriate queue
 Reason: code decomposition
 ---
+File: html/chars_to_esc.sed
+Author: Josef Kubin
+Started: 2019/09/01
+Note: m4root
+Description: the script modifies input source code for use in M4 source code and for resulting HTML page
+Reason: problematic characters in source code must be processed first
+---
 File: html/index.m4
 Author: Josef Kubin
 Started: 2019/12/27
@@ -352,6 +359,13 @@ Started: 2020/04/26
 Note: html
 Description: processes a command with a list of input files, the last file is the output file
 Reason: HTML code from the command line
+---
+File: html/esc_to_entities.sed
+Author: Josef Kubin
+Started: 2020/01/09
+Note: m4root
+Description: transforms esc sequences to HTML entities or to ASCII
+Reason: post processing after M4 scripts
 ---
 File: html/queues.m4
 Author: Josef Kubin
@@ -415,13 +429,6 @@ Started: 2019/12/22
 Note: m4root
 Description: convert problematic multi-byte UTF-8 characters (CMS refuses them) to HTML entities
 Reason: converts multi-byte UTF-8 characters to HTML entities for Content Management System
----
-File: html/process_src.sed
-Author: Josef Kubin
-Started: 2019/09/01
-Note: m4root
-Description: the script modifies input source code for use in M4 source code and for resulting HTML page
-Reason: every source code must be processed first
 ---
 File: lang_en.m4
 Author: Josef Kubin
@@ -521,13 +528,6 @@ Started: 2020/01/11
 Note: mk
 Description: the script creates rules for Makefile to generate XML files
 Reason: generated XML files
----
-File: brackets.sed
-Author: Josef Kubin
-Started: 2020/01/09
-Note: m4root
-Description: transforms brackets as HTML entities back to ASCII
-Reason: post processing after M4 scripts; simple square brackets allow better reading of the resulting file
 ---
 File: Makefile
 Author: Josef Kubin

@@ -13,9 +13,9 @@ The introductory part of the series contains its history, the basic principles o
 
 # shortcut for article: "+yG
 
-<!-- "Generating code in M4: introduction" __SOURCE([20200502-23:39:12, intro.mc, f532633, f532633]) -->
-<style>.urs p[id$="-toc"]>a>b{font-weight:normal;margin-right:.6em}.m4-src.A .a,.m4-src.B .b,.m4-src.C .c,.m4-src.D .d,.m4-src.E .e,.m4-src.F .f,.m4-src.G .g{background:lawngreen}.m4-src.R .r{background:red}.m4-src.S .s{font-weight:bold}.m4-src.X .x{visibility:hidden}.m4-ch,.m4-bh,.m4-usc,.m4-root{position:relative}.m4-bh>a:first-child::before,.m4-ch>a:first-child::before{font-size:.9em;font-weight:normal;position:absolute;right:100%;width:1.1em}.m4-ch>a:first-child::before{content:"\2630"}.m4-ch>a:first-child+a{margin-right:.4em}.m4-ch>a:last-child::before,.m4-bh>a:last-child::before{content:"\1f845";font-size:.65em;margin-left:.3em;position:absolute}.m4-ch>a:first-child,.m4-ch>a:last-child,.m4-bh>a:first-child,.m4-bh>a:last-child{opacity:0}.m4-ch:hover>a:first-child,.m4-ch:hover>a:last-child,.m4-bh:hover>a:first-child,.m4-bh:hover>a:last-child{opacity:1}.m4-xp{border-bottom:1px dotted #000;cursor:help}.m4-xp:active::after{content:" (" attr(title) ")"}.m4-note::before{content:"\1f5b9";margin-right:.2em;font-size:1.5em}.urs .m4-note,.urs .m4-info,.urs .m4-excl,.urs .m4-warn{padding-top:.2em;padding-bottom:.4em}.m4-note ul{margin-bottom:0;margin-left:1em}ol.m4-refs a:first-child::before{content:"\2191"}ol.m4-refs a:first-child{margin-right:.3em;text-decoration:none}p.m4-l2{padding-left:1em}.m4-bh>a:first-child::before{content:"\1f517"}.m4-un{text-decoration:underline}.m4-info::before{content:"\1f6c8";margin-right:.2em;font-size:1.5em}.m4-src{counter-reset:m4-nl}.m4-src>a,.m4-usc>a,.m4-root>a{background-color:hsla(0,0%,86%,.5);border:1px solid #ddd;border-radius:0 4px;font-size:.7em;padding:2px 4px;position:absolute;right:0;top:0}.m4-src>a::before,.m4-usc>a::before,.m4-root>a::before{content:"\1f517"}.m4-src>code{border-radius:0 4px;border:1px solid #ddd;font-size:.7em;font-weight:bold;padding:2px 4px;position:absolute;right:0;text-align:right;top:0}.m4-src>code a{margin-left:.6em}.m4-src>code>div{background:#eee;font-weight:initial;padding:0 2px;text-align:left}.m4-src>code>span+a{color:inherit}.m4-src>code a+a{font-weight:normal}.m4-src>code a+a::before{content:"\1f517"}.m4-src>code>span:first-child{cursor:pointer;text-decoration:#f04c23 underline dashed}.m4-src pre.m4-rear{left:0;overflow:visible;padding-left:0;padding-right:0;position:absolute;top:0}.m4-src,.m4-src>pre,.m4-src pre.m4-rear div{position:relative}.m4-src pre.m4-rear div:nth-child(even){background:#f5f5f5}.m4-src pre.m4-rear div::before{content:counter(m4-nl);counter-increment:m4-nl;left:-3em;position:absolute;text-align:right;top:0;width:2.5em}.m4-src pre.m4-rear div::after{content:" "}.m4-hgl{border-bottom:1px dashed #000;cursor:help}.m4-usc>pre,.m4-root>pre{font-weight:bold;white-space:normal;word-break:normal}.m4-usc>pre a,.m4-root>pre a{color:inherit}.m4-root pre::before{content:"~]# ";font-weight:normal}.m4-usc pre::before{content:"~]$ ";font-weight:normal}p.m4-l3{padding-left:2em}#m4--toc{position:relative}#m4--toc div{color:#888;position:absolute;right:0;text-align:right;top:0}</style>
-<div id="m4--toc"><h2>Content&nbsp;(<a href="../../clanky/generovani-kodu-v-m4-uvod/" title="Generování kódu v M4: úvod">Česká verze</a>)</h2><div>updated<br>May 2, 2020</div></div>
+<!-- "Generating code in M4: introduction" __SOURCE([20200503-14:56:17, intro.mc, f81b991, 5e57ca7]) -->
+<style>.urs p[id$="-toc"]>a>b{font-weight:normal;margin-right:.6em}.m4-src.A .a,.m4-src.B .b,.m4-src.C .c,.m4-src.D .d,.m4-src.E .e,.m4-src.F .f,.m4-src.G .g{background:lawngreen}.m4-src.R .r{background:red}.m4-src.S .s{font-weight:bold}.m4-src.X .x{visibility:hidden}.m4-ch,.m4-bh,.m4-usc,.m4-root{position:relative}.m4-bh>a:first-child::before,.m4-ch>a:first-child::before{font-size:.9em;font-weight:normal;position:absolute;right:100%;width:1.1em}.m4-ch>a:first-child::before{content:"\2630"}.m4-ch>a:first-child+a{margin-right:.4em}.m4-ch>a:last-child::before,.m4-bh>a:last-child::before{content:"\1f845";font-size:.65em;margin-left:.3em;position:absolute}.m4-ch>a:first-child,.m4-ch>a:last-child,.m4-bh>a:first-child,.m4-bh>a:last-child{opacity:0}.m4-ch:hover>a:first-child,.m4-ch:hover>a:last-child,.m4-bh:hover>a:first-child,.m4-bh:hover>a:last-child{opacity:1}.m4-xp{border-bottom:1px dotted #000;cursor:help}.m4-xp:active::after{content:" (" attr(title) ")"}.m4-note::before{content:"\1f5b9";margin-right:.2em;font-size:1.5em}.urs .m4-note,.urs .m4-info,.urs .m4-excl,.urs .m4-warn{padding-top:.2em;padding-bottom:.4em}.m4-note ul{margin-bottom:0;margin-left:1em}ol.m4-refs a:first-child::before{content:"\2191"}ol.m4-refs a:first-child{margin-right:.3em;text-decoration:none}p.m4-l2{padding-left:1em}.m4-bh>a:first-child::before{content:"\1f517"}.m4-un{text-decoration:underline}.m4-info::before{content:"\1f6c8";margin-right:.2em;font-size:1.5em}.m4-src{counter-reset:m4-nl}.m4-src>a,.m4-usc>a,.m4-root>a{background-color:hsla(0,0%,86%,.5);border:1px solid #ddd;border-radius:0 4px;font-size:.7em;padding:2px 4px;position:absolute;right:0;top:0}.m4-src>a::before,.m4-usc>a::before,.m4-root>a::before{content:"\1f517"}.m4-src>code{border-radius:0 4px;border:1px solid #ddd;font-size:.7em;font-weight:bold;padding:2px 4px;position:absolute;right:0;text-align:right;top:0}.m4-src>code a{margin-left:.6em}.m4-src>code>div{background:#eee;font-weight:initial;padding:0 2px;text-align:left}.m4-src>code>span+a{color:inherit}.m4-src>code a+a{font-weight:normal}.m4-src>code a+a::before{content:"\1f517"}.m4-src>code>span:first-child{cursor:pointer;text-decoration:#f04c23 underline dashed}.m4-src>pre.m4-rear{left:0;overflow:visible;padding-left:0;padding-right:0;position:absolute;top:0}.m4-src>pre+pre{background:none}.m4-src,.m4-src>pre,.m4-src>pre.m4-rear>div{position:relative}.m4-src>pre.m4-rear>div:nth-child(even){background:#f5f5f5}.m4-src>pre.m4-rear>div::before{content:counter(m4-nl);counter-increment:m4-nl;left:-3em;position:absolute;text-align:right;top:0;width:2.5em}.m4-src>pre.m4-rear>div::after{content:" "}.m4-hgl{border-bottom:1px dashed #000;cursor:help}.m4-usc>pre,.m4-root>pre{font-weight:bold;white-space:normal;word-break:normal}.m4-usc>pre a,.m4-root>pre a{color:inherit}.m4-root pre::before{content:"~]# ";font-weight:normal}.m4-usc pre::before{content:"~]$ ";font-weight:normal}p.m4-l3{padding-left:2em}#m4--toc{position:relative}#m4--toc div{color:#888;position:absolute;right:0;text-align:right;top:0}</style>
+<div id="m4--toc"><h2>Content&nbsp;(<a href="../../clanky/generovani-kodu-v-m4-uvod/" title="Generování kódu v M4: úvod">Česká verze</a>)</h2><div>updated<br>May 3, 2020</div></div>
 <noscript><div title="for information" class="rs-tip-major m4-info">Enabling JavaScript enhances the clarity of the source code samples.</div></noscript>
 <p id="m4-introduction-toc"><a href="#m4-introduction"><b>1</b>Introduction</a></p>
 <p id="m4-examples-for-readers-toc" class="m4-l2"><a href="#m4-examples-for-readers"><b>1.1</b>Examples for readers</a></p>
@@ -159,7 +159,7 @@ These terms will be explained later in more detail.
 The objective is to show the basic practical use of M4 language on examples.</p>
 <h3 id="m4-context-free-grammar" class="m4-ch"><a href="#m4-context-free-grammar-toc" title="Content"></a><a href="#m4-context-free-grammar" title="⚓">3.1</a>Context-free grammar<a href="#m4--toc" title="Top"></a></h3>
 <p>Context-free grammar (shortly <abbr title="Context-Free Grammar">CFG</abbr>) is a&nbsp;<a href="#m4-formal-grammar-chomsky-type" title="Formal grammar (Chomsky type)">formal grammar</a> in which all rules for rewriting have the <code class="m4-hgl" data-2="1">A → β</code> form.
-The nonterminal <code class="m4-hgl" data-2="D">A</code> is <span class="m4-hgl" data-2="E">rewritten</span> to an arbitrarily long <abbr title="the right side of the rewriting rule"><code class="m4-hgl" data-2="F">β</code></abbr> string composed of terminals <code class="m4-hgl" data-2="A">Σ</code> <span class="m4-hgl" data-2="G">or</span> nonterminals <code class="m4-hgl" data-2="B">N</code>.
+The nonterminal <code class="m4-hgl" data-2="D">A</code> is <span class="m4-hgl" data-2="E">rewritten</span> to an arbitrarily long <abbr title="the right side of the rewriting rule"><code class="m4-hgl" data-2="F">β</code></abbr> string composed of <span class="m4-hgl" data-2="B">nonterminals <code>N</code></span> <span class="m4-hgl" data-2="G">or</span> <span class="m4-hgl" data-2="A">terminals <code>Σ</code></span>.
 <span class="m4-hgl" data-2="C"><a href="https://en.wikipedia.org/wiki/Kleene_star" title="Wikipedia">Kleene star</a></span> means that nonterminal <code class="m4-hgl" data-2="D">A</code> can be rewritten to <abbr title="epsilon – empty symbol"><code>ε</code></abbr> (rewriting rule <code class="m4-hgl" data-3="5,6">A → ε</code>).</p>
 <div id="m4-all-context-free-grammar-rules" title="context-free grammar rewriting rules" class="m4-src"><pre>P: <span class=d>A</span> <span class=e>→</span> <span class=f>β</span>
    <span class=d>A</span> ∈ <span class=b>N</span>
@@ -400,7 +400,7 @@ messages/messages_raw.mc">messages_raw.mc</a><a href="#m4-messages_messages_raw-
 <h3 id="m4-csv-simplest-example" class="m4-ch"><a href="#m4-csv-simplest-example-toc" title="Content"></a><a href="#m4-csv-simplest-example" title="⚓">A.2</a><code>[]</code> CSV:  simplest example<a href="#m4--toc" title="Top"></a></h3>
 <p>This example does not use output queues, <span class="m4-hgl" data-9="A,R,5" data-10="1-3" data-8="R,3,5,7">it only prints</span> <abbr title="Comma Separated Values">CSV</abbr> separated by <code>TAB</code> to <span class="m4-hgl" data-9="4">standard output</span>.</p>
 <div id="m4-messages_hello-csv-m4" class="m4-src"><pre># A → β
-define([<span class=r>ERROR</span>], [
+define([ERROR], [
 
 	divert(0)dnl
 [$1]	$2
@@ -422,7 +422,7 @@ During the first expansion of <code class="m4-hgl" data-11="5">COUNTER</code> it
 <span class="m4-hgl" data-11="B">Further expansion</span> returns the numeric terminal symbol and increases the inner auxiliary (global) symbol by one.
 <code>COUNTER</code> is a&nbsp;small automaton.</p>
 <div id="m4-messages_counter-csv-m4" class="m4-src"><pre># A → β
-define([COUNTER], defn([<span class=a>COUNT_UP</span>]))
+define([COUNTER], defn([COUNT_UP]))
 
 # init counter
 COUNTER(1)
@@ -431,7 +431,7 @@ COUNTER(1)
 define([ERROR], [
 
 	divert(0)dnl
-ERR_[]<span class=b>COUNTER</span>	[$1]	$2
+ERR_[]COUNTER	[$1]	$2
 divert(-1)
 ])</pre><code><span title="2020-01-06 16:21:10 +0100">b53eafe</span><a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/messages/counter.csv.m4" title="Source: GitHub
 messages/counter.csv.m4">counter.csv.m4</a><a href="#m4-messages_counter-csv-m4" title="⚓"></a></code></div>
@@ -551,7 +551,7 @@ char *error[] = {
 };</pre><code><span title="2020-03-31 19:30:06 +0200">9156810</span><a href="https://raw.githubusercontent.com/jkubin/m4root/91568108231a0a6510905d67a6b33dfd0d6ecd39/messages/array.c" title="Source: GitHub
 messages/array.c">array.c</a><a href="#m4-messages_array-c" title="⚓"></a></code></div>
 <h3 id="m4-ini-an-external-command" class="m4-ch"><a href="#m4-ini-an-external-command-toc" title="Content"></a><a href="#m4-ini-an-external-command" title="⚓">A.6</a><code>[]</code> INI:  an external command<a href="#m4--toc" title="Top"></a></h3>
-<p>The example runs an external <code class="m4-hgl" data-21="12" data-22="3">date</code> command and places its output in square brackets.
+<p>The example runs an external <code class="m4-hgl" data-21="D" data-22="3">date</code> command and places its output in square brackets.
 The output of an external command are <span class="m4-hgl" data-21="A">two comma-separated items</span>.
 The <code class="m4-hgl" data-21="C">ARG1()</code> macro <span class="m4-hgl" data-21="B">selects the first item</span> because the second item contains an unwanted <code>LF</code> (<samp>0x0a</samp>) new line character.</p>
 <div id="m4-messages_hello-ini-m4" class="m4-src"><pre># A → β
@@ -565,28 +565,28 @@ divert(-1)
 divert(0)dnl
 ; DONTE()
 
-LB()<span class=c>ARG1</span>(esyscmd([date '+<span class=b>[hello_%Y%m%d]</span><span class=a>,</span>']))]
+LB()<span class=c>ARG1</span>(esyscmd([<span class=d>date '+<span class=b>[hello_%Y%m%d]</span><span class=a>,</span>'</span>]))]
 divert(-1)</pre><code><span title="2020-02-11 02:32:35 +0100">9e13656</span><a href="https://raw.githubusercontent.com/jkubin/m4root/9e136564861374ce1aebcc3f02cfcc35748d9a30/messages/hello.ini.m4" title="Source: GitHub
 messages/hello.ini.m4">hello.ini.m4</a><a href="#m4-messages_hello-ini-m4" title="⚓"></a></code></div>
 <div id="m4-messages_hello-ini-command" title="command" class="m4-usc"><pre>m4 <a href="https://raw.githubusercontent.com/jkubin/m4root/d07c94e78006c10cfd350694f579604a1816c672/gfiles/rootb.m4" title="Source: GitHub
 gfiles/rootb.m4">rootb.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/9e136564861374ce1aebcc3f02cfcc35748d9a30/messages/hello.ini.m4" title="Source: GitHub
 messages/hello.ini.m4">hello.ini.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/messages/code.m4" title="Source: GitHub
 messages/code.m4">code.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/0a4e91ec920f802393920e166f23ee0e753ffcf0/messages/messages.mc" title="Source: GitHub
-messages/messages.mc">messages.mc</a> &gt; <a href="https://raw.githubusercontent.com/jkubin/m4root/91568108231a0a6510905d67a6b33dfd0d6ecd39/messages/hello.ini" title="Source: GitHub
+messages/messages.mc">messages.mc</a> &gt; <a href="https://raw.githubusercontent.com/jkubin/m4root/9b230aa7efda5fb647e99ddca4f4a2094ce30f99/messages/hello.ini" title="Source: GitHub
 messages/hello.ini">hello.ini</a></pre><a href="#m4-messages_hello-ini-command" title="⚓"></a></div>
 <div id="m4-messages_hello-ini" class="m4-src"><pre>; DO NOT EDIT! This file is generated automatically!
 
 [hello_20200427]
 COMPLEX="!\"#$%&amp;'()*+,-./:;&lt;=&gt;?@[\\]^_`{|}~"
 SUCCESS="Too complex M4 code failed successfully."
-NOFAULT="It's not a language fault!"</pre><code><span title="2020-03-31 19:30:06 +0200">9156810</span><a href="https://raw.githubusercontent.com/jkubin/m4root/91568108231a0a6510905d67a6b33dfd0d6ecd39/messages/hello.ini" title="Source: GitHub
+NOFAULT="It's not a language fault!"</pre><code><span title="2020-05-02 16:29:55 +0200">9b230aa</span><a href="https://raw.githubusercontent.com/jkubin/m4root/9b230aa7efda5fb647e99ddca4f4a2094ce30f99/messages/hello.ini" title="Source: GitHub
 messages/hello.ini">hello.ini</a><a href="#m4-messages_hello-ini" title="⚓"></a></code></div>
 <h3 id="m4-h-hex-counter" class="m4-ch"><a href="#m4-h-hex-counter-toc" title="Content"></a><a href="#m4-h-hex-counter" title="⚓">A.7</a><code>[]</code> .h:  hex counter<a href="#m4--toc" title="Top"></a></h3>
 <p>The example uses the <code class="m4-hgl" data-23="A,2">COUNTER</code> macro to number the resulting <abbr title="C preprocessor">CPP</abbr> <span class="m4-hgl" data-23="11" data-24="8-10">macros</span> and one output queue.
 The queue number <code class="m4-hgl" data-23="23">1</code> contains the preprocessor directive <code class="m4-hgl" data-23="24" data-24="12">#endif</code> to terminate the header file.
 The decimal value of the counter is converted to the <span class="m4-hgl" data-23="B">two-digit hex</span> by keyword <code class="m4-hgl" data-23="C">eval()</code>.</p>
 <div id="m4-messages_messages-h-m4" class="m4-src"><pre># A → β
-define([<span class=a>COUNTER</span>], defn([COUNT_UP]))
+define([COUNTER], defn([COUNT_UP]))
 
 # init counter
 <span class=a>COUNTER(0)</span>
@@ -595,7 +595,7 @@ define([<span class=a>COUNTER</span>], defn([COUNT_UP]))
 define([ERROR], [
 
 	divert(0)dnl
-[#define $1		0x]<span class=c>eval(</span><span class=a>COUNTER</span>, <span class=b>16, 2</span><span class=c>)</span>
+[#define $1		0x]eval(<span class=a>COUNTER</span>, 16, 2)
 divert(-1)
 ])
 
@@ -1379,7 +1379,7 @@ int main(void)
 	return 0;
 }</pre><code><span title="2020-01-06 16:21:10 +0100">b53eafe</span><a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/preproc/file.c" title="Source: GitHub
 preproc/file.c">file.c</a><a href="#m4-preproc_file-c" title="⚓"></a></code></div>
-<div id="m4-preproc_preproc-file-c-command" title="command" class="m4-usc"><pre>m4 -DSYMBOL='Hello, world!' <a href="https://raw.githubusercontent.com/jkubin/m4root/c8ca92d97bf619b9cc7a3e9d0a89ea32654c5cb7/gfiles/rootq.m4" title="Source: GitHub
+<div id="m4-preproc_preproc-file-c-command" title="command" class="m4-usc"><pre>m4 -DSYMBOL='Hello, world!' <a href="https://raw.githubusercontent.com/jkubin/m4root/9b230aa7efda5fb647e99ddca4f4a2094ce30f99/gfiles/rootq.m4" title="Source: GitHub
 gfiles/rootq.m4">rootq.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/preproc/file.c.m4" title="Source: GitHub
 preproc/file.c.m4">file.c.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/preproc/file.c" title="Source: GitHub
 preproc/file.c">file.c</a> &gt; <a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/preproc/preproc.file.c" title="Source: GitHub
@@ -1450,7 +1450,7 @@ include(`foo.css')dnl
 /* DONTE() */
 <span class=b>changecom</span>/* DONTE() */<span class=a>changecom(/*,*/)</span></pre><code><span title="2020-02-11 02:32:35 +0100">9e13656</span><a href="https://raw.githubusercontent.com/jkubin/m4root/9e136564861374ce1aebcc3f02cfcc35748d9a30/preproc/file.css" title="Source: GitHub
 preproc/file.css">file.css</a><a href="#m4-preproc_file-css" title="⚓"></a></code></div>
-<div id="m4-preproc_preproc-file-css-command" title="command" class="m4-usc"><pre>m4 -DSYMBOL='Hello, world!' <a href="https://raw.githubusercontent.com/jkubin/m4root/c8ca92d97bf619b9cc7a3e9d0a89ea32654c5cb7/gfiles/rootq.m4" title="Source: GitHub
+<div id="m4-preproc_preproc-file-css-command" title="command" class="m4-usc"><pre>m4 -DSYMBOL='Hello, world!' <a href="https://raw.githubusercontent.com/jkubin/m4root/9b230aa7efda5fb647e99ddca4f4a2094ce30f99/gfiles/rootq.m4" title="Source: GitHub
 gfiles/rootq.m4">rootq.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/9e136564861374ce1aebcc3f02cfcc35748d9a30/preproc/file.css.m4" title="Source: GitHub
 preproc/file.css.m4">file.css.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/9e136564861374ce1aebcc3f02cfcc35748d9a30/preproc/file.css" title="Source: GitHub
 preproc/file.css">file.css</a> &gt; <a href="https://raw.githubusercontent.com/jkubin/m4root/9e136564861374ce1aebcc3f02cfcc35748d9a30/preproc/preproc.file.css" title="Source: GitHub
@@ -1494,7 +1494,7 @@ then
 	echo $HELLO
 fi</pre><code><span title="2020-01-06 16:21:10 +0100">b53eafe</span><a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/preproc/file.sh" title="Source: GitHub
 preproc/file.sh">file.sh</a><a href="#m4-preproc_file-sh" title="⚓"></a></code></div>
-<div id="m4-preproc_preproc-file-sh-command" title="command" class="m4-usc"><pre>m4 -DSYMBOL='Hello, world!' <a href="https://raw.githubusercontent.com/jkubin/m4root/c8ca92d97bf619b9cc7a3e9d0a89ea32654c5cb7/gfiles/rootn.m4" title="Source: GitHub
+<div id="m4-preproc_preproc-file-sh-command" title="command" class="m4-usc"><pre>m4 -DSYMBOL='Hello, world!' <a href="https://raw.githubusercontent.com/jkubin/m4root/9b230aa7efda5fb647e99ddca4f4a2094ce30f99/gfiles/rootn.m4" title="Source: GitHub
 gfiles/rootn.m4">rootn.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/preproc/file.sh.m4" title="Source: GitHub
 preproc/file.sh.m4">file.sh.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/preproc/file.sh" title="Source: GitHub
 preproc/file.sh">file.sh</a> &gt; <a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/preproc/preproc.file.sh" title="Source: GitHub
@@ -1545,14 +1545,14 @@ hello_world/hello_world.json">hello_world.json</a><a href="#m4-hello_world_hello
 The <span class="m4-hgl" data-63="C">nonterminals</span> <code class="m4-hgl" data-63="20" data-64="5">[… inside brackets …]</code> will not be expanded, only the outer brackets will be removed.
 The <code class="m4-hgl" data-63="30" data-64="15">LB()</code> macro defined in the root file must be used.</p>
 <div id="m4-hello_world_sh-m4" class="m4-src"><pre># A → β
-define([<span class=c>LEFT</span>], [$[#]])
-define([<span class=c>OP</span>], [-eq])
-define([<span class=c>RIGHT</span>], [0])
+define([LEFT], [$[#]])
+define([OP], [-eq])
+define([RIGHT], [0])
 
 # define two counters
 # A → β
-define([__COUNTUP__], defn([<span class=a>COUNT_UP</span>]))
-define([__COUNTDN__], defn([<span class=b>COUNT_DOWN</span>]))
+define([__COUNTUP__], defn([COUNT_UP]))
+define([__COUNTDN__], defn([COUNT_DOWN]))
 
 # init counters
 __COUNTUP__(10)
@@ -1687,5 +1687,5 @@ hello_world/hello_world.awk">hello_world.awk</a><a href="#m4-hello_world_hello_w
 <li id="m4-maintenance-could-be-hard">maintaining badly written M4 code is not easy
 <ul><li>existing M4 code is easily thrown into confusion (supervision required!)</li></ul></li>
 </ul>
-<script>function M4_is_beautiful(b,c,d,e){var f,g,h,k=[],m,n=[],i,p,q,r,s,v,w,x,A,B,C,E;function a(){var u=this.parentNode,_,B,D;if(this.B){if(this.B.isConnected)u.removeChild(this.B);else u.appendChild(this.B);return}_=document.createElement("div");B=document.createElement("div");D=document.createElement("div");if(window.getSelection)_.onclick=D.onclick=function(){const z=window.getSelection();const y=document.createRange();y.selectNodeContents(this);z.removeAllRanges();z.addRange(y)};_.appendChild(document.createTextNode(this.title));D.appendChild(document.createTextNode(this.nextSibling.title.split('\n')[1]));B.appendChild(_);B.appendChild(D);u.appendChild(this.B=B)}for(C of c){w=C.firstElementChild,r=w.innerHTML.split('\n').length,B=w.nextElementSibling;E=document.createElement("pre");E.className=d;if(B&&B.tagName=="CODE")B.firstChild.onclick=a;for(i=0;i<r;i++)E.appendChild(document.createElement("div"));C.insertBefore(E,w);w.style.background="none"}for(h of b){A=Object.keys(h.dataset);for(i of A){C=c[i];if(!C.l)C.l=[];C.l.push({t:h,F:h.dataset[i]})}h.onmouseover=function(){var g;if(this.m)for(g of this.m)g.t.style.backgroundColor=g.F;if(this.k)for(g of this.k)g.t.classList.add(...g.F)};h.onmouseout=function(){var g;if(this.m)for(g of this.m)g.t.style=null;if(this.k)for(g of this.k)g.t.classList.remove(...g.F)}}for(C of c){if(!C.l)continue;E=C.firstElementChild;for(g of C.l){g.F=g.F.replace(/[A-Z]|[a-z]+|#[\da-f]{3,6}|\d+-\d+/g,'"$&"').replace(/^:/,'"":');g.F=/:/.test(g.F)?"{"+g.F+"}":'{"":['+g.F+']}';v=JSON.parse(g.F,function(o,F){if(/^[A-Z]$/.test(F)){k.push(F);return undefined}if(/^\d+-\d+$/.test(F)){q=F.split('-');p=parseInt(q[1]);for(i=q[0]-1;i<p;i++)n.push(i);return undefined}if(Number.isInteger(F))return F>0?F-1:undefined;if(Array.isArray(F)){F=F.filter(function(){return true}).concat(n);n=[];return F.length?F:undefined}if(typeof F==='object')return F;return undefined});if(k.length){if(!g.t.k)g.t.k=[];g.t.k.push({t:C,F:k});k=[]}m=Object.keys(v);if(m.length){if(!g.t.m)g.t.m=[];for(f of m){s=v[f];x=f?f:e;for(i of s)g.t.m.push({t:E.children[i],F:x})}}}}}M4_is_beautiful(document.getElementsByClassName("m4-hgl"),document.getElementsByClassName("m4-src"),"m4-rear","lawngreen")</script>
+<script>var m4_tpl={init:function(b,c,d,e){var f,g,h,k,l=[],n,o=[],i,q,r,s,v,w,x,A,B,C,E;for(C of c){w=C.firstElementChild,r=w.innerHTML.split('\n').length,B=w.nextElementSibling;E=document.createElement("pre");E.className=d;if(B&&B.tagName=="CODE")B.firstChild.onclick=this.a;for(i=0;i<r;i++)E.appendChild(document.createElement("div"));C.insertBefore(E,w)}for(h of b){A=Object.keys(h.dataset);for(i of A){C=c[i];if(!C.m)C.m=[];C.m.push({t:h,F:h.dataset[i]})}h.onmouseover=function(){var g;if(this.n)for(g of this.n)g.t.style.backgroundColor=g.F;if(this.l)for(g of this.l)g.t.classList.add(...g.F)};h.onmouseout=function(){var g;if(this.n)for(g of this.n)g.t.style=null;if(this.l)for(g of this.l)g.t.classList.remove(...g.F)}}for(C of c){if(!C.m)continue;E=C.firstElementChild;for(g of C.m){g.F=g.F.replace(/[A-Z]|[a-z]+|#[\da-f]{3,6}|\d+-\d+/g,'"$&"').replace(/^:/,'"":');g.F=/:/.test(g.F)?"{"+g.F+"}":'{"":['+g.F+']}';v=JSON.parse(g.F,function(p,F){if(/^[A-Z]$/.test(F)){l.push(F);return undefined}if(/^\d+-\d+$/.test(F)){k=F.split('-');q=parseInt(k[1]);for(i=k[0]-1;i<q;i++)o.push(i);return undefined}if(Number.isInteger(F))return F>0?F-1:undefined;if(Array.isArray(F)){F=F.filter(function(){return true}).concat(o);o=[];return F.length?F:undefined}if(typeof F==='object')return F;return undefined});if(l.length){if(!g.t.l)g.t.l=[];g.t.l.push({t:C,F:l});l=[]}n=Object.keys(v);if(n.length){if(!g.t.n)g.t.n=[];for(f of n){s=v[f];x=f?f:e;for(i of s)g.t.n.push({t:E.children[i],F:x})}}}}},a:function(){var u=this.parentNode,_,B,D;if(this.B){if(this.B.isConnected)u.removeChild(this.B);else u.appendChild(this.B);return}_=document.createElement("div");B=document.createElement("div");D=document.createElement("div");if(window.getSelection)_.onclick=D.onclick=function(){const z=window.getSelection();const y=document.createRange();y.selectNodeContents(this);z.removeAllRanges();z.addRange(y)};_.appendChild(document.createTextNode(this.title));D.appendChild(document.createTextNode(this.nextSibling.title.split('\n')[1]));B.appendChild(_);B.appendChild(D);u.appendChild(this.B=B)}};m4_tpl.init(document.getElementsByClassName("m4-hgl"),document.getElementsByClassName("m4-src"),"m4-rear","lawngreen")</script>
 <!-- end of html generated by M4 -->

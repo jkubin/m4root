@@ -2,7 +2,7 @@
 #
 # DO NOT EDIT! This file is generated automatically!
 #
-# __SOURCE([20200502-23:39:12, intro.mc, f532633, f532633])
+# __SOURCE([20200503-14:56:17, intro.mc, f81b991, 5e57ca7])
 
 7
 Generating code in M4: introduction
@@ -225,7 +225,7 @@ Context-free grammar
 
 456
 Context-free grammar (shortly CFG (Context-Free Grammar)) is a formal grammar in which all rules for rewriting have the  form.
-The nonterminal  is rewritten to an arbitrarily long  (the right side of the rewriting rule) string composed of terminals  or nonterminals .
+The nonterminal  is rewritten to an arbitrarily long  (the right side of the rewriting rule) string composed of nonterminals  or terminals .
 Kleene star (Wikipedia) means that nonterminal  can be rewritten to  (epsilon – empty symbol) (rewriting rule ).
 
 467
@@ -601,206 +601,206 @@ Further expansion returns the numeric terminal symbol and increases the inner au
 1234
 []
 
-1239
+1242
 (how to do it) Modification of special characters
 
-1245
+1248
 Each type of output code requires the modification of the special characters.
 The M4  keyword is inappropriate for this type of task.
 First, we hide all special characters of the input file into appropriately named macros using regular expressions.
 
-1256
+1259
 Modified input code
 
-1262
+1265
 [all special characters are hidden into macros]
 
-1266
+1269
 We create several conversion files according to the target code type,  and  macros for square brackets are already defined in the root file.
 
-1275
+1278
  Conversion file for XML, XSLT, HTML
 
-1279
+1282
 [conversion file for markup languages]
 
-1282
+1285
  Conversion file for C, JSON, INI: 
 
-1287
+1290
 [conversion file for a source code]
 
-1290
+1293
  Conversion file for Bash: 
 
-1296
+1299
 [conversion file for Bash "strings in quotation marks"]
 
-1298
+1301
  Conversion file for Bash: 
 
-1304
+1307
 [conversion file for Bash 'strings in apostrophes']
 
-1306
+1309
  Conversion file for CSV, M4 (returns all characters)
 
-1312
+1315
 [the conversion file puts all special characters back]
 
-1315
+1318
  C:  output queue
 
-1321
+1324
 The example uses one output queue for characters  to close the array at the end.
 
-1333
+1336
  INI:  an external command
 
-1339
+1342
 The example runs an external  command and places its output in square brackets.
 The output of an external command are two comma-separated items.
 The  macro selects the first item because the second item contains an unwanted  () new line character.
 
-1350
+1353
 []
 
-1361
+1365
  .h:  hex counter
 
-1367
+1371
 The example uses the  macro to number the resulting CPP (C preprocessor) macros and one output queue.
 The queue number  contains the preprocessor directive  to terminate the header file.
 The decimal value of the counter is converted to the two-digit hex by keyword .
 
-1378
+1382
 []
 
-1387
+1394
  C:  small automaton
 
-1393
+1400
 The example uses a small automaton  to generate a newline  character and one output queue number  containing  characters to terminate resulting string.
 Run the first time , is rewritten to  (epsilon – empty symbol), in all following ones, it is rewritten to .
-
-1402
-[]
 
 1409
 []
 
-1414
+1416
+[]
+
+1421
  C:  small automaton 2
 
-1420
+1427
 This example is similar to the previous one, but each string is on a new line.
 
-1432
+1439
  HTML:  output queues
 
-1438
+1445
 The example uses two output queues.
 The queue number  contains paragraphs.
 The queue number  contains closing HTML tags.
 Navigation links do not have to be stored anywhere, they go straight to the output.
 The  and  messages are processed in the same way as the  messages.
 
-1458
+1465
  Branching by grammar
 
-1464
+1471
 The example shows branching by grammar, macro arguments are ignored.
 Input nonterminals are rewritten to terminals (🐛),
 (🐜),
 (🐝).
 
-1479
+1486
 []
 
-1486
+1493
  JSON:  generating automaton
 
-1492
+1499
 The example uses two output queues and one generating automaton.
 The first  error message in the  state generates a header with brackets and outputs the first record.
 The automaton goes to the state  which is a  rule (the rule is used as the right side of another rewriting rule).
 The following error messages in the  state only output individual records.
 At the end the output queue number  and number  print the characters  and  to close the resulting JSON.
 
-1512
+1519
  JSON:  named queues
 
-1518
+1525
 The example processes other types of messages  and .
 It uses three automata and six output queues.
 If we generate more complex source code, we will soon encounter the problem of maintaining index consistency for output queues.
 To avoid confusion, we use queue names instead of numbers.
 To avoid having to define similar rules, we copy the right side of  (it is also a  rule (the rule is used as the right side of another rewriting rule)) to the right side of the  and  rules.
 
-1533
+1540
 Branching by grammar – basic principle
 
-1539
+1546
 The  variable is replaced by the name of the macro and concatenated with another symbol.
 The newly formed nonterminal is rewritten to the corresponding terminal symbol (queue number or name).
 
-1548
+1555
 [grammar branching in M4]
 
-1563
+1570
  JSON:  generated queue indexes
 
-1569
+1576
 During development, the order and number of output queues often change, which also requires frequent changes of their indexes.
 It is therefore appropriate to generate indexes.
 We can then use a virtually unlimited number of queues.
 The following example shows how these indexes are generated.
 
-1582
+1589
 []
 
-1588
+1595
  INI:  discontinuous queue index
 
-1594
+1601
 The example uses three automata and two output queues number  and  defined in a separate file.
 INI section names are generated by symbol chaining.
 The example uses the same file for output queues as the example to generate JSON.
 
-1605
+1612
 []
 
-1610
+1617
  XML:  mixed messages
 
-1616
+1623
 The example uses one output queue number  for the  closing tag.
 
-1628
+1635
  XML:  separated messages
 
-1634
+1641
 The example groups messages by their type using output queues.
 
-1646
+1653
  Bash 
 
-1657
+1664
  Bash 
 
-1668
+1675
 Preprocessor examples
 
-1668
+1675
 [for information]
 
-1668
+1675
 Chars. {, , , } in the name controls the expansion of nonterminals.
 
-1674
+1681
  C preprocessor and M4
 
-1680
+1687
 The CPP (C preprocessor) directives are a one-line comment for M4 preventing unwanted expansion of the same named macros.
 If we define a safer  macro, the similar  macro will not be overwritten.
 Thus, the CPP (C preprocessor) namespace can be completely separated from the M4 namespace.
@@ -809,149 +809,149 @@ The apostrophe  does not matter in the source code.
 Apostrophe inside  macro is hidden in  macro.
 Note the  or  function names and where the  is expanded.
 
-1699
+1706
 []
 
-1702
+1709
 []
 
-1708
+1715
 []
 
-1714
+1721
  CSS:  file inclusion, comment
 
-1720
+1727
 CSS uses the  character for color codes, which is also the beginning of a one-line M4 comment.
 The  keyword sets a multiline  comment and rewrites itself into  (epsilon – empty symbol).
 The comments can be turned off with the same  keyword without parameters.
 
-1731
+1738
 [file embedded by the macro processor]
 
-1732
+1739
 []
 
-1733
+1740
 []
 
-1738
+1745
  Bash:  nonprintable characters
 
-1744
+1751
 Bash uses both  and  characters.
 If we do not want to hide them either in an  or  macro, we can use nonprintable characters (displayed as UTF-8 characters) for expansion control, see the example:
 
-1753
+1760
 []
 
-1754
+1761
 []
-
-1759
-M4:  examples
-
-1759
-[for information]
-
-1759
-Chars. {, , , } in the name controls the expansion of nonterminals.
 
 1766
+M4:  examples
+
+1766
+[for information]
+
+1766
+Chars. {, , , } in the name controls the expansion of nonterminals.
+
+1773
  JSON:  left bracket 
 
-1772
+1779
 The  inside square brackets.
 Therefore, the left square bracket  is replaced by the  macro defined in the root file.
 
-1786
+1793
  Bash:  counters
 
-1792
+1799
 The  and  counters are defined in the root file.
 The nonterminals  will not be expanded, only the outer brackets will be removed.
 The  macro defined in the root file must be used.
 
-1803
+1810
 []
 
-1812
+1819
  .h:  brackets , , , 
 
-1818
+1825
 The empty pair  (or the empty symbol in brackets ) serves as a symbol separator.
 Brackets around the comment character  turn off its original meaning as well as the meaning of the more powerful M4 comment .
 They also turn off the original meaning of the comma  as a macro argument delimiter.
 These symbols become ordinary terminal symbols without any side effect.
 
-1831
+1838
 []
 
-1840
+1847
  AWK:  examples of safer macros
 
-1846
+1853
 The universal alert  is ignored without parentheses, such as for example  or .
 Such macros are explicitly created by a script developer, see the root file.
 
-1855
+1862
 []
 
-1860
+1869
 []
 
-1868
+1879
 Why to use M4 and why not?
 
-1868
+1879
 [for information]
 
-1868
+1879
 Chars. {, , , } in the name controls the expansion of nonterminals.
 
-1876
+1887
  Why to generate code in M4
 
-1882
+1893
 direct use of context-free grammar (recursion for free)
 minimum M4 code is required for data transformation
 
-1882
+1893
 direct use of automata
 possibility to model necessary algorithms (M4 does not need versions)
 
-1882
+1893
 direct use of stacks
 stacks connected to automata extend capabilities of code generator
 
-1882
+1893
 direct use of output queues to temporarily store resulting pieces of code
 individual queues are finally dumped to output in ascending order
 
-1882
+1893
 significantly faster code generation (compared to XSLT)
 low demands on computing resources
 
-1932
+1943
  Why to avoid M4
 
-1938
+1949
 low-level universal language (similar to C language)
 which in return it provides tremendous flexibility as UNIX
 
-1938
+1949
 (almost) nonexistent developer community (as of Autumn 2019)
 M4 is nearly forgotten language with small number of existing projects
 
-1938
+1949
 unusual programming paradigm requiring several prerequisites
 that is why the M4 can be considered a challenging language
 
-1938
+1949
 productivity greatly depends on experience (problem with short-term deadlines)
 writing M4 scripts requires basic knowledge of automata and grammars
 
-1938
+1949
 maintaining badly written M4 code is not easy
 existing M4 code is easily thrown into confusion (supervision required!)
 
