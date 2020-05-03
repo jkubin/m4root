@@ -385,7 +385,7 @@ opacity:1;
 ])
 
 # add space between number and chapter text
-CSS_CLASS_RULE_SET([[.urs ]],	[],	[[p[]BRAC(id$="TOCP")>a>b]], [
+CSS_CLASS_RULE_SET([[.urs ]],	[],	[[p[]BRAC(id$="TOC_ANCH")>a>b]], [
 
 font-weight:normal;
 margin-right:.6em;
@@ -425,13 +425,13 @@ visibility:hidden;
 ])
 
 # [[prefix1], [prefix2], …], [id_name1, id_name2], [[suffix1], [suffix2], …], [… rule set …]
-CSS_ID_RULE_SET([[]],	defn([NSP], [TOCP]),	[[]], [
+CSS_ID_RULE_SET([[]],	defn([NSP], [TOC_ANCH]),	[[]], [
 
 position:relative;
 
 ])
 
-CSS_ID_RULE_SET([[]],	defn([NSP], [TOCP]),	[[ div]], [
+CSS_ID_RULE_SET([[]],	defn([NSP], [TOC_ANCH]),	[[ div]], [
 
 color:#888;
 position:absolute;
