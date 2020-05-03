@@ -1381,7 +1381,7 @@ The decimal value of the counter is converted to the HEXPL([two-digit hex], [[[B
 
 INSERT_FILE([messages/messages.h.m4],, [
 s/\<COUNTER\>\((0)\)\?/<span class=a>&<\x2fspan>/g
-/\<eval(/{
+/eval(/{
 s//<span class=c>&<\x2fspan>/
 s/\<16, 2\>/<span class=b>&<\x2fspan>/
 s/)/<span class=c>&<\x2fspan>/
