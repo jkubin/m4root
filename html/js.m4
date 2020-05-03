@@ -1,6 +1,6 @@
 __HEADER([Josef Kubin], [2020/03/08], [html])
-___DESCR([here is the logic for adding JavaScript(s) to the appropriate queue])
-___POINT([code decomposition])
+___DESCR([here the processed parts of JavaScript-s are composed into the final script])
+___POINT([code decomposition to simplify difficult things])
 
 #      _____________________      __________
 # --->/ ADD_JAVASCRIPT_TAGS \--->/ undefine \

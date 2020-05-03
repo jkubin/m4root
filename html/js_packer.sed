@@ -1,11 +1,11 @@
 # __HEADER([Josef Kubin], [2020/03/22], [m4root])
-# ___DESCR([removes unnecessary data from a JavaScript code; translates long_self_descriptive funny variables to single letters])
+# ___DESCR([removes unnecessary data from a JavaScript code; translates long_self_descriptive_funny_variables to single letters])
 # ___POINT([one-line JavaScript as small as possible])
 
-# uncomment the "b" command to skip compression for JavaScript debugging (if something behaves strangely avoid packer)
+# uncomment the following "b" command to disable packer if something behaves strangely
 #b
 
-# convert multi-line source code to one long line;
+# convert multi-line source code to a long line
 # remove // C++ comments and white chars used for indentation
 :a
 $!{N
