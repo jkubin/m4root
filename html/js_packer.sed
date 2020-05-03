@@ -35,13 +35,13 @@ s/\<default_color\>/e/g
 s/\<different_color\>/f/g
 s/\<hgl_item\>/g/g
 s/\<hgl_keyword\>/h/g
-s/\<highlighting_classes\>/k/g
-s/\<highlighting_keywords\>/l/g
-s/\<highlighting_lines\>/m/g
-s/\<highlighting_sequence\>/n/g
-s/\<key\>/o/g
-s/\<last_line\>/p/g
-s/\<line_range\>/q/g
+s/\<hgl_range\>/k/g
+s/\<highlighting_classes\>/l/g
+s/\<highlighting_keywords\>/m/g
+s/\<highlighting_lines\>/n/g
+s/\<highlighting_sequence\>/o/g
+s/\<key\>/p/g
+s/\<last_line\>/q/g
 s/\<lines_of_code\>/r/g
 s/\<lines_to_highlight\>/s/g
 s/\<node\>/t/g
@@ -64,7 +64,7 @@ s/\<value\>/F/g
 # '<,'>s:./g$:/g:
 # '<,'>s:^\(.\)\(.*\)/g:\2\1/g:
 
-# y^V31j	<--- an example, how to select and copy column of 31 letters to the Vim register " (and paste them to the above regexes)
+# y^V30j	<--- an example, how to select and copy column of 31 letters to the Vim register " (and paste them to the above regexes)
 
 #a
 #b

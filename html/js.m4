@@ -33,10 +33,10 @@ define([ADD_JAVASCRIPT_FOR_SOURCE_CODE], [
 
 	ADD_JAVASCRIPT_TAGS()
 
-	# the only global JavaScript symbol will not conflict with other global symbols in the parent HTML page
+	# the only global JavaScript symbol must not conflict with other symbol in the parent HTML page
 	divert(JAVASCRIPT_CODE)dnl
-undivert([html/packed.js])dnl
-M4_is_beautiful(dnl
+var m4_tpl={undivert([html/init.js])};dnl
+m4_tpl.init(dnl
 document.getElementsByClassName("defn([NSP], [CLASS_HGL])"),dnl
 document.getElementsByClassName("defn([NSP], [CLASS_SRC])"),dnl
 "defn([NSP], [CLASS_REAR])",dnl
