@@ -34,7 +34,7 @@ The introductory part of the series contains its history, the basic principles o
 				<div class="perex__impressum">
 						<span class="perex__author">Josef Kubín</span>
 						<span class="perex__date">
-							<span itemprop="datePublished">3. 5. 2020</span>
+							<span itemprop="datePublished">4. 5. 2020</span>
 						</span>
 				</div>
 				<p itemprop="description">The M4 macro processor is used to generate arbitrarily complex code from simple source code.
@@ -52,7 +52,7 @@ The introductory part of the series contains its history, the basic principles o
 <!-- Sklik-kontext-start -->
 <div class=" layout-article-content">
 <div class="php-urs urs">
-<div id="m4--toc"><h2>Content&nbsp;(<a href="../generovani-kodu-v-m4-uvod/preview.html" title="Generování kódu v M4: úvod">Česká verze</a>)</h2><div>updated<br>May 3, 2020</div></div>
+<div id="m4--toc"><h2>Content&nbsp;(<a href="../generovani-kodu-v-m4-uvod/preview.html" title="Generování kódu v M4: úvod">Česká verze</a>)</h2><div>updated<br>May 4, 2020</div></div>
 <noscript><div title="for information" class="rs-tip-major m4-info">Enabling JavaScript enhances the clarity of the source code samples.</div></noscript>
 <p id="m4-introduction-toc"><a href="#m4-introduction"><b>1</b>Introduction</a></p>
 <p id="m4-examples-for-readers-toc" class="m4-l2"><a href="#m4-examples-for-readers"><b>1.1</b>Examples for readers</a></p>
@@ -1454,7 +1454,7 @@ int main(void)
 }</pre><code><span title="2020-01-06 16:21:10 +0100">b53eafe</span><a href="../preproc/preproc.file.c" title="Source: localhost
 preproc/preproc.file.c">preproc.file.c</a><a href="#m4-preproc_preproc-file-c" title="⚓"></a></code></div>
 <h3 id="m4-ba-css-file-inclusion-comment" class="m4-ch"><a href="#m4-ba-css-file-inclusion-comment-toc" title="Content"></a><a href="#m4-ba-css-file-inclusion-comment" title="⚓">B.2</a><code>`'</code> CSS:  file inclusion, comment<a href="#m4--toc" title="Top"></a></h3>
-<p>CSS uses the <code class="m4-hgl" data-55="A">#</code> character for color codes, which is also the beginning of a&nbsp;one-line M4 comment.
+<p>CSS uses the <code class="m4-hgl" data-55="A" data-57="A">#</code> character for color codes, which is also the beginning of a&nbsp;one-line M4 comment.
 The <code class="m4-hgl" data-56="A">changecom(/*,*/)</code> keyword sets a&nbsp;multiline <code>/* … */</code> comment and rewrites itself into <abbr title="epsilon – empty symbol"><code>ε</code></abbr>.
 The comments can be turned off with the same <code class="m4-hgl" data-56="B">changecom</code> keyword without parameters.</p>
 <div id="m4-preproc_foo-css" title="file embedded by the macro processor" class="m4-src"><pre>.foo {
@@ -1501,7 +1501,7 @@ preproc/preproc.file.css">preproc.file.css</a></pre><a href="#m4-preproc_preproc
 
 .bar {
 	border-width: 3px;
-	border-color: #f00 #0f0 #00f; 
+	border-color: <span class=a>#</span>f00 <span class=a>#</span>0f0 <span class=a>#</span>00f; 
 	background-image: url('https://www.root.cz/m4tux.png');
 }
 
@@ -1724,7 +1724,7 @@ hello_world/hello_world.awk">hello_world.awk</a><a href="#m4-hello_world_hello_w
 <li id="m4-maintenance-could-be-hard">maintaining badly written M4 code is not easy
 <ul><li>existing M4 code is easily thrown into confusion (supervision required!)</li></ul></li>
 </ul>
-<script>var m4_tpl={init:function(b,c,d,e){var f,g,h,k,l=[],n,o=[],i,q,r,s,v,w,x,A,B,C,E;for(C of c){w=C.firstElementChild,r=w.innerHTML.split('\n').length,B=w.nextElementSibling;E=document.createElement("pre");E.className=d;if(B&&B.tagName=="CODE")B.firstChild.onclick=this.a;for(i=0;i<r;i++)E.appendChild(document.createElement("div"));C.insertBefore(E,w)}for(h of b){A=Object.keys(h.dataset);for(i of A){C=c[i];if(!C.m)C.m=[];C.m.push({t:h,F:h.dataset[i]})}h.onmouseover=function(){var g;if(this.n)for(g of this.n)g.t.style.backgroundColor=g.F;if(this.l)for(g of this.l)g.t.classList.add(...g.F)};h.onmouseout=function(){var g;if(this.n)for(g of this.n)g.t.style=null;if(this.l)for(g of this.l)g.t.classList.remove(...g.F)}}for(C of c){if(!C.m)continue;E=C.firstElementChild;for(g of C.m){g.F=g.F.replace(/[A-Z]|[a-z]+|#[\da-f]{3,6}|\d+-\d+/g,'"$&"').replace(/^:/,'"":');g.F=/:/.test(g.F)?"{"+g.F+"}":'{"":['+g.F+']}';v=JSON.parse(g.F,function(p,F){if(/^[A-Z]$/.test(F)){l.push(F);return undefined}if(/^\d+-\d+$/.test(F)){k=F.split('-');q=parseInt(k[1]);for(i=k[0]-1;i<q;i++)o.push(i);return undefined}if(Number.isInteger(F))return F>0?F-1:undefined;if(Array.isArray(F)){F=F.filter(function(){return true}).concat(o);o=[];return F.length?F:undefined}if(typeof F==='object')return F;return undefined});if(l.length){if(!g.t.l)g.t.l=[];g.t.l.push({t:C,F:l});l=[]}n=Object.keys(v);if(n.length){if(!g.t.n)g.t.n=[];for(f of n){s=v[f];x=f?f:e;for(i of s)g.t.n.push({t:E.children[i],F:x})}}}}},a:function(){var u=this.parentNode,_,B,D;if(this.B){if(this.B.isConnected)u.removeChild(this.B);else u.appendChild(this.B);return}_=document.createElement("div");B=document.createElement("div");D=document.createElement("div");if(window.getSelection)_.onclick=D.onclick=function(){const z=window.getSelection();const y=document.createRange();y.selectNodeContents(this);z.removeAllRanges();z.addRange(y)};_.appendChild(document.createTextNode(this.title));D.appendChild(document.createTextNode(this.nextSibling.title.split('\n')[1]));B.appendChild(_);B.appendChild(D);u.appendChild(this.B=B)}};m4_tpl.init(document.getElementsByClassName("m4-hgl"),document.getElementsByClassName("m4-src"),"m4-rear","lawngreen")</script>
+<script>var m4root={init:function(b,c,d,e){var f,g,h,k,l=[],n,o=[],i,q,r,s,v,w,x,A,B,C,E;for(C of c){w=C.firstElementChild,r=w.innerHTML.split('\n').length,B=w.nextElementSibling;E=document.createElement("pre");E.className=d;if(B&&B.tagName=="CODE")B.firstChild.onclick=this.a;for(i=0;i<r;i++)E.appendChild(document.createElement("div"));C.insertBefore(E,w)}for(h of b){A=Object.keys(h.dataset);for(i of A){C=c[i];if(!C.m)C.m=[];C.m.push({t:h,F:h.dataset[i]})}h.onmouseover=function(){var g;if(this.n)for(g of this.n)g.t.style.backgroundColor=g.F;if(this.l)for(g of this.l)g.t.classList.add(...g.F)};h.onmouseout=function(){var g;if(this.n)for(g of this.n)g.t.style=null;if(this.l)for(g of this.l)g.t.classList.remove(...g.F)}}for(C of c){if(!C.m)continue;E=C.firstElementChild;for(g of C.m){g.F=g.F.replace(/[A-Z]|[a-z]+|#[\da-f]{3,6}|\d+-\d+/g,'"$&"').replace(/^:/,'"":');g.F=/:/.test(g.F)?"{"+g.F+"}":'{"":['+g.F+']}';v=JSON.parse(g.F,function(p,F){if(/^[A-Z]$/.test(F)){l.push(F);return undefined}if(/^\d+-\d+$/.test(F)){k=F.split('-');q=parseInt(k[1]);for(i=k[0]-1;i<q;i++)o.push(i);return undefined}if(Number.isInteger(F))return F>0?F-1:undefined;if(Array.isArray(F)){F=F.filter(function(){return true}).concat(o);o=[];return F.length?F:undefined}if(typeof F==='object')return F;return undefined});if(l.length){if(!g.t.l)g.t.l=[];g.t.l.push({t:C,F:l});l=[]}n=Object.keys(v);if(n.length){if(!g.t.n)g.t.n=[];for(f of n){s=v[f];x=f?f:e;for(i of s)g.t.n.push({t:E.children[i],F:x})}}}}},a:function(){var u=this.parentNode,_,B,D;if(this.B){if(this.B.isConnected)u.removeChild(this.B);else u.appendChild(this.B);return}_=document.createElement("div");B=document.createElement("div");D=document.createElement("div");if(window.getSelection)_.onclick=D.onclick=function(){const z=window.getSelection();const y=document.createRange();y.selectNodeContents(this);z.removeAllRanges();z.addRange(y)};_.appendChild(document.createTextNode(this.title));D.appendChild(document.createTextNode(this.nextSibling.title.split('\n')[1]));B.appendChild(_);B.appendChild(D);u.appendChild(this.B=B)}};m4root.init(document.getElementsByClassName("m4-hgl"),document.getElementsByClassName("m4-src"),"m4-rear","lawngreen")</script>
 </div>
 </div>
 <!-- Sklik-kontext-stop -->

@@ -2,7 +2,7 @@
 #
 # DO NOT EDIT! This file is generated automatically!
 #
-# __SOURCE([20200503-16:21:24, intro.mc, 998712d, 3efa485])
+# __SOURCE([20200504-23:55:41, intro.mc, 905473b, 905473b])
 
 7
 Generování kódu v M4: úvod
@@ -835,6 +835,9 @@ Komentáře se vypínají stejným klíčovým slovem  bez parametrů.
 []
 
 1740
+[]
+
+1742
 []
 
 1745
