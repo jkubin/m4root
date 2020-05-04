@@ -17,14 +17,10 @@ DOC_FILE   = brief_documentation.txt
 DEBUG_FILE = debug.m4
 ORDER_FILE = order.m4
 REFS_MONO  = refs_mono.m4
-JAVASCRIPT = html/init.js
+JAVASCRIPT = html/hgl_packed.js html/info_packed.js
 VPATH      = gfiles
 SUBDIRS    = gfiles hello_world preproc messages asm
 MONITORED  = messages gfiles/*[bnqu].m4 hello_world asm preproc
-
-
-# in case of problems with inserting and coloring the file, debug flag prints the resulting sed command on stderr
-#FLAGS = -DDEBUG_SED
 
 EMPTY =
 SPACE = $(EMPTY) $(EMPTY)
@@ -44,17 +40,17 @@ CLSUBDIRS  = $(SUBDIRS:%=clean-%)
 -include $(wildcard $(MAKE_INCLL))
 
 
-#:all	creates all files
+#:all	creates all files (initial target)
 .PHONY: all
 all: src html $(TARGETS)
 
 
-#:html	creates rules to generate html
+#:html	creates rules for Makefile to generate html
 .PHONY: html
 html: $(MAKE_HTML)
 
 
-#:fhtml	creates rules to generate html from frozen M4 files
+#:fhtml	creates rules for Makefile to generate html from frozen M4 files
 .PHONY: fhtml
 fhtml: $(MAKE_FHTML)
 
@@ -64,35 +60,39 @@ fhtml: $(MAKE_FHTML)
 src: $(SUBDIRS) git.m4
 
 
-#:debug/dbg/trunc/d	truncates the debug file for M4 script development
-.PHONY: debug dbg trunc d
-debug dbg trunc d:
+#:trunc/trc	truncates the debug.m4 file
+.PHONY: trunc trc
+trunc trc:
 	> $(DEBUG_FILE)
 
 
-#:refs	regenerates references
+#:refs	regenerates links (as an auxiliary hash database) to paragraphs, captions, source code, … (usage: $ make -B refs)
 .PHONY: refs
 refs: $(REFS_LANG)
 
 
-#:test/t	this target is for M4 script development (my scripting playground)
-.PHONY: test t
-test t: debug dev
+#:test/tst/t	tests snippets of code in the scripting sandbox (development of new features or scripts)
+.PHONY: test tst t
+test tst t: trunc devel
 
-
-#:devel/dev	this target is for M4 script development
-.PHONY: devel dev
-#devel dev: rootb.m4 git.m4 test.m4
-#devel dev: rootb.m4 cfg.m4 queues.m4 style.m4 css.m4 inline.m4 test.m4
-#devel dev: rootb.m4 cfg.m4 queues.m4 style.m4 css.m4 js.m4 test.m4
-devel dev: rootb.m4 cfg.m4 queues.m4 style.m4 css.m4 test.m4
+.PHONY: devel
+#$(info $(subst $(SPACE),$(COMMA),$(JAVASCRIPT)))
+#devel: rootb.m4 cfg.m4 queues.m4 style.m4 css.m4 inline.m4 test.m4
+#devel: rootb.m4 cfg.m4 queues.m4 style.m4 css.m4 js.m4 test.m4
+#devel: rootb.m4 cfg.m4 queues.m4 style.m4 css.m4 test.m4
+devel: rootb.m4 git.m4 test.m4
 	m4 $^
 
-
-#:new	sets the global flag to remove the "updated April 11, 2020" note at the top of the page (usage: $ make new article)
+#:new	removes the date at the top of the page (usage: $ make new art)
 .PHONY: new
 new:
 	$(eval FLAGS += -DNEW_ARTICLE)
+	@:
+
+#:debug/dbg/db/d	prints certain debug information that is usually hidden
+.PHONY: debug dbg db d
+debug dbg db d:
+	$(eval FLAGS += -DDEBUG)
 	@:
 
 
@@ -101,7 +101,7 @@ new:
 clean cle del cl:
 	$(RM) -r $(DEBUG_FILE) $(DOC_FILE) $(JAVASCRIPT) $(REFS_MONO) $(ORDER_FILE) $(REFS_ALL) $(FOLDERS) *.{mk,m4f}
 
-#:distclean/dcl/cld/dc	also deletes generated files also in all example folders
+#:distclean/dcl/cld/dc	deletes generated files in all example folders
 .PHONY: distclean dcl cld dc
 distclean dcl cld dc: clean $(CLSUBDIRS) git.m4
 
@@ -114,20 +114,20 @@ mostlyclean mcl clm cll mc:
 .PHONY: doc
 doc: $(DOC_FILE)
 
-$(DOC_FILE): doc.m4 html/hgl.js $(wildcard gfiles/*b.m4) $(shell find -name 'git.sh' -o -name '*.sed' -o -name 'Makefile' -o -name '*.m4' ! -path './messages/*' ! -path './gfiles/*' ! -path './hello_world/*' ! -path './preproc/*' ! -path './asm/*')
+$(DOC_FILE): doc.m4 $(wildcard gfiles/*b.m4 html/*_src.js) $(shell find -name 'git.sh' -o -name '*.sed' -o -name 'Makefile' -o -name '*.m4' ! -path './messages/*' ! -path './gfiles/*' ! -path './hello_world/*' ! -path './preproc/*' ! -path './asm/*')
 	m4 $+ > $@
 
-#:test-uncommitted-git-changes/changes/gch	test for uncommitted git changes in monitored directories with source files
+#:test-uncommitted-git-changes/changes/gch	tests uncommitted git changes in monitored directories with source files
 .PHONY: test-uncommitted-git-changes changes gch
 test-uncommitted-git-changes changes gch:
 	git diff-files --name-status --exit-code $(MONITORED)
 
-#:pkjs/pjs/pj/js/j	converts human readable JavaScript to a packed one-line form (see js_packer.sed for details)
-.PHONY: pkjs pjs pj js j
-pkjs pjs pj js j: $(JAVASCRIPT)
+#:pkjs/pjs/js/j	converts human readable JavaScript(s) to packed one-line form (see js_packer.sed for details)
+.PHONY: pkjs pjs js j
+pkjs pjs js j: $(JAVASCRIPT)
 
-# trailing LF is removed by "head"
-$(JAVASCRIPT): html/js_packer.sed hgl.js
+# trailing LF after packing is removed by "head" command
+%_packed.js: html/js_packer.sed %_src.js
 	sed -f $^ | head -c -1 > $@
 
 $(ORDER_FILE): rootb.m4 toc.m4 toc_list.m4

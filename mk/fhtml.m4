@@ -65,11 +65,11 @@ PUBLISH  += $(FOLDER_NAMES) $(PUBLISH_FILES)
 SPCHECK  += $(FOLDER_NAMES) $(SPCHECK_FILES)
 TARGETS  += SUBTARGETS
 
-#:fhtml-sub-targets/sub/su	creates all files from generated rules
+#:html-sub-targets/sub/su	creates all files from generated rules (default target)
 .PHONY: fhtml-sub-targets sub su
 fhtml-sub-targets sub su: $(TARGETS)
 
-#:preview/pre/pr/p	as close as possible for real website
+#:preview/pre/pr/p	creates html page as close as possible in real website
 .PHONY: preview pre pr p
 preview pre pr p: $(PREVIEW)
 
@@ -81,11 +81,11 @@ spell sp: $(SPCHECK)
 .PHONY: publish pub pu
 publish pub pu: $(PUBLISH)
 
-#:article/art/a	article development
+#:article/art/a	creates an article (this is a target for routine article development)
 .PHONY: article art a
 article art a: $(ARTICLE)
 
-[#]:patsubst(defn([ALL_SUBTARGETS]), [ ], [/])	creates files in ‘LANG_CODE’ language
+[#]:patsubst(defn([ALL_SUBTARGETS]), [ ], [/])	creates ‘LANG_CODE’ files
 .PHONY: ALL_SUBTARGETS
 ALL_SUBTARGETS: SUBTARGETS
 
@@ -94,7 +94,7 @@ ALL_SUBTARGETS: SUBTARGETS
 CLEAN_SUBTARGETS:
 	$(RM) -r $(FOLDER_NAMES) FROZEN_FILE
 
-[#]:html	disabled for ‘LANG_CODE’
+[#]:html	is disabled for ‘LANG_CODE’
 html_[]LANG_CODE.mk: ;
 
 $(FOLDER_NAMES):

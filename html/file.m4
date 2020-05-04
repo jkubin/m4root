@@ -14,16 +14,16 @@ ___POINT([source file (possibly snippet) in format for HTML])
 # the whole file is inserted into the sed buffer as a one long string for multi-line regex processing
 # INSERT_FILE_MLH([path/file.src], [title], [RE for Multi Line Highlighting])
 #
-# insert source code snippet from 10 to the EOF
+# insert source code snippet from line 10 to the EOF
 # INSERT_FILE([path/file.src], [title], [RE], [10])
 #
-# insert source code snippet from 10 to 20
+# insert source code snippet from line 10 to 20
 # INSERT_FILE([path/file.src], [title], [RE], [10, 20])
 #
-# insert source code snippet from 10 to the line that meets END_RE
+# insert source code snippet from line 10 to the line that meets END_RE
 # INSERT_FILE([path/file.src], [title], [RE], [10, [/END_RE/]])
 #
-# insert source code snippet from 1 to the line that meets END_RE
+# insert source code snippet from line 1 to the line that meets END_RE
 # INSERT_FILE([path/file.src], [title], [RE], [, [/END_RE/]])
 #
 # A → β
@@ -69,8 +69,8 @@ divert(-1)
 		ROOT_ERROR([‘$0($@)’ → $ ]defn([SED_COMMAND_TO_INSERT_A_FILE]))
 	])
 
-	# in case of problems, print the resulting sed command to insert the file and color on stderr
-	ifdef([DEBUG_SED], [errprint(defn([SED_COMMAND_TO_INSERT_A_FILE])
+	# in case of problems with inserting and coloring desired file it prints the final command on stderr
+	ifdef([DEBUG], [errprint(defn([SED_COMMAND_TO_INSERT_A_FILE])
 )])
 ])
 
