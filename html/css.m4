@@ -219,7 +219,7 @@ define([CLASS_HGL],		[hgl])
 define([CLASS_REAR],	[rear])
 define([CLASS_SRC],		[src])
 
-CSS_CLASS_RULE_SET([[]],	[src],	[[>pre.NSP()rear]], [
+CSS_CLASS_RULE_SET([[]],	[src],	[[>pre.defn([NSP], [CLASS_REAR])]], [
 
 left:0;
 overflow:visible;
@@ -236,19 +236,19 @@ background:none;
 
 ])
 
-CSS_CLASS_RULE_SET([[]],	[src],	[[], [>pre], [>pre.NSP()rear>div]], [
+CSS_CLASS_RULE_SET([[]],	[src],	[[], [>pre], [>pre.defn([NSP], [CLASS_REAR])>div]], [
 
 position:relative;
 
 ])
 
-CSS_CLASS_RULE_SET([[]],	[src],	[[>pre.NSP()rear>div:nth-child(even)]], [
+CSS_CLASS_RULE_SET([[]],	[src],	[[>pre.defn([NSP], [CLASS_REAR])>div:nth-child(even)]], [
 
 background:#f5f5f5;
 
 ])
 
-CSS_CLASS_RULE_SET([[]],	[src],	[[>pre.NSP()rear>div::before]], [
+CSS_CLASS_RULE_SET([[]],	[src],	[[>pre.defn([NSP], [CLASS_REAR])>div::before]], [
 
 content:counter(defn([SRC_CNTR]));
 counter-increment:defn([SRC_CNTR]);
@@ -261,7 +261,7 @@ width:2.5em;
 ])
 
 # <div></div> must not be empty
-CSS_CLASS_RULE_SET([[]],	[src],	[[>pre.NSP()rear>div::after]], [
+CSS_CLASS_RULE_SET([[]],	[src],	[[>pre.defn([NSP], [CLASS_REAR])>div::after]], [
 
 content:" ";
 
