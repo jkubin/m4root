@@ -31,6 +31,17 @@ XLANG([
 
 ])
 
+#      ___________      ______
+# --->/ PEREX_IMG \--->/ path \
+#     \___________/    \______/
+#
+# A → β
+define([PEREX_IMG], defn([TEST_ATM])[
+
+	# transition to the next node (redefine itself to image path)
+	define([$0], ../[$1])
+])
+
 # A → β
 define([SRC_FILE_PATH], [../])
 define([SRC_REPO_NAME], defn([WORD_SRC])[localhost

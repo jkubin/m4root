@@ -2,6 +2,10 @@ __HEADER([Josef Kubin], [2019/12/12], [root_cz])
 ___DESCR([creates the final file for Content Management System (copy and paste)])
 ___POINT([template for Content Management System])
 
+#      ___________      ______
+# --->/ PEREX_IMG \--->/ path \
+#     \___________/    \______/
+#
 # A → β
 define([PEREX_IMG], defn([TEST_ATM])[
 
