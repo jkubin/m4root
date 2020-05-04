@@ -5,7 +5,7 @@ include(`foo.css')dnl
 
 .bar {
 	border-width: WIDTH;
-	border-color: TOP SIDES BOTTOM; 
+	border-color: TOP SIDES BOTTOM;
 	background-image: url('PATH');
 }
 
