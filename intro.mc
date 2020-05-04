@@ -1725,12 +1725,12 @@ dnl english: _next_language_
 ])
 
 PARA([[dnl czech
-CSS používá znak HCODE_M4([#], [[[A], [preproc/file.css.m4]]]) pro kódy barev, což je také začátek jednořádkového M4 komentáře.
+CSS používá znak HCODE_M4([#], [[[A], [preproc/file.css.m4]], [[A], [preproc/preproc.file.css]]]) pro kódy barev, což je také začátek jednořádkového M4 komentáře.
 Klíčové slovo HCODE_M4([changecom(/*,*/)], [[[A], [preproc/file.css]]]) nastaví víceřádkový komentář CODE([/* … */]) a[]NB()přepíše se na ABBR([CODE([ε])], [epsilon – prázdný symbol]).
 Komentáře se vypínají stejným klíčovým slovem HCODE_M4([changecom], [[[B], [preproc/file.css]]]) bez parametrů.
 ],
 [dnl english: _next_language_
-CSS uses the HCODE_M4([#], [[[A], [preproc/file.css.m4]]]) character for color codes, which is also the beginning of a[]NB()one-line M4 comment.
+CSS uses the HCODE_M4([#], [[[A], [preproc/file.css.m4]], [[A], [preproc/preproc.file.css]]]) character for color codes, which is also the beginning of a[]NB()one-line M4 comment.
 The HCODE_M4([changecom(/*,*/)], [[[A], [preproc/file.css]]]) keyword sets a[]NB()multiline CODE([/* … */]) comment and rewrites itself into ABBR([CODE([ε])], [epsilon – empty symbol]).
 The comments can be turned off with the same HCODE_M4([changecom], [[[B], [preproc/file.css]]]) keyword without parameters.
 ]])
@@ -1739,7 +1739,7 @@ INSERT_FILE([preproc/foo.css], LANG([soubor vložený makro procesorem], [file e
 INSERT_FILE([preproc/file.css.m4],, [/\<define\>/s/#/<span class=a>&<\x2fspan>/])
 INSERT_FILE([preproc/file.css],, [s:changecom(/\*,\*/):<span class=a>&</span>:;s/^changecom/<span class=b>&<\x2fspan>/])
 COMMAND_LINE([m4 -DSYMBOL='Hello, world!'], [gfiles/rootq.m4], [preproc/file.css.m4], [preproc/file.css], [preproc/preproc.file.css])
-INSERT_FILE([preproc/preproc.file.css])
+INSERT_FILE([preproc/preproc.file.css],, [s/#/<span class=a>&<\x2fspan>/g])
 
 
 SECT1([nprint_bash], [dnl czech
