@@ -36,8 +36,8 @@ define([ADD_JAVASCRIPT_FOR_SOURCE_CODE], [
 	# the only global JavaScript symbol must not conflict with other symbol in the parent HTML page
 	divert(JAVASCRIPT_CODE)dnl
 var m4root={undivert(
-	[html/hgl_packed.js],
-	[html/info_packed.js],
+	[js/hgl_packed.js],
+	[js/info_packed.js],
 )};dnl
 m4root.init(dnl
 document.getElementsByClassName("defn([NSP], [CLASS_HGL])"),dnl

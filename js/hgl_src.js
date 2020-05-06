@@ -231,7 +231,7 @@ init: function (all_keywords, all_sources,
 
 					/*
 					 * converts a sparse array to dense array
-					 * concatenates numeric sequence(s)
+					 * and concatenates numeric sequence(s)
 					 */
 					value = value.filter(function () {
 						return true;

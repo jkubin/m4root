@@ -50,7 +50,7 @@ define([SUBTARGETS],		$(FOLDER_NAMES) $(ARTICLE_FILES) $(PREVIEW_FILES) $(PUBLIS
 divert(0)dnl
 [#] DONTE()
 
-VPATH = gfiles:html
+VPATH = gfiles:html:js
 
 FOLDER_NAMES = \
 undivert(1)
@@ -73,9 +73,9 @@ fhtml-sub-targets sub su: $(TARGETS)
 .PHONY: preview pre pr p
 preview pre pr p: $(PREVIEW)
 
-#:spell/sp	creates files for checking jargon and typos
-.PHONY: spell sp
-spell sp: $(SPCHECK)
+#:spell/spl/sp	creates files for checking jargon and typos
+.PHONY: spell spl sp
+spell spl sp: $(SPCHECK)
 
 #:publish/pub/pu	creates files in a format suitable for CMS
 .PHONY: publish pub pu

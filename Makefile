@@ -17,7 +17,7 @@ DOC_FILE   = brief_documentation.txt
 DEBUG_FILE = debug.m4
 ORDER_FILE = order.m4
 REFS_MONO  = refs_mono.m4
-JAVASCRIPT = html/hgl_packed.js html/info_packed.js
+JAVASCRIPT = js/hgl_packed.js js/info_packed.js
 VPATH      = gfiles
 SUBDIRS    = gfiles hello_world preproc messages asm
 MONITORED  = messages gfiles/*[bnqu].m4 hello_world asm preproc
@@ -83,13 +83,13 @@ test tst t: trunc devel
 devel: rootb.m4 git.m4 test.m4
 	m4 $^
 
-#:new	removes the date at the top of the page (usage: $ make new art)
-.PHONY: new
-new:
+#:new/n	removes the date at the top of the page (usage: $ make new art)
+.PHONY: new n
+new n:
 	$(eval FLAGS += -DNEW_ARTICLE)
 	@:
 
-#:debug/dbg/db/d	prints certain debug information that is usually hidden
+#:debug/dbg/db/d	prints certain debug information that is usually hidden (usage: $ make dbg art)
 .PHONY: debug dbg db d
 debug dbg db d:
 	$(eval FLAGS += -DDEBUG)
@@ -127,7 +127,7 @@ test-uncommitted-git-changes changes gch:
 pkjs pjs js j: $(JAVASCRIPT)
 
 # trailing LF after packing is removed by "head" command
-%_packed.js: html/js_packer.sed %_src.js
+%_packed.js: js_packer.sed %_src.js
 	sed -f $^ | head -c -1 > $@
 
 $(ORDER_FILE): rootb.m4 toc.m4 toc_list.m4
