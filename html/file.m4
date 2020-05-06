@@ -70,7 +70,7 @@ divert(-1)
 	])
 
 	# in case of problems with inserting and coloring desired file it prints the final command on stderr
-	ifdef([DEBUG], [errprint(defn([SED_COMMAND_TO_INSERT_A_FILE])
+	ifdef([DEBUG], [errprint(__file__:__line__: defn([SED_COMMAND_TO_INSERT_A_FILE])
 )])
 ])
 
