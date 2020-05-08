@@ -465,9 +465,9 @@ HEXPL([AH([Kleene star], [Wikipedia], [https://en.wikipedia.org/wiki/Kleene_star
 ]])
 
 PROGRAMLISTING([all_context_free_grammar_rules], LANG([přepisovací pravidla bezkontextové gramatiky], [context-free grammar rewriting rules]), [dnl
-P: SPN([A], d) SPN([→], e) SPN([β], f)
-   SPN([A], d) ∈ SPN([N], b)
-   SPN([β], f) ∈ (SPN([N], b) SPN([∪], g) SPN([Σ], a))SPN([*], c)
+P: MM([A], d) MM([→], e) MM([β], f)
+   MM([A], d) ∈ MM([N], b)
+   MM([β], f) ∈ (MM([N], b) MM([∪], g) MM([Σ], a))MM([*], c)
 ])dnl PROGRAMLISTING
 
 BRIDGEHEAD([m4_rules], [dnl czech
@@ -964,7 +964,7 @@ N: LANG([konečná množina neterminálních symbolů], [a finite set of nonterm
 Σ: LANG([konečná množina terminálních symbolů], [a finite set of terminal symbols])
    N ∩ Σ = ø
 P: LANG([konečná množina přepisovacích pravidel], [a finite set of production (rewrite) rules])
-   SPN([(N ∪ Σ)*], x) SPN([N], s) SPN([(N ∪ Σ)*], x) → SPN([(N ∪ Σ)*], s)
+   MM([(N ∪ Σ)*], x) MM([N], s) MM([(N ∪ Σ)*], x) → MM([(N ∪ Σ)*], s)
 S: LANG([je počáteční (startovací) symbol], [is the start symbol])
    S ∈ N
 ])dnl PROGRAMLISTING
@@ -1184,7 +1184,7 @@ Stacks in the examples are not used.
 The input source code contains special characters that must be hidden:
 ]])
 
-INSERT_FILE([messages/messages_raw.mc],, [s/\<ERROR\>/<span class=r>&<\x2fspan>/g])
+INSERT_FILE([messages/messages_raw.mc],, [s/\<ERROR\>/MM(r)/g])
 
 NOTE(, defn([WORD_NOTE]), [[dnl czech
 Vstupní soubor může také obsahovat poznámky, které nemusí být skryté v[]NB()komentářích CODE_M4([#]), CODE_M4([dnl]), CODE_M4([ifelse([…])]) nebo CODE_M4([[… někde uvnitř závorek …]]).
@@ -1201,13 +1201,13 @@ dnl english: _next_language_
 ])
 
 PARA([[dnl czech
-Tento příklad nepoužívá výstupní fronty, HEXPL([pouze vypisuje], [[[A, R, 5], [messages/hello.csv.m4]], [[1-3], [messages/hello.csv]], [[R, 3, 5, 7], [messages/messages_raw.mc]]]) ABBR([CSV], [Comma Separated Values]) oddělené znakem CODE([TAB]) na HEXPL([standardní výstup], [[[4], [messages/hello.csv.m4]]]).
+Tento příklad nepoužívá výstupní fronty, HEXPL([pouze vypisuje], [[[R, 5], [messages/hello.csv.m4]], [[1-3], [messages/hello.csv]], [[R, 3, 5, 7], [messages/messages_raw.mc]]]) ABBR([CSV], [Comma Separated Values]) oddělené znakem CODE([TAB]) na HEXPL([standardní výstup], [[[4], [messages/hello.csv.m4]]]).
 ],
 [dnl english: _next_language_
-This example does not use output queues, HEXPL([it only prints], [[[A, R, 5], [messages/hello.csv.m4]], [[1-3], [messages/hello.csv]], [[R, 3, 5, 7], [messages/messages_raw.mc]]]) ABBR([CSV], [Comma Separated Values]) separated by CODE([TAB]) to HEXPL([standard output], [[[4], [messages/hello.csv.m4]]]).
+This example does not use output queues, HEXPL([it only prints], [[[R, 5], [messages/hello.csv.m4]], [[1-3], [messages/hello.csv]], [[R, 3, 5, 7], [messages/messages_raw.mc]]]) ABBR([CSV], [Comma Separated Values]) separated by CODE([TAB]) to HEXPL([standard output], [[[4], [messages/hello.csv.m4]]]).
 ]])
 
-INSERT_FILE([messages/hello.csv.m4],, [s/\<ERROR\>/<span class=r>&<\x2fspan>/g])
+INSERT_FILE([messages/hello.csv.m4],, [s/\<ERROR\>/MM(r)/g])
 COMMAND_LINE([m4], [gfiles/rootb.m4], [messages/hello.csv.m4], [messages/messages_raw.mc], [messages/hello.csv])
 INSERT_FILE([messages/hello.csv])
 
@@ -1232,8 +1232,8 @@ CODE_M4([COUNTER]) is a[]NB()small automaton.
 ]])
 
 INSERT_FILE([messages/counter.csv.m4],, [
-s/\<COUNT_UP\>/<span class=a>&<\x2fspan>/
-/\<ERR_\>/s/\<COUNTER\>/<span class=b>&<\x2fspan>/
+s/\<COUNT_UP\>/MM(a)/
+/\<ERR_\>/s/\<COUNTER\>/MM(b)/
 ])
 COMMAND_LINE([m4], [gfiles/rootb.m4], [messages/counter.csv.m4], [messages/messages_raw.mc], [messages/counter.csv])
 INSERT_FILE([messages/counter.csv])
@@ -1263,7 +1263,7 @@ dnl english: _next_language_
 ])
 
 INSERT_FILE([messages/messages.mc], LANG([všechny speciální znaky jsou skryty do maker], [all special characters are hidden into macros]), [
-s/[[:upper:]]\+()/<span class=a>&<\x2fspan>/g
+s/[[:upper:]]\+()/MM(a)/g
 ])
 
 PARA([[dnl czech
@@ -1352,10 +1352,10 @@ The HCODE_M4([ARG1()], [[[C], [messages/hello.ini.m4]]]) macro HEXPL([selects th
 
 INSERT_FILE([messages/hello.ini.m4],, [
 /\<esyscmd\>/{
-s/+\([^,]*\)/+<span class=b>\1<\x2fspan>/
-s/,/<span class=a>&<\x2fspan>/
-s/ARG1/<span class=c>&<\x2fspan>/
-s/date \x27[^\x27]\+\x27/<span class=d>&<\x2fspan>/
+s/+\([^,]*\)/+<span class="NSP()b">\1<\x2fspan>/
+s/,/MM(a)/
+s/ARG1/MM(c)/
+s/date \x27[^\x27]\+\x27/MM(d)/
 }
 ])
 COMMAND_LINE([m4], [gfiles/rootb.m4], [messages/hello.ini.m4], [messages/code.m4], [messages/messages.mc], [messages/hello.ini])
@@ -1380,11 +1380,11 @@ The decimal value of the counter is converted to the HEXPL([two-digit hex], [[[B
 ]])
 
 INSERT_FILE([messages/messages.h.m4],, [
-s/\<COUNTER\>\((0)\)\?/<span class=a>&<\x2fspan>/g
+s/\<COUNTER\>\((0)\)\?/MM(a)/g
 /eval(/{
-s//<span class=c>&<\x2fspan>/
-s/\<16, 2\>/<span class=b>&<\x2fspan>/
-s/)/<span class=c>&<\x2fspan>/
+s//MM(c)/
+s/\<16, 2\>/MM(b)/
+s/)/MM(c)/
 }
 ])
 COMMAND_LINE([m4], [gfiles/rootb.m4], [messages/messages.h.m4], [messages/messages.mc], [messages/messages.h])
@@ -1407,14 +1407,14 @@ Run the first time HCODE([NEW_LINE], [[[C], [messages/stringl.c.m4]]]), is rewri
 ]])
 
 INSERT_FILE([messages/stringl.c.m4],, [
-s/\\n/<span class=a>&<\x2fspan>/
-s/";/<span class=b>&<\x2fspan>/
-s/ε/<span class=d>&<\x2fspan>/
-/divert/s/\<NEW_LINE\>/<span class=c>&<\x2fspan>/
+s/\\n/MM(a)/
+s/";/MM(b)/
+s/ε/MM(d)/
+/divert/s/\<NEW_LINE\>/MM(c)/
 ])
 COMMAND_LINE([m4], [gfiles/rootb.m4], [messages/stringl.c.m4], [messages/code.m4], [messages/messages.mc], [messages/stringl.c])
 INSERT_FILE([messages/stringl.c],, [
-s/\\n/<span class=a>&<\x2fspan>/g
+s/\\n/MM(a)/g
 ])
 
 
@@ -1431,9 +1431,9 @@ Tento příklad je podobný předchozímu, avšak každý řetězec HEXPL([je na
 This example is similar to the previous one, but each string is on a[]NB()HEXPL([new line], [[[A], [messages/string.c.m4]], [[A], [messages/string.c]]]).
 ]])
 
-INSERT_FILE_MLH([messages/string.c.m4],, [s/\\n"\n"/<span class=a>&<\x2fspan>/])
+INSERT_FILE_MLH([messages/string.c.m4],, [s/\\n"\n"/MM(a)/])
 COMMAND_LINE([m4], [gfiles/rootb.m4], [messages/string.c.m4], [messages/code.m4], [messages/messages.mc], [messages/string.c])
-INSERT_FILE_MLH([messages/string.c],, [s/\\n"\n"/<span class=a>&<\x2fspan>/g])
+INSERT_FILE_MLH([messages/string.c],, [s/\\n"\n"/MM(a)/g])
 
 
 SECT1([output_queues_html], [dnl czech
@@ -1484,9 +1484,9 @@ HCODE_M4([WARNING → 🐝], [🐝], [[[6, 15], [messages/insect.txt.m4]], [[C],
 INSERT_FILE([messages/insect.txt.m4])
 COMMAND_LINE([m4], [gfiles/rootb.m4], [messages/insect.txt.m4], [messages/messages.mc], [messages/insect.txt])
 INSERT_FILE([messages/insect.txt],, [
-s/🐛/<span class=a>&<\x2fspan>/g
-s/🐜/<span class=b>&<\x2fspan>/g
-s/🐝/<span class=c>&<\x2fspan>/g
+s/🐛/MM(a)/g
+s/🐜/MM(b)/g
+s/🐝/MM(c)/g
 ])
 
 
@@ -1553,12 +1553,12 @@ HEXPL([The newly formed nonterminal], [[[B, C], [nonterminals_for_branches]]]) i
 ]])
 
 PROGRAMLISTING([nonterminals_for_branches], LANG([větvení gramatikou v M4], [grammar branching in M4]), [dnl
-SPN([$[0]], a)_QU → SPN([ERROR], b)SPN([_QU], c) → SPN([2], d)
-SPN([$[0]], a)_END → SPN([ERROR], b)SPN([_END], c) → SPN([3], d)
-SPN([$[0]], a)_NAME → SPN([ERROR], b)SPN([_NAME], c) → SPN([error], d)
-SPN([$[0]], a)_QU → SPN([QUERY], b)SPN([_QU], c) → SPN([0], d)
-SPN([$[0]], a)_END → SPN([QUERY], b)SPN([_END], c) → SPN([1], d)
-SPN([$[0]], a)_NAME → SPN([QUERY], b)SPN([_NAME], c) → SPN([query], d)
+MM([$[0]], a)_QU → MM([ERROR], b)MM([_QU], c) → MM([2], d)
+MM([$[0]], a)_END → MM([ERROR], b)MM([_END], c) → MM([3], d)
+MM([$[0]], a)_NAME → MM([ERROR], b)MM([_NAME], c) → MM([error], d)
+MM([$[0]], a)_QU → MM([QUERY], b)MM([_QU], c) → MM([0], d)
+MM([$[0]], a)_END → MM([QUERY], b)MM([_END], c) → MM([1], d)
+MM([$[0]], a)_NAME → MM([QUERY], b)MM([_NAME], c) → MM([query], d)
 …
 ])dnl PROGRAMLISTING
 
@@ -1586,7 +1586,7 @@ We can then use a[]NB()virtually unlimited number of queues.
 The following example shows how these indexes are generated.
 ]])
 
-INSERT_FILE([messages/queues.m4],, [/\<QUEUE_INDEX\>)$/s/\<QUEUE_INDEX\>/<span class=a>&<\x2fspan>/])
+INSERT_FILE([messages/queues.m4],, [/\<QUEUE_INDEX\>)$/s/\<QUEUE_INDEX\>/MM(a)/])
 INSERT_FILE([messages/messages.json.m4])
 COMMAND_LINE([m4], [gfiles/rootb.m4], [messages/queues.m4], [messages/messages.json.m4], [messages/code.m4], [messages/messages.mc], [messages/messages.json])
 INSERT_FILE([messages/messages.json])
@@ -1609,7 +1609,7 @@ HEXPL([INI section names], [[[11], [messages/messages.ini.m4]], [[3, 6, 11], [me
 The example uses the same file for output queues as the LINK([example], [json_symbolic_queue_names]) to generate JSON.
 ]])
 
-INSERT_FILE([messages/messages.ini.m4],, [/\<BRAC\>/s/\(.0\)\(_NAME\)/<span class=r>\1<\x2fspan><span class=a>\2<\x2fspan>/])
+INSERT_FILE([messages/messages.ini.m4],, [/\<BRAC\>/s/\(.0\)\(_NAME\)/<span class="NSP()r">\1<\x2fspan><span class="NSP()a">\2<\x2fspan>/])
 COMMAND_LINE([m4], [gfiles/rootb.m4], [messages/messages.ini.m4], [messages/queues.m4], [messages/code.m4], [messages/messages.mc], [messages/messages.ini])
 INSERT_FILE([messages/messages.ini])
 
@@ -1704,17 +1704,17 @@ Note the HCODE_M4([define ()], [[[17, 27], [preproc/file.c]], [[17, 27], [prepro
 ]])
 
 INSERT_FILE([preproc/file.c.m4],, [
-s/\<RQ()/<span class=a>&<\x2fspan>/g
+s/\<RQ()/MM(a)/g
 ])
 INSERT_FILE([preproc/file.c],, [
-s/\x27/<span class=a>&<\x2fspan>/g
-s/\<SYMBOL\>/<span class=c>&<\x2fspan>/g
-/\<define\>/!s/\<ORD\>/<span class=b>&<\x2fspan>/
+s/\x27/MM(a)/g
+s/\<SYMBOL\>/MM(c)/g
+/\<define\>/!s/\<ORD\>/MM(b)/
 ])
 COMMAND_LINE([m4 -DSYMBOL='Hello, world!'], [gfiles/rootq.m4], [preproc/file.c.m4], [preproc/file.c], [preproc/preproc.file.c])
 INSERT_FILE([preproc/preproc.file.c],, [
-s/\x27/<span class=a>&<\x2fspan>/g
-s/\<SYMBOL\>/<span class=c>&<\x2fspan>/g
+s/\x27/MM(a)/g
+s/\<SYMBOL\>/MM(c)/g
 ])
 
 
@@ -1736,10 +1736,10 @@ The comments can be turned off with the same HCODE_M4([changecom], [[[B], [prepr
 ]])
 
 INSERT_FILE([preproc/foo.css], LANG([soubor vložený makro procesorem], [file embedded by the macro processor]))
-INSERT_FILE([preproc/file.css.m4],, [/\<define\>/s/#/<span class=a>&<\x2fspan>/])
-INSERT_FILE([preproc/file.css],, [s:changecom(/\*,\*/):<span class=a>&</span>:;s/^changecom/<span class=b>&<\x2fspan>/])
+INSERT_FILE([preproc/file.css.m4],, [/\<define\>/s/#/MM(a)/])
+INSERT_FILE([preproc/file.css],, [s/changecom(\/\*,\*\/)/MM(a)/;s/^changecom/MM(b)/])
 COMMAND_LINE([m4 -DSYMBOL='Hello, world!'], [gfiles/rootq.m4], [preproc/file.css.m4], [preproc/file.css], [preproc/preproc.file.css])
-INSERT_FILE([preproc/preproc.file.css],, [s/#/<span class=a>&<\x2fspan>/g])
+INSERT_FILE([preproc/preproc.file.css],, [s/#/MM(a)/g])
 
 
 SECT1([nprint_bash], [dnl czech
@@ -1757,8 +1757,8 @@ Bash uses both CODE([LQ()]) and CODE([LB()]) characters.
 If we do not want to hide them either in an CODE_M4([LQ()]) or CODE_M4([LB()]) macro, we can use HEXPL([nonprintable characters], [displayed as UTF-8 characters], [[[A], [preproc/file.sh.m4]], [[A], [preproc/file.sh]]]) for LINK([expansion control], [expansion_control]), see the example:
 ]])
 
-INSERT_FILE([preproc/file.sh.m4],, [s/[␂␆]/<span class=a>&<\x2fspan>/g])
-INSERT_FILE([preproc/file.sh],, [s/[␂␆]/<span class=a>&<\x2fspan>/g])
+INSERT_FILE([preproc/file.sh.m4],, [s/[␂␆]/MM(a)/g])
+INSERT_FILE([preproc/file.sh],, [s/[␂␆]/MM(a)/g])
 COMMAND_LINE([m4 -DSYMBOL='Hello, world!'], [gfiles/rootn.m4], [preproc/file.sh.m4], [preproc/file.sh], [preproc/preproc.file.sh])
 INSERT_FILE([preproc/preproc.file.sh])
 
@@ -1808,9 +1808,9 @@ The HCODE_M4([LB()], [[[30], [hello_world/sh.m4]], [[15], [hello_world/hello_wor
 ]])
 
 INSERT_FILE([hello_world/sh.m4],, [
-s/\<COUNT_UP\>/<span class=a>&<\x2fspan>/
-s/\<COUNT_DOWN\>/<span class=b>&<\x2fspan>/
-/^define/s/\<LEFT\>\|\<OP\>\|\<RIGHT\>/<span class=c>&<\x2fspan>/
+s/\<COUNT_UP\>/MM(a)/
+s/\<COUNT_DOWN\>/MM(b)/
+/^define/s/\<LEFT\>\|\<OP\>\|\<RIGHT\>/MM(c)/
 ])
 COMMAND_LINE([m4 -DSYMBOL='Hello, world!'], [gfiles/rootb.m4], [hello_world/sh.m4], [hello_world/hello_world.sh])
 INSERT_FILE([hello_world/hello_world.sh])
@@ -1836,9 +1836,9 @@ These symbols become ordinary terminal symbols without any side effect.
 ]])
 
 INSERT_FILE([hello_world/h.m4],, [
-s/\\x5b;\\x5d;/<span class=a>&<\x2fspan>/g
-s/\\x5b;#\\x5d;/<span class=b>&<\x2fspan>/
-s/\\x5b;dnl\\x5d;/<span class=c>&<\x2fspan>/
+s/\\x5b;\\x5d;/MM(a)/g
+s/\\x5b;#\\x5d;/MM(b)/
+s/\\x5b;dnl\\x5d;/MM(c)/
 ])
 COMMAND_LINE([m4 -DSYMBOL='Hello, world!'], [gfiles/rootb.m4], [hello_world/h.m4], [hello_world/hello_world.h])
 INSERT_FILE([hello_world/hello_world.h])
@@ -1861,15 +1861,15 @@ Such macros are explicitly created by a[]NB()script developer, see the root file
 
 INSERT_FILE([hello_world/awk.m4],, [
 /\<BEGIN\>/{
-s/\<DONTE\>/<span class=a>&<\x2fspan>/
-s/\<LB\>/<span class=b>&<\x2fspan>/
+s/\<DONTE\>/MM(a)/
+s/\<LB\>/MM(b)/
 }
 ])
 COMMAND_LINE([m4 -DSYMBOL='Hello, world!'], [gfiles/rootb.m4], [hello_world/awk.m4], [hello_world/hello_world.awk])
 INSERT_FILE([hello_world/hello_world.awk],, [
 /\<BEGIN\>/{
-s/\<DONTE\>/<span class=a>&<\x2fspan>/
-s/\<LB\>/<span class=b>&<\x2fspan>/
+s/\<DONTE\>/MM(a)/
+s/\<LB\>/MM(b)/
 }
 ])
 
