@@ -79,16 +79,17 @@ divert(-1)
 # A → β
 define([INSERT_FILE_MLH], defn([INSERT_FILE]))
 
+# Marking Macro MM(my_class_name) saves a lot of typing (<span class="m4-my_class">&<\x2fspan>), concatenates user defined prefix to my_class_name
 # ARG1 after the file processing removes unwanted trailing LF
 # A → β
 define([INSERT_FILE_SET_PARAMETERS_REGEX], [dnl
-define([SED_COMMAND_TO_INSERT_A_FILE], [sed -ne '$3,$4{' -f html/chars_to_esc.sed -e '$2' -e '$3s/^/\x5b\x5b/;$4$5;p}' $1])dnl
+define([SED_COMMAND_TO_INSERT_A_FILE], [sed -ne '$3,$4{' -f html/chars_to_esc.sed -e ']patsubst(patsubst([[[$2]]], [\<MM(\([^)]+\))], [<span class=NSP()\1>&<\\x2fspan>]), [NSP()], defn([NSP]))[' -e '$3s/^/\x5b\x5b/;$4$5;p}' $1])dnl
 ARG1(esyscmd(defn([SED_COMMAND_TO_INSERT_A_FILE])))dnl
 ])
 
 # A → β
 define([INSERT_FILE_MLH_SET_PARAMETERS_REGEX], [dnl
-define([SED_COMMAND_TO_INSERT_A_FILE], [sed -ne '$3{:a;N;$4!ba' -f html/chars_to_esc.sed -e '$2' -e 's/^/\x5b\x5b/;$5;p}' $1])dnl
+define([SED_COMMAND_TO_INSERT_A_FILE], [sed -ne '$3{:a;N;$4!ba' -f html/chars_to_esc.sed -e ']patsubst(patsubst([[[$2]]], [\<MM(\([^)]+\))], [<span class=NSP()\1>&<\\x2fspan>]), [NSP()], defn([NSP]))[' -e 's/^/\x5b\x5b/;$5;p}' $1])dnl
 ARG1(esyscmd(defn([SED_COMMAND_TO_INSERT_A_FILE])))dnl
 ])
 

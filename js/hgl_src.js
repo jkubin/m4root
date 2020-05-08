@@ -8,10 +8,10 @@
  * because lengthy JavaScript is eventually packed to a smaller one-line script
  */
 
-init: function (all_keywords, all_sources,
-	classname_for_striped_bckg, default_color) {
+init: function (all_keywords, all_sources, namespace_prefix,
+	classname_for_striped_bckg, default_class) {
 
-	var different_color,
+	var another_class,
 		hgl_item,
 		hgl_keyword,
 		hgl_range,
@@ -24,7 +24,7 @@ init: function (all_keywords, all_sources,
 		lines_to_highlight,
 		parsed_json,
 		pre_node,
-		resulting_color,
+		resulting_class,
 		source_indexes,
 		source_info,
 		source_node,
@@ -35,7 +35,7 @@ init: function (all_keywords, all_sources,
 	 */
 	for (source_node of all_sources) {
 
-		pre_node = source_node.firstElementChild,
+		pre_node = source_node.pre_node = source_node.firstElementChild,
 			lines_of_code = pre_node.innerHTML.split('\n').length,
 			source_info = pre_node.nextElementSibling;
 
@@ -46,7 +46,7 @@ init: function (all_keywords, all_sources,
 		 * the <pre>…</ pre> tag
 		 */
 		striped_background = document.createElement("pre");
-		striped_background.className = classname_for_striped_bckg;
+		striped_background.className = namespace_prefix + classname_for_striped_bckg;
 
 		/*
 		 * adds an event handler to display additional source code information
@@ -127,7 +127,8 @@ init: function (all_keywords, all_sources,
 
 			if (this.highlighting_lines)
 				for (hgl_item of this.highlighting_lines)
-					hgl_item.node.style.backgroundColor = hgl_item.value;
+					hgl_item.node.classList.add(hgl_item.value);
+					// hgl_item.node.style.backgroundColor = hgl_item.value;
 
 			if (this.highlighting_classes)
 				for (hgl_item of this.highlighting_classes)
@@ -140,7 +141,8 @@ init: function (all_keywords, all_sources,
 
 			if (this.highlighting_lines)
 				for (hgl_item of this.highlighting_lines)
-					hgl_item.node.style=null;
+					hgl_item.node.classList.remove(hgl_item.value);
+					// hgl_item.node.style=null;
 
 			if (this.highlighting_classes)
 				for (hgl_item of this.highlighting_classes)
@@ -189,10 +191,10 @@ init: function (all_keywords, all_sources,
 				 */
 				if (/^[A-Z]$/.test(value)) {
 
-					highlighting_classes.push(value);
+					highlighting_classes.push(namespace_prefix + value);
 
 					/*
-					 * removes a letter from the final JSON
+					 * removes the letter from the final JSON
 					 */
 					return undefined;
 				}
@@ -270,7 +272,7 @@ init: function (all_keywords, all_sources,
 					hgl_item.node.highlighting_classes = [];
 
 				hgl_item.node.highlighting_classes.push({
-					node: source_node,
+					node: source_node.pre_node,
 					value: highlighting_classes
 				});
 
@@ -292,18 +294,17 @@ init: function (all_keywords, all_sources,
 				 * iterate color names and select appropriate arrays of
 				 * lines to highlight
 				 */
-				for (different_color of highlighting_lines) {
+				for (another_class of highlighting_lines) {
 
-					lines_to_highlight = parsed_json[different_color];
+					lines_to_highlight = parsed_json[another_class];
 
 					/*
-					 * set a default color, if the color name is empty
-					 * "": [1, 2, 3] → "a_default_color": [1, 2, 3]
+					 * set a default color, if the class name is empty
+					 * "": [1, 2, 3] → "default_class": [1, 2, 3]
 					 */
-					resulting_color =
-						different_color ?
-						different_color :
-						default_color;
+					resulting_class =
+						namespace_prefix +
+						(another_class ?  another_class : default_class);
 
 					/*
 					 * appends array of data to the keyword
@@ -312,7 +313,7 @@ init: function (all_keywords, all_sources,
 					for (i of lines_to_highlight)
 						hgl_item.node.highlighting_lines.push({
 							node: striped_background.children[i],
-							value: resulting_color
+							value: resulting_class
 						});
 				}
 			}

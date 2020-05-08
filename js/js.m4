@@ -42,7 +42,8 @@ var m4root={undivert(
 m4root.init(dnl
 document.getElementsByClassName("defn([NSP], [CLASS_HGL])"),dnl
 document.getElementsByClassName("defn([NSP], [CLASS_SRC])"),dnl
-"defn([NSP], [CLASS_REAR])",dnl
-"defn([DEFAULT_HIGHLIGHT_COLOR])")dnl
+"defn([NSP])",dnl							NameSPace prefix
+"defn([CLASS_REAR])",dnl						class container for stripes
+"defn([DEFAULT_HIGHLIGHT_CLASS])")dnl					class to highlight stripes and source code
 divert(-1)
 ])

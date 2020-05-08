@@ -214,10 +214,11 @@ text-decoration:#f04c23 underline dashed;
 
 ])
 
-# class names for JavaScript code
-define([CLASS_HGL],		[hgl])
-define([CLASS_REAR],	[rear])
-define([CLASS_SRC],		[src])
+# class names for JavaScript code (helps maintain consistency)
+define([DEFAULT_HIGHLIGHT_CLASS],	[dhc])
+define([CLASS_HGL],			[hgl])
+define([CLASS_REAR],		[rear])
+define([CLASS_SRC],			[src])
 
 CSS_CLASS_RULE_SET([[]],	[src],	[[>pre.defn([NSP], [CLASS_REAR])]], [
 
@@ -242,7 +243,8 @@ position:relative;
 
 ])
 
-CSS_CLASS_RULE_SET([[]],	[src],	[[>pre.defn([NSP], [CLASS_REAR])>div:nth-child(even)]], [
+
+CSS_CLASS_RULE_SET([[]],	[],	[[.defn([NSP], [CLASS_REAR])>:nth-child(even)]], [
 
 background:#f5f5f5;
 
@@ -399,28 +401,51 @@ display:inline-block;
 
 ])
 
-CSS_CLASS_RULE_SET([[.NSP()src.A .a], [.NSP()src.B .b], [.NSP()src.C .c], [.NSP()src.D .d], [.NSP()src.E .e], [.NSP()src.F .f], [.NSP()src.G .g]],	[],	[[]], [
+# default highlight set
+CSS_CLASS_RULE_SET([
+[.NSP()A>.NSP()a],
+[.NSP()B>.NSP()b],
+[.NSP()C>.NSP()c],
+[.NSP()D>.NSP()d],
+[.NSP()E>.NSP()e],
+[.NSP()F>.NSP()f],
+[.NSP()G>.NSP()g],
+[.defn([NSP], [CLASS_REAR])>.defn([NSP], [DEFAULT_HIGHLIGHT_CLASS])]],	[],	[[]], [
 
 background:defn([DEFAULT_HIGHLIGHT_COLOR]);
 
 ])
 
-CSS_CLASS_RULE_SET([[.NSP()src.R .r]],	[],	[[]], [
+CSS_CLASS_RULE_SET([[.NSP()R>.NSP()r]],	[],	[[]], [
 
 background:red;
 
 ])
 
 # s = strong
-CSS_CLASS_RULE_SET([[.NSP()src.S ]],	[],	[[.s]], [
+CSS_CLASS_RULE_SET([[.NSP()S>.NSP()s]],	[],	[[]], [
 
 font-weight:bold;
 
 ])
 
-CSS_CLASS_RULE_SET([[.NSP()src.X ]],	[],	[[.x]], [
+CSS_CLASS_RULE_SET([[.NSP()X>.NSP()x]],	[],	[[]], [
 
 visibility:hidden;
+
+])
+
+#.defn([NSP], [CLASS_REAR])>
+
+_CSS_CLASS_RULE_SET([[.NSP()foo]],	[],	[[]], [
+
+background:yellow!important;
+
+])
+
+_CSS_CLASS_RULE_SET([[.NSP()bar]],	[],	[[]], [
+
+background:teal!important;
 
 ])
 

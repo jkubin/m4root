@@ -30,9 +30,9 @@ s/\(\<const\|\<else\|\<let\|\<var\)\([[:lower:]]\)/\1 \2/g
 s/\<add_info\>/a/g
 s/\<all_keywords\>/b/g
 s/\<all_sources\>/c/g
-s/\<classname_for_striped_bckg\>/d/g
-s/\<default_color\>/e/g
-s/\<different_color\>/f/g
+s/\<another_class\>/d/g
+s/\<classname_for_striped_bckg\>/e/g
+s/\<default_class\>/f/g
 s/\<hgl_item\>/g/g
 s/\<hgl_keyword\>/h/g
 s/\<hgl_range\>/k/g
@@ -44,20 +44,21 @@ s/\<key\>/p/g
 s/\<last_line\>/q/g
 s/\<lines_of_code\>/r/g
 s/\<lines_to_highlight\>/s/g
-s/\<node\>/t/g
-s/\<parent_node\>/u/g
-s/\<parsed_json\>/v/g
-s/\<pre_node\>/w/g
-s/\<resulting_color\>/x/g
-s/\<selected_range\>/y/g
-s/\<selected_text\>/z/g
-s/\<source_date\>/_/g
-s/\<source_indexes\>/A/g
-s/\<source_info\>/B/g
-s/\<source_node\>/C/g
-s/\<source_path\>/D/g
-s/\<striped_background\>/E/g
-s/\<value\>/F/g
+s/\<namespace_prefix\>/t/g
+s/\<node\>/u/g
+s/\<parent_node\>/v/g
+s/\<parsed_json\>/w/g
+s/\<pre_node\>/x/g
+s/\<resulting_class\>/y/g
+s/\<selected_range\>/z/g
+s/\<selected_text\>/_/g
+s/\<source_date\>/A/g
+s/\<source_indexes\>/B/g
+s/\<source_info\>/C/g
+s/\<source_node\>/D/g
+s/\<source_path\>/E/g
+s/\<striped_background\>/F/g
+s/\<value\>/G/g
 
 # the letters below are for regexes above, letters {i, j} are reserved for loops
 # use Vim to copy regex below: y$

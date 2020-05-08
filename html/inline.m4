@@ -30,8 +30,8 @@ define([CODE_M4U],	[CODE_M4([$1], [$2], [un])])
 define([CODE_UND],	[CODE([$1], [$2], [un])])
 define([EXPL],	[SPAN([$1], [$2], [xp])])
 define([EXPL_M4],	[CODE_M4([$1], [$2], [xp])])
+define([MM],	[ifelse([$#], [0], [[$0]], [<span class=NSP()$2>$1</span>])])	<--- mnemonic: Marking Macro
 define([QUOTE],	[ifelse([$#], [0], [[$0]], [„$1“])])
-define([SPN],	[ifelse([$#], [0], [[$0]], [<span class=$2>$1</span>])])
 define([WBR],	[ifelse([$#], [0], [[$0]], [<wbr>])])
 
 # built-in styles for root.cz
