@@ -86,6 +86,8 @@ iabbrev <buffer> <unique> lt []LT()<c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> mar MARK([<c-r>"])<esc>
 iabbrev <buffer> <unique> maw MAIN_WRAP([<cr><cr><cr><cr>])dnl MAIN_WRAP<up><up><c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> met METER([60%],,,,, [value="0.6"])<c-r>=Eatchar('.')<cr>
+iabbrev <buffer> <unique> mmm MM([<c-r>"], )<left><c-r>=Eatchar('.')<cr>
+iabbrev <buffer> <unique> mm s/<c-o>m`/MM(%%%)/%%%<c-o>``<right><c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> navm NAV_MONO([[dnl monolingual<cr><cr>]])<up><c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> nav NAV([[dnl czech<cr><cr>],<cr>[dnl english: _next_language_<cr>%%%<cr>]])<left><c-o>%<c-o>0<down><c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> nb []NB()<esc>
@@ -113,8 +115,6 @@ iabbrev <buffer> <unique> roo ROO()<c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> sa SAMP([<c-r>"])<esc>
 iabbrev <buffer> <unique> scn <c-l><cr>SECT1([dnl czech<cr>[],<cr>dnl english: _next_language_<cr><c-u>[%%%],<cr>])<left><c-o>%<c-o>0<down><right><c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> sm SMALL([<c-r>"])<esc>
-iabbrev <buffer> <unique> spn SPN([<c-r>"], )<left><c-r>=Eatchar('.')<cr>
-iabbrev <buffer> <unique> spp s/<c-o>m`/<span class=%%%>&<\x2fspan>/%%%<c-o>``<c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> sp SPAN([<c-r>"], [%%%], [%%%])<left><c-o>%;;<c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> ss <c-l><cr>SECT1([dnl czech<cr>[],<cr>dnl english: _next_language_<cr><c-u>[%%%],<cr>])<left><c-o>%<c-o>0<down><right><c-r>=Eatchar('.')<cr>
 "iabbrev <buffer> <unique> st STRONG([])%%%<c-o>T(<right><c-r>=Eatchar('.')<cr>
