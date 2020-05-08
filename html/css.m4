@@ -403,33 +403,33 @@ display:inline-block;
 
 # default highlight set
 CSS_CLASS_RULE_SET([
-[.NSP()A>.NSP()a],
-[.NSP()B>.NSP()b],
-[.NSP()C>.NSP()c],
-[.NSP()D>.NSP()d],
-[.NSP()E>.NSP()e],
-[.NSP()F>.NSP()f],
-[.NSP()G>.NSP()g],
+[.NSP()A .NSP()a],
+[.NSP()B .NSP()b],
+[.NSP()C .NSP()c],
+[.NSP()D .NSP()d],
+[.NSP()E .NSP()e],
+[.NSP()F .NSP()f],
+[.NSP()G .NSP()g],
 [.defn([NSP], [CLASS_REAR])>.defn([NSP], [DEFAULT_HIGHLIGHT_CLASS])]],	[],	[[]], [
 
 background:defn([DEFAULT_HIGHLIGHT_COLOR]);
 
 ])
 
-CSS_CLASS_RULE_SET([[.NSP()R>.NSP()r]],	[],	[[]], [
+CSS_CLASS_RULE_SET([[.NSP()R .NSP()r]],	[],	[[]], [
 
 background:red;
 
 ])
 
 # s = strong
-CSS_CLASS_RULE_SET([[.NSP()S>.NSP()s]],	[],	[[]], [
+CSS_CLASS_RULE_SET([[.NSP()S .NSP()s]],	[],	[[]], [
 
 font-weight:bold;
 
 ])
 
-CSS_CLASS_RULE_SET([[.NSP()X>.NSP()x]],	[],	[[]], [
+CSS_CLASS_RULE_SET([[.NSP()X .NSP()x]],	[],	[[]], [
 
 visibility:hidden;
 
