@@ -1,6 +1,6 @@
 # DO NOT EDIT! This file is generated automatically!
 
-VPATH = gfiles:html
+VPATH = gfiles:html:js
 
 FOLDERS_en = \
 generating-code-in-m4-introduction \
@@ -25,9 +25,9 @@ html-sub-targets sub su: $(TARGETS)
 .PHONY: preview pre pr p
 preview pre pr p: $(PREVIEW)
 
-#:spell/sp	creates files for checking jargon and typos
-.PHONY: spell sp
-spell sp: $(SPCHECK)
+#:spell/spl/sp	creates files for checking jargon and typos
+.PHONY: spell spl sp
+spell spl sp: $(SPCHECK)
 
 #:publish/pub/pu	creates files in a format suitable for CMS
 .PHONY: publish pub pu

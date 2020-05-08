@@ -2,7 +2,7 @@
 #
 # DO NOT EDIT! This file is generated automatically!
 #
-# __SOURCE([20200504-23:55:41, fundamentals.mc, e396d0f, 905473b])
+# __SOURCE([20200509-00:46:16, fundamentals.mc, e396d0f, 3230d77])
 
 7
 Generování kódu v M4: základy
