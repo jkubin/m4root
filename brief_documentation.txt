@@ -318,13 +318,6 @@ Note: root_cz
 Description: testing laboratory for new features
 Reason: M4 script development
 ---
-File: html/chars_to_esc.sed
-Author: Josef Kubin
-Started: 2019/09/01
-Note: m4root
-Description: the script modifies input source code for use in M4 source code and for resulting HTML page
-Reason: problematic characters in source code must be processed first
----
 File: html/index.m4
 Author: Josef Kubin
 Started: 2019/12/27
@@ -338,6 +331,13 @@ Started: 2019/12/01
 Note: root_cz
 Description: navigation logic for HTML page; table of content; all parts of the series
 Reason: common script for preview and publish
+---
+File: html/chr_to_esc.sed
+Author: Josef Kubin
+Started: 2019/09/01
+Note: m4root
+Description: the script modifies input source code for use in M4 source code and for resulting HTML page
+Reason: problematic characters in source code must be processed first
 ---
 File: html/preview.m4
 Author: Josef Kubin
