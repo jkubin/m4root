@@ -9,6 +9,12 @@ s/>/\\x3e;/g
 s/\[/\\x5b;/g
 s/]/\\x5d;/g
 
-# transform nonprintable characters to printable UTF8 characters
+# replace non-printable characters with UTF-8 printable characters
+s/\x00/␀/g
+s/\x01/␁/g
 s/\x02/␂/g
+s/\x03/␃/g
+s/\x04/␄/g
+s/\x05/␅/g
 s/\x06/␆/g
+s/\x0c/␌/g
