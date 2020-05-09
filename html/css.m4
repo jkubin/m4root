@@ -387,10 +387,17 @@ opacity:1;
 ])
 
 # add space between number and chapter text
-CSS_CLASS_RULE_SET([[.urs ]],	[],	[[p[]BRAC(id$="TOC_ANCH")>a>b]], [
+CSS_CLASS_RULE_SET([[.urs p[]BRAC(id$="TOC_ANCH")>a>b]],	[],	[[]], [
 
 font-weight:normal;
 margin-right:.6em;
+
+])
+
+CSS_CLASS_RULE_SET([[.urs a[]BRAC(id^="defn([NSP], [REF_ANCH])")]],	[],	[[]], [
+
+font-size:.65em;
+vertical-align:super
 
 ])
 

@@ -529,7 +529,7 @@ define([REF], [pushdef([CURRQU], divnum)divert(-1)
 divert(END_OF_REFERENCES)dnl
 </ol>
 divert(CURRQU)popdef([CURRQU])dnl
-<sup><a href="[$3]" title="$1" id="REF_SYMBOL">BRAC(REF_COUNTER)</a></sup>dnl
+<a href="[$3]" title="$1" id="REF_SYMBOL">BRAC(REF_COUNTER)</a>dnl
 ])
 
 # β
@@ -539,7 +539,7 @@ define([REF_NEXT], [pushdef([CURRQU], divnum)divert(-1)
 	ifdef([{$1|$2|$3}], [
 
 		divert(CURRQU)popdef([CURRQU])dnl
-<sup><a href="[$3]" title="$1">BRAC(REF_VALUE)</a></sup>dnl
+<a href="[$3]" title="$1">BRAC(REF_VALUE)</a>dnl
 ], [
 		# increment counter for new ref value
 		define([REF_VALUE], define([REF_COUNTER], incr(REF_COUNTER))REF_COUNTER)
@@ -550,7 +550,7 @@ define([REF_NEXT], [pushdef([CURRQU], divnum)divert(-1)
 <li>ifelse(defn([CURRQU]), [-1], [], [<a href="[#]REF_SYMBOL" title="WORD_SOURCE"></a>])<strong>$1</strong>ifelse([$2], [], [], [, $2])[]BR()
 <a href="[$3]">[$3]</a></li>
 divert(CURRQU)popdef([CURRQU])dnl
-<sup><a href="[$3]" title="$1" id="REF_SYMBOL">BRAC(REF_VALUE)</a></sup>dnl
+<a href="[$3]" title="$1" id="REF_SYMBOL">BRAC(REF_VALUE)</a>dnl
 ])dnl
 ])
 
