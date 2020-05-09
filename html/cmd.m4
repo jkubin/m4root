@@ -1,42 +1,37 @@
 __HEADER([Josef Kubin], [2020/04/26], [html])
-___DESCR([processes a command with a list of input files, the last file is the output file])
-___POINT([HTML code from the command line])
+___DESCR([command line with a list of input files, the last file is an output file])
+___POINT([generates HTML code from the command line])
+
+# β
+pushdef([COMMAND_LINE_BETA], [
+
+	ifelse(eval([$# > 1]), [1], [], [
+
+		ROOT_ERROR([‘$0($@)’ requires at least 2 arguments])
+	])
+
+	divert(REFERENCES_TO_FILES)dnl
+$1 dnl
+divert(-1)
+
+	FILES_ON_THE_COMMAND_LINE(shift($@))
+])
 
 # COMMAND_LINE([tool -o a,b,c -DMACRO], [input/file1.src], [input/file2.src], [input/file3.src], …, [output/file.dst])
 # A → β
 define([COMMAND_LINE], [
 
-	ifelse(eval([$# > 1]), [1], [], [
-
-		ROOT_ERROR([‘$0($@)’ requires at least 2 arguments])
-	])
-
-	divert(REFERENCES_TO_FILES)dnl
-$1 dnl
-divert(-1)
-
 	define([COMMAND_LINE_CLASS], [usc])
 
-	FILES_ON_THE_COMMAND_LINE(shift($@))
-])
+]defn([COMMAND_LINE_BETA]))
 
 # COMMAND_LINE_ROOT([tool -o a,b,c -DMACRO], [input/file1.src], [input/file2.src], [input/file3.src], …, [output/file.dst])
 # A → β
 define([COMMAND_LINE_ROOT], [
 
-	ifelse(eval([$# > 1]), [1], [], [
-
-		ROOT_ERROR([‘$0($@)’ requires at least 2 arguments])
-	])
-
-	divert(REFERENCES_TO_FILES)dnl
-$1 dnl
-divert(-1)
-
 	define([COMMAND_LINE_CLASS], [root])
 
-	FILES_ON_THE_COMMAND_LINE(shift($@))
-])
+]defn([COMMAND_LINE_BETA]))
 
 # A → β
 define([FILES_ON_THE_COMMAND_LINE], [
@@ -75,3 +70,6 @@ divert(-1)
 		$0(shift($@))
 	])
 ])
+
+# no need for further
+popdef([COMMAND_LINE_BETA])
