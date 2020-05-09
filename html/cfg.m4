@@ -37,7 +37,7 @@ define([DEFAULT_HIGHLIGHT_COLOR], [lawngreen])
 define([REF_ANCH],	[ref])
 define([TOC_ANCH],	[-toc])
 define([TOC_ALL_PARTS],	[all-parts])
-define([TOC_REFS],	[refs])
+define([TOC_REFS],	[links])
 
 # html template namespace prefix:
 # A → β
