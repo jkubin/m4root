@@ -8,10 +8,17 @@
  * because lengthy JavaScript is eventually packed to a smaller one-line script
  */
 
-init: function (all_keywords, all_sources, namespace_prefix,
-	classname_for_striped_bckg, default_class) {
+init: function (
+	all_keywords,
+	all_sources,
+	namespace_prefix,
+	striped_background_classname,
+	colored_stripe_classname,
+	default_class) {
 
 	var another_class,
+
+		colored_stripe,
 		hgl_item,
 		hgl_keyword,
 		hgl_range,
@@ -46,7 +53,7 @@ init: function (all_keywords, all_sources, namespace_prefix,
 		 * the <pre>…</ pre> tag
 		 */
 		striped_background = document.createElement("pre");
-		striped_background.className = namespace_prefix + classname_for_striped_bckg;
+		striped_background.className = striped_background_classname;
 
 		/*
 		 * adds an event handler to display additional source code information
@@ -57,8 +64,15 @@ init: function (all_keywords, all_sources, namespace_prefix,
 		/*
 		 * creates and appends stripes
 		 */
-		for (i = 0; i < lines_of_code; i++)
-			striped_background.appendChild(document.createElement("div"));
+		for (i = 0; i < lines_of_code; i++) {
+
+			colored_stripe = document.createElement("div");
+
+			if (i & 1)
+				colored_stripe.className = colored_stripe_classname;
+
+			striped_background.appendChild(colored_stripe);
+		}
 
 		/*
 		 * appends the final element to the DOM tree into source node as
@@ -302,9 +316,9 @@ init: function (all_keywords, all_sources, namespace_prefix,
 					 * set a default color, if the class name is empty
 					 * "": [1, 2, 3] → "default_class": [1, 2, 3]
 					 */
-					resulting_class =
-						namespace_prefix +
-						(another_class ?  another_class : default_class);
+					resulting_class = another_class ?
+						namespace_prefix + another_class :
+						default_class;
 
 					/*
 					 * appends array of data to the keyword

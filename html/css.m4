@@ -215,12 +215,13 @@ text-decoration:#f04c23 underline dashed;
 ])
 
 # class names for JavaScript code (helps maintain consistency)
-define([DEFAULT_HIGHLIGHT_CLASS],	[dhc])
-define([CLASS_HGL],			[hgl])
-define([CLASS_REAR],		[rear])
-define([CLASS_SRC],			[src])
+define([CLASS_HGL],			defn([NSP])[hgl])
+define([CLASS_REAR],		defn([NSP])[re])
+define([CLASS_SRC],			defn([NSP])[src])
+define([CLASS_STRIPE],		defn([NSP])[ev])
+define([DEFAULT_HIGHLIGHT_CLASS],	defn([NSP])[dh])
 
-CSS_CLASS_RULE_SET([[]],	[src],	[[>pre.defn([NSP], [CLASS_REAR])]], [
+CSS_CLASS_RULE_SET([[]],	[src],	[[>pre.defn([CLASS_REAR])]], [
 
 left:0;
 overflow:visible;
@@ -237,20 +238,19 @@ background:none;
 
 ])
 
-CSS_CLASS_RULE_SET([[]],	[src],	[[], [>pre], [>pre.defn([NSP], [CLASS_REAR])>div]], [
+CSS_CLASS_RULE_SET([[]],	[src],	[[], [>pre], [>pre.defn([CLASS_REAR])>div]], [
 
 position:relative;
 
 ])
 
-
-CSS_CLASS_RULE_SET([[]],	[],	[[.defn([NSP], [CLASS_REAR])>:nth-child(even)]], [
+CSS_CLASS_RULE_SET([[.defn([CLASS_STRIPE])]],	[],	[[]], [
 
 background:#f5f5f5;
 
 ])
 
-CSS_CLASS_RULE_SET([[]],	[src],	[[>pre.defn([NSP], [CLASS_REAR])>div::before]], [
+CSS_CLASS_RULE_SET([[]],	[src],	[[>pre.defn([CLASS_REAR])>div::before]], [
 
 content:counter(defn([SRC_CNTR]));
 counter-increment:defn([SRC_CNTR]);
@@ -263,7 +263,7 @@ width:2.5em;
 ])
 
 # <div></div> must not be empty
-CSS_CLASS_RULE_SET([[]],	[src],	[[>pre.defn([NSP], [CLASS_REAR])>div::after]], [
+CSS_CLASS_RULE_SET([[]],	[src],	[[>pre.defn([CLASS_REAR])>div::after]], [
 
 content:" ";
 
@@ -417,7 +417,7 @@ CSS_CLASS_RULE_SET([
 [.NSP()E .NSP()e],
 [.NSP()F .NSP()f],
 [.NSP()G .NSP()g],
-[.defn([NSP], [CLASS_REAR])>.defn([NSP], [DEFAULT_HIGHLIGHT_CLASS])]],	[],	[[]], [
+[.defn([DEFAULT_HIGHLIGHT_CLASS])]],	[],	[[]], [
 
 background:defn([DEFAULT_HIGHLIGHT_COLOR]);
 
@@ -442,17 +442,15 @@ visibility:hidden;
 
 ])
 
-#.defn([NSP], [CLASS_REAR])>
-
 _CSS_CLASS_RULE_SET([[.NSP()foo]],	[],	[[]], [
 
-background:yellow!important;
+background:yellow;
 
 ])
 
 _CSS_CLASS_RULE_SET([[.NSP()bar]],	[],	[[]], [
 
-background:teal!important;
+background:teal;
 
 ])
 
