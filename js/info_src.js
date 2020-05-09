@@ -4,13 +4,13 @@
  * ___DESCR([adds additional git information to the field with source code])
  * ___POINT([data selected in one mouse click in standard browsers (not MSIE)])
  *
- * /!\ keep all variable names consistent with the file html/js_packer.sed
- * because lengthy JavaScript is eventually packed to a smaller one-line script
+ * /!\ keep all variable names consistent with packer
  */
 ,
-add_info: function () {
+method_add_info: function () {
 
 	var
+
 		parent_node = this.parentNode,
 		source_date,
 		source_info,

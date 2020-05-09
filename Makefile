@@ -127,8 +127,8 @@ test-uncommitted-git-changes changes gch:
 pkjs pjs js j: $(JAVASCRIPT)
 
 # trailing LF after packing is removed by "head" command
-%_packed.js: js_packer.sed %_src.js
-	sed -f $^ | head -c -1 > $@
+%_packed.js: packer.sed %_packer.sed %_src.js
+	sed -f $< -f $(word 2, $^) $(lastword $^) | head -c -1 > $@
 
 $(ORDER_FILE): rootb.m4 toc.m4 toc_list.m4
 	m4 -DALL_LANGS='$(LANGS_ALL)' -DFILE_LIST='$(FILE_LIST)' $^ > $@
