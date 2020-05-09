@@ -140,10 +140,10 @@ divert(CURRQU)popdef([CURRQU])dnl
 
 # HTML5 inline elements
 
-# extracts data from AH(…) which has variable number of parameters, see html/inline.m4
+# extracts data from ULINK(…) which has variable number of parameters, see html/inline.m4
 # A → β
 # β
-define([AH], [ifelse(
+define([ULINK], [ifelse(
 	[$#], [0], [],
 	[$#], [1], [],
 	[$#], [2], [$1],
@@ -152,7 +152,7 @@ define([AH], [ifelse(
 ])
 
 # A → β
-define([HEXPL], defn([AH]))
+define([HEXPL], defn([ULINK]))
 
 # A → β
 # β

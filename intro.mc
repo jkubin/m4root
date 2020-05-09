@@ -102,9 +102,9 @@ LISTITEM_MONO([[LINK([m4_on_examples], [m4_on_examples])]])
 LISTITEM_MONO([[LINK([questions_and_answers], [questions_and_answers])]])
 
 LISTITEM([dnl czech
-[AH([http://github.com/jkubin/m4root], defn([SERIES_NAME]), [http://github.com/jkubin/m4root]) – složitější projekt generující HTML5 tohoto seriálu],
+[ULINK([http://github.com/jkubin/m4root], defn([SERIES_NAME]), [http://github.com/jkubin/m4root]) – složitější projekt generující HTML5 tohoto seriálu],
 dnl english: _next_language_
-[AH([http://github.com/jkubin/m4root], defn([SERIES_NAME]), [http://github.com/jkubin/m4root]) – more complex project generating HTML5 of this series],
+[ULINK([http://github.com/jkubin/m4root], defn([SERIES_NAME]), [http://github.com/jkubin/m4root]) – more complex project generating HTML5 of this series],
 ])
 
 ])dnl ITEMIZEDLIST_WRAP
@@ -150,13 +150,13 @@ BRIDGEHEAD_MONO([dnl monolingual
 
 PARA([[dnl czech
 Základní myšlenku přepisování textových řetězců s[]NB()argumenty, které se přepíší do dalších rekurzivně přepisovatelných řetězců, představil
-AH([PERSON([Christopher Strachey])], [Wikipedie], [https://en.wikipedia.org/wiki/Christopher_Strachey]) ve svém
+ULINK([PERSON([Christopher Strachey])], [Wikipedie], [https://en.wikipedia.org/wiki/Christopher_Strachey]) ve svém
 ABBR([GPM], [General Purpose Macro-generator])[]REF([A[]NB()General Purpose Macro-generator], [Computer Journal 8, 3 (1965), 225–41], [http://dx.doi.org/10.1093/comjnl/8.3.225]) v[]NB()roce 1965.
 Další generace makro procesorů M3 a[]NB()M4 původní ABBR([GPM], [General Purpose Macro-generator]) v[]NB()podstatě už jen rozšiřovaly.
 Základní myšlenka původního návrhu ale zůstala stejná.
 ],
 [dnl english: _next_language_
-AH([PERSON([Christopher Strachey])], [Wikipedia], [https://en.wikipedia.org/wiki/Christopher_Strachey]) introduced the basic idea of rewritable strings with arguments which recursively rewrite to other strings in his
+ULINK([PERSON([Christopher Strachey])], [Wikipedia], [https://en.wikipedia.org/wiki/Christopher_Strachey]) introduced the basic idea of rewritable strings with arguments which recursively rewrite to other strings in his
 ABBR([GPM], [General Purpose Macro-generator])[]REF([A[]NB()General Purpose Macro-generator], [Computer Journal 8, 3 (1965), 225–41], [http://dx.doi.org/10.1093/comjnl/8.3.225]) in 1965.
 The next generation of M3 and M4 macro processors basically just expanded the original ABBR([GPM], [General Purpose Macro-generator]).
 The basic idea of the original proposal remained the same.
@@ -167,13 +167,13 @@ BRIDGEHEAD_MONO([dnl monolingual
 ])
 
 PARA([[dnl czech
-AH([PERSON([Dennis Ritchie])], [Wikipedie], [https://cs.wikipedia.org/wiki/Dennis_Ritchie]) převzal základní myšlenku ABBR([GPM], [General Purpose Macro-generator]) a[]NB()napsal vylepšený makro procesor pro generování zdrojového kódu programovacího jazyka C (1972), který sám navrhl.
+ULINK([PERSON([Dennis Ritchie])], [Wikipedie], [https://cs.wikipedia.org/wiki/Dennis_Ritchie]) převzal základní myšlenku ABBR([GPM], [General Purpose Macro-generator]) a[]NB()napsal vylepšený makro procesor pro generování zdrojového kódu programovacího jazyka C (1972), který sám navrhl.
 Nový BO([m])akro procesor napsal pro minipočítač AP-BO([3]), odtud jméno BO([M3]).
 Tento přímý předchůdce současného M4 dokázal výrazně ušetřit těžkou a[]NB()časově náročnou práci, čímž zaujal vývojáře programující v[]NB()jiných jazycích (ABBR([FORTRAN], [FORmula TRANslation]), ABBR([COBOL], [COmmon Business-Oriented Language]), ABBR([PL/I], [Programming Language One]), …).
 Vývojáři upravovali M3 pro tyto jazyky čímž ho proměnili na univerzálně použitelný makro procesor M4.
 ],
 [dnl english: _next_language_
-AH([PERSON([Dennis Ritchie])], [Wikipedia], [https://en.wikipedia.org/wiki/Dennis_Ritchie]) took over the basic idea of ABBR([GPM], [General Purpose Macro-generator]) and wrote an improved macro processor for generating source code of C[]NB()(1972) language, which he himself designed.
+ULINK([PERSON([Dennis Ritchie])], [Wikipedia], [https://en.wikipedia.org/wiki/Dennis_Ritchie]) took over the basic idea of ABBR([GPM], [General Purpose Macro-generator]) and wrote an improved macro processor for generating source code of C[]NB()(1972) language, which he himself designed.
 The new BUN([m])acro processor was written for the minicomputer AP-BUN([3]), hence the name BO([M3]).
 This direct ancestor of the current M4 managed to significantly save heavy and time-consuming work and attract developers programming to other languages (ABBR([FORTRAN], [FORmula TRANslation]), ABBR([COBOL], [COmmon Business-Oriented Language]), ABBR([PL/I], [Programming Language One]), …).
 Developers have customized M3 for these languages turning it into a[]NB()universally usable M4 macro processor.
@@ -191,11 +191,11 @@ PERSON([Dennis Ritchie]) was also a[]NB()co-creator of UNIX and therefore:
 ITEMIZEDLIST_WRAP([
 
 LISTITEM([[dnl czech
-M4 je minimalistický a[]NB()rychlý, AH([dělá jednu věc a[]NB()tu dělá dobře], [Filosofie UNIX-u
+M4 je minimalistický a[]NB()rychlý, ULINK([dělá jednu věc a[]NB()tu dělá dobře], [Filosofie UNIX-u
 Wikipedie], [https://cs.wikipedia.org/wiki/Filosofie_Unixu])
 ],
 [dnl english: _next_language_
-M4 is minimalist and fast, AH([it does one thing and it does well], [UNIX philosophy
+M4 is minimalist and fast, ULINK([it does one thing and it does well], [UNIX philosophy
 Wikipedia], [https://en.wikipedia.org/wiki/Unix_philosophy])
 ]])
 
@@ -255,12 +255,12 @@ divert(0)dnl
 ])dnl PROGRAMLISTING
 
 NOTE(, defn([WORD_NOTE]), [[dnl czech
-Klíčové slovo HCODE([[divert](AH([ℤ], [celé číslo], [https://cs.wikipedia.org/wiki/Cel%C3%A9_%C4%8D%C3%ADslo]))], [divert(-1), divert(0), divert(1), …, divert(2147483647)], [[[1, 5], [common_code]]]) přepíná výstupní fronty.
+Klíčové slovo HCODE([[divert](ULINK([ℤ], [celé číslo], [https://cs.wikipedia.org/wiki/Cel%C3%A9_%C4%8D%C3%ADslo]))], [divert(-1), divert(0), divert(1), …, divert(2147483647)], [[[1, 5], [common_code]]]) přepíná výstupní fronty.
 Argument CODE([-1]) zcela vypne jakýkoliv textový výstup.
 Argument CODE([0]) přepne výstup na CODE_M4([stdout]) (standardní výstup).
 ],
 [dnl english: _next_language_
-The HCODE([[divert](AH([ℤ], [integer], [https://en.wikipedia.org/wiki/Integer]))], [divert(-1), divert(0), divert(1), …, divert(2147483647)], [[[1, 5], [common_code]]]) keyword switches output queues.
+The HCODE([[divert](ULINK([ℤ], [integer], [https://en.wikipedia.org/wiki/Integer]))], [divert(-1), divert(0), divert(1), …, divert(2147483647)], [[[1, 5], [common_code]]]) keyword switches output queues.
 Argument CODE([-1]) completely disables any text output.
 Argument CODE([0]) switches output to CODE([stdout]) (standard output).
 ]])
@@ -270,15 +270,15 @@ BRIDGEHEAD_MONO([dnl monolingual
 ])
 
 PARA([[dnl czech
-AH([PERSON([Brian Kernighan])], [Wikipedie], [https://cs.wikipedia.org/wiki/Brian_Kernighan]) makro procesor M3 rozšířil na AH([preprocesor], [Wikipedie], [https://cs.wikipedia.org/wiki/Preprocesor]) jazyka FORTRAN 66,
+ULINK([PERSON([Brian Kernighan])], [Wikipedie], [https://cs.wikipedia.org/wiki/Brian_Kernighan]) makro procesor M3 rozšířil na ULINK([preprocesor], [Wikipedie], [https://cs.wikipedia.org/wiki/Preprocesor]) jazyka FORTRAN 66,
 aby mohl vytvořit hybridní jazykovou nadstavbu pojmenovanou ABBR([BO([RATFOR])], [RATional FORtran])[]REF([RATFOR — A Preprocessor for a Rational Fortran], [Brian W. Kernighan], [https://wolfram.schneider.org/bsd/7thEdManVol2/ratfor/ratfor.pdf]).
 Základní programové konstrukce této nadstavby (podmínky, cykly) jsou stejné jako v[]NB()jazyce C.
 Programování v[]NB()RATFOR-u se tak podobá programování v[]NB()QUOTE([céčku]).
 Makro procesor zdrojový kód překládá zpátky do FORTRAN-u, poté kompilátor provede překlad do strojového kódu.
 ],
 [dnl english: _next_language_
-AH([PERSON([Brian Kernighan])], [Wikipedia], [https://en.wikipedia.org/wiki/Brian_Kernighan]) has enhanced the M3 macro processor to the FORTRAN 66
-AH([preprocessor], [Wikipedia], [https://en.wikipedia.org/wiki/Preprocessor]) to create a[]NB()hybrid language extension named ABBR([BO([RATFOR])], [RATional FORtran])[]REF([RATFOR — A Preprocessor for a Rational Fortran], [Brian W. Kernighan], [https://wolfram.schneider.org/bsd/7thEdManVol2/ratfor/ratfor.pdf]).
+ULINK([PERSON([Brian Kernighan])], [Wikipedia], [https://en.wikipedia.org/wiki/Brian_Kernighan]) has enhanced the M3 macro processor to the FORTRAN 66
+ULINK([preprocessor], [Wikipedia], [https://en.wikipedia.org/wiki/Preprocessor]) to create a[]NB()hybrid language extension named ABBR([BO([RATFOR])], [RATional FORtran])[]REF([RATFOR — A Preprocessor for a Rational Fortran], [Brian W. Kernighan], [https://wolfram.schneider.org/bsd/7thEdManVol2/ratfor/ratfor.pdf]).
 The basic program constructions of this extension (conditions, cycles) are the same as in C[]NB()language.
 Programming in RATFOR is similar to C[]NB()programming.
 The macro processor converts the source code back to FORTRAN, then the compiler performs the usual compilation to machine code.
@@ -351,11 +351,11 @@ UL([LI([both control characters can be hidden into user-defined macros CODE_M4([
 ]])
 
 LISTITEM([[dnl czech
-makra se píší CODE([VELKYMI_PISMENY]), stejně jako AH([neterminální symboly], [Wikipedie], [https://cs.wikipedia.org/wiki/Termin%C3%A1ln%C3%AD_a_netermin%C3%A1ln%C3%AD_symbol])
+makra se píší CODE([VELKYMI_PISMENY]), stejně jako ULINK([neterminální symboly], [Wikipedie], [https://cs.wikipedia.org/wiki/Termin%C3%A1ln%C3%AD_a_netermin%C3%A1ln%C3%AD_symbol])
 UL([LI([tím je vymezen jejich jmenný prostor])])
 ],
 [dnl english: _next_language_
-macros are written CODE([IN_UPPERCASE]), just like AH([nonterminal symbols], [Wikipedia], [https://en.wikipedia.org/wiki/Terminal_and_nonterminal_symbols])
+macros are written CODE([IN_UPPERCASE]), just like ULINK([nonterminal symbols], [Wikipedia], [https://en.wikipedia.org/wiki/Terminal_and_nonterminal_symbols])
 UL([LI([this delimits their namespace])])
 ]])
 
@@ -395,16 +395,16 @@ BRIDGEHEAD_MONO([dnl monolingual
 
 PARA([[dnl czech
 Dnes existuje několik implementací lišící se od původní implementace spíše drobnostmi.
-Nejrozšířenější implementace M4 je BO([GNU M4]) používaná pro AH([Autotools], [Wikipedie], [https://en.wikipedia.org/wiki/GNU_Build_System])
+Nejrozšířenější implementace M4 je BO([GNU M4]) používaná pro ULINK([Autotools], [Wikipedie], [https://en.wikipedia.org/wiki/GNU_Build_System])
 a[]NB()pro překlad jednoduchého konfiguračního souboru CODE([sendmail.mc]) na složitý CODE([sendmail.cf]).
-Autorem této implementace z[]NB()roku 1990 je AH([PERSON([René Seindal])], [https://www.seindal.dk/rene/gnu/]).
+Autorem této implementace z[]NB()roku 1990 je ULINK([PERSON([René Seindal])], [https://www.seindal.dk/rene/gnu/]).
 Následující příkaz nainstaluje EXPL([m4], [s malým „m“]):
 ],
 [dnl english: _next_language_
 Today, there are several implementations that differ from the original implementation rather by small details.
-The most common implementation of M4 is the BO([GNU M4]) used for AH([Autotools], [Wikipedia], [https://en.wikipedia.org/wiki/GNU_Build_System])
+The most common implementation of M4 is the BO([GNU M4]) used for ULINK([Autotools], [Wikipedia], [https://en.wikipedia.org/wiki/GNU_Build_System])
 and for translating the simple CODE([sendmail.mc]) configuration file to complex CODE([sendmail.cf]).
-The author of this implementation (1990) is AH([PERSON([René Seindal])], [https://www.seindal.dk/rene/gnu/]).
+The author of this implementation (1990) is ULINK([PERSON([René Seindal])], [https://www.seindal.dk/rene/gnu/]).
 To install EXPL([m4], [with small letter „m“]), type the following command:
 ]])
 
@@ -435,14 +435,14 @@ dnl english: _next_language_
 PARA([[dnl czech
 Základem jazyka M4 je BO([bezkontextová gramatika]), BO([automaty]), BO([zásobníky]) a[]NB()BO([výstupní fronty]).
 Pro pochopení jazyka M4 je proto velmi důležité rozumět základním pojmům teorie formálních jazyků –
-co jsou AH([terminální symboly], [Wikipedie], [https://cs.wikipedia.org/wiki/Termin%C3%A1ln%C3%AD_a_netermin%C3%A1ln%C3%AD_symbol]) (stručně BO([terminály])) a[]NB()neterminální symboly (stručně BO([neterminály])).
+co jsou ULINK([terminální symboly], [Wikipedie], [https://cs.wikipedia.org/wiki/Termin%C3%A1ln%C3%AD_a_netermin%C3%A1ln%C3%AD_symbol]) (stručně BO([terminály])) a[]NB()neterminální symboly (stručně BO([neterminály])).
 Zmíněné pojmy si podrobněji vysvětlíme někdy později.
 Cílem tohoto úvodního dílu je hlavně ukázat praktické použití M4 na příkladech.
 ],
 [dnl english: _next_language_
 M4 is based on BO([context-free grammar]), BO([automata]), BO([stacks]) and BO([output queues]).
 To understand M4, it is therefore crucial to understand the basic concepts of formal language theory –
-AH([terminal symbols], [Wikipedia], [https://en.wikipedia.org/wiki/Terminal_and_nonterminal_symbols]) (briefly BO([terminals])) and nonterminal symbols (briefly BO([nonterminals])).
+ULINK([terminal symbols], [Wikipedia], [https://en.wikipedia.org/wiki/Terminal_and_nonterminal_symbols]) (briefly BO([terminals])) and nonterminal symbols (briefly BO([nonterminals])).
 These terms will be explained later in more detail.
 The objective is to show the basic practical use of M4 language on examples.
 ]])
@@ -456,12 +456,12 @@ dnl english: _next_language_
 PARA([[dnl czech
 Bezkontextová gramatika (krátce ABBR([CFG], [Context-Free Grammar – bezkontextová gramatika])) je LINK([formální gramatika], [formal_grammar_chomsky]), ve které mají všechna přepisovací pravidla tvar HCODE([A → β], [[[1], [all_context_free_grammar_rules]]]).
 Neterminál HCODE_M4([A], [[[D], [all_context_free_grammar_rules]]]) se HEXPL([přepíše], [[[E], [all_context_free_grammar_rules]]]) na libovolně dlouhý řetězec ABBR([HCODE([β], [[[F], [all_context_free_grammar_rules]]])], [pravá strana přepisovacího pravidla]) složený z[]NB()HEXPL([neterminálů CODE([N])], [[[B], [all_context_free_grammar_rules]]]) HEXPL([nebo], [[[G], [all_context_free_grammar_rules]]]) HEXPL([terminálů CODE([Σ])], [[[A], [all_context_free_grammar_rules]]]).
-HEXPL([AH([Kleeneho hvězda], [Wikipedie], [https://en.wikipedia.org/wiki/Kleene_star])], [[[C], [all_context_free_grammar_rules]]]) znamená, že se neterminál HCODE_M4([A], [[[D], [all_context_free_grammar_rules]]]) může přepsat na ABBR([CODE([ε])], [epsilon – prázdný symbol]) (přepisovací pravidlo HCODE([A → ε], [[[5,6], [rewriting_rules]]])).
+HEXPL([ULINK([Kleeneho hvězda], [Wikipedie], [https://en.wikipedia.org/wiki/Kleene_star])], [[[C], [all_context_free_grammar_rules]]]) znamená, že se neterminál HCODE_M4([A], [[[D], [all_context_free_grammar_rules]]]) může přepsat na ABBR([CODE([ε])], [epsilon – prázdný symbol]) (přepisovací pravidlo HCODE([A → ε], [[[5,6], [rewriting_rules]]])).
 ],
 [dnl english: _next_language_
 Context-free grammar (shortly ABBR([CFG], [Context-Free Grammar])) is a[]NB()LINK([formal grammar], [formal_grammar_chomsky]) in which all rules for rewriting have the HCODE([A → β], [[[1], [all_context_free_grammar_rules]]]) form.
 The nonterminal HCODE_M4([A], [[[D], [all_context_free_grammar_rules]]]) is HEXPL([rewritten], [[[E], [all_context_free_grammar_rules]]]) to an arbitrarily long ABBR([HCODE([β], [[[F], [all_context_free_grammar_rules]]])], [the right side of the rewriting rule]) string composed of HEXPL([nonterminals CODE([N])], [[[B], [all_context_free_grammar_rules]]]) HEXPL([or], [[[G], [all_context_free_grammar_rules]]]) HEXPL([terminals CODE([Σ])], [[[A], [all_context_free_grammar_rules]]]).
-HEXPL([AH([Kleene star], [Wikipedia], [https://en.wikipedia.org/wiki/Kleene_star])], [[[C], [all_context_free_grammar_rules]]]) means that nonterminal HCODE_M4([A], [[[D], [all_context_free_grammar_rules]]]) can be rewritten to ABBR([CODE([ε])], [epsilon – empty symbol]) (rewriting rule HCODE([A → ε], [[[5,6], [rewriting_rules]]])).
+HEXPL([ULINK([Kleene star], [Wikipedia], [https://en.wikipedia.org/wiki/Kleene_star])], [[[C], [all_context_free_grammar_rules]]]) means that nonterminal HCODE_M4([A], [[[D], [all_context_free_grammar_rules]]]) can be rewritten to ABBR([CODE([ε])], [epsilon – empty symbol]) (rewriting rule HCODE([A → ε], [[[5,6], [rewriting_rules]]])).
 ]])
 
 PROGRAMLISTING([all_context_free_grammar_rules], LANG([přepisovací pravidla bezkontextové gramatiky], [context-free grammar rewriting rules]), [dnl
@@ -519,7 +519,7 @@ dnl english: _next_language_
 
 PARA([[dnl czech
 Výchozí dvojice znaků CODE([`']) v[]NB()M4 řídí expanzi neterminálů.
-Klíčové slovo CODE_M4([changequote()]) je může změnit na jiné znaky, například {EXPL_M4([[]], [hranaté závorky]), BO([EXPL_M4([␂␆], [netisknutelné znaky])]), EXPL_M4([⟦⟧], [UTF-8 znaky])}.
+Klíčové slovo CODE_M4([changequote()]) je může změnit na jiné znaky, například {EXPL_M4([[]], [hranaté závorky]), EXPL_M4([␂␆], [netisknutelné znaky]), EXPL_M4([⟦⟧], [UTF-8 znaky])}.
 Neterminály, které nechceme (ihned) expandovat, jsou obklopeny touto dvojicí znaků.
 Při průchodu makro procesorem jsou všechny symboly mezi touto dvojicí znaků BO([terminálními symboly]) a[]NB()vnější dvojice znaků je odstraněna.
 Další průchod již způsobí expanzi původně chráněných neterminálů.
@@ -527,7 +527,7 @@ Dvojice řídících znaků se nastavuje na začátku kořenového souboru.
 ],
 [dnl english: _next_language_
 The default character pair CODE([`']) in M4 controls the expansion of nonterminals.
-The keyword CODE_M4([changequote()]) can change them to other characters, for example {EXPL_M4([[]], [square brackets]), BO([EXPL_M4([␂␆], [nonprintable characters])]), EXPL_M4([⟦⟧], [UTF-8 characters])}.
+The keyword CODE_M4([changequote()]) can change them to other characters, for example {EXPL_M4([[]], [square brackets]), EXPL_M4([␂␆], [nonprintable characters]), EXPL_M4([⟦⟧], [UTF-8 characters])}.
 The nonterminals that we do not want to (immediately) expand are surrounded by this pair of characters.
 When passing through the macro processor, all the symbols between this character pair are BO([terminal symbols]) and the outer character pair is removed.
 The next pass will cause the expansion of the originally protected nonterminals.
@@ -970,19 +970,19 @@ S: LANG([je počáteční (startovací) symbol], [is the start symbol])
 ])dnl PROGRAMLISTING
 
 PARA([[dnl czech
-AH([Formální gramatika], [Wikipedie], [https://cs.wikipedia.org/wiki/Form%C3%A1ln%C3%AD_gramatika]) popisuje AH([podmnožiny], [Chomského hierarchie
+ULINK([Formální gramatika], [Wikipedie], [https://cs.wikipedia.org/wiki/Form%C3%A1ln%C3%AD_gramatika]) popisuje ULINK([podmnožiny], [Chomského hierarchie
 (Wikipedie)], [https://cs.wikipedia.org/wiki/Chomsk%C3%A9ho_hierarchie])
-přepisovacích pravidel AH([formálního jazyka], [Wikipedie], [https://cs.wikipedia.org/wiki/Form%C3%A1ln%C3%AD_jazyk]).
-Jedna z[]NB()podmnožin se jmenuje HEXPL([AH([bezkontextová gramatika], [Wikipedie], [https://cs.wikipedia.org/wiki/Bezkontextov%C3%A1_gramatika])], [[[S,X], [formal_definition]]]),
+přepisovacích pravidel ULINK([formálního jazyka], [Wikipedie], [https://cs.wikipedia.org/wiki/Form%C3%A1ln%C3%AD_jazyk]).
+Jedna z[]NB()podmnožin se jmenuje HEXPL([ULINK([bezkontextová gramatika], [Wikipedie], [https://cs.wikipedia.org/wiki/Bezkontextov%C3%A1_gramatika])], [[[S,X], [formal_definition]]]),
 krátce ABBR([CFG], [Context-Free Grammar – bezkontextová gramatika]).
 Jak již bylo dříve zmíněno, přepisovací pravidla CFG pracují stejně jako přepisovací pravidla jazyka M4.
 Některý z[]NB()následujících dílů seriálu se podrobněji zaměří na formální gramatiky.
 ],
 [dnl english: _next_language_
-The AH([Formal grammar], [Wikipedia], [https://en.wikipedia.org/wiki/Formal_grammar]) describes the AH([subsets], [Chomsky hierarchy
+The ULINK([Formal grammar], [Wikipedia], [https://en.wikipedia.org/wiki/Formal_grammar]) describes the ULINK([subsets], [Chomsky hierarchy
 (Wikipedie)], [https://en.wikipedia.org/wiki/Chomsky_hierarchy]) of the
-AH([formal language], [Wikipedia], [https://en.wikipedia.org/wiki/Formal_language])
-rewriting rules and one of the subsets is called HEXPL([AH([context-free grammar], [Wikipedia], [https://en.wikipedia.org/wiki/Context-free_grammar])], [[[S,X], [formal_definition]]]),
+ULINK([formal language], [Wikipedia], [https://en.wikipedia.org/wiki/Formal_language])
+rewriting rules and one of the subsets is called HEXPL([ULINK([context-free grammar], [Wikipedia], [https://en.wikipedia.org/wiki/Context-free_grammar])], [[[S,X], [formal_definition]]]),
 shortly ABBR([CFG], [Context-Free Grammar]).
 As mentioned earlier, the CFG rewriting rules work the same as the M4 rewriting rules.
 Some of the following episodes of this series will focus on formal grammar in detail.
@@ -1136,13 +1136,13 @@ dnl english: _next_language_
 
 PARA([[dnl czech
 M4 obvykle nejde zcela zvládnout přes víkend, zvláště chybí-li základy[]REF([Automaty a[]NB()formální jazyky I], [Učební text FI MU], [https://is.muni.cz/elportal/estud/fi/js06/ib005/Formalni_jazyky_a_automaty_I.pdf])
-AH([teorie[]NB()automatů], [Wikipedie], [https://cs.wikipedia.org/wiki/Teorie_automat%C5%AF]) a[]NB()AH([formálních[]NB()gramatik], [Wikipedie], [https://cs.wikipedia.org/wiki/Form%C3%A1ln%C3%AD_gramatika]).
+ULINK([teorie[]NB()automatů], [Wikipedie], [https://cs.wikipedia.org/wiki/Teorie_automat%C5%AF]) a[]NB()ULINK([formálních[]NB()gramatik], [Wikipedie], [https://cs.wikipedia.org/wiki/Form%C3%A1ln%C3%AD_gramatika]).
 Ke zvládnutí jazyka M4 je nutné v[]NB()něm programovat delší období a[]NB()napsat množství špatného (složitého) M4 kódu, který z[]NB()vlastní vůle přepíšete kvůli lepšímu nápadu.
 Tímto způsobem je možné postupně získat praxi.
 ],
 [dnl english: _next_language_
 M4 usually cannot be mastered over the weekend, especially when the fundamentals[]REF([Automaty a[]NB()formální jazyky I], [Učební text FI MU], [https://is.muni.cz/elportal/estud/fi/js06/ib005/Formalni_jazyky_a_automaty_I.pdf]) of
-AH([automata theory], [Wikipedia], [https://en.wikipedia.org/wiki/Automata_theory]) and AH([formal[]NB()grammars], [Wikipedia], [https://en.wikipedia.org/wiki/Formal_grammar]) are lacking.
+ULINK([automata theory], [Wikipedia], [https://en.wikipedia.org/wiki/Automata_theory]) and ULINK([formal[]NB()grammars], [Wikipedia], [https://en.wikipedia.org/wiki/Formal_grammar]) are lacking.
 In order to master the M4 language, it is necessary to program in a[]NB()longer period of time and write amounts of bad (complex) M4 code that you rewrite for a[]NB()better idea.
 In this way it is possible to gradually gain practice.
 ]])
@@ -1498,15 +1498,15 @@ dnl english: _next_language_
 
 PARA([[dnl czech
 Příklad používá HEXPL([dvě výstupní fronty], [[[14, 30], [messages/atm.json.m4]]]) a[]NB()jeden HEXPL([generující automat], [[[1-3], [messages/atm.json.m4]]]).
-První chybová zpráva CODE_M4([ERROR([…])]) ve stavu HCODE([ERROR], [[[6-17], [messages/atm.json.m4]]]) vygeneruje HEXPL([záhlaví se závorkami], [[[12, 15], [messages/atm.json.m4]], [[3, 7], [messages/atm.json]]]) a[]NB()vypíše na výstup HEXPL([první záznam], [[[13], [messages/atm.json.m4]], [[4], [messages/atm.json]]]).
-HEXPL([Automat přejde], [[[8, 9], [messages/atm.json.m4]]]) do stavu HCODE([NEXT_ITEM], [[[20-25], [messages/atm.json.m4]]]) což je ABBR([CODE([β]) pravidlo], [takové pravidlo se používá jako pravá strana jiného přepisovacího pravidla]).
+První chybová zpráva CODE_M4([ERROR([…])]) ve stavu HCODE([ERROR], [[[6-17], [messages/atm.json.m4]]]) vygeneruje HEXPL([záhlaví se závorkami], [[[12, 15], [messages/atm.json.m4]], [[3, 7], [messages/atm.json]]]) a[]NB()vypíše HEXPL([na výstup], [[[11], [messages/atm.json.m4]]]) HEXPL([první záznam], [[[13], [messages/atm.json.m4]], [[4], [messages/atm.json]]]).
+HEXPL([Automat přejde], [[[8, 9], [messages/atm.json.m4]]]) do stavu HCODE([NEXT_ITEM], [[[20-25], [messages/atm.json.m4]]]) což je ABBR([HCODE([β], [[[19], [messages/atm.json.m4]]]) pravidlo], [takové pravidlo se používá jako pravá strana jiného přepisovacího pravidla]).
 Následující chybové zprávy ve stavu HCODE([NEXT_ITEM], [[[20-25], [messages/atm.json.m4]]]) pouze HEXPL([vypisují na výstup], [[[22], [messages/atm.json.m4]]]) HEXPL([jednotlivé záznamy], [[[23], [messages/atm.json.m4]], [[5, 6], [messages/atm.json]]]).
 Na závěr výstupní fronty číslo HCODE([1], [[[14], [messages/atm.json.m4]]]) a[]NB()HCODE([2], [[[30], [messages/atm.json.m4]]]) vypíšou znaky HCODE([RB()], [[[15], [messages/atm.json.m4]], [[7], [messages/atm.json]]]) a[]NB()HCODE([}}], [[[31], [messages/atm.json.m4]], [[8], [messages/atm.json]]]) čímž zakončí výsledný JSON.
 ],
 [dnl english: _next_language_
 The example uses HEXPL([two output queues], [[[14, 30], [messages/atm.json.m4]]]) and one HEXPL([generating automaton], [[[1-3], [messages/atm.json.m4]]]).
-The first CODE_M4([ERROR([…])]) error message in the HCODE([ERROR], [[[6-17], [messages/atm.json.m4]]]) state generates HEXPL([a[]NB()header with brackets], [[[12, 15], [messages/atm.json.m4]], [[3, 7], [messages/atm.json]]]) and outputs HEXPL([the first record], [[[13], [messages/atm.json.m4]], [[4], [messages/atm.json]]]).
-HEXPL([The automaton goes], [[[8, 9], [messages/atm.json.m4]]]) to the state HCODE([NEXT_ITEM], [[[20-25], [messages/atm.json.m4]]]) which is a[]NB()ABBR([CODE([β]) rule], [the rule is used as the right side of another rewriting rule]).
+The first CODE_M4([ERROR([…])]) error message in the HCODE([ERROR], [[[6-17], [messages/atm.json.m4]]]) state generates HEXPL([a[]NB()header with brackets], [[[12, 15], [messages/atm.json.m4]], [[3, 7], [messages/atm.json]]]) and HEXPL([outputs], [[[11], [messages/atm.json.m4]]]) HEXPL([the first record], [[[13], [messages/atm.json.m4]], [[4], [messages/atm.json]]]).
+HEXPL([The automaton goes], [[[8, 9], [messages/atm.json.m4]]]) to the state HCODE([NEXT_ITEM], [[[20-25], [messages/atm.json.m4]]]) which is a[]NB()ABBR([HCODE([β], [[[19], [messages/atm.json.m4]]]) rule], [the rule is used as the right side of another rewriting rule]).
 The following error messages in the HCODE([NEXT_ITEM], [[[20-25], [messages/atm.json.m4]]]) state only HEXPL([output], [[[22], [messages/atm.json.m4]]]) HEXPL([individual records], [[[23], [messages/atm.json.m4]], [[5, 6], [messages/atm.json]]]).
 At the end the output queue number HCODE([1], [[[14], [messages/atm.json.m4]]]) and number HCODE([2], [[[30], [messages/atm.json.m4]]]) print the characters HCODE([RB()], [[[15], [messages/atm.json.m4]], [[7], [messages/atm.json]]]) and HCODE([}}], [[[31], [messages/atm.json.m4]], [[8], [messages/atm.json]]]) to close the resulting JSON.
 ]])
@@ -1527,14 +1527,14 @@ Příklad zpracovává další zprávy typu CODE_M4([QUERY]) a[]NB()CODE_M4([WAR
 Používá tři automaty a[]NB()šest výstupních front.
 Generujeme-li složitější zdrojový kód, brzy narazíme na problém udržení konzistence indexů pro výstupní fronty.
 Abychom se vyhnuli zmatku, pojmenujeme si fronty a[]NB()místo čísel používáme jména.
-Abychom nemuseli definovat podobná pravidla, zkopírujeme si pravou stranu CODE([ERROR]) (je to také ABBR([CODE([β]) pravidlo], [takové pravidlo se používá jako pravá strana jiného přepisovacího pravidla])) do pravé strany pravidel CODE([QUERY]) a[]NB()CODE([WARNING]).
+Abychom nemuseli definovat podobná pravidla, zkopírujeme si pravou stranu CODE([ERROR]) (je to také ABBR([HCODE([β], [[[21], [messages/qnames.json.m4]]]) pravidlo], [takové pravidlo se používá jako pravá strana jiného přepisovacího pravidla])) do pravé strany pravidel CODE([QUERY]) a[]NB()CODE([WARNING]).
 ],
 [dnl english: _next_language_
 The example processes other types of messages CODE_M4([QUERY]) and CODE_M4([WARNING]).
 It uses three automata and six output queues.
 If we generate more complex source code, we will soon encounter the problem of maintaining index consistency for output queues.
 To avoid confusion, we use queue names instead of numbers.
-To avoid having to define similar rules, we copy the right side of CODE([ERROR]) (it is also a[]NB()ABBR([CODE([β]) rule], [the rule is used as the right side of another rewriting rule])) to the right side of the CODE([QUERY]) and CODE([WARNING]) rules.
+To avoid having to define similar rules, we copy the right side of CODE([ERROR]) (it is also a[]NB()ABBR([HCODE([β], [[[21], [messages/qnames.json.m4]]]) rule], [the rule is used as the right side of another rewriting rule])) to the right side of the CODE([QUERY]) and CODE([WARNING]) rules.
 ]])
 
 BRIDGEHEAD([branching_by_grammar], [dnl czech
@@ -1685,7 +1685,7 @@ dnl english: _next_language_
 ])
 
 PARA([[dnl czech
-Direktivy AH([CPP], [Preprocesor jazyka C], [https://cs.wikipedia.org/wiki/Preprocesor_jazyka_C]) jsou pro M4 jednořádkový komentář, což brání nežádoucí expanzi stejně pojmenovaných maker.
+Direktivy ULINK([CPP], [Preprocesor jazyka C], [https://cs.wikipedia.org/wiki/Preprocesor_jazyka_C]) jsou pro M4 jednořádkový komentář, což brání nežádoucí expanzi stejně pojmenovaných maker.
 Definujeme-li bezpečnější makro HCODE([SAF()], [[[5], [preproc/file.c.m4]], [[12], [preproc/file.c]]]), stejně pojmenované makro HCODE([SAF ()], [[[8, 11], [preproc/file.c]]]) nebude přepsáno.
 Jmenný prostor ABBR([CPP], [Preprocesor jazyka C]) tak BO([může]) být zcela oddělen od jmenného prostoru M4.
 Problematický znak CODE([LQ()]) je skryt do makra HCODE_M4([LQ()], [[[24], [preproc/file.c]]]).
@@ -1694,7 +1694,7 @@ Apostrof uvnitř makra HCODE([ORD[]DEL([SPAN([()],,, [color:rgba(0,0,0,.75)])],,
 Všimněte si jmen funkcí HCODE_M4([define ()], [[[17, 27], [preproc/file.c]], [[17, 27], [preproc/preproc.file.c]]]) nebo HCODE_M4([ifelse ()], [[[18, 28], [preproc/file.c]], [[18, 28], [preproc/preproc.file.c]]]) a[]NB()kde je expandován HCODE([SYMBOL], [[[C], [preproc/file.c]], [[C], [preproc/preproc.file.c]]]).
 ],
 [dnl english: _next_language_
-The AH([CPP], [C preprocessor], [https://en.wikipedia.org/wiki/C_preprocessor]) directives are a[]NB()one-line comment for M4 preventing unwanted expansion of the same named macros.
+The ULINK([CPP], [C preprocessor], [https://en.wikipedia.org/wiki/C_preprocessor]) directives are a[]NB()one-line comment for M4 preventing unwanted expansion of the same named macros.
 If we define a[]NB()safer HCODE([SAF()], [[[5], [preproc/file.c.m4]], [[12], [preproc/file.c]]]) macro, the similar HCODE([SAF ()], [[[8, 11], [preproc/file.c]]]) macro will not be overwritten.
 Thus, the ABBR([CPP], [C preprocessor]) namespace BO([can be]) completely separated from the M4 namespace.
 The problematic (backquote) character CODE([LQ()]) is hidden in the HCODE_M4([LQ()], [[[24], [preproc/file.c]]]) macro.

@@ -39,21 +39,21 @@ define([WBR],	[ifelse([$#], [0], [[$0]], [<wbr>])])
 define([GRAY],	[ifelse([$#], [0], [[$0]], ]BRAC([<span class="rs-note"]defn([TITLE_2])[>$1</span>])[)])
 define([PERSON],	[ifelse([$#], [0], [[$0]], ]BRAC([<span class="rs-person"]defn([TITLE_2])[>$1</span>])[)])
 
-# how to use AH(…)
+# how to use ULINK(…)
 #
-# AH	---> AH
-# AH (…)	---> AH (…)
-# AH([URL])	---> <a href="URL">URL</a>
-# AH([text], [URL])	---> <a href="URL">text</a>
-# AH([text], [my_title], [URL])	---> <a href="URL" title="my_title">text</a>
-# AH([text], [my_title],,,, [my_rel], [URL])	---> <a href="URL" title="my_title" rel="my_rel">text</a>
-# AH([text], [my_title], [my_class], [URL])	---> <a href="URL" title="my_title" class="my_class">text</a>
-# AH([text], [], [my_class], [URL])	---> <a href="URL" class="my_class">text</a>
-# AH([text],,,,, [my_rel], [URL])	---> <a href="URL" rel="my_rel">text</a>
-# AH([text],,,,,, [foo="bar" baz="ham"], [URL])	---> <a href="URL" foo="bar" baz="ham">text</a>
-# AH([text], [my_title], [my_class], [my_style], [URL])	---> <a href="URL" title="my_title" class="my_class" style="my_style">text</a>
-# AH([text], [my_title], [my_class],, [my_id], [URL])	---> <a href="URL" title="my_title" class="my_class" id="my_id">text</a>
-# AH([text], [my_title], [my_class],,, [my_rel], [URL])	---> <a href="URL" title="my_title" class="my_class" rel="my_rel">text</a>
+# ULINK	---> ULINK
+# ULINK (…)	---> ULINK (…)
+# ULINK([URL])	---> <a href="URL">URL</a>
+# ULINK([text], [URL])	---> <a href="URL">text</a>
+# ULINK([text], [my_title], [URL])	---> <a href="URL" title="my_title">text</a>
+# ULINK([text], [my_title],,,, [my_rel], [URL])	---> <a href="URL" title="my_title" rel="my_rel">text</a>
+# ULINK([text], [my_title], [my_class], [URL])	---> <a href="URL" title="my_title" class="my_class">text</a>
+# ULINK([text], [], [my_class], [URL])	---> <a href="URL" class="my_class">text</a>
+# ULINK([text],,,,, [my_rel], [URL])	---> <a href="URL" rel="my_rel">text</a>
+# ULINK([text],,,,,, [foo="bar" baz="ham"], [URL])	---> <a href="URL" foo="bar" baz="ham">text</a>
+# ULINK([text], [my_title], [my_class], [my_style], [URL])	---> <a href="URL" title="my_title" class="my_class" style="my_style">text</a>
+# ULINK([text], [my_title], [my_class],, [my_id], [URL])	---> <a href="URL" title="my_title" class="my_class" id="my_id">text</a>
+# ULINK([text], [my_title], [my_class],,, [my_rel], [URL])	---> <a href="URL" title="my_title" class="my_class" rel="my_rel">text</a>
 # β
 pushdef([VAR_TITLE_2],	[ifelse([$#], [2], [], [$2], [], [], [ title="[$2]"])])
 pushdef([VAR_CLASS_3],	[ifelse([$#], [3], [], [$3], [], [], [ class="ADD_CLASS([$3])"])])
@@ -65,14 +65,14 @@ pushdef([VAR_ANYTHING_6],	[ifelse([$#], [6], [], [$6], [], [], [ [$6]])])
 pushdef([VAR_ANYTHING_7],	[ifelse([$#], [7], [], [$7], [], [], [ [$7]])])
 
 # this is only an example, how to solve the problem of excessive commas (how to avoid coma :-)
-#define([AHTR],	[AH([$1], ifelse([$#], [2], [], [[$2]]),,,, ifelse([$#], [3], [], [[$3]]), ]defn([SELECT_LAST])[)])
-# how to use AHTR(…), an example how to reduce the amount of commas
+#define([ULINKT],	[ULINK([$1], ifelse([$#], [2], [], [[$2]]),,,, ifelse([$#], [3], [], [[$3]]), ]defn([SELECT_LAST])[)])
+# how to use ULINKT(…), an example how to reduce the amount of commas
 #
-# AHTR([URL])	---> <a href="URL">URL</a>
-# AHTR([text], [URL])	---> <a href="URL">text</a>
-# AHTR([text], [my_title], [URL])	---> <a href="URL" title="my_title">text</a>
-# AHTR([text], [my_title], [my_rel], [URL])	---> <a href="URL" title="my_title" rel="my_rel">text</a>
-# AHTR([text],, [my_rel], [URL])	---> <a href="URL" rel="my_rel">text</a>
+# ULINKT([URL])	---> <a href="URL">URL</a>
+# ULINKT([text], [URL])	---> <a href="URL">text</a>
+# ULINKT([text], [my_title], [URL])	---> <a href="URL" title="my_title">text</a>
+# ULINKT([text], [my_title], [my_rel], [URL])	---> <a href="URL" title="my_title" rel="my_rel">text</a>
+# ULINKT([text],, [my_rel], [URL])	---> <a href="URL" rel="my_rel">text</a>
 
 # β
 pushdef([CREATE_INLINE_ELEMENT],		[define([$1], [ifelse($][#, 0, ]BRAC(BRAC($[0]))[, ]BRAC([<$2]defn([HTML_GLOBAL_ATTRIBUTES])[>$][1</$2>])[)])])
@@ -108,7 +108,7 @@ CREATE_INLINE_ELEMENT([UL],	[ul])
 CREATE_INLINE_ELEMENT([UN],	[u])
 CREATE_INLINE_ELEMENT([VAR],	[var])
 CREATE_INLINE_ELEMENT_EXPAND([XSPAN],	[span])
-CREATE_INLINE_ELEMENT_SPECIAL([AH],	[<a href="]defn([SELECT_LAST])"defn([VAR_TITLE_2], [VAR_CLASS_3], [VAR_STYLE_4], [VAR_ID_5], [VAR_REL_6], [VAR_ANYTHING_7])[>$1</a>])
+CREATE_INLINE_ELEMENT_SPECIAL([ULINK],	[<a href="]defn([SELECT_LAST])"defn([VAR_TITLE_2], [VAR_CLASS_3], [VAR_STYLE_4], [VAR_ID_5], [VAR_REL_6], [VAR_ANYTHING_7])[>$1</a>])
 CREATE_INLINE_ELEMENT_SPECIAL([CODE_M4],	[<code]defn([HTML_GLOBAL_ATTRIBUTES])[>[$1]</code>])
 
 # keyword to highlight line(s) in source code
