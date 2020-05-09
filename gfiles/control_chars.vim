@@ -31,5 +31,5 @@ iabbrev <buffer> <unique> rq RQ()<c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> rr RR()<c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> ru RU()<c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> ruu ⟦⟧RU()<c-r>=Eatchar('.')<cr>
-iabbrev <buffer> <unique> uu ⟦<c-r>"⟧<esc>
+iabbrev <buffer> <unique> UU ⟦<c-r>"⟧<esc>
 
