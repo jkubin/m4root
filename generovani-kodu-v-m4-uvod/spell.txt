@@ -2,7 +2,7 @@
 #
 # DO NOT EDIT! This file is generated automatically!
 #
-# __SOURCE([20200509-14:51:28, intro.mc, 09adf9b, 09adf9b])
+# __SOURCE([20200509-16:29:48, intro.mc, 09adf9b, 9af0134])
 
 7
 Generování kódu v M4: úvod
@@ -34,7 +34,7 @@ Na co se používá, jak se v něm programuje a jaké jsou jeho výhody a nevýh
 
 59
 Vícejazyčný seriál „Generování kódu v M4“ je generován M4 skripty,
-které (možná) usnadní psaní článků a seriálů pro AH(www.root.cz, Root.cz – informace nejen ze světa Linuxu, https://www.root.cz/) také jiným autorům.
+které (možná) usnadní psaní článků a seriálů pro www.root.cz (Root.cz – informace nejen ze světa Linuxu) také jiným autorům.
 Výsledkem seriálu je také sada ukázkových skriptů pro generování kódu.
 
 61
@@ -963,7 +963,7 @@ existující M4 kód je snadné proměnit ve zmatek (nutný dohled!)
 ---
 
 59
-Generování kódu v M4	vícejazyčná šablona s příklady pro AH(www.root.cz, Root.cz – informace nejen ze světa Linuxu, https://www.root.cz)
+Generování kódu v M4	vícejazyčná šablona s příklady pro www.root.cz (Root.cz – informace nejen ze světa Linuxu)
 
 151
 A General Purpose Macro-generator	Computer Journal 8, 3 (1965), 225–41
