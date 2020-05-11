@@ -3,7 +3,7 @@ ___DESCR([command line with a list of input files, the last file is an output fi
 ___POINT([generates HTML code from the command line])
 
 # β
-pushdef([COMMAND_LINE_BETA], [
+pushdef([#$COMMAND_LINE], [
 
 	ifelse(eval([$# > 1]), [1], [], [
 
@@ -23,7 +23,7 @@ define([COMMAND_LINE], [
 
 	define([COMMAND_LINE_CLASS], [usc])
 
-]defn([COMMAND_LINE_BETA]))
+]defn([#$COMMAND_LINE]))
 
 # COMMAND_LINE_ROOT([tool -o a,b,c -DMACRO], [input/file1.src], [input/file2.src], [input/file3.src], …, [output/file.dst])
 # A → β
@@ -31,7 +31,7 @@ define([COMMAND_LINE_ROOT], [
 
 	define([COMMAND_LINE_CLASS], [root])
 
-]defn([COMMAND_LINE_BETA]))
+]defn([#$COMMAND_LINE]))
 
 # A → β
 define([FILES_ON_THE_COMMAND_LINE], [
@@ -72,4 +72,4 @@ divert(-1)
 ])
 
 # no need for further
-popdef([COMMAND_LINE_BETA])
+popdef([#$COMMAND_LINE])
