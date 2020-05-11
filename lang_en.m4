@@ -1,7 +1,7 @@
 # vim:ts=40:sw=40
 
 __HEADER([Josef Kubin], [2019/07/11], [root_cz])
-___DESCR([the file contains words specific to the generated language])
+___DESCR([the file contains language-specific words])
 ___POINT([multilingual targets])
 
 # name of the series
