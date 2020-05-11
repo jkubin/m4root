@@ -19,6 +19,7 @@ init: function (
 
 		another_class,
 		colored_stripe,
+		counter_reset,
 		hgl_item,
 		hgl_keyword,
 		hgl_range,
@@ -174,6 +175,11 @@ init: function (
 		if (!source_node.highlighting_keywords)
 			continue;
 
+		counter_reset = 1;
+
+		if (source_node.style.counterReset)
+			counter_reset += parseInt(source_node.style.counterReset.split(' ')[1]);
+
 		striped_background = source_node.firstElementChild;
 
 		for (hgl_item of source_node.highlighting_keywords) {
@@ -221,8 +227,13 @@ init: function (
 					hgl_range = value.split('-');
 					last_line = parseInt(hgl_range[1]);
 
-					for (i = hgl_range[0] - 1; i < last_line; i++)
-						highlighting_sequence.push(i);
+					for (i = hgl_range[0]; i <= last_line; i++) {
+
+						value = i - counter_reset;
+
+						if (value >= 0)
+							highlighting_sequence.push(value);
+					}
 
 					/*
 					 * removes the string "1-3" from the final JSON
@@ -234,10 +245,12 @@ init: function (
 				 * converts line numbers to the index for an array
 				 * removes forbidden integer values
 				 */
-				if (Number.isInteger(value))
-					return value > 0 ?
-						value - 1 :
-						undefined;
+				if (Number.isInteger(value)) {
+
+					value -= counter_reset;
+
+					return value >= 0 ? value : undefined;
+				}
 
 				/*
 				 * creates the final array from an expanded array and integers

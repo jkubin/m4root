@@ -120,7 +120,6 @@ define([SET_CSS_LINE_COUNTER], [divert(-1)
 	ifelse(
 		[$1], [], [],
 		[$1], [1], [],
-		[$1], [2], [],
 		[
 
 		divert(CURRQU)dnl

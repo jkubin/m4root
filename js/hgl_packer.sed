@@ -5,6 +5,9 @@
 # '<,'>s:./g$:/g:
 # '<,'>s:^\(.\)\(.*\)/g:\2\1/g:
 
+# fixes removed space
+s/\<counterReset.split('/& /
+
 s/\<all_keywords\>/a/g
 s/\<all_sources\>/b/g
 s/\<another_class\>/c/g
@@ -36,6 +39,7 @@ s/\<striped_background\>/C/g
 s/\<striped_background\>/D/g
 s/\<striped_background_classname\>/E/g
 s/\<value\>/F/g
+s/\<counter_reset\>/G/g
 
 # the letters below are for regexes above, letters {i, j} are reserved for loops
 
