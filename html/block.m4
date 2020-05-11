@@ -2,7 +2,7 @@
 
 __HEADER([Josef Kubin], [2019/12/29], [root_cz])
 ___DESCR([basic set of block-level elements with a subset of global attributes])
-___POINT([HTML5 block-level elements])
+___POINT([definition of HTML5 block-level elements])
 
 # WARNING: keep the HTML tags with spell.m4 and refs.m4 1:1
 
@@ -184,7 +184,7 @@ define([SECT2], defn([MULTILINGUAL_HEADINGS], [SET_ANCHOR])[
 ])
 
 # β
-define([APPENDIX_MODE], defn([MULTILINGUAL_HEADINGS], [SET_ANCHOR])[
+define([APPENDIX_NODE], defn([MULTILINGUAL_HEADINGS], [SET_ANCHOR])[
 
 	# increment letter index
 	define([APPENDIX_LETTER], format([%c], APPENDIX_IDX))
@@ -215,7 +215,7 @@ divert(-1)
 ])
 
 #      __________      _______________
-# --->/ APPENDIX \--->/ APPENDIX_MODE \---.
+# --->/ APPENDIX \--->/ APPENDIX_NODE \---.
 #     \__________/    \_______________/<--'
 #      _______      ________________
 # --->/ SECT1 \--->/ SECT1_APPENDIX \---.
@@ -231,11 +231,11 @@ define([APPENDIX], [
 	divert(APPENDIX_NAVIG_DATA)dnl
 <hr>
 divert(-1)
-	]defn([APPENDIX_MODE])[
+	]defn([APPENDIX_NODE])[
 
 	# initialization for the appendix is done
 	# transition to the next node
-	define([$0], defn([APPENDIX_MODE]))
+	define([$0], defn([APPENDIX_NODE]))
 
 	define([SECT1], defn([SECT1_APPENDIX]))
 	define([SECT2], defn([SECT2_APPENDIX]))
@@ -281,88 +281,6 @@ divert(-1)
 
 	# size of the following headings
 	define([HEADING_TAG], [h5])
-])
-
-# a hyperlink to a paragraph, code, headline, …, even into other html page in different language
-# LINK([hyperlink], [INTERNAL_ID])
-# LINK([hyperlink], [EXTERNAL_ID], [source.mc])
-# LINK([hyperlink to another language], [EXTERNAL_ID], [source.mc], [en])
-#
-# both IDs must be the same in order to dereference the referenced caption
-# LINK([INTERNAL_ID], [INTERNAL_ID])
-# LINK([EXTERNAL_ID], [EXTERNAL_ID], [source.mc])
-# LINK([EXTERNAL_ID], [EXTERNAL_ID], [source.mc], [en])
-# A → β
-define([LINK], [pushdef([CURRQU], divnum)divert(-1)
-
-	# the more arguments the more link capabilities
-	ifelse(
-		[$#], [2], [
-			pushdef([PREF], defn([FILE_PREFIX]))
-			pushdef([EXTERN])
-		],
-		[$#], [3], [
-			pushdef([PREF], [$3].LANG_CODE)
-			pushdef([EXTERN], ../defn([RELAT_PATH])defn(defn([PREF]).anch)/defn([OUTPUT_FILE]))
-		],
-		[$#], [4], [
-			pushdef([PREF], [$3.$4])
-			pushdef([EXTERN], ../defn([RELAT_PATH])defn(defn([PREF]).anch)/defn([OUTPUT_FILE]))
-		], [
-
-		ROOT_ERROR([$0($@) is not defined])
-	])
-
-	# find link in refs
-	pushdef([ANCH], ifdef(__file__.mono.[$2], [defn(__file__.mono.[$2])], [defn(defn([PREF]).anch.[$2])]))
-
-	ifelse(defn([ANCH]), [], [
-
-		ROOT_WARNING([$0([$1], [‘$2’ not found], [$3], [$4]); run ‘make -B refs …’ to regenerate reference list])
-	])
-
-	# find caption for title
-	pushdef([TITLE], defn(defn([PREF]).capt.[$2]))
-
-	ifelse(defn([TITLE]), [], [], [
-
-		# temporarily redefine macros (disable the original meaning)
-		pushdef([BO], defn([FST]))
-		pushdef([CODE], defn([SELECT_ARG1]))
-		pushdef([CODE_M4], defn([SELECT_ARG1]))
-		pushdef([NB], [ifelse([$#], [0], [[$0]], [ ])])
-
-		# expand title
-		define([TITLE], [ ]title="TITLE")
-
-		# forget previous temporary macros
-		popdef(
-
-			[BO],
-			[CODE],
-			[CODE_M4],
-			[NB],
-
-		)
-	])
-
-	# find caption in refs
-	pushdef([CAPT], defn(defn([PREF]).capt.[$1]))
-
-	ifelse(defn([CAPT]), [], [
-
-			# CAPT in refs not found, use the first LINK argument
-			define([CAPT], [$1])
-		],
-		[$1], [$2], [], [
-
-			# CAPT in refs found, but the arg1 and arg2 are different, therefore use the arg1
-			define([CAPT], [$1])
-	])
-
-	# write the resulting _HTML_ code and forget local defined macros
-	divert(CURRQU)dnl
-<a href="defn([EXTERN])[#]defn([ANCH])"defn([TITLE])>CAPT</a>popdef([CURRQU], [EXTERN], [PREF], [ANCH], [TITLE], [CAPT])dnl
 ])
 
 # β
@@ -505,55 +423,6 @@ define([COMMAND_ROOT], [
 divert(-1)
 ])
 
-#      _____      __________
-# --->/ REF \--->/ REF_NEXT \---.
-#     \_____/    \__________/<--'
-#
-# REF([name], [description], [URL])
-# A → β
-define([REF], [pushdef([CURRQU], divnum)divert(-1)
-
-	# set reference index, create symbol and an unique tuple
-	define([REF_COUNTER], [1])
-	define([REF_SYMBOL], defn([NSP], [REF_ANCH], [REF_COUNTER]))
-	define([{$1|$2|$3}], REF_COUNTER)
-
-	# transition to the next node
-	define([$0], defn([REF_NEXT]))
-
-	# create new entry for all references under the article
-	divert(ARTICLE_REFERENCES)dnl
-<ol class="ADD_CLASS([refs])">
-<li>ifelse(defn([CURRQU]), [-1], [], [<a href="[#]REF_SYMBOL" title="WORD_SOURCE"></a>])<strong>$1</strong>ifelse([$2], [], [], [, $2])[]BR()
-<a href="[$3]">[$3]</a></li>
-divert(END_OF_REFERENCES)dnl
-</ol>
-divert(CURRQU)popdef([CURRQU])dnl
-<a href="[$3]" title="$1" id="REF_SYMBOL">BRAC(REF_COUNTER)</a>dnl
-])
-
-# β
-define([REF_NEXT], [pushdef([CURRQU], divnum)divert(-1)
-
-	# test if the reference already exists
-	ifdef([{$1|$2|$3}], [
-
-		divert(CURRQU)popdef([CURRQU])dnl
-<a href="[$3]" title="$1">BRAC(REF_VALUE)</a>dnl
-], [
-		# increment counter for new ref value
-		define([REF_VALUE], define([REF_COUNTER], incr(REF_COUNTER))REF_COUNTER)
-		define([REF_SYMBOL], defn([NSP], [REF_ANCH])REF_VALUE)
-		define([{$1|$2|$3}], REF_VALUE)
-
-		divert(ARTICLE_REFERENCES)dnl
-<li>ifelse(defn([CURRQU]), [-1], [], [<a href="[#]REF_SYMBOL" title="WORD_SOURCE"></a>])<strong>$1</strong>ifelse([$2], [], [], [, $2])[]BR()
-<a href="[$3]">[$3]</a></li>
-divert(CURRQU)popdef([CURRQU])dnl
-<a href="[$3]" title="$1" id="REF_SYMBOL">BRAC(REF_VALUE)</a>dnl
-])dnl
-])
-
 # A → β
 define([BRIDGEHEAD_MONO], defn([MONOLINGUAL_HEADINGS], [SET_ANCHOR])[
 
@@ -650,7 +519,7 @@ define([##ORDEREDLIST_WRAP>],	[ol])
 define([PARA],		defn([HTML_MULTILINGUAL]))
 define([PARA_MONO],		defn([HTML_MONOLINGUAL]))
 define([##PARA_MONO>],	[p])
-define([##PARA>],	[p])
+define([##PARA>],		[p])
 define([SECTION_WRAP],	defn([DIV_WRAP]))
 define([##SECTION_WRAP>],	[section])
 define([SUMMARY],		defn([HTML_MULTILINGUAL]))

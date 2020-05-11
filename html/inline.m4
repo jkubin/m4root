@@ -2,7 +2,7 @@
 
 __HEADER([Josef Kubin], [2019/12/28], [root_cz])
 ___DESCR([inline elements with a subset of global attributes])
-___POINT([HTML5 inline elements])
+___POINT([definition of HTML5 inline elements])
 
 # WARNING: keep all HTML tags 1:1 with spell.m4
 
@@ -23,8 +23,8 @@ pushdef([HTML_GLOBAL_ATTRIBUTES],	defn([TITLE_2], [CLASS_3], [STYLE_4], [ID_5], 
 # custom macros for convenience
 
 # A → β
+#define([BUN],	[BOLD([$1], [$2], [un])])
 define([BR],	[ifelse([$#], [0], [[$0]], [<br>])])
-define([BUN],	[BO([$1], [$2], [un])])
 define([CODE_BLUE],	[CODE([$1], [$2], [bl])])
 define([CODE_M4U],	[CODE_M4([$1], [$2], [un])])
 define([CODE_UND],	[CODE([$1], [$2], [un])])
@@ -81,7 +81,6 @@ pushdef([CREATE_INLINE_ELEMENT_SPECIAL],	[define([$1], [ifelse($][#, 0, ]BRAC(BR
 
 CREATE_INLINE_ELEMENT([ABBR],	[abbr])
 CREATE_INLINE_ELEMENT([ACRO],	[acronym])
-CREATE_INLINE_ELEMENT([BO],	[strong])
 CREATE_INLINE_ELEMENT([BOLD],	[b])
 CREATE_INLINE_ELEMENT([BUTTON],	[button])
 CREATE_INLINE_ELEMENT([CITE],	[cite])
@@ -100,6 +99,7 @@ CREATE_INLINE_ELEMENT([QM],	[q])
 CREATE_INLINE_ELEMENT([SAMP],	[samp])
 CREATE_INLINE_ELEMENT([SMALL],	[small])
 CREATE_INLINE_ELEMENT([SPAN],	[span])
+CREATE_INLINE_ELEMENT([STRONG],	[strong])
 CREATE_INLINE_ELEMENT([STT],	[s])
 CREATE_INLINE_ELEMENT([SUB],	[sub])
 CREATE_INLINE_ELEMENT([SUP],	[sup])
@@ -108,8 +108,8 @@ CREATE_INLINE_ELEMENT([UL],	[ul])
 CREATE_INLINE_ELEMENT([UN],	[u])
 CREATE_INLINE_ELEMENT([VAR],	[var])
 CREATE_INLINE_ELEMENT_EXPAND([XSPAN],	[span])
-CREATE_INLINE_ELEMENT_SPECIAL([ULINK],	[<a href="]defn([SELECT_LAST])"defn([VAR_TITLE_2], [VAR_CLASS_3], [VAR_STYLE_4], [VAR_ID_5], [VAR_REL_6], [VAR_ANYTHING_7])[>$1</a>])
 CREATE_INLINE_ELEMENT_SPECIAL([CODE_M4],	[<code]defn([HTML_GLOBAL_ATTRIBUTES])[>[$1]</code>])
+CREATE_INLINE_ELEMENT_SPECIAL([ULINK],	[<a href="]defn([SELECT_LAST])"defn([VAR_TITLE_2], [VAR_CLASS_3], [VAR_STYLE_4], [VAR_ID_5], [VAR_REL_6], [VAR_ANYTHING_7])[>$1</a>])
 
 # keyword to highlight line(s) in source code
 # how to use:
@@ -177,6 +177,137 @@ define([CREATE_DATASET], [
 
 		$0(shift($@))
 	])
+])
+
+# a hyperlink to a paragraph, code, headline, …, even into other html page in different language
+# LINK([hyperlink], [INTERNAL_ID])
+# LINK([hyperlink], [EXTERNAL_ID], [source.mc])
+# LINK([hyperlink to another language], [EXTERNAL_ID], [source.mc], [en])
+#
+# both IDs must be the same in order to dereference the referenced caption
+# LINK([INTERNAL_ID], [INTERNAL_ID])
+# LINK([EXTERNAL_ID], [EXTERNAL_ID], [source.mc])
+# LINK([EXTERNAL_ID], [EXTERNAL_ID], [source.mc], [en])
+# A → β
+define([LINK], [pushdef([CURRQU], divnum)divert(-1)
+
+	# the more arguments the more link capabilities
+	ifelse(
+		[$#], [2], [
+			pushdef([PREF], defn([FILE_PREFIX]))
+			pushdef([EXTERN])
+		],
+		[$#], [3], [
+			pushdef([PREF], [$3].LANG_CODE)
+			pushdef([EXTERN], ../defn([RELAT_PATH])defn(defn([PREF]).anch)/defn([OUTPUT_FILE]))
+		],
+		[$#], [4], [
+			pushdef([PREF], [$3.$4])
+			pushdef([EXTERN], ../defn([RELAT_PATH])defn(defn([PREF]).anch)/defn([OUTPUT_FILE]))
+		], [
+
+		ROOT_ERROR([$0($@) is not defined])
+	])
+
+	# find link in refs
+	pushdef([ANCH], ifdef(__file__.mono.[$2], [defn(__file__.mono.[$2])], [defn(defn([PREF]).anch.[$2])]))
+
+	ifelse(defn([ANCH]), [], [
+
+		ROOT_WARNING([$0([$1], [‘$2’ not found], [$3], [$4]); run ‘make -B refs …’ to regenerate reference list])
+	])
+
+	# find caption for title
+	pushdef([TITLE], defn(defn([PREF]).capt.[$2]))
+
+	ifelse(defn([TITLE]), [], [], [
+
+		# temporarily redefine macros (disable the original meaning)
+		pushdef([BOLD], defn([FST]))
+		pushdef([CODE], defn([SELECT_ARG1]))
+		pushdef([CODE_M4], defn([SELECT_ARG1]))
+		pushdef([NB], [ifelse([$#], [0], [[$0]], [ ])])
+
+		# expand title
+		define([TITLE], [ ]title="TITLE")
+
+		# forget previous temporary macros
+		popdef(
+
+			[BOLD],
+			[CODE],
+			[CODE_M4],
+			[NB],
+
+		)
+	])
+
+	# find caption in refs
+	pushdef([CAPT], defn(defn([PREF]).capt.[$1]))
+
+	ifelse(defn([CAPT]), [], [
+
+			# CAPT in refs not found, use the first LINK argument
+			define([CAPT], [$1])
+		],
+		[$1], [$2], [], [
+
+			# CAPT in refs found, but the arg1 and arg2 are different, therefore use the arg1
+			define([CAPT], [$1])
+	])
+
+	# write the resulting _HTML_ code and forget local defined macros
+	divert(CURRQU)dnl
+<a href="defn([EXTERN])[#]defn([ANCH])"defn([TITLE])>CAPT</a>popdef([CURRQU], [EXTERN], [PREF], [ANCH], [TITLE], [CAPT])dnl
+])
+
+#      _____      __________
+# --->/ REF \--->/ REF_NEXT \---.
+#     \_____/    \__________/<--'
+#
+# REF([name], [description], [URL])
+# A → β
+define([REF], [pushdef([CURRQU], divnum)divert(-1)
+
+	# set reference index, create symbol and an unique tuple
+	define([REF_COUNTER], [1])
+	define([REF_SYMBOL], defn([NSP], [REF_ANCH], [REF_COUNTER]))
+	define([{$1|$2|$3}], REF_COUNTER)
+
+	# transition to the next node
+	define([$0], defn([REF_NEXT]))
+
+	# create new entry for all references under the article
+	divert(ARTICLE_REFERENCES)dnl
+<ol class="ADD_CLASS([refs])">
+<li>ifelse(defn([CURRQU]), [-1], [], [<a href="[#]REF_SYMBOL" title="WORD_SOURCE"></a>])<strong>$1</strong>ifelse([$2], [], [], [, $2])[]BR()
+<a href="[$3]">[$3]</a></li>
+divert(END_OF_REFERENCES)dnl
+</ol>
+divert(CURRQU)popdef([CURRQU])dnl
+<a href="[$3]" title="$1" id="REF_SYMBOL">BRAC(REF_COUNTER)</a>dnl
+])
+
+# β
+define([REF_NEXT], [pushdef([CURRQU], divnum)divert(-1)
+
+	# test if the reference already exists
+	ifdef([{$1|$2|$3}], [
+
+		divert(CURRQU)popdef([CURRQU])dnl
+<a href="[$3]" title="$1">BRAC(REF_VALUE)</a>dnl
+], [
+		# increment counter for new ref value
+		define([REF_VALUE], define([REF_COUNTER], incr(REF_COUNTER))REF_COUNTER)
+		define([REF_SYMBOL], defn([NSP], [REF_ANCH])REF_VALUE)
+		define([{$1|$2|$3}], REF_VALUE)
+
+		divert(ARTICLE_REFERENCES)dnl
+<li>ifelse(defn([CURRQU]), [-1], [], [<a href="[#]REF_SYMBOL" title="WORD_SOURCE"></a>])<strong>$1</strong>ifelse([$2], [], [], [, $2])[]BR()
+<a href="[$3]">[$3]</a></li>
+divert(CURRQU)popdef([CURRQU])dnl
+<a href="[$3]" title="$1" id="REF_SYMBOL">BRAC(REF_VALUE)</a>dnl
+])dnl
 ])
 
 # forget local β rules (good for frozen files)
