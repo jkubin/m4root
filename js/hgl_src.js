@@ -182,7 +182,7 @@ init: function (
 			 * the first step is to transform input pseudo-JSON using regexp
 			 */
 			hgl_item.value =
-				hgl_item.value.replace(/[A-Z]|[_a-z]\w*|\d+-\d+/g,
+				hgl_item.value.replace(/[A-Z]+|[_a-z]\w*|\d+-\d+/g,
 					'"$&"').replace(/^:/, '"":');
 
 			/*
@@ -200,9 +200,9 @@ init: function (
 			parsed_json = JSON.parse(hgl_item.value, function (key, value) {
 
 				/*
-				 * extracts capital letters for highlighting classes
+				 * extracts capital letters for a highlighting set
 				 */
-				if (/^[A-Z]$/.test(value)) {
+				if (/^[A-Z]+$/.test(value)) {
 
 					highlighting_words.push(namespace_prefix + value);
 
