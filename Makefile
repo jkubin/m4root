@@ -70,6 +70,16 @@ trunc trc:
 .PHONY: refs
 refs: $(REFS_LANG)
 
+#:cc	returns the number of characters that can be printed (required for articles)
+.PHONY: cc
+cc:
+	@echo 1234
+
+#:wc	returns the number of words that can be printed (required for articles)
+.PHONY: wc
+wc:
+	@echo 123
+
 
 #:test/tst/t	tests snippets of code in the scripting sandbox (development of new features or scripts)
 .PHONY: test tst t
