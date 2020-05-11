@@ -18,7 +18,7 @@ XLANG([
 	# czech
 	define([AUTHOR_OF_THE_ARTICLE],		[Autor článku])
 	define([AUTHOR_PROFILE],		[Profil autora])
-	define([READING_DURATION],		[Doba čtení: BO([123 minut])])
+	define([READING_DURATION],		[Doba čtení: BOLD([123 minut])])
 	define([WORD_STICKERS],			[Nálepky])
 
 ], [
@@ -26,7 +26,7 @@ XLANG([
 	# english
 	define([AUTHOR_OF_THE_ARTICLE],		[Author of the article])
 	define([AUTHOR_PROFILE],		[Author's profile])
-	define([READING_DURATION],		[Reading time: BO([123 minutes])])
+	define([READING_DURATION],		[Reading time: BOLD([123 minutes])])
 	define([WORD_STICKERS],			[Stickers])
 
 ])

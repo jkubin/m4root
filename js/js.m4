@@ -40,8 +40,8 @@ var m4root={undivert(
 	[js/info_packed.js],
 )};dnl
 m4root.init(dnl
-document.getElementsByClassName("defn([CLASS_HGL])"),dnl
-document.getElementsByClassName("defn([CLASS_SRC])"),dnl
+document.getElementsByClassName("defn([CLASS_HIGHLIGHT])"),dnl
+document.getElementsByClassName("defn([CLASS_SOURCE])"),dnl
 "defn([NSP])",dnl							NameSPace prefix
 "defn([CLASS_REAR])",dnl						class container for stripes
 "defn([CLASS_STRIPE])",dnl						class name for colored stripe

@@ -10,10 +10,10 @@ define([RBR], defn([RB]))
 # re-define problematic macros used in captions
 # A → β
 define([AP], [ifelse([$#], [0], [[$0]], [a])])
-define([BO], [ifelse([$#], [0], [[$0]], [$1])])
+define([BOLD], [ifelse([$#], [0], [[$0]], [$1])])
 define([DQ], [ifelse([$#], [0], [[$0]], [d])])
 define([NB], [ifelse([$#], [0], [[$0]], [ ])])
-define([CODE], defn([BO]))
+define([CODE], defn([BOLD]))
 define([CODE_M4], [ifelse([$#], [0], [[$0]], [[$1]])])
 define([LB], [b])
 define([LQ], [g])

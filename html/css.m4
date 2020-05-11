@@ -215,9 +215,9 @@ text-decoration:#f04c23 underline dashed;
 ])
 
 # class names for JavaScript code (helps maintain consistency)
-define([CLASS_HGL],			defn([NSP])[hgl])
+define([CLASS_HIGHLIGHT],		defn([NSP])[hgl])
 define([CLASS_REAR],		defn([NSP])[re])
-define([CLASS_SRC],			defn([NSP])[src])
+define([CLASS_SOURCE],		defn([NSP])[src])
 define([CLASS_STRIPE],		defn([NSP])[ev])
 define([DEFAULT_HIGHLIGHT_CLASS],	defn([NSP])[dh])
 
