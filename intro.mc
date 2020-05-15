@@ -1,4 +1,4 @@
-__HEADER([Josef Kubin], [2019/12/03], [m4root])
+__HEADER([Josef Kubin], [2019/12/03], [https://www.root.cz/clanky/generovani-kodu-v-m4-uvod])
 ___DESCR([the introductory part])
 
 VERSION_TEMPLATE(1, 0, 0)
@@ -1194,9 +1194,9 @@ The input file may also contain notes that may not be hidden in the comments COD
 
 
 SECT1([dnl czech
-[CODE_M4([[]]) CSV:  nejjednodušší příklad],
+[CODE_M4([[]]) CSV: nejjednodušší příklad],
 dnl english: _next_language_
-[CODE_M4([[]]) CSV:  simplest example],
+[CODE_M4([[]]) CSV: simplest example],
 ])
 
 PARA([[dnl czech
@@ -1212,9 +1212,9 @@ INSERT_FILE([messages/hello.csv])
 
 
 SECT1([dnl czech
-[CODE_M4([[]]) CSV:  počítadlo],
+[CODE_M4([[]]) CSV: počítadlo],
 dnl english: _next_language_
-[CODE_M4([[]]) CSV:  counter],
+[CODE_M4([[]]) CSV: counter],
 ])
 
 PARA([[dnl czech
@@ -1281,7 +1281,7 @@ BRIDGEHEAD_MONO([dnl
 INSERT_FILE([messages/markup.m4], LANG([převodní soubor pro značkovací jazyky], [conversion file for markup languages]))
 
 # hide  ‘"’ → DQ(), because of title="… &quot; … &quot; …"
-BRIDGEHEAD_MONO([dnl
+BRIDGEHEAD([dnl
 [CODE_M4([[]]) conv_file C[,] JSON[,] INI: CODE([DQ()řetězec[]DQ()])],
 [CODE_M4([[]]) conv_file C[,] JSON[,] INI: CODE([DQ()string[]DQ()])],
 ])
@@ -1315,9 +1315,9 @@ INSERT_FILE([messages/unchanged.m4], LANG([převodní soubor vrátí všechny sp
 
 
 SECT1([dnl czech
-[CODE_M4([[]]) C:  výstupní fronta],
+[CODE_M4([[]]) C: výstupní fronta],
 dnl english: _next_language_
-[CODE_M4([[]]) C:  output queue],
+[CODE_M4([[]]) C: output queue],
 ])
 
 PARA([[dnl czech
@@ -1333,9 +1333,9 @@ INSERT_FILE([messages/array.c])
 
 
 SECT1([dnl czech
-[CODE_M4([[]]) INI:  externí příkaz],
+[CODE_M4([[]]) INI: externí příkaz],
 dnl english: _next_language_
-[CODE_M4([[]]) INI:  an external command],
+[CODE_M4([[]]) INI: an external command],
 ])
 
 PARA([[dnl czech
@@ -1362,9 +1362,9 @@ INSERT_FILE([messages/hello.ini])
 
 
 SECT1([dnl czech
-[CODE_M4([[]]) .h:  hex počítadlo],
+[CODE_M4([[]]) .h: hex počítadlo],
 dnl english: _next_language_
-[CODE_M4([[]]) .h:  hex counter],
+[CODE_M4([[]]) .h: hex counter],
 ])
 
 PARA([[dnl czech
@@ -1391,9 +1391,9 @@ INSERT_FILE([messages/messages.h])
 
 
 SECT1([small_automaton], [dnl czech
-[CODE_M4([[]]) C:  malý automat],
+[CODE_M4([[]]) C: malý automat],
 dnl english: _next_language_
-[CODE_M4([[]]) C:  small automaton],
+[CODE_M4([[]]) C: small automaton],
 ])
 
 PARA([[dnl czech
@@ -1418,9 +1418,9 @@ s/\\n/MM(a)/g
 
 
 SECT1([dnl czech
-[CODE_M4([[]]) C:  malý automat 2],
+[CODE_M4([[]]) C: malý automat 2],
 dnl english: _next_language_
-[CODE_M4([[]]) C:  small automaton 2],
+[CODE_M4([[]]) C: small automaton 2],
 ])
 
 PARA([[dnl czech
@@ -1436,9 +1436,9 @@ INSERT_FILE_MLH([messages/string.c],, [s/\\n"\n"/MM(a)/g])
 
 
 SECT1([output_queues_html], [dnl czech
-[CODE_M4([[]]) HTML:  výstupní fronty],
+[CODE_M4([[]]) HTML: výstupní fronty],
 dnl english: _next_language_
-[CODE_M4([[]]) HTML:  output queues],
+[CODE_M4([[]]) HTML: output queues],
 ])
 
 PARA([[dnl czech
@@ -1490,9 +1490,9 @@ s/🐝/MM(c)/g
 
 
 SECT1([json_generating_automaton], [dnl czech
-[CODE_M4([[]]) JSON:  generující automat],
+[CODE_M4([[]]) JSON: generující automat],
 dnl english: _next_language_
-[CODE_M4([[]]) JSON:  generating automaton],
+[CODE_M4([[]]) JSON: generating automaton],
 ])
 
 PARA([[dnl czech
@@ -1516,9 +1516,9 @@ INSERT_FILE([messages/atm.json])
 
 
 SECT2([json_branch], [dnl czech
-[CODE_M4([[]]) JSON:  pojmenované fronty],
+[CODE_M4([[]]) JSON: pojmenované fronty],
 dnl english: _next_language_
-[CODE_M4([[]]) JSON:  named queues],
+[CODE_M4([[]]) JSON: named queues],
 ])
 
 PARA([[dnl czech
@@ -1567,9 +1567,9 @@ INSERT_FILE([messages/qnames.json])
 
 
 SECT2([json_symbolic_queue_names], [dnl czech
-[CODE_M4([[]]) JSON:  generované indexy front],
+[CODE_M4([[]]) JSON: generované indexy front],
 dnl english: _next_language_
-[CODE_M4([[]]) JSON:  generated queue indexes],
+[CODE_M4([[]]) JSON: generated queue indexes],
 ])
 
 PARA([[dnl czech
@@ -1592,19 +1592,19 @@ INSERT_FILE([messages/messages.json])
 
 
 SECT1([dnl czech
-[CODE_M4([[]]) INI:  nespojitý index front],
+[CODE_M4([[]]) INI: nespojitý index front],
 dnl english: _next_language_
-[CODE_M4([[]]) INI:  discontinuous queue index],
+[CODE_M4([[]]) INI: discontinuous queue index],
 ])
 
 PARA([[dnl czech
 Příklad používá tři automaty a[]NB()dvě výstupní fronty číslo HCODE([2], [[[10, 26], [messages/messages.ini.m4]]]) a[]NB()HCODE([4], [[[10, 26], [messages/messages.ini.m4]]]) definované v[]NB()odděleném souboru.
-HEXPL([Názvy INI sekcí], [[[11], [messages/messages.ini.m4]], [[3, 6, 11], [messages/messages.ini]]]) jsou generovány HEXPL([řetězením symbolů], [[[A, R], [messages/messages.ini.m4]]]).
+HEXPL([Názvy INI sekcí], [[[11], [messages/messages.ini.m4]], [[3, 6, 11], [messages/messages.ini]]]) jsou generovány HEXPL([řetězením symbolů], [[[A, R], [messages/messages.ini.m4]]]) (viz. LINK([větvení], [branching_by_grammar])).
 Příklad používá stejný soubor pro výstupní fronty jako LINK([příklad], [json_symbolic_queue_names]) pro generování JSON.
 ],
 [dnl english: _next_language_
 The example uses three automata and two output queues number HCODE([2], [[[10, 26], [messages/messages.ini.m4]]]) and HCODE([4], [[[10, 26], [messages/messages.ini.m4]]]) defined in a[]NB()separate file.
-HEXPL([INI section names], [[[11], [messages/messages.ini.m4]], [[3, 6, 11], [messages/messages.ini]]]) are generated by HEXPL([symbol chaining], [[[A, R], [messages/messages.ini.m4]]]).
+HEXPL([INI section names], [[[11], [messages/messages.ini.m4]], [[3, 6, 11], [messages/messages.ini]]]) are generated by HEXPL([symbol chaining], [[[A, R], [messages/messages.ini.m4]]]) (see LINK([branching], [branching_by_grammar])).
 The example uses the same file for output queues as the LINK([example], [json_symbolic_queue_names]) to generate JSON.
 ]])
 
@@ -1614,9 +1614,9 @@ INSERT_FILE([messages/messages.ini])
 
 
 SECT1([dnl czech
-[CODE_M4([[]]) XML:  smíšené zprávy],
+[CODE_M4([[]]) XML: smíšené zprávy],
 dnl english: _next_language_
-[CODE_M4([[]]) XML:  mixed messages],
+[CODE_M4([[]]) XML: mixed messages],
 ])
 
 PARA([[dnl czech
@@ -1632,9 +1632,9 @@ INSERT_FILE([messages/mixed.xml])
 
 
 SECT1([dnl czech
-[CODE_M4([[]]) XML:  oddělené zprávy],
+[CODE_M4([[]]) XML: oddělené zprávy],
 dnl english: _next_language_
-[CODE_M4([[]]) XML:  separated messages],
+[CODE_M4([[]]) XML: separated messages],
 ])
 
 PARA([[dnl czech
@@ -1690,7 +1690,7 @@ Jmenný prostor ABBR([CPP], [Preprocesor jazyka C]) tak BOLD([může]) být zcel
 Problematický znak CODE([LQ()]) je skryt do makra HCODE_M4([LQ()], [[[24], [preproc/file.c]]]).
 Apostrof HCODE([RQ()], [[[A], [preproc/file.c]], [[A], [preproc/preproc.file.c]]]) ve zdrojovém kódu ničemu nevadí.
 Apostrof uvnitř makra HCODE([ORD[]DEL([SPAN([()],,, [color:rgba(0,0,0,.75)])],,, [color:red])], [[[4], [preproc/file.c.m4]], [[B], [preproc/file.c]]]) je skryt do makra HCODE_M4([RQ()], [[[A], [preproc/file.c.m4]]]).
-Všimněte si jmen funkcí HCODE_M4([define ()], [[[17, 27], [preproc/file.c]], [[17, 27], [preproc/preproc.file.c]]]) nebo HCODE_M4([ifelse ()], [[[18, 28], [preproc/file.c]], [[18, 28], [preproc/preproc.file.c]]]) a[]NB()kde je expandován HCODE([SYMBOL], [[[C], [preproc/file.c]], [[C], [preproc/preproc.file.c]]]).
+Všimněte si jmen funkcí HCODE_M4([define ()], [[[17, 27], [preproc/file.c]], [[17, 27], [preproc/preproc.file.c]]]) nebo HCODE_M4([ifelse ()], [[[18, 28], [preproc/file.c]], [[18, 28], [preproc/preproc.file.c]]]) a[]NB()kde je expandován HCODE([SYMBOL], [[[C], [preproc/file.c]], [[C], [preproc/preproc.file.c]], [[C], [preproc/file.c.m4]]]).
 ],
 [dnl english: _next_language_
 The ULINK([CPP], [C preprocessor], [https://en.wikipedia.org/wiki/C_preprocessor]) directives are a[]NB()one-line comment for M4 preventing unwanted expansion of the same named macros.
@@ -1699,11 +1699,12 @@ Thus, the ABBR([CPP], [C preprocessor]) namespace BOLD([can be]) completely sepa
 The problematic (backquote) character CODE([LQ()]) is hidden in the HCODE_M4([LQ()], [[[24], [preproc/file.c]]]) macro.
 The apostrophe HCODE(['], [[[A], [preproc/file.c]], [[A], [preproc/preproc.file.c]]]) does not matter in the source code.
 Apostrophe inside HCODE([ORD[]DEL([SPAN([()],,, [color:rgba(0,0,0,.75)])],,, [color:red])], [[[4], [preproc/file.c.m4]], [[B], [preproc/file.c]]]) macro is hidden in HCODE_M4([RQ()], [[[A], [preproc/file.c.m4]]]) macro.
-Note the HCODE_M4([define ()], [[[17, 27], [preproc/file.c]], [[17, 27], [preproc/preproc.file.c]]]) or HCODE_M4([ifelse ()], [[[18, 28], [preproc/file.c]], [[18, 28], [preproc/preproc.file.c]]]) function names and where the HCODE_M4([SYMBOL], [[[C], [preproc/file.c]], [[C], [preproc/preproc.file.c]]]) is expanded.
+Note the HCODE_M4([define ()], [[[17, 27], [preproc/file.c]], [[17, 27], [preproc/preproc.file.c]]]) or HCODE_M4([ifelse ()], [[[18, 28], [preproc/file.c]], [[18, 28], [preproc/preproc.file.c]]]) function names and where the HCODE_M4([SYMBOL], [[[C], [preproc/file.c]], [[C], [preproc/preproc.file.c]], [[C], [preproc/file.c.m4]]]) is expanded.
 ]])
 
 INSERT_FILE([preproc/file.c.m4],, [
 s/\<RQ()/MM(a)/g
+s/\<SYMBOL\>/MM(c)/g
 ])
 INSERT_FILE([preproc/file.c],, [
 s/\x27/MM(a)/g
@@ -1718,9 +1719,9 @@ s/\<SYMBOL\>/MM(c)/g
 
 
 SECT1([dnl czech
-[CODE_M4([`']) CSS:  vložení souboru[,] komentář],
+[CODE_M4([`']) CSS: vložení souboru[,] komentář],
 dnl english: _next_language_
-[CODE_M4([`']) CSS:  file inclusion[,] comment],
+[CODE_M4([`']) CSS: file inclusion[,] comment],
 ])
 
 PARA([[dnl czech
@@ -1742,9 +1743,9 @@ INSERT_FILE([preproc/preproc.file.css],, [s/#/MM(a)/g])
 
 
 SECT1([nprint_bash], [dnl czech
-[BOLD([CODE([␂␆])]) Bash:  netisknutelné znaky],
+[BOLD([CODE([␂␆])]) Bash: netisknutelné znaky],
 dnl english: _next_language_
-[BOLD([CODE([␂␆])]) Bash:  nonprintable characters],
+[BOLD([CODE([␂␆])]) Bash: nonprintable characters],
 ])
 
 PARA([[dnl czech
@@ -1763,16 +1764,16 @@ INSERT_FILE([preproc/preproc.file.sh])
 
 
 APPENDIX([m4_on_examples], [dnl czech
-[M4:  příklady],
+[M4: příklady],
 dnl english: _next_language_
-[M4:  examples],
+[M4: examples],
 ])
 
 
 SECT1([dnl czech
-[CODE_M4([[]]) JSON:  levá závorka CODE([LB()])],
+[CODE_M4([[]]) JSON: levá závorka CODE([LB()])],
 dnl english: _next_language_
-[CODE_M4([[]]) JSON:  left bracket CODE([LB()])],
+[CODE_M4([[]]) JSON: left bracket CODE([LB()])],
 ])
 
 PARA([[dnl czech
@@ -1790,9 +1791,9 @@ INSERT_FILE([hello_world/hello_world.json])
 
 
 SECT1([dnl czech
-[CODE_M4([[]]) Bash:  počítadla],
+[CODE_M4([[]]) Bash: počítadla],
 dnl english: _next_language_
-[CODE_M4([[]]) Bash:  counters],
+[CODE_M4([[]]) Bash: counters],
 ])
 
 PARA([[dnl czech
@@ -1816,9 +1817,9 @@ INSERT_FILE([hello_world/hello_world.sh])
 
 
 SECT1([symbols_in_brackets], [dnl czech
-[CODE_M4([[]]) .h:  závorky CODE_M4([[]])[,] CODE_M4([[,]])[,] CODE_M4([[#]])[,] CODE_M4([[dnl]])],
+[CODE_M4([[]]) .h: závorky CODE_M4([[]])[,] CODE_M4([[,]])[,] CODE_M4([[#]])[,] CODE_M4([[dnl]])],
 dnl english: _next_language_
-[CODE_M4([[]]) .h:  brackets CODE_M4([[]])[,] CODE_M4([[,]])[,] CODE_M4([[#]])[,] CODE_M4([[dnl]])],
+[CODE_M4([[]]) .h: brackets CODE_M4([[]])[,] CODE_M4([[,]])[,] CODE_M4([[#]])[,] CODE_M4([[dnl]])],
 ])
 
 PARA([[dnl czech
@@ -1844,9 +1845,9 @@ INSERT_FILE([hello_world/hello_world.h])
 
 
 SECT1([safe_example], [dnl czech
-[CODE_M4([[]]) AWK:  příklady bezpečnějších maker],
+[CODE_M4([[]]) AWK: příklady bezpečnějších maker],
 dnl english: _next_language_
-[CODE_M4([[]]) AWK:  examples of safer macros],
+[CODE_M4([[]]) AWK: examples of safer macros],
 ])
 
 PARA([[dnl czech
