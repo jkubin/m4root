@@ -271,7 +271,7 @@ define([REF], [pushdef([CURRQU], divnum)divert(-1)
 
 	# set reference index, create symbol and an unique tuple
 	define([REF_COUNTER], [1])
-	define([REF_SYMBOL], defn([NSP], [REF_ANCH], [REF_COUNTER]))
+	define([REF_IDENTIFIER], defn([NSP], [REF_ANCH], [REF_COUNTER]))
 	define([{$1|$2|$3}], REF_COUNTER)
 
 	# transition to the next node
@@ -280,12 +280,12 @@ define([REF], [pushdef([CURRQU], divnum)divert(-1)
 	# create new entry for all references under the article
 	divert(ARTICLE_REFERENCES)dnl
 <ol class="ADD_CLASS([refs])">
-<li>ifelse(defn([CURRQU]), [-1], [], [<a href="[#]REF_SYMBOL" title="WORD_SOURCE"></a>])<strong>$1</strong>ifelse([$2], [], [], [, $2])[]BR()
+<li>ifelse(defn([CURRQU]), [-1], [], [<a href="[#]REF_IDENTIFIER" title="WORD_SOURCE"></a>])<b>$1</b>ifelse([$2], [], [], [, $2])[]BR()
 <a href="[$3]">[$3]</a></li>
 divert(END_OF_REFERENCES)dnl
 </ol>
 divert(CURRQU)popdef([CURRQU])dnl
-<a href="[$3]" title="$1" id="REF_SYMBOL">BRAC(REF_COUNTER)</a>dnl
+<a href="[$3]" title="$1" id="REF_IDENTIFIER">BRAC(REF_COUNTER)</a>dnl
 ])
 
 # β
@@ -299,14 +299,14 @@ define([REF_NEXT], [pushdef([CURRQU], divnum)divert(-1)
 ], [
 		# increment counter for new ref value
 		define([REF_VALUE], define([REF_COUNTER], incr(REF_COUNTER))REF_COUNTER)
-		define([REF_SYMBOL], defn([NSP], [REF_ANCH])REF_VALUE)
+		define([REF_IDENTIFIER], defn([NSP], [REF_ANCH])REF_VALUE)
 		define([{$1|$2|$3}], REF_VALUE)
 
 		divert(ARTICLE_REFERENCES)dnl
-<li>ifelse(defn([CURRQU]), [-1], [], [<a href="[#]REF_SYMBOL" title="WORD_SOURCE"></a>])<strong>$1</strong>ifelse([$2], [], [], [, $2])[]BR()
+<li>ifelse(defn([CURRQU]), [-1], [], [<a href="[#]REF_IDENTIFIER" title="WORD_SOURCE"></a>])<b>$1</b>ifelse([$2], [], [], [, $2])[]BR()
 <a href="[$3]">[$3]</a></li>
 divert(CURRQU)popdef([CURRQU])dnl
-<a href="[$3]" title="$1" id="REF_SYMBOL">BRAC(REF_VALUE)</a>dnl
+<a href="[$3]" title="$1" id="REF_IDENTIFIER">BRAC(REF_VALUE)</a>dnl
 ])dnl
 ])
 
