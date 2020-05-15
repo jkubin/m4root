@@ -80,6 +80,11 @@ cc:
 wc:
 	@echo 123
 
+#:text/txt/tx	generates plain text to specify the length of the article
+.PHONY: text txt tx
+text txt tx:
+	@echo Testing text!
+
 
 #:test/tst/t	tests snippets of code in the scripting sandbox (development of new features or scripts)
 .PHONY: test tst t
@@ -90,7 +95,8 @@ test tst t: trunc devel
 #devel: rootb.m4 cfg.m4 queues.m4 style.m4 css.m4 inline.m4 test.m4
 #devel: rootb.m4 cfg.m4 queues.m4 style.m4 css.m4 js.m4 test.m4
 #devel: rootb.m4 cfg.m4 queues.m4 style.m4 css.m4 test.m4
-devel: rootb.m4 git.m4 test.m4
+#devel: rootb.m4 git.m4 test.m4
+devel: test.m4
 	m4 $^
 
 #:new/n	removes the date at the top of the page (usage: $ make new art)
