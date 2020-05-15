@@ -2,7 +2,7 @@
 ![m4tux](img/m4tux.png?raw=true)
 1. install packages
 ```
-# dnf -y install m4 pinfo make tidy git-core langpacks-cs
+# dnf -y install m4 pinfo make tidy git-core langpacks-cs ImageMagick
 ```
 2. generate files to generate other files
 ```
