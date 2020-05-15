@@ -29,14 +29,20 @@ define([BRAC], [[$@]])
 define([NPRI], [$@])
 
 # puts a left/right unpaired symbol bypassing the non-terminal control
-define([LB], [ifelse([$#], [0], [[$0]], [changequote`'format(`%c', 91)changequote([,])])])
-define([RB], [ifelse([$#], [0], [[$0]], [changequote`'format(`%c', 93)changequote([,])])])
+define([LB], [ifelse([$#], [0], [[$0]], [changequote[dnl]
+changequote([,])])])
+define([RB], [ifelse([$#], [0], [[$0]], [changequote`'dnl[
+]changequote([,])])])
 define([LQ], [`])
 define([RQ], ['])
 define([LN], [])
 define([RN], [])
 define([LU], [⟦])
 define([RU], [⟧])
+
+# 'print warning to stderr if something will be problematic
+define([ROOT_WARNING], [errprint(__file__:__line__[: warning: $*
+])])
 
 # 'abort script if something goes wrong, print the reason to stderr
 define([ROOT_ERROR], [errprint(__file__:__line__[: error: $*
