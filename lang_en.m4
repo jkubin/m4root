@@ -6,7 +6,6 @@ ___POINT([multilingual targets])
 
 # name of the series
 define([SERIES_NAME],	[Generating code in M4])
-define([LANG_VERSION],	[English version])
 
 # sets the appropriate locale for a command
 define([LANG_LOCALES],	[LANG=en_US.UTF-8 ])
@@ -35,5 +34,5 @@ define([OTHER_LANG_PATH],	[../clanky/])
 define([OTHER_LANG_CODE],	[cs])
 
 # list of all languages
-define([LANG_cs],	[Czech])
-define([LANG_en],	[English])
+define([cs_LANG],	[Czech])
+define([en_LANG],	[English])

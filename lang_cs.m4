@@ -6,7 +6,6 @@ ___POINT([multilingual targets])
 
 # name of the series
 define([SERIES_NAME],	[Generování kódu v M4])
-define([LANG_VERSION],	[Česká verze])
 
 # sets the appropriate locale for a command
 define([LANG_LOCALES],	[LANG=cs_CZ.utf8])
@@ -35,5 +34,5 @@ define([OTHER_LANG_PATH],	[../texty/])
 define([OTHER_LANG_CODE],	[en])
 
 # list of all languages
-define([LANG_cz],	[Česky])
-define([LANG_en],	[Anglicky])
+define([cs_LANG],	[Česky])
+define([en_LANG],	[Anglicky])
