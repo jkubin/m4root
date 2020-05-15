@@ -12,24 +12,21 @@ s/changequote([^)]*)//
 }
 
 # change a specific additional pair of characters
-/^define(\[\(BRAC\|NPRI\|UTFP\)\], \[/{s//define(`\1', `/; s/])$/')/; b}
+/^define(\[\(BRAC\|NPRI\|UTFP\)\], \[/{s//define(`\1', `/; s/])$/')/;b}
 
 s/\[/`/g
 s/]/'/g
 
 # necessary changes for unpaired characters
-/^define(`LB', `ifelse.*$/s//define(`LB', `[')/
-/^define(`RB', `ifelse.*$/s//define(`RB', `]')/
+/^define(`LB', `ifelse.*$/{N;z;s/^/define(`LB', `[')/}
+/^define(`RB', `ifelse.*$/{N;z;s/^/define(`RB', `]')/}
 
-# ord(`) is 96; ord(') is 39
-/^define(`LQ', .*$/s//define(`LQ', `ifelse(`$#', `0', ``$0'', `changequote([,])format([%c], 96)changequote`'')')/
-/^define(`RQ', .*$/s//define(`RQ', `ifelse(`$#', `0', ``$0'', `changequote([,])format([%c], 39)changequote`'')')/
+/^define(`LQ', .*$/s//define(`LQ', `ifelse(`$#', `0', ``$0'', `changequote([,])`dnl'\nchangequote`'')')/
+/^define(`RQ', .*$/s//define(`RQ', `ifelse(`$#', `0', ``$0'', `changequote([,])dnl`\n'changequote`'')')/
 
 # for simplified root0b
-# 
-# ord(`) is 96; ord(') is 39
-/^define(`LB', `changequote.*$/s//define(`LQ', `changequote([,])format([%c], 96)changequote`'')/
-/^define(`RB', `changequote.*$/s//define(`RQ', `changequote([,])format([%c], 39)changequote`'')/
+/^define(`LB', `changequote.*$/{N;z;s/^/define(`LQ', `changequote([,])`dnl'\nchangequote`'')/}
+/^define(`RB', `changequote.*$/{N;z;s/^/define(`RQ', `changequote([,])dnl`\n'changequote`'')/}
 
 # set aliases
 /define(`LL',/s/LB/LQ/

@@ -4,8 +4,11 @@ divert(-1)changequote([,])
 define([DONTE], [DO NOT EDIT! This file is generated automatically!])
 
 # puts a left/right unpaired symbol to skip the non-terminal control
-define([LB], [changequote`'format(`%c', 91)changequote([,])])
-define([RB], [changequote`'format(`%c', 93)changequote([,])])
+define([LB], [changequote[dnl]
+changequote([,])])
+
+define([RB], [changequote`'dnl[
+]changequote([,])])
 
 # number of arguments
 define([NAR], [$#])

@@ -12,24 +12,21 @@
 1s/^/dnl vim:mps+=\\:\ndnl\ndnl DO NOT EDIT! This file is generated automatically!\ndnl\n/
 
 # change a specific additional pair of characters
-/^define(\[\(BRAC\|QUOT\|UTFP\)\], \[/{s//define(\1, /; s/])$/)/; b}
+/^define(\[\(BRAC\|QUOT\|UTFP\)\], \[/{s//define(\1, /; s/])$/)/;b}
 
 s/\[//g
 s/]//g
 
 # necessary changes for unpaired characters
-/^\(define(LB, \)ifelse.*$/s//\1[)/
-/^\(define(RB, \)ifelse.*$/s//\1])/
+/^define(LB, ifelse.*$/{N;z;s/^/define(LB, [)/}
+/^define(RB, ifelse.*$/{N;z;s/^/define(RB, ])/}
 
-# ord() is 2; ord() is 6 
-/^\(define(LN, \).*$/s//\1ifelse($#, 0, $0, changequote`'format(`%c', 2)changequote(,)))/
-/^\(define(RN, \).*$/s//\1ifelse($#, 0, $0, changequote`'format(`%c', 6)changequote(,)))/
+/^define(LN, .*$/s//define(LN, ifelse($#, 0, $0, changequotednl\nchangequote(,)))/
+/^define(RN, .*$/s//define(RN, ifelse($#, 0, $0, changequotednl\nchangequote(,)))/
 
 # for simplified root0b
-# 
-# ord() is 2; ord() is 6 
-/^define(LB, changequote.*$/s//define(LN, changequote`'format(`%c', 2)changequote(,))/
-/^define(RB, changequote.*$/s//define(RN, changequote`'format(`%c', 6)changequote(,))/
+/^define(LB, changequote.*$/{N;z;s/^/define(LN, changequotednl\nchangequote(,))/}
+/^define(RB, changequote.*$/{N;z;s/^/define(RN, changequotednl\nchangequote(,))/}
 
 # set aliases
 /define(LL,/s/LB/LN/

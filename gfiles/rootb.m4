@@ -78,8 +78,10 @@ define([QUOT], [`$@'])
 define([UTFP], [⟦$@⟧])
 
 # puts a left/right unpaired angular bracket, quotation mark, nonprintable or UTF-8 char
-define([LB], [ifelse([$#], [0], [[$0]], [changequote`'format(`%c', 91)changequote([,])])])
-define([RB], [ifelse([$#], [0], [[$0]], [changequote`'format(`%c', 93)changequote([,])])])
+define([LB], [ifelse([$#], [0], [[$0]], [changequote[dnl]
+changequote([,])])])
+define([RB], [ifelse([$#], [0], [[$0]], [changequote`'dnl[
+]changequote([,])])])
 define([LQ], [`])
 define([RQ], ['])
 define([LN], [])
