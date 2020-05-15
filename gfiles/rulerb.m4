@@ -8,9 +8,9 @@ ___USAGE([m4 rootb.m4 rulerb.m4 …])
 # /*                  1234567890123456789012345678901234567890 */
 # System.out.println("Let's say: 'Hello, world!' It's damn good!");
 
-ifelse(defn([TEST_ATM]), [], [
+ifdef([TEST_ATM], [], [
 
-	ROOT_ERROR([missing macro TEST_ATM for initialization test])
+	ROOT_ERROR([add the file with the missing TEST_ATM macro to the command line])
 ])
 
 # ruler as an automaton
