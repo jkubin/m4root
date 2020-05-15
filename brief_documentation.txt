@@ -163,6 +163,20 @@ Note: m4root
 Description: converts vim iabbrev file for square brackets to iabbrev file for nonprintable characters
 Reason: keeps consistent 1:1 iabbrev vim file for square brackets with nonprintable characters
 ---
+File: gfiles/quotation_marks_old.sed
+Author: Josef Kubin
+Started: 2019/09/22
+Note: m4root
+Description: converts the root file for square brackets to the root file for original quotation marks
+Reason: root file for original quotation marks
+---
+File: gfiles/nonprintable_chars_old.sed
+Author: Josef Kubin
+Started: 2019/09/22
+Note: m4root
+Description: converts the root file for square brackets to the root file for nonprintable characters
+Reason: root file for nonprintable characters
+---
 File: gfiles/Makefile
 Author: Josef Kubin
 Started: 2019/10/26
@@ -170,6 +184,13 @@ Note: root_cz
 Description: maintains consistent files with square bracket files
 Reason: one hand-written file to generate additional files
 Usage: make h && make
+---
+File: gfiles/utf8_chars_old.sed
+Author: Josef Kubin
+Started: 2019/09/22
+Note: m4root
+Description: converts the root file for square brackets to the root file for UTF-8 characters
+Reason: root file for UTF-8 characters
 ---
 File: refs_mono.m4
 Author: Josef Kubin
@@ -311,13 +332,6 @@ Note: root_cz
 Description: converts LANG_CODE to numeric index and selects desired language item
 Reason: selects item from multilingual list
 ---
-File: wc.m4
-Author: Josef Kubin
-Started: 2020/05/11
-Note: m4root
-Description: 
-Reason: word count
----
 File: headings.m4
 Author: Josef Kubin
 Started: 2019/12/31
@@ -385,8 +399,8 @@ File: html/queues.m4
 Author: Josef Kubin
 Started: 2019/07/11
 Note: root_cz
-Description: definitions of output queues
-Reason: each target file format has a specific queue list
+Description: definitions of indexes for output queues
+Reason: each target generation file format has a specific list of queues
 ---
 File: html/style.m4
 Author: Josef Kubin
@@ -557,6 +571,13 @@ Note: m4root
 Description: this handwritten Makefile automatically creates additional rules for creating target files
 Reason: learning M4 using the examples in this series
 Usage: make h && make && make
+---
+File: txt.m4
+Author: Josef Kubin
+Started: 2020/05/11
+Note: m4root
+Description: 
+Reason: word count
 ---
 File: incl.m4
 Author: Josef Kubin

@@ -39,8 +39,14 @@ define(⟦LQ⟧, ⟦`⟧)
 define(⟦RQ⟧, ⟦'⟧)
 define(⟦LN⟧, ⟦⟧)
 define(⟦RN⟧, ⟦⟧)
-define(⟦LU⟧, ⟦ifelse(⟦$#⟧, ⟦0⟧, ⟦⟦$0⟧⟧, ⟦changequote`'format(`%c%c%c', 226, 159, 166)changequote(⟦,⟧)⟧)⟧)
-define(⟦RU⟧, ⟦ifelse(⟦$#⟧, ⟦0⟧, ⟦⟦$0⟧⟧, ⟦changequote`'format(`%c%c%c', 226, 159, 167)changequote(⟦,⟧)⟧)⟧)
+define(⟦LU⟧, ⟦ifelse(⟦$#⟧, ⟦0⟧, ⟦⟦$0⟧⟧, ⟦changequote⟦dnl⟧
+changequote(⟦,⟧)⟧)⟧)
+define(⟦RU⟧, ⟦ifelse(⟦$#⟧, ⟦0⟧, ⟦⟦$0⟧⟧, ⟦changequote`'dnl⟦
+⟧changequote(⟦,⟧)⟧)⟧)
+
+# 'print warning to stderr if something will be problematic
+define(⟦ROOT_WARNING⟧, ⟦errprint(__file__:__line__⟦: warning: $*
+⟧)⟧)
 
 # 'abort script if something goes wrong, print the reason to stderr
 define(⟦ROOT_ERROR⟧, ⟦errprint(__file__:__line__⟦: error: $*

@@ -8,8 +8,11 @@ divert(-1)changequote(⟦,⟧)
 define(⟦DONTE⟧, ⟦DO NOT EDIT! This file is generated automatically!⟧)
 
 # puts a left/right unpaired symbol to skip the non-terminal control
-define(⟦LU⟧, ⟦changequote`'format(`%c%c%c', 226, 159, 166)changequote(⟦,⟧)⟧)
-define(⟦RU⟧, ⟦changequote`'format(`%c%c%c', 226, 159, 167)changequote(⟦,⟧)⟧)
+define(⟦LU⟧, ⟦changequote⟦dnl⟧
+changequote(⟦,⟧)⟧)
+
+define(⟦RU⟧, ⟦changequote`'dnl⟦
+⟧changequote(⟦,⟧)⟧)
 
 # number of arguments
 define(⟦NAR⟧, ⟦$#⟧)

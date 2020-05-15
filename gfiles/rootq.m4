@@ -84,8 +84,10 @@ define(`UTFP', `⟦$@⟧')
 # puts a left/right unpaired angular bracket, quotation mark, nonprintable or UTF-8 char
 define(`LB', `[')
 define(`RB', `]')
-define(`LQ', `ifelse(`$#', `0', ``$0'', `changequote([,])format([%c], 96)changequote`'')')
-define(`RQ', `ifelse(`$#', `0', ``$0'', `changequote([,])format([%c], 39)changequote`'')')
+define(`LQ', `ifelse(`$#', `0', ``$0'', `changequote([,])`dnl'
+changequote`'')')
+define(`RQ', `ifelse(`$#', `0', ``$0'', `changequote([,])dnl`
+'changequote`'')')
 define(`LN', `')
 define(`RN', `')
 define(`LU', `⟦')

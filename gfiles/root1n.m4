@@ -37,10 +37,16 @@ define(LB, [)
 define(RB, ])
 define(LQ, `)
 define(RQ, ')
-define(LN, ifelse($#, 0, $0, changequote`'format(`%c', 2)changequote(,)))
-define(RN, ifelse($#, 0, $0, changequote`'format(`%c', 6)changequote(,)))
+define(LN, ifelse($#, 0, $0, changequotednl
+changequote(,)))
+define(RN, ifelse($#, 0, $0, changequotednl
+changequote(,)))
 define(LU, ⟦)
 define(RU, ⟧)
+
+# 'print warning to stderr if something will be problematic
+define(ROOT_WARNING, errprint(__file__:__line__: warning: $*
+))
 
 # 'abort script if something goes wrong, print the reason to stderr
 define(ROOT_ERROR, errprint(__file__:__line__: error: $*

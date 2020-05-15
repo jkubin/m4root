@@ -88,8 +88,10 @@ define(⟦LQ⟧, ⟦`⟧)
 define(⟦RQ⟧, ⟦'⟧)
 define(⟦LN⟧, ⟦⟧)
 define(⟦RN⟧, ⟦⟧)
-define(⟦LU⟧, ⟦ifelse(⟦$#⟧, ⟦0⟧, ⟦⟦$0⟧⟧, ⟦changequote`'format(`%c%c%c', 226, 159, 166)changequote(⟦,⟧)⟧)⟧)
-define(⟦RU⟧, ⟦ifelse(⟦$#⟧, ⟦0⟧, ⟦⟦$0⟧⟧, ⟦changequote`'format(`%c%c%c', 226, 159, 167)changequote(⟦,⟧)⟧)⟧)
+define(⟦LU⟧, ⟦ifelse(⟦$#⟧, ⟦0⟧, ⟦⟦$0⟧⟧, ⟦changequote⟦dnl⟧
+changequote(⟦,⟧)⟧)⟧)
+define(⟦RU⟧, ⟦ifelse(⟦$#⟧, ⟦0⟧, ⟦⟦$0⟧⟧, ⟦changequote`'dnl⟦
+⟧changequote(⟦,⟧)⟧)⟧)
 
 #' set aliases to unpaired control char for expansion control (universal macros)
 # define(⟦LL⟧, defn(⟦LU⟧))

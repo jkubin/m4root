@@ -35,12 +35,18 @@ define(`NPRI', `$@')
 # puts a left/right unpaired symbol bypassing the non-terminal control
 define(`LB', `[')
 define(`RB', `]')
-define(`LQ', `ifelse(`$#', `0', ``$0'', `changequote([,])format([%c], 96)changequote`'')')
-define(`RQ', `ifelse(`$#', `0', ``$0'', `changequote([,])format([%c], 39)changequote`'')')
+define(`LQ', `ifelse(`$#', `0', ``$0'', `changequote([,])`dnl'
+changequote`'')')
+define(`RQ', `ifelse(`$#', `0', ``$0'', `changequote([,])dnl`
+'changequote`'')')
 define(`LN', `')
 define(`RN', `')
 define(`LU', `⟦')
 define(`RU', `⟧')
+
+# 'print warning to stderr if something will be problematic
+define(`ROOT_WARNING', `errprint(__file__:__line__`: warning: $*
+')')
 
 # 'abort script if something goes wrong, print the reason to stderr
 define(`ROOT_ERROR', `errprint(__file__:__line__`: error: $*
