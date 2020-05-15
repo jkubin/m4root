@@ -175,6 +175,16 @@ init: function (
 		if (!source_node.highlighting_keywords)
 			continue;
 
+		/*
+		 * the source code snippet in HTML can start from any line,
+		 * not just the first line
+		 *
+		 * the script reads the first line number of the source code
+		 * from the style attribute if it differs from 1
+		 *
+		 * for example, if the source code begins on line 5:
+		 * style="counter-reset:m4-nl 5"
+		 */
 		counter_reset = 1;
 
 		if (source_node.style.counterReset)
@@ -185,14 +195,16 @@ init: function (
 		for (hgl_item of source_node.highlighting_keywords) {
 
 			/*
-			 * the first step is to transform input pseudo-JSON using regexp
+			 * the first step is to transform the pseudo-JSON input
+			 * using regex to standard JSON
 			 */
 			hgl_item.value =
 				hgl_item.value.replace(/[A-Z]+|[_a-z]\w*|\d+-\d+/g,
 					'"$&"').replace(/^:/, '"":');
 
 			/*
-			 * wraps the processed string in parentheses to the raw JSON string
+			 * wraps the processed string in parentheses to the raw
+			 * well structured JSON string (not tested yet)
 			 */
 			hgl_item.value =
 				/:/.test(hgl_item.value) ?
@@ -201,12 +213,12 @@ init: function (
 
 			/*
 			 * converts raw string to a final structured JSON data
-			 * the data contains only color names and line numbers
+			 * the data contains only class names and line numbers
 			 */
 			parsed_json = JSON.parse(hgl_item.value, function (key, value) {
 
 				/*
-				 * extracts capital letters for a highlighting set
+				 * extracts uppercase class names for highlight sets
 				 */
 				if (/^[A-Z]+$/.test(value)) {
 
@@ -243,7 +255,7 @@ init: function (
 
 				/*
 				 * converts line numbers to the index for an array
-				 * removes forbidden integer values
+				 * removes negative integers
 				 */
 				if (Number.isInteger(value)) {
 
@@ -268,11 +280,10 @@ init: function (
 					highlighting_sequence = [];
 
 					/*
-					 * if concatenated array is empty, removes it
+					 * if the resulting concatenated array
+					 * is empty, it is removed
 					 */
-					return value.length ?
-						value :
-						undefined;
+					return value.length ? value : undefined;
 				}
 
 				/*
@@ -325,7 +336,8 @@ init: function (
 					lines_to_highlight = parsed_json[another_class];
 
 					/*
-					 * set a default color, if the class name is empty
+					 * set the default color class, if
+					 * the class name is empty
 					 * "": [1, 2, 3] → "default_class": [1, 2, 3]
 					 */
 					resulting_class = another_class ?
