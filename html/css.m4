@@ -110,20 +110,15 @@ position:relative;
 CSS_CLASS_RULE_SET([[]],	[usc, root],	[[>pre]], [
 
 font-weight:bold;
+padding-right:0;
 white-space:normal;
 word-break:normal;
 
 ])
 
-# counter name for the source code
-define([SRC_CNTR], defn([NSP])[nl])
-
-background:#fff;
-border-radius:4px;
-
 CSS_CLASS_RULE_SET([[]],	[src],	[[]], [
 
-counter-reset:defn([SRC_CNTR]);
+counter-reset:defn([SOURCE_COUNTER]);
 
 ])
 
@@ -214,12 +209,13 @@ text-decoration:#f04c23 underline dashed;
 
 ])
 
-# class names for JavaScript code (helps maintain consistency)
+# macros for class names for JavaScript code helps maintain consistency
 define([CLASS_HIGHLIGHT],		defn([NSP])[hgl])
 define([CLASS_REAR],		defn([NSP])[re])
 define([CLASS_SOURCE],		defn([NSP])[src])
 define([CLASS_STRIPE],		defn([NSP])[ev])
 define([DEFAULT_HIGHLIGHT_CLASS],	defn([NSP])[dh])
+define([SOURCE_COUNTER],		defn([NSP])[nl])
 
 CSS_CLASS_RULE_SET([[]],	[src],	[[>pre.defn([CLASS_REAR])]], [
 
@@ -252,8 +248,8 @@ background:#f5f5f5;
 
 CSS_CLASS_RULE_SET([[]],	[src],	[[>pre.defn([CLASS_REAR])>div::before]], [
 
-content:counter(defn([SRC_CNTR]));
-counter-increment:defn([SRC_CNTR]);
+content:counter(defn([SOURCE_COUNTER]));
+counter-increment:defn([SOURCE_COUNTER]);
 left:-3em;
 position:absolute;
 text-align:right;

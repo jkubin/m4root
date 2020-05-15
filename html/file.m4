@@ -123,7 +123,7 @@ define([SET_CSS_LINE_COUNTER], [divert(-1)
 		[
 
 		divert(CURRQU)dnl
- style="counter-reset:defn([SRC_CNTR]) decr($1)"dnl
+ style="counter-reset:defn([SOURCE_COUNTER]) decr($1)"dnl
 divert(-1)
 	])
 
