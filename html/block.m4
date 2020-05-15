@@ -8,9 +8,9 @@ ___POINT([definition of HTML5 block-level elements])
 
 # html tag attributes (at the end of this file will be forgotten)
 # β
-pushdef([ID_1],		[ifelse([$#], [1], [], [$1], [], [], [ id="ADD_ID_ANCH([$1])"])])
-pushdef([ID_1_MONO],	[ifelse([$#], [1], [], [$1], [], [], [ id="ADD_ID_MONO([$1])"])])
-pushdef([ID_1_ANCHOR],	[ifelse([$#], [1], [], [$1], [], [], [<a href="[#]ADD_ID_MONO([$1])" title="⚓"></a>])])
+pushdef([ID_1],		[[]ifelse([$#], [1], [], [$1], [], [], [ id="ADD_ID_ANCH([$1])"])])
+pushdef([ID_1_MONO],	[[]ifelse([$#], [1], [], [$1], [], [], [ id="ADD_ID_MONO([$1])"])])
+pushdef([ID_1_ANCHOR],	[[]ifelse([$#], [1], [], [$1], [], [], [<a href="[#]ADD_ID_MONO([$1])" title="⚓"></a>])])
 pushdef([TITLE_2],		[ifelse([$#], [2], [], [$2], [], [], [ title="[$2]"])])
 pushdef([CLASS_3],		[ifelse([$#], [3], [], [$3], [], [], [ class="ADD_CLASS([$3])"])])
 pushdef([CLASS_3_SUFFIX],	[ifelse([$#], [3], [], [$3], [], [], [ ADD_CLASS([$3])])"])		<--- Keep it up!
@@ -348,7 +348,7 @@ divert(-1)
 # A → β
 define([NOTE_WRAP], [
 	divert(CURRQU)dnl
-<div[]]defn([HTML_NOTE_ATTRIBUTES])[>dnl
+<div]defn([HTML_NOTE_ATTRIBUTES])[>dnl
 divert(-1)
 	]defn([EXPAND_LAST])[
 
@@ -360,42 +360,42 @@ divert(-1)
 # A → β
 define([NOTE_MONO], [
 	divert(CURRQU)dnl
-<div[]]defn([HTML_NOTE_ATTRIBUTES])[>EXPAND_ARG1_WITHOUT_TRAILING_LF(]defn([EXPAND_LAST])[)</div>
+<div]defn([HTML_NOTE_ATTRIBUTES])[>EXPAND_ARG1_WITHOUT_TRAILING_LF(]defn([EXPAND_LAST])[)</div>
 divert(-1)
 ])
 
 # A → β
 define([NOTE], [
 	divert(CURRQU)dnl
-<div[]]defn([HTML_NOTE_ATTRIBUTES])[>EXPAND_LANG_WITHOUT_TRAILING_LF(]defn([EXPAND_LAST])[)</div>
+<div]defn([HTML_NOTE_ATTRIBUTES])[>EXPAND_LANG_WITHOUT_TRAILING_LF(]defn([EXPAND_LAST])[)</div>
 divert(-1)
 ])
 
 # A → β
 define([WARN], [
 	divert(CURRQU)dnl
-<div[]]defn([HTML_WARN_ATTRIBUTES])[>EXPAND_LANG_WITHOUT_TRAILING_LF(]defn([EXPAND_LAST])[)</div>
+<div]defn([HTML_WARN_ATTRIBUTES])[>EXPAND_LANG_WITHOUT_TRAILING_LF(]defn([EXPAND_LAST])[)</div>
 divert(-1)
 ])
 
 # A → β
 define([EXCL], [
 	divert(CURRQU)dnl
-<div[]]defn([HTML_EXCL_ATTRIBUTES])[>EXPAND_LANG_WITHOUT_TRAILING_LF(]defn([EXPAND_LAST])[)</div>
+<div]defn([HTML_EXCL_ATTRIBUTES])[>EXPAND_LANG_WITHOUT_TRAILING_LF(]defn([EXPAND_LAST])[)</div>
 divert(-1)
 ])
 
 # A → β
 define([INFO], [
 	divert(CURRQU)dnl
-<div[]]defn([HTML_INFO_ATTRIBUTES])[>EXPAND_LANG_WITHOUT_TRAILING_LF(]defn([EXPAND_LAST])[)</div>
+<div]defn([HTML_INFO_ATTRIBUTES])[>EXPAND_LANG_WITHOUT_TRAILING_LF(]defn([EXPAND_LAST])[)</div>
 divert(-1)
 ])
 
 # A → β
 define([TILE_BOX], [
 	divert(CURRQU)dnl
-<div[]]defn([ID_1], [TITLE_2], [CLASS_3_TILE], [STYLE_4])[>EXPAND_LANG_WITHOUT_TRAILING_LF(]defn([EXPAND_LAST])[)</div>
+<div]defn([ID_1], [TITLE_2], [CLASS_3_TILE], [STYLE_4])[>EXPAND_LANG_WITHOUT_TRAILING_LF(]defn([EXPAND_LAST])[)</div>
 divert(-1)
 ])
 
@@ -405,21 +405,21 @@ define([PROGRAMLISTING], [
 	ADD_JAVASCRIPT_FOR_SOURCE_CODE()
 
 	divert(CURRQU)dnl
-<div[]]defn([HTML_SOURCE_CODE_ATTRIBUTES])><pre>defn([PROCESS_RAW_CODE_TO_HTML_ENTITIES])</pre>defn([ID_1_ANCHOR])[</div>
+<div]defn([HTML_SOURCE_CODE_ATTRIBUTES])><pre>defn([PROCESS_RAW_CODE_TO_HTML_ENTITIES])</pre>defn([ID_1_ANCHOR])[</div>
 divert(-1)
 ])
 
 # A → β
 define([COMMAND_USR], [
 	divert(CURRQU)dnl
-<div[]]defn([HTML_USR_CMD_ATTRIBUTES])><pre>defn([PROCESS_RAW_CODE_TO_HTML_ENTITIES])</pre>defn([ID_1_ANCHOR])[</div>
+<div]defn([HTML_USR_CMD_ATTRIBUTES])><pre>defn([PROCESS_RAW_CODE_TO_HTML_ENTITIES])</pre>defn([ID_1_ANCHOR])[</div>
 divert(-1)
 ])
 
 # A → β
 define([COMMAND_ROOT], [
 	divert(CURRQU)dnl
-<div[]]defn([HTML_ROOT_CMD_ATTRIBUTES])><pre>defn([PROCESS_RAW_CODE_TO_HTML_ENTITIES])</pre>defn([ID_1_ANCHOR])[</div>
+<div]defn([HTML_ROOT_CMD_ATTRIBUTES])><pre>defn([PROCESS_RAW_CODE_TO_HTML_ENTITIES])</pre>defn([ID_1_ANCHOR])[</div>
 divert(-1)
 ])
 
