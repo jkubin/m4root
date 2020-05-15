@@ -11,7 +11,7 @@ ___POINT([one place to configure ALL generated web pages])
 # β
 define([BACK_TO_TOC],		[<a href="[#]defn([#ID], [TOC_ANCH])" title="defn([WORD_CONTENT])"></a>])
 define([CHAPTER_INDEXES],	[<a href="[#]defn([#ID])" title="⚓">defn([#S0], [#S1], [#S2])</a>])
-define([GO_BACK_UP],		[<a href="[#]defn([NSP], [TOC_ANCH])" title="defn([WORD_TOP])"></a>])
+define([GO_BACK_UP],		[<a href="defn([#NSP], [TOC_ANCH])" title="defn([WORD_TOP])"></a>])
 
 # a folder containing generated files such as root files, vim shortcut files and M4 plugins
 # A → β
@@ -31,20 +31,21 @@ define([DEFAULT_HIGHLIGHT_COLOR], [lawngreen])
 #
 ################################################################################
 #
-# HTML ID configuration (do not change it unless you know what you are doing):
 
-# A → β
-define([REF_ANCH],	[ref])
-define([TOC_ANCH],	[-toc])
-define([TOC_ALL_PARTS],	[all-parts])
-define([TOC_REFS],	[links])
-
-# html template namespace prefix:
+# namespace prefix
 # A → β
 define([NSP],		[m4-])
 #define([NSP],		[foo-])
 #define([NSP],		[usr-])
 #define([NSP],		[pepa-])
+
+# do not change it unless you know what you are doing
+# A → β
+define([#NSP], 		[#]defn([NSP]))
+define([REF_ANCH],	[ref])
+define([TOC_ALL_PARTS],	[all-parts])
+define([TOC_ANCH],	[-toc])
+define([TOC_REFS],	[links])
 
 # or deactivate it completely
 # /!\ risky, anchors and CSS class names _WILL_INTERFERE_ with the parent page /!\
