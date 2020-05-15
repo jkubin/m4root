@@ -33,7 +33,7 @@ m4wrap([
 <meta name="author" content="AUTHOR_NAME">
 <meta name="generator" content="M4">
 <link rel="stylesheet" type="text/css" href="../html/preview.css">
-undivert(INTERNAL_STYLE_DATA, INTERNAL_STYLE_END)dnl
+divert(HEADER_END_START_BODY)dnl
 </head>
 <body class="design-tile layout-article-content">
 <div class="urs">

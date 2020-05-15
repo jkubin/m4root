@@ -10,14 +10,14 @@ pushdef([#$COMMAND_LINE], [
 		ROOT_ERROR([‘$0($@)’ requires at least 2 arguments])
 	])
 
-	divert(REFERENCES_TO_FILES)dnl
+	divert(COMMAND_LINE_ARGS)dnl
 $1 dnl
 divert(-1)
 
 	FILES_ON_THE_COMMAND_LINE(shift($@))
 ])
 
-# COMMAND_LINE([tool -o a,b,c -DMACRO], [input/file1.src], [input/file2.src], [input/file3.src], …, [output/file.dst])
+# COMMAND_LINE([foo -o a,b,c -DMACRO], [input/file1.src], [input/file2.src], [input/file3.src], …, [output/file.dst])
 # A → β
 define([COMMAND_LINE], [
 
@@ -25,7 +25,7 @@ define([COMMAND_LINE], [
 
 ]defn([#$COMMAND_LINE]))
 
-# COMMAND_LINE_ROOT([tool -o a,b,c -DMACRO], [input/file1.src], [input/file2.src], [input/file3.src], …, [output/file.dst])
+# COMMAND_LINE_ROOT([foo -o a,b,c -DMACRO], [input/file1.src], [input/file2.src], [input/file3.src], …, [output/file.dst])
 # A → β
 define([COMMAND_LINE_ROOT], [
 
@@ -56,13 +56,13 @@ define([FILES_ON_THE_COMMAND_LINE], [
 
 		divert(CURRQU)dnl
 <div id="ADD_ID_RULE(defn([#ID])-command)" title="defn([WORD_COMMAND])" class="ADD_CLASS(defn([COMMAND_LINE_CLASS]))"><pre>dnl
-undivert(REFERENCES_TO_FILES)dnl
+undivert(COMMAND_LINE_ARGS)dnl
 GT() <a href="SRC_FILE_PATH[$1]" title="defn([SRC_REPO_NAME])[$1]">patsubst([$1], [.*/])</a></pre><a href="[#]defn([#ID])-command" title="⚓"></a></div>
 divert(-1)
 
 	], [
 
-		divert(REFERENCES_TO_FILES)dnl
+		divert(COMMAND_LINE_ARGS)dnl
 <a href="SRC_FILE_PATH[$1]" title="defn([SRC_REPO_NAME])[$1]">patsubst([$1], [.*/])</a> dnl
 divert(-1)
 

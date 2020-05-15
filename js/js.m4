@@ -38,7 +38,9 @@ define([ADD_JAVASCRIPT_FOR_SOURCE_CODE], [
 var m4root={undivert(
 	[js/hgl_packed.js],
 	[js/info_packed.js],
-)};dnl
+)}dnl
+divert(JAVASCRIPT_CODE_INIT)dnl
+<script>dnl
 m4root.init(dnl
 document.getElementsByClassName("defn([CLASS_HIGHLIGHT])"),dnl
 document.getElementsByClassName("defn([CLASS_SOURCE])"),dnl
@@ -46,5 +48,6 @@ document.getElementsByClassName("defn([CLASS_SOURCE])"),dnl
 "defn([CLASS_REAR])",dnl						class container for stripes
 "defn([CLASS_STRIPE])",dnl						class name for colored stripe
 "defn([DEFAULT_HIGHLIGHT_CLASS])")dnl					class to highlight stripes and source code
+</script>
 divert(-1)
 ])
