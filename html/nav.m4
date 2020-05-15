@@ -12,11 +12,11 @@ ifelse(defn([CURRENT_INDEX]), [], [
 ])
 
 # if multilingual pages are generated
-ifelse(defn(OTHER_LANG_CODE.[LANG_VERSION]), [], [], [
+ifelse(defn(OTHER_LANG_CODE[]_OTHER_LANG), [], [], [
 
 	# create an HTML link to another language
 	define([SWITCH_TO_ANOTHER_LANGUAGE],
-	NB()(<a href="../defn([OTHER_LANGUAGE])defn(CURRENT_INDEX.OTHER_LANG_CODE.anch)/defn([OUTPUT_FILE], [#NSP], [TOC_ANCH])" title="defn(CURRENT_INDEX.OTHER_LANG_CODE.capt)">defn(OTHER_LANG_CODE.[LANG_VERSION])</a>))
+	NB()(<a href="../defn([OTHER_LANGUAGE])defn(CURRENT_INDEX.OTHER_LANG_CODE.anch)/defn([OUTPUT_FILE], [#NSP], [TOC_ANCH])" title="defn(CURRENT_INDEX.OTHER_LANG_CODE.capt)">ARG1(OTHER_LANG_CODE)_OTHER_LANG</a>))
 ])
 
 # this is the beginning of the page
@@ -80,7 +80,7 @@ divert(-1)
 	define(this.defn([CAPTION]))
 
 	# creates table of content for all parts
-	ifelse(defn(OTHER_LANG_CODE.[LANG_VERSION]), [], [
+	ifelse(defn(OTHER_LANG_CODE[]_OTHER_LANG), [], [
 
 		TABLE_OF_CONTENT(LANG_CODE)
 	], [

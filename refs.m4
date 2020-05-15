@@ -9,16 +9,16 @@ define([RBR], defn([RB]))
 
 # re-define problematic macros used in captions
 # A → β
-define([AP], [ifelse([$#], [0], [[$0]], [a])])
-define([BOLD], [ifelse([$#], [0], [[$0]], [$1])])
-define([DQ], [ifelse([$#], [0], [[$0]], [d])])
-define([NB], [ifelse([$#], [0], [[$0]], [ ])])
-define([CODE], defn([BOLD]))
-define([CODE_M4], [ifelse([$#], [0], [[$0]], [[$1]])])
-define([LB], [b])
-define([LQ], [g])
-define([LN], [n])
-define([LU], [u])
+define([AP],		[ifelse([$#], [0], [[$0]], [a])])
+define([BOLD],		[ifelse([$#], [0], [[$0]], [$1])])
+define([DQ],		[ifelse([$#], [0], [[$0]], [d])])
+define([NB],		[ifelse([$#], [0], [[$0]], [ ])])
+define([CODE],		defn([BOLD]))
+define([CODE_M4],	[ifelse([$#], [0], [[$0]], [[$1]])])
+define([LB],		[b])
+define([LQ],		[g])
+define([LN],		[n])
+define([LU],		[u])
 
 # A → ε
 define([RB])
@@ -261,19 +261,6 @@ define([SECT2], defn([MULTILINGUAL_HEADINGS], [TEST_STRING], [SET_UNIQ_KEY_FOR_L
 # A → β
 define([APPENDIX], defn([CHAPTER]))
 
-# A → β
-define([WORD], [
-
-	ifdef([$1], [], [
-
-		ROOT_ERROR([the macro ‘$1’ is not defined])
-	])
-
-	divert(SEL_WORDS)dnl
-[define(]LBR()LANG_CODE.[$1]RBR(), LBR()defn([LANG_VERSION])RBR())
-divert(-1)
-])
-
 # connects source files to generated files, languages, captions and anchors
 divert(0)dnl
 [#] DONTE()
@@ -288,9 +275,8 @@ divert(ANCHORS)dnl
 divert(SEL_WORDS)dnl
 
 # A → β
+[define(]LBR()LANG_CODE[]_OTHER_LANG], LBR()ARG1(LANG_CODE)_LANG])
 divert(-1)
-
-WORD([LANG_VERSION])
 
 # A → β
 define([ADDRESS_WRAP],			defn([PROCESS_ID], [EXPAND_LAST]))
