@@ -5,7 +5,7 @@
 <meta charset="utf-8">
 <title>Generating code in M4: introduction</title>
 <link rel="stylesheet" type="text/css" href="../html/preview.css">
-<style>.m4-ev{background:#f5f5f5}.urs p[id$="-toc"]>a>b{font-weight:normal;margin-right:.6em}.urs a[id^="m4-ref"]{font-size:.65em;vertical-align:super}.m4-A .m4-a,.m4-B .m4-b,.m4-C .m4-c,.m4-D .m4-d,.m4-E .m4-e,.m4-F .m4-f,.m4-G .m4-g,.m4-dh{background:lawngreen}.m4-R .m4-r{background:red}.m4-S .m4-s{font-weight:bold}.m4-X .m4-x{visibility:hidden}.m4-ch,.m4-bh,.m4-usc,.m4-root{position:relative}.m4-bh>a:first-child::before,.m4-ch>a:first-child::before{font-size:.9em;font-weight:normal;position:absolute;right:100%;width:1.1em}.m4-ch>a:first-child::before{content:"\2630"}.m4-ch>a:first-child+a{margin-right:.4em}.m4-ch>a:last-child::before,.m4-bh>a:last-child::before{content:"\1f845";font-size:.65em;margin-left:.3em;position:absolute}.m4-ch>a:first-child,.m4-ch>a:last-child,.m4-bh>a:first-child,.m4-bh>a:last-child{opacity:0}.m4-ch:hover>a:first-child,.m4-ch:hover>a:last-child,.m4-bh:hover>a:first-child,.m4-bh:hover>a:last-child{opacity:1}.m4-xp{border-bottom:1px dotted #000;cursor:help}.m4-xp:active::after{content:" (" attr(title) ")"}.m4-note::before{content:"\1f5b9";margin-right:.2em;font-size:1.5em}.urs .m4-note,.urs .m4-info,.urs .m4-excl,.urs .m4-warn{padding-top:.2em;padding-bottom:.4em}.m4-note ul{margin-bottom:0;margin-left:1em}ol.m4-refs a:first-child::before{content:"\2191"}ol.m4-refs a:first-child{margin-right:.3em;text-decoration:none}p.m4-l2{padding-left:1em}.m4-bh>a:first-child::before{content:"\1f517"}.m4-info::before{content:"\1f6c8";margin-right:.2em;font-size:1.5em}.m4-src{counter-reset:m4-nl}.m4-src>a,.m4-usc>a,.m4-root>a{background-color:hsla(0,0%,86%,.5);border:1px solid #ddd;border-radius:0 4px;font-size:.7em;padding:2px 4px;position:absolute;right:0;top:0}.m4-src>a::before,.m4-usc>a::before,.m4-root>a::before{content:"\1f517"}.m4-src>code{border-radius:0 4px;border:1px solid #ddd;font-size:.7em;font-weight:bold;padding:2px 4px;position:absolute;right:0;text-align:right;top:0}.m4-src>code a{margin-left:.6em}.m4-src>code>div{background:#eee;font-weight:initial;padding:0 2px;text-align:left}.m4-src>code>span+a{color:inherit}.m4-src>code a+a{font-weight:normal}.m4-src>code a+a::before{content:"\1f517"}.m4-src>code>span:first-child{cursor:pointer;text-decoration:#f04c23 underline dashed}.m4-src>pre.m4-re{left:0;overflow:visible;padding-left:0;padding-right:0;position:absolute;top:0}.m4-src>pre+pre{background:none}.m4-src,.m4-src>pre,.m4-src>pre.m4-re>div{position:relative}.m4-src>pre.m4-re>div::before{content:counter(m4-nl);counter-increment:m4-nl;left:-3em;position:absolute;text-align:right;top:0;width:2.5em}.m4-src>pre.m4-re>div::after{content:" "}.m4-hgl{border-bottom:1px dashed #000;cursor:help}.m4-usc>pre,.m4-root>pre{font-weight:bold;padding-right:0;white-space:normal;word-break:normal}.m4-usc>pre a,.m4-root>pre a{color:inherit}.m4-root pre::before{content:"~]# ";font-weight:normal}.m4-usc pre::before{content:"~]$ ";font-weight:normal}p.m4-l3{padding-left:2em}#m4--toc{position:relative}#m4--toc div{color:#888;position:absolute;right:0;text-align:right;top:0}</style>
+<style>.m4-ev{background:#f5f5f5}.urs p[id$="-toc"]>a>b{font-weight:normal;margin-right:.6em}.urs a[id^="m4-ref"]{font-size:.65em;vertical-align:super}.m4-A .m4-a,.m4-B .m4-b,.m4-C .m4-c,.m4-D .m4-d,.m4-E .m4-e,.m4-F .m4-f,.m4-G .m4-g,.m4-dh{background:lawngreen}.m4-R .m4-r{background:gold}.m4-S .m4-s{font-weight:bold}.m4-X .m4-x{visibility:hidden}.urs q{font-style:initial}.urs q::before{content:"“";padding-right:1px}.urs q::after{content:"”"}.m4-ch,.m4-bh,.m4-usc,.m4-root{position:relative}.m4-bh>a:first-child::before,.m4-ch>a:first-child::before{font-size:.9em;font-weight:normal;position:absolute;right:100%;width:1.1em}.m4-ch>a:first-child::before{content:"\2630"}.m4-ch>a:first-child+a{margin-right:.4em}.m4-ch>a:last-child::before,.m4-bh>a:last-child::before{content:"\1f845";font-size:.65em;margin-left:.3em;position:absolute}.m4-ch>a:first-child,.m4-ch>a:last-child,.m4-bh>a:first-child,.m4-bh>a:last-child{opacity:0}.m4-ch:hover>a:first-child,.m4-ch:hover>a:last-child,.m4-bh:hover>a:first-child,.m4-bh:hover>a:last-child{opacity:1}.m4-xp{border-bottom:1px dotted #000;cursor:help}.m4-xp:active::after{content:" (" attr(title) ")"}.m4-note::before{content:"\1f5b9";margin-right:.2em;font-size:1.5em}.urs .m4-note,.urs .m4-info,.urs .m4-excl,.urs .m4-warn{padding-top:.2em;padding-bottom:.4em}.m4-note ul{margin-bottom:0;margin-left:1em}ol.m4-refs a:first-child::before{content:"\2191"}ol.m4-refs a:first-child{margin-right:.3em;text-decoration:none}p.m4-l2{padding-left:1em}.m4-bh>a:first-child::before{content:"\1f517"}.m4-info::before{content:"\1f6c8";margin-right:.2em;font-size:1.5em}.m4-src{counter-reset:m4-nl}.m4-src>a,.m4-usc>a,.m4-root>a{background-color:hsla(0,0%,86%,.5);border:1px solid #ddd;border-radius:0 4px;font-size:.7em;padding:2px 4px;position:absolute;right:0;top:0}.m4-src>a::before,.m4-usc>a::before,.m4-root>a::before{content:"\1f517"}.m4-src>code{border-radius:0 4px;border:1px solid #ddd;font-size:.7em;font-weight:bold;padding:2px 4px;position:absolute;right:0;text-align:right;top:0}.m4-src>code a{margin-left:.6em}.m4-src>code>div{background:#eee;font-weight:initial;padding:0 2px;text-align:left}.m4-src>code>span+a{color:inherit}.m4-src>code a+a{font-weight:normal}.m4-src>code a+a::before{content:"\1f517"}.m4-src>code>span:first-child{cursor:pointer;text-decoration:#f04c23 underline dashed}.m4-src>pre.m4-re{left:0;overflow:visible;padding-left:0;padding-right:0;position:absolute;top:0}.m4-src>pre+pre{background:none}.m4-src,.m4-src>pre,.m4-src>pre.m4-re>div{position:relative}.m4-src>pre.m4-re>div::before{content:counter(m4-nl);counter-increment:m4-nl;left:-3em;position:absolute;text-align:right;top:0;width:2.5em}.m4-src>pre.m4-re>div::after{content:" "}.m4-hgl{border-bottom:1px dashed #000;cursor:help}.m4-usc>pre,.m4-root>pre{font-weight:bold;padding-right:0;white-space:normal;word-break:normal}.m4-usc>pre a,.m4-root>pre a{color:inherit}.m4-root pre::before{content:"~]# ";font-weight:normal}.m4-usc pre::before{content:"~]$ ";font-weight:normal}p.m4-l3{padding-left:2em}#m4--toc{position:relative}#m4--toc div{color:#888;position:absolute;right:0;text-align:right;top:0}</style>
 <meta name="author" content="Josef Kubín">
 <meta name="description" content="The M4 macro processor is used to generate arbitrarily complex code from simple source code.
 The introductory part of the series contains its history, the basic principles of language, examples of usage and prerequisites for its mastery.">
@@ -34,7 +34,7 @@ The introductory part of the series contains its history, the basic principles o
 				<div class="perex__impressum">
 						<span class="perex__author">Josef Kubín</span>
 						<span class="perex__date">
-							<span itemprop="datePublished">15. 5. 2020</span>
+							<span itemprop="datePublished">17. 5. 2020</span>
 						</span>
 				</div>
 				<p itemprop="description">The M4 macro processor is used to generate arbitrarily complex code from simple source code.
@@ -52,7 +52,7 @@ The introductory part of the series contains its history, the basic principles o
 <!-- Sklik-kontext-start -->
 <div class=" layout-article-content">
 <div class="php-urs urs">
-<div id="m4--toc"><h2>Content&nbsp;(<a href="../generovani-kodu-v-m4-uvod/preview.html#m4--toc" title="Generování kódu v M4: úvod">Česká verze</a>)</h2><div>updated<br>May 15, 2020</div></div>
+<div id="m4--toc"><h2>Content&nbsp;(<a href="../generovani-kodu-v-m4-uvod/preview.html#m4--toc" title="Generování kódu v M4: úvod">Česky</a>)</h2><div>updated<br>May 17, 2020</div></div>
 <noscript><div title="for information" class="rs-tip-major m4-info">Enabling JavaScript enhances the clarity of the source code samples.</div></noscript>
 <p id="m4-introduction-toc"><a href="#m4-introduction"><b>1</b>Introduction</a></p>
 <p id="m4-examples-for-readers-toc" class="m4-l2"><a href="#m4-examples-for-readers"><b>1.1</b>Examples for readers</a></p>
@@ -87,7 +87,7 @@ The code generation is performed by a&nbsp;tool for text transformation – <b>a
 It also describes the theoretical part of all its implementations.
 The aim of the series is to acquaint the reader with this <span title="m4 – is a command line program" class="m4-xp">tool</span> and also the programming <span title="M4 – is a programming language" class="m4-xp">language</span>.
 <a href="#m4-main-uses-of-m4" title="Main uses of M4">What is it used for</a>, how to program in it and its <a href="#m4-why-to-generate-code-in-m4" title="👍 Why to generate code in M4">advantages</a> and <a href="#m4-why-to-avoid-m4" title="👎 Why to avoid M4">disadvantages</a>.</p>
-<div title="note" class="rs-tip-major m4-note">Multilingual series „<b>Generating code in M4</b>“ are generated by M4 scripts<a href="http://github.com/jkubin/m4root" title="Generating code in M4" id="m4-ref1">[1]</a>,
+<div title="note" class="rs-tip-major m4-note">Multilingual series <q><b>Generating code in M4</b></q> are generated by M4 scripts<a href="http://github.com/jkubin/m4root" title="Generating code in M4" id="m4-ref1">[1]</a>,
 which will make it easier (maybe) for other authors to write articles on <a href="https://www.root.cz/" title="Root.cz – information not only from the Linux world">www.root.cz</a>.
 The result of the series is also a set of sample scripts for generating code.</div>
 <p>The introductory part describes the basic principles of the language with simple examples of use.
@@ -104,7 +104,7 @@ Each part can be read in any order.</p>
 <li><a href="#m4-preprocessor-examples" title="Preprocessor examples">Preprocessor examples</a></li>
 <li><a href="#m4-m4-examples" title="M4: examples">M4: examples</a></li>
 <li><a href="#m4-why-to-use-m4-and-why-not" title="Why to use M4 and why not?">Why to use M4 and why not?</a></li>
-<li><a href="http://github.com/jkubin/m4root" title="Generating code in M4">http://github.com/jkubin/m4root</a> – more complex project generating HTML5 of this series</li>
+<li><a href="http://github.com/jkubin/m4root" title="Generating code in M4">http://github.com/jkubin/m4root</a> – more complex project generating this series</li>
 </ul>
 <h2 id="m4-history-of-macro-languages" class="m4-ch"><a href="#m4-history-of-macro-languages-toc" title="Content"></a><a href="#m4-history-of-macro-languages" title="⚓">2</a>History of macro languages<a href="#m4--toc" title="Top"></a></h2>
 <p>Macro languages were invented when the assembly language (ASM) dominated.
@@ -155,15 +155,10 @@ The macro processor converts the source code back to FORTRAN, then the compiler 
 <div title="M4 language complements C language" class="rs-tip-major m4-note">Note the <a href="#m4-ba-c-preprocessor-and-m4" title="`' C preprocessor and M4">almost perfect symbiosis</a> with the C&nbsp;language:<ul>
 <li><abbr title="C preprocessor">CPP</abbr> directives <code>#define</code>, <code>#include</code>, <code>#ifdef</code>, … are comments for M4</li>
 <li>most keywords separated from parentheses by a&nbsp;white character lose meaning
-<ul>
-<li>for example, M4 ignores <code>void define (char c, int i) {…}</code></li>
-</ul></li>
+<ul><li>for example, M4 ignores <code>void define (char c, int i) {…}</code></li></ul></li>
 <li>macro arguments separate commas just like commas in C&nbsp;functions
-<ul>
-<li>if the <code>FUNC(char c, int i)</code> macro is defined, its variables are:<br>
-<code>$# → 2</code>, <code>$0 → FUNC</code>, <code>$1 → char c</code>, <code>$2 → int i</code>
-</li>
-</ul></li>
+<ul><li>if the <code>FUNC(char c, int i)</code> macro is defined, its variables are:
+<code>$# → 2</code>, <code>$0 → FUNC</code>, <code>$1 → char c</code>, <code>$2 → int i</code></li></ul></li>
 <li><b>the left</b> <a href="#m4-nonterminal-expansion-control" title="Nonterminal expansion control">control character</a> <code>`</code> is not a&nbsp;part of the C&nbsp;family syntax</li>
 <li><b>the right</b> control character <code>'</code> does not matter if it is not part of the macro<br>
 <ul><li>both control characters can be hidden into user-defined macros <code>LQ()</code>, <code>RQ()</code></li></ul></li>
@@ -172,7 +167,7 @@ The macro processor converts the source code back to FORTRAN, then the compiler 
 </ul>
 </div>
 <p>The user manual<a href="https://wolfram.schneider.org/bsd/7thEdManVol2/m4/m4.pdf" title="The M4 Macro Processor" id="m4-ref4">[4]</a> mentions other co-authors not mentioned here.
-So it would be fairly unfair to write that the authors of the M4 macro processor (1977) are <em>only</em> two people.</p>
+So it would be fairly unfair to write that the authors of the M4 macro processor (1977) are <i>only</i> two people.</p>
 <img src="../img/authors.jpg" alt="&#160;" width="960" height="400" id="m4-the-authors" title="Christopher Strachey, Dennis Ritchie, Brian Kernighan">
 <p><em>Picture <a href="#m4-the-authors" title="⚓">1</a>: Christopher Strachey<a href="https://www.computerhope.com/people/christopher_strachey.htm" title="Christopher Strachey" id="m4-ref5">[5]</a>,
 Dennis Ritchie<a href="https://pc.zoznam.sk/novinka/zomrel-tvorca-unixu-jazyka-c" title="Dennis Ritchie" id="m4-ref6">[6]</a>,
@@ -182,7 +177,7 @@ Brian Kernighan<a href="https://www.cs.cmu.edu/~mihaib/kernighan-interview/" tit
 The most common implementation of M4 is the <b>GNU M4</b> used for <a href="https://en.wikipedia.org/wiki/GNU_Build_System" title="Wikipedia">Autotools</a>
 and for translating the simple <code>sendmail.mc</code> configuration file to complex <code>sendmail.cf</code>.
 The author of this implementation (1990) is <a href="https://www.seindal.dk/rene/gnu/"><span class="rs-person">René Seindal</span></a>.
-To install <span title="with small letter „m“" class="m4-xp">m4</span>, type the following command:</p>
+To install <span title="with small letter “m”" class="m4-xp">m4</span>, type the following command:</p>
 <div id="m4-install" title="the command also installs other important packages" class="m4-root"><pre>dnf -y install make m4 pinfo</pre><a href="#m4-install" title="⚓"></a></div>
 <p>A&nbsp;detailed description of the keywords can be found in the documentation<a href="https://www.gnu.org/software/m4/manual/" title="GNU M4 - GNU macro processor" id="m4-ref8">[8]</a>:</p>
 <div class="m4-src"><pre>~]$ <b>pinfo m4</b>
@@ -225,7 +220,7 @@ When passing through the macro processor, all the symbols between this character
 The next pass will cause the expansion of the originally protected nonterminals.
 The control character pair is set at the beginning of the root file.</p>
 <h3 id="m4-automata" class="m4-ch"><a href="#m4-automata-toc" title="Content"></a><a href="#m4-automata" title="⚓">3.2</a>Automata<a href="#m4--toc" title="Top"></a></h3>
-<p>Automata serve as „switches“ of grammar rules.
+<p>Automata serve as <q>switches</q> of grammar rules.
 Automata use the grammar rules for rewriting as nodes and change their states according to input symbols.
 The currently used rule produces a specific code to the output queue (or several output queues) until the automaton moves to another node with a&nbsp;different rule.
 The examples of <a href="#m4-json-generating-automaton" title="[] JSON: generating automaton">generating automata</a> are in appendix.</p>
@@ -426,12 +421,12 @@ Stacks in the examples are not used.
 The input source code contains special characters that must be hidden:</p>
 <div id="m4-messages_messages_raw-mc" class="m4-src"><pre># 2018/05/15 Josef Kubin
 
-<span class=m4-r>ERROR</span>([COMPLEX],     [!"#$%&amp;'()*+ ,-./:;&lt;=&gt;?@[\]^_`{|}~])
+<span class=m4-r>ERROR</span>([COMPLEX],     [!"#$%&amp;'()*+,-./:;&lt;=&gt;?@[\]^_`{|}~])
 QUERY([READABLE],    [Is badly written M4 code readable [N/y]?])
 <span class=m4-r>ERROR</span>([SUCCESS],     [Too complex M4 code failed successfully.])
 WARNING([ADDICTIVE], [Programming in M4 is addictive!])
 <span class=m4-r>ERROR</span>([NOFAULT],     [It's not a language fault!])
-WARNING([NO_ERRORS], [No other errors detected.])</pre><code><span title="2020-03-31 19:29:14 +0200">0a4e91e</span><a href="../messages/messages_raw.mc" title="Source: localhost
+WARNING([NO_ERRORS], [No other errors detected.])</pre><code><span title="2020-05-17 17:56:55 +0200">2599236</span><a href="../messages/messages_raw.mc" title="Source: localhost
 messages/messages_raw.mc">messages_raw.mc</a><a href="#m4-messages_messages_raw-mc" title="⚓"></a></code></div>
 <div title="note" class="rs-tip-major m4-note">The input file may also contain notes that may not be hidden in the comments <code>#</code>, <code>dnl</code>, <code>ifelse([…])</code> or <code>[… somewhere inside brackets …]</code>.</div>
 <h3 id="m4-csv-simplest-example" class="m4-ch"><a href="#m4-csv-simplest-example-toc" title="Content"></a><a href="#m4-csv-simplest-example" title="⚓">A.2</a><code>[]</code> CSV: simplest example<a href="#m4--toc" title="Top"></a></h3>
@@ -440,12 +435,12 @@ messages/messages_raw.mc">messages_raw.mc</a><a href="#m4-messages_messages_raw-
 define([<span class=m4-r>ERROR</span>], [
 
 	divert(0)dnl
-[$1]	$2
+[$1	$2]
 divert(-1)
-])</pre><code><span title="2020-01-06 16:21:10 +0100">b53eafe</span><a href="../messages/hello.csv.m4" title="Source: localhost
+])</pre><code><span title="2020-05-17 17:54:17 +0200">5ad6e1b</span><a href="../messages/hello.csv.m4" title="Source: localhost
 messages/hello.csv.m4">hello.csv.m4</a><a href="#m4-messages_hello-csv-m4" title="⚓"></a></code></div>
-<div id="m4-messages_hello-csv-command" title="command" class="m4-usc"><pre>m4 <a href="../gfiles/rootb.m4" title="Source: localhost
-gfiles/rootb.m4">rootb.m4</a> <a href="../messages/hello.csv.m4" title="Source: localhost
+<div id="m4-messages_hello-csv-command" title="command" class="m4-usc"><pre>m4 <a href="../gfiles/root0b.m4" title="Source: localhost
+gfiles/root0b.m4">root0b.m4</a> <a href="../messages/hello.csv.m4" title="Source: localhost
 messages/hello.csv.m4">hello.csv.m4</a> <a href="../messages/messages_raw.mc" title="Source: localhost
 messages/messages_raw.mc">messages_raw.mc</a> &gt; <a href="../messages/hello.csv" title="Source: localhost
 messages/hello.csv">hello.csv</a></pre><a href="#m4-messages_hello-csv-command" title="⚓"></a></div>
@@ -454,7 +449,7 @@ SUCCESS	Too complex M4 code failed successfully.
 NOFAULT	It's not a language fault!</pre><code><span title="2020-03-31 19:30:06 +0200">9156810</span><a href="../messages/hello.csv" title="Source: localhost
 messages/hello.csv">hello.csv</a><a href="#m4-messages_hello-csv" title="⚓"></a></code></div>
 <h3 id="m4-csv-counter" class="m4-ch"><a href="#m4-csv-counter-toc" title="Content"></a><a href="#m4-csv-counter" title="⚓">A.3</a><code>[]</code> CSV: counter<a href="#m4--toc" title="Top"></a></h3>
-<p>The example uses the <code class="m4-hgl" data-11="A">COUNT_UP</code> macro from the root file whose <abbr title="the right side of the rewriting rule"><code>β</code></abbr> is copied to the right side of the <code class="m4-hgl" data-11="2">COUNTER</code> macro.
+<p>The example uses the <code class="m4-hgl" data-11="A">COUNT_UP</code> macro from the <code>countb.m4</code> file whose <abbr title="the right side of the rewriting rule"><code>β</code></abbr> is copied to the right side of the <code class="m4-hgl" data-11="2">COUNTER</code> macro.
 During the first expansion of <code class="m4-hgl" data-11="5">COUNTER</code> its initial value is initialized.
 <span class="m4-hgl" data-11="B">Further expansion</span> returns the numeric terminal symbol and increases the inner auxiliary (global) symbol by one.
 <code>COUNTER</code> is a&nbsp;small automaton.</p>
@@ -468,12 +463,13 @@ COUNTER(1)
 define([ERROR], [
 
 	divert(0)dnl
-ERR_[]<span class=m4-b>COUNTER</span>	[$1]	$2
+ERR_[]<span class=m4-b>COUNTER</span>	[$1	$2]
 divert(-1)
-])</pre><code><span title="2020-01-06 16:21:10 +0100">b53eafe</span><a href="../messages/counter.csv.m4" title="Source: localhost
+])</pre><code><span title="2020-05-17 17:54:17 +0200">5ad6e1b</span><a href="../messages/counter.csv.m4" title="Source: localhost
 messages/counter.csv.m4">counter.csv.m4</a><a href="#m4-messages_counter-csv-m4" title="⚓"></a></code></div>
-<div id="m4-messages_counter-csv-command" title="command" class="m4-usc"><pre>m4 <a href="../gfiles/rootb.m4" title="Source: localhost
-gfiles/rootb.m4">rootb.m4</a> <a href="../messages/counter.csv.m4" title="Source: localhost
+<div id="m4-messages_counter-csv-command" title="command" class="m4-usc"><pre>m4 <a href="../gfiles/root0b.m4" title="Source: localhost
+gfiles/root0b.m4">root0b.m4</a> <a href="../gfiles/countb.m4" title="Source: localhost
+gfiles/countb.m4">countb.m4</a> <a href="../messages/counter.csv.m4" title="Source: localhost
 messages/counter.csv.m4">counter.csv.m4</a> <a href="../messages/messages_raw.mc" title="Source: localhost
 messages/messages_raw.mc">messages_raw.mc</a> &gt; <a href="../messages/counter.csv" title="Source: localhost
 messages/counter.csv">counter.csv</a></pre><a href="#m4-messages_counter-csv-command" title="⚓"></a></div>
@@ -571,8 +567,8 @@ divert(1)dnl
 };
 divert(-1)</pre><code><span title="2020-01-06 16:21:10 +0100">b53eafe</span><a href="../messages/array.c.m4" title="Source: localhost
 messages/array.c.m4">array.c.m4</a><a href="#m4-messages_array-c-m4" title="⚓"></a></code></div>
-<div id="m4-messages_array-c-command" title="command" class="m4-usc"><pre>m4 <a href="../gfiles/rootb.m4" title="Source: localhost
-gfiles/rootb.m4">rootb.m4</a> <a href="../messages/array.c.m4" title="Source: localhost
+<div id="m4-messages_array-c-command" title="command" class="m4-usc"><pre>m4 <a href="../gfiles/root0b.m4" title="Source: localhost
+gfiles/root0b.m4">root0b.m4</a> <a href="../messages/array.c.m4" title="Source: localhost
 messages/array.c.m4">array.c.m4</a> <a href="../messages/code.m4" title="Source: localhost
 messages/code.m4">code.m4</a> <a href="../messages/messages.mc" title="Source: localhost
 messages/messages.mc">messages.mc</a> &gt; <a href="../messages/array.c" title="Source: localhost
@@ -590,7 +586,7 @@ messages/array.c">array.c</a><a href="#m4-messages_array-c" title="⚓"></a></co
 <h3 id="m4-ini-an-external-command" class="m4-ch"><a href="#m4-ini-an-external-command-toc" title="Content"></a><a href="#m4-ini-an-external-command" title="⚓">A.6</a><code>[]</code> INI: an external command<a href="#m4--toc" title="Top"></a></h3>
 <p>The example runs an external <code class="m4-hgl" data-21="D" data-22="3">date</code> command and places its output in square brackets.
 The output of an external command are <span class="m4-hgl" data-21="A">two comma-separated items</span>.
-The <code class="m4-hgl" data-21="C">ARG1()</code> macro <span class="m4-hgl" data-21="B">selects the first item</span> because the second item contains an unwanted <code>LF</code> (<samp>0x0a</samp>) new line character.</p>
+The <code class="m4-hgl" data-21="C">SARG1()</code> macro <span class="m4-hgl" data-21="B">selects the first item</span> because the second item contains an unwanted <code>LF</code> (<samp>0x0a</samp>) new line character.</p>
 <div id="m4-messages_hello-ini-m4" class="m4-src"><pre># A → β
 define([ERROR], [
 
@@ -602,21 +598,21 @@ divert(-1)
 divert(0)dnl
 ; DONTE()
 
-LB()<span class=m4-c>ARG1</span>(esyscmd([<span class=m4-d>date '+<span class="m4-b">[hello_%Y%m%d]</span><span class=m4-a>,</span>'</span>]))]
-divert(-1)</pre><code><span title="2020-02-11 02:32:35 +0100">9e13656</span><a href="../messages/hello.ini.m4" title="Source: localhost
+<span class=m4-c>SARG1</span>(esyscmd([<span class=m4-d>date '+<span class="m4-b">[[hello_%Y%m%d]]</span><span class=m4-a>,</span>'</span>]))
+divert(-1)</pre><code><span title="2020-05-17 17:56:13 +0200">5889f4e</span><a href="../messages/hello.ini.m4" title="Source: localhost
 messages/hello.ini.m4">hello.ini.m4</a><a href="#m4-messages_hello-ini-m4" title="⚓"></a></code></div>
-<div id="m4-messages_hello-ini-command" title="command" class="m4-usc"><pre>m4 <a href="../gfiles/rootb.m4" title="Source: localhost
-gfiles/rootb.m4">rootb.m4</a> <a href="../messages/hello.ini.m4" title="Source: localhost
+<div id="m4-messages_hello-ini-command" title="command" class="m4-usc"><pre>m4 <a href="../gfiles/root0b.m4" title="Source: localhost
+gfiles/root0b.m4">root0b.m4</a> <a href="../messages/hello.ini.m4" title="Source: localhost
 messages/hello.ini.m4">hello.ini.m4</a> <a href="../messages/code.m4" title="Source: localhost
 messages/code.m4">code.m4</a> <a href="../messages/messages.mc" title="Source: localhost
 messages/messages.mc">messages.mc</a> &gt; <a href="../messages/hello.ini" title="Source: localhost
 messages/hello.ini">hello.ini</a></pre><a href="#m4-messages_hello-ini-command" title="⚓"></a></div>
 <div id="m4-messages_hello-ini" class="m4-src"><pre>; DO NOT EDIT! This file is generated automatically!
 
-[hello_20200513]
+[hello_20200516]
 COMPLEX="!\"#$%&amp;'()*+,-./:;&lt;=&gt;?@[\\]^_`{|}~"
 SUCCESS="Too complex M4 code failed successfully."
-NOFAULT="It's not a language fault!"</pre><code><span title="2020-05-02 16:29:55 +0200">9b230aa</span><a href="../messages/hello.ini" title="Source: localhost
+NOFAULT="It's not a language fault!"</pre><code><span title="2020-05-15 19:28:05 +0200">1ad0594</span><a href="../messages/hello.ini" title="Source: localhost
 messages/hello.ini">hello.ini</a><a href="#m4-messages_hello-ini" title="⚓"></a></code></div>
 <h3 id="m4-h-hex-counter" class="m4-ch"><a href="#m4-h-hex-counter-toc" title="Content"></a><a href="#m4-h-hex-counter" title="⚓">A.7</a><code>[]</code> .h: hex counter<a href="#m4--toc" title="Top"></a></h3>
 <p>The example uses the <code class="m4-hgl" data-23="A,2">COUNTER</code> macro to number the resulting <abbr title="C preprocessor">CPP</abbr> <span class="m4-hgl" data-23="11" data-24="8-10">macros</span> and one output queue.
@@ -632,7 +628,7 @@ define([<span class=m4-a>COUNTER</span>], defn([COUNT_UP]))
 define([ERROR], [
 
 	divert(0)dnl
-[#define $1		0x]<span class=m4-c>eval(</span><span class=m4-a>COUNTER</span>, <span class=m4-b>16, 2</span><span class=m4-c>)</span>
+[#define $1		0x]<span class=m4-c>eval</span>(<span class=m4-a>COUNTER</span>, <span class=m4-b>16, 2</span>)
 divert(-1)
 ])
 
@@ -648,8 +644,9 @@ divert(1)
 #endif /* __ERROR_H */
 divert(-1)</pre><code><span title="2020-01-06 16:21:10 +0100">b53eafe</span><a href="../messages/messages.h.m4" title="Source: localhost
 messages/messages.h.m4">messages.h.m4</a><a href="#m4-messages_messages-h-m4" title="⚓"></a></code></div>
-<div id="m4-messages_messages-h-command" title="command" class="m4-usc"><pre>m4 <a href="../gfiles/rootb.m4" title="Source: localhost
-gfiles/rootb.m4">rootb.m4</a> <a href="../messages/messages.h.m4" title="Source: localhost
+<div id="m4-messages_messages-h-command" title="command" class="m4-usc"><pre>m4 <a href="../gfiles/root0b.m4" title="Source: localhost
+gfiles/root0b.m4">root0b.m4</a> <a href="../gfiles/countb.m4" title="Source: localhost
+gfiles/countb.m4">countb.m4</a> <a href="../messages/messages.h.m4" title="Source: localhost
 messages/messages.h.m4">messages.h.m4</a> <a href="../messages/messages.mc" title="Source: localhost
 messages/messages.mc">messages.mc</a> &gt; <a href="../messages/messages.h" title="Source: localhost
 messages/messages.h">messages.h</a></pre><a href="#m4-messages_messages-h-command" title="⚓"></a></div>
@@ -693,8 +690,8 @@ char error[[]] =
 "divert(1)<span class=m4-b>";</span>
 divert(-1)</pre><code><span title="2020-01-06 16:21:10 +0100">b53eafe</span><a href="../messages/stringl.c.m4" title="Source: localhost
 messages/stringl.c.m4">stringl.c.m4</a><a href="#m4-messages_stringl-c-m4" title="⚓"></a></code></div>
-<div id="m4-messages_stringl-c-command" title="command" class="m4-usc"><pre>m4 <a href="../gfiles/rootb.m4" title="Source: localhost
-gfiles/rootb.m4">rootb.m4</a> <a href="../messages/stringl.c.m4" title="Source: localhost
+<div id="m4-messages_stringl-c-command" title="command" class="m4-usc"><pre>m4 <a href="../gfiles/root0b.m4" title="Source: localhost
+gfiles/root0b.m4">root0b.m4</a> <a href="../messages/stringl.c.m4" title="Source: localhost
 messages/stringl.c.m4">stringl.c.m4</a> <a href="../messages/code.m4" title="Source: localhost
 messages/code.m4">code.m4</a> <a href="../messages/messages.mc" title="Source: localhost
 messages/messages.mc">messages.mc</a> &gt; <a href="../messages/stringl.c" title="Source: localhost
@@ -733,8 +730,8 @@ char error[[]] =
 "divert(1)";
 divert(-1)</pre><code><span title="2020-04-13 00:29:23 +0200">18148df</span><a href="../messages/string.c.m4" title="Source: localhost
 messages/string.c.m4">string.c.m4</a><a href="#m4-messages_string-c-m4" title="⚓"></a></code></div>
-<div id="m4-messages_string-c-command" title="command" class="m4-usc"><pre>m4 <a href="../gfiles/rootb.m4" title="Source: localhost
-gfiles/rootb.m4">rootb.m4</a> <a href="../messages/string.c.m4" title="Source: localhost
+<div id="m4-messages_string-c-command" title="command" class="m4-usc"><pre>m4 <a href="../gfiles/root0b.m4" title="Source: localhost
+gfiles/root0b.m4">root0b.m4</a> <a href="../messages/string.c.m4" title="Source: localhost
 messages/string.c.m4">string.c.m4</a> <a href="../messages/code.m4" title="Source: localhost
 messages/code.m4">code.m4</a> <a href="../messages/messages.mc" title="Source: localhost
 messages/messages.mc">messages.mc</a> &gt; <a href="../messages/string.c" title="Source: localhost
@@ -787,8 +784,8 @@ divert(2)dnl
 &lt;/html&gt;
 divert(-1)</pre><code><span title="2020-01-06 16:21:10 +0100">b53eafe</span><a href="../messages/messages.html.m4" title="Source: localhost
 messages/messages.html.m4">messages.html.m4</a><a href="#m4-messages_messages-html-m4" title="⚓"></a></code></div>
-<div id="m4-messages_messages-html-command" title="command" class="m4-usc"><pre>m4 <a href="../gfiles/rootb.m4" title="Source: localhost
-gfiles/rootb.m4">rootb.m4</a> <a href="../messages/messages.html.m4" title="Source: localhost
+<div id="m4-messages_messages-html-command" title="command" class="m4-usc"><pre>m4 <a href="../gfiles/root0b.m4" title="Source: localhost
+gfiles/root0b.m4">root0b.m4</a> <a href="../messages/messages.html.m4" title="Source: localhost
 messages/messages.html.m4">messages.html.m4</a> <a href="../messages/markup.m4" title="Source: localhost
 messages/markup.m4">markup.m4</a> <a href="../messages/messages.mc" title="Source: localhost
 messages/messages.mc">messages.mc</a> &gt; <a href="../messages/messages.html" title="Source: localhost
@@ -838,8 +835,8 @@ define([ERROR_INSECT],   [🐛])
 define([QUERY_INSECT],   [🐜])
 define([WARNING_INSECT], [🐝])</pre><code><span title="2020-01-06 16:21:10 +0100">b53eafe</span><a href="../messages/insect.txt.m4" title="Source: localhost
 messages/insect.txt.m4">insect.txt.m4</a><a href="#m4-messages_insect-txt-m4" title="⚓"></a></code></div>
-<div id="m4-messages_insect-txt-command" title="command" class="m4-usc"><pre>m4 <a href="../gfiles/rootb.m4" title="Source: localhost
-gfiles/rootb.m4">rootb.m4</a> <a href="../messages/insect.txt.m4" title="Source: localhost
+<div id="m4-messages_insect-txt-command" title="command" class="m4-usc"><pre>m4 <a href="../gfiles/root0b.m4" title="Source: localhost
+gfiles/root0b.m4">root0b.m4</a> <a href="../messages/insect.txt.m4" title="Source: localhost
 messages/insect.txt.m4">insect.txt.m4</a> <a href="../messages/messages.mc" title="Source: localhost
 messages/messages.mc">messages.mc</a> &gt; <a href="../messages/insect.txt" title="Source: localhost
 messages/insect.txt">insect.txt</a></pre><a href="#m4-messages_insect-txt-command" title="⚓"></a></div>
@@ -884,8 +881,8 @@ divert(2)dnl
 }}
 divert(-1)</pre><code><span title="2020-01-06 16:21:10 +0100">b53eafe</span><a href="../messages/atm.json.m4" title="Source: localhost
 messages/atm.json.m4">atm.json.m4</a><a href="#m4-messages_atm-json-m4" title="⚓"></a></code></div>
-<div id="m4-messages_atm-json-command" title="command" class="m4-usc"><pre>m4 <a href="../gfiles/rootb.m4" title="Source: localhost
-gfiles/rootb.m4">rootb.m4</a> <a href="../messages/atm.json.m4" title="Source: localhost
+<div id="m4-messages_atm-json-command" title="command" class="m4-usc"><pre>m4 <a href="../gfiles/root0b.m4" title="Source: localhost
+gfiles/root0b.m4">root0b.m4</a> <a href="../messages/atm.json.m4" title="Source: localhost
 messages/atm.json.m4">atm.json.m4</a> <a href="../messages/code.m4" title="Source: localhost
 messages/code.m4">code.m4</a> <a href="../messages/messages.mc" title="Source: localhost
 messages/messages.mc">messages.mc</a> &gt; <a href="../messages/atm.json" title="Source: localhost
@@ -968,8 +965,8 @@ divert(LAST_QUEUE)
 }}
 divert(-1)</pre><code><span title="2020-01-06 16:21:10 +0100">b53eafe</span><a href="../messages/qnames.json.m4" title="Source: localhost
 messages/qnames.json.m4">qnames.json.m4</a><a href="#m4-messages_qnames-json-m4" title="⚓"></a></code></div>
-<div id="m4-messages_qnames-json-command" title="command" class="m4-usc"><pre>m4 <a href="../gfiles/rootb.m4" title="Source: localhost
-gfiles/rootb.m4">rootb.m4</a> <a href="../messages/qnames.json.m4" title="Source: localhost
+<div id="m4-messages_qnames-json-command" title="command" class="m4-usc"><pre>m4 <a href="../gfiles/root0b.m4" title="Source: localhost
+gfiles/root0b.m4">root0b.m4</a> <a href="../messages/qnames.json.m4" title="Source: localhost
 messages/qnames.json.m4">qnames.json.m4</a> <a href="../messages/code.m4" title="Source: localhost
 messages/code.m4">code.m4</a> <a href="../messages/messages.mc" title="Source: localhost
 messages/messages.mc">messages.mc</a> &gt; <a href="../messages/qnames.json" title="Source: localhost
@@ -999,7 +996,7 @@ The following example shows how these indexes are generated.</p>
 # A → β
 define([QUEUE_INDEX], defn([COUNT_UP]))
 
-# initial index of the first output queue
+# index of the first output queue (0 is stdout)
 QUEUE_INDEX(0)
 
 # symbolic names for indices of output queues
@@ -1017,7 +1014,7 @@ define([LAST_QUEUE],   <span class=m4-a>QUEUE_INDEX</span>)
 # A → β
 define([WARNING_NAME], [warning])
 define([ERROR_NAME],   [error])
-define([QUERY_NAME],   [query])</pre><code><span title="2020-01-06 16:21:10 +0100">b53eafe</span><a href="../messages/queues.m4" title="Source: localhost
+define([QUERY_NAME],   [query])</pre><code><span title="2020-05-17 17:50:57 +0200">9cfdf77</span><a href="../messages/queues.m4" title="Source: localhost
 messages/queues.m4">queues.m4</a><a href="#m4-messages_queues-m4" title="⚓"></a></code></div>
 <div id="m4-messages_messages-json-m4" class="m4-src"><pre>#      _________      ___________
 # ---&gt;/  ERROR  \---&gt;/ NEXT_ITEM \---.
@@ -1058,8 +1055,9 @@ divert(LAST_QUEUE)
 }}
 divert(-1)</pre><code><span title="2020-01-06 16:21:10 +0100">b53eafe</span><a href="../messages/messages.json.m4" title="Source: localhost
 messages/messages.json.m4">messages.json.m4</a><a href="#m4-messages_messages-json-m4" title="⚓"></a></code></div>
-<div id="m4-messages_messages-json-command" title="command" class="m4-usc"><pre>m4 <a href="../gfiles/rootb.m4" title="Source: localhost
-gfiles/rootb.m4">rootb.m4</a> <a href="../messages/queues.m4" title="Source: localhost
+<div id="m4-messages_messages-json-command" title="command" class="m4-usc"><pre>m4 <a href="../gfiles/root0b.m4" title="Source: localhost
+gfiles/root0b.m4">root0b.m4</a> <a href="../gfiles/countb.m4" title="Source: localhost
+gfiles/countb.m4">countb.m4</a> <a href="../messages/queues.m4" title="Source: localhost
 messages/queues.m4">queues.m4</a> <a href="../messages/messages.json.m4" title="Source: localhost
 messages/messages.json.m4">messages.json.m4</a> <a href="../messages/code.m4" title="Source: localhost
 messages/code.m4">code.m4</a> <a href="../messages/messages.mc" title="Source: localhost
@@ -1119,9 +1117,10 @@ divert(0)dnl
 ; DONTE()
 divert(-1)</pre><code><span title="2020-01-17 01:43:51 +0100">c145bef</span><a href="../messages/messages.ini.m4" title="Source: localhost
 messages/messages.ini.m4">messages.ini.m4</a><a href="#m4-messages_messages-ini-m4" title="⚓"></a></code></div>
-<div id="m4-messages_messages-ini-command" title="command" class="m4-usc"><pre>m4 <a href="../gfiles/rootb.m4" title="Source: localhost
-gfiles/rootb.m4">rootb.m4</a> <a href="../messages/messages.ini.m4" title="Source: localhost
-messages/messages.ini.m4">messages.ini.m4</a> <a href="../messages/queues.m4" title="Source: localhost
+<div id="m4-messages_messages-ini-command" title="command" class="m4-usc"><pre>m4 <a href="../gfiles/root0b.m4" title="Source: localhost
+gfiles/root0b.m4">root0b.m4</a> <a href="../messages/messages.ini.m4" title="Source: localhost
+messages/messages.ini.m4">messages.ini.m4</a> <a href="../gfiles/countb.m4" title="Source: localhost
+gfiles/countb.m4">countb.m4</a> <a href="../messages/queues.m4" title="Source: localhost
 messages/queues.m4">queues.m4</a> <a href="../messages/code.m4" title="Source: localhost
 messages/code.m4">code.m4</a> <a href="../messages/messages.mc" title="Source: localhost
 messages/messages.mc">messages.mc</a> &gt; <a href="../messages/messages.ini" title="Source: localhost
@@ -1166,8 +1165,8 @@ divert(1)dnl
 &lt;/messages&gt;
 divert(-1)</pre><code><span title="2020-01-06 16:21:10 +0100">b53eafe</span><a href="../messages/mixed.xml.m4" title="Source: localhost
 messages/mixed.xml.m4">mixed.xml.m4</a><a href="#m4-messages_mixed-xml-m4" title="⚓"></a></code></div>
-<div id="m4-messages_mixed-xml-command" title="command" class="m4-usc"><pre>m4 <a href="../gfiles/rootb.m4" title="Source: localhost
-gfiles/rootb.m4">rootb.m4</a> <a href="../messages/queues.m4" title="Source: localhost
+<div id="m4-messages_mixed-xml-command" title="command" class="m4-usc"><pre>m4 <a href="../gfiles/root0b.m4" title="Source: localhost
+gfiles/root0b.m4">root0b.m4</a> <a href="../messages/queues.m4" title="Source: localhost
 messages/queues.m4">queues.m4</a> <a href="../messages/mixed.xml.m4" title="Source: localhost
 messages/mixed.xml.m4">mixed.xml.m4</a> <a href="../messages/markup.m4" title="Source: localhost
 messages/markup.m4">markup.m4</a> <a href="../messages/messages.mc" title="Source: localhost
@@ -1245,8 +1244,8 @@ divert(LAST_QUEUE)dnl
 &lt;/messages&gt;
 divert(-1)</pre><code><span title="2020-01-06 16:21:10 +0100">b53eafe</span><a href="../messages/messages.xml.m4" title="Source: localhost
 messages/messages.xml.m4">messages.xml.m4</a><a href="#m4-messages_messages-xml-m4" title="⚓"></a></code></div>
-<div id="m4-messages_messages-xml-command" title="command" class="m4-usc"><pre>m4 <a href="../gfiles/rootb.m4" title="Source: localhost
-gfiles/rootb.m4">rootb.m4</a> <a href="../messages/queues.m4" title="Source: localhost
+<div id="m4-messages_messages-xml-command" title="command" class="m4-usc"><pre>m4 <a href="../gfiles/root0b.m4" title="Source: localhost
+gfiles/root0b.m4">root0b.m4</a> <a href="../messages/queues.m4" title="Source: localhost
 messages/queues.m4">queues.m4</a> <a href="../messages/messages.xml.m4" title="Source: localhost
 messages/messages.xml.m4">messages.xml.m4</a> <a href="../messages/markup.m4" title="Source: localhost
 messages/markup.m4">markup.m4</a> <a href="../messages/messages.mc" title="Source: localhost
@@ -1308,8 +1307,8 @@ divert(0)dnl
 
 divert(-1)</pre><code><span title="2020-01-06 16:21:10 +0100">b53eafe</span><a href="../messages/doubleq.sh.m4" title="Source: localhost
 messages/doubleq.sh.m4">doubleq.sh.m4</a><a href="#m4-messages_doubleq-sh-m4" title="⚓"></a></code></div>
-<div id="m4-messages_doubleq-sh-command" title="command" class="m4-usc"><pre>m4 <a href="../gfiles/rootb.m4" title="Source: localhost
-gfiles/rootb.m4">rootb.m4</a> <a href="../messages/doubleq.sh.m4" title="Source: localhost
+<div id="m4-messages_doubleq-sh-command" title="command" class="m4-usc"><pre>m4 <a href="../gfiles/root0b.m4" title="Source: localhost
+gfiles/root0b.m4">root0b.m4</a> <a href="../messages/doubleq.sh.m4" title="Source: localhost
 messages/doubleq.sh.m4">doubleq.sh.m4</a> <a href="../messages/doubleq.m4" title="Source: localhost
 messages/doubleq.m4">doubleq.m4</a> <a href="../messages/messages.mc" title="Source: localhost
 messages/messages.mc">messages.mc</a> &gt; <a href="../messages/doubleq.sh" title="Source: localhost
@@ -1346,8 +1345,8 @@ divert(0)dnl
 
 divert(-1)</pre><code><span title="2020-01-06 16:21:10 +0100">b53eafe</span><a href="../messages/apost.sh.m4" title="Source: localhost
 messages/apost.sh.m4">apost.sh.m4</a><a href="#m4-messages_apost-sh-m4" title="⚓"></a></code></div>
-<div id="m4-messages_apost-sh-command" title="command" class="m4-usc"><pre>m4 <a href="../gfiles/rootb.m4" title="Source: localhost
-gfiles/rootb.m4">rootb.m4</a> <a href="../messages/apost.sh.m4" title="Source: localhost
+<div id="m4-messages_apost-sh-command" title="command" class="m4-usc"><pre>m4 <a href="../gfiles/root0b.m4" title="Source: localhost
+gfiles/root0b.m4">root0b.m4</a> <a href="../messages/apost.sh.m4" title="Source: localhost
 messages/apost.sh.m4">apost.sh.m4</a> <a href="../messages/apost.m4" title="Source: localhost
 messages/apost.m4">apost.m4</a> <a href="../messages/messages.mc" title="Source: localhost
 messages/messages.mc">messages.mc</a> &gt; <a href="../messages/apost.sh" title="Source: localhost
@@ -1374,7 +1373,7 @@ If we define a&nbsp;safer <code class="m4-hgl" data-51="5" data-52="12">SAF()</c
 Thus, the <abbr title="C preprocessor">CPP</abbr> namespace <b>can be</b> completely separated from the M4 namespace.
 The problematic (backquote) character <code>`</code> is hidden in the <code class="m4-hgl" data-52="24">LQ()</code> macro.
 The apostrophe <code class="m4-hgl" data-52="A" data-53="A">'</code> does not matter in the source code.
-Apostrophe inside <code class="m4-hgl" data-51="4" data-52="B">ORD<del style="color:red"><span style="color:rgba(0,0,0,.75)">()</span></del></code> macro is hidden in <code class="m4-hgl" data-51="A">RQ()</code> macro.
+Apostrophe inside <code class="m4-hgl" data-51="4" data-52="B">ORDDEL(SPAN([()],,, [color:rgba(0,0,0,.75)]),,, color:red)</code> macro is hidden in <code class="m4-hgl" data-51="A">RQ()</code> macro.
 Note the <code class="m4-hgl" data-52="17,27" data-53="17,27">define ()</code> or <code class="m4-hgl" data-52="18,28" data-53="18,28">ifelse ()</code> function names and where the <code class="m4-hgl" data-52="C" data-53="C" data-51="C">SYMBOL</code> is expanded.</p>
 <div id="m4-preproc_file-c-m4" class="m4-src"><pre># ORDinary and SAFe macros have different expansion:
 
@@ -1416,8 +1415,8 @@ int main(void)
 	return 0;
 }</pre><code><span title="2020-01-06 16:21:10 +0100">b53eafe</span><a href="../preproc/file.c" title="Source: localhost
 preproc/file.c">file.c</a><a href="#m4-preproc_file-c" title="⚓"></a></code></div>
-<div id="m4-preproc_preproc-file-c-command" title="command" class="m4-usc"><pre>m4 -DSYMBOL='Hello, world!' <a href="../gfiles/rootq.m4" title="Source: localhost
-gfiles/rootq.m4">rootq.m4</a> <a href="../preproc/file.c.m4" title="Source: localhost
+<div id="m4-preproc_preproc-file-c-command" title="command" class="m4-usc"><pre>m4 -DSYMBOL='Hello, world!' <a href="../gfiles/root0q.m4" title="Source: localhost
+gfiles/root0q.m4">root0q.m4</a> <a href="../preproc/file.c.m4" title="Source: localhost
 preproc/file.c.m4">file.c.m4</a> <a href="../preproc/file.c" title="Source: localhost
 preproc/file.c">file.c</a> &gt; <a href="../preproc/preproc.file.c" title="Source: localhost
 preproc/preproc.file.c">preproc.file.c</a></pre><a href="#m4-preproc_preproc-file-c-command" title="⚓"></a></div>
@@ -1487,8 +1486,8 @@ include(`foo.css')dnl
 /* DONTE() */
 <span class=m4-b>changecom</span>/* DONTE() */<span class=m4-a>changecom(/*,*/)</span></pre><code><span title="2020-05-05 00:05:58 +0200">3ed8f6a</span><a href="../preproc/file.css" title="Source: localhost
 preproc/file.css">file.css</a><a href="#m4-preproc_file-css" title="⚓"></a></code></div>
-<div id="m4-preproc_preproc-file-css-command" title="command" class="m4-usc"><pre>m4 -DSYMBOL='Hello, world!' <a href="../gfiles/rootq.m4" title="Source: localhost
-gfiles/rootq.m4">rootq.m4</a> <a href="../preproc/file.css.m4" title="Source: localhost
+<div id="m4-preproc_preproc-file-css-command" title="command" class="m4-usc"><pre>m4 -DSYMBOL='Hello, world!' <a href="../gfiles/root0q.m4" title="Source: localhost
+gfiles/root0q.m4">root0q.m4</a> <a href="../preproc/file.css.m4" title="Source: localhost
 preproc/file.css.m4">file.css.m4</a> <a href="../preproc/file.css" title="Source: localhost
 preproc/file.css">file.css</a> &gt; <a href="../preproc/preproc.file.css" title="Source: localhost
 preproc/preproc.file.css">preproc.file.css</a></pre><a href="#m4-preproc_preproc-file-css-command" title="⚓"></a></div>
@@ -1531,8 +1530,8 @@ then
 	echo $HELLO
 fi</pre><code><span title="2020-01-06 16:21:10 +0100">b53eafe</span><a href="../preproc/file.sh" title="Source: localhost
 preproc/file.sh">file.sh</a><a href="#m4-preproc_file-sh" title="⚓"></a></code></div>
-<div id="m4-preproc_preproc-file-sh-command" title="command" class="m4-usc"><pre>m4 -DSYMBOL='Hello, world!' <a href="../gfiles/rootn.m4" title="Source: localhost
-gfiles/rootn.m4">rootn.m4</a> <a href="../preproc/file.sh.m4" title="Source: localhost
+<div id="m4-preproc_preproc-file-sh-command" title="command" class="m4-usc"><pre>m4 -DSYMBOL='Hello, world!' <a href="../gfiles/root0n.m4" title="Source: localhost
+gfiles/root0n.m4">root0n.m4</a> <a href="../preproc/file.sh.m4" title="Source: localhost
 preproc/file.sh.m4">file.sh.m4</a> <a href="../preproc/file.sh" title="Source: localhost
 preproc/file.sh">file.sh</a> &gt; <a href="../preproc/preproc.file.sh" title="Source: localhost
 preproc/preproc.file.sh">preproc.file.sh</a></pre><a href="#m4-preproc_preproc-file-sh-command" title="⚓"></a></div>
@@ -1566,8 +1565,8 @@ divert(0)dnl
 	]
 }}</pre><code><span title="2020-01-06 16:21:10 +0100">b53eafe</span><a href="../hello_world/json.m4" title="Source: localhost
 hello_world/json.m4">json.m4</a><a href="#m4-hello_world_json-m4" title="⚓"></a></code></div>
-<div id="m4-hello_world_hello_world-json-command" title="command" class="m4-usc"><pre>m4 -DSYMBOL='Hello, world!' <a href="../gfiles/rootb.m4" title="Source: localhost
-gfiles/rootb.m4">rootb.m4</a> <a href="../hello_world/json.m4" title="Source: localhost
+<div id="m4-hello_world_hello_world-json-command" title="command" class="m4-usc"><pre>m4 -DSYMBOL='Hello, world!' <a href="../gfiles/root0b.m4" title="Source: localhost
+gfiles/root0b.m4">root0b.m4</a> <a href="../hello_world/json.m4" title="Source: localhost
 hello_world/json.m4">json.m4</a> &gt; <a href="../hello_world/hello_world.json" title="Source: localhost
 hello_world/hello_world.json">hello_world.json</a></pre><a href="#m4-hello_world_hello_world-json-command" title="⚓"></a></div>
 <div id="m4-hello_world_hello_world-json" class="m4-src"><pre>{"foo": {
@@ -1578,7 +1577,7 @@ hello_world/hello_world.json">hello_world.json</a></pre><a href="#m4-hello_world
 }}</pre><code><span title="2020-01-06 16:21:10 +0100">b53eafe</span><a href="../hello_world/hello_world.json" title="Source: localhost
 hello_world/hello_world.json">hello_world.json</a><a href="#m4-hello_world_hello_world-json" title="⚓"></a></code></div>
 <h3 id="m4-bash-counters" class="m4-ch"><a href="#m4-bash-counters-toc" title="Content"></a><a href="#m4-bash-counters" title="⚓">C.2</a><code>[]</code> Bash: counters<a href="#m4--toc" title="Top"></a></h3>
-<p>The <code class="m4-hgl" data-63="A">COUNT_UP</code> and <code class="m4-hgl" data-63="B">COUNT_DOWN</code> counters are defined in the root file.
+<p>The <code class="m4-hgl" data-63="A">COUNT_UP</code> and <code class="m4-hgl" data-63="B">COUNT_DOWN</code> counters are defined in the file <code>countb.m4</code>.
 The <span class="m4-hgl" data-63="C">nonterminals</span> <code class="m4-hgl" data-63="20" data-64="5">[… inside brackets …]</code> will not be expanded, only the outer brackets will be removed.
 The <code class="m4-hgl" data-63="30" data-64="15">LB()</code> macro defined in the root file must be used.</p>
 <div id="m4-hello_world_sh-m4" class="m4-src"><pre># A → β
@@ -1615,8 +1614,9 @@ then
 	echo '__COUNTUP__] SYMBOL LB()__COUNTDN__'
 fi</pre><code><span title="2020-01-06 16:21:10 +0100">b53eafe</span><a href="../hello_world/sh.m4" title="Source: localhost
 hello_world/sh.m4">sh.m4</a><a href="#m4-hello_world_sh-m4" title="⚓"></a></code></div>
-<div id="m4-hello_world_hello_world-sh-command" title="command" class="m4-usc"><pre>m4 -DSYMBOL='Hello, world!' <a href="../gfiles/rootb.m4" title="Source: localhost
-gfiles/rootb.m4">rootb.m4</a> <a href="../hello_world/sh.m4" title="Source: localhost
+<div id="m4-hello_world_hello_world-sh-command" title="command" class="m4-usc"><pre>m4 -DSYMBOL='Hello, world!' <a href="../gfiles/root0b.m4" title="Source: localhost
+gfiles/root0b.m4">root0b.m4</a> <a href="../gfiles/countb.m4" title="Source: localhost
+gfiles/countb.m4">countb.m4</a> <a href="../hello_world/sh.m4" title="Source: localhost
 hello_world/sh.m4">sh.m4</a> &gt; <a href="../hello_world/hello_world.sh" title="Source: localhost
 hello_world/hello_world.sh">hello_world.sh</a></pre><a href="#m4-hello_world_hello_world-sh-command" title="⚓"></a></div>
 <div id="m4-hello_world_hello_world-sh" class="m4-src"><pre>#!/bin/bash
@@ -1640,7 +1640,7 @@ fi</pre><code><span title="2020-01-06 16:21:10 +0100">b53eafe</span><a href="../
 hello_world/hello_world.sh">hello_world.sh</a><a href="#m4-hello_world_hello_world-sh" title="⚓"></a></code></div>
 <h3 id="m4-h-brackets-h-dnl" class="m4-ch"><a href="#m4-h-brackets-h-dnl-toc" title="Content"></a><a href="#m4-h-brackets-h-dnl" title="⚓">C.3</a><code>[]</code> .h: brackets <code>[]</code>, <code>[,]</code>, <code>[#]</code>, <code>[dnl]</code><a href="#m4--toc" title="Top"></a></h3>
 <p>The empty pair <code class="m4-hgl" data-65="A">[]</code> (or the empty symbol in brackets <code>[ε]</code>) serves as a&nbsp;symbol separator.
-Brackets around the comment character <code class="m4-hgl" data-65="B">[#]</code> turn off its original meaning as well as the meaning of the <em>more powerful</em> M4 comment <code class="m4-hgl" data-65="C">[dnl]</code>.
+Brackets around the comment character <code class="m4-hgl" data-65="B">[#]</code> turn off its original meaning as well as the meaning of the <i>more powerful</i> M4 comment <code class="m4-hgl" data-65="C">[dnl]</code>.
 They also turn off the original meaning of the comma <code>[,]</code> as a&nbsp;macro argument delimiter.
 These symbols become ordinary terminal symbols without any side effect.</p>
 <div id="m4-hello_world_h-m4" class="m4-src"><pre># A → β
@@ -1658,8 +1658,8 @@ divert(0)dnl
 
 <span class=m4-b>[#]</span>endif /* __<span class=m4-a>[]</span>HELLO<span class=m4-a>[]</span>_H */</pre><code><span title="2020-02-13 14:50:23 +0100">ce5cd99</span><a href="../hello_world/h.m4" title="Source: localhost
 hello_world/h.m4">h.m4</a><a href="#m4-hello_world_h-m4" title="⚓"></a></code></div>
-<div id="m4-hello_world_hello_world-h-command" title="command" class="m4-usc"><pre>m4 -DSYMBOL='Hello, world!' <a href="../gfiles/rootb.m4" title="Source: localhost
-gfiles/rootb.m4">rootb.m4</a> <a href="../hello_world/h.m4" title="Source: localhost
+<div id="m4-hello_world_hello_world-h-command" title="command" class="m4-usc"><pre>m4 -DSYMBOL='Hello, world!' <a href="../gfiles/root0b.m4" title="Source: localhost
+gfiles/root0b.m4">root0b.m4</a> <a href="../hello_world/h.m4" title="Source: localhost
 hello_world/h.m4">h.m4</a> &gt; <a href="../hello_world/hello_world.h" title="Source: localhost
 hello_world/hello_world.h">hello_world.h</a></pre><a href="#m4-hello_world_hello_world-h-command" title="⚓"></a></div>
 <div id="m4-hello_world_hello_world-h" class="m4-src"><pre>/*
@@ -1675,7 +1675,7 @@ hello_world/hello_world.h">hello_world.h</a></pre><a href="#m4-hello_world_hello
 hello_world/hello_world.h">hello_world.h</a><a href="#m4-hello_world_hello_world-h" title="⚓"></a></code></div>
 <h3 id="m4-awk-examples-of-safer-macros" class="m4-ch"><a href="#m4-awk-examples-of-safer-macros-toc" title="Content"></a><a href="#m4-awk-examples-of-safer-macros" title="⚓">C.4</a><code>[]</code> AWK: examples of safer macros<a href="#m4--toc" title="Top"></a></h3>
 <p>The universal alert <code class="m4-hgl" data-67="A" data-68="A">DONTE</code> is ignored without parentheses, such as for example <code class="m4-hgl" data-67="B" data-68="B">LB</code> or <code>RB</code>.
-Such macros are explicitly created by a&nbsp;script developer, see the root file.</p>
+Such macros are explicitly created by a&nbsp;script developer, see the root file <code>root1b.m4</code>.</p>
 <div id="m4-hello_world_awk-m4" class="m4-src"><pre># AWK
 
 divert(0)dnl
@@ -1685,8 +1685,8 @@ divert(0)dnl
 
 BEGIN { print "<span class=m4-a>DONTE</span>[]() <span class=m4-b>LB</span> () LB() SYMBOL ]" }</pre><code><span title="2020-01-06 23:32:45 +0100">3a8a5dd</span><a href="../hello_world/awk.m4" title="Source: localhost
 hello_world/awk.m4">awk.m4</a><a href="#m4-hello_world_awk-m4" title="⚓"></a></code></div>
-<div id="m4-hello_world_hello_world-awk-command" title="command" class="m4-usc"><pre>m4 -DSYMBOL='Hello, world!' <a href="../gfiles/rootb.m4" title="Source: localhost
-gfiles/rootb.m4">rootb.m4</a> <a href="../hello_world/awk.m4" title="Source: localhost
+<div id="m4-hello_world_hello_world-awk-command" title="command" class="m4-usc"><pre>m4 -DSYMBOL='Hello, world!' <a href="../gfiles/root1b.m4" title="Source: localhost
+gfiles/root1b.m4">root1b.m4</a> <a href="../hello_world/awk.m4" title="Source: localhost
 hello_world/awk.m4">awk.m4</a> &gt; <a href="../hello_world/hello_world.awk" title="Source: localhost
 hello_world/hello_world.awk">hello_world.awk</a></pre><a href="#m4-hello_world_hello_world-awk-command" title="⚓"></a></div>
 <div id="m4-hello_world_hello_world-awk" class="m4-src"><pre>#!/bin/awk -f
@@ -1762,7 +1762,7 @@ hello_world/hello_world.awk">hello_world.awk</a><a href="#m4-hello_world_hello_w
 	
 					<div class="author__bio urs">
 						<p><span class="rs-person">Josef Kubín</span> graduated from the Faculty of Informatics, Masaryk University, where he studied theoretical computer science and hardware programming.
-Works at Red&nbsp;Hat in&nbsp;<abbr title="Global Support Services">GSS</abbr>.</p>
+Works at Red&nbsp;Hat in&nbsp;ABBR(GSS, Global Support Services).</p>
 					</div>
 				</div>
 			</div>

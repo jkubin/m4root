@@ -202,4 +202,4 @@ define([intro.mc.en.anch.experience_dependent], [m4-experience-dependent])
 define([intro.mc.en.anch.maintenance_could_be_hard], [m4-maintenance-could-be-hard])
 
 # A → β
-define([en.LANG_VERSION], [English version])
+define([en_OTHER_LANG], [English])

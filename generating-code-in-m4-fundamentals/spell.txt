@@ -2,7 +2,7 @@
 #
 # DO NOT EDIT! This file is generated automatically!
 #
-# __SOURCE([20200515-19:27:08, fundamentals.mc, e396d0f, f8c8830])
+# __SOURCE([fundamentals.mc], [20200517-18:04:02], [e396d0f], [e645556])
 
 7
 Generating code in M4: fundamentals

@@ -39,18 +39,18 @@ ___USAGE(`m4 root.m4 stem.m4 branch.m4 sub_branch.m4 leaf.m4 data.mc > output.fi
 # define(`A')
 # define(`A', `')
 
-# LOUD alert for unsuspecting users
+# adds LOUD alert for unsuspecting users
 define(`DONTE', `ifelse(`$#', `0', ``$0'',
 `DO NOT EDIT! This file is generated automatically!')')
 
-# expand n-th argument
+# expands n-th argument if the macro has parentheses
 # A(`$1', `$2', …, `$n') → $1 | $2 | $3 | $4 → β
 define(`FST', `ifelse(`$#', `0', ``$0'', `$1')')
 define(`SND', `ifelse(`$#', `0', ``$0'', `$2')')
 define(`TRD', `ifelse(`$#', `0', ``$0'', `$3')')
 define(`FTH', `ifelse(`$#', `0', ``$0'', `$4')')
 
-# same as previous, but utilises Vim shortcuts Ctrl-a or Ctrl-x to change ARGn
+# expands n-th argument (use Vim shortcuts Ctrl-a or Ctrl-x to change ARGn)
 define(`ARG1',	`$1')
 define(`ARG2',	`$2')
 define(`ARG3',	`$3')
@@ -61,27 +61,38 @@ define(`ARG7',	`$7')
 define(`ARG8',	`$8')
 define(`ARG9',	`$9')
 
-# select an argument
-# A(`$1', `$2', …, `$n') → `$1'
-define(`SELECT_ARG1',	``$1'')
+# selects n-th argument
+define(`SARG1',	``$1'')
+define(`SARG2',	``$2'')
+define(`SARG3',	``$3'')
+define(`SARG4',	``$4'')
+define(`SARG5',	``$5'')
+define(`SARG6',	``$6'')
+define(`SARG7',	``$7'')
+define(`SARG8',	``$8'')
+define(`SARG9',	``$9'')
+
+# trims trailing white chars and _selects_ the first argument
 define(`SELECT_ARG1_WITHOUT_TRAILING_LF', `patsubst(``$1'', `\s*')')
-# expand an argument
+
+# trims trailing white chars and _expands_ the first argument
 define(`EXPAND_ARG1_WITHOUT_TRAILING_LF', `patsubst(`$1', `\s*')')
 
-# puts number of arguments
+# adds number of arguments (used for loops)
 define(`NAR', `$#')
 
-# additional pair (payr is not a vocabulary word) symbols against unwanted expansion
-# A(`$1', `$2', …, `$n') → ``$1', `$2', …, `$n''
+# adds another universal pair of symbols that protects unwanted expansion
+# (`payr' is not a word from the dictionary)
 define(`PAYR', ``$@'')
 
-# puts a specific additional pair of characters (against unwanted expansion)
+# adds another layer of paired symbols
+# (`brac', `npri', `quot' and `utfp' are not words from the dictionary)
 define(`BRAC', `[$@]')
 define(`NPRI', `$@')
 define(`QUOT', ``$@'')
 define(`UTFP', `⟦$@⟧')
 
-# puts a left/right unpaired angular bracket, quotation mark, nonprintable or UTF-8 char
+# adds a left/right unpaired symbol bypassing the non-terminal control
 define(`LB', `[')
 define(`RB', `]')
 define(`LQ', `ifelse(`$#', `0', ``$0'', `changequote([,])`dnl'
@@ -93,36 +104,36 @@ define(`RN', `')
 define(`LU', `⟦')
 define(`RU', `⟧')
 
-#' set aliases to unpaired control char for expansion control (universal macros)
+#' sets aliases to unpaired control char for expansion control (universal macros)
 # define(`LL', defn(`LQ'))
 # define(`RR', defn(`RQ'))
 
-# expand the last argument
+# expands the last argument
 # A(`$1', `$2', …, `$n') → $$# → $n → β
 define(`EXPAND_LAST', `define(`#', `$$#')indir(`#', $@)')
 
-# select the last argument
+# selects the last argument
 # A(`$1', `$2', …, `$n') → $$# → `$n'
 define(`SELECT_LAST', `define(`#', ``$$#'')indir(`#', $@)')
 
-# expand the last but one (there must be at least two arguments)
+# expands the last but one (there must be at least two arguments)
 # A(`$1', `$2', …, `$n') → $decr($#) → $(n-1) → β
 define(`EXPAND_LASTB1', `define(`#', $decr($#))indir(`#', $@)')
 
-# select the last but one (there must be at least two arguments)
+# selects the last but one (there must be at least two arguments)
 # A(`$1', `$2', …, `$n') → $decr($#) → `$(n-1)'
 define(`SELECT_LASTB1', `define(`#', BRAC($decr($#)))indir(`#', $@)')
 
-# print an informative message to stderr
-define(`ROOT_INFO', `errprint(__file__:__line__`: info: $*
+# prints an informative message to stderr
+define(`ROOT_INFO', `errprint(__file__:__line__`: info: $1
 ')')
 
-# print warning message to stderr, if something is strange
-define(`ROOT_WARNING', `errprint(__file__:__line__`: warning: $*
+# prints warning message to stderr if something is strange
+define(`ROOT_WARNING', `errprint(__file__:__line__`: warning: $1
 ')')
 
-# abort script if something goes wrong, print the reason to stderr
-define(`ROOT_ERROR', `errprint(__file__:__line__`: error: $*
+# aborts script if something goes wrong and prints the reason to stderr
+define(`ROOT_ERROR', `errprint(__file__:__line__`: error: $1
 ')m4exit(1)')
 
 #       counters are automata

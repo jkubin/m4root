@@ -283,6 +283,14 @@ Note: root_cz
 Description: processes an inserted source file; converts forbidden characters; sets string highlighting
 Reason: source file (possibly snippet) in format for HTML
 ---
+File: tmp/Makefile
+Author: Josef Kubin
+Started: 2019/10/09
+Note: m4root
+Description: this handwritten Makefile automatically creates additional rules for creating target files
+Reason: learning M4 using the examples in this series
+Usage: make h && make && make
+---
 File: tmp/publish.sed
 Author: Josef Kubin
 Started: 2019/12/22
@@ -339,6 +347,41 @@ Note: root_cz
 Description: sets heading item in desired language
 Reason: {mono,multi}lingual headings
 ---
+File: text/text.m4
+Author: Josef Kubin
+Started: 2020/05/11
+Note: m4root
+Description: creates a plain text file as a basis for other transformations
+Reason: plain text file for character count
+---
+File: text/queues.m4
+Author: Josef Kubin
+Started: 2020/05/16
+Note: text
+Description: definitions of indexes for output queues
+Reason: each target generation file format has a specific list of queues
+---
+File: text/block.m4
+Author: Josef Kubin
+Started: 2020/05/16
+Note: text
+Description: 
+Reason: 
+---
+File: text/file.m4
+Author: Josef Kubin
+Started: 2020/05/16
+Note: text
+Description: inserts file
+Reason: 
+---
+File: text/inline.m4
+Author: Josef Kubin
+Started: 2020/05/16
+Note: text
+Description: 
+Reason: 
+---
 File: toc_list.m4
 Author: Josef Kubin
 Started: 2019/11/29
@@ -386,7 +429,7 @@ Author: Josef Kubin
 Started: 2019/12/24
 Note: root_cz
 Description: the resulting style sheet is embedded in the web page or can be extracted into a separated file
-Reason: all CSS rules; a subset will be selected into the final style sheet
+Reason: here are main CSS rules; a subset will be selected into the final style sheet
 ---
 File: html/cmd.m4
 Author: Josef Kubin
@@ -413,8 +456,8 @@ File: html/block.m4
 Author: Josef Kubin
 Started: 2019/12/29
 Note: root_cz
-Description: basic set of block-level elements with a subset of global attributes
-Reason: definition of HTML5 block-level elements
+Description: basic set of block-level elements and unpaired tags with a subset of global attributes
+Reason: definition of HTML5 block-level elements and unpaired tags
 ---
 File: html/publish.m4
 Author: Josef Kubin
@@ -455,8 +498,8 @@ File: html/inline.m4
 Author: Josef Kubin
 Started: 2019/12/28
 Note: root_cz
-Description: inline elements with a subset of global attributes
-Reason: definition of HTML5 inline elements
+Description: inline elements and unpaired tags with a subset of global attributes
+Reason: definition of HTML5 inline elements and unpaired tags
 ---
 File: html/publish.sed
 Author: Josef Kubin
@@ -571,13 +614,6 @@ Note: m4root
 Description: this handwritten Makefile automatically creates additional rules for creating target files
 Reason: learning M4 using the examples in this series
 Usage: make h && make && make
----
-File: txt.m4
-Author: Josef Kubin
-Started: 2020/05/11
-Note: m4root
-Description: 
-Reason: word count
 ---
 File: incl.m4
 Author: Josef Kubin
