@@ -16,7 +16,7 @@ pushdef([SET_ID], [
 # β
 define([MONOLINGUAL_HEADINGS], defn([SET_ID])[
 
-	define([SELITM], SELECT_ARG1(]defn([EXPAND_LAST])[))
+	define([SELITM], SARG1(]defn([EXPAND_LAST])[))
 ])
 
 # captions, chapters, appendices; there is no need to strip trailing LF
