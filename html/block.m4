@@ -1,10 +1,10 @@
 # vim:ts=20:sw=20
 
 __HEADER([Josef Kubin], [2019/12/29], [root_cz])
-___DESCR([basic set of block-level elements with a subset of global attributes])
-___POINT([definition of HTML5 block-level elements])
+___DESCR([basic set of block-level elements and unpaired tags with a subset of global attributes])
+___POINT([definition of HTML5 block-level elements and unpaired tags])
 
-# WARNING: keep the HTML tags with spell.m4 and refs.m4 1:1
+# WARNING: keep 1:1 consistency: spell.m4 refs.m4 text.m4 man.m4 info.m4
 
 # html tag attributes (at the end of this file will be forgotten)
 # β
@@ -90,15 +90,15 @@ define([CAPTION], defn([TEST_ATM])[
 
 	define([FILE_PREFIX], __file__.LANG_CODE)
 
-	# init counter for chapters
+	# define counters for chapters and sections
 	define([CHAPTER_IDX], defn([COUNT_UP]))
-	CHAPTER_IDX(0)
-
-	# init counters for sections
 	define([SECT1_IDX], defn([COUNT_UP]))
 	define([SECT2_IDX], defn([COUNT_UP]))
-	SECT1_IDX(1)
-	SECT2_IDX(1)
+
+	# init counters for chapters and sections
+	CHAPTER_IDX(0)
+	SECT1_IDX(0)
+	SECT2_IDX(0)
 
 	# transition to the next node (redefine itself to string)
 	define([$0], EXPAND_LANG(]defn([EXPAND_LAST])[))
