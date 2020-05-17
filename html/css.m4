@@ -2,7 +2,7 @@
 
 __HEADER([Josef Kubin], [2019/12/24], [root_cz])
 ___DESCR([the resulting style sheet is embedded in the web page or can be extracted into a separated file])
-___POINT([all CSS rules; a subset will be selected into the final style sheet])
+___POINT([here are main CSS rules; a subset will be selected into the final style sheet])
 
 # [[prefix1], [prefix2], …], [class_name1, class_name2, …], [[suffix1], [suffix2], …], [… rule set …]
 # if the middle bracket set is sempty, M4 template unconditionally places the rule set in the style sheet
@@ -265,7 +265,7 @@ content:" ";
 
 ])
 
-# used for an explanation of an ambiguous word
+# used for an eXPlanation of an ambiguous word
 CSS_CLASS_RULE_SET([[]],	[xp],	[[]], [
 
 border-bottom:1px dotted #000;
@@ -421,7 +421,7 @@ background:defn([DEFAULT_HIGHLIGHT_COLOR]);
 
 CSS_CLASS_RULE_SET([[.NSP()R .NSP()r]],	[],	[[]], [
 
-background:red;
+background:gold;
 
 ])
 
@@ -450,6 +450,28 @@ background:teal;
 
 ])
 
+# the default font-style:italic on root.cz looks weird, but if you need it, disable the following ruleset
+CSS_CLASS_RULE_SET([[.urs q]],	[],	[[]], [
+
+font-style:initial;
+
+])
+
+# quotation marks are automatically set according to the language code
+CSS_CLASS_RULE_SET([[.urs q::before]],	[],	[[]], [
+
+content:"ifelse(defn([LANG_CODE]), [cs], [„], [“])";
+padding-right:1px;
+
+])
+
+# quotation marks are automatically set according to the language code
+CSS_CLASS_RULE_SET([[.urs q::after]],	[],	[[]], [
+
+content:"ifelse(defn([LANG_CODE]), [cs], [“], [”])";
+
+])
+
 # [[prefix1], [prefix2], …], [id_name1, id_name2], [[suffix1], [suffix2], …], [… rule set …]
 CSS_ID_RULE_SET([[]],	defn([NSP], [TOC_ANCH]),	[[]], [
 
@@ -457,6 +479,7 @@ position:relative;
 
 ])
 
+# "update time"
 CSS_ID_RULE_SET([[]],	defn([NSP], [TOC_ANCH]),	[[ div]], [
 
 color:#888;
