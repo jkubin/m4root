@@ -8,6 +8,6 @@ COUNTER(1)
 define([ERROR], [
 
 	divert(0)dnl
-ERR_[]COUNTER	[$1]	$2
+ERR_[]COUNTER	[$1	$2]
 divert(-1)
 ])
