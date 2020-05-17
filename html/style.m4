@@ -6,7 +6,7 @@ ___POINT([the style sheet contains only the things that are actually used])
 # A → β
 define([CSS_SELECTORS_COMBINE], [CSS_SELECTORS_MIDDLE_LOOP($@)[]ifelse(NAR($1), [1], [], [$0(BRAC(shift($1)), [$2], [$3])])])
 define([CSS_SELECTORS_MIDDLE_LOOP], [CSS_SELECTORS_INNER_LOOP($@)[]ifelse(NAR($2), [1], [], [$0([$1], BRAC(shift($2)), [$3])])])
-define([CSS_SELECTORS_INNER_LOOP], [CSS_EPSILON_FIRST[]SELECT_ARG1($1)[]CSS_SELECTORS_MIDDLE($2)[]SELECT_ARG1($3)[]ifelse(NAR($3), [1], [], [$0([$1], [$2], BRAC(shift($3)))])])
+define([CSS_SELECTORS_INNER_LOOP], [CSS_EPSILON_FIRST[]SARG1($1)[]CSS_SELECTORS_MIDDLE($2)[]SARG1($3)[]ifelse(NAR($3), [1], [], [$0([$1], [$2], BRAC(shift($3)))])])
 define([CSS_SELECTORS_MIDDLE], [ifelse([$1], [], [], [pushdef(defn([CSS_TYPE])[$1], defn([CSS_RULE_SET_KEY]))defn([CSS_TYPE], [NSP])[$1]])])
 
 #      CSS_EPSILON_FIRST

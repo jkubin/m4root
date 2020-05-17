@@ -6,23 +6,23 @@ ___POINT([plain text file for spell checking and for suggestions from other peop
 
 ifelse(defn([SOURCE]), [], [
 
-	ROOT_ERROR([the source file name is missing])
+	ROOT_ERROR([set the -DSOURCE='file.mc' on the command line])
 ])
 
 # The first line: https://vim.fandom.com/wiki/Modeline_magic
-# The second line: source_file_name, creation_time, git_revision_of_source.mc, git_HEAD
+# The second line: source_file.mc, creation_time, git_revision_of_source.mc, git_HEAD
 divert(0)dnl
 [#] vim:wrap:spell:spelllang=LANG_CODE,en
 #
 [#] DONTE()
 #
-[#] __SOURCE(LB()ARG1(esyscmd([date '+[%Y%m%d-%R:%S],'])), defn([SOURCE]), ARG1(esyscmd([git log -1 --format='[%h],' ]defn([SOURCE]))), ARG1(esyscmd([git log -1 --format='[%h],']))])
+[#] __SOURCE(LB()defn([SOURCE])RB(), SARG1(esyscmd([date '+[[%Y%m%d-%R:%S]],'])), SARG1(esyscmd([git log -1 --format='[[%h]],' ]defn([SOURCE]))), SARG1(esyscmd([git log -1 --format='[[%h]],'])))
 
 divert(1)dnl
 ---
 divert(-1)
 
-# extracts title="the text" if defined
+# extracts MACRO([…], [the text], …) if defined (`the text' is a title)
 # β
 pushdef([TITLE_ATTR], [
 
@@ -49,7 +49,7 @@ EXPAND_ARG1_WITHOUT_TRAILING_LF(]defn([EXPAND_LAST])[)
 divert(-1)
 ])
 
-# prints text by language code
+# prints the text selected by the language code
 # β
 pushdef([PRINT_LANG], defn([TITLE_ATTR])[
 
@@ -60,7 +60,7 @@ EXPAND_LANG_WITHOUT_TRAILING_LF(]defn([EXPAND_LAST])[)
 divert(-1)
 ])
 
-# prints text and number of characters
+# prints the text along with the number of characters
 # β
 pushdef([PRINT_LANG_PEREX], [
 
@@ -82,7 +82,7 @@ define([CAPTION], defn([PRINT_LANG])[
 	define([FILE_PREFIX], __file__.LANG_CODE)
 ])
 
-# write hyperlink text or dereference link address
+# prints a hyperlink or a linked text that dereferences
 # A → β
 define([LINK], [pushdef([CURRQU], divnum)divert(-1)
 
@@ -109,7 +109,7 @@ define([LINK], [pushdef([CURRQU], divnum)divert(-1)
 		ROOT_WARNING([$0([$1], [‘$2’ not found], [$3], [$4]); run ‘make -B refs …’ to regenerate])
 	])
 
-	# find caption in refs
+	# find caption in the associative array
 	pushdef([CAPT], defn(defn([PREF]).capt.[$1]))
 
 	ifelse(defn([CAPT]), [], [
@@ -127,7 +127,7 @@ define([LINK], [pushdef([CURRQU], divnum)divert(-1)
 CAPT[]popdef([CURRQU], [PREF], [ANCH], [CAPT])dnl
 ])
 
-# append reference to the end of spell checking file
+# appends list of references to the end of spell checking file
 # A → β
 define([REF], [pushdef([CURRQU], divnum)divert(-1)
 
@@ -172,47 +172,57 @@ define([HEXPL_M4], defn([HCODE_M4]))
 define([BR], [
 ])
 
+# quotation marks are automatically set according to the language
+# A → β
+ifelse(defn([LANG_CODE]), [cs], [
+	define([QUOTE],	[ifelse([$#], [0], [[$0]], [$2], [], [„$1“], [„$1“ ([$2])])])
+], [
+	define([QUOTE],	[ifelse([$#], [0], [[$0]], [$2], [], [“$1”], [“$1” ([$2])])])
+])
+
 # A → β
 # β
 define([BOLD],		[ifelse([$#], [0], [[$0]], [$2], [], [$1], [$1 ([$2])])])
-define([QM],		[ifelse([$#], [0], [[$0]], [$2], [], [„$1“], [„$1“ ([$2])])])
 
 # A → β
 # A → ε
 # β
-#define([MM])
-define([ABBR],		defn([BOLD]))
-define([ACRO],		defn([BOLD]))
+#define([MM])	<--- unattainable
+define([ABBREV],	defn([BOLD]))
+define([ACRONYM],	defn([BOLD]))
+define([AMP],		[ifelse([$#], [0], [[$0]], [&])])
 define([AP],		[ifelse([$#], [0], [[$0]], ['])])
 define([BUTTON],	defn([BOLD]))
-define([CITE],		defn([BOLD]))
+define([CITATION],	defn([BOLD]))
 define([CODE],		[ifelse([$#], [0], [[$0]], [$2], [], [], [([$2])])])
-define([DEL],		defn([BOLD]))
+define([DELETED],	defn([BOLD]))
 define([DFN],		defn([BOLD]))
 define([DQ],		[ifelse([$#], [0], [[$0]], ["])])
-define([EM],		defn([BOLD]))
+define([EMPHASIS],	defn([BOLD]))
+define([GT],		[ifelse([$#], [0], [[$0]], [>])])
 define([INS],		defn([BOLD]))
+define([ITALIC],	defn([BOLD]))
 define([LABEL],		defn([BOLD]))
 define([LI],		defn([BOLD]))
+define([LT],		[ifelse([$#], [0], [[$0]], [<])])
 define([MARK],		defn([BOLD]))
 define([METER],		defn([BOLD]))
 define([NB],		[ifelse([$#], [0], [[$0]], [ ])])
 define([OL],		defn([BOLD]))
 define([PROGRESS],	defn([BOLD]))
-define([QUOTE],		defn([QM]))
 define([SAMP],		defn([CODE]))
 define([SMALL],		defn([BOLD]))
 define([SPAN],		defn([BOLD]))
+define([STRIKETHROUGH],	defn([BOLD]))
 define([STRONG],	defn([BOLD]))
-define([STT],		defn([BOLD]))
-define([SUB],		defn([BOLD]))
-define([SUP],		defn([BOLD]))
+define([SUBSCRIPT],	defn([BOLD]))
+define([SUPERSCRIPT],	defn([BOLD]))
 define([TIME],		defn([BOLD]))
 define([UL],		defn([BOLD]))
-define([UN],		defn([BOLD]))
-define([VAR],		defn([BOLD]))
+define([UNDERLINE],	defn([BOLD]))
+define([VARIABLE],	defn([BOLD]))
 define([WBR])
-define([XSPAN],		[ifelse([$#], [0], [[$0]], [$2], [], [$1], [$1 ($2)])])
+define([XSPAN],		[ifelse([$#], [0], [[$0]], [$2], [], [$1], [$1 ($2)])])	<--- expands title
 
 # custom HTML5 inline elements for convenience
 
@@ -296,9 +306,9 @@ define([THEAD_WRAP],		defn([TITLE_ATTR], [EXPAND_LAST]))
 define([TILE_BOX],		defn([PRINT_LANG]))
 define([WARN],			defn([PRINT_LANG]))
 
-# for plugins
+# A → β
 # β
-pushdef([SPELLCHECK_FILE_TITLE], [
+define([INSERT_FILE], [
 
 	ifelse(
 		[$#], [1], [], [
@@ -312,13 +322,13 @@ divert(-1)
 ])
 
 # A → β
-define([INSERT_FILE], defn([SPELLCHECK_FILE_TITLE]))
+define([INSERT_FILE_MLH], defn([INSERT_FILE]))
 
 popdef(
 
-	[PRINT],
+	[PRINT_LANG],
 	[PRINT_LANG_PEREX],
-	[SPELLCHECK_FILE_TITLE],
+	[PRINT_MONO],
 	[TITLE_ATTR],
 
 )

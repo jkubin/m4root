@@ -1,10 +1,10 @@
 # vim:ts=20:sw=20
 
 __HEADER([Josef Kubin], [2019/12/28], [root_cz])
-___DESCR([inline elements with a subset of global attributes])
-___POINT([definition of HTML5 inline elements])
+___DESCR([inline elements and unpaired tags with a subset of global attributes])
+___POINT([definition of HTML5 inline elements and unpaired tags])
 
-# WARNING: keep all HTML tags 1:1 with spell.m4
+# WARNING: keep 1:1 consistency: spell.m4 text.m4 man.m4 info.m4
 
 # global attributes for most tags
 # β
@@ -21,23 +21,24 @@ pushdef([ANYTHING_6],	[ifelse([$6], [], [], [ [$6]])])
 pushdef([HTML_GLOBAL_ATTRIBUTES],	defn([TITLE_2], [CLASS_3], [STYLE_4], [ID_5], [ANYTHING_6]))
 
 # custom macros for convenience
-
 # A → β
 #define([BUN],	[BOLD([$1], [$2], [un])])
-define([BR],	[ifelse([$#], [0], [[$0]], [<br>])])
 define([CODE_BLUE],	[CODE([$1], [$2], [bl])])
 define([CODE_M4U],	[CODE_M4([$1], [$2], [un])])
 define([CODE_UND],	[CODE([$1], [$2], [un])])
 define([EXPL],	[SPAN([$1], [$2], [xp])])
 define([EXPL_M4],	[CODE_M4([$1], [$2], [xp])])
 define([MM],	[ifelse([$#], [0], [[$0]], [<span class=NSP()$2>$1</span>])])	<--- mnemonic: Marking Macro
-define([QUOTE],	[ifelse([$#], [0], [[$0]], [„$1“])])
-define([WBR],	[ifelse([$#], [0], [[$0]], [<wbr>])])
 
 # built-in styles for root.cz
 # A → β
 define([GRAY],	[ifelse([$#], [0], [[$0]], ]BRAC([<span class="rs-note"]defn([TITLE_2])[>$1</span>])[)])
 define([PERSON],	[ifelse([$#], [0], [[$0]], ]BRAC([<span class="rs-person"]defn([TITLE_2])[>$1</span>])[)])
+
+# unpaired tags
+# A → β
+define([BR],	[ifelse([$#], [0], [[$0]], [<br>])])
+define([WBR],	[ifelse([$#], [0], [[$0]], [<wbr>])])
 
 # how to use ULINK(…)
 #
@@ -79,34 +80,35 @@ pushdef([CREATE_INLINE_ELEMENT],		[define([$1], [ifelse($][#, 0, ]BRAC(BRAC($[0]
 pushdef([CREATE_INLINE_ELEMENT_EXPAND],		[define([$1], [ifelse($][#, 0, ]BRAC(BRAC($[0]))[, ]BRAC([<$2]defn([XTITLE_2], [CLASS_3], [STYLE_4], [ID_5], [ANYTHING_6])[>$][1</$2>])[)])])
 pushdef([CREATE_INLINE_ELEMENT_SPECIAL],	[define([$1], [ifelse($][#, 0, ]BRAC(BRAC($[0]))[, ]BRAC([$2])[)])])
 
-CREATE_INLINE_ELEMENT([ABBR],	[abbr])
-CREATE_INLINE_ELEMENT([ACRO],	[acronym])
+CREATE_INLINE_ELEMENT([ABBREV],	[abbr])
+CREATE_INLINE_ELEMENT([ACRONYM],	[acronym])
 CREATE_INLINE_ELEMENT([BOLD],	[b])
 CREATE_INLINE_ELEMENT([BUTTON],	[button])
-CREATE_INLINE_ELEMENT([CITE],	[cite])
+CREATE_INLINE_ELEMENT([CITATION],	[cite])
 CREATE_INLINE_ELEMENT([CODE],	[code])
-CREATE_INLINE_ELEMENT([DEL],	[del])
+CREATE_INLINE_ELEMENT([DELETED],	[del])
 CREATE_INLINE_ELEMENT([DFN],	[dfn])
-CREATE_INLINE_ELEMENT([EM],	[em])
+CREATE_INLINE_ELEMENT([EMPHASIS],	[em])
 CREATE_INLINE_ELEMENT([INS],	[ins])
+CREATE_INLINE_ELEMENT([ITALIC],	[i])
 CREATE_INLINE_ELEMENT([LABEL],	[label])
 CREATE_INLINE_ELEMENT([LI],	[li])
 CREATE_INLINE_ELEMENT([MARK],	[mark])
 CREATE_INLINE_ELEMENT([METER],	[meter])
 CREATE_INLINE_ELEMENT([OL],	[ol])
 CREATE_INLINE_ELEMENT([PROGRESS],	[progress])
-CREATE_INLINE_ELEMENT([QM],	[q])
+CREATE_INLINE_ELEMENT([QUOTE],	[q])
 CREATE_INLINE_ELEMENT([SAMP],	[samp])
 CREATE_INLINE_ELEMENT([SMALL],	[small])
 CREATE_INLINE_ELEMENT([SPAN],	[span])
+CREATE_INLINE_ELEMENT([STRIKETHROUGH],	[s])
 CREATE_INLINE_ELEMENT([STRONG],	[strong])
-CREATE_INLINE_ELEMENT([STT],	[s])
-CREATE_INLINE_ELEMENT([SUB],	[sub])
-CREATE_INLINE_ELEMENT([SUP],	[sup])
+CREATE_INLINE_ELEMENT([SUBSCRIPT],	[sub])
+CREATE_INLINE_ELEMENT([SUPERSCRIPT],	[sup])
 CREATE_INLINE_ELEMENT([TIME],	[time])
 CREATE_INLINE_ELEMENT([UL],	[ul])
-CREATE_INLINE_ELEMENT([UN],	[u])
-CREATE_INLINE_ELEMENT([VAR],	[var])
+CREATE_INLINE_ELEMENT([UNDERLINE],	[u])
+CREATE_INLINE_ELEMENT([VARIABLE],	[var])
 CREATE_INLINE_ELEMENT_EXPAND([XSPAN],	[span])
 CREATE_INLINE_ELEMENT_SPECIAL([CODE_M4],	[<code]defn([HTML_GLOBAL_ATTRIBUTES])[>[$1]</code>])
 CREATE_INLINE_ELEMENT_SPECIAL([ULINK],	[<a href="]defn([SELECT_LAST])"defn([VAR_TITLE_2], [VAR_CLASS_3], [VAR_STYLE_4], [VAR_ID_5], [VAR_REL_6], [VAR_ANYTHING_7])[>$1</a>])
@@ -173,7 +175,7 @@ define([CREATE_DATASET], [
 			ROOT_WARNING([the key ‘]__file__.dset.SELECT_ARG2($1)[’ not found, fix your reference or run ‘make -B refs …’ to regenerate reference list])
 		])
 
-		define([DATA_SET], defn([DATA_SET]) data-defn([DATA_SET_KEY])="REMOVE_SPACES(SELECT_ARG1($1))")
+		define([DATA_SET], defn([DATA_SET]) data-defn([DATA_SET_KEY])="REMOVE_SPACES(SARG1($1))")
 
 		$0(shift($@))
 	])
@@ -224,8 +226,8 @@ define([LINK], [pushdef([CURRQU], divnum)divert(-1)
 
 		# temporarily redefine macros (disable the original meaning)
 		pushdef([BOLD], defn([FST]))
-		pushdef([CODE], defn([SELECT_ARG1]))
-		pushdef([CODE_M4], defn([SELECT_ARG1]))
+		pushdef([CODE], defn([SARG1]))
+		pushdef([CODE_M4], defn([SARG1]))
 		pushdef([NB], [ifelse([$#], [0], [[$0]], [ ])])
 
 		# expand title
