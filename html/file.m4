@@ -2,15 +2,15 @@ __HEADER([Josef Kubin], [2019/12/15], [root_cz])
 ___DESCR([processes an inserted source file; converts forbidden characters; sets string highlighting])
 ___POINT([source file (possibly snippet) in format for HTML])
 
-# insert whole file (with a possible ID separated by a comma)
+# insert the entire file with a possible comma-separated ID to distinguish the same file
 # INSERT_FILE([path/file.src])
 # INSERT_FILE([path/file.src,ID])
 # INSERT_FILE([path/file.src,ID], [title])
 #
-# insert whole file; apply (several) RE to specific keywords to highlight them in certain color
-# INSERT_FILE([path/file.src], [title], [s/\<foo\>/<span class=a>&<\x2fspan>/g;s/\<bar\>/<span class=b>&<\x2fspan>/g])
+# insert the entire file, apply (maybe several) RE to specific keywords, and highlight them in a specific color
+# INSERT_FILE([path/file.src], [title], [s/\<foo\>/MM(a)/g;s/\<bar\>/MM(b)/g])
 #
-# sometimes it is needed Multi-Line Highlighting
+# sometimes it is needed to highlight something over a few lines (as Multi-Line Highlighting)
 # the whole file is inserted into the sed buffer as a one long string for multi-line regex processing
 # INSERT_FILE_MLH([path/file.src], [title], [RE for Multi Line Highlighting])
 #
@@ -25,6 +25,12 @@ ___POINT([source file (possibly snippet) in format for HTML])
 #
 # insert source code snippet from line 1 to the line that meets END_RE
 # INSERT_FILE([path/file.src], [title], [RE], [, [/END_RE/]])
+#
+# Note:
+# MM(b) is a Marking Macro for coloring RE with a class "b"
+# MM(b) → <span class=NSP()b>&<\x2fspan> → <span class=m4-b>&<\x2fspan>
+# NSP() expands to an user defined Name SPace prefix, for example m4-
+# quotation marks in class are intentionally omitted
 #
 # A → β
 # β

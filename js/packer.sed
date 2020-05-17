@@ -23,6 +23,7 @@ s/\s*\([[:punct:]]\)\s*/\1/g
 s/;}/}/g
 
 # fix JavaScript keywords stuck to an adjacent word
+# variable names with the same prefix are prohibited
 s/\(\<const\|\<else\|\<let\|\<var\)\([[:lower:]]\)/\1 \2/g
 
 # name of attributes and methods

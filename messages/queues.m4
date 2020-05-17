@@ -2,7 +2,7 @@
 # A → β
 define([QUEUE_INDEX], defn([COUNT_UP]))
 
-# initial index of the first output queue
+# index of the first output queue (0 is stdout)
 QUEUE_INDEX(0)
 
 # symbolic names for indices of output queues
