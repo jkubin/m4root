@@ -25,40 +25,43 @@ all: trunc $(TARGETS)
 
 $(TARGETS): Makefile
 
-$(PROJECT).sentence: rootb.m4 sentence.m4
+$(PROJECT).sentence: root0b.m4 countb.m4 sentence.m4
 	m4 $(filter-out Makefile, $^) > $@ 2> trace.sentence
 
-$(PROJECT).%: rootb.m4 %.m4
+$(PROJECT).awk: root1b.m4 countb.m4 awk.m4
 	m4 -DSYMBOL='$(SYMBOL)' $(filter-out Makefile, $^) > $@
 
-$(PROJECT).branch: rootb.m4 branch.m4
+$(PROJECT).%: root0b.m4 countb.m4 %.m4
+	m4 -DSYMBOL='$(SYMBOL)' $(filter-out Makefile, $^) > $@
+
+$(PROJECT).branch: root0b.m4 countb.m4 branch.m4
 	m4 -DBRANCH=$$[$$RANDOM % 10] $(filter-out Makefile, $^) > $@
 
-$(PROJECT).java: rootq.m4 rulerq.m4 java.m4
+$(PROJECT).java: root0q.m4 countq.m4 rulerq.m4 java.m4
 	m4 -DSYMBOL='$(SYMBOL)' $(filter-out Makefile, $^) > $@
 
-$(PROJECT).q.c: rootq.m4 q.c.m4
+$(PROJECT).q.c: root0q.m4 countq.m4 q.c.m4
 	m4 -DSYMBOL='$(SYMBOL)' $(filter-out Makefile, $^) > $@
 
-$(PROJECT).line: rootq.m4 line.m4
+$(PROJECT).line: root0q.m4 countq.m4 line.m4
 	m4 $(filter-out Makefile, $^) > $@
 
-$(PROJECT).quot.sh: rootq.m4 quot.sh.m4
+$(PROJECT).quot.sh: root0q.m4 countq.m4 quot.sh.m4
 	m4 -DSYMBOL='$(SYMBOL)' $(filter-out Makefile, $^) > $@
 
-$(PROJECT).css: rootq.m4 css.m4
+$(PROJECT).css: root0q.m4 countq.m4 css.m4
 	m4 -DSYMBOL='$(SYMBOL)' $(filter-out Makefile, $^) > $@
 
-$(PROJECT).ansi_escape_code: rootb.m4 ansi_escape_code.m4
+$(PROJECT).ansi_escape_code: root0b.m4 countb.m4 ansi_escape_code.m4
 	m4 -DSYMBOL='$(SYMBOL)' -DUSR=$(USER) -DHOSTNAME=$(HOSTNAME) -DDIR=$(PROJECT) $(filter-out Makefile, $^) > $@
 
-$(PROJECT).ansi_escape_code_buggy: rootb.m4 ansi_escape_code_buggy.m4
+$(PROJECT).ansi_escape_code_buggy: root0b.m4 countb.m4 ansi_escape_code_buggy.m4
 	m4 -DSYMBOL='$(SYMBOL)' $(filter-out Makefile, $^) -DUSR=$(USER) -DHOSTNAME=$(HOSTNAME) -DDIR=$(PROJECT) > $@
 
-$(PROJECT).array.c: rootb.m4 array.c.m4
+$(PROJECT).array.c: root1b.m4 countb.m4 array.c.m4
 	m4 -DSYMBOL=' !"#$$%&'\''()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghijklmnopqrstuvwxyz{|}~' -DUSR=$(USER) -DHOSTNAME=$(HOSTNAME) -DDIR=$(PROJECT) $(filter-out Makefile, $^) > $@
 
-$(PROJECT).ascii.c: rootn.m4 ascii.c.m4
+$(PROJECT).ascii.c: root1n.m4 countn.m4 ascii.c.m4
 	m4 -DSYMBOL=' !"#$$%&'\''()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghijklmnopqrstuvwxyz{|}~' -DUSR=$(USER) -DHOSTNAME=$(HOSTNAME) -DDIR=$(PROJECT) $(filter-out Makefile, $^) > $@
 
 

@@ -21,13 +21,13 @@ all: trunc $(TARGETS)
 
 $(TARGETS): Makefile
 
-$(PREFIX).%: rootq.m4 %.m4 %
+$(PREFIX).%: root0q.m4 %.m4 %
 	m4 -DSYMBOL='$(SYMBOL)' $(filter-out Makefile, $^) > $@
 
-$(PREFIX).file.css: rootq.m4 file.css.m4 file.css foo.css
+$(PREFIX).file.css: root0q.m4 file.css.m4 file.css foo.css
 	m4 -DSYMBOL='$(SYMBOL)' $(filter-out Makefile foo.css, $^) > $@
 
-$(PREFIX).%.sh: rootn.m4 %.sh.m4 %.sh
+$(PREFIX).%.sh: root0n.m4 %.sh.m4 %.sh
 	m4 -DSYMBOL='$(SYMBOL)' $(filter-out Makefile, $^) > $@
 
 

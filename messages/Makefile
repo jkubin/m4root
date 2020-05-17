@@ -25,16 +25,12 @@ apost.sh \
 DOUBLE_QUOTE = \
 doubleq.sh \
 
-INTACT = \
-counter.csv \
-hello.csv \
-
 NOTHING = \
 insect.txt \
 messages.h \
 summary.txt \
 
-TARGETS = $(MARKUP_LANG)$(SOURCE_CODE)$(INTACT)$(NOTHING)$(APOSTROPHE)$(DOUBLE_QUOTE)
+TARGETS = $(MARKUP_LANG)$(SOURCE_CODE)$(NOTHING)$(APOSTROPHE)$(DOUBLE_QUOTE)
 
 VPATH = ../gfiles/
 
@@ -44,23 +40,22 @@ MAKEFLAGS += --no-builtin-rules
 
 #:all	create all targets
 .PHONY: all
-all: $(TARGETS)
+all: hello.csv counter.csv $(TARGETS)
 
-$(MARKUP_LANG): markup.m4
+$(MARKUP_LANG): markup.m4 messages.mc Makefile
 
-$(SOURCE_CODE): code.m4
+$(SOURCE_CODE): code.m4 messages.mc Makefile
 
-$(INTACT): unchanged.m4
+$(APOSTROPHE): apost.m4 messages.mc Makefile
 
-$(APOSTROPHE): apost.m4
+$(DOUBLE_QUOTE): doubleq.m4 messages.mc Makefile
 
-$(DOUBLE_QUOTE): doubleq.m4
+$(NOTHING): messages.mc Makefile
 
-$(NOTHING):
+%: root0b.m4 countb.m4 queues.m4 %.m4
+	m4 $(filter-out Makefile, $^) > $@
 
-$(TARGETS): messages.mc Makefile
-
-%: rootb.m4 queues.m4 %.m4
+%.csv: root0b.m4 countb.m4 %.csv.m4 messages_raw.mc Makefile
 	m4 $(filter-out Makefile, $^) > $@
 
 

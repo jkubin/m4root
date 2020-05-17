@@ -13,10 +13,10 @@ VPATH = ../gfiles
 .PHONY: all
 all: $(TARGETS)
 
-%_m4wrap.s: Makefile rootb.m4 all.m4 %.m4 hello_m4wrap.m4 hello.mc
+%_m4wrap.s: Makefile root0b.m4 countb.m4 all.m4 %.m4 hello_m4wrap.m4 hello.mc
 	m4 -DSYMBOL='$(SYMBOL)' $(filter-out Makefile, $^) > $@
 
-%.s: Makefile rootb.m4 all.m4 %.m4 hello.mc hello.m4
+%.s: Makefile root0b.m4 countb.m4 all.m4 %.m4 hello.mc hello.m4
 	m4 -DSYMBOL='$(SYMBOL)' $(filter-out Makefile, $^) > $@
 
 %: %.s
