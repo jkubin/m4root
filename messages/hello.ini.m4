@@ -9,5 +9,5 @@ divert(-1)
 divert(0)dnl
 ; DONTE()
 
-LB()ARG1(esyscmd([date '+[hello_%Y%m%d],']))]
+SARG1(esyscmd([date '+[[hello_%Y%m%d]],']))
 divert(-1)
