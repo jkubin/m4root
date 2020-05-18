@@ -77,7 +77,10 @@ iabbrev <buffer> <unique> ifm INSERT_FILE_MLH([])<left><left><c-r>=Eatchar('.')<
 iabbrev <buffer> <unique> im IMAGEDATA([],dnl id<cr>[%%%],dnl title<cr>[],dnl class<cr>[],dnl style<cr>[],dnl anything<cr>[%%%, %%%],dnl [local_img, server_img]<cr>[[dnl czech<cr>%%%<cr>],<cr>[dnl english: _next_language_<cr>%%%<cr>]])<left><c-o>%<right><right><c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> inf INFO(, defn([WORD_INFORMATION]), [[dnl czech<cr><cr>],<cr>[dnl english: _next_language_<cr>%%%<cr>]])<left><c-o>%<c-o>0<down><c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> ins INS([<c-r>"])<esc>
+iabbrev <buffer> <unique> ita ITALIC([<c-r>"])<esc>
+iabbrev <buffer> <unique> itl ITEMIZEDLIST_WRAP([<cr><cr><cr><cr>])dnl ITEMIZEDLIST_WRAP<up><up><c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> itt ITALIC([<c-r>"])<esc>
+iabbrev <buffer> <unique> itw ITEMIZEDLIST_WRAP([<cr><cr><cr><cr>])dnl ITEMIZEDLIST_WRAP<up><up><c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> lan LANG([<c-r>"], [])<left><left><c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> ,. , [[[%%%], [%%%]]%%%]<left><c-o>%;;<c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> ,/ , [[%%%], [%%%]]<left><c-o>%;;<c-r>=Eatchar('.')<cr>
@@ -137,30 +140,28 @@ iabbrev <buffer> <unique> sum SUMMARY([[dnl czech<cr><cr>],<cr>[dnl english: _ne
 iabbrev <buffer> <unique> sup SUPERSCRIPT([<c-r>"])<esc>
 iabbrev <buffer> <unique> sw SECTION_WRAP([<cr><cr><cr><cr>])dnl SECTION_WRAP<up><up><c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> til TILE_BOX([[dnl czech<cr><cr>],<cr>[dnl english: _next_language_<cr>%%%<cr>]])<left><c-o>%<c-o>0<down><c-r>=Eatchar('.')<cr>
-iabbrev <buffer> <unique> tt TOOLTIP([<c-r>"], [])<c-o>T[<c-r>=Eatchar('.')<cr>
-iabbrev <buffer> <unique> ull ITEMIZEDLIST_WRAP([<cr><cr><cr><cr>])dnl ITEMIZEDLIST_WRAP<up><up><c-r>=Eatchar('.')<cr>
+iabbrev <buffer> <unique> tto TOOLTIP([<c-r>"], [])<c-o>T[<c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> ul UL([<cr><cr>])<up><c-r>=Eatchar('.')<cr>
-iabbrev <buffer> <unique> ulw ITEMIZEDLIST_WRAP([<cr><cr><cr><cr>])dnl ITEMIZEDLIST_WRAP<up><up><c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> un UNDERLINE([<c-r>"])<esc>
 iabbrev <buffer> <unique> uu ULINK([<c-r>"], [])<left><left><c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> uuu ULINK([<c-r>"], [%%%], [%%%])<left><c-o>%;;<c-o><c-r>=Eatchar('.')<cr>
-iabbrev <buffer> <unique> uw ITEMIZEDLIST_WRAP([<cr><cr><cr><cr>])dnl ITEMIZEDLIST_WRAP<up><up><c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> wa WARN(, defn([WORD_WARNING]), [[dnl czech<cr><cr>],<cr>[dnl english: _next_language_<cr>%%%<cr>]])<left><c-o>%<c-o>0<down><c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> wb []WBR()<c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> ww WARN(, defn([WORD_WARNING]), [[dnl czech<cr><cr>],<cr>[dnl english: _next_language_<cr>%%%<cr>]])<left><c-o>%<c-o>0<down><c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> xs XSPAN([<c-r>"], [%%%], [%%%])<left><c-o>%;;<c-r>=Eatchar('.')<cr>
 
+iabbrev <buffer> <unique> enh ENTRY_HEAD([[dnl czech<cr><cr>],<cr>[dnl english: _next_language_<cr>%%%<cr>]])<left><c-o>%<c-o>0<down><c-r>=Eatchar('.')<cr>
+iabbrev <buffer> <unique> enhm ENTRY_HEAD_MONO([[dnl monolingual<cr><cr>]])<up><c-r>=Eatchar('.')<cr>
+iabbrev <buffer> <unique> ent ENTRY([[dnl czech<cr><cr>],<cr>[dnl english: _next_language_<cr>%%%<cr>]])<left><c-o>%<c-o>0<down><c-r>=Eatchar('.')<cr>
+iabbrev <buffer> <unique> entm ENTRY_MONO([[dnl monolingual<cr><cr>]])<up><c-r>=Eatchar('.')<cr>
+iabbrev <buffer> <unique> rw ROW_WRAP([<cr><cr><cr><cr>])dnl ROW_WRAP<up><up><c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> tbw TBODY_WRAP([<cr><cr><cr><cr>])dnl TBODY_WRAP<up><up><c-r>=Eatchar('.')<cr>
-iabbrev <buffer> <unique> tcm TABLE_CAPTION_MONO([[dnl monolingual<cr><cr>]])<up><c-r>=Eatchar('.')<cr>
+iabbrev <buffer> <unique> tcg TABLE_COLGROUP_WRAP([<cr><cr><cr><cr>])dnl TABLE_COLGROUP_WRAP<up><up><c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> tco TABLE_COL([],dnl id<cr>[],dnl title<cr>[],dnl class<cr>[],dnl style<cr>[span="2"],dnl anything<cr>)<up><c-o>f2<esc>
-iabbrev <buffer> <unique> tc TABLE_CAPTION([[dnl czech<cr><cr>],<cr>[dnl english: _next_language_<cr>%%%<cr>]])<left><c-o>%<c-o>0<down><c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> tcw TABLE_COLGROUP_WRAP([<cr><cr><cr><cr>])dnl TABLE_COLGROUP_WRAP<up><up><c-r>=Eatchar('.')<cr>
-iabbrev <buffer> <unique> tdm TABLE_DATA_MONO([[dnl monolingual<cr><cr>]])<up><c-r>=Eatchar('.')<cr>
-iabbrev <buffer> <unique> td TABLE_DATA([[dnl czech<cr><cr>],<cr>[dnl english: _next_language_<cr>%%%<cr>]])<left><c-o>%<c-o>0<down><c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> tfw TFOOT_WRAP([<cr><cr><cr><cr>])dnl TFOOT_WRAP<up><up><c-r>=Eatchar('.')<cr>
-iabbrev <buffer> <unique> thm TABLE_HEAD_MONO([[dnl monolingual<cr><cr>]])<up><c-r>=Eatchar('.')<cr>
-iabbrev <buffer> <unique> th TABLE_HEAD([[dnl czech<cr><cr>],<cr>[dnl english: _next_language_<cr>%%%<cr>]])<left><c-o>%<c-o>0<down><c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> thw THEAD_WRAP([<cr><cr><cr><cr>])dnl THEAD_WRAP<up><up><c-r>=Eatchar('.')<cr>
-iabbrev <buffer> <unique> tr TABLE_ROW_WRAP([<cr><cr><cr><cr>])dnl TABLE_ROW_WRAP<up><up><c-r>=Eatchar('.')<cr>
+iabbrev <buffer> <unique> tti TTITLE([[dnl czech<cr><cr>],<cr>[dnl english: _next_language_<cr>%%%<cr>]])<left><c-o>%<c-o>0<down><c-r>=Eatchar('.')<cr>
+iabbrev <buffer> <unique> ttm TTITLE_MONO([[dnl monolingual<cr><cr>]])<up><c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> tw TABLE_WRAP([<cr><cr><cr><cr>])dnl TABLE_WRAP<up><up><c-r>=Eatchar('.')<cr>
 
