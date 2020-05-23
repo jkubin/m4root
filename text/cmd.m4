@@ -40,14 +40,15 @@ define([FILES_ON_THE_COMMAND_LINE], [
 
 		divert(CURRQU)dnl
 undivert(COMMAND_LINE_ARGS)dnl
-> patsubst([$1], [.*/])
+dnl > patsubst([$ 1], [.*/])
+> $1
 
 divert(-1)
 
 	], [
 
 		divert(COMMAND_LINE_ARGS)dnl
-patsubst([$1], [.*/]) dnl
+[$1] dnl
 divert(-1)
 
 		# right recursive loop

@@ -12,7 +12,7 @@ ifelse(defn([SOURCE]), [], [
 # m4 -DWITHOUT_HEADER …	<--- provides a more accurate total number of words and characters
 ifdef([WITHOUT_HEADER], [], [
 	divert(0)dnl
-# vim:ts=4:sw=4
+vim:ts=4:sw=4
 
 DONTE()
 divert(-1)
@@ -145,6 +145,8 @@ divert(-1)
 	# needed for LINK(…)
 	define([FILE_PREFIX], __file__.LANG_CODE)
 
+	# TODO: tady nastavit neterminalni pocitadlo
+	#
 	# define counters for chapters and sections
 	define([CHAPTER_IDX], defn([COUNT_UP]))
 	define([SECT1_IDX], defn([COUNT_UP]))
@@ -157,7 +159,7 @@ divert(-1)
 ])
 
 # β
-define([RESET_INDICES_SELECT_LANG], [
+define([INIT_INDICES_SELECT_LANG], [
 
 	# A → ε
 	define([#S0])
@@ -180,7 +182,7 @@ divert(-1)
 ])
 
 # A → β
-define([CHAPTER], defn([RESET_INDICES_SELECT_LANG])[
+define([CHAPTER], defn([INIT_INDICES_SELECT_LANG])[
 
 	# increment index
 	CHAPTER_IDX
@@ -195,7 +197,7 @@ define([CHAPTER], defn([RESET_INDICES_SELECT_LANG])[
 ]defn([CHAPTER_COMMON_CODE]))
 
 # A → β
-define([SECT1_BODY], defn([RESET_INDICES_SELECT_LANG])[
+define([SECT1_BODY], defn([INIT_INDICES_SELECT_LANG])[
 
 	# increment index
 	SECT1_IDX
@@ -210,7 +212,7 @@ define([SECT1_BODY], defn([RESET_INDICES_SELECT_LANG])[
 ]defn([CHAPTER_COMMON_CODE]))
 
 # A → β
-define([SECT2_BODY], defn([RESET_INDICES_SELECT_LANG])[
+define([SECT2_BODY], defn([INIT_INDICES_SELECT_LANG])[
 
 	# increment index
 	SECT2_IDX
@@ -225,7 +227,7 @@ define([SECT2_BODY], defn([RESET_INDICES_SELECT_LANG])[
 ]defn([CHAPTER_COMMON_CODE]))
 
 # β
-define([APPENDIX_NODE], defn([RESET_INDICES_SELECT_LANG])[
+define([APPENDIX_NODE], defn([INIT_INDICES_SELECT_LANG])[
 
 	# assign and increment letter index
 	define([APPENDIX_LETTER], format([%c], APPENDIX_IDX))
@@ -267,21 +269,20 @@ define([APPENDIX_INIT], [
 	define([APPENDIX_IDX], defn([COUNT_UP]))
 	APPENDIX_IDX(65)
 
-	# add separator between TOC body and appendixes
+	# add a separator between article body and appendixes
 	divert(APPENDIX_NAVIG_DATA)dnl
 ---
 divert(-1)
-	]defn([APPENDIX_NODE])[
 
-	# initialization for the appendix is done
-	# transition to the next node
+	# transition to the next node(s)
 	define([APPENDIX], defn([APPENDIX_NODE]))
 	define([SECT1], defn([SECT1_APPENDIX]))
 	define([SECT2], defn([SECT2_APPENDIX]))
-])
+
+]defn([APPENDIX_NODE]))
 
 # β
-define([SECT1_APPENDIX], defn([RESET_INDICES_SELECT_LANG])[
+define([SECT1_APPENDIX], defn([INIT_INDICES_SELECT_LANG])[
 
 	# increment index
 	SECT1_IDX
@@ -299,7 +300,7 @@ divert(-1)
 ])
 
 # β
-define([SECT2_APPENDIX], defn([RESET_INDICES_SELECT_LANG])[
+define([SECT2_APPENDIX], defn([INIT_INDICES_SELECT_LANG])[
 
 	# increment index
 	SECT2_IDX
@@ -423,6 +424,10 @@ define([DETAILS_WRAP],		defn([EXPAND_LAST]))
 define([DIV],			defn([PRINT_LANG]))
 define([DIV_MONO],		defn([PRINT_MONO]))
 define([DIV_WRAP],		defn([EXPAND_LAST]))
+define([ENTRY],			defn([PRINT_LANG]))
+define([ENTRY_HEAD],		defn([PRINT_LANG]))
+define([ENTRY_HEAD_MONO],		defn([PRINT_MONO]))
+define([ENTRY_MONO],		defn([PRINT_MONO]))
 define([EXCL],			defn([PRINT_EXCL_SYMBOL], [PRINT_LANG]))
 define([FIGCAPTION],		defn([PRINT_LANG]))
 define([FIGCAPTION_MONO],		defn([PRINT_MONO]))
@@ -448,22 +453,18 @@ define([PEREX],			defn([PRINT_LANG]))
 define([PLAIN_TEXT],		defn([PRINT_LANG]))
 define([PLAIN_TEXT_MONO],		defn([PRINT_MONO]))
 define([PROGRAMLISTING], 		defn([PRINT_PROGRAMLISTING]))
+define([ROW_WRAP],		defn([EXPAND_LAST]))
 define([SECTION_WRAP],		defn([EXPAND_LAST]))
 define([SUMMARY],		defn([PRINT_LANG]))
 define([SUMMARY_MONO],		defn([PRINT_MONO]))
-define([TABLE_CAPTION],		defn([PRINT_LANG]))
-define([TABLE_CAPTION_MONO],		defn([PRINT_MONO]))
 define([TABLE_COLGROUP_WRAP],		defn([EXPAND_LAST]))
-define([TABLE_DATA],		defn([PRINT_LANG]))
-define([TABLE_DATA_MONO],		defn([PRINT_MONO]))
-define([TABLE_HEAD],		defn([PRINT_LANG]))
-define([TABLE_HEAD_MONO],		defn([PRINT_MONO]))
-define([TABLE_ROW_WRAP],		defn([EXPAND_LAST]))
 define([TABLE_WRAP],		defn([EXPAND_LAST]))
 define([TBODY_WRAP],		defn([EXPAND_LAST]))
 define([TFOOT_WRAP],		defn([EXPAND_LAST]))
 define([THEAD_WRAP],		defn([EXPAND_LAST]))
 define([TILE_BOX],		defn([PRINT_LANG]))
+define([TTITLE],		defn([PRINT_LANG]))
+define([TTITLE_MONO],		defn([PRINT_MONO]))
 define([WARN],			defn([PRINT_WARN_SYMBOL], [PRINT_LANG]))
 
 popdef(

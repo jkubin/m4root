@@ -2,8 +2,6 @@ __HEADER([Josef Kubin], [2020/05/16], [text])
 ___DESCR([processes inline elements])
 ___POINT([several inline elements])
 
-# mozna vyhodit ze spell
-
 # prints a hyperlink or a linked text that dereferences
 # A → β
 define([LINK], [pushdef([CURRQU], divnum)divert(-1)
