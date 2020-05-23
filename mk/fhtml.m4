@@ -1,7 +1,7 @@
 # vim:ft=m4
 
 __HEADER([Josef Kubin], [2020/01/05], [root_cz])
-___DESCR([the script creates experimental additional rules extending the handwritten Makefile to generate HTML files])
+___DESCR([the script generates experimental additional rules extending the handwritten Makefile to generate HTML files])
 ___POINT([additional rules by configuration from command line; the rules utilise M4 frozen files to generate HTML files])
 
 # A → β
@@ -46,7 +46,7 @@ define([FOLDER_NAMES],		[FOLDERS_]LANG_CODE)
 define([FROZEN_FILE],		[html_]LANG_CODE.m4f)
 define([SUBTARGETS],		$(FOLDER_NAMES) $(ARTICLE_FILES) $(PREVIEW_FILES) $(PUBLISH_FILES) $(SPCHECK_FILES))
 
-# create the final output
+# generate the final output
 divert(0)dnl
 [#] DONTE()
 
@@ -65,27 +65,27 @@ PUBLISH  += $(FOLDER_NAMES) $(PUBLISH_FILES)
 SPCHECK  += $(FOLDER_NAMES) $(SPCHECK_FILES)
 TARGETS  += SUBTARGETS
 
-#:html-sub-targets/sub/su	creates all files from generated rules (default target)
+#:html-sub-targets/sub/su	generates all files from generated rules (default target)
 .PHONY: fhtml-sub-targets sub su
 fhtml-sub-targets sub su: $(TARGETS)
 
-#:preview/pre/pr/p	creates html page as close as possible in real website
+#:preview/pre/pr/p	generates html page as close as possible in real website
 .PHONY: preview pre pr p
 preview pre pr p: $(PREVIEW)
 
-#:spell/spl/sp	creates files for checking jargon and typos
+#:spell/spl/sp	generates files for checking jargon and typos
 .PHONY: spell spl sp
 spell spl sp: $(SPCHECK)
 
-#:publish/pub/pu	creates files in a format suitable for CMS
+#:publish/pub/pu	generates files in a format suitable for CMS
 .PHONY: publish pub pu
 publish pub pu: $(PUBLISH)
 
-#:article/art/a	creates an article (this is a target for routine article development)
+#:article/art/a	generates an article (this is a target for routine article development)
 .PHONY: article art a
 article art a: $(ARTICLE)
 
-[#]:patsubst(defn([ALL_SUBTARGETS]), [ ], [/])	creates ‘LANG_CODE’ files
+[#]:patsubst(defn([ALL_SUBTARGETS]), [ ], [/])	generates ‘LANG_CODE’ files
 .PHONY: ALL_SUBTARGETS
 ALL_SUBTARGETS: SUBTARGETS
 
@@ -100,6 +100,6 @@ html_[]LANG_CODE.mk: ;
 $(FOLDER_NAMES):
 	mkdir -p $@
 
-FROZEN_FILE: $(JAVASCRIPT) rootb.m4 queues.m4 aux.m4 ent.m4 cfg.m4 inline.m4 headings.m4 block.m4 ver.m4 style.m4 lang_[]LANG_CODE.m4 css.m4 js.m4 git.m4 REFS_FILES order.m4 lang.m4 incl.m4 file.m4 cmd.m4
+FROZEN_FILE: $(JAVASCRIPT) rootb.m4 queues.m4 cfg.m4 ent.m4 inline.m4 headings.m4 block.m4 ver.m4 style.m4 lang_[]LANG_CODE.m4 css.m4 js.m4 git.m4 REFS_FILES order.m4 lang.m4 incl.m4 file.m4 cmd.m4
 	m4 -F $@ -DLANG_CODE='LANG_CODE' $(filter-out $(JAVASCRIPT) , $^)
 

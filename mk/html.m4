@@ -18,14 +18,14 @@ define([TABLE_OF_CONTENT_ITEM], [
 divert(1)dnl
 defn([TARGET_FOLDER]) \
 divert(2)dnl
-TARGET_FOLDER/%.html: $(JAVASCRIPT) rootb.m4 queues.m4 aux.m4 ent.m4 cfg.m4 inline.m4 headings.m4 block.m4 ver.m4 style.m4 lang_$2.m4 css.m4 js.m4 git.m4 REFS_FILES order.m4 lang.m4 incl.m4 file.m4 cmd.m4 %.m4 $1 nav.m4
+TARGET_FOLDER/%.html: $(JAVASCRIPT) rootb.m4 queues.m4 cfg.m4 ent.m4 inline.m4 headings.m4 block.m4 ver.m4 style.m4 lang_$2.m4 css.m4 js.m4 git.m4 REFS_FILES order.m4 lang.m4 incl.m4 file.m4 cmd.m4 %.m4 $1 nav.m4
 	m4 -DLANG_CODE='$2' -DSOURCE='$1' -DOUTPUT_FILE='$[*].html' -DARTICLE_NAME='TARGET_FOLDER' $(FLAGS) $(filter-out $(JAVASCRIPT), $^) | sed -f html/esc_to_ent.sed > $[@]
 	tidy -qe $[@]
 
-TARGET_FOLDER/spell.txt: rootb.m4 aux.m4 order.m4 lang.m4 headings.m4 ver.m4 lang_$2.m4 REFS_FILES incl.m4 spell.m4 $1
+TARGET_FOLDER/spell.txt: rootb.m4 cfg.m4 order.m4 lang.m4 headings.m4 ver.m4 lang_$2.m4 REFS_FILES incl.m4 spell.m4 $1
 	m4 -DLANG_CODE='$2' -DSOURCE='$1' $(FLAGS) $^ > $[@]
 
-TARGET_FOLDER/publish.txt: $(JAVASCRIPT) rootb.m4 queues.m4 aux.m4 ent.m4 cfg.m4 inline.m4 headings.m4 block.m4 ver.m4 style.m4 lang_$2.m4 css.m4 js.m4 git.m4 REFS_FILES order.m4 lang.m4 incl.m4 file.m4 cmd.m4 publish.m4 $1 nav.m4
+TARGET_FOLDER/publish.txt: $(JAVASCRIPT) rootb.m4 queues.m4 cfg.m4 ent.m4 inline.m4 headings.m4 block.m4 ver.m4 style.m4 lang_$2.m4 css.m4 js.m4 git.m4 REFS_FILES order.m4 lang.m4 incl.m4 file.m4 cmd.m4 publish.m4 $1 nav.m4
 	m4 -DLANG_CODE='$2' -DSOURCE='$1' -DARTICLE_NAME='TARGET_FOLDER' $(FLAGS) $(filter-out $(JAVASCRIPT), $^) | sed -f html/publish.sed -f html/esc_to_ent.sed > $[@]
 
 divert(-1)
@@ -45,7 +45,7 @@ define([ARTICLE_FILES],		[ARTICLE_]LANG_CODE)
 define([FOLDER_NAMES],		[FOLDERS_]LANG_CODE)
 define([SUBTARGETS],		$(FOLDER_NAMES) $(ARTICLE_FILES) $(PREVIEW_FILES) $(PUBLISH_FILES) $(SPCHECK_FILES))
 
-# create the final output
+# generate the final output
 divert(0)dnl
 [#] DONTE()
 
@@ -64,27 +64,27 @@ PUBLISH  += $(FOLDER_NAMES) $(PUBLISH_FILES)
 SPCHECK  += $(FOLDER_NAMES) $(SPCHECK_FILES)
 TARGETS  += SUBTARGETS
 
-#:html-sub-targets/sub/su	creates all files from generated rules (default target)
+#:html-sub-targets/sub/su	generates all files from generated rules (default target)
 .PHONY: html-sub-targets sub su
 html-sub-targets sub su: $(TARGETS)
 
-#:preview/pre/pr/p	creates html page as close as possible in real website
+#:preview/pre/pr/p	generates html page as close as possible in real website
 .PHONY: preview pre pr p
 preview pre pr p: $(PREVIEW)
 
-#:spell/spl/sp	creates files for checking jargon and typos
+#:spell/spl/sp	generates files for checking jargon and typos
 .PHONY: spell spl sp
 spell spl sp: $(SPCHECK)
 
-#:publish/pub/pu	creates files in a format suitable for CMS
+#:publish/pub/pu	generates files in a format suitable for CMS
 .PHONY: publish pub pu
 publish pub pu: $(PUBLISH)
 
-#:article/art/a	creates an article (this is a target for routine article development)
+#:article/art/a	generates an article (this is a target for routine article development)
 .PHONY: article art a
 article art a: $(ARTICLE)
 
-[#]:patsubst(defn([ALL_SUBTARGETS]), [ ], [/])	creates ‘LANG_CODE’ files
+[#]:patsubst(defn([ALL_SUBTARGETS]), [ ], [/])	generates ‘LANG_CODE’ files
 .PHONY: ALL_SUBTARGETS
 ALL_SUBTARGETS: SUBTARGETS
 
