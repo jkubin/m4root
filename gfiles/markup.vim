@@ -33,7 +33,6 @@ iabbrev <buffer> <unique> cit CITATION([<c-r>"])<esc>
 "iabbrev <buffer> <unique> cma CM()<c-r>=Eatchar('.')<cr>
 "iabbrev <buffer> <unique> cm []CM()<c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> cm CODE_M4([<c-r>"])<esc>
-iabbrev <buffer> <unique> cmm CMD()<c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> com COMMENT_MONO([[dnl monolingual<cr><cr>]])<up><c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> cor COMMAND_ROOT([dnl<cr><cr>])<up><c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> cou COMMAND_USR([dnl<cr><cr>])<up><c-r>=Eatchar('.')<cr>
@@ -112,8 +111,10 @@ iabbrev <buffer> <unique> pm PARA_MONO([[dnl monolingual<cr><cr>]])<up><c-r>=Eat
 iabbrev <buffer> <unique> pp PARA([[dnl czech<cr><cr>],<cr>[dnl english: _next_language_<cr>%%%<cr>]])<left><c-o>%<c-o>0<down><c-r>=Eatchar('.')<cr>
 "iabbrev <buffer> <unique> pp P([])%%%<c-o>T(<right><c-r>=Eatchar('.')<cr>
 "iabbrev <buffer> <unique> prl PRE_LANG([[dnl czech<cr><cr>],<cr>[dnl english: _next_language_<cr>%%%<cr>]])<left><c-o>%<c-o>0<down><c-r>=Eatchar('.')<cr>
+iabbrev <buffer> <unique> prm PROMPT()<c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> prog PROGRESS([],,,,, [value="22" max="100"])<c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> pr PROGRAMLISTING([dnl<cr><cr>])dnl PROGRAMLISTING note: The symbols [#] or [dnl] on the last line must be in brackets!<up><c-r>=Eatchar('.')<cr>
+iabbrev <buffer> <unique> prr PROMPT_ROOT()<c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> qc „<c-r>"“<esc>
 "iabbrev <buffer> <unique> qc Quote Czech
 iabbrev <buffer> <unique> qe “<c-r>"”<esc>
@@ -126,7 +127,6 @@ iabbrev <buffer> <unique> qq QUOTE([<c-r>"])<esc>
 iabbrev <buffer> <unique> qs ‚<c-r>"‘<esc>
 "iabbrev <buffer> <unique> qs Quote Single
 iabbrev <buffer> <unique> ref []REF([], [%%%], [%%%])<c-o>T(<right><c-r>=Eatchar('.')<cr>
-iabbrev <buffer> <unique> roo ROO()<c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> sa SAMP([<c-r>"])<esc>
 iabbrev <buffer> <unique> scn <c-l><cr>SECT1([dnl czech<cr>[],<cr>dnl english: _next_language_<cr><c-u>[%%%],<cr>])<left><c-o>%<c-o>0<down><right><c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> sm SMALL([<c-r>"])<esc>
