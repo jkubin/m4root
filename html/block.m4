@@ -6,6 +6,12 @@ ___POINT([definition of HTML5 block-level elements and unpaired tags])
 
 # WARNING: keep 1:1 consistency: spell.m4 refs.m4 text.m4 man.m4 info.m4
 
+# also used in html/nav.m4
+# β
+define([BACK_TO_TOC],	[<a href="[#]defn([#ID], [TOC_ANCH])" title="defn([WORD_CONTENT])"></a>])
+define([CHAPTER_INDEXES],	[<a href="[#]defn([#ID])" title="⚓">defn([#S0], [#S1], [#S2])</a>])
+define([GO_BACK_UP],	[<a href="defn([#NSP], [TOC_ANCH])" title="defn([WORD_TOP])"></a>])
+
 # html tag attributes (at the end of this file will be forgotten)
 # β
 pushdef([ID_1],		[[]ifelse([$#], [1], [], [$1], [], [], [ id="ADD_ID_ANCH([$1])"])])
@@ -198,7 +204,7 @@ define([APPENDIX_NODE], defn([MULTILINGUAL_HEADINGS], [SET_ANCHOR])[
 	define([CURRQU], APPENDIX_CONTENT)
 
 	divert(APPENDIX_NAVIG_DATA)dnl
-<p id="defn([#ID], [TOC_ANCH])"><a href="[#]defn([#ID])"><b>defn([#S0], [#S1], [#S2])</b>SELITM</a></p>
+<p id="defn([#ID], [TOC_ANCH])"><a href="[#]defn([#ID])" title="defn([WORD_APPENDIX])"><b>defn([#S0], [#S1], [#S2])</b>SELITM</a></p>
 divert(APPENDIX_NAVIGATION)dnl
 undivert(CURRQU)dnl
 <h2]defn([HTML_HEADING_ATTRIBUTES])>defn([BACK_TO_TOC], [CHAPTER_INDEXES])[SELITM]defn([GO_BACK_UP])[</h2>
