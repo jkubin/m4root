@@ -166,10 +166,10 @@ pkjs pjs js j: $(JAVASCRIPT)
 $(ORDER_FILE): rootb.m4 toc.m4 toc_list.m4
 	m4 -DALL_LANGS='$(LANGS_ALL)' -DFILE_LIST='$(FILE_LIST)' $^ > $@
 
-$(REFS_MONO): rootb.m4 html/cfg.m4 refs/mono.m4 git.m4
+$(REFS_MONO): rootb.m4 cfg.m4 refs/mono.m4 git.m4
 	m4 $^ $(SOURCE) > $@
 
-refs_%.m4: rootb.m4 lang_%.m4 toc.m4 $(ORDER_FILE) lang.m4 headings.m4 html/cfg.m4 refs.m4
+refs_%.m4: rootb.m4 cfg.m4 lang_%.m4 toc.m4 $(ORDER_FILE) lang.m4 headings.m4 refs.m4
 	m4 -DLANG_CODE='$*' $^ $(SOURCE) | sed -f refs.sed > $@
 
 man_%.mk: rootb.m4 $(ORDER_FILE) refs_%.m4 lang.m4 headings.m4 mk/man.m4
