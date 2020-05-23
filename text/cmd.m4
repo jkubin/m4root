@@ -12,6 +12,7 @@ pushdef([TEST_NUMBER_OF_ARGS], [
 ])
 
 # XCOMMAND([foo -o a,b,c -DMACRO], [input/file1.src], [input/file2.src], [input/file3.src], …, [output/file.dst])
+# XCOMMAND([foo -o a,b,c -DMACRO], [input/file1.src,[-o x,y,z]], [input/file2.src], …, [output/file.dst])
 # A → β
 define([XCOMMAND], defn([TEST_NUMBER_OF_ARGS])[
 
@@ -22,7 +23,7 @@ divert(-1)
 	FILES_ON_THE_COMMAND_LINE(shift($@))
 ])
 
-# XCOMMAND_ROOT([foo -o a,b,c -DMACRO], [input/file1.src], [input/file2.src], [input/file3.src], …, [output/file.dst])
+# XCOMMAND_ROOT(…)
 # A → β
 define([XCOMMAND_ROOT], defn([TEST_NUMBER_OF_ARGS])[
 
@@ -48,7 +49,7 @@ divert(-1)
 	], [
 
 		divert(COMMAND_ARGS_QUEUE)dnl
-[$1] dnl
+SARG1($1) ifelse(SARG2($1), [], [], [ARG2($1) ])dnl
 divert(-1)
 
 		# right recursive loop
