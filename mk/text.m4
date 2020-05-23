@@ -60,9 +60,9 @@ TARGETS += $(SRC_FILES)
 dnl txt-sub-targets sub su: $(TARGETS)
 txt-sub-targets sub su: $(SRC_FILES)
 
-#:txt/tx	generates plain text to specify the length of the article
-.PHONY: txt tx
-txt tx: $(SRC_FILES)
+#:text/txt/tx	generates plain text to specify the length of the article
+.PHONY: text txt tx
+text txt tx: $(SRC_FILES)
 
 #:gzt/gt	generates gzipped files
 .PHONY: gzt gt

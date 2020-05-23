@@ -3,7 +3,7 @@
 # ___POINT([learning M4 using the examples in this series])
 # ___USAGE([make h && make && make])
 
- # <--- this is the form-feed character for Vim abbreviations, type: [[ to skip backward; type: ]] to skip forward
+ # <--- this is the form-feed character for Vim, type: [[ to skip backward, type: ]] to skip forward
 
 # keep secondary generated files
 .SECONDARY:
@@ -86,18 +86,18 @@ trunc trc:
 
 #:refs	regenerates links (as an auxiliary hash database) to paragraphs, captions, source code, … (usage: $ make -B refs)
 .PHONY: refs
-refs: $(REFS_LANG)
+refs: $(REFS_MONO) $(REFS_LANG)
 
 #:cc	determines the number of characters to be printed (article length)
 .PHONY: cc $(TEXT_CC)
 cc: $(TEXT_CC)
 
+$(TEXT_CC):
+	@wc --chars $(@:.cc=.txt)
+
 #:wc	determines the number of words to be printed (article length)
 .PHONY: wc $(TEXT_WC)
 wc: $(TEXT_WC)
-
-$(TEXT_CC):
-	@wc --chars $(@:.cc=.txt)
 
 $(TEXT_WC):
 	@wc --words $(@:.wc=.txt)
@@ -166,7 +166,7 @@ pkjs pjs js j: $(JAVASCRIPT)
 $(ORDER_FILE): rootb.m4 toc.m4 toc_list.m4
 	m4 -DALL_LANGS='$(LANGS_ALL)' -DFILE_LIST='$(FILE_LIST)' $^ > $@
 
-$(REFS_MONO): rootb.m4 cfg.m4 refs/mono.m4 git.m4
+$(REFS_MONO): rootb.m4 cfg.m4 refs/mono.m4
 	m4 $^ $(SOURCE) > $@
 
 refs_%.m4: rootb.m4 cfg.m4 lang_%.m4 toc.m4 $(ORDER_FILE) lang.m4 headings.m4 refs.m4
