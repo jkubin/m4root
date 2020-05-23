@@ -1,7 +1,7 @@
 # vim:ft=m4
 
 __HEADER([Josef Kubin], [2019/09/01], [root_cz])
-___DESCR([the script creates additional rules extending the handwritten Makefile to generate HTML files])
+___DESCR([the script generates additional rules extending the handwritten Makefile to generate HTML files])
 ___POINT([additional rules by configuration from command line to generate HTML files])
 
 # A → β
@@ -19,19 +19,17 @@ divert(1)dnl
 defn([TARGET_FOLDER]) \
 divert(2)dnl
 TARGET_FOLDER/%.html: $(JAVASCRIPT) rootb.m4 queues.m4 aux.m4 ent.m4 cfg.m4 inline.m4 headings.m4 block.m4 ver.m4 style.m4 lang_$2.m4 css.m4 js.m4 git.m4 REFS_FILES order.m4 lang.m4 incl.m4 file.m4 cmd.m4 %.m4 $1 nav.m4
-	m4 -DLANG_CODE='$2' -DOUTPUT_FILE='$[*].html' $(FLAGS) $(filter-out $(JAVASCRIPT), $^) | sed -f html/esc_to_ent.sed > $[@]
+	m4 -DLANG_CODE='$2' -DSOURCE='$1' -DOUTPUT_FILE='$[*].html' -DARTICLE_NAME='TARGET_FOLDER' $(FLAGS) $(filter-out $(JAVASCRIPT), $^) | sed -f html/esc_to_ent.sed > $[@]
 	tidy -qe $[@]
 
 TARGET_FOLDER/spell.txt: rootb.m4 aux.m4 order.m4 lang.m4 headings.m4 ver.m4 lang_$2.m4 REFS_FILES incl.m4 spell.m4 $1
 	m4 -DLANG_CODE='$2' -DSOURCE='$1' $(FLAGS) $^ > $[@]
 
 TARGET_FOLDER/publish.txt: $(JAVASCRIPT) rootb.m4 queues.m4 aux.m4 ent.m4 cfg.m4 inline.m4 headings.m4 block.m4 ver.m4 style.m4 lang_$2.m4 css.m4 js.m4 git.m4 REFS_FILES order.m4 lang.m4 incl.m4 file.m4 cmd.m4 publish.m4 $1 nav.m4
-	m4 -DLANG_CODE='$2' -DSOURCE='$1' $(FLAGS) $(filter-out $(JAVASCRIPT), $^) | sed -f html/publish.sed -f html/esc_to_ent.sed > $[@]
+	m4 -DLANG_CODE='$2' -DSOURCE='$1' -DARTICLE_NAME='TARGET_FOLDER' $(FLAGS) $(filter-out $(JAVASCRIPT), $^) | sed -f html/publish.sed -f html/esc_to_ent.sed > $[@]
 
 divert(-1)
 ])
-
-# valid: TARGET_FOLDER/index.html
 
 # process table from the common content file
 TABLE_OF_CONTENT(LANG_CODE)

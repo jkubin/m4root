@@ -18,12 +18,12 @@ define([TABLE_OF_CONTENT_ITEM], [
 divert(1)dnl
 defn([TARGET_FOLDER]) \
 divert(2)dnl
-TARGET_FOLDER/%.html: html_$2.m4f %.m4 $1 nav.m4
-	m4 -DOUTPUT_FILE='$[@]' $(FLAGS) -R $^ | sed -f html/esc_to_ent.sed > $[@]
+TARGET_FOLDER/%.html: html_$2.m4f $(JAVASCRIPT) %.m4 $1 nav.m4
+	m4 -DSOURCE='$1' -DOUTPUT_FILE='$[@]' -DARTICLE_NAME='TARGET_FOLDER' $(FLAGS) -R $(filter-out $(JAVASCRIPT), $^) | sed -f html/esc_to_ent.sed > $[@]
 	tidy -qe $[@]
 
-TARGET_FOLDER/publish.txt: html_$2.m4f publish.m4 $1 nav.m4
-	m4 -DSOURCE='$1' $(FLAGS) -R $^ | sed -f html/publish.sed -f html/esc_to_ent.sed > $[@]
+TARGET_FOLDER/publish.txt: html_$2.m4f $(JAVASCRIPT) publish.m4 $1 nav.m4
+	m4 -DSOURCE='$1' -DARTICLE_NAME='TARGET_FOLDER' $(FLAGS) -R $(filter-out $(JAVASCRIPT), $^) | sed -f html/publish.sed -f html/esc_to_ent.sed > $[@]
 
 TARGET_FOLDER/spell.txt: rootb.m4 order.m4 aux.m4 lang.m4 headings.m4 ver.m4 lang_$2.m4 REFS_FILES incl.m4 spell.m4 $1
 	m4 -DLANG_CODE='$2' -DSOURCE='$1' $^ > $[@]
