@@ -283,14 +283,6 @@ Note: root_cz
 Description: processes an inserted source file; converts forbidden characters; sets string highlighting
 Reason: source file (possibly snippet) in format for HTML
 ---
-File: tmp/Makefile
-Author: Josef Kubin
-Started: 2019/10/09
-Note: m4root
-Description: this handwritten Makefile automatically creates additional rules for creating target files
-Reason: learning M4 using the examples in this series
-Usage: make h && make && make
----
 File: tmp/publish.sed
 Author: Josef Kubin
 Started: 2019/12/22
@@ -347,12 +339,40 @@ Note: root_cz
 Description: sets heading item in desired language
 Reason: {mono,multi}lingual headings
 ---
+File: text/esc_to_txt.sed
+Author: Josef Kubin
+Started: 2020/05/19
+Note: m4root
+Description: transforms C esc sequences to ASCII
+Reason: post processing after M4 scripts
+---
+File: text/nav.m4
+Author: Josef Kubin
+Started: 2020/05/19
+Note: text
+Description: table of content; all parts of the series
+Reason: not finished yet
+---
+File: text/chr_to_esc.sed
+Author: Josef Kubin
+Started: 2020/05/19
+Note: m4root
+Description: the script modifies input source code for M4 processing
+Reason: problematic characters must be hidden
+---
+File: text/cmd.m4
+Author: Josef Kubin
+Started: 2020/05/19
+Note: text
+Description: command line with a list of input files, the last file is an output file
+Reason: generates plain text output
+---
 File: text/text.m4
 Author: Josef Kubin
 Started: 2020/05/11
 Note: m4root
 Description: creates a plain text file as a basis for other transformations
-Reason: plain text file for character count
+Reason: text file for total number of words and characters
 ---
 File: text/queues.m4
 Author: Josef Kubin
@@ -361,26 +381,19 @@ Note: text
 Description: definitions of indexes for output queues
 Reason: each target generation file format has a specific list of queues
 ---
-File: text/block.m4
-Author: Josef Kubin
-Started: 2020/05/16
-Note: text
-Description: 
-Reason: 
----
 File: text/file.m4
 Author: Josef Kubin
 Started: 2020/05/16
 Note: text
-Description: inserts file
-Reason: 
+Description: inserts (snippet of ) a source file
+Reason: text file for total number of words and characters
 ---
 File: text/inline.m4
 Author: Josef Kubin
 Started: 2020/05/16
 Note: text
-Description: 
-Reason: 
+Description: processes inline elements
+Reason: several inline elements
 ---
 File: toc_list.m4
 Author: Josef Kubin
@@ -593,12 +606,33 @@ Note: root_cz
 Description: the script creates experimental additional rules extending the handwritten Makefile to generate HTML files
 Reason: additional rules by configuration from command line; the rules utilise M4 frozen files to generate HTML files
 ---
+File: mk/text.m4
+Author: Josef Kubin
+Started: 2020/05/19
+Note: mk
+Description: the script generates additional rules extending the handwritten Makefile to generate txt files
+Reason: additional rules by configuration from command line to generate txt files
+---
 File: mk/html.m4
 Author: Josef Kubin
 Started: 2019/09/01
 Note: root_cz
-Description: the script creates additional rules extending the handwritten Makefile to generate HTML files
+Description: the script generates additional rules extending the handwritten Makefile to generate HTML files
 Reason: additional rules by configuration from command line to generate HTML files
+---
+File: mk/texi.m4
+Author: Josef Kubin
+Started: 2020/05/19
+Note: mk
+Description: the script generates additional rules extending the handwritten Makefile to generate texi files
+Reason: additional rules by configuration from command line to generate texi files
+---
+File: mk/man.m4
+Author: Josef Kubin
+Started: 2020/05/19
+Note: mk
+Description: the script generates additional rules extending the handwritten Makefile to generate man files
+Reason: additional rules by configuration from command line to generate man files
 ---
 File: mk/xml.m4
 Author: Josef Kubin
@@ -611,7 +645,7 @@ File: Makefile
 Author: Josef Kubin
 Started: 2019/10/09
 Note: m4root
-Description: this handwritten Makefile automatically creates additional rules for creating target files
+Description: this handwritten Makefile automatically generates additional rules for creating target files
 Reason: learning M4 using the examples in this series
 Usage: make h && make && make
 ---

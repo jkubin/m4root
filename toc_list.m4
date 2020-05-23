@@ -37,7 +37,7 @@ define([CREATE_LANG_LIST], [
 
 	# create ordered list of languages according to the TOC_FILE_NAME
 	divert(LANG_CODE_$1)dnl
-	LANG_INDEX_ITEM([[$1]], [[LANG_$1]])
+	LANG_INDEX_ITEM([[$1]], [[$1_LANG]])
 divert(END_OF_LANG_CODES)dnl
 [define([LANG_INDEX_$1], ]eval(LANG_CODE_$1 - END_OF_TOC))
 divert(-1)

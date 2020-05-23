@@ -5,7 +5,7 @@
 <meta charset="utf-8">
 <title>Generování kódu v M4: úvod</title>
 <link rel="stylesheet" type="text/css" href="../html/preview.css">
-<style>.m4-ev{background:#f5f5f5}.urs p[id$="-toc"]>a>b{font-weight:normal;margin-right:.6em}.urs a[id^="m4-ref"]{font-size:.65em;vertical-align:super}.m4-A .m4-a,.m4-B .m4-b,.m4-C .m4-c,.m4-D .m4-d,.m4-E .m4-e,.m4-F .m4-f,.m4-G .m4-g,.m4-dh{background:lawngreen}.m4-R .m4-r{background:gold}.m4-S .m4-s{font-weight:bold}.m4-X .m4-x{visibility:hidden}.urs q{font-style:initial}.urs q::before{content:"„";padding-right:1px}.urs q::after{content:"“"}.m4-ch,.m4-bh,.m4-usc,.m4-root{position:relative}.m4-bh>a:first-child::before,.m4-ch>a:first-child::before{font-size:.9em;font-weight:normal;position:absolute;right:100%;width:1.1em}.m4-ch>a:first-child::before{content:"\2630"}.m4-ch>a:first-child+a{margin-right:.4em}.m4-ch>a:last-child::before,.m4-bh>a:last-child::before{content:"\1f845";font-size:.65em;margin-left:.3em;position:absolute}.m4-ch>a:first-child,.m4-ch>a:last-child,.m4-bh>a:first-child,.m4-bh>a:last-child{opacity:0}.m4-ch:hover>a:first-child,.m4-ch:hover>a:last-child,.m4-bh:hover>a:first-child,.m4-bh:hover>a:last-child{opacity:1}.m4-xp{border-bottom:1px dotted #000;cursor:help}.m4-xp:active::after{content:" (" attr(title) ")"}.m4-note::before{content:"\1f5b9";margin-right:.2em;font-size:1.5em}.urs .m4-note,.urs .m4-info,.urs .m4-excl,.urs .m4-warn{padding-top:.2em;padding-bottom:.4em}.m4-note ul{margin-bottom:0;margin-left:1em}ol.m4-refs a:first-child::before{content:"\2191"}ol.m4-refs a:first-child{margin-right:.3em;text-decoration:none}p.m4-l2{padding-left:1em}.m4-bh>a:first-child::before{content:"\1f517"}.m4-info::before{content:"\1f6c8";margin-right:.2em;font-size:1.5em}.m4-src{counter-reset:m4-nl}.m4-src>a,.m4-usc>a,.m4-root>a{background-color:hsla(0,0%,86%,.5);border:1px solid #ddd;border-radius:0 4px;font-size:.7em;padding:2px 4px;position:absolute;right:0;top:0}.m4-src>a::before,.m4-usc>a::before,.m4-root>a::before{content:"\1f517"}.m4-src>code{border-radius:0 4px;border:1px solid #ddd;font-size:.7em;font-weight:bold;padding:2px 4px;position:absolute;right:0;text-align:right;top:0}.m4-src>code a{margin-left:.6em}.m4-src>code>div{background:#eee;font-weight:initial;padding:0 2px;text-align:left}.m4-src>code>span+a{color:inherit}.m4-src>code a+a{font-weight:normal}.m4-src>code a+a::before{content:"\1f517"}.m4-src>code>span:first-child{cursor:pointer;text-decoration:#f04c23 underline dashed}.m4-src>pre.m4-re{left:0;overflow:visible;padding-left:0;padding-right:0;position:absolute;top:0}.m4-src>pre+pre{background:none}.m4-src,.m4-src>pre,.m4-src>pre.m4-re>div{position:relative}.m4-src>pre.m4-re>div::before{content:counter(m4-nl);counter-increment:m4-nl;left:-3em;position:absolute;text-align:right;top:0;width:2.5em}.m4-src>pre.m4-re>div::after{content:" "}.m4-hgl{border-bottom:1px dashed #000;cursor:help}.m4-usc>pre,.m4-root>pre{font-weight:bold;padding-right:0;white-space:normal;word-break:normal}.m4-usc>pre a,.m4-root>pre a{color:inherit}.m4-root pre::before{content:"~]# ";font-weight:normal}.m4-usc pre::before{content:"~]$ ";font-weight:normal}p.m4-l3{padding-left:2em}#m4--toc{position:relative}#m4--toc div{color:#888;position:absolute;right:0;text-align:right;top:0}</style>
+<style>.m4-ev{background:#f5f5f5}.urs p[id$="-toc"]>a>b{font-weight:normal;margin-right:.6em}.urs a[id^="m4-ref"]{font-size:.65em;vertical-align:super}.m4-A .m4-a,.m4-B .m4-b,.m4-C .m4-c,.m4-D .m4-d,.m4-E .m4-e,.m4-F .m4-f,.m4-G .m4-g,.m4-dh{background:lawngreen}.m4-R .m4-r{background:gold}.m4-S .m4-s{font-weight:bold}.m4-X .m4-x{visibility:hidden}.urs q{font-style:initial}.urs q::before{content:"„";padding:0}.urs q::after{content:"“";padding:0}.m4-ch,.m4-bh,.m4-usc,.m4-root{position:relative}.m4-bh>a:first-child::before,.m4-ch>a:first-child::before{font-size:.9em;font-weight:normal;position:absolute;right:100%;width:1.1em}.m4-ch>a:first-child::before{content:"\2630"}.m4-ch>a:first-child+a{margin-right:.4em}.m4-ch>a:last-child::before,.m4-bh>a:last-child::before{content:"\1f845";font-size:.65em;margin-left:.3em;position:absolute}.m4-ch>a:first-child,.m4-ch>a:last-child,.m4-bh>a:first-child,.m4-bh>a:last-child{opacity:0}.m4-ch:hover>a:first-child,.m4-ch:hover>a:last-child,.m4-bh:hover>a:first-child,.m4-bh:hover>a:last-child{opacity:1}.m4-xp{border-bottom:1px dotted #000;cursor:help}.m4-xp:active::after{content:" (" attr(title) ")"}.m4-note::before{content:"\1f5b9";margin-right:.2em;font-size:1.5em}.urs .m4-note,.urs .m4-info,.urs .m4-excl,.urs .m4-warn{padding-top:.2em;padding-bottom:.4em}.m4-note ul{margin-bottom:0;margin-left:1em}ol.m4-refs a:first-child::before{content:"\2191"}ol.m4-refs a:first-child{margin-right:.3em;text-decoration:none}.m4-l2{padding-left:1em}.m4-bh>a:first-child::before{content:"\1f517"}.m4-info::before{content:"\1f6c8";margin-right:.2em;font-size:1.5em}.m4-src{counter-reset:m4-nl}.m4-src>a,.m4-usc>a,.m4-root>a{background-color:hsla(0,0%,86%,.5);border:1px solid #ddd;border-radius:0 4px;font-size:.7em;padding:2px 4px;position:absolute;right:0;top:0}.m4-src>a::before,.m4-usc>a::before,.m4-root>a::before{content:"\1f517"}.m4-src>code{border-radius:0 4px;border:1px solid #ddd;font-size:.7em;font-weight:bold;padding:2px 4px;position:absolute;right:0;text-align:right;top:0}.m4-src>code a{margin-left:.6em}.m4-src>code>div{background:#eee;font-weight:initial;padding:0 2px;text-align:left}.m4-src>code>span+a{color:inherit}.m4-src>code a+a{font-weight:normal}.m4-src>code a+a::before{content:"\1f517"}.m4-src>code>span:first-child{cursor:pointer;text-decoration:#f04c23 underline dashed}.m4-src>pre.m4-re{left:0;overflow:visible;padding-left:0;padding-right:0;position:absolute;top:0}.m4-src>pre+pre{background:none}.m4-src,.m4-src>pre,.m4-src>pre.m4-re>div{position:relative}.m4-src>pre.m4-re>div::before{content:counter(m4-nl);counter-increment:m4-nl;left:-3em;position:absolute;text-align:right;top:0;width:2.5em}.m4-src>pre.m4-re>div::after{content:" "}.m4-hgl{border-bottom:1px dashed #000;cursor:help}.m4-usc>pre,.m4-root>pre{font-weight:bold;padding-right:0;white-space:normal;word-break:normal}.m4-usc>pre a,.m4-root>pre a{color:inherit}.m4-root pre::before{content:"~]# ";font-weight:normal}.m4-usc pre::before{content:"~]$ ";font-weight:normal}.m4-l3{padding-left:2em}#m4--toc{position:relative}#m4--toc>div{position:absolute;right:0;top:0}#m4--toc>div>div{display:inline-block}.m4-dwnl a{margin-left:.4em}.m4-updt{color:#666;text-align:right;margin-left:.6em}</style>
 <meta name="author" content="Josef Kubín">
 <meta name="description" content="Makro procesor M4 se používá ke generování libovolně složitého kódu z&nbsp;jednoduchého zdrojového kódu.
 Úvodní díl seriálu obsahuje jeho historii, základní principy jazyka, příklady použití a&nbsp;nutné předpoklady pro jeho zvládnutí.">
@@ -34,7 +34,7 @@
 				<div class="perex__impressum">
 						<span class="perex__author">Josef Kubín</span>
 						<span class="perex__date">
-							<span itemprop="datePublished">17. 5. 2020</span>
+							<span itemprop="datePublished">23. 5. 2020</span>
 						</span>
 				</div>
 				<p itemprop="description">Makro procesor M4 se používá ke generování libovolně složitého kódu z&nbsp;jednoduchého zdrojového kódu.
@@ -52,7 +52,7 @@
 <!-- Sklik-kontext-start -->
 <div class=" layout-article-content">
 <div class="php-urs urs">
-<div id="m4--toc"><h2>Obsah&nbsp;(<a href="../generating-code-in-m4-introduction/preview.html#m4--toc" title="Generating code in M4: introduction">English</a>)</h2><div>aktualizováno<br>17. května 2020</div></div>
+<div id="m4--toc"><h2>Obsah (<a href="../generating-code-in-m4-introduction/preview.html#m4--toc" title="Generating code in M4: introduction">English</a>)</h2><div><div class="m4-dwnl"><a href="../intro.mc" style="font-weight:bold" title="zdrojový text generovaných souborů">mc</a><a href="../generovani-kodu-v-m4-uvod.txt" title="prostý text článku">txt</a><a href="../generovani-kodu-v-m4-uvod/publish.txt" title="text pro systém správy obsahu">pub</a><br><a href="../generovani-kodu-v-m4-uvod/spell.txt" title="text pro kontrolu překlepů a žargonu">spell</a></div><div class="m4-updt">aktualizováno<br>23. května 2020</div></div></div>
 <noscript><div title="pro informaci" class="rs-tip-major m4-info">Srozumitelnost ukázek zdrojového kódu zvyšuje povolený JavaScript.</div></noscript>
 <p id="m4-uvod-toc"><a href="#m4-uvod"><b>1</b>Úvod</a></p>
 <p id="m4-priklady-pro-ctenare-toc" class="m4-l2"><a href="#m4-priklady-pro-ctenare"><b>1.1</b>Příklady pro čtenáře</a></p>
@@ -72,10 +72,10 @@
 <p id="m4-talent-a-cas-toc" class="m4-l2"><a href="#m4-talent-a-cas"><b>5.5</b>Talent a čas</a></p>
 <p id="m4-links-toc"><a href="#m4-links"><b>6</b>Odkazy</a></p>
 <hr>
-<p id="m4-priklady-generovani-kodu-toc"><a href="#m4-priklady-generovani-kodu"><b>A</b>Příklady generování kódu</a></p>
-<p id="m4-priklady-preprocesoru-toc"><a href="#m4-priklady-preprocesoru"><b>B</b>Příklady preprocesoru</a></p>
-<p id="m4-m4-priklady-toc"><a href="#m4-m4-priklady"><b>C</b>M4: příklady</a></p>
-<p id="m4-proc-pouzivat-m4-a-proc-ne-toc"><a href="#m4-proc-pouzivat-m4-a-proc-ne"><b>D</b>Proč používat M4 a&nbsp;proč ne?</a></p>
+<p id="m4-priklady-generovani-kodu-toc"><a href="#m4-priklady-generovani-kodu" title="Příloha"><b>A</b>Příklady generování kódu</a></p>
+<p id="m4-priklady-preprocesoru-toc"><a href="#m4-priklady-preprocesoru" title="Příloha"><b>B</b>Příklady preprocesoru</a></p>
+<p id="m4-m4-priklady-toc"><a href="#m4-m4-priklady" title="Příloha"><b>C</b>M4: příklady</a></p>
+<p id="m4-proc-pouzivat-m4-a-proc-ne-toc"><a href="#m4-proc-pouzivat-m4-a-proc-ne" title="Příloha"><b>D</b>Proč používat M4 a&nbsp;proč ne?</a></p>
 <!-- article content -->
 <h2 id="m4-uvod" class="m4-ch"><a href="#m4-uvod-toc" title="Obsah"></a><a href="#m4-uvod" title="⚓">1</a>Úvod<a href="#m4--toc" title="Nahoru"></a></h2>
 <p>Čtenáři tohoto seriálu se naučí psát skripty pro strojové generování kódu.
@@ -177,7 +177,7 @@ Brian Kernighan<a href="https://www.cs.cmu.edu/~mihaib/kernighan-interview/" tit
 <p>Dnes existuje několik implementací lišící se od původní implementace spíše drobnostmi.
 Nejrozšířenější implementace M4 je <b>GNU M4</b> používaná pro <a href="https://en.wikipedia.org/wiki/GNU_Build_System" title="Wikipedie">Autotools</a>
 a&nbsp;pro překlad jednoduchého konfiguračního souboru <code>sendmail.mc</code> na složitý <code>sendmail.cf</code>.
-Autorem této implementace z&nbsp;roku 1990 je <a href="https://www.seindal.dk/rene/gnu/"><span class="rs-person">René Seindal</span></a>.
+Autorem této implementace z&nbsp;roku 1990 je <a href="https://www.seindal.dk/rene/gnu/"><span class="rs-person">René&nbsp;Seindal</span></a>.
 Následující příkaz nainstaluje <span title="s malým „m“" class="m4-xp">m4</span>:</p>
 <div id="m4-install" title="příkaz nainstaluje také další důležité balíčky" class="m4-root"><pre>dnf -y install make m4 pinfo</pre><a href="#m4-install" title="⚓"></a></div>
 <p>Podrobný popis klíčových slov se nachází v&nbsp;dokumentaci<a href="https://www.gnu.org/software/m4/manual/" title="GNU M4 - GNU macro processor" id="m4-ref8">[8]</a>:</p>
@@ -191,7 +191,7 @@ co jsou <a href="https://cs.wikipedia.org/wiki/Termin%C3%A1ln%C3%AD_a_netermin%C
 Zmíněné pojmy si podrobněji vysvětlíme někdy později.
 Cílem tohoto úvodního dílu je hlavně ukázat praktické použití M4 na příkladech.</p>
 <h3 id="m4-bezkontextova-gramatika" class="m4-ch"><a href="#m4-bezkontextova-gramatika-toc" title="Obsah"></a><a href="#m4-bezkontextova-gramatika" title="⚓">3.1</a>Bezkontextová gramatika<a href="#m4--toc" title="Nahoru"></a></h3>
-<p>Bezkontextová gramatika (krátce <abbr title="Context-Free Grammar – bezkontextová gramatika">CFG</abbr>) je <a href="#m4-formalni-gramatika-chomskeho" title="Formální gramatika (Chomského typu)">formální gramatika</a>, ve které mají všechna přepisovací pravidla tvar <code class="m4-hgl" data-2="1">A → β</code>.
+<p>Bezkontextová gramatika (krátce <abbr title="Context-Free Grammar – bezkontextová gramatika">CFG</abbr>) je <a href="#m4-formalni-gramatika-chomskeho" title="Formální gramatika (Chomského typu)">formální gramatika</a>, ve které mají všechna přepisovací pravidla tvar <code class="m4-hgl" data-2="1" data-3="2">A → β</code>.
 Neterminál <code class="m4-hgl" data-2="D">A</code> se <span class="m4-hgl" data-2="E">přepíše</span> na libovolně dlouhý řetězec <abbr title="pravá strana přepisovacího pravidla"><code class="m4-hgl" data-2="F">β</code></abbr> složený z&nbsp;<span class="m4-hgl" data-2="B">neterminálů <code>N</code></span> <span class="m4-hgl" data-2="G">nebo</span> <span class="m4-hgl" data-2="A">terminálů <code>Σ</code></span>.
 <span class="m4-hgl" data-2="C"><a href="https://en.wikipedia.org/wiki/Kleene_star" title="Wikipedie">Kleeneho hvězda</a></span> znamená, že se neterminál <code class="m4-hgl" data-2="D" data-3="D">A</code> může přepsat na <abbr title="epsilon – prázdný symbol"><code>ε</code></abbr> (přepisovací pravidlo <code class="m4-hgl" data-3="5,6">A → ε</code>).</p>
 <div id="m4-all-context-free-grammar-rules" title="přepisovací pravidla bezkontextové gramatiky" class="m4-src"><pre>P: <span class=m4-d>A</span> <span class=m4-e>→</span> <span class=m4-f>β</span>
@@ -611,10 +611,10 @@ messages/messages.mc">messages.mc</a> &gt; <a href="../messages/hello.ini" title
 messages/hello.ini">hello.ini</a></pre><a href="#m4-messages_hello-ini-command" title="⚓"></a></div>
 <div id="m4-messages_hello-ini" class="m4-src"><pre>; DO NOT EDIT! This file is generated automatically!
 
-[hello_20200516]
+[hello_20200518]
 COMPLEX="!\"#$%&amp;'()*+,-./:;&lt;=&gt;?@[\\]^_`{|}~"
 SUCCESS="Too complex M4 code failed successfully."
-NOFAULT="It's not a language fault!"</pre><code><span title="2020-05-15 19:28:05 +0200">1ad0594</span><a href="../messages/hello.ini" title="Zdroj: localhost
+NOFAULT="It's not a language fault!"</pre><code><span title="2020-05-17 18:04:33 +0200">1d582bc</span><a href="../messages/hello.ini" title="Zdroj: localhost
 messages/hello.ini">hello.ini</a><a href="#m4-messages_hello-ini" title="⚓"></a></code></div>
 <h3 id="m4-h-hex-pocitadlo" class="m4-ch"><a href="#m4-h-hex-pocitadlo-toc" title="Obsah"></a><a href="#m4-h-hex-pocitadlo" title="⚓">A.7</a><code>[]</code> .h: hex počítadlo<a href="#m4--toc" title="Nahoru"></a></h3>
 <p>Příklad používá makro <code class="m4-hgl" data-23="A,2">COUNTER</code> pro číslování výsledných <abbr title="Preprocesor jazyka C">CPP</abbr> <span class="m4-hgl" data-23="11" data-24="8-10">maker</span> a&nbsp;jednu výstupní frontu.
@@ -1082,7 +1082,7 @@ messages/messages.json">messages.json</a></pre><a href="#m4-messages_messages-js
 }}</pre><code><span title="2020-03-31 19:30:06 +0200">9156810</span><a href="../messages/messages.json" title="Zdroj: localhost
 messages/messages.json">messages.json</a><a href="#m4-messages_messages-json" title="⚓"></a></code></div>
 <h3 id="m4-ini-nespojity-index-front" class="m4-ch"><a href="#m4-ini-nespojity-index-front-toc" title="Obsah"></a><a href="#m4-ini-nespojity-index-front" title="⚓">A.13</a><code>[]</code> INI: nespojitý index front<a href="#m4--toc" title="Nahoru"></a></h3>
-<p>Příklad používá tři automaty a&nbsp;dvě výstupní fronty číslo <code class="m4-hgl" data-41="10,26">2</code> a&nbsp;<code class="m4-hgl" data-41="10,26">4</code> definované v&nbsp;odděleném souboru.
+<p>Příklad používá <span class="m4-hgl" data-41="1-4">tři automaty</span> a&nbsp;dvě výstupní fronty číslo <code class="m4-hgl" data-41="10,26">2</code> a&nbsp;<code class="m4-hgl" data-41="10,26">4</code> definované v&nbsp;odděleném souboru.
 <span class="m4-hgl" data-41="11" data-42="3,6,11">Názvy INI sekcí</span> jsou generovány <span class="m4-hgl" data-41="A,R">řetězením symbolů</span> (viz. <a href="#m4-vetveni-gramatikou-zakladni-p" title="Větvení gramatikou – základní princip">větvení</a>).
 Příklad používá stejný soubor pro výstupní fronty jako <a href="#m4-json-generovane-indexy-front" title="[] JSON: generované indexy front">příklad</a> pro generování JSON.</p>
 <div id="m4-messages_messages-ini-m4" class="m4-src"><pre>#      _________      ___________
@@ -1375,7 +1375,7 @@ Definujeme-li bezpečnější makro <code class="m4-hgl" data-51="5" data-52="12
 Jmenný prostor <abbr title="Preprocesor jazyka C">CPP</abbr> tak <b>může</b> být zcela oddělen od jmenného prostoru M4.
 Problematický znak <code>`</code> je skryt do makra <code class="m4-hgl" data-52="24">LQ()</code>.
 Apostrof <code class="m4-hgl" data-52="A" data-53="A">'</code> ve zdrojovém kódu ničemu nevadí.
-Apostrof uvnitř makra <code class="m4-hgl" data-51="4" data-52="B">ORDDEL(SPAN([()],,, [color:rgba(0,0,0,.75)]),,, color:red)</code> je skryt do makra <code class="m4-hgl" data-51="A">RQ()</code>.
+Apostrof uvnitř makra <code class="m4-hgl" data-51="4" data-52="B">ORD<s style="color:red"><span style="color:rgba(0,0,0,.75)">()</span></s></code> je skryt do makra <code class="m4-hgl" data-51="A">RQ()</code>.
 Všimněte si jmen funkcí <code class="m4-hgl" data-52="17,27" data-53="17,27">define ()</code> nebo <code class="m4-hgl" data-52="18,28" data-53="18,28">ifelse ()</code> a&nbsp;kde je expandován <code class="m4-hgl" data-52="C" data-53="C" data-51="C">SYMBOL</code>.</p>
 <div id="m4-preproc_file-c-m4" class="m4-src"><pre># ORDinary and SAFe macros have different expansion:
 
@@ -1456,7 +1456,7 @@ int main(void)
 preproc/preproc.file.c">preproc.file.c</a><a href="#m4-preproc_preproc-file-c" title="⚓"></a></code></div>
 <h3 id="m4-ba-css-vlozeni-souboru-koment" class="m4-ch"><a href="#m4-ba-css-vlozeni-souboru-koment-toc" title="Obsah"></a><a href="#m4-ba-css-vlozeni-souboru-koment" title="⚓">B.2</a><code>`'</code> CSS: vložení souboru, komentář<a href="#m4--toc" title="Nahoru"></a></h3>
 <p>CSS používá znak <code class="m4-hgl" data-55="A" data-57="A">#</code> pro kódy barev, což je také začátek jednořádkového M4 komentáře.
-Klíčové slovo <code class="m4-hgl" data-56="A">changecom(/*,*/)</code> nastaví víceřádkový komentář <code>/* … */</code> a&nbsp;přepíše se na <abbr title="epsilon – prázdný symbol"><code>ε</code></abbr>.
+Klíčové slovo <code class="m4-hgl" data-56="A">changecom(/*,*/)</code> nastaví víceřádkový komentář <code class="m4-hgl" data-57="B" data-56="C">/* … */</code> a&nbsp;přepíše se na <abbr title="epsilon – prázdný symbol"><code>ε</code></abbr>.
 Komentáře se vypínají stejným klíčovým slovem <code class="m4-hgl" data-56="B">changecom</code> bez parametrů.</p>
 <div id="m4-preproc_foo-css" title="soubor vložený makro procesorem" class="m4-src"><pre>.foo {
 	border: WIDTH 2px 1px;
@@ -1475,7 +1475,7 @@ define(`PATH', `https://SITE/IMAGE')
 divert(0)dnl</pre><code><span title="2020-02-11 02:32:35 +0100">9e13656</span><a href="../preproc/file.css.m4" title="Zdroj: localhost
 preproc/file.css.m4">file.css.m4</a><a href="#m4-preproc_file-css-m4" title="⚓"></a></code></div>
 <div id="m4-preproc_file-css" class="m4-src"><pre>/* DONTE() */<span class=m4-a>changecom(/*,*/)</span>
-/* DONTE() */
+<span class=m4-c>/* DONTE() */</span>
 
 include(`foo.css')dnl
 
@@ -1485,7 +1485,7 @@ include(`foo.css')dnl
 	background-image: url('PATH');
 }
 
-/* DONTE() */
+<span class=m4-c>/* DONTE() */</span>
 <span class=m4-b>changecom</span>/* DONTE() */<span class=m4-a>changecom(/*,*/)</span></pre><code><span title="2020-05-05 00:05:58 +0200">3ed8f6a</span><a href="../preproc/file.css" title="Zdroj: localhost
 preproc/file.css">file.css</a><a href="#m4-preproc_file-css" title="⚓"></a></code></div>
 <div id="m4-preproc_preproc-file-css-command" title="příkaz" class="m4-usc"><pre>m4 -DSYMBOL='Hello, world!' <a href="../gfiles/root0q.m4" title="Zdroj: localhost
@@ -1494,7 +1494,7 @@ preproc/file.css.m4">file.css.m4</a> <a href="../preproc/file.css" title="Zdroj:
 preproc/file.css">file.css</a> &gt; <a href="../preproc/preproc.file.css" title="Zdroj: localhost
 preproc/preproc.file.css">preproc.file.css</a></pre><a href="#m4-preproc_preproc-file-css-command" title="⚓"></a></div>
 <div id="m4-preproc_preproc-file-css" class="m4-src"><pre>/* DO NOT EDIT! This file is generated automatically! */
-/* DONTE() */
+<span class=m4-b>/* DONTE() */</span>
 
 .foo {
 	border: 3px 2px 1px;
@@ -1506,7 +1506,7 @@ preproc/preproc.file.css">preproc.file.css</a></pre><a href="#m4-preproc_preproc
 	background-image: url('https://www.root.cz/m4tux.png');
 }
 
-/* DONTE() */
+<span class=m4-b>/* DONTE() */</span>
 /* DO NOT EDIT! This file is generated automatically! */</pre><code><span title="2020-05-09 00:48:05 +0200">41542d1</span><a href="../preproc/preproc.file.css" title="Zdroj: localhost
 preproc/preproc.file.css">preproc.file.css</a><a href="#m4-preproc_preproc-file-css" title="⚓"></a></code></div>
 <h3 id="m4-bash-netisknutelne-znaky" class="m4-ch"><a href="#m4-bash-netisknutelne-znaky-toc" title="Obsah"></a><a href="#m4-bash-netisknutelne-znaky" title="⚓">B.3</a><b><code>␂␆</code></b> Bash: netisknutelné znaky<a href="#m4--toc" title="Nahoru"></a></h3>
@@ -1726,7 +1726,7 @@ hello_world/hello_world.awk">hello_world.awk</a><a href="#m4-hello_world_hello_w
 <li id="m4-maintenance-could-be-hard">údržba špatně napsaného M4 kódu není jednoduchá
 <ul><li>existující M4 kód je snadné proměnit ve zmatek (nutný dohled!)</li></ul></li>
 </ul>
-<script>var m4root={init:function(a,b,t,E,e,f){var c,d,G,g,h,k,m,n=[],o=[],i,q,r,s,v,w,x,_,A,B,C;for(B of b){w=B.w=B.firstElementChild,r=w.innerHTML.split('\n').length,A=w.nextElementSibling;C=document.createElement("pre");C.className=E;if(A&&A.tagName=="CODE")A.firstChild.onclick=this.a;for(i=0;i<r;i++){d=document.createElement("div");if(i&1)d.className=e;C.appendChild(d)}B.insertBefore(C,w)}for(h of a){_=Object.keys(h.dataset);for(i of _){B=b[i];if(!B.l)B.l=[];B.l.push({u:h,F:h.dataset[i]})}h.onmouseover=function(){var g;if(this.m)for(g of this.m)g.u.classList.add(g.F);if(this.o)for(g of this.o)g.u.classList.add(...g.F)};h.onmouseout=function(){var g;if(this.m)for(g of this.m)g.u.classList.remove(g.F);if(this.o)for(g of this.o)g.u.classList.remove(...g.F)}}for(B of b){if(!B.l)continue;G=1;if(B.style.counterReset)G+=parseInt(B.style.counterReset.split(' ')[1]);C=B.firstElementChild;for(g of B.l){g.F=g.F.replace(/[A-Z]+|[_a-z]\w*|\d+-\d+/g,'"$&"').replace(/^:/,'"":');g.F=/:/.test(g.F)?"{"+g.F+"}":'{"":['+g.F+']}';v=JSON.parse(g.F,function(p,F){if(/^[A-Z]+$/.test(F)){o.push(t+F);return undefined}if(/^\d+-\d+$/.test(F)){k=F.split('-');q=parseInt(k[1]);for(i=k[0];i<=q;i++){F=i-G;if(F>=0)n.push(F)}return undefined}if(Number.isInteger(F)){F-=G;return F>=0?F:undefined}if(Array.isArray(F)){F=F.filter(function(){return true}).concat(n);n=[];return F.length?F:undefined}if(typeof F==='object')return F;return undefined});if(o.length){if(!g.u.o)g.u.o=[];g.u.o.push({u:B.w,F:o});o=[]}m=Object.keys(v);if(m.length){if(!g.u.m)g.u.m=[];for(c of m){s=v[c];x=c?t+c:f;for(i of s)g.u.m.push({u:C.children[i],F:x})}}}}},a:function(){var a=this.parentNode,b,c,d;if(this.c){if(this.c.isConnected)a.removeChild(this.c);else a.appendChild(this.c);return}b=document.createElement("div");c=document.createElement("div");d=document.createElement("div");if(window.getSelection)b.onclick=d.onclick=function(){const selected_text=window.getSelection();const selected_range=document.createRange();selected_range.selectNodeContents(this);selected_text.removeAllRanges();selected_text.addRange(selected_range)};b.appendChild(document.createTextNode(this.title));d.appendChild(document.createTextNode(this.nextSibling.title.split('\n')[1]));c.appendChild(b);c.appendChild(d);a.appendChild(this.c=c)}}</script>
+<script>var m4root={init:function(a,b,t,E,e,f){var c,d,G,g,h,k,m,n=[],o=[],i,q,r,s,v,w,x,_,A,B,C;for(B of b){w=B.w=B.firstElementChild,r=w.innerHTML.split('\n').length,A=w.nextElementSibling;C=document.createElement("pre");C.className=E;if(A&&A.tagName=="CODE")A.firstChild.onclick=this.a;for(i=0;i<r;i++){d=document.createElement("div");if(i&1)d.className=e;C.appendChild(d)}B.insertBefore(C,w)}for(h of a){_=Object.keys(h.dataset);for(i of _){B=b[i];if(!B.l)B.l=[];B.l.push({u:h,F:h.dataset[i]})}h.onmouseover=function(){var g;if(this.m)for(g of this.m)g.u.classList.add(g.F);if(this.o)for(g of this.o)g.u.classList.add(...g.F)};h.onmouseout=function(){var g;if(this.m)for(g of this.m)g.u.classList.remove(g.F);if(this.o)for(g of this.o)g.u.classList.remove(...g.F)}}for(B of b){if(!B.l)continue;G=1;if(B.style.counterReset)G+=parseInt(B.style.counterReset.split(' ')[1]);C=B.firstElementChild;for(g of B.l){g.F=g.F.replace(/[A-Z]+|[_a-z]\w*|\d+-\d+/g,'"$&"').replace(/^:/,'"":');g.F=/:/.test(g.F)?"{"+g.F+"}":'{"":['+g.F+']}';v=JSON.parse(g.F,function(p,F){if(/^[A-Z]+$/.test(F)){o.push(t+F);return undefined}if(/^\d+-\d+$/.test(F)){k=F.split('-');q=parseInt(k[1]);for(i=k[0];i<=q;i++){F=i-G;if(F>=0)n.push(F)}return undefined}if(Number.isInteger(F)){F-=G;return F>=0?F:undefined}if(Array.isArray(F)){F=F.filter(function(){return true}).concat(n);n=[];return F.length?F:undefined}if(typeof F==='object')return F;return undefined});if(o.length){if(!g.u.o)g.u.o=[];g.u.o.push({u:B.w,F:o});o=[]}m=Object.keys(v);if(m.length){if(!g.u.m)g.u.m=[];for(c of m){s=v[c];x=c?t+c:f;for(i of s)g.u.m.push({u:C.children[i],F:x})}}}}},a:function(){var a=this.parentNode,b,c,d;if(this.c){if(this.c.isConnected)a.removeChild(this.c);else a.appendChild(this.c);return}b=document.createElement("div");c=document.createElement("div");d=document.createElement("div");if(window.getSelection)b.onclick=d.onclick=function(){const e=window.getSelection();const selected_range=document.createRange();selected_range.selectNodeContents(this);e.removeAllRanges();e.addRange(selected_range)};b.appendChild(document.createTextNode(this.title));d.appendChild(document.createTextNode(this.nextSibling.title.split('\n')[1]));c.appendChild(b);c.appendChild(d);a.appendChild(this.c=c)}}</script>
 <script>m4root.init(document.getElementsByClassName("m4-hgl"),document.getElementsByClassName("m4-src"),"m4-","m4-re","m4-ev","m4-dh")</script>
 </div>
 </div>

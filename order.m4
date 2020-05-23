@@ -14,8 +14,8 @@ define([TABLE_OF_CONTENT], [
 # all languages in the order in which they are written to the file: toc.m4
 # A → β
 define([LANG_INDEX], [
-	LANG_INDEX_ITEM([cs], [LANG_cs])
-	LANG_INDEX_ITEM([en], [LANG_en])
+	LANG_INDEX_ITEM([cs], [cs_LANG])
+	LANG_INDEX_ITEM([en], [en_LANG])
 ])
 
 # map language codes to indexes

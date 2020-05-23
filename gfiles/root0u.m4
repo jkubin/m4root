@@ -42,6 +42,6 @@ define(⟦UTFP⟧, ⟦⟦$@⟧⟧)
 define(⟦ROOT_WARNING⟧, ⟦errprint(__file__:__line__⟦: warning: $1
 ⟧)⟧)
 
-# aborts script if something goes wrong and prints the reason to stderr
+# aborts script if something goes wrong, prints the reason to stderr
 define(⟦ROOT_ERROR⟧, ⟦errprint(__file__:__line__⟦: error: $1
 ⟧)m4exit(1)⟧)
