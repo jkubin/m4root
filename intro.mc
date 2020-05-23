@@ -410,9 +410,9 @@ A[]NB()detailed description of the keywords can be found in the documentation[]R
 ]])
 
 PROGRAMLISTING([dnl
-CMD() BOLD([pinfo m4])
-CMD() BOLD([man m4])
-CMD() BOLD([m4 --help])
+PROMPT() BOLD([pinfo m4])
+PROMPT() BOLD([man m4])
+PROMPT() BOLD([m4 --help])
 ])dnl PROGRAMLISTING
 
 
@@ -1639,9 +1639,9 @@ INSERT_FILE([messages/messages.xml])
 
 
 SECT1([dnl czech
-[CODE_M4([[]]) Bash CODE([CMD() echo []DQ()řetězec[]DQ()])],
+[CODE_M4([[]]) Bash CODE([PROMPT() echo []DQ()řetězec[]DQ()])],
 dnl english: _next_language_
-[CODE_M4([[]]) Bash CODE([CMD() echo []DQ()string[]DQ()])],
+[CODE_M4([[]]) Bash CODE([PROMPT() echo []DQ()string[]DQ()])],
 ])
 
 INSERT_FILE([messages/doubleq.sh.m4])
@@ -1650,9 +1650,9 @@ INSERT_FILE([messages/doubleq.sh])
 
 
 SECT1([dnl czech
-[CODE_M4([[]]) Bash CODE([CMD() echo 'řetězec'])],
+[CODE_M4([[]]) Bash CODE([PROMPT() echo 'řetězec'])],
 dnl english: _next_language_
-[CODE_M4([[]]) Bash CODE([CMD() echo 'string'])],
+[CODE_M4([[]]) Bash CODE([PROMPT() echo 'string'])],
 ])
 
 INSERT_FILE([messages/apost.sh.m4])
