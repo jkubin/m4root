@@ -83,13 +83,13 @@ color:blue;
 
 ])
 
-CSS_CLASS_RULE_SET([[p]],	[l2],	[[]], [
+CSS_CLASS_RULE_SET([[]],	[l2],	[[]], [
 
 padding-left:1em;
 
 ])
 
-CSS_CLASS_RULE_SET([[p]],	[l3],	[[]], [
+CSS_CLASS_RULE_SET([[]],	[l3],	[[]], [
 
 padding-left:2em;
 
@@ -461,7 +461,7 @@ font-style:initial;
 CSS_CLASS_RULE_SET([[.urs q::before]],	[],	[[]], [
 
 content:"ifelse(defn([LANG_CODE]), [cs], [„], [“])";
-padding-right:1px;
+padding:0;
 
 ])
 
@@ -469,6 +469,7 @@ padding-right:1px;
 CSS_CLASS_RULE_SET([[.urs q::after]],	[],	[[]], [
 
 content:"ifelse(defn([LANG_CODE]), [cs], [“], [”])";
+padding:0;
 
 ])
 
@@ -479,13 +480,31 @@ position:relative;
 
 ])
 
-# "update time"
-CSS_ID_RULE_SET([[]],	defn([NSP], [TOC_ANCH]),	[[ div]], [
+CSS_ID_RULE_SET([[]],	defn([NSP], [TOC_ANCH]),	[[>div]], [
 
-color:#888;
 position:absolute;
 right:0;
-text-align:right;
 top:0;
+
+])
+
+CSS_ID_RULE_SET([[]],	defn([NSP], [TOC_ANCH]),	[[>div>div]], [
+
+display:inline-block;
+
+])
+
+CSS_CLASS_RULE_SET([[]],	[dwnl],	[[ a]], [
+
+margin-left:.4em;
+
+])
+
+# "updated (time)"
+CSS_CLASS_RULE_SET([[]],	[updt],	[[]], [
+
+color:#666;
+text-align:right;
+margin-left:.6em;
 
 ])
