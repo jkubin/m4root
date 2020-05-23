@@ -33,9 +33,9 @@ iabbrev <buffer> <unique> cit CITATION([<c-r>"])<esc>
 "iabbrev <buffer> <unique> cma CM()<c-r>=Eatchar('.')<cr>
 "iabbrev <buffer> <unique> cm []CM()<c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> cm CODE_M4([<c-r>"])<esc>
+iabbrev <buffer> <unique> cmm CMDSYNOPSIS([dnl<cr><cr>])<up><c-r>=Eatchar('.')<cr>
+iabbrev <buffer> <unique> cmr CMDSYNOPSIS_ROOT([dnl<cr><cr>])<up><c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> com COMMENT_MONO([[dnl monolingual<cr><cr>]])<up><c-r>=Eatchar('.')<cr>
-iabbrev <buffer> <unique> cor COMMAND_ROOT([dnl<cr><cr>])<up><c-r>=Eatchar('.')<cr>
-iabbrev <buffer> <unique> cou COMMAND_USR([dnl<cr><cr>])<up><c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> cp CSS_PARENT([], [], [<cr>%%%<cr>])<left><c-o>%<right><right><c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> del DELETED([<c-r>"])<esc>
 iabbrev <buffer> <unique> dew DETAILS_WRAP([<cr><cr><cr><cr>])dnl DETAILS_WRAP<up><up><c-r>=Eatchar('.')<cr>
@@ -52,8 +52,8 @@ iabbrev <buffer> <unique> dv DIV([[dnl czech<cr><cr>],<cr>[dnl english: _next_la
 iabbrev <buffer> <unique> emp EMPHASIS([<c-r>"])<esc>
 iabbrev <buffer> <unique> exc EXCL(, defn([WORD_IMPORTANT]), [[dnl czech<cr><cr>],<cr>[dnl english: _next_language_<cr>%%%<cr>]])<left><c-o>%<c-o>0<down><c-r>=Eatchar('.')<cr>
 "iabbrev <buffer> <unique> ex EXAMPLE([<c-r>"], [])<c-o>T[<c-r>=Eatchar('.')<cr>
-iabbrev <buffer> <unique> ex EXPL([<c-r>"], [])<left><left><c-r>=Eatchar('.')<cr>
-iabbrev <buffer> <unique> exm EXPL_M4([<c-r>"], [])<left><left><c-r>=Eatchar('.')<cr>
+iabbrev <buffer> <unique> ex EXPLAIN([<c-r>"], [])<left><left><c-r>=Eatchar('.')<cr>
+iabbrev <buffer> <unique> exm EXPLAIN_M4([<c-r>"], [])<left><left><c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> fig FIGCAPTION([[dnl czech<cr><cr>],<cr>[dnl english: _next_language_<cr>%%%<cr>]])<left><c-o>%<c-o>0<down><c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> fim FIGCAPTION_MONO([[dnl monolingual<cr><cr>]])dnl FIGCAPTION_MONO<up><c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> ftn []FOOTNOTE([], [%%%])<c-o>T(<right><c-r>=Eatchar('.')<cr>
@@ -68,8 +68,8 @@ iabbrev <buffer> <unique> hew HEADER_WRAP([<cr><cr><cr><cr>])dnl HEADER_WRAP<up>
 "iabbrev <buffer> <unique> hh HTEXT([<c-r>"], [[[%%%], [%%%]]])<left><c-o>%;;<c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> hm HCODE_M4([<c-r>"], [[[%%%], [%%%]]%%%])<left><c-o>%;;<c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> hr HORIZONTAL_RULE()<c-r>=Eatchar('.')<cr>
-iabbrev <buffer> <unique> hx HEXPL([<c-r>"], [[[%%%], [%%%]]%%%])<left><c-o>%;;<c-r>=Eatchar('.')<cr>
-iabbrev <buffer> <unique> hxm HEXPL_M4([<c-r>"], [[[%%%], [%%%]]%%%])<left><c-o>%;;<c-r>=Eatchar('.')<cr>
+iabbrev <buffer> <unique> hx HEXPLAIN([<c-r>"], [[[%%%], [%%%]]%%%])<left><c-o>%;;<c-r>=Eatchar('.')<cr>
+iabbrev <buffer> <unique> hxm HEXPLAIN_M4([<c-r>"], [[[%%%], [%%%]]%%%])<left><c-o>%;;<c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> ifi INSERT_FILE([])<left><left><c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> ifm INSERT_FILE_MLH([])<left><left><c-r>=Eatchar('.')<cr>
 "iabbrev <buffer> <unique> ii LI([<c-r>"])<esc>
@@ -111,10 +111,11 @@ iabbrev <buffer> <unique> pm PARA_MONO([[dnl monolingual<cr><cr>]])<up><c-r>=Eat
 iabbrev <buffer> <unique> pp PARA([[dnl czech<cr><cr>],<cr>[dnl english: _next_language_<cr>%%%<cr>]])<left><c-o>%<c-o>0<down><c-r>=Eatchar('.')<cr>
 "iabbrev <buffer> <unique> pp P([])%%%<c-o>T(<right><c-r>=Eatchar('.')<cr>
 "iabbrev <buffer> <unique> prl PRE_LANG([[dnl czech<cr><cr>],<cr>[dnl english: _next_language_<cr>%%%<cr>]])<left><c-o>%<c-o>0<down><c-r>=Eatchar('.')<cr>
-iabbrev <buffer> <unique> prm PROMPT()<c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> prog PROGRESS([],,,,, [value="22" max="100"])<c-r>=Eatchar('.')<cr>
+iabbrev <buffer> <unique> prm PROMPT()
+iabbrev <buffer> <unique> prmr PROMPT_ROOT()
+iabbrev <buffer> <unique> prmt PROMPT()
 iabbrev <buffer> <unique> pr PROGRAMLISTING([dnl<cr><cr>])dnl PROGRAMLISTING note: The symbols [#] or [dnl] on the last line must be in brackets!<up><c-r>=Eatchar('.')<cr>
-iabbrev <buffer> <unique> prr PROMPT_ROOT()<c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> qc „<c-r>"“<esc>
 "iabbrev <buffer> <unique> qc Quote Czech
 iabbrev <buffer> <unique> qe “<c-r>"”<esc>
@@ -148,6 +149,8 @@ iabbrev <buffer> <unique> uuu ULINK([<c-r>"], [%%%], [%%%])<left><c-o>%;;<c-o><c
 iabbrev <buffer> <unique> wa WARN(, defn([WORD_WARNING]), [[dnl czech<cr><cr>],<cr>[dnl english: _next_language_<cr>%%%<cr>]])<left><c-o>%<c-o>0<down><c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> wb []WBR()<c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> ww WARN(, defn([WORD_WARNING]), [[dnl czech<cr><cr>],<cr>[dnl english: _next_language_<cr>%%%<cr>]])<left><c-o>%<c-o>0<down><c-r>=Eatchar('.')<cr>
+iabbrev <buffer> <unique> xcr XCOMMAND_ROOT([<c-r>"], [%%%], [%%%])<left><c-o>%;;<c-r>=Eatchar('.')<cr>
+iabbrev <buffer> <unique> xc XCOMMAND([<c-r>"], [%%%], [%%%])<left><c-o>%;;<c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> xs XSPAN([<c-r>"], [%%%], [%%%])<left><c-o>%;;<c-r>=Eatchar('.')<cr>
 
 iabbrev <buffer> <unique> enh ENTRY_HEAD([[dnl czech<cr><cr>],<cr>[dnl english: _next_language_<cr>%%%<cr>]])<left><c-o>%<c-o>0<down><c-r>=Eatchar('.')<cr>
