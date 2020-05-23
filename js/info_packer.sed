@@ -9,6 +9,7 @@ s/\<parent_node\>/a/g
 s/\<source_date\>/b/g
 s/\<source_info\>/c/g
 s/\<source_path\>/d/g
+s/\<selected_text\>/e/g
 
 # the letters below are for regexes above, letters {i, j} are reserved for loops
 
