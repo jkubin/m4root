@@ -1,5 +1,5 @@
 __HEADER([Josef Kubin], [2020/05/16], [text])
-___DESCR([inserts (snippet of ) a file with escaped brackets])
+___DESCR([inserts (snippet of ) a source file])
 ___POINT([text file for total number of words and characters])
 
 # A → β
@@ -25,16 +25,16 @@ define([INSERT_FILE], [
 	divert(CURRQU)dnl
 ARG2(GIT_CSV) defn([#FILE])
 INSERT_FILE_HIDE_SQUARE_BRACKETS(defn([#FILE]), [$3], $4)dnl	prepare command
-esyscmd(defn([SED_COMMAND_TO_INSERT_A_FILE])[ | cat -n -])
+esyscmd(defn([COMMAND_TO_INSERT_A_FILE]))
 divert(-1)
 
 	# test return value from sed; show the failed sed command
 	ifelse(sysval, [0], [], [
 
-		ROOT_ERROR([‘$0($@)’ → $ ]defn([SED_COMMAND_TO_INSERT_A_FILE]))
+		ROOT_ERROR([‘$0($@)’ → $ ]defn([COMMAND_TO_INSERT_A_FILE]))
 	])
 
-	ifdef([DEBUG], [errprint(__file__:__line__: defn([SED_COMMAND_TO_INSERT_A_FILE])
+	ifdef([DEBUG], [errprint(__file__:__line__: defn([COMMAND_TO_INSERT_A_FILE])
 )])
 ])
 
@@ -48,11 +48,11 @@ INSERT_FILE_SNIPPET(
 	[$1],
 	[$2],
 	ifelse([$3], [], [1], [[$3]]),
-	ifelse([$4], [], [$], [[$4]]),
-	ifelse([$4], [], [[s/$/\x5d/]], [$4], [$], [[s/$/\x5d/]], [[s/$/\n…\x5d/]]))dnl
+	ifelse([$4], [], [0], [$4], [$], [0], [[$4]]),
+	ifelse([$4], [], [], [$4], [$], [], [[    …\n]]))dnl
 ])
 
 # A → β
 define([INSERT_FILE_SNIPPET], [dnl
-define([SED_COMMAND_TO_INSERT_A_FILE], [sed -ne '$3,$4{' -f text/chr_to_esc.sed -e '$3s/^/\x5b/;$4$5;p}' $1])dnl
+define([COMMAND_TO_INSERT_A_FILE], [awk -e 'NR==$3,NR==$4{' -f text/chr_to_esc.awk -e ']ifdef([LINE_NUMBERS], [[printf "%3d ", NR;]])[print}BEGIN{printf "["}END{printf "$5]"}' $1])dnl
 ])
