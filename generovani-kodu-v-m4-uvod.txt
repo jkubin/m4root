@@ -1,0 +1,1818 @@
+vim:ts=4:sw=4
+
+DO NOT EDIT! This file is generated automatically!
+
+__SOURCE([intro.mc], [20200523-11:10:01], [1e696e5], [135d8b2])
+
+Generování kódu v M4: úvod
+
+Makro procesor M4 se používá ke generování libovolně složitého kódu z jednoduchého zdrojového kódu.
+Úvodní díl seriálu obsahuje jeho historii, základní principy jazyka, příklady použití a nutné předpoklady pro jeho zvládnutí.
+
+Obsah (English)			aktualizováno 23. května 2020
+1 Úvod
+	1.1 Příklady pro čtenáře
+2 Historie makro jazyků
+3 Základy jazyka M4
+	3.1 Bezkontextová gramatika
+	3.2 Automaty
+	3.3 Výstupní fronty
+4 Hlavní použití M4
+	4.1 Generování kódu
+	4.2 Preprocesor
+5 Předpoklady pro zvládnutí M4
+	5.1 Základy gramatik
+	5.2 Základy automatů
+	5.3 (GNU) make
+	5.4 Vim
+	5.5 Talent a čas
+6 Odkazy
+---
+A Příklady generování kódu
+B Příklady preprocesoru
+C M4: příklady
+D Proč používat M4 a proč ne?
+
+1 Úvod
+Čtenáři tohoto seriálu se naučí psát skripty pro strojové generování kódu.
+Strojově generovaný kód může být libovolně složitý a může obsahovat další vnitřní závislosti.
+Vzájemně závislé soubory se složitým kódem jsou pro člověka jen těžce udržitelné v konzistentním stavu.
+Je už nutné použít nějaký mechanismus pro generování kódu.
+Generování kódu provádí nástroj určený pro transformaci textu – makro procesor.
+
+Seriál je zaměřen na praktické použití univerzálního makro procesoru M4 (dále jen M4) pomocí malých příkladů.
+Popisuje také teoretický základ všech implementací.
+Cílem seriálu je seznámit čtenáře s tímto nástrojem a také programovacím jazykem.
+Na co se používá, jak se v něm programuje a jaké jsou jeho výhody a nevýhody.
+
+🖹 Vícejazyčný seriál „Generování kódu v M4“ je generován M4 skripty[1],
+které (možná) usnadní psaní článků a seriálů pro www.root.cz také jiným autorům.
+Výsledkem seriálu je také sada ukázkových skriptů pro generování kódu.
+
+Úvodní díl popisuje základní principy jazyka na jednoduchých příkladech.
+Všechny příklady používají přepisovací pravidla bezkontextové gramatiky.
+Později se naučíme používat výstupní fronty,
+automaty, asociativní paměti, zásobníky a zásobníkové automaty.
+Naučíme se také psát testovací automaty pro testování vstupních dat.
+
+1.1 Příklady pro čtenáře
+Příklady pro čtenáře tvoří komplementární část seriálu a budou do jisté míry vytvářeny na základě podnětů v diskuzi pod článkem.
+Na začátku každého dílu je popsána nějaká část jazyka M4 doplněná sadou příkladů na konci.
+Každý díl je možné číst v libovolném pořadí.
+
+• Příklady generování kódu
+
+• Příklady preprocesoru
+
+• M4: příklady
+
+• Proč používat M4 a proč ne?
+
+• http://github.com/jkubin/m4root – složitější projekt generující tento seriál
+
+2 Historie makro jazyků
+Makro jazyky byly vynalezeny v době, kdy dominoval jazyk symbolických adres – JSA.
+Zdrojový kód JSA velmi často obsahuje shodné sekvence instrukcí odlišující se pouze hodnotami operandů.
+Shodné sekvence instrukcí je možné seskupit do jednoho slova, nebo-li makro instrukce.
+Jméno obvykle popisuje účel skryté sekvence instrukcí.
+Makro instrukce se přeloží makro procesorem na původní sekvenci instrukcí, která se posléze přeloží do spustitelného strojového kódu.
+Programování v JSA pomocí makro instrukcí je jednodušší, rychlejší a méně náchylné k lidským chybám.
+
+Později byly makro jazyky použity k rozšíření kompilovaných programovacích jazyků, protože umožnily psát zdrojový kód na vyšší úrovni abstrakce než jakou poskytuje samotný programovací jazyk.
+Rychlost, výkonnost a efektivita složitého programovacího jazyka nižší úrovně je zachována díky makro jazykům.
+Avšak je důležité dobře rozumět všem vrstvám kódu.
+
+GPM (General Purpose Macro-generator)
+
+Základní myšlenku přepisování textových řetězců s argumenty, které se přepíší do dalších rekurzivně přepisovatelných řetězců, představil
+Christopher Strachey ve svém
+GPM[2] v roce 1965.
+Další generace makro procesorů M3 a M4 původní GPM v podstatě už jen rozšiřovaly.
+Základní myšlenka původního návrhu ale zůstala stejná.
+
+M3
+
+Dennis Ritchie převzal základní myšlenku GPM a napsal vylepšený makro procesor pro generování zdrojového kódu programovacího jazyka C (1972), který sám navrhl.
+Nový makro procesor napsal pro minipočítač AP-3, odtud jméno M3.
+Tento přímý předchůdce současného M4 dokázal výrazně ušetřit těžkou a časově náročnou práci, čímž zaujal vývojáře programující v jiných jazycích (FORTRAN, COBOL, PL/I, …).
+Vývojáři upravovali M3 pro tyto jazyky čímž ho proměnili na univerzálně použitelný makro procesor M4.
+
+Dennis Ritchie byl také spolutvůrcem operačního systému UNIX a proto:
+
+• M4 je minimalistický a rychlý, dělá jednu věc a tu dělá dobře
+
+• výhradně spoléhá na neinteraktivní rozhraní příkazové řádky
+
+• parametry a závislosti M4 skriptů popisuje Makefile
+
+• znakem # začíná jednořádkový komentář jako v UNIX-ovém shell-u
+
+• proměnné $@, $*, $#, $0, $1, $2, … mají podobný význam jako v shell-u
+
+• oddělovač argumentů je čárka
+
+Makro procesor M3 rozšířil také Jim E. Weythman, autor programové konstrukce, která se používá téměř v každém M4 skriptu:
+
+divert(-1)
+…
+define(…)
+…
+divert(0)dnl
+…
+
+🖹 Klíčové slovo divert(ℤ) přepíná výstupní fronty.
+Argument -1 zcela vypne jakýkoliv textový výstup.
+Argument 0 přepne výstup na stdout (standardní výstup).
+
+M4
+
+Brian Kernighan makro procesor M3 rozšířil na preprocesor jazyka FORTRAN 66,
+aby mohl vytvořit hybridní jazykovou nadstavbu pojmenovanou RATFOR[3].
+Základní programové konstrukce této nadstavby (podmínky, cykly) jsou stejné jako v jazyce C.
+Programování v RATFOR-u se tak podobá programování v „céčku“.
+Makro procesor zdrojový kód překládá zpátky do FORTRAN-u, poté kompilátor provede překlad do strojového kódu.
+
+Všimněte si téměř dokonalé symbiózy s jazykem C
+
+• direktivy CPP #define, #include, #ifdef, … jsou pro M4 komentáře
+
+• klíčová slova oddělená od závorek mezerou, ztrácí svůj původní význam
+	• M4 například ignoruje funkci void define (char c, int i) {…}
+
+• argumenty maker oddělují čárky stejně jako argumenty funkcí jazyka C
+	• je-li definováno makro FUNC(char c, int i), jeho proměnné jsou:
+$# → 2, $0 → FUNC, $1 → char c, $2 → int i
+
+• levý řídící znak ` pro neterminály není součástí syntaxe rodiny jazyků C
+
+• pravý řídící znak ' nevadí, není-li součástí makra
+	• oba řídící znaky lze skrýt do uživatelsky definovaných maker LQ(), RQ()
+
+• makra se píší VELKYMI_PISMENY, stejně jako neterminální symboly
+	• tím je vymezen jejich jmenný prostor
+
+Uživatelský manuál[4] zmiňuje ještě další, zde neuvedené spoluautory.
+Bylo by tedy značně nespravedlivé napsat, že autory makro procesoru M4 (1977) jsou pouze dva lidé.
+
+Obrázek 1: Christopher Strachey[5],
+Dennis Ritchie[6],
+Brian Kernighan[7]
+
+GNU M4
+
+Dnes existuje několik implementací lišící se od původní implementace spíše drobnostmi.
+Nejrozšířenější implementace M4 je GNU M4 používaná pro Autotools
+a pro překlad jednoduchého konfiguračního souboru sendmail.mc na složitý sendmail.cf.
+Autorem této implementace z roku 1990 je René Seindal.
+Následující příkaz nainstaluje m4:
+
+~]# dnf -y install make m4 pinfo
+
+Podrobný popis klíčových slov se nachází v dokumentaci[8]:
+
+~]$ pinfo m4
+~]$ man m4
+~]$ m4 --help
+
+3 Základy jazyka M4
+Základem jazyka M4 je bezkontextová gramatika, automaty, zásobníky a výstupní fronty.
+Pro pochopení jazyka M4 je proto velmi důležité rozumět základním pojmům teorie formálních jazyků –
+co jsou terminální symboly (stručně terminály) a neterminální symboly (stručně neterminály).
+Zmíněné pojmy si podrobněji vysvětlíme někdy později.
+Cílem tohoto úvodního dílu je hlavně ukázat praktické použití M4 na příkladech.
+
+3.1 Bezkontextová gramatika
+Bezkontextová gramatika (krátce CFG) je formální gramatika, ve které mají všechna přepisovací pravidla tvar A → β.
+Neterminál A se přepíše na libovolně dlouhý řetězec β složený z neterminálů N nebo terminálů Σ.
+Kleeneho hvězda znamená, že se neterminál A může přepsat na ε (přepisovací pravidlo A → ε).
+
+P: A → β
+   A ∈ N
+   β ∈ (N ∪ Σ)*
+
+Přepisovací pravidla M4
+
+Přepisovací pravidla M4 jsou stejná jako přepisovací pravidla bezkontextové gramatiky.
+
+# A → β
+define(`A', `β')
+
+# A → ε
+define(`A')
+define(`A', `')
+
+Všechna klíčová slova M4 jsou neterminály (makra), provedou nějakou akci a přepíší se na ε nebo jiný symbol.
+Všechna klíčová slova lze přejmenovat nebo úplně vypnout.
+Tato vlastnost je velmi důležitá pro režim preprocesoru.
+
+divert(ℤ) → ε
+define(`A', `β') → ε
+ifelse(`', `', `yes', `no') → yes
+ifelse(`', `', `ifdef(`dnl', `1', `0')', `no') → ifdef(`dnl', `1', `0') → 1
+…
+
+Řízení expanze neterminálů
+
+Výchozí dvojice znaků `' v M4 řídí expanzi neterminálů.
+Klíčové slovo changequote() je může změnit na jiné znaky, například {[], ␂␆, ⟦⟧}.
+Neterminály, které nechceme (ihned) expandovat, jsou obklopeny touto dvojicí znaků.
+Při průchodu makro procesorem jsou všechny symboly mezi touto dvojicí znaků terminálními symboly a vnější dvojice znaků je odstraněna.
+Další průchod již způsobí expanzi původně chráněných neterminálů.
+Dvojice řídících znaků se nastavuje na začátku kořenového souboru.
+
+3.2 Automaty
+Automaty slouží jako „přepínače“ pravidel gramatiky.
+Používají přepisovací pravidla gramatiky jako uzly a mění své stavy podle vstupních symbolů.
+Aktuálně používané přepisovací pravidlo produkuje do výstupní fronty (nebo do několika výstupních front)
+specifický kód, dokud automat nepřejde do jiného uzlu s jiným přepisovacím pravidlem.
+Příklady generujících automatů jsou ukázány v příloze.
+
+3.3 Výstupní fronty
+Výstupní fronty jsou dočasné úložiště pro části výsledného kódu.
+Tyto části výsledného kódu jsou produkovány přepisovacími pravidly gramatiky, které přepisují vstupní symboly.
+Klíčové slovo divert(ℤ) nastavuje aktuální výstupní frontu.
+Na závěr jsou všechny neprázdné fronty vypsány ve vzestupném pořadí na standardní výstup a složí výsledný kód z částí kódu.
+Výstupní fronty jsou ukázány v příloze.
+
+🛈 Zásobníky si ukážeme později.
+
+4 Hlavní použití M4
+M4 se používá ke generování zdrojového kódu libovolného programovacího jazyka nebo jako preprocesor jakéhokoliv zdrojového kódu.
+
+4.1 Generování kódu
+M4 transformuje vstupní data ze souborů .mc na výsledná data následujícím příkazem:
+
+~]$ m4 root.m4 stem.m4 branch.m4 leaf.m4 input1.mc input2.mc > output.file
+
+Během načítání souborů jsou prováděny dvě základní operace:
+
+• čtení transformačních pravidel ze souborů s příponou .m4
+
+• expanze maker uvnitř souborů s příponou .mc
+
+Soubory input1.mc a input2.mc obsahují vstupní data ve specifickém formátu, který umožňuje jejich transformaci na výstupní data podle pravidel v předchozích .m4 souborech.
+Datové soubory .mc obvykle neobsahují žádná transformační pravidla.
+
+Vstupní data mohou také přicházet z kolony:
+
+~]$ cat input.mc | m4 root.m4 stem.m4 branch.m4 leaf.m4 - > output.file
+
+~]$ cat input.mc | m4 root.m4 stem.m4 branch.m4 leaf.m4 - | gcc -x c -o progr -
+
+Vyzkoušejte: Příklady generování kódu
+
+4.2 Preprocesor
+M4 může pracovat v režimu preprocesoru a může být také součástí kolony.
+Vstupní zdrojový kód jím prochází beze změny s výjimkou neterminálních symbolů.
+Nalezené neterminály jsou expandovány na terminály a odchází spolu se zdrojovým kódem na výstup.
+M4 může rozšířit jakýkoliv jiný jazyk, kde je preprocesor nedostatečný (bez rekurze) nebo žádný.
+Důležité je zvolit vhodný levý znak pro řízení expanze neterminálů, který nesmí kolidovat se znakem vstupního zdrojového kódu.
+Kolize znaku je ale snadno řešitelná regulárním výrazem.
+
+~]$ m4 root.m4 stem.m4 branch.m4 leaf.m4 file.c > preproc.file.c
+
+~]$ m4 root.m4 stem.m4 branch.m4 leaf.m4 file.c | gcc -x c -o progr -
+
+`' Výchozí znaky
+
+Konfliktní znak ` ze vstupního zdrojového kódu je skryt do makra `'LQ().
+Prázdný pár řídících znaků `' před makrem LQ() slouží jako oddělovač symbolů.
+Při průchodu zdrojového kódu makro procesorem se makro `'LQ() přepíše zpátky na původní znak ` a prázdný pár `' je odstraněn.
+
+~]$ sed 's/`/`'\''LQ()/g' any.src | m4 rootq.m4 leaf.m4 -
+
+Vyskytují-li se ve vstupním kódu komentáře # nebo dnl, je nutné je skrýt.
+Znaky `' vypnou původní význam komentářů a budou odebrány při průchodu makro procesorem.
+
+Komentáře M4 # a dnl jsou skryty mezi výchozí znaky: `#' `dnl'
+
+~]$ sed 's/`/`'\''LQ()/g;s/#\|\<dnl\>/`&'\''/g' any.src | m4 rootq.m4 leaf.m4 -
+
+~]$ sed 's/`/`'\''LQ()/g;s/#/`#'\''/g;s/\<dnl\>/`dnl'\''/g' any.src | m4 …
+
+[] Hranaté závorky
+
+Použijeme-li pro řízení expanze neterminálů hranaté závorky, stejným způsobem je skryta levá [ hranatá závorka.
+Vše ostatní platí jako pro výchozí znaky `'.
+
+~]$ sed 's/\[/[]LB()/g' any.src | m4 rootb.m4 leaf.m4 - | …
+
+Komentáře M4 # a dnl jsou skryty mezi závorkami: [#] [dnl]
+
+~]$ sed 's/\[/[]LB()/g;s/#\|\<dnl\>/[&]/g' any.src | m4 rootb.m4 leaf.m4 - | …
+
+~]$ sed 's/\[/[]LB()/g;s/#/[#]/g;s/\<dnl\>/[dnl]/g' any.src | m4 rootb.m4 …
+
+␂␆ Netisknutelné znaky
+
+Pro řízení expanze neterminálů lze použít netisknutelné znaky ␂ (0x02) a ␆ (0x06).
+Tyto znaky nemohou kolidovat s tisknutelnými znaky zdrojového kódu.
+
+~]$ m4 rootn.m4 leaf.m4 any.src | gcc …
+
+Komentáře M4 # a dnl jsou skryty mezi netisknutelné znaky: ␂#␆ ␂dnl␆
+
+~]$ sed 's/#\|\<dnl\>/␂&␆/g' any.src | m4 rootn.m4 leaf.m4 - | gcc …
+
+~]$ sed 's/#/␂#␆/g;s/\<dnl\>/␂dnl␆/g' any.src | m4 rootn.m4 leaf.m4 - | gcc …
+
+⟦⟧ UTF-8 znaky
+
+Expanzi neterminálů může také řídit vhodně zvolený pár UTF-8 znaků.
+Běžný zdrojový kód takové znaky neobsahuje, proto nemusíme řešit kolizi levého ⟦ znaku.
+UTF-8 znaky nabízí podobné výhody jako netisknutelné znaky.
+
+~]$ m4 rootu.m4 leaf.m4 any.src | gcc …
+
+Komentáře M4 # a dnl jsou skryty mezi UTF-8 znaky: ⟦#⟧ ⟦dnl⟧
+
+~]$ sed 's/#\|\<dnl\>/⟦&⟧/g' any.src | m4 rootu.m4 leaf.m4 - | gcc …
+
+~]$ sed 's/#/⟦#⟧/g;s/\<dnl\>/⟦dnl⟧/g' any.src | m4 rootu.m4 leaf.m4 - | gcc …
+
+Vyzkoušejte: Příklady preprocesoru
+
+Smíšený režim
+
+Smíšený režim je kombinací předchozích režimů a je používán hlavně na pokusy.
+Data nejsou oddělena od transformačních pravidel.
+Listový soubor leaf.m4 obsahuje definice těchto pravidel spolu se vstupními daty.
+
+~]$ m4 root.m4 leaf.m4
+
+Vyzkoušejte: M4: příklady
+
+5 Předpoklady pro zvládnutí M4
+Pro úspěšné zvládnutí tohoto makro jazyka je důležité splnit několik předpokladů.
+M4 není jednoduchý jazyk, protože není možné v něm myslet a programovat jako v běžném programovacím jazyce.
+Nejdůležitější je uvědomit si, že se v něm programují přepisovací pravidla gramatiky.
+Každý řetězec je buď terminální nebo neterminální symbol včetně všech klíčových slov jazyka (symboly # a , jsou speciální případy neterminálů).
+
+M4 záměrně nemá klíčová slova pro cykly (for/while), protože jeho základ je zcela jiný, než jaký mají procedurální nebo funkcionální jazyky.
+
+• cykly jsou pouze levorekurzivní nebo pravorekurzivní
+
+• větví se řetězením symbolů nebo klíčovými slovy ifelse(), ifdef()
+
+5.1 Základy gramatik
+Základem všech gramatik jsou přepisovací pravidla, jejichž podobu obecně popisuje:
+
+Formální gramatika (Chomského typu)
+
+G = (N, Σ, P, S)
+N: konečná množina neterminálních symbolů
+Σ: konečná množina terminálních symbolů
+   N ∩ Σ = ø
+P: konečná množina přepisovacích pravidel
+   (N ∪ Σ)* N (N ∪ Σ)* → (N ∪ Σ)*
+S: je počáteční (startovací) symbol
+   S ∈ N
+
+Formální gramatika popisuje podmnožiny
+přepisovacích pravidel formálního jazyka.
+Jedna z podmnožin se jmenuje bezkontextová gramatika,
+krátce CFG.
+Jak již bylo dříve zmíněno, přepisovací pravidla CFG pracují stejně jako přepisovací pravidla jazyka M4.
+Některý z následujících dílů seriálu se podrobněji zaměří na formální gramatiky.
+
+5.2 Základy automatů
+Schopnost používat převážně dvoustavové automaty je zásadní věc pro psaní jednoduchých M4 skriptů, protože převážná většina skriptů používá malé automaty.
+
+Testovací automat
+
+Pořadí vstupních symbolů nebo jejich kontext lze otestovat automatem.
+Splňují-li vstupní symboly požadované vlastnosti, automat skončí v uzlu s dvojitým kroužkem, kterým se označuje akceptující stav.
+
+Obrázek 2: Příklad automatu[9] akceptující sudý počet (žádný je také sudý) symbolů 0, ignorující symboly 1.
+Automat je shodný s regulárním výrazem (1*01*01*)*1*.
+
+Předchozí automat lze zapsat jako ASCII art doprovázející M4 skript:
+
+#          ____1
+#         |   /
+#      ___V__/   0    ____
+# --->// S1 \\------>/ S2 \---.1
+#     \\____//<------\____/<--'
+#                0
+
+Generující automat
+
+Vstupní symboly mění uzly automatu, čímž zároveň mění přepisovací pravidla pro generování kódu.
+Příklad generujícího automatu naleznete v příloze:
+
+#      _______      ___________
+# --->/ ERROR \--->/ NEXT_ITEM \---.
+#     \_______/    \___________/<--'
+
+5.3 (GNU) make
+Dobře navržený generátor kódu se obvykle skládá z několika menších souborů, jejichž pořadí, závislosti a parametry se zapisují do souboru Makefile.
+Dobrá znalost tvorby Makefile je proto základním předpokladem pro zvládnutí M4.
+Čtení a údržba zdrojového kódu celkově zabere vždy více času než jeho tvorba.
+Dobře strukturovaný Makefile proto zásadním způsobem přispívá k celkové přehlednosti výsledného generátoru kódu.
+
+🖹 Spouštění make[10] z editoru kódu pomocí vhodné klávesové zkratky zásadně urychluje vývoj M4 kódu.
+Soubor ~/.vimrc obsahuje nnoremap <c-j> :make<cr>.
+
+5.4 Vim
+Zvládnutí editoru Vim[11] je důležitým předpokladem pro pohodlí a rychlost psaní kódu M4.
+Vim zkratky, definované klíčovým slovem iabbrev, ušetří velké množství zbytečně napsaného textu.
+Tyto zkratky také významně snižují výskyt téměř neviditelných chyb způsobených nepárovou závorkou, čímž šetří ztracený čas vynaložený na ladění kódu.
+
+5.5 Talent a čas
+M4 obvykle nejde zcela zvládnout přes víkend, zvláště chybí-li základy[12]
+teorie automatů a formálních gramatik.
+Ke zvládnutí jazyka M4 je nutné v něm programovat delší období a napsat množství špatného (složitého) M4 kódu, který z vlastní vůle přepíšete kvůli lepšímu nápadu.
+Tímto způsobem je možné postupně získat praxi.
+
+6 Odkazy
+1. Generování kódu v M4, šablona s příklady pro www.root.cz
+http://github.com/jkubin/m4root
+
+2. A General Purpose Macro-generator, Computer Journal 8, 3 (1965), 225–41
+http://dx.doi.org/10.1093/comjnl/8.3.225
+
+3. RATFOR — A Preprocessor for a Rational Fortran, Brian W. Kernighan
+https://wolfram.schneider.org/bsd/7thEdManVol2/ratfor/ratfor.pdf
+
+4. The M4 Macro Processor, Bell Laboratories (1977)
+https://wolfram.schneider.org/bsd/7thEdManVol2/m4/m4.pdf
+
+5. Christopher Strachey, Computer Hope – Free computer help since 1998
+https://www.computerhope.com/people/christopher_strachey.htm
+
+6. Dennis Ritchie, Zomrel tvorca Unixu a jazyka C
+https://pc.zoznam.sk/novinka/zomrel-tvorca-unixu-jazyka-c
+
+7. Brian Kernighan, An Interview with Brian Kernighan
+https://www.cs.cmu.edu/~mihaib/kernighan-interview/
+
+8. GNU M4 - GNU macro processor, Free Software Foundation
+https://www.gnu.org/software/m4/manual/
+
+9. Teorie automatů, From Wikipedia, the free encyclopedia
+https://cs.wikipedia.org/wiki/Teorie_automat%C5%AF
+
+10. GNU Make Manual, Free Software Foundation
+https://www.gnu.org/software/make/manual/make.html
+
+11. Vim – všudypřítomný textový editor, který edituje text rychlostí myšlenky
+https://www.vim.org/
+
+12. Automaty a formální jazyky I, Učební text FI MU
+https://is.muni.cz/elportal/estud/fi/js06/ib005/Formalni_jazyky_a_automaty_I.pdf
+
+13. Automaty a gramatiky, Michal Chytil, 1. vydání, Praha, 331 s. 1984.
+https://is.muni.cz/publication/173173
+
+
+A Příklady generování kódu
+🛈 Znaky {`', [], ␂␆, ⟦⟧} v názvu příkladu řídí expanzi neterminálů.
+
+	A.1 [] Vstupní zdrojový kód
+	A.2 [] CSV: nejjednodušší příklad
+	A.3 [] CSV: počítadlo
+	A.4 💡 Úpravy speciálních znaků
+	A.5 [] C: výstupní fronta
+	A.6 [] INI: externí příkaz
+	A.7 [] .h: hex počítadlo
+	A.8 [] C: malý automat
+	A.9 [] C: malý automat 2
+	A.10 [] HTML: výstupní fronty
+	A.11 [] Větvení gramatikou
+	A.12 [] JSON: generující automat
+		A.12.1 [] JSON: pojmenované fronty
+		A.12.2 [] JSON: generované indexy front
+	A.13 [] INI: nespojitý index front
+	A.14 [] XML: smíšené zprávy
+	A.15 [] XML: oddělené zprávy
+	A.16 [] Bash ~]$ echo "řetězec"
+	A.17 [] Bash ~]$ echo 'řetězec'
+
+🖹 Příklady v této příloze jsou složitější a jejich cílem je ukázat praktické použití jazyka M4.
+Podrobněji budou vysvětleny později.
+
+A.1 [] Vstupní zdrojový kód
+Vstupní zdrojový kód je podobný CSV, který se převede na libovolně složitý cílový kód jiného jazyka pomocí CFG, automatů a výstupních front.
+Zásobníky v příkladech nejsou použity.
+Vstupní zdrojový kód obsahuje speciální znaky, které je nutné skrýt:
+
+2599236 messages/messages_raw.mc
+  1 # 2018/05/15 Josef Kubin
+  2 
+  3 ERROR([COMPLEX],     [!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~])
+  4 QUERY([READABLE],    [Is badly written M4 code readable [N/y]?])
+  5 ERROR([SUCCESS],     [Too complex M4 code failed successfully.])
+  6 WARNING([ADDICTIVE], [Programming in M4 is addictive!])
+  7 ERROR([NOFAULT],     [It's not a language fault!])
+  8 WARNING([NO_ERRORS], [No other errors detected.])
+
+🖹 Vstupní soubor může také obsahovat poznámky, které nemusí být skryté v komentářích #, dnl, ifelse([…]) nebo [… někde uvnitř závorek …].
+
+A.2 [] CSV: nejjednodušší příklad
+Tento příklad nepoužívá výstupní fronty, pouze vypisuje CSV oddělené znakem TAB na standardní výstup.
+
+5ad6e1b messages/hello.csv.m4
+  1 # A → β
+  2 define([ERROR], [
+  3 
+  4 	divert(0)dnl
+  5 [$1	$2]
+  6 divert(-1)
+  7 ])
+
+~]$ m4 gfiles/root0b.m4 messages/hello.csv.m4 messages/messages_raw.mc > messages/hello.csv
+
+9156810 messages/hello.csv
+  1 COMPLEX	!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~
+  2 SUCCESS	Too complex M4 code failed successfully.
+  3 NOFAULT	It's not a language fault!
+
+A.3 [] CSV: počítadlo
+Příklad používá makro COUNT_UP ze souboru countb.m4, jehož β se zkopíruje do pravé strany makra COUNTER.
+Během první expanze COUNTER proběhne inicializace jeho startovací hodnoty.
+Další expanze vrátí číselný terminální symbol a proběhne zvýšení vnitřního pomocného (globálního) symbolu o jedničku.
+COUNTER je malý automat.
+
+5ad6e1b messages/counter.csv.m4
+  1 # A → β
+  2 define([COUNTER], defn([COUNT_UP]))
+  3 
+  4 # init counter
+  5 COUNTER(1)
+  6 
+  7 # A → β
+  8 define([ERROR], [
+  9 
+ 10 	divert(0)dnl
+ 11 ERR_[]COUNTER	[$1	$2]
+ 12 divert(-1)
+ 13 ])
+
+~]$ m4 gfiles/root0b.m4 gfiles/countb.m4 messages/counter.csv.m4 messages/messages_raw.mc > messages/counter.csv
+
+9156810 messages/counter.csv
+  1 ERR_1	COMPLEX	!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~
+  2 ERR_2	SUCCESS	Too complex M4 code failed successfully.
+  3 ERR_3	NOFAULT	It's not a language fault!
+
+A.4 💡 Úpravy speciálních znaků
+Každý typ výstupního kódu vyžaduje úpravu speciálních znaků.
+Klíčové slovo jazyka M4 patsubst() je nevhodné pro tento úkol.
+Všechny speciální znaky vstupního souboru proto napřed skryjeme do vhodně pojmenovaných maker pomocí regulárních výrazů.
+
+Upravený vstupní kód
+
+0a4e91e messages/messages.mc
+  1 # 2018/05/15 Josef Kubin
+  2 
+  3 ERROR([COMPLEX],     [[]EX()[]DQ()[#]$%[]AMP()[]AP()()*+,-./:;[]LT()=[]GT()?@[]LB()[]BS()[]RB()^_[]BQ(){|}~])
+  4 QUERY([READABLE],    [Is badly written M4 code readable []LB()N/y[]RB()?])
+  5 ERROR([SUCCESS],     [Too complex M4 code failed successfully.])
+  6 WARNING([ADDICTIVE], [Programming in M4 is addictive[]EX()])
+  7 ERROR([NOFAULT],     [It[]AP()s not a language fault[]EX()])
+  8 WARNING([NO_ERRORS], [No other errors detected.])
+
+Vytvoříme několik převodních souborů podle typu cílového kódu, makra pro hranaté závorky LB() a RB() jsou už definována v kořenovém souboru.
+
+[] Převodní soubor pro XML, XSLT, HTML
+
+b53eafe messages/markup.m4
+  1 # A → β
+  2 define([AMP], [&amp;])
+  3 define([AP], ['])
+  4 define([BQ], [`])
+  5 define([BS], [\])
+  6 define([DQ], ["])
+  7 define([EX], [!])
+  8 define([GT], [&gt;])
+  9 define([LT], [&lt;])
+
+[] Převodní soubor pro C, JSON, INI: "řetězec"
+
+b53eafe messages/code.m4
+  1 # A → β
+  2 define([AMP], [&])
+  3 define([AP], ['])
+  4 define([BQ], [`])
+  5 define([BS], [\\])
+  6 define([DQ], [\"])
+  7 define([EX], [!])
+  8 define([GT], [>])
+  9 define([LT], [<])
+
+[] Převodní soubor pro Bash: "řetězec"
+
+b53eafe messages/doubleq.m4
+  1 # A → β
+  2 define([AMP], [&])
+  3 define([AP], ['])
+  4 define([BQ], [\`])
+  5 define([BS], [\\])
+  6 define([DQ], [\"])
+  7 define([EX], ["\!"])
+  8 define([GT], [>])
+  9 define([LT], [<])
+
+[] Převodní soubor pro Bash: 'řetězec'
+
+b53eafe messages/apost.m4
+  1 # A → β
+  2 define([AMP], [&])
+  3 define([AP], ['\''])
+  4 define([BQ], [`])
+  5 define([BS], [\])
+  6 define([DQ], ["])
+  7 define([EX], [!])
+  8 define([GT], [>])
+  9 define([LT], [<])
+
+[] Převodní soubor pro CSV, M4 (vrátí všechny znaky zpátky)
+
+f175bef messages/unchanged.m4
+  1 # A → β
+  2 define([AMP], [&])
+  3 define([AP], ['])
+  4 define([BQ], [`])
+  5 define([BS], [\])
+  6 define([DQ], ["])
+  7 define([EX], [!])
+  8 define([GT], [>])
+  9 define([LT], [<])
+
+A.5 [] C: výstupní fronta
+Příklad používá jednu výstupní frontu na znaky }; pro uzavření pole na konci skriptu.
+
+b53eafe messages/array.c.m4
+  1 # A → β
+  2 define([ERROR], [
+  3 
+  4 	divert(0)dnl
+  5 	"$2",
+  6 divert(-1)
+  7 ])
+  8 
+  9 divert(0)dnl
+ 10 /*
+ 11  * DONTE()
+ 12  */
+ 13 
+ 14 char *error[[]] = {
+ 15 divert(1)dnl
+ 16 };
+ 17 divert(-1)
+
+~]$ m4 gfiles/root0b.m4 messages/array.c.m4 messages/code.m4 messages/messages.mc > messages/array.c
+
+9156810 messages/array.c
+  1 /*
+  2  * DO NOT EDIT! This file is generated automatically!
+  3  */
+  4 
+  5 char *error[] = {
+  6 	"!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~",
+  7 	"Too complex M4 code failed successfully.",
+  8 	"It's not a language fault!",
+  9 };
+
+A.6 [] INI: externí příkaz
+Příklad spustí externí příkaz date a jeho výstup umístí do hranatých závorek.
+Výstupem externího příkazu jsou dvě položky oddělené čárkou.
+Makro SARG1() vybere první položku, protože druhá položka obsahuje nežádoucí znak nového řádku LF (0x0a).
+
+5889f4e messages/hello.ini.m4
+  1 # A → β
+  2 define([ERROR], [
+  3 
+  4 	divert(0)dnl
+  5 [$1]="$2"
+  6 divert(-1)
+  7 ])
+  8 
+  9 divert(0)dnl
+ 10 ; DONTE()
+ 11 
+ 12 SARG1(esyscmd([date '+[[hello_%Y%m%d]],']))
+ 13 divert(-1)
+
+~]$ m4 gfiles/root0b.m4 messages/hello.ini.m4 messages/code.m4 messages/messages.mc > messages/hello.ini
+
+1d582bc messages/hello.ini
+  1 ; DO NOT EDIT! This file is generated automatically!
+  2 
+  3 [hello_20200518]
+  4 COMPLEX="!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~"
+  5 SUCCESS="Too complex M4 code failed successfully."
+  6 NOFAULT="It's not a language fault!"
+
+A.7 [] .h: hex počítadlo
+Příklad používá makro COUNTER pro číslování výsledných CPP maker a jednu výstupní frontu.
+Fronta číslo 1 obsahuje direktivu preprocesoru #endif pro zakončení hlavičkového souboru.
+Převod dekadické hodnoty počítadla na dvoumístné hex-a číslo provádí klíčové slovo eval().
+
+b53eafe messages/messages.h.m4
+  1 # A → β
+  2 define([COUNTER], defn([COUNT_UP]))
+  3 
+  4 # init counter
+  5 COUNTER(0)
+  6 
+  7 # A → β
+  8 define([ERROR], [
+  9 
+ 10 	divert(0)dnl
+ 11 [#define $1		0x]eval(COUNTER, 16, 2)
+ 12 divert(-1)
+ 13 ])
+ 14 
+ 15 divert(0)dnl
+ 16 /*
+ 17  * DONTE()
+ 18  */
+ 19 
+ 20 #ifndef __ERROR_H
+ 21 #define __ERROR_H
+ 22 
+ 23 divert(1)
+ 24 #endif /* __ERROR_H */
+ 25 divert(-1)
+
+~]$ m4 gfiles/root0b.m4 gfiles/countb.m4 messages/messages.h.m4 messages/messages.mc > messages/messages.h
+
+b53eafe messages/messages.h
+  1 /*
+  2  * DO NOT EDIT! This file is generated automatically!
+  3  */
+  4 
+  5 #ifndef __ERROR_H
+  6 #define __ERROR_H
+  7 
+  8 #define COMPLEX		0x00
+  9 #define SUCCESS		0x01
+ 10 #define NOFAULT		0x02
+ 11 
+ 12 #endif /* __ERROR_H */
+
+A.8 [] C: malý automat
+Příklad používá malý automat NEW_LINE pro generování znaku nového řádku \n a jednu výstupní frontu číslo 1 do které se vloží znaky "; pro uzavření výsledného řetězce.
+Poprvé se NEW_LINE přepíše na ε, podruhé a dále se přepíše na \n.
+
+b53eafe messages/stringl.c.m4
+  1 #     NEW_LINE automaton
+  2 #      ___      ____
+  3 # --->/ ε \--->/ \n \---.
+  4 #     \___/    \____/<--'
+  5 
+  6 # A → β
+  7 define([NEW_LINE], [define([$0], [\n])])
+  8 
+  9 # A → β
+ 10 define([ERROR], [
+ 11 
+ 12 	divert(0)NEW_LINE[]$2[]dnl
+ 13 divert(-1)
+ 14 ])
+ 15 
+ 16 divert(0)dnl
+ 17 /*
+ 18  * DONTE()
+ 19  */
+ 20 
+ 21 char error[[]] =
+ 22 "divert(1)";
+ 23 divert(-1)
+
+~]$ m4 gfiles/root0b.m4 messages/stringl.c.m4 messages/code.m4 messages/messages.mc > messages/stringl.c
+
+9156810 messages/stringl.c
+  1 /*
+  2  * DO NOT EDIT! This file is generated automatically!
+  3  */
+  4 
+  5 char error[] =
+  6 "!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~\nToo complex M4 code failed successfully.\nIt's not a language fault!";
+
+A.9 [] C: malý automat 2
+Tento příklad je podobný předchozímu, avšak každý řetězec je na novém řádku.
+
+18148df messages/string.c.m4
+  1 #      NEW_LINE automaton
+  2 #      ___      _________
+  3 # --->/ ε \--->/ \n"\xa" \---.
+  4 #     \___/    \_________/<--'
+  5 
+  6 # A → β
+  7 define([NEW_LINE], [define([$0], [\n"
+  8 "])])
+  9 
+ 10 # A → β
+ 11 define([ERROR], [
+ 12 
+ 13 	divert(0)NEW_LINE[]$2[]dnl
+ 14 divert(-1)
+ 15 ])
+ 16 
+ 17 divert(0)dnl
+ 18 /*
+ 19  * DONTE()
+ 20  */
+ 21 
+ 22 char error[[]] =
+ 23 "divert(1)";
+ 24 divert(-1)
+
+~]$ m4 gfiles/root0b.m4 messages/string.c.m4 messages/code.m4 messages/messages.mc > messages/string.c
+
+9156810 messages/string.c
+  1 /*
+  2  * DO NOT EDIT! This file is generated automatically!
+  3  */
+  4 
+  5 char error[] =
+  6 "!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~\n"
+  7 "Too complex M4 code failed successfully.\n"
+  8 "It's not a language fault!";
+
+A.10 [] HTML: výstupní fronty
+Příklad používá dvě výstupní fronty.
+Fronta číslo 1 obsahuje odstavce,
+fronta číslo 2 uzavírací značky HTML stránky.
+Navigační odkazy nemusí být nikde uloženy, jdou přímo na výstup.
+Zprávy typu QUERY a WARNING jsou zpracovány stejně jako zprávy typu ERROR.
+
+b53eafe messages/messages.html.m4
+  1 # vim:ft=m4
+  2 
+  3 # A → β
+  4 # β
+  5 define([ERROR], [
+  6 
+  7 	divert(0)dnl
+  8 		[<li>$0: <a href="#$1">$1</a></li>]
+  9 divert(1)dnl
+ 10 	<p id="[$1]">$2</p>
+ 11 divert(-1)
+ 12 ])
+ 13 
+ 14 # A → β
+ 15 define([QUERY], defn([ERROR]))
+ 16 define([WARNING], defn([ERROR]))
+ 17 
+ 18 divert(0)dnl
+ 19 <!-- DONTE() -->
+ 20 <!doctype html>
+ 21 <html lang="en">
+ 22 	<meta charset="utf-8">
+ 23 	<title>__file__</title>
+ 24 <body>
+ 25 	<h1>The power of M4</h1>
+ 26 	<ul>
+ 27 divert(1)dnl
+ 28 	</ul>
+ 29 divert(2)dnl
+ 30 </body>
+ 31 </html>
+ 32 divert(-1)
+
+~]$ m4 gfiles/root0b.m4 messages/messages.html.m4 messages/markup.m4 messages/messages.mc > messages/messages.html
+
+9156810 messages/messages.html
+  1 <!-- DO NOT EDIT! This file is generated automatically! -->
+  2 <!doctype html>
+  3 <html lang="en">
+  4 	<meta charset="utf-8">
+  5 	<title>messages.html.m4</title>
+  6 <body>
+  7 	<h1>The power of M4</h1>
+  8 	<ul>
+  9 		<li>ERROR: <a href="#COMPLEX">COMPLEX</a></li>
+ 10 		<li>QUERY: <a href="#READABLE">READABLE</a></li>
+ 11 		<li>ERROR: <a href="#SUCCESS">SUCCESS</a></li>
+ 12 		<li>WARNING: <a href="#ADDICTIVE">ADDICTIVE</a></li>
+ 13 		<li>ERROR: <a href="#NOFAULT">NOFAULT</a></li>
+ 14 		<li>WARNING: <a href="#NO_ERRORS">NO_ERRORS</a></li>
+ 15 	</ul>
+ 16 	<p id="COMPLEX">!"#$%&amp;'()*+,-./:;&lt;=&gt;?@[\]^_`{|}~</p>
+ 17 	<p id="READABLE">Is badly written M4 code readable [N/y]?</p>
+ 18 	<p id="SUCCESS">Too complex M4 code failed successfully.</p>
+ 19 	<p id="ADDICTIVE">Programming in M4 is addictive!</p>
+ 20 	<p id="NOFAULT">It's not a language fault!</p>
+ 21 	<p id="NO_ERRORS">No other errors detected.</p>
+ 22 </body>
+ 23 </html>
+
+A.11 [] Větvení gramatikou
+Příklad ukazuje větvení gramatikou, argumenty maker se ignorují.
+Vstupní neterminály se přepisují na terminály ERROR → 🐛,
+QUERY → 🐜,
+WARNING → 🐝.
+
+b53eafe messages/insect.txt.m4
+  1 # A → β
+  2 # β
+  3 define([ERROR], [
+  4 
+  5 	divert(0)dnl
+  6 $0_INSECT[]dnl
+  7 divert(-1)
+  8 ])
+  9 
+ 10 # A → β
+ 11 define([QUERY],   defn([ERROR]))
+ 12 define([WARNING], defn([ERROR]))
+ 13 define([ERROR_INSECT],   [🐛])
+ 14 define([QUERY_INSECT],   [🐜])
+ 15 define([WARNING_INSECT], [🐝])
+
+~]$ m4 gfiles/root0b.m4 messages/insect.txt.m4 messages/messages.mc > messages/insect.txt
+
+b53eafe messages/insect.txt
+  1 🐛🐜🐛🐝🐛🐝
+
+A.12 [] JSON: generující automat
+Příklad používá dvě výstupní fronty a jeden generující automat.
+První chybová zpráva ERROR([…]) ve stavu ERROR vygeneruje záhlaví se závorkami a vypíše na výstup první záznam.
+Automat přejde do stavu NEXT_ITEM což je β pravidlo.
+Následující chybové zprávy ve stavu NEXT_ITEM pouze vypisují na výstup jednotlivé záznamy.
+Na závěr výstupní fronty číslo 1 a 2 vypíšou znaky ] a }} čímž zakončí výsledný JSON.
+
+b53eafe messages/atm.json.m4
+  1 #      _______      ___________
+  2 # --->/ ERROR \--->/ NEXT_ITEM \---.
+  3 #     \_______/    \___________/<--'
+  4 
+  5 # A → β
+  6 define([ERROR], [
+  7 
+  8 	# transition to the next node
+  9 	define([$0], defn([NEXT_ITEM]))
+ 10 
+ 11 	divert(0),
+ 12 	"error": LB()
+ 13 		{"[$1]": "$2"}dnl
+ 14 divert(1)
+ 15 	RB()
+ 16 divert(-1)
+ 17 ])
+ 18 
+ 19 # β
+ 20 define([NEXT_ITEM], [
+ 21 
+ 22 	divert(0),
+ 23 		{"[$1]": "$2"}dnl
+ 24 divert(-1)
+ 25 ])
+ 26 
+ 27 divert(0)dnl
+ 28 {"generating_automaton": {
+ 29 	"_comment": "DONTE()"dnl
+ 30 divert(2)dnl
+ 31 }}
+ 32 divert(-1)
+
+~]$ m4 gfiles/root0b.m4 messages/atm.json.m4 messages/code.m4 messages/messages.mc > messages/atm.json
+
+9156810 messages/atm.json
+  1 {"generating_automaton": {
+  2 	"_comment": "DO NOT EDIT! This file is generated automatically!",
+  3 	"error": [
+  4 		{"COMPLEX": "!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~"},
+  5 		{"SUCCESS": "Too complex M4 code failed successfully."},
+  6 		{"NOFAULT": "It's not a language fault!"}
+  7 	]
+  8 }}
+
+A.12.1 [] JSON: pojmenované fronty
+Příklad zpracovává další zprávy typu QUERY a WARNING.
+Používá tři automaty a šest výstupních front.
+Generujeme-li složitější zdrojový kód, brzy narazíme na problém udržení konzistence indexů pro výstupní fronty.
+Abychom se vyhnuli zmatku, pojmenujeme si fronty a místo čísel používáme jména.
+Abychom nemuseli definovat podobná pravidla, zkopírujeme si pravou stranu ERROR (je to také β pravidlo) do pravé strany pravidel QUERY a WARNING.
+
+Větvení gramatikou – základní princip
+
+Proměnná $0 se nahradí za jméno makra a zřetězí se s dalším symbolem.
+Nově vzniklý neterminál se přepíše na odpovídající terminální symbol (číslo fronty nebo jméno).
+
+$0_QU → ERROR_QU → 2
+$0_END → ERROR_END → 3
+$0_NAME → ERROR_NAME → error
+$0_QU → QUERY_QU → 0
+$0_END → QUERY_END → 1
+$0_NAME → QUERY_NAME → query
+…
+
+b53eafe messages/qnames.json.m4
+  1 # DO NOT WRITE INDEXES MANUALLY, use counter!
+  2 define([QUERY_QU],     0)
+  3 define([QUERY_END],    1)
+  4 define([ERROR_QU],     2)
+  5 define([ERROR_END],    3)
+  6 define([WARNING_QU],   4)
+  7 define([WARNING_END],  5)
+  8 define([LAST_QUEUE],   6)
+  9 
+ 10 # names of message types
+ 11 define([WARNING_NAME], [warning])
+ 12 define([ERROR_NAME],   [error])
+ 13 define([QUERY_NAME],   [query])
+ 14 
+ 15 #      _________      ___________
+ 16 # --->/  ERROR  \--->/ NEXT_ITEM \---.
+ 17 #     |  QUERY  |    \___________/<--'
+ 18 #     \_WARNING_/
+ 19 
+ 20 # A → β
+ 21 # β
+ 22 define([ERROR], [
+ 23 
+ 24 	# transition to the next node
+ 25 	define([$0], defn([NEXT_ITEM]))
+ 26 
+ 27 	divert($0_QU),
+ 28 	"$0_NAME": LB()
+ 29 		{"[$1]": "$2"}dnl
+ 30 divert($0_END)
+ 31 	RB()dnl
+ 32 divert(-1)
+ 33 ])
+ 34 
+ 35 # β
+ 36 define([NEXT_ITEM], [
+ 37 
+ 38 	divert($0_QU),
+ 39 		{"[$1]": "$2"}dnl
+ 40 divert(-1)
+ 41 ])
+ 42 
+ 43 # A → β
+ 44 define([QUERY],        defn([ERROR]))
+ 45 define([WARNING],      defn([ERROR]))
+ 46 
+ 47 divert(0)dnl
+ 48 {"queue_names": {
+ 49 	"_comment": "DONTE()"dnl
+ 50 divert(LAST_QUEUE)
+ 51 }}
+ 52 divert(-1)
+
+~]$ m4 gfiles/root0b.m4 messages/qnames.json.m4 messages/code.m4 messages/messages.mc > messages/qnames.json
+
+9156810 messages/qnames.json
+  1 {"queue_names": {
+  2 	"_comment": "DO NOT EDIT! This file is generated automatically!",
+  3 	"query": [
+  4 		{"READABLE": "Is badly written M4 code readable [N/y]?"}
+  5 	],
+  6 	"error": [
+  7 		{"COMPLEX": "!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~"},
+  8 		{"SUCCESS": "Too complex M4 code failed successfully."},
+  9 		{"NOFAULT": "It's not a language fault!"}
+ 10 	],
+ 11 	"warning": [
+ 12 		{"ADDICTIVE": "Programming in M4 is addictive!"},
+ 13 		{"NO_ERRORS": "No other errors detected."}
+ 14 	]
+ 15 }}
+
+A.12.2 [] JSON: generované indexy front
+Během vývoje se často mění pořadí a počet výstupních front, což také vyžaduje častou změnu jejich indexů.
+Indexy je proto vhodné generovat.
+Můžeme pak používat prakticky neomezený počet front.
+Následující příklad ukazuje, jak se tyto indexy generují.
+
+9cfdf77 messages/queues.m4
+  1 # defines a counter for output queues
+  2 # A → β
+  3 define([QUEUE_INDEX], defn([COUNT_UP]))
+  4 
+  5 # index of the first output queue (0 is stdout)
+  6 QUEUE_INDEX(0)
+  7 
+  8 # symbolic names for indices of output queues
+  9 # A → β
+ 10 define([QUERY_QU],     QUEUE_INDEX)
+ 11 define([QUERY_END],    QUEUE_INDEX)
+ 12 define([ERROR_QU],     QUEUE_INDEX)
+ 13 define([ERROR_END],    QUEUE_INDEX)
+ 14 define([WARNING_QU],   QUEUE_INDEX)
+ 15 define([WARNING_END],  QUEUE_INDEX)
+ 16 # Keep it last!
+ 17 define([LAST_QUEUE],   QUEUE_INDEX)
+ 18 
+ 19 # names of message types
+ 20 # A → β
+ 21 define([WARNING_NAME], [warning])
+ 22 define([ERROR_NAME],   [error])
+ 23 define([QUERY_NAME],   [query])
+
+b53eafe messages/messages.json.m4
+  1 #      _________      ___________
+  2 # --->/  ERROR  \--->/ NEXT_ITEM \---.
+  3 #     |  QUERY  |    \___________/<--'
+  4 #     \_WARNING_/
+  5 
+  6 # A → β
+  7 # β
+  8 define([ERROR], [
+  9 
+ 10 	# transition to the next node
+ 11 	define([$0], defn([NEXT_ITEM]))
+ 12 
+ 13 	divert($0_QU),
+ 14 	"$0_NAME": LB()
+ 15 		{"[$1]": "$2"}dnl
+ 16 divert($0_END)
+ 17 	RB()dnl
+ 18 divert(-1)
+ 19 ])
+ 20 
+ 21 # β
+ 22 define([NEXT_ITEM], [
+ 23 
+ 24 	divert($0_QU),
+ 25 		{"[$1]": "$2"}dnl
+ 26 divert(-1)
+ 27 ])
+ 28 
+ 29 # A → β
+ 30 define([QUERY],   defn([ERROR]))
+ 31 define([WARNING], defn([ERROR]))
+ 32 
+ 33 divert(0)dnl
+ 34 {"messages": {
+ 35 	"_comment": "DONTE()"dnl
+ 36 divert(LAST_QUEUE)
+ 37 }}
+ 38 divert(-1)
+
+~]$ m4 gfiles/root0b.m4 gfiles/countb.m4 messages/queues.m4 messages/messages.json.m4 messages/code.m4 messages/messages.mc > messages/messages.json
+
+9156810 messages/messages.json
+  1 {"messages": {
+  2 	"_comment": "DO NOT EDIT! This file is generated automatically!",
+  3 	"query": [
+  4 		{"READABLE": "Is badly written M4 code readable [N/y]?"}
+  5 	],
+  6 	"error": [
+  7 		{"COMPLEX": "!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~"},
+  8 		{"SUCCESS": "Too complex M4 code failed successfully."},
+  9 		{"NOFAULT": "It's not a language fault!"}
+ 10 	],
+ 11 	"warning": [
+ 12 		{"ADDICTIVE": "Programming in M4 is addictive!"},
+ 13 		{"NO_ERRORS": "No other errors detected."}
+ 14 	]
+ 15 }}
+
+A.13 [] INI: nespojitý index front
+Příklad používá tři automaty a dvě výstupní fronty číslo 2 a 4 definované v odděleném souboru.
+Názvy INI sekcí jsou generovány řetězením symbolů (viz. větvení).
+Příklad používá stejný soubor pro výstupní fronty jako příklad pro generování JSON.
+
+c145bef messages/messages.ini.m4
+  1 #      _________      ___________
+  2 # --->/  ERROR  \--->/ NEXT_ITEM \---.
+  3 #     |  QUERY  |    \___________/<--'
+  4 #     \_WARNING_/
+  5 
+  6 # A → β
+  7 # β
+  8 define([ERROR], [
+  9 
+ 10 	divert($0_QU)
+ 11 BRAC($0_NAME)
+ 12 [$1]="$2"
+ 13 divert(-1)
+ 14 
+ 15 	# transition to the next node
+ 16 	define([$0], defn([NEXT_ITEM]))
+ 17 ])
+ 18 
+ 19 # A → β
+ 20 define([QUERY],   defn([ERROR]))
+ 21 define([WARNING], defn([ERROR]))
+ 22 
+ 23 # β
+ 24 define([NEXT_ITEM], [
+ 25 
+ 26 	divert($0_QU)dnl
+ 27 [$1]="$2"
+ 28 divert(-1)
+ 29 ])
+ 30 
+ 31 divert(0)dnl
+ 32 ; DONTE()
+ 33 divert(-1)
+
+~]$ m4 gfiles/root0b.m4 messages/messages.ini.m4 gfiles/countb.m4 messages/queues.m4 messages/code.m4 messages/messages.mc > messages/messages.ini
+
+9156810 messages/messages.ini
+  1 ; DO NOT EDIT! This file is generated automatically!
+  2 
+  3 [query]
+  4 READABLE="Is badly written M4 code readable [N/y]?"
+  5 
+  6 [error]
+  7 COMPLEX="!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~"
+  8 SUCCESS="Too complex M4 code failed successfully."
+  9 NOFAULT="It's not a language fault!"
+ 10 
+ 11 [warning]
+ 12 ADDICTIVE="Programming in M4 is addictive!"
+ 13 NO_ERRORS="No other errors detected."
+
+A.14 [] XML: smíšené zprávy
+Příklad používá jednu výstupní frontu číslo 1 pro uzavírací značku </messages>.
+
+b53eafe messages/mixed.xml.m4
+  1 # A → β
+  2 # β
+  3 define([ERROR], [
+  4 
+  5 	divert(0)dnl
+  6 	<$0_NAME>
+  7 		<name>[$1]</name>
+  8 		<value>$2</value>
+  9 	</$0_NAME>
+ 10 divert(-1)
+ 11 ])
+ 12 
+ 13 # A → β
+ 14 define([QUERY], defn([ERROR]))
+ 15 define([WARNING], defn([ERROR]))
+ 16 
+ 17 divert(0)dnl
+ 18 <!-- DONTE() -->
+ 19 <?xml version="1.0" encoding="utf-8"?>
+ 20 <messages>
+ 21 divert(1)dnl
+ 22 </messages>
+ 23 divert(-1)
+
+~]$ m4 gfiles/root0b.m4 messages/queues.m4 messages/mixed.xml.m4 messages/markup.m4 messages/messages.mc > messages/mixed.xml
+
+9156810 messages/mixed.xml
+  1 <!-- DO NOT EDIT! This file is generated automatically! -->
+  2 <?xml version="1.0" encoding="utf-8"?>
+  3 <messages>
+  4 	<error>
+  5 		<name>COMPLEX</name>
+  6 		<value>!"#$%&amp;'()*+,-./:;&lt;=&gt;?@[\]^_`{|}~</value>
+  7 	</error>
+  8 	<query>
+  9 		<name>READABLE</name>
+ 10 		<value>Is badly written M4 code readable [N/y]?</value>
+ 11 	</query>
+ 12 	<error>
+ 13 		<name>SUCCESS</name>
+ 14 		<value>Too complex M4 code failed successfully.</value>
+ 15 	</error>
+ 16 	<warning>
+ 17 		<name>ADDICTIVE</name>
+ 18 		<value>Programming in M4 is addictive!</value>
+ 19 	</warning>
+ 20 	<error>
+ 21 		<name>NOFAULT</name>
+ 22 		<value>It's not a language fault!</value>
+ 23 	</error>
+ 24 	<warning>
+ 25 		<name>NO_ERRORS</name>
+ 26 		<value>No other errors detected.</value>
+ 27 	</warning>
+ 28 </messages>
+
+A.15 [] XML: oddělené zprávy
+Příklad seskupuje zprávy podle jejich typu pomocí výstupních front.
+
+b53eafe messages/messages.xml.m4
+  1 # A → β
+  2 # β
+  3 define([ERROR], [
+  4 
+  5 	# transition to the next node
+  6 	define([$0], defn([NEXT_ITEM]))
+  7 
+  8 	divert($0_QU)dnl
+  9 	<$0_NAME>
+ 10 		<item>
+ 11 			<name>[$1]</name>
+ 12 			<value>$2</value>
+ 13 		</item>
+ 14 divert($0_END)dnl
+ 15 	</$0_NAME>
+ 16 divert(-1)
+ 17 ])
+ 18 
+ 19 # β
+ 20 define([NEXT_ITEM], [
+ 21 
+ 22 	divert($0_QU)dnl
+ 23 		<item>
+ 24 			<name>[$1]</name>
+ 25 			<value>$2</value>
+ 26 		</item>
+ 27 divert(-1)
+ 28 ])
+ 29 
+ 30 # A → β
+ 31 define([QUERY],        defn([ERROR]))
+ 32 define([WARNING],      defn([ERROR]))
+ 33 
+ 34 divert(0)dnl
+ 35 <!-- DONTE() -->
+ 36 <?xml version="1.0" encoding="utf-8"?>
+ 37 <messages>
+ 38 divert(LAST_QUEUE)dnl
+ 39 </messages>
+ 40 divert(-1)
+
+~]$ m4 gfiles/root0b.m4 messages/queues.m4 messages/messages.xml.m4 messages/markup.m4 messages/messages.mc > messages/messages.xml
+
+9156810 messages/messages.xml
+  1 <!-- DO NOT EDIT! This file is generated automatically! -->
+  2 <?xml version="1.0" encoding="utf-8"?>
+  3 <messages>
+  4 	<query>
+  5 		<item>
+  6 			<name>READABLE</name>
+  7 			<value>Is badly written M4 code readable [N/y]?</value>
+  8 		</item>
+  9 	</query>
+ 10 	<error>
+ 11 		<item>
+ 12 			<name>COMPLEX</name>
+ 13 			<value>!"#$%&amp;'()*+,-./:;&lt;=&gt;?@[\]^_`{|}~</value>
+ 14 		</item>
+ 15 		<item>
+ 16 			<name>SUCCESS</name>
+ 17 			<value>Too complex M4 code failed successfully.</value>
+ 18 		</item>
+ 19 		<item>
+ 20 			<name>NOFAULT</name>
+ 21 			<value>It's not a language fault!</value>
+ 22 		</item>
+ 23 	</error>
+ 24 	<warning>
+ 25 		<item>
+ 26 			<name>ADDICTIVE</name>
+ 27 			<value>Programming in M4 is addictive!</value>
+ 28 		</item>
+ 29 		<item>
+ 30 			<name>NO_ERRORS</name>
+ 31 			<value>No other errors detected.</value>
+ 32 		</item>
+ 33 	</warning>
+ 34 </messages>
+
+A.16 [] Bash ~]$ echo "řetězec"
+b53eafe messages/doubleq.sh.m4
+  1 # A → β
+  2 # β
+  3 define([ERROR], [
+  4 
+  5 	divert(0)dnl
+  6 echo "$2"
+  7 divert(-1)
+  8 ])
+  9 
+ 10 # A → β
+ 11 define([QUERY], defn([ERROR]))
+ 12 define([WARNING], defn([ERROR]))
+ 13 
+ 14 divert(0)dnl
+ 15 #!/bin/bash
+ 16 #
+ 17 [#] DONTE()
+ 18 
+ 19 divert(-1)
+
+~]$ m4 gfiles/root0b.m4 messages/doubleq.sh.m4 messages/doubleq.m4 messages/messages.mc > messages/doubleq.sh
+
+9156810 messages/doubleq.sh
+  1 #!/bin/bash
+  2 #
+  3 # DO NOT EDIT! This file is generated automatically!
+  4 
+  5 echo ""\!"\"#$%&'()*+,-./:;<=>?@[\\]^_\`{|}~"
+  6 echo "Is badly written M4 code readable [N/y]?"
+  7 echo "Too complex M4 code failed successfully."
+  8 echo "Programming in M4 is addictive"\!""
+  9 echo "It's not a language fault"\!""
+ 10 echo "No other errors detected."
+
+A.17 [] Bash ~]$ echo 'řetězec'
+b53eafe messages/apost.sh.m4
+  1 # A → β
+  2 # β
+  3 define([ERROR], [
+  4 
+  5 	divert(0)dnl
+  6 echo '$2'
+  7 divert(-1)
+  8 ])
+  9 
+ 10 # A → β
+ 11 define([QUERY], defn([ERROR]))
+ 12 define([WARNING], defn([ERROR]))
+ 13 
+ 14 divert(0)dnl
+ 15 #!/bin/bash
+ 16 #
+ 17 [#] DONTE()
+ 18 
+ 19 divert(-1)
+
+~]$ m4 gfiles/root0b.m4 messages/apost.sh.m4 messages/apost.m4 messages/messages.mc > messages/apost.sh
+
+9156810 messages/apost.sh
+  1 #!/bin/bash
+  2 #
+  3 # DO NOT EDIT! This file is generated automatically!
+  4 
+  5 echo '!"#$%&'\''()*+,-./:;<=>?@[\]^_`{|}~'
+  6 echo 'Is badly written M4 code readable [N/y]?'
+  7 echo 'Too complex M4 code failed successfully.'
+  8 echo 'Programming in M4 is addictive!'
+  9 echo 'It'\''s not a language fault!'
+ 10 echo 'No other errors detected.'
+
+B Příklady preprocesoru
+🛈 Znaky {`', [], ␂␆, ⟦⟧} v názvu příkladu řídí expanzi neterminálů.
+
+	B.1 `' Preprocesor jazyka C a M4
+	B.2 `' CSS: vložení souboru, komentář
+	B.3 ␂␆ Bash: netisknutelné znaky
+
+B.1 `' Preprocesor jazyka C a M4
+Direktivy CPP jsou pro M4 jednořádkový komentář, což brání nežádoucí expanzi stejně pojmenovaných maker.
+Definujeme-li bezpečnější makro SAF(), stejně pojmenované makro SAF () nebude přepsáno.
+Jmenný prostor CPP tak může být zcela oddělen od jmenného prostoru M4.
+Problematický znak ` je skryt do makra LQ().
+Apostrof ' ve zdrojovém kódu ničemu nevadí.
+Apostrof uvnitř makra ORD() je skryt do makra RQ().
+Všimněte si jmen funkcí define () nebo ifelse () a kde je expandován SYMBOL.
+
+b53eafe preproc/file.c.m4
+  1 # ORDinary and SAFe macros have different expansion:
+  2 
+  3 # A → β
+  4 define(`ORD', `$0_M4 RQ()SYMBOL`'RQ()')
+  5 define(`SAF', `ifelse(`$#', `0', ``$0'', `($1) * ($1)	/* $0_M4 SYMBOL */')')
+  6 
+  7 divert(0)dnl
+
+b53eafe preproc/file.c
+  1 /*
+  2  * DONTE()
+  3  */
+  4 
+  5 #include <stdio.h>	/* CPP SYMBOL */
+  6 
+  7 #define SYMBOL		/* CPP SYMBOL */
+  8 #define SAF(x)		((x) * ((x) - 1))	/* CPP SYMBOL */
+  9 #define ORD(x)		CPP SYMBOL x
+ 10 
+ 11 int a = SAF (1 + 1);	/* CPP */
+ 12 int b = SAF(2 + 2);	/* M4 */
+ 13 char chr = 'x';
+ 14 char foo[] = "Let's say: 'SYMBOL'";
+ 15 char bar[] = "ORD (args, are, ignored)";
+ 16 
+ 17 static void define (char *s) { puts(s);}
+ 18 static void ifelse (char *s) { puts(s);}
+ 19 
+ 20 int main(void)
+ 21 {
+ 22 
+ 23 #ifdef SYMBOL			/* SYMBOL */
+ 24 	puts("LQ()SYMBOL'");	/* note: `LQ()SYMBOL' */
+ 25 #endif
+ 26 
+ 27 	define (foo);		/* SYMBOL */
+ 28 	ifelse (bar);		/* SYMBOL() */
+ 29 
+ 30 	return 0;
+ 31 }
+
+~]$ m4 -DSYMBOL='Hello, world!' gfiles/root0q.m4 preproc/file.c.m4 preproc/file.c > preproc/preproc.file.c
+
+b53eafe preproc/preproc.file.c
+  1 /*
+  2  * DO NOT EDIT! This file is generated automatically!
+  3  */
+  4 
+  5 #include <stdio.h>	/* CPP SYMBOL */
+  6 
+  7 #define SYMBOL		/* CPP SYMBOL */
+  8 #define SAF(x)		((x) * ((x) - 1))	/* CPP SYMBOL */
+  9 #define ORD(x)		CPP SYMBOL x
+ 10 
+ 11 int a = SAF (1 + 1);	/* CPP */
+ 12 int b = (2 + 2) * (2 + 2)	/* SAF_M4 Hello, world! */;	/* M4 */
+ 13 char chr = 'x';
+ 14 char foo[] = "Let's say: 'Hello, world!'";
+ 15 char bar[] = "ORD_M4 'Hello, world!' (args, are, ignored)";
+ 16 
+ 17 static void define (char *s) { puts(s);}
+ 18 static void ifelse (char *s) { puts(s);}
+ 19 
+ 20 int main(void)
+ 21 {
+ 22 
+ 23 #ifdef SYMBOL			/* SYMBOL */
+ 24 	puts("`Hello, world!'");	/* note: LQ()SYMBOL */
+ 25 #endif
+ 26 
+ 27 	define (foo);		/* Hello, world! */
+ 28 	ifelse (bar);		/* Hello, world! */
+ 29 
+ 30 	return 0;
+ 31 }
+
+B.2 `' CSS: vložení souboru, komentář
+CSS používá znak # pro kódy barev, což je také začátek jednořádkového M4 komentáře.
+Klíčové slovo changecom(/*,*/) nastaví víceřádkový komentář /* … */ a přepíše se na ε.
+Komentáře se vypínají stejným klíčovým slovem changecom bez parametrů.
+
+9e13656 preproc/foo.css
+  1 .foo {
+  2 	border: WIDTH 2px 1px;
+  3 }
+
+9e13656 preproc/file.css.m4
+  1 # CSS preprocessor
+  2 
+  3 define(`WIDTH', `3px')
+  4 define(`TOP', `#f00')
+  5 define(`SIDES', `#0f0')
+  6 define(`BOTTOM', `#00f')
+  7 define(`SITE', `www.root.cz')
+  8 define(`IMAGE', `m4tux.png')
+  9 define(`PATH', `https://SITE/IMAGE')
+ 10 
+ 11 divert(0)dnl
+
+3ed8f6a preproc/file.css
+  1 /* DONTE() */changecom(/*,*/)
+  2 /* DONTE() */
+  3 
+  4 include(`foo.css')dnl
+  5 
+  6 .bar {
+  7 	border-width: WIDTH;
+  8 	border-color: TOP SIDES BOTTOM;
+  9 	background-image: url('PATH');
+ 10 }
+ 11 
+ 12 /* DONTE() */
+ 13 changecom/* DONTE() */changecom(/*,*/)
+
+~]$ m4 -DSYMBOL='Hello, world!' gfiles/root0q.m4 preproc/file.css.m4 preproc/file.css > preproc/preproc.file.css
+
+41542d1 preproc/preproc.file.css
+  1 /* DO NOT EDIT! This file is generated automatically! */
+  2 /* DONTE() */
+  3 
+  4 .foo {
+  5 	border: 3px 2px 1px;
+  6 }
+  7 
+  8 .bar {
+  9 	border-width: 3px;
+ 10 	border-color: #f00 #0f0 #00f;
+ 11 	background-image: url('https://www.root.cz/m4tux.png');
+ 12 }
+ 13 
+ 14 /* DONTE() */
+ 15 /* DO NOT EDIT! This file is generated automatically! */
+
+B.3 ␂␆ Bash: netisknutelné znaky
+Bash používá oba znaky, ` a [.
+Nechceme-li je skrývat do makra LQ() nebo LB(), můžeme použít pro řízení expanze neterminálů netisknutelné znaky, viz. příklad:
+
+b53eafe preproc/file.sh.m4
+  1 # vim:mps+=␂\:␆
+  2 
+  3 # A → β
+  4 define(␂LEFT␆, ␂$␂#␆␆)
+  5 define(␂OP␆, ␂-eq␆)
+  6 define(␂RIGHT␆, ␂0␆)
+  7 
+  8 divert(0)dnl
+
+b53eafe preproc/file.sh
+  1 #!/bin/bash
+  2 #
+  3 ␂#␆ DONTE()
+  4 
+  5 HELLO=`echo 'SYMBOL'`
+  6 
+  7 if [[ LEFT OP RIGHT ]]
+  8 then
+  9 	echo $HELLO
+ 10 fi
+
+~]$ m4 -DSYMBOL='Hello, world!' gfiles/root0n.m4 preproc/file.sh.m4 preproc/file.sh > preproc/preproc.file.sh
+
+b53eafe preproc/preproc.file.sh
+  1 #!/bin/bash
+  2 #
+  3 # DO NOT EDIT! This file is generated automatically!
+  4 
+  5 HELLO=`echo 'Hello, world!'`
+  6 
+  7 if [[ $# -eq 0 ]]
+  8 then
+  9 	echo $HELLO
+ 10 fi
+
+C M4: příklady
+🛈 Znaky {`', [], ␂␆, ⟦⟧} v názvu příkladu řídí expanzi neterminálů.
+
+	C.1 [] JSON: levá závorka [
+	C.2 [] Bash: počítadla
+	C.3 [] .h: závorky [], [,], [#], [dnl]
+	C.4 [] AWK: příklady bezpečnějších maker
+
+C.1 [] JSON: levá závorka [
+Uvnitř hranatých závorek [… se neterminály neexpandují …].
+Proto je levá hranatá závorka [ nahrazena makrem LB() z kořenového souboru.
+
+b53eafe hello_world/json.m4
+  1 # JSON
+  2 
+  3 divert(0)dnl
+  4 {"foo": {
+  5 	"_comment": "DONTE()",
+  6 	"bar": LB()
+  7 		{"baz": "SYMBOL"}
+  8 	]
+  9 }}
+
+~]$ m4 -DSYMBOL='Hello, world!' gfiles/root0b.m4 hello_world/json.m4 > hello_world/hello_world.json
+
+b53eafe hello_world/hello_world.json
+  1 {"foo": {
+  2 	"_comment": "DO NOT EDIT! This file is generated automatically!",
+  3 	"bar": [
+  4 		{"baz": "Hello, world!"}
+  5 	]
+  6 }}
+
+C.2 [] Bash: počítadla
+Počítadla COUNT_UP a COUNT_DOWN jsou definována v souboru countb.m4.
+Neterminály [… uvnitř závorek …] nebudou expandovány, pouze se odeberou vnější závorky.
+Nutno použít makro LB() z kořenového souboru.
+
+b53eafe hello_world/sh.m4
+  1 # A → β
+  2 define([LEFT], [$[#]])
+  3 define([OP], [-eq])
+  4 define([RIGHT], [0])
+  5 
+  6 # define two counters
+  7 # A → β
+  8 define([__COUNTUP__], defn([COUNT_UP]))
+  9 define([__COUNTDN__], defn([COUNT_DOWN]))
+ 10 
+ 11 # init counters
+ 12 __COUNTUP__(10)
+ 13 __COUNTDN__(10)
+ 14 
+ 15 divert(0)dnl
+ 16 #!/bin/bash
+ 17 #
+ 18 [#] DONTE()
+ 19 
+ 20 if [ LEFT OP RIGHT ]
+ 21 then
+ 22 	echo '__COUNTUP__] SYMBOL LB()__COUNTDN__'
+ 23 fi
+ 24 
+ 25 if test LEFT OP RIGHT
+ 26 then
+ 27 	echo '__COUNTUP__] SYMBOL LB()__COUNTDN__'
+ 28 fi
+ 29 
+ 30 if LB()LB() LEFT OP RIGHT ]]
+ 31 then
+ 32 	echo '__COUNTUP__] SYMBOL LB()__COUNTDN__'
+ 33 fi
+
+~]$ m4 -DSYMBOL='Hello, world!' gfiles/root0b.m4 gfiles/countb.m4 hello_world/sh.m4 > hello_world/hello_world.sh
+
+b53eafe hello_world/hello_world.sh
+  1 #!/bin/bash
+  2 #
+  3 # DO NOT EDIT! This file is generated automatically!
+  4 
+  5 if  LEFT OP RIGHT 
+  6 then
+  7 	echo '10] Hello, world! [10'
+  8 fi
+  9 
+ 10 if test $# -eq 0
+ 11 then
+ 12 	echo '11] Hello, world! [9'
+ 13 fi
+ 14 
+ 15 if [[ $# -eq 0 ]]
+ 16 then
+ 17 	echo '12] Hello, world! [8'
+ 18 fi
+
+C.3 [] .h: závorky [], [,], [#], [dnl]
+Prázdný pár [] (nebo prázdný symbol v závorkách [ε]) slouží jako oddělovač symbolů.
+Závorky kolem znaku komentáře [#] vypnou jeho původní význam, stejně jako vypnou význam silnějšího M4 komentáře [dnl].
+Vypnou také původní význam čárky [,] jako oddělovače argumentů maker.
+Tyto symboly se stanou obyčejnými terminálními symboly bez jakéhokoliv vedlejšího efektu.
+
+ce5cd99 hello_world/h.m4
+  1 # A → β
+  2 define([HELLO], [HELLO_WORLD])
+  3 
+  4 divert(0)dnl
+  5 /*
+  6  * [dnl] DONTE()
+  7  */
+  8 
+  9 [#]ifndef __[]HELLO[]_H
+ 10 [#]define __[]HELLO[]_H
+ 11 
+ 12 [#]define HELLO	SYMBOL
+ 13 
+ 14 [#]endif /* __[]HELLO[]_H */
+
+~]$ m4 -DSYMBOL='Hello, world!' gfiles/root0b.m4 hello_world/h.m4 > hello_world/hello_world.h
+
+6b10c6c hello_world/hello_world.h
+  1 /*
+  2  * dnl DO NOT EDIT! This file is generated automatically!
+  3  */
+  4 
+  5 #ifndef __HELLO_WORLD_H
+  6 #define __HELLO_WORLD_H
+  7 
+  8 #define HELLO_WORLD	Hello, world!
+  9 
+ 10 #endif /* __HELLO_WORLD_H */
+
+C.4 [] AWK: příklady bezpečnějších maker
+Univerzální výstraha DONTE se ignoruje bez závorek, stejně jako LB, RB, …
+Taková makra explicitně vytváří vývojář skriptů, prohlédněte si kořenový soubor root1b.m4.
+
+3a8a5dd hello_world/awk.m4
+  1 # AWK
+  2 
+  3 divert(0)dnl
+  4 #!/bin/awk -f
+  5 #
+  6 [# DONTE()] ---> "DONTE()"
+  7 
+  8 BEGIN { print "DONTE[]() LB () LB() SYMBOL ]" }
+
+~]$ m4 -DSYMBOL='Hello, world!' gfiles/root1b.m4 hello_world/awk.m4 > hello_world/hello_world.awk
+
+3a8a5dd hello_world/hello_world.awk
+  1 #!/bin/awk -f
+  2 #
+  3 # DONTE() ---> "DO NOT EDIT! This file is generated automatically!"
+  4 
+  5 BEGIN { print "DONTE() LB () [ Hello, world! ]" }
+
+D Proč používat M4 a proč ne?
+	D.1 👍 Proč generovat kód v M4
+	D.2 👎 Proč se vyhnout M4
+
+D.1 👍 Proč generovat kód v M4
+• přímé použití bezkontextové gramatiky (rekurze zdarma)
+	• pro transformaci dat stačí napsat minimum M4 kódu
+
+• přímé použití automatů
+	• možnost vymodelovat si potřebné algoritmy (M4 nepotřebuje verze)
+
+• přímé použití zásobníků
+	• zásobníky propojené s automaty rozšiřují možnosti generátoru kódu
+
+• přímé použití výstupních front pro dočasné uložení výsledných částí kódu
+	• jednotlivé fronty jsou na závěr vypsány na výstup ve vzestupném pořadí
+
+• výrazně vyšší rychlost generování kódu (ve srovnání s XSLT)
+	• nízké nároky na výpočetní zdroje
+
+D.2 👎 Proč se vyhnout M4
+• univerzální jazyk nízké úrovně (podobně jako jazyk C)
+	• což výměnou poskytuje ohromnou flexibilitu jako UNIX
+
+• (téměř) neexistující komunita vývojářů (podzim 2019)
+	• M4 je téměř zapomenutý jazyk, málo existujících projektů
+
+• neobvyklé programovací paradigma vyžadující splnění několika předpokladů
+	• právě proto lze M4 považovat za náročný jazyk
+
+• produktivita značně závisí na zkušenostech (možný problém s termíny)
+	• psaní M4 skriptů vyžaduje základní znalost automatů a gramatik
+
+• údržba špatně napsaného M4 kódu není jednoduchá
+	• existující M4 kód je snadné proměnit ve zmatek (nutný dohled!)
+

@@ -1,0 +1,18 @@
+vim:ts=4:sw=4
+
+DO NOT EDIT! This file is generated automatically!
+
+__SOURCE([fundamentals.mc], [20200523-11:10:01], [e396d0f], [135d8b2])
+
+Generating code in M4: fundamentals
+
+The M4 macro processor is used to generate arbitrarily complex code from simple source code.
+This part is focused on explanation of necessary, seemingly complex concepts of theoretical computer science.
+
+Content (Česky)			updated May 23, 2020
+1 Introduction
+
+1 Introduction
+%%%
+
+
