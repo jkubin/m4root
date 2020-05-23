@@ -92,7 +92,7 @@ divert(HEADER_END_START_BODY)dnl
 				<div class="perex__impressum">
 						<span class="perex__author">AUTHOR_NAME</span>
 						<span class="perex__date">
-							<span itemprop="datePublished">ARG1(esyscmd([date '+[%-d. %-m. %Y],']))</span>
+							<span itemprop="datePublished">SARG1(esyscmd([date '+[%-d. %-m. %Y],']))</span>
 						</span>
 				</div>
 				<p itemprop="description">PEREX</p>

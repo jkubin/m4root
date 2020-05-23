@@ -20,14 +20,8 @@ ___POINT([source file (possibly snippet) in format for HTML])
 # insert source code snippet from line 10 to 20
 # INSERT_FILE([path/file.src], [title], [RE], [10, 20])
 #
-# insert source code snippet from line 10 to the line that meets END_RE
-# INSERT_FILE([path/file.src], [title], [RE], [10, [/END_RE/]])
-#
-# insert source code snippet from line 1 to the line that meets END_RE
-# INSERT_FILE([path/file.src], [title], [RE], [, [/END_RE/]])
-#
 # Note:
-# MM(b) is a Marking Macro for coloring RE with a class "b"
+# MM(b) is a Marking Macro for coloring RE with an argument for class "b"
 # MM(b) → <span class=NSP()b>&<\x2fspan> → <span class=m4-b>&<\x2fspan>
 # NSP() expands to an user defined Name SPace prefix, for example m4-
 # quotation marks in class are intentionally omitted
@@ -41,7 +35,7 @@ define([INSERT_FILE], [
 		ROOT_ERROR([‘$0($@)’ wrong number of arguments])
 	])
 
-	# first is file name, the second is ID (not used here)
+	# the first is file name, the second is ID (not used here)
 	define([#FILE], ARG1($1))
 
 	# finds a git record from a hash database
@@ -64,19 +58,20 @@ define([INSERT_FILE], [
 	ADD_JAVASCRIPT_FOR_SOURCE_CODE()
 
 	divert(CURRQU)dnl
-<div id="ADD_ID_RULE(defn([#ID]))"ifelse([$2], [], [], [ title="[$2]"]) class="ADD_CLASS([src])"SET_CSS_LINE_COUNTER($4)><pre>$0_SET_PARAMETERS(defn([#FILE]),
-[$3], $4)</pre><code><span title="ARG3(GIT_CSV)">ARG2(GIT_CSV)</span><a href="SRC_FILE_PATH[]defn([#FILE])" title="defn([SRC_REPO_NAME], [#FILE])">patsubst(defn([#FILE]),
+<div id="ADD_ID_RULE(defn([#ID]))"ifelse([$2], [], [], [ title="[$2]"]) class="ADD_CLASS([src])"SET_CSS_LINE_COUNTER($4)><pre>$0_SET_PARAMETERS(defn([#FILE]), [$3], $4)dnl
+SARG1(esyscmd(defn([COMMAND_TO_INSERT_A_FILE])))dnl
+</pre><code><span title="ARG3(GIT_CSV)">ARG2(GIT_CSV)</span><a href="SRC_FILE_PATH[]defn([#FILE])" title="defn([SRC_REPO_NAME], [#FILE])">patsubst(defn([#FILE]),
 [.*/])</a><a href="[#]defn([#ID])" title="⚓"></a></code></div>
 divert(-1)
 
-	# test return value from sed; show the sed command for analysis if something failed
+	# test return value from sed; show the failed sed command
 	ifelse(sysval, [0], [], [
 
-		ROOT_ERROR([‘$0($@)’ → $ ]defn([SED_COMMAND_TO_INSERT_A_FILE]))
+		ROOT_ERROR([‘$0($@)’ → $ ]defn([COMMAND_TO_INSERT_A_FILE]))
 	])
 
 	# in case of problems with inserting and coloring desired file it prints the final command on stderr
-	ifdef([DEBUG], [errprint(__file__:__line__: defn([SED_COMMAND_TO_INSERT_A_FILE])
+	ifdef([DEBUG], [errprint(__file__:__line__: defn([COMMAND_TO_INSERT_A_FILE])
 )])
 ])
 
@@ -88,27 +83,26 @@ define([INSERT_FILE_MLH], defn([INSERT_FILE]))
 # Marking Macro MM(my_class_name) saves a lot of typing (<span class=m4-my_class_name>&<\x2fspan>), concatenates user defined prefix to my_class_name
 # (class=m4-my_class_name is intentionally without quotes)
 #
-# ARG1 after the file processing removes unwanted trailing LF
+# SARG1 after the file processing removes unwanted trailing LF
 # A → β
 define([INSERT_FILE_SET_PARAMETERS_REGEX], [dnl
-define([SED_COMMAND_TO_INSERT_A_FILE], [sed -ne '$3,$4{' -f html/chr_to_esc.sed -e ']patsubst(patsubst([[[$2]]], [\<MM(\([^)]+\))], [<span class=NSP()\1>&<\\x2fspan>]), [NSP()], defn([NSP]))[' -e '$3s/^/\x5b\x5b/;$4$5;p}' $1])dnl
-ARG1(esyscmd(defn([SED_COMMAND_TO_INSERT_A_FILE])))dnl
+define([COMMAND_TO_INSERT_A_FILE], [sed -ne '$3,$4{' -f html/chr_to_esc.sed -e ']patsubst(patsubst([[[$2]]], [\<MM(\([^)]+\))], [<span class=NSP()\1>&<\\x2fspan>]), [NSP()], defn([NSP]))[' -e '$3s/^/\x5b/;$4$5;p}' $1])dnl
 ])
 
 # A → β
 define([INSERT_FILE_MLH_SET_PARAMETERS_REGEX], [dnl
-define([SED_COMMAND_TO_INSERT_A_FILE], [sed -ne '$3{:a;N;$4!ba' -f html/chr_to_esc.sed -e ']patsubst(patsubst([[[$2]]], [\<MM(\([^)]+\))], [<span class=NSP()\1>&<\\x2fspan>]), [NSP()], defn([NSP]))[' -e 's/^/\x5b\x5b/;$5;p}' $1])dnl
-ARG1(esyscmd(defn([SED_COMMAND_TO_INSERT_A_FILE])))dnl
+define([COMMAND_TO_INSERT_A_FILE], [sed -ne '$3{:a;N;$4!ba' -f html/chr_to_esc.sed -e ']patsubst(patsubst([[[$2]]], [\<MM(\([^)]+\))], [<span class=NSP()\1>&<\\x2fspan>]), [NSP()], defn([NSP]))[' -e 's/^/\x5b/;$5;p}' $1])dnl
 ])
 
 # A → β
 # β
-define([INSERT_FILE_SET_PARAMETERS], [$0_REGEX(
+define([INSERT_FILE_SET_PARAMETERS], [dnl
+$0_REGEX(
 	[$1],
 	[$2],
 	ifelse([$3], [], [1], [[$3]]),
 	ifelse([$4], [], [$], [[$4]]),
-	ifelse([$4], [], [[s/$/\x5d\x5d,/]], [$4], [$], [[s/$/\x5d\x5d,/]], [[s/$/\n…\x5d\x5d,/]]))dnl
+	ifelse([$4], [], [[s/$/\x5d,/]], [$4], [$], [[s/$/\x5d,/]], [[s/$/\n…\x5d,/]]))dnl
 ])
 
 # A → β

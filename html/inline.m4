@@ -86,8 +86,8 @@ CREATE_INLINE_ELEMENT([BOLD],	[b])
 CREATE_INLINE_ELEMENT([BUTTON],	[button])
 CREATE_INLINE_ELEMENT([CITATION],	[cite])
 CREATE_INLINE_ELEMENT([CODE],	[code])
+CREATE_INLINE_ELEMENT([DEFINITION],	[dfn])
 CREATE_INLINE_ELEMENT([DELETED],	[del])
-CREATE_INLINE_ELEMENT([DFN],	[dfn])
 CREATE_INLINE_ELEMENT([EMPHASIS],	[em])
 CREATE_INLINE_ELEMENT([INS],	[ins])
 CREATE_INLINE_ELEMENT([ITALIC],	[i])
@@ -186,7 +186,7 @@ define([CREATE_DATASET], [
 # LINK([hyperlink], [EXTERNAL_ID], [source.mc])
 # LINK([hyperlink to another language], [EXTERNAL_ID], [source.mc], [en])
 #
-# both IDs must be the same in order to dereference the referenced caption
+# both IDs must be the same in order to copy text from the another caption
 # LINK([INTERNAL_ID], [INTERNAL_ID])
 # LINK([EXTERNAL_ID], [EXTERNAL_ID], [source.mc])
 # LINK([EXTERNAL_ID], [EXTERNAL_ID], [source.mc], [en])
@@ -297,11 +297,11 @@ define([REF_NEXT], [pushdef([CURRQU], divnum)divert(-1)
 	ifdef([{$1|$2|$3}], [
 
 		divert(CURRQU)popdef([CURRQU])dnl
-<a href="[$3]" title="$1">BRAC(REF_VALUE)</a>dnl
+<a href="[$3]" title="$1">BRAC(REF_COUNTER)</a>dnl
 ], [
-		# increment counter for new ref value
+		# increment the reference counter
 		define([REF_VALUE], define([REF_COUNTER], incr(REF_COUNTER))REF_COUNTER)
-		define([REF_IDENTIFIER], defn([NSP], [REF_ANCH])REF_VALUE)
+		define([REF_IDENTIFIER], defn([NSP], [REF_ANCH], [REF_VALUE]))
 		define([{$1|$2|$3}], REF_VALUE)
 
 		divert(ARTICLE_REFERENCES)dnl

@@ -8,11 +8,6 @@ ___POINT([one place to configure ALL generated web pages])
 # A → ε
 #define([ADD_LINKS_TO_ALL_PARTS_OF_THE_SERIES])
 
-# β
-define([BACK_TO_TOC],		[<a href="[#]defn([#ID], [TOC_ANCH])" title="defn([WORD_CONTENT])"></a>])
-define([CHAPTER_INDEXES],	[<a href="[#]defn([#ID])" title="⚓">defn([#S0], [#S1], [#S2])</a>])
-define([GO_BACK_UP],		[<a href="defn([#NSP], [TOC_ANCH])" title="defn([WORD_TOP])"></a>])
-
 # a folder containing generated files such as root files, vim shortcut files and M4 plugins
 # A → β
 define([FOLDER_FOR_GENERATED_FILES], [gfiles/])

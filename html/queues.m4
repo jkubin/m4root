@@ -7,7 +7,7 @@ ___POINT([each target generation file format has a specific list of queues])
 # define counter for output queues
 define([QUEUE_INDEX], defn([COUNT_UP]))
 
-# init counter
+# init counter for queues
 QUEUE_INDEX(1)
 
 define([BEGIN_OF_ARTICLE],	QUEUE_INDEX)
@@ -37,7 +37,7 @@ define([END_OF_ARTICLE],	QUEUE_INDEX)
 # auxiliary command line queue
 define([COMMAND_LINE_ARGS],	QUEUE_INDEX)
 
-# (optionally) forget counter and its internal value
+# (optionally) forget the counter and its internal value
 undefine(
 
 	[QUEUE_INDEX_val],
