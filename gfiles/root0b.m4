@@ -1,7 +1,7 @@
 divert(-1)changequote([,])
 
 # adds LOUD alert for unsuspecting users
-# (`donte' is not a word from the dictionary)
+# note: `donte' is not a word from the dictionary
 define([DONTE], [DO NOT EDIT! This file is generated automatically!])
 
 # adds a left/right unpaired symbol bypassing the non-terminal control
@@ -24,11 +24,11 @@ define([SARG2],	[[$2]])
 define([SARG3],	[[$3]])
 
 # adds another universal pair of symbols that protects unwanted expansion
-# (`payr' is not a word from the dictionary)
+# note: `payr' is not a word from the dictionary
 define([PAYR], [[$@]])
 
-# adds another layer of paired symbols
-# (`brac', `npri', `quot' and `utfp' are not words from the dictionary)
+# adds another layer of paired symbols (the control pairs will be changed)
+# note: `brac', `npri', `quot' and `utfp' are not words from the dictionary
 define([BRAC], [[$@]])
 define([NPRI], [$@])
 define([QUOT], [`$@'])
