@@ -1,6 +1,6 @@
 __HEADER([Josef Kubin], [2019/12/15], [root_cz])
-___DESCR([processes an inserted source file; converts forbidden characters; sets string highlighting])
-___POINT([source file (possibly snippet) in format for HTML])
+___DESCR([processes a source file inserted to HTML; converts forbidden characters; sets string highlighting])
+___POINT([source file (possibly snippet) suitable for HTML])
 
 # insert the entire file with a possible comma-separated ID to distinguish the same file
 # INSERT_FILE([path/file.src])
@@ -60,7 +60,7 @@ define([INSERT_FILE], [
 	divert(CURRQU)dnl
 <div id="ADD_ID_RULE(defn([#ID]))"ifelse([$2], [], [], [ title="[$2]"]) class="ADD_CLASS([src])"SET_CSS_LINE_COUNTER($4)><pre>$0_SET_PARAMETERS(defn([#FILE]), [$3], $4)dnl
 SARG1(esyscmd(defn([COMMAND_TO_INSERT_A_FILE])))dnl
-</pre><code><span title="ARG3(GIT_CSV)">ARG2(GIT_CSV)</span><a href="SRC_FILE_PATH[]defn([#FILE])" title="defn([SRC_REPO_NAME], [#FILE])">patsubst(defn([#FILE]),
+</pre><code><span title="SARG3(GIT_CSV)">SARG2(GIT_CSV)</span><a href="SRC_FILE_PATH/defn([#FILE])" title="defn([SRC_REPO_NAME], [#FILE])">patsubst(defn([#FILE]),
 [.*/])</a><a href="[#]defn([#ID])" title="⚓"></a></code></div>
 divert(-1)
 

@@ -10,10 +10,10 @@ define([IMG_SRC], [../$1])
 # A → ε
 define([OTHER_LANGUAGE])
 
-# path for generated files
+# path for files
 # A → β
-#define([SRC_FILE_PATH], [https://raw.githubusercontent.com/jkubin/m4root/ARG1(GIT_CSV)/])
-define([SRC_FILE_PATH], [../])
+#define([SRC_FILE_PATH], [[https://raw.githubusercontent.com/jkubin/m4root/]SARG1(GIT_CSV)])
+define([SRC_FILE_PATH], [..])
 
 # name of repository
 # A → β

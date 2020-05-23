@@ -23,7 +23,7 @@ define([INSERT_FILE], [
 	])
 
 	divert(CURRQU)dnl
-ARG2(GIT_CSV) defn([#FILE])
+SARG2(GIT_CSV) defn([#FILE])
 INSERT_FILE_HIDE_SQUARE_BRACKETS(defn([#FILE]), [$3], $4)dnl	prepare command
 esyscmd(defn([COMMAND_TO_INSERT_A_FILE]))
 divert(-1)

@@ -6,5 +6,5 @@
 echo '# DO NOT EDIT! This file is generated automatically!'
 
 for filename in $@; do
-	git log -1 --pretty=format:"define([./$filename], [%H, %h, %ai])%n" -- $filename
+	git log -1 --pretty=format:"define([./$filename], [[%H], [%h], [%ai]])%n" -- $filename
 done

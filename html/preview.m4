@@ -43,7 +43,7 @@ define([PEREX_IMG], defn([TEST_ATM])[
 ])
 
 # A → β
-define([SRC_FILE_PATH], [../])
+define([SRC_FILE_PATH], [..])
 define([SRC_REPO_NAME], defn([WORD_SRC])[localhost
 ])
 
