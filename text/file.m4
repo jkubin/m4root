@@ -4,7 +4,7 @@ ___POINT([text file for total number of words and characters])
 
 # A → β
 # β
-define([INSERT_FILE], [
+define([TEXTDATA], [
 
 	ifelse(eval([$# > 0 && $# < 5]), [1], [], [
 
@@ -12,7 +12,7 @@ define([INSERT_FILE], [
 	])
 
 	# the first is file name, the second is ID (not used here)
-	define([#FILE], ARG1($1))
+	define([#FILE], SARG1($1))
 
 	# finds a git record from a hash database
 	define([GIT_CSV], defn([./]defn([#FILE])))
@@ -24,27 +24,27 @@ define([INSERT_FILE], [
 
 	divert(CURRQU)dnl
 SARG2(GIT_CSV) defn([#FILE])
-INSERT_FILE_HIDE_SQUARE_BRACKETS(defn([#FILE]), [$3], $4)dnl	prepare command
-esyscmd(defn([COMMAND_TO_INSERT_A_FILE]))
+TEXTDATA_PROCESS_RAW_DATA(defn([#FILE]), [$3], $4)dnl	prepare command
+esyscmd(defn([COMMAND_FOR_TEXTDATA]))
 divert(-1)
 
 	# test return value from sed; show the failed sed command
 	ifelse(sysval, [0], [], [
 
-		ROOT_ERROR([‘$0($@)’ → $ ]defn([COMMAND_TO_INSERT_A_FILE]))
+		ROOT_ERROR([‘$0($@)’ → $ ]defn([COMMAND_FOR_TEXTDATA]))
 	])
 
-	ifdef([DEBUG], [errprint(__file__:__line__: defn([COMMAND_TO_INSERT_A_FILE])
+	ifdef([DEBUG], [errprint(__file__:__line__: defn([COMMAND_FOR_TEXTDATA])
 )])
 ])
 
 # A → β
-define([INSERT_FILE_MLH], defn([INSERT_FILE]))
+define([TEXTDATA_MLH], defn([TEXTDATA]))
 
 # A → β
 # β
-define([INSERT_FILE_HIDE_SQUARE_BRACKETS], [dnl
-INSERT_FILE_SNIPPET(
+define([TEXTDATA_PROCESS_RAW_DATA], [dnl
+TEXTDATA_SNIPPET(
 	[$1],
 	[$2],
 	ifelse([$3], [], [1], [[$3]]),
@@ -53,6 +53,6 @@ INSERT_FILE_SNIPPET(
 ])
 
 # A → β
-define([INSERT_FILE_SNIPPET], [dnl
-define([COMMAND_TO_INSERT_A_FILE], [awk -e 'NR==$3,NR==$4{' -f text/chr_to_esc.awk -e ']ifdef([LINE_NUMBERS], [[printf "%3d ", NR;]])[print}BEGIN{printf "["}END{printf "$5]"}' $1])dnl
+define([TEXTDATA_SNIPPET], [dnl
+define([COMMAND_FOR_TEXTDATA], [awk -e 'NR==$3,NR==$4{' -f text/chr_to_esc.awk -e ']ifdef([LINE_NUMBERS], [[printf "%3d ", NR;]])[print}BEGIN{printf "["}END{printf "$5]"}' $1])dnl
 ])

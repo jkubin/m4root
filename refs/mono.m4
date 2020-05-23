@@ -18,10 +18,10 @@ divert(-1)
 
 # A → β
 # β
-define([INSERT_FILE], [
+define([TEXTDATA], [
 
-	define([PATH_TO_FILE], ARG1($1))
-	define([DISCRIMINATOR], ARG2($1))
+	define([PATH_TO_FILE], SARG1($1))
+	define([DISCRIMINATOR], SARG2($1))
 
 	ifdef(__file__.defn([PATH_TO_FILE]), [
 
@@ -50,7 +50,7 @@ define([INSERT_FILE], [
 ])
 
 # A → β
-define([INSERT_FILE_MLH], defn([INSERT_FILE]))
+define([TEXTDATA_MLH], defn([TEXTDATA]))
 
 # A → β
 define([CREATE_REFERENCE], [
@@ -86,7 +86,8 @@ define([CREATE_REFERENCE], [
 	ADD_FILE_ITEM(__file__.mono.[$1], translit(NSP()[[$1]], [_A-Z], [-a-z]))
 ])
 
-define([PROCESS_ID], [
+# β
+pushdef([PROCESS_ID], [
 
 	# if more than 1 param, then the $[1] is surely #ID
 	ifelse(
@@ -97,10 +98,10 @@ define([PROCESS_ID], [
 	])
 ])
 
-define([COMMAND_ROOT],			defn([PROCESS_ID]))
-define([COMMAND_USR],			defn([PROCESS_ID]))
+# A → β
+define([CMDSYNOPSIS_ROOT],		defn([PROCESS_ID]))
+define([CMDSYNOPSIS],			defn([PROCESS_ID]))
 define([IMAGEDATA],			defn([PROCESS_ID]))
-
 define([PROGRAMLISTING],		defn([PROCESS_ID])[
 
 	define([SOURCE_FIELD_COUNTER], COUNTER)
@@ -122,3 +123,6 @@ ___DESCR([(this is a generated file) associative memory for linking files])
 ___POINT([simple hash database for files])
 ]
 divert(-1)
+
+# no need for further
+popdef([PROCESS_ID])

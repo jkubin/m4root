@@ -35,7 +35,7 @@ define([JAVASCRIPT_CODE_INIT],	QUEUE_INDEX)
 define([END_OF_ARTICLE],	QUEUE_INDEX)
 
 # auxiliary command line queue
-define([COMMAND_LINE_ARGS],	QUEUE_INDEX)
+define([COMMAND_ARGS_QUEUE],	QUEUE_INDEX)
 
 # (optionally) forget the counter and its internal value
 undefine(

@@ -152,7 +152,7 @@ define([ULINK], [ifelse(
 ])
 
 # A → β
-define([HEXPL], defn([ULINK]))
+define([HEXPLAIN], defn([ULINK]))
 
 # A → β
 # β
@@ -166,7 +166,7 @@ define([HCODE_M4], [ifelse(
 
 # A → β
 define([HCODE], defn([HCODE_M4]))
-define([HEXPL_M4], defn([HCODE_M4]))
+define([HEXPLAIN_M4], defn([HCODE_M4]))
 
 # A → β
 define([BR], [
@@ -232,8 +232,8 @@ define([CODE_BLUE],	defn([CODE]))
 define([CODE_M4U],	defn([CODE]))
 define([CODE_M4],	defn([CODE]))
 define([CODE_UND],	defn([CODE]))
-define([EXPL],		defn([BOLD]))
-define([EXPL_M4],	defn([CODE]))
+define([EXPLAIN],	defn([BOLD]))
+define([EXPLAIN_M4],	defn([CODE]))
 define([GRAY],		defn([BOLD]))
 define([PERSON],	defn([BOLD]))
 
@@ -249,8 +249,8 @@ define([BLOCKQUOTE_MONO],		defn([PRINT_MONO]))
 define([BRIDGEHEAD],		defn([PRINT_LANG]))
 define([BRIDGEHEAD_MONO],		defn([PRINT_MONO]))
 define([CHAPTER],		defn([PRINT_LANG]))
-define([COMMAND_ROOT], 		defn([TITLE_ATTR]))
-define([COMMAND_USR], 		defn([TITLE_ATTR]))
+define([CMDSYNOPSIS_ROOT], 		defn([TITLE_ATTR]))
+define([CMDSYNOPSIS], 		defn([TITLE_ATTR]))
 define([COMMENT_MONO],		defn([PRINT_MONO]))
 define([DESCRIPTION_LIST_DESC],		defn([PRINT_LANG]))
 define([DESCRIPTION_LIST_DESC_MONO],	defn([PRINT_MONO]))
@@ -308,7 +308,7 @@ define([WARN],			defn([PRINT_LANG]))
 
 # A → β
 # β
-define([INSERT_FILE], [
+define([TEXTDATA], [
 
 	ifelse(
 		[$#], [1], [], [
@@ -322,7 +322,7 @@ divert(-1)
 ])
 
 # A → β
-define([INSERT_FILE_MLH], defn([INSERT_FILE]))
+define([TEXTDATA_MLH], defn([TEXTDATA]))
 
 popdef(
 

@@ -11,22 +11,22 @@ pushdef([TEST_NUMBER_OF_ARGS], [
 	])
 ])
 
-# COMMAND_LINE([foo -o a,b,c -DMACRO], [input/file1.src], [input/file2.src], [input/file3.src], …, [output/file.dst])
+# XCOMMAND([foo -o a,b,c -DMACRO], [input/file1.src], [input/file2.src], [input/file3.src], …, [output/file.dst])
 # A → β
-define([COMMAND_LINE], defn([TEST_NUMBER_OF_ARGS])[
+define([XCOMMAND], defn([TEST_NUMBER_OF_ARGS])[
 
-	divert(COMMAND_LINE_ARGS)dnl
+	divert(COMMAND_ARGS_QUEUE)dnl
 PROMPT() $1 dnl
 divert(-1)
 
 	FILES_ON_THE_COMMAND_LINE(shift($@))
 ])
 
-# COMMAND_LINE_ROOT([foo -o a,b,c -DMACRO], [input/file1.src], [input/file2.src], [input/file3.src], …, [output/file.dst])
+# XCOMMAND_ROOT([foo -o a,b,c -DMACRO], [input/file1.src], [input/file2.src], [input/file3.src], …, [output/file.dst])
 # A → β
-define([COMMAND_LINE_ROOT], defn([TEST_NUMBER_OF_ARGS])[
+define([XCOMMAND_ROOT], defn([TEST_NUMBER_OF_ARGS])[
 
-	divert(COMMAND_LINE_ARGS)dnl
+	divert(COMMAND_ARGS_QUEUE)dnl
 PROMPT_ROOT() $1 dnl
 divert(-1)
 
@@ -39,7 +39,7 @@ define([FILES_ON_THE_COMMAND_LINE], [
 	ifelse([$#], [1], [
 
 		divert(CURRQU)dnl
-undivert(COMMAND_LINE_ARGS)dnl
+undivert(COMMAND_ARGS_QUEUE)dnl
 dnl > patsubst([$ 1], [.*/])
 > $1
 
@@ -47,7 +47,7 @@ divert(-1)
 
 	], [
 
-		divert(COMMAND_LINE_ARGS)dnl
+		divert(COMMAND_ARGS_QUEUE)dnl
 [$1] dnl
 divert(-1)
 

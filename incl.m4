@@ -2,7 +2,7 @@ __HEADER([Josef Kubin], [2019/12/10], [root_cz])
 ___DESCR([repeated text patterns for ALL parts should be written here; modified files from the include keyword are invisible for make])
 ___POINT([how to avoid include keyword; Note: this is M4 not C!])
 
-# paired author name with image
+# paired author name with image (associatively)
 # A → β
 define([AUTHOR_NAME],		[Josef Kubín])
 define(defn([AUTHOR_NAME]),	[pepa.png])
@@ -26,10 +26,10 @@ The result of the series is also a set of sample scripts for generating code.
 # A → β
 define([APPENDIX_APPEND_CODE], [
 	INFO(, defn([WORD_INFORMATION]), [[dnl czech
-Znaky {EXPL_M4([`'], [uvozovky]), EXPL_M4([[]], [hranaté závorky]), EXPL_M4([␂␆], [netisknutelné znaky]), EXPL_M4([⟦⟧], [UTF-8 znaky])} v[]NB()názvu příkladu LINK([řídí expanzi neterminálů], [expansion_control], [intro.mc]).
+Znaky {EXPLAIN_M4([`'], [uvozovky]), EXPLAIN_M4([[]], [hranaté závorky]), EXPLAIN_M4([␂␆], [netisknutelné znaky]), EXPLAIN_M4([⟦⟧], [UTF-8 znaky])} v[]NB()názvu příkladu LINK([řídí expanzi neterminálů], [expansion_control], [intro.mc]).
 ],
 [dnl english: _next_language_
-Chars. {EXPL_M4([`'], [quotation marks]), EXPL_M4([[]], [square brackets]), EXPL_M4([␂␆], [nonprintable characters]), EXPL_M4([⟦⟧], [UTF-8 characters])} in the name controls the LINK([expansion of nonterminals], [expansion_control], [intro.mc]).
+Chars. {EXPLAIN_M4([`'], [quotation marks]), EXPLAIN_M4([[]], [square brackets]), EXPLAIN_M4([␂␆], [nonprintable characters]), EXPLAIN_M4([⟦⟧], [UTF-8 characters])} in the name controls the LINK([expansion of nonterminals], [expansion_control], [intro.mc]).
 ]])
 ])
 

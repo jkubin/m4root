@@ -3,35 +3,35 @@ ___DESCR([command line with a list of input files, the last file is an output fi
 ___POINT([generates HTML code from the command line])
 
 # β
-pushdef([#$COMMAND_LINE], [
+pushdef([#$XCOMMAND], [
 
 	ifelse(eval([$# > 1]), [1], [], [
 
 		ROOT_ERROR([‘$0($@)’ requires at least 2 arguments])
 	])
 
-	divert(COMMAND_LINE_ARGS)dnl
+	divert(COMMAND_ARGS_QUEUE)dnl
 $1 dnl
 divert(-1)
 
 	FILES_ON_THE_COMMAND_LINE(shift($@))
 ])
 
-# COMMAND_LINE([foo -o a,b,c -DMACRO], [input/file1.src], [input/file2.src], [input/file3.src], …, [output/file.dst])
+# XCOMMAND([foo -o a,b,c -DMACRO], [input/file1.src], [input/file2.src], [input/file3.src], …, [output/file.dst])
 # A → β
-define([COMMAND_LINE], [
+define([XCOMMAND], [
 
 	define([COMMAND_LINE_CLASS], [usc])
 
-]defn([#$COMMAND_LINE]))
+]defn([#$XCOMMAND]))
 
-# COMMAND_LINE_ROOT([foo -o a,b,c -DMACRO], [input/file1.src], [input/file2.src], [input/file3.src], …, [output/file.dst])
+# XCOMMAND_ROOT([foo -o a,b,c -DMACRO], [input/file1.src], [input/file2.src], [input/file3.src], …, [output/file.dst])
 # A → β
-define([COMMAND_LINE_ROOT], [
+define([XCOMMAND_ROOT], [
 
 	define([COMMAND_LINE_CLASS], [root])
 
-]defn([#$COMMAND_LINE]))
+]defn([#$XCOMMAND]))
 
 # A → β
 define([FILES_ON_THE_COMMAND_LINE], [
@@ -56,13 +56,13 @@ define([FILES_ON_THE_COMMAND_LINE], [
 
 		divert(CURRQU)dnl
 <div id="ADD_ID_RULE(defn([#ID])-command)" title="defn([WORD_COMMAND])" class="ADD_CLASS(defn([COMMAND_LINE_CLASS]))"><pre>dnl
-undivert(COMMAND_LINE_ARGS)dnl
+undivert(COMMAND_ARGS_QUEUE)dnl
 GT() <a href="SRC_FILE_PATH/[$1]" title="defn([SRC_REPO_NAME])[$1]">patsubst([$1], [.*/])</a></pre><a href="[#]defn([#ID])-command" title="⚓"></a></div>
 divert(-1)
 
 	], [
 
-		divert(COMMAND_LINE_ARGS)dnl
+		divert(COMMAND_ARGS_QUEUE)dnl
 <a href="SRC_FILE_PATH/[$1]" title="defn([SRC_REPO_NAME])[$1]">patsubst([$1], [.*/])</a> dnl
 divert(-1)
 
@@ -72,4 +72,4 @@ divert(-1)
 ])
 
 # no need for further
-popdef([#$COMMAND_LINE])
+popdef([#$XCOMMAND])

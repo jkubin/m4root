@@ -11,7 +11,7 @@ ___POINT([definition of HTML5 inline elements and unpaired tags])
 pushdef([TITLE_2],		[[]ifelse([$2], [], [], [ title="[$2]"])])
 pushdef([XTITLE_2],		[[]ifelse([$2], [], [], [ title="$2"])])
 pushdef([CLASS_3],		[ifelse([$3], [], [], [ class="ADD_CLASS([$3])"])])
-pushdef([CLASS_3_EXPL],	[ class="ADD_CLASS([xp])[]ifelse([$3], [], [], [ ADD_CLASS([$3])])"])
+pushdef([CLASS_3_EXPLAIN],	[ class="ADD_CLASS([xp])[]ifelse([$3], [], [], [ ADD_CLASS([$3])])"])
 pushdef([STYLE_4],		[ifelse([$4], [], [], [ style="[$4]"])])
 pushdef([ID_5],		[ifelse([$5], [], [], [ id="ADD_ID_ANCH([$5])"])])
 pushdef([ANYTHING_6],	[ifelse([$6], [], [], [ [$6]])])
@@ -26,8 +26,8 @@ pushdef([HTML_GLOBAL_ATTRIBUTES],	defn([TITLE_2], [CLASS_3], [STYLE_4], [ID_5], 
 define([CODE_BLUE],	[CODE([$1], [$2], [bl])])
 define([CODE_M4U],	[CODE_M4([$1], [$2], [un])])
 define([CODE_UND],	[CODE([$1], [$2], [un])])
-define([EXPL],	[SPAN([$1], [$2], [xp])])
-define([EXPL_M4],	[CODE_M4([$1], [$2], [xp])])
+define([EXPLAIN],	[SPAN([$1], [$2], [xp])])
+define([EXPLAIN_M4],	[CODE_M4([$1], [$2], [xp])])
 define([MM],	[ifelse([$#], [0], [[$0]], [<span class=NSP()$2>$1</span>])])	<--- mnemonic: Marking Macro
 
 # built-in styles for root.cz
@@ -149,14 +149,14 @@ pushdef([SUPER_BETA], defn([BETA1], [EXPAND_LAST], [BETA2], [VAR_TITLE_2], [VAR_
 # A → β
 define([HCODE], defn([SUPER_BETA], [BETA3]))
 define([HCODE_M4], defn([SUPER_BETA], [BETA4]))
-define([HEXPL], defn([SUPER_BETA], [BETA3]))
-define([HEXPL_M4], defn([SUPER_BETA], [BETA4]))
+define([HEXPLAIN], defn([SUPER_BETA], [BETA3]))
+define([HEXPLAIN_M4], defn([SUPER_BETA], [BETA4]))
 
 # A → β
 define([HCODE_M4_TAG], [code])
 define([HCODE_TAG], [code])
-define([HEXPL_M4_TAG], [span])
-define([HEXPL_TAG], [span])
+define([HEXPLAIN_M4_TAG], [span])
+define([HEXPLAIN_TAG], [span])
 
 # A → β
 define([REMOVE_SPACES],	[translit([[$1]], [ ])])
@@ -321,7 +321,7 @@ popdef(
 	[BETA3],
 	[BETA4],
 	[CLASS_3],
-	[CLASS_3_EXPL],
+	[CLASS_3_EXPLAIN],
 	[CREATE_INLINE_ELEMENT],
 	[CREATE_INLINE_ELEMENT_EXPAND],
 	[CREATE_INLINE_ELEMENT_SPECIAL],

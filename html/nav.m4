@@ -25,9 +25,9 @@ dnl
 <div id="ADD_ID_RULE(defn([NSP], [TOC_ANCH]))"><h2>defn([WORD_CONTENT], [SWITCH_TO_ANOTHER_LANGUAGE])</h2><div>dnl
 <div class="ADD_CLASS([dwnl])">dnl
 <a href="SRC_FILE_PATH/defn([SOURCE])" style="font-weight:bold" title="defn([WORD_ARTICLE_SOURCE])">mc</a>dnl
-<a href="SRC_FILE_PATH/defn([ARTICLE_NAME]).txt" title="defn([WORD_ARTICLE_TEXT])">txt</a>dnl
-<a href="SRC_FILE_PATH/defn([ARTICLE_NAME])/publish.txt" title="defn([WORD_PUBLISH_TEXT])">pub</a><br>dnl
-<a href="SRC_FILE_PATH/defn([ARTICLE_NAME])/spell.txt" title="defn([WORD_SPELL_TEXT])">spell</a>dnl
+<a href="SRC_FILE_PATH/defn([ARTICLE_PATH]).txt" title="defn([WORD_ARTICLE_TEXT])">txt</a>dnl
+<a href="SRC_FILE_PATH/defn([ARTICLE_PATH])/publish.txt" title="defn([WORD_PUBLISH_TEXT])">pub</a><br>dnl
+<a href="SRC_FILE_PATH/defn([ARTICLE_PATH])/spell.txt" title="defn([WORD_SPELL_TEXT])">spell</a>dnl
 </div>dnl
 ifdef([NEW_ARTICLE], [], [<div class="ADD_CLASS([updt])">WORD_UPDATED<br>SARG1(esyscmd(defn([DATE_COMMAND])))</div>])dnl
 </div>dnl
