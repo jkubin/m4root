@@ -97,14 +97,14 @@ define([CAPTION], defn([TEST_ATM])[
 	define([FILE_PREFIX], __file__.LANG_CODE)
 
 	# define counters for chapters and sections
-	define([CHAPTER_IDX], defn([COUNT_UP]))
-	define([SECT1_IDX], defn([COUNT_UP]))
-	define([SECT2_IDX], defn([COUNT_UP]))
+	define([CHAPTER_COUNTER], defn([COUNT_UP]))
+	define([SECT1_COUNTER], defn([COUNT_UP]))
+	define([SECT2_COUNTER], defn([COUNT_UP]))
 
 	# init counters for chapters and sections
-	CHAPTER_IDX(0)
-	SECT1_IDX(0)
-	SECT2_IDX(0)
+	CHAPTER_COUNTER(0)
+	SECT1_COUNTER(0)
+	SECT2_COUNTER(0)
 
 	# transition to the next node (redefine itself to string)
 	define([$0], EXPAND_LANG(]defn([EXPAND_LAST])[))
@@ -136,13 +136,13 @@ divert(-1)
 define([CHAPTER], defn([MULTILINGUAL_HEADINGS], [SET_ANCHOR])[
 
 	# increment index
-	CHAPTER_IDX
+	CHAPTER_COUNTER
 
 	# assign indexes
-	define([SECT1_IDX_val], 0)
-	define([SECT2_IDX_val], 0)
+	define([SECT1_COUNTER_val], 0)
+	define([SECT2_COUNTER_val], 0)
 
-	define([#S0], CHAPTER_IDX_val)
+	define([#S0], CHAPTER_COUNTER_val)
 	define([INDENT_LEVEL])
 	define([HEADING_TAG], [h2])
 
@@ -155,12 +155,12 @@ define([CHAPTER], defn([MULTILINGUAL_HEADINGS], [SET_ANCHOR])[
 define([SECT1], defn([MULTILINGUAL_HEADINGS], [SET_ANCHOR])[
 
 	# increment index
-	SECT1_IDX
-	define([SECT2_IDX_val], 0)
+	SECT1_COUNTER
+	define([SECT2_COUNTER_val], 0)
 
 	# assign indexes
-	define([#S0], CHAPTER_IDX_val)
-	define([#S1], .SECT1_IDX_val)
+	define([#S0], CHAPTER_COUNTER_val)
+	define([#S1], .SECT1_COUNTER_val)
 
 	define([INDENT_LEVEL], [ class="ADD_CLASS([l2])"])
 	define([HEADING_TAG], [h3])
@@ -174,12 +174,12 @@ define([SECT1], defn([MULTILINGUAL_HEADINGS], [SET_ANCHOR])[
 define([SECT2], defn([MULTILINGUAL_HEADINGS], [SET_ANCHOR])[
 
 	# increment index
-	SECT2_IDX
+	SECT2_COUNTER
 
 	# assign indexes
-	define([#S0], CHAPTER_IDX_val)
-	define([#S1], .SECT1_IDX_val)
-	define([#S2], .SECT2_IDX_val)
+	define([#S0], CHAPTER_COUNTER_val)
+	define([#S1], .SECT1_COUNTER_val)
+	define([#S2], .SECT2_COUNTER_val)
 
 	define([INDENT_LEVEL], [ class="ADD_CLASS([l3])"])
 	define([HEADING_TAG], [h4])
@@ -193,9 +193,9 @@ define([SECT2], defn([MULTILINGUAL_HEADINGS], [SET_ANCHOR])[
 define([APPENDIX_NODE], defn([MULTILINGUAL_HEADINGS], [SET_ANCHOR])[
 
 	# increment letter index
-	define([APPENDIX_LETTER], format([%c], APPENDIX_IDX))
-	define([SECT1_IDX_val], 0)
-	define([SECT2_IDX_val], 0)
+	define([APPENDIX_LETTER], format([%c], APPENDIX_COUNTER))
+	define([SECT1_COUNTER_val], 0)
+	define([SECT2_COUNTER_val], 0)
 
 	# assign indexes
 	define([#S0], APPENDIX_LETTER)
@@ -231,8 +231,8 @@ divert(-1)
 define([APPENDIX], [
 
 	# starting letter is 65: ord('A')
-	define([APPENDIX_IDX], defn([COUNT_UP]))
-	APPENDIX_IDX(65)
+	define([APPENDIX_COUNTER], defn([COUNT_UP]))
+	APPENDIX_COUNTER(65)
 
 	divert(APPENDIX_NAVIG_DATA)dnl
 <hr>
@@ -251,12 +251,12 @@ divert(-1)
 define([SECT1_APPENDIX], defn([MULTILINGUAL_HEADINGS], [SET_ANCHOR])[
 
 	# increment index
-	SECT1_IDX
-	define([SECT2_IDX_val], 0)
+	SECT1_COUNTER
+	define([SECT2_COUNTER_val], 0)
 
 	# assign indexes
 	define([#S0], APPENDIX_LETTER)
-	define([#S1], .SECT1_IDX_val)
+	define([#S1], .SECT1_COUNTER_val)
 
 	divert(APPENDIX_NAVIGATION)dnl
 <p id="defn([#ID], [TOC_ANCH])" class="ADD_CLASS([l2])"><a href="[#]defn([#ID])"><b>defn([#S0], [#S1], [#S2])</b>SELITM</a></p>
@@ -272,12 +272,12 @@ divert(-1)
 define([SECT2_APPENDIX], defn([MULTILINGUAL_HEADINGS], [SET_ANCHOR])[
 
 	# increment index
-	SECT2_IDX
+	SECT2_COUNTER
 
 	# assign indexes
 	define([#S0], APPENDIX_LETTER)
-	define([#S1], .SECT1_IDX_val)
-	define([#S2], .SECT2_IDX_val)
+	define([#S1], .SECT1_COUNTER_val)
+	define([#S2], .SECT2_COUNTER_val)
 
 	divert(APPENDIX_NAVIGATION)dnl
 <p id="defn([#ID], [TOC_ANCH])" class="ADD_CLASS([l3])"><a href="[#]defn([#ID])"><b>defn([#S0], [#S1], [#S2])</b>SELITM</a></p>

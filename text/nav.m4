@@ -23,10 +23,10 @@ divert(-1)
 ifelse(defn([REF]), defn([REF_NEXT]), [
 
 	# increment chapter index for references
-	CHAPTER_IDX
+	CHAPTER_COUNTER
 
 	# assign indexes
-	define([#S0], CHAPTER_IDX_val)
+	define([#S0], CHAPTER_COUNTER_val)
 	define([#S1])
 	define([#S2])
 
@@ -70,10 +70,10 @@ divert(-1)
 	])
 
 	# increment chapter index (this is the last item in navigation)
-	CHAPTER_IDX
+	CHAPTER_COUNTER
 
 	# assign indexes
-	define([#S0], CHAPTER_IDX_val)
+	define([#S0], CHAPTER_COUNTER_val)
 	define([#S1])
 	define([#S2])
 

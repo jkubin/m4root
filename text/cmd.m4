@@ -16,7 +16,7 @@ pushdef([TEST_NUMBER_OF_ARGS], [
 define([COMMAND_LINE], defn([TEST_NUMBER_OF_ARGS])[
 
 	divert(COMMAND_LINE_ARGS)dnl
-CMD() $1 dnl
+PROMPT() $1 dnl
 divert(-1)
 
 	FILES_ON_THE_COMMAND_LINE(shift($@))
@@ -27,7 +27,7 @@ divert(-1)
 define([COMMAND_LINE_ROOT], defn([TEST_NUMBER_OF_ARGS])[
 
 	divert(COMMAND_LINE_ARGS)dnl
-ROO() $1 dnl
+PROMPT_ROOT() $1 dnl
 divert(-1)
 
 	FILES_ON_THE_COMMAND_LINE(shift($@))

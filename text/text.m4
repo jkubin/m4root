@@ -64,7 +64,7 @@ divert(-1)
 pushdef([PRINT_PROMPT_USR], [
 
 	divert(CURRQU)dnl
-CMD() dnl
+PROMPT() dnl
 divert(-1)
 ])
 
@@ -72,7 +72,7 @@ divert(-1)
 pushdef([PRINT_PROMPT_ROOT], [
 
 	divert(CURRQU)dnl
-ROO() dnl
+PROMPT_ROOT() dnl
 divert(-1)
 ])
 
@@ -148,14 +148,14 @@ divert(-1)
 	# TODO: tady nastavit neterminalni pocitadlo
 	#
 	# define counters for chapters and sections
-	define([CHAPTER_IDX], defn([COUNT_UP]))
-	define([SECT1_IDX], defn([COUNT_UP]))
-	define([SECT2_IDX], defn([COUNT_UP]))
+	define([CHAPTER_COUNTER], defn([COUNT_UP]))
+	define([SECT1_COUNTER], defn([COUNT_UP]))
+	define([SECT2_COUNTER], defn([COUNT_UP]))
 
 	# init counters for chapters and sections
-	CHAPTER_IDX(0)
-	SECT1_IDX(0)
-	SECT2_IDX(0)
+	CHAPTER_COUNTER(0)
+	SECT1_COUNTER(0)
+	SECT2_COUNTER(0)
 ])
 
 # β
@@ -185,13 +185,13 @@ divert(-1)
 define([CHAPTER], defn([INIT_INDICES_SELECT_LANG])[
 
 	# increment index
-	CHAPTER_IDX
+	CHAPTER_COUNTER
 
 	# assign indexes
-	define([SECT1_IDX_val], 0)
-	define([SECT2_IDX_val], 0)
+	define([SECT1_COUNTER_val], 0)
+	define([SECT2_COUNTER_val], 0)
 
-	define([#S0], CHAPTER_IDX_val)
+	define([#S0], CHAPTER_COUNTER_val)
 	define([INDENT_LEVEL])
 
 ]defn([CHAPTER_COMMON_CODE]))
@@ -200,12 +200,12 @@ define([CHAPTER], defn([INIT_INDICES_SELECT_LANG])[
 define([SECT1_BODY], defn([INIT_INDICES_SELECT_LANG])[
 
 	# increment index
-	SECT1_IDX
-	define([SECT2_IDX_val], 0)
+	SECT1_COUNTER
+	define([SECT2_COUNTER_val], 0)
 
 	# assign indexes
-	define([#S0], CHAPTER_IDX_val)
-	define([#S1], .SECT1_IDX_val)
+	define([#S0], CHAPTER_COUNTER_val)
+	define([#S1], .SECT1_COUNTER_val)
 
 	define([INDENT_LEVEL], [	])
 
@@ -215,12 +215,12 @@ define([SECT1_BODY], defn([INIT_INDICES_SELECT_LANG])[
 define([SECT2_BODY], defn([INIT_INDICES_SELECT_LANG])[
 
 	# increment index
-	SECT2_IDX
+	SECT2_COUNTER
 
 	# assign indexes
-	define([#S0], CHAPTER_IDX_val)
-	define([#S1], .SECT1_IDX_val)
-	define([#S2], .SECT2_IDX_val)
+	define([#S0], CHAPTER_COUNTER_val)
+	define([#S1], .SECT1_COUNTER_val)
+	define([#S2], .SECT2_COUNTER_val)
 
 	define([INDENT_LEVEL], [		])
 
@@ -230,9 +230,9 @@ define([SECT2_BODY], defn([INIT_INDICES_SELECT_LANG])[
 define([APPENDIX_NODE], defn([INIT_INDICES_SELECT_LANG])[
 
 	# assign and increment letter index
-	define([APPENDIX_LETTER], format([%c], APPENDIX_IDX))
-	define([SECT1_IDX_val], 0)
-	define([SECT2_IDX_val], 0)
+	define([APPENDIX_LETTER], format([%c], APPENDIX_COUNTER))
+	define([SECT1_COUNTER_val], 0)
+	define([SECT2_COUNTER_val], 0)
 
 	# assign indexes
 	define([#S0], APPENDIX_LETTER)
@@ -266,8 +266,8 @@ divert(-1)
 define([APPENDIX_INIT], [
 
 	# starting letter is 65: ord('A')
-	define([APPENDIX_IDX], defn([COUNT_UP]))
-	APPENDIX_IDX(65)
+	define([APPENDIX_COUNTER], defn([COUNT_UP]))
+	APPENDIX_COUNTER(65)
 
 	# add a separator between article body and appendixes
 	divert(APPENDIX_NAVIG_DATA)dnl
@@ -285,12 +285,12 @@ divert(-1)
 define([SECT1_APPENDIX], defn([INIT_INDICES_SELECT_LANG])[
 
 	# increment index
-	SECT1_IDX
-	define([SECT2_IDX_val], 0)
+	SECT1_COUNTER
+	define([SECT2_COUNTER_val], 0)
 
 	# assign indexes
 	define([#S0], APPENDIX_LETTER)
-	define([#S1], .SECT1_IDX_val)
+	define([#S1], .SECT1_COUNTER_val)
 
 	divert(APPENDIX_NAVIGATION)dnl
 	defn([#S0], [#S1], [#S2]) SELITM
@@ -303,12 +303,12 @@ divert(-1)
 define([SECT2_APPENDIX], defn([INIT_INDICES_SELECT_LANG])[
 
 	# increment index
-	SECT2_IDX
+	SECT2_COUNTER
 
 	# assign indexes
 	define([#S0], APPENDIX_LETTER)
-	define([#S1], .SECT1_IDX_val)
-	define([#S2], .SECT2_IDX_val)
+	define([#S1], .SECT1_COUNTER_val)
+	define([#S2], .SECT2_COUNTER_val)
 
 	divert(APPENDIX_NAVIGATION)dnl
 		defn([#S0], [#S1], [#S2]) SELITM

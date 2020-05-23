@@ -302,19 +302,19 @@ color:inherit;
 
 CSS_CLASS_RULE_SET([[]],	[usc],	[[ pre::before]], [
 
-content:"CMD() ";
+content:"PROMPT() ";
 font-weight:normal;
 
 ])
 
 CSS_CLASS_RULE_SET([[]],	[root],	[[ pre::before]], [
 
-content:"ROO() ";
+content:"PROMPT_ROOT() ";
 font-weight:normal;
 
 ])
 
-# modifies margins of <ul></ul> if used in .rs-tip-major
+# margins of <ul></ul> if used in .rs-tip-major
 CSS_CLASS_RULE_SET([[]],	[note],	[[ ul]], [
 
 margin-bottom:0;
