@@ -16,7 +16,7 @@ define([TABLE_OF_CONTENT_ITEM], [
 divert(1)dnl
 defn([FILE_STEM]) \
 divert(2)dnl
-FILE_STEM.txt: rootb.m4 cfg.m4 order.m4 lang.m4 headings.m4 ver.m4 lang_$2.m4 git.m4 REFS_FILES incl.m4 text/file.m4 text/cmd.m4 text/queues.m4 text/inline.m4 text/text.m4 $1 text/nav.m4
+FILE_STEM.txt: rootb.m4 cfg.m4 order.m4 lang.m4 headings.m4 ver.m4 lang_$2.m4 git.m4 REFS_FILES incl.m4 text/file.m4 text/cmd.m4 text/queues.m4 text/ref.m4 text/link.m4 text/text.m4 $1 text/nav.m4
 	m4 -DLANG_CODE='$2' -DSOURCE='$1' -DLINE_NUMBERS $(FLAGS) $^ | sed -f text/esc_to_txt.sed > $[@]
 
 divert(-1)
