@@ -387,14 +387,14 @@ PARA([[dnl czech
 Dnes existuje několik implementací lišící se od původní implementace spíše drobnostmi.
 Nejrozšířenější implementace M4 je BOLD([GNU M4]) používaná pro ULINK([Autotools], [Wikipedie], [https://en.wikipedia.org/wiki/GNU_Build_System])
 a[]NB()pro překlad jednoduchého konfiguračního souboru CODE([sendmail.mc]) na složitý CODE([sendmail.cf]).
-Autorem této implementace z[]NB()roku 1990 je ULINK([PERSON([René Seindal])], [https://www.seindal.dk/rene/gnu/]).
+Autorem této implementace z[]NB()roku 1990 je ULINK([PERSON([René[]NB()Seindal])], [https://www.seindal.dk/rene/gnu/]).
 Následující příkaz nainstaluje EXPL([m4], [s malým „m“]):
 ],
 [dnl english: _next_language_
 Today, there are several implementations that differ from the original implementation rather by small details.
 The most common implementation of M4 is the BOLD([GNU M4]) used for ULINK([Autotools], [Wikipedia], [https://en.wikipedia.org/wiki/GNU_Build_System])
 and for translating the simple CODE([sendmail.mc]) configuration file to complex CODE([sendmail.cf]).
-The author of this implementation (1990) is ULINK([PERSON([René Seindal])], [https://www.seindal.dk/rene/gnu/]).
+The author of this implementation (1990) is ULINK([PERSON([René[]NB()Seindal])], [https://www.seindal.dk/rene/gnu/]).
 To install EXPL([m4], [with small letter “m”]), type the following command:
 ]])
 
@@ -444,12 +444,12 @@ dnl english: _next_language_
 ])
 
 PARA([[dnl czech
-Bezkontextová gramatika (krátce ABBREV([CFG], [Context-Free Grammar – bezkontextová gramatika])) je LINK([formální gramatika], [formal_grammar_chomsky]), ve které mají všechna přepisovací pravidla tvar HCODE([A → β], [[[1], [all_context_free_grammar_rules]]]).
+Bezkontextová gramatika (krátce ABBREV([CFG], [Context-Free Grammar – bezkontextová gramatika])) je LINK([formální gramatika], [formal_grammar_chomsky]), ve které mají všechna přepisovací pravidla tvar HCODE([A → β], [[[1], [all_context_free_grammar_rules]], [[2], [rewriting_rules]]]).
 Neterminál HCODE_M4([A], [[[D], [all_context_free_grammar_rules]]]) se HEXPL([přepíše], [[[E], [all_context_free_grammar_rules]]]) na libovolně dlouhý řetězec ABBREV([HCODE([β], [[[F], [all_context_free_grammar_rules]]])], [pravá strana přepisovacího pravidla]) složený z[]NB()HEXPL([neterminálů CODE([N])], [[[B], [all_context_free_grammar_rules]]]) HEXPL([nebo], [[[G], [all_context_free_grammar_rules]]]) HEXPL([terminálů CODE([Σ])], [[[A], [all_context_free_grammar_rules]]]).
 HEXPL([ULINK([Kleeneho hvězda], [Wikipedie], [https://en.wikipedia.org/wiki/Kleene_star])], [[[C], [all_context_free_grammar_rules]]]) znamená, že se neterminál HCODE_M4([A], [[[D], [all_context_free_grammar_rules]], [[D], [rewriting_rules]]]) může přepsat na ABBREV([CODE([ε])], [epsilon – prázdný symbol]) (přepisovací pravidlo HCODE([A → ε], [[[5,6], [rewriting_rules]]])).
 ],
 [dnl english: _next_language_
-Context-free grammar (shortly ABBREV([CFG], [Context-Free Grammar])) is a[]NB()LINK([formal grammar], [formal_grammar_chomsky]) in which all rules for rewriting have the HCODE([A → β], [[[1], [all_context_free_grammar_rules]]]) form.
+Context-free grammar (shortly ABBREV([CFG], [Context-Free Grammar])) is a[]NB()LINK([formal grammar], [formal_grammar_chomsky]) in which all rules for rewriting have the HCODE([A → β], [[[1], [all_context_free_grammar_rules]], [[2], [rewriting_rules]]]) form.
 The nonterminal HCODE_M4([A], [[[D], [all_context_free_grammar_rules]]]) is HEXPL([rewritten], [[[E], [all_context_free_grammar_rules]]]) to an arbitrarily long ABBREV([HCODE([β], [[[F], [all_context_free_grammar_rules]]])], [the right side of the rewriting rule]) string composed of HEXPL([nonterminals CODE([N])], [[[B], [all_context_free_grammar_rules]]]) HEXPL([or], [[[G], [all_context_free_grammar_rules]]]) HEXPL([terminals CODE([Σ])], [[[A], [all_context_free_grammar_rules]]]).
 HEXPL([ULINK([Kleene star], [Wikipedia], [https://en.wikipedia.org/wiki/Kleene_star])], [[[C], [all_context_free_grammar_rules]]]) means that nonterminal HCODE_M4([A], [[[D], [all_context_free_grammar_rules]], [[D], [rewriting_rules]]]) can be rewritten to ABBREV([CODE([ε])], [epsilon – empty symbol]) (rewriting rule HCODE([A → ε], [[[5,6], [rewriting_rules]]])).
 ]])
@@ -1587,12 +1587,12 @@ dnl english: _next_language_
 ])
 
 PARA([[dnl czech
-Příklad používá tři automaty a[]NB()dvě výstupní fronty číslo HCODE([2], [[[10, 26], [messages/messages.ini.m4]]]) a[]NB()HCODE([4], [[[10, 26], [messages/messages.ini.m4]]]) definované v[]NB()odděleném souboru.
+Příklad používá HEXPL([tři automaty], [[[1-4], [messages/messages.ini.m4]]]) a[]NB()dvě výstupní fronty číslo HCODE([2], [[[10, 26], [messages/messages.ini.m4]]]) a[]NB()HCODE([4], [[[10, 26], [messages/messages.ini.m4]]]) definované v[]NB()odděleném souboru.
 HEXPL([Názvy INI sekcí], [[[11], [messages/messages.ini.m4]], [[3, 6, 11], [messages/messages.ini]]]) jsou generovány HEXPL([řetězením symbolů], [[[A, R], [messages/messages.ini.m4]]]) (viz. LINK([větvení], [branching_by_grammar])).
 Příklad používá stejný soubor pro výstupní fronty jako LINK([příklad], [json_symbolic_queue_names]) pro generování JSON.
 ],
 [dnl english: _next_language_
-The example uses three automata and two output queues number HCODE([2], [[[10, 26], [messages/messages.ini.m4]]]) and HCODE([4], [[[10, 26], [messages/messages.ini.m4]]]) defined in a[]NB()separate file.
+The example uses HEXPL([three automata], [[[1-4], [messages/messages.ini.m4]]]) and two output queues number HCODE([2], [[[10, 26], [messages/messages.ini.m4]]]) and HCODE([4], [[[10, 26], [messages/messages.ini.m4]]]) defined in a[]NB()separate file.
 HEXPL([INI section names], [[[11], [messages/messages.ini.m4]], [[3, 6, 11], [messages/messages.ini]]]) are generated by HEXPL([symbol chaining], [[[A, R], [messages/messages.ini.m4]]]) (see LINK([branching], [branching_by_grammar])).
 The example uses the same file for output queues as the LINK([example], [json_symbolic_queue_names]) to generate JSON.
 ]])
@@ -1715,20 +1715,20 @@ dnl english: _next_language_
 
 PARA([[dnl czech
 CSS používá znak HCODE_M4([#], [[[A], [preproc/file.css.m4]], [[A], [preproc/preproc.file.css]]]) pro kódy barev, což je také začátek jednořádkového M4 komentáře.
-Klíčové slovo HCODE_M4([changecom(/*,*/)], [[[A], [preproc/file.css]]]) nastaví víceřádkový komentář CODE([/* … */]) a[]NB()přepíše se na ABBREV([CODE([ε])], [epsilon – prázdný symbol]).
+Klíčové slovo HCODE_M4([changecom(/*,*/)], [[[A], [preproc/file.css]]]) nastaví víceřádkový komentář HCODE([/* … */], [[[B], [preproc/preproc.file.css]], [[C], [preproc/file.css]]]) a[]NB()přepíše se na ABBREV([CODE([ε])], [epsilon – prázdný symbol]).
 Komentáře se vypínají stejným klíčovým slovem HCODE_M4([changecom], [[[B], [preproc/file.css]]]) bez parametrů.
 ],
 [dnl english: _next_language_
 CSS uses the HCODE_M4([#], [[[A], [preproc/file.css.m4]], [[A], [preproc/preproc.file.css]]]) character for color codes, which is also the beginning of a[]NB()one-line M4 comment.
-The HCODE_M4([changecom(/*,*/)], [[[A], [preproc/file.css]]]) keyword sets a[]NB()multiline CODE([/* … */]) comment and rewrites itself into ABBREV([CODE([ε])], [epsilon – empty symbol]).
+The HCODE_M4([changecom(/*,*/)], [[[A], [preproc/file.css]]]) keyword sets a[]NB()multiline HCODE([/* … */], [[[B], [preproc/preproc.file.css]], [[C], [preproc/file.css]]]) comment and rewrites itself into ABBREV([CODE([ε])], [epsilon – empty symbol]).
 The comments can be turned off with the same HCODE_M4([changecom], [[[B], [preproc/file.css]]]) keyword without parameters.
 ]])
 
 INSERT_FILE([preproc/foo.css], LANG([soubor vložený makro procesorem], [file embedded by the macro processor]))
 INSERT_FILE([preproc/file.css.m4],, [/\<define\>/s/#/MM(a)/])
-INSERT_FILE([preproc/file.css],, [s/changecom(\/\*,\*\/)/MM(a)/;s/^changecom/MM(b)/])
+INSERT_FILE([preproc/file.css],, [s/changecom(\/\*,\*\/)/MM(a)/;s/^changecom/MM(b)/;/\<DONTE\>/{/\<changecom\>/!s:/\*.*\*/:MM(c):}])
 COMMAND_LINE([m4 -DSYMBOL='Hello, world!'], [gfiles/root0q.m4], [preproc/file.css.m4], [preproc/file.css], [preproc/preproc.file.css])
-INSERT_FILE([preproc/preproc.file.css],, [s/#/MM(a)/g])
+INSERT_FILE([preproc/preproc.file.css],, [s/#/MM(a)/g;/\<DONTE\>/s:/\*.*\*/:MM(b):])
 
 
 SECT1([nprint_bash], [dnl czech
