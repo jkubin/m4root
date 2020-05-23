@@ -1,5 +1,5 @@
 # __HEADER([Josef Kubin], [2019/10/09], [m4root])
-# ___DESCR([this handwritten Makefile automatically generates additional rules for creating target files])
+# ___DESCR([this handwritten Makefile automatically generates additional rules to generate target files])
 # ___POINT([learning M4 using the examples in this series])
 # ___USAGE([make h && make && make])
 
@@ -88,15 +88,19 @@ trunc trc:
 .PHONY: refs
 refs: $(REFS_LANG)
 
-#:cc	returns the number of characters that can be printed (required for articles)
-.PHONY: cc
-cc:
-	@echo 1234
+#:cc	determines the number of characters to be printed (article length)
+.PHONY: cc $(TEXT_CC)
+cc: $(TEXT_CC)
 
-#:wc	returns the number of words that can be printed (required for articles)
-.PHONY: wc
-wc:
-	@echo 123
+#:wc	determines the number of words to be printed (article length)
+.PHONY: wc $(TEXT_WC)
+wc: $(TEXT_WC)
+
+$(TEXT_CC):
+	@wc --chars $(@:.cc=.txt)
+
+$(TEXT_WC):
+	@wc --words $(@:.wc=.txt)
 
 
 #:test/tst/t	tests snippets of code in the scripting sandbox (development of new features or scripts)
@@ -155,7 +159,7 @@ test-uncommitted-git-changes changes gch:
 .PHONY: pkjs pjs js j
 pkjs pjs js j: $(JAVASCRIPT)
 
-# trailing LF after packing is removed by "head" command
+# note: trailing LF after packing is removed by "head" command
 %_packed.js: packer.sed %_packer.sed %_src.js
 	sed -f $< -f $(word 2, $^) $(lastword $^) | head -c -1 > $@
 
