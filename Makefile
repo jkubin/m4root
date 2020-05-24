@@ -45,7 +45,7 @@ CLSUBDIRS  = $(SUBDIRS:%=clean-%)
 
 #:all	generates all files (initial target)
 .PHONY: all
-all: src html $(TARGETS)
+all: src html text $(TARGETS)
 
 
 #:man	generates a child file for the Makefile to generate man
@@ -112,8 +112,7 @@ test tst t: trunc devel
 #devel: rootb.m4 cfg.m4 queues.m4 style.m4 css.m4 inline.m4 test.m4
 #devel: rootb.m4 cfg.m4 queues.m4 style.m4 css.m4 js.m4 test.m4
 #devel: rootb.m4 cfg.m4 queues.m4 style.m4 css.m4 test.m4
-#devel: test.m4
-devel: root0b.m4 git.m4 test.m4
+devel: rootb.m4 cfg.m4 git.m4 text/queues.m4 text/cmd.m4 html/ent.m4 test.m4
 	m4 $^
 
 #:new/n	removes the date at the top of the page (usage: $ make new art)

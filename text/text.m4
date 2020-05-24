@@ -1,24 +1,27 @@
 # vim:ts=16:sw=16
 
 __HEADER([Josef Kubin], [2020/05/11], [m4root])
-___DESCR([creates a plain text file as a basis for other transformations])
-___POINT([text file for total number of words and characters])
-
-ifelse(defn([SOURCE]), [], [
-
-	ROOT_ERROR([set the -DSOURCE='file.mc' on the command line])
-])
+___DESCR([generates a plain text file from (multiple) source files])
+___POINT([the total number of words and characters that would be printed])
 
 # m4 -DWITHOUT_HEADER …	<--- provides a more accurate total number of words and characters
 ifdef([WITHOUT_HEADER], [], [
+
 	divert(0)dnl
 vim:ts=4:sw=4
 
 DONTE()
+
 divert(-1)
 ])
 
-# prints monolingual text
+# β
+pushdef([PRINT_EMPTY_LINE], [
+
+	divert(CURRQU)
+divert(-1)
+])
+
 # β
 pushdef([PRINT_MONO], [
 
@@ -28,7 +31,14 @@ EXPAND_ARG1_WITHOUT_TRAILING_LF(]defn([EXPAND_LAST])[)
 divert(-1)
 ])
 
-# prints the text selected by the language code
+# β
+pushdef([PRINT_MONO_NO_EMPTY_LINE], [
+
+	divert(CURRQU)dnl
+EXPAND_ARG1_WITHOUT_TRAILING_LF(]defn([EXPAND_LAST])[)
+divert(-1)
+])
+
 # β
 pushdef([PRINT_LANG], [
 
@@ -38,9 +48,13 @@ EXPAND_LANG_WITHOUT_TRAILING_LF(]defn([EXPAND_LAST])[)
 divert(-1)
 ])
 
-# create and init counter for images
-define([IMAGE_COUNTER], defn([COUNT_UP]))
-IMAGE_COUNTER(1)
+# β
+pushdef([PRINT_LANG_NO_EMPTY_LINE], [
+
+	divert(CURRQU)dnl
+EXPAND_LANG_WITHOUT_TRAILING_LF(]defn([EXPAND_LAST])[)
+divert(-1)
+])
 
 # β
 pushdef([PRINT_IMAGE], [
@@ -60,7 +74,7 @@ EXPAND_ARG1_WITHOUT_TRAILING_LF(]defn([SELECT_LAST])[)
 divert(-1)
 ])
 
-# A → β
+# β
 pushdef([PRINT_PROMPT_USR], [
 
 	divert(CURRQU)dnl
@@ -68,7 +82,7 @@ PROMPT() dnl
 divert(-1)
 ])
 
-# A → β
+# β
 pushdef([PRINT_PROMPT_ROOT], [
 
 	divert(CURRQU)dnl
@@ -76,7 +90,7 @@ PROMPT_ROOT() dnl
 divert(-1)
 ])
 
-# A → β
+# β
 pushdef([PRINT_BULLET], [
 
 	divert(CURRQU)dnl
@@ -116,217 +130,277 @@ pushdef([PRINT_EXCL_SYMBOL], [
 divert(-1)
 ])
 
-# A → β
-define([CAPTION], [
+# β
+pushdef([PART_INIT], [
 
-	# append a new line
-	divert(END_OF_NAVIGATION)
-divert(-1)
-
-	# TODO: unfinished
+	# current queue to stdout
+	define([CURRQU], 0)
 
 	ifdef([WITHOUT_HEADER], [], [
 
 		divert(0)dnl
+__SOURCE(LB()__file__[]RB(), SARG1(esyscmd([date '+[[%Y%m%d-%R:%S]],'])), SARG1(esyscmd([git log -1 --format='[[%h]],' ]__file__)), SARG1(esyscmd([git log -1 --format='[[%h]],'])))
 
-__SOURCE(LB()defn([SOURCE])RB(), SARG1(esyscmd([date '+[[%Y%m%d-%R:%S]],'])), SARG1(esyscmd([git log -1 --format='[[%h]],' ]defn([SOURCE]))), SARG1(esyscmd([git log -1 --format='[[%h]],'])))
-
+WORD_PART PART_COUNTER. dnl
 divert(-1)
 	])
 
 	# reset automata
-	define([APPENDIX], defn([APPENDIX_INIT]))
-	define([CURRQU], 0)
-	define([SECT1], defn([SECT1_BODY]))
-	define([SECT2], defn([SECT2_BODY]))
+	define([APPENDIX],	defn([APPENDIX_FIRST]))
+	define([CHAPTER],	defn([CHAPTER_FIRST]))
+	define([REF],		defn([REF_FIRST]))
+	define([SECT1],		defn([SECT1_BODY]))
+	define([SECT2],		defn([SECT2_BODY]))
 
-	]defn([PRINT_LANG])[
+	# needed for LINK(…) to dereference text from the references
+	define([FILE_PREFIX],	__file__.LANG_CODE)
 
-	# needed for LINK(…)
-	define([FILE_PREFIX], __file__.LANG_CODE)
+	# define counters
+	define([CHAPTER_COUNTER],	defn([COUNT_UP]))
+	define([IMAGE_COUNTER],	defn([COUNT_UP]))
+	define([SECT1_COUNTER],	defn([COUNT_UP]))
+	define([SECT2_COUNTER],	defn([COUNT_UP]))
 
-	# TODO: tady nastavit neterminalni pocitadlo
-	#
-	# define counters for chapters and sections
-	define([CHAPTER_COUNTER], defn([COUNT_UP]))
-	define([SECT1_COUNTER], defn([COUNT_UP]))
-	define([SECT2_COUNTER], defn([COUNT_UP]))
-
-	# init counters for chapters and sections
+	# init counters
 	CHAPTER_COUNTER(0)
+	IMAGE_COUNTER(1)
 	SECT1_COUNTER(0)
 	SECT2_COUNTER(0)
+
+]defn([PRINT_LANG]))
+
+#      ______      ___________
+# --->/ PART \--->/ PART_NEXT \---.
+#     \______/    \___________/<--'
+#
+# A → β
+define([PART], [
+
+	# define counter for parts
+	define([PART_COUNTER],	defn([COUNT_UP]))
+	PART_COUNTER(1)
+
+	# transition to next node
+	define([$0], defn([PART_NEXT]))
+
+]defn([PART_INIT]))
+
+# A → β
+pushdef([PART_FINISH], [
+
+	# if the REF was used it changes automaton state to the REF_NEXT node
+	ifelse(defn([REF]), defn([REF_NEXT]), [
+	
+		# increment chapter index
+		CHAPTER_COUNTER
+	
+		# add item to navigation and below the page
+		divert(CHAPTER_NAVIG_DATA)dnl
+CHAPTER_COUNTER_val WORD_REFERENCES
+divert(ARTICLE_REFER_CAPT)dnl
+CHAPTER_COUNTER_val WORD_REFERENCES
+divert(-1)
+	])
+
+	# if enabled, adds a code to references
+	ifdef([ADD_LINKS_TO_ALL_PARTS_OF_THE_SERIES], [
+	
+		# generate table of content for all parts
+		ifelse(defn(OTHER_LANG_CODE[]_OTHER_LANG), [], [
+	
+			TABLE_OF_CONTENT(LANG_CODE)
+		], [
+			TABLE_OF_CONTENT(LANG_CODE[,] OTHER_LANG_CODE)
+		])
+	
+		# increment chapter index
+		CHAPTER_COUNTER
+	
+		# add item to navigation and below the page
+		divert(CHAPTER_NAVIG_DATA)dnl
+CHAPTER_COUNTER_val SENTENCE_ALL_PARTS
+divert(ALL_PARTS_LIST)dnl
+CHAPTER_COUNTER_val SENTENCE_ALL_PARTS
+divert(ALL_PARTS_END)
+divert(-1)
+	])
 ])
 
-# β
-define([INIT_INDICES_SELECT_LANG], [
+# A → β
+define([PART_NEXT], defn([PART_FINISH])[
 
-	# A → ε
-	define([#S0])
-	define([#S1])
-	define([#S2])
+	divert(0)dnl print the previous part to stdout, start the next part
+undivert[]ifdef([WITHOUT_HEADER], [], [------------------------ >8 ------------------------
+])dnl
+divert(-1)
 
-	define([SELITM], SELECT_LANG(]defn([EXPAND_LAST])[))
-])
+]defn([PART_INIT]))
 
-# β
-pushdef([CHAPTER_COMMON_CODE], [
+# completes the last part when exiting the script
+m4wrap(defn([PART_FINISH]))
 
-	define([CURRQU], ARTICLE_CONTENT)
+# A → β
+define([TABLE_OF_CONTENT_ITEM], [
 
-	divert(CHAPTER_NAVIG_DATA)dnl
-defn([INDENT_LEVEL], [#S0], [#S1], [#S2]) SELITM
-divert(CURRQU)dnl
-defn([#S0], [#S1], [#S2]) SELITM
+	# set caption from associative memory
+	divert(ALL_PARTS_ITEMS)dnl
+defn([$1.$2.capt])[]ifelse([$3], [], [], [, $3])
 divert(-1)
 ])
 
-# A → β
-define([CHAPTER], defn([INIT_INDICES_SELECT_LANG])[
+# β
+define([CHAPTER_NEXT], [
 
 	# increment index
 	CHAPTER_COUNTER
-
-	# assign indexes
 	define([SECT1_COUNTER_val], 0)
 	define([SECT2_COUNTER_val], 0)
 
-	define([#S0], CHAPTER_COUNTER_val)
-	define([INDENT_LEVEL])
+	define([SELITM], SELECT_LANG(]defn([EXPAND_LAST])[))
 
-]defn([CHAPTER_COMMON_CODE]))
+	divert(CHAPTER_NAVIG_DATA)dnl
+CHAPTER_COUNTER_val SELITM
+divert(CURRQU)dnl
+CHAPTER_COUNTER_val SELITM
+divert(-1)
+])
+
+# β
+define([CHAPTER_FIRST], [
+
+	divert(START_OF_NAVIGATION)dnl generates table of content
+defn([WORD_CONTENT])dnl
+ifelse(defn(OTHER_LANG_CODE[]_OTHER_LANG), [], [], [ (ARG1(OTHER_LANG_CODE)_OTHER_LANG)])dnl
+ifdef([NEW_ARTICLE], [],
+[			WORD_UPDATED SARG1(esyscmd(defn([DATE_COMMAND])))])
+divert(END_OF_NAVIGATION)
+divert(-1)
+
+	# set article queue
+	define([CURRQU], ARTICLE_CONTENT)
+
+	# transition to next node
+	define([$0], defn([CHAPTER_NEXT]))
+
+]defn([CHAPTER_NEXT]))
 
 # A → β
-define([SECT1_BODY], defn([INIT_INDICES_SELECT_LANG])[
+define([SECT1_BODY], [
 
 	# increment index
 	SECT1_COUNTER
 	define([SECT2_COUNTER_val], 0)
 
-	# assign indexes
-	define([#S0], CHAPTER_COUNTER_val)
-	define([#S1], .SECT1_COUNTER_val)
+	define([SELITM], SELECT_LANG(]defn([EXPAND_LAST])[))
 
-	define([INDENT_LEVEL], [	])
-
-]defn([CHAPTER_COMMON_CODE]))
+	divert(CHAPTER_NAVIG_DATA)dnl
+	CHAPTER_COUNTER_val.SECT1_COUNTER_val SELITM
+divert(CURRQU)dnl
+CHAPTER_COUNTER_val.SECT1_COUNTER_val SELITM
+divert(-1)
+])
 
 # A → β
-define([SECT2_BODY], defn([INIT_INDICES_SELECT_LANG])[
+define([SECT2_BODY], [
 
 	# increment index
 	SECT2_COUNTER
 
-	# assign indexes
-	define([#S0], CHAPTER_COUNTER_val)
-	define([#S1], .SECT1_COUNTER_val)
-	define([#S2], .SECT2_COUNTER_val)
+	define([SELITM], SELECT_LANG(]defn([EXPAND_LAST])[))
 
-	define([INDENT_LEVEL], [		])
-
-]defn([CHAPTER_COMMON_CODE]))
+	divert(CHAPTER_NAVIG_DATA)dnl
+		CHAPTER_COUNTER_val.SECT1_COUNTER_val.SECT2_COUNTER_val SELITM
+divert(CURRQU)dnl
+CHAPTER_COUNTER_val.SECT1_COUNTER_val.SECT2_COUNTER_val SELITM
+divert(-1)
+])
 
 # β
-define([APPENDIX_NODE], defn([INIT_INDICES_SELECT_LANG])[
+define([APPENDIX_NEXT], [
 
-	# assign and increment letter index
+	# increment index
 	define([APPENDIX_LETTER], format([%c], APPENDIX_COUNTER))
 	define([SECT1_COUNTER_val], 0)
 	define([SECT2_COUNTER_val], 0)
 
-	# assign indexes
-	define([#S0], APPENDIX_LETTER)
-
-	# set the current queue
-	define([CURRQU], APPENDIX_CONTENT)
+	define([SELITM], SELECT_LANG(]defn([EXPAND_LAST])[))
 
 	divert(APPENDIX_NAVIG_DATA)dnl
-defn([#S0], [#S1], [#S2]) SELITM
+APPENDIX_LETTER SELITM
 divert(APPENDIX_NAVIGATION)dnl
-
 undivert(CURRQU)dnl
-defn([#S0], [#S1], [#S2]) SELITM
+APPENDIX_LETTER SELITM
+divert(CURRQU)
 divert(-1)
 
 	# temporarily change the current queue
-	pushdef([CURRQU], [APPENDIX_NAVIGATION])
+	pushdef([CURRQU], APPENDIX_NAVIGATION)
 	APPENDIX_APPEND_CODE()
 	# set the previous queue
 	popdef([CURRQU])
 ])
 
-#      _______________      _______________
-# --->/ APPENDIX_INIT \--->/ APPENDIX_NODE \---.
-#     \_______________/    \_______________/<--'
-#      ____________      ________________
-# --->/ SECT1_BODY \--->/ SECT1_APPENDIX \---.
-#     \_SECT2_BODY_/    \_SECT2_APPENDIX_/<--'
+#      ________________      _______________
+# --->/ APPENDIX_FIRST \--->/ APPENDIX_NEXT \---.
+#     \________________/    \_______________/<--'
+#      _______      ________________
+# --->/ SECT1 \--->/ SECT1_APPENDIX \---.
+#     \_SECT2_/    \_SECT2_APPENDIX_/<--'
 #
 # β
-define([APPENDIX_INIT], [
+define([APPENDIX_FIRST], [
 
-	# starting letter is 65: ord('A')
+	# starting letter is ord('A') == 65
 	define([APPENDIX_COUNTER], defn([COUNT_UP]))
 	APPENDIX_COUNTER(65)
 
-	# add a separator between article body and appendixes
+	# set the queue
+	define([CURRQU], APPENDIX_CONTENT)
+
+	# a separator for TOC
 	divert(APPENDIX_NAVIG_DATA)dnl
 ---
 divert(-1)
 
-	# transition to the next node(s)
-	define([APPENDIX], defn([APPENDIX_NODE]))
+	# transition to the next nodes
+	define([APPENDIX], defn([APPENDIX_NEXT]))
 	define([SECT1], defn([SECT1_APPENDIX]))
 	define([SECT2], defn([SECT2_APPENDIX]))
 
-]defn([APPENDIX_NODE]))
+]defn([APPENDIX_NEXT]))
 
 # β
-define([SECT1_APPENDIX], defn([INIT_INDICES_SELECT_LANG])[
+define([SECT1_APPENDIX], [
 
 	# increment index
 	SECT1_COUNTER
 	define([SECT2_COUNTER_val], 0)
 
-	# assign indexes
-	define([#S0], APPENDIX_LETTER)
-	define([#S1], .SECT1_COUNTER_val)
+	define([SELITM], SELECT_LANG(]defn([EXPAND_LAST])[))
 
 	divert(APPENDIX_NAVIGATION)dnl
-	defn([#S0], [#S1], [#S2]) SELITM
+	APPENDIX_LETTER.SECT1_COUNTER_val SELITM
 divert(CURRQU)dnl
-defn([#S0], [#S1], [#S2]) SELITM
+APPENDIX_LETTER.SECT1_COUNTER_val SELITM
 divert(-1)
 ])
 
 # β
-define([SECT2_APPENDIX], defn([INIT_INDICES_SELECT_LANG])[
+define([SECT2_APPENDIX], [
 
 	# increment index
 	SECT2_COUNTER
 
-	# assign indexes
-	define([#S0], APPENDIX_LETTER)
-	define([#S1], .SECT1_COUNTER_val)
-	define([#S2], .SECT2_COUNTER_val)
+	define([SELITM], SELECT_LANG(]defn([EXPAND_LAST])[))
 
 	divert(APPENDIX_NAVIGATION)dnl
-		defn([#S0], [#S1], [#S2]) SELITM
+		APPENDIX_LETTER.SECT1_COUNTER_val.SECT2_COUNTER_val SELITM
 divert(CURRQU)dnl
-defn([#S0], [#S1], [#S2]) SELITM
+APPENDIX_LETTER.SECT1_COUNTER_val.SECT2_COUNTER_val SELITM
 divert(-1)
 ])
 
-# prints a line as a separator
-# A → β
-_define([HORIZONTAL_RULE], [
-
-	divert(CURRQU)dnl
----
-divert(-1)
-])
-
-# HTML5 inline elements
+# inline elements
 
 # A → β
 define([BR], [
@@ -359,11 +433,13 @@ define([DEFINITION],	defn([BOLD]))
 define([DELETED],	defn([BOLD]))
 define([DQ],		[ifelse([$#], [0], [[$0]], ["])])
 define([EMPHASIS],	defn([BOLD]))
+define([EXPLAIN],	defn([BOLD]))
+define([EXPLAIN_M4],	defn([CODE_M4]))
 define([GT],		[ifelse([$#], [0], [[$0]], [>])])
 define([HCODE],		defn([BOLD]))
 define([HCODE_M4],	defn([CODE_M4]))
-define([HEXPL],		defn([BOLD]))
-define([HEXPL_M4],	defn([CODE_M4]))
+define([HEXPLAIN],	defn([BOLD]))
+define([HEXPLAIN_M4],	defn([CODE_M4]))
 define([INS],		defn([BOLD]))
 define([ITALIC],	defn([BOLD]))
 define([LABEL],		defn([BOLD]))
@@ -390,19 +466,17 @@ define([VARIABLE],	defn([BOLD]))
 define([WBR])
 define([XSPAN],		defn([BOLD]))
 
-# custom HTML5 inline elements for convenience
+# inline elements for convenience
 
 # A → β
 #define([BUN],		defn([BOLD]))
 define([CODE_BLUE],	defn([BOLD]))
 define([CODE_M4U],	defn([CODE_M4]))
 define([CODE_UND],	defn([BOLD]))
-define([EXPL],		defn([BOLD]))
-define([EXPL_M4],	defn([CODE_M4]))
 define([GRAY],		defn([BOLD]))
 define([PERSON],	defn([BOLD]))
 
-# HTML5 block-level elements
+# block-level elements
 
 # A → β
 define([ADDRESS_WRAP],		defn([EXPAND_LAST]))
@@ -410,10 +484,10 @@ define([ARTICLE_WRAP],		defn([EXPAND_LAST]))
 define([ASIDE_WRAP],		defn([EXPAND_LAST]))
 define([BLOCKQUOTE],		defn([PRINT_LANG]))
 define([BLOCKQUOTE_MONO],		defn([PRINT_MONO]))
-define([BRIDGEHEAD],		defn([PRINT_LANG]))
-define([BRIDGEHEAD_MONO],		defn([PRINT_MONO]))
-define([COMMAND_ROOT], 		defn([PRINT_PROMPT_ROOT], [PRINT_PROGRAMLISTING]))
-define([COMMAND_USR], 		defn([PRINT_PROMPT_USR], [PRINT_PROGRAMLISTING]))
+define([BRIDGEHEAD],		defn([PRINT_LANG_NO_EMPTY_LINE]))
+define([BRIDGEHEAD_MONO],		defn([PRINT_MONO_NO_EMPTY_LINE]))
+define([CMDSYNOPSIS], 		defn([PRINT_PROMPT_USR], [PRINT_PROGRAMLISTING]))
+define([CMDSYNOPSIS_ROOT], 		defn([PRINT_PROMPT_ROOT], [PRINT_PROGRAMLISTING]))
 define([COMMENT_MONO],		defn([PRINT_MONO]))
 define([DESCRIPTION_LIST_DESC],		defn([PRINT_LANG]))
 define([DESCRIPTION_LIST_DESC_MONO],	defn([PRINT_MONO]))
@@ -437,9 +511,9 @@ define([FORM_WRAP],		defn([EXPAND_LAST]))
 define([HEADER_WRAP],		defn([EXPAND_LAST]))
 define([IMAGEDATA],		defn([PRINT_IMAGE]))
 define([INFO],			defn([PRINT_INFO_SYMBOL], [PRINT_LANG]))
-define([ITEMIZEDLIST_WRAP],		defn([EXPAND_LAST]))
-define([LISTITEM],		defn([PRINT_BULLET], [PRINT_LANG]))
-define([LISTITEM_MONO],		defn([PRINT_BULLET], [PRINT_MONO]))
+define([ITEMIZEDLIST_WRAP],		defn([EXPAND_LAST], [PRINT_EMPTY_LINE]))
+define([LISTITEM],		defn([PRINT_BULLET], [PRINT_LANG_NO_EMPTY_LINE]))
+define([LISTITEM_MONO],		defn([PRINT_BULLET], [PRINT_MONO_NO_EMPTY_LINE]))
 define([MAIN_WRAP],		defn([EXPAND_LAST]))
 define([NAV],			defn([PRINT_LANG]))
 define([NAV_MONO],		defn([PRINT_MONO]))
@@ -449,7 +523,7 @@ define([NOTE_WRAP],		defn([EXPAND_LAST]))
 define([ORDEREDLIST_WRAP],		defn([EXPAND_LAST]))
 define([PARA],			defn([PRINT_LANG]))
 define([PARA_MONO],		defn([PRINT_MONO]))
-define([PEREX],			defn([PRINT_LANG]))
+define([PARTINTRO],		defn([PRINT_LANG]))
 define([PLAIN_TEXT],		defn([PRINT_LANG]))
 define([PLAIN_TEXT_MONO],		defn([PRINT_MONO]))
 define([PROGRAMLISTING], 		defn([PRINT_PROGRAMLISTING]))
@@ -469,11 +543,21 @@ define([WARN],			defn([PRINT_WARN_SYMBOL], [PRINT_LANG]))
 
 popdef(
 
+	[PART_FINISH],
+	[PART_INIT],
 	[PRINT_BULLET],
+	[PRINT_EMPTY_LINE],
+	[PRINT_EXCL_SYMBOL],
+	[PRINT_IMAGE],
+	[PRINT_INFO_SYMBOL],
 	[PRINT_LANG],
+	[PRINT_LANG_NO_EMPTY_LINE],
 	[PRINT_MONO],
+	[PRINT_MONO_NO_EMPTY_LINE],
+	[PRINT_NOTE_SYMBOL],
 	[PRINT_PROGRAMLISTING],
 	[PRINT_PROMPT_ROOT],
 	[PRINT_PROMPT_USR],
+	[PRINT_WARN_SYMBOL],
 
 )

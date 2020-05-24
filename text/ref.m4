@@ -3,12 +3,12 @@ ___DESCR([automaton for generating text references])
 ___POINT([two nodes to generate references])
 
 # REF([name], [description], [URL])
-#      __________      __________
-# --->/ REF_INIT \--->/ REF_NEXT \---.
-#     \__________/    \__________/<--'
+#      ___________      __________
+# --->/ REF_FIRST \--->/ REF_NEXT \---.
+#     \___________/    \__________/<--'
 #
 # β
-define([REF_INIT], [pushdef([CURRQU], divnum)divert(-1)
+define([REF_FIRST], [pushdef([CURRQU], divnum)divert(-1)
 
 	# set reference index, create symbol and an unique tuple
 	define([REF_COUNTER], [1])
