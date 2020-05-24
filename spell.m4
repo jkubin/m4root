@@ -77,7 +77,7 @@ divert(-1)
 ])
 
 # A → β
-define([CAPTION], defn([PRINT_LANG])[
+define([PART], defn([PRINT_LANG])[
 
 	define([FILE_PREFIX], __file__.LANG_CODE)
 ])
@@ -249,8 +249,8 @@ define([BLOCKQUOTE_MONO],		defn([PRINT_MONO]))
 define([BRIDGEHEAD],		defn([PRINT_LANG]))
 define([BRIDGEHEAD_MONO],		defn([PRINT_MONO]))
 define([CHAPTER],		defn([PRINT_LANG]))
-define([CMDSYNOPSIS_ROOT], 		defn([TITLE_ATTR]))
 define([CMDSYNOPSIS], 		defn([TITLE_ATTR]))
+define([CMDSYNOPSIS_ROOT], 		defn([TITLE_ATTR]))
 define([COMMENT_MONO],		defn([PRINT_MONO]))
 define([DESCRIPTION_LIST_DESC],		defn([PRINT_LANG]))
 define([DESCRIPTION_LIST_DESC_MONO],	defn([PRINT_MONO]))
@@ -286,7 +286,7 @@ define([NOTE_WRAP],		defn([TITLE_ATTR], [EXPAND_LAST]))
 define([ORDEREDLIST_WRAP],		defn([TITLE_ATTR], [EXPAND_LAST]))
 define([PARA],			defn([PRINT_LANG]))
 define([PARA_MONO],		defn([PRINT_MONO]))
-define([PEREX],			defn([PRINT_LANG_PEREX]))
+define([PARTINTRO],		defn([PRINT_LANG_PEREX]))
 define([PLAIN_TEXT],		defn([PRINT_LANG]))
 define([PLAIN_TEXT_MONO],		defn([PRINT_MONO]))
 define([PROGRAMLISTING], 		defn([TITLE_ATTR]))

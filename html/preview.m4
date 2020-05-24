@@ -32,14 +32,14 @@ XLANG([
 ])
 
 #      ___________      ______
-# --->/ PEREX_IMG \--->/ path \
+# --->/ PARTIMAGE \--->/ path \
 #     \___________/    \______/
 #
 # A → β
-define([PEREX_IMG], defn([TEST_ATM])[
+define([PARTIMAGE], defn([TEST_ATM])[
 
 	# transition to the next node (redefine itself to image path)
-	define([$0], ../[$1])
+	define([$0], [../$1])
 ])
 
 # A → β
@@ -62,11 +62,11 @@ m4wrap([
 <html id="css" class="js-inactive" lang="LANG_CODE">
 <head>
 <meta charset="utf-8">
-<title>CAPTION</title>
+<title>PART</title>
 <link rel="stylesheet" type="text/css" href="../html/preview.css">
 divert(HEADER_END_START_BODY)dnl
 <meta name="author" content="AUTHOR_NAME">
-<meta name="description" content="PEREX">
+<meta name="description" content="PARTINTRO">
 <meta name="generator" content="M4">
 </head>
 <body>
@@ -78,12 +78,12 @@ divert(HEADER_END_START_BODY)dnl
 <div class="design-tile--version-1 design-tile" itemtype="http://schema.org/Article" itemref="microdata-authors microdata-publisher" itemscope>
 
 <!-- Sklik-kontext-start -->
-<h1 class="detail__heading design-heading--level-1 design-heading" itemprop="headline">CAPTION</h1>
+<h1 class="detail__heading design-heading--level-1 design-heading" itemprop="headline">PART</h1>
 
 <div class="detail__perex">
 	<div class=" perex">
 		<div  style="max-width: 468px"  class=" element-print-hidden  perex__img" itemprop="image" itemtype="http://schema.org/ImageObject" itemscope>
-			<img src="PEREX_IMG" itemprop="url" width="468" height="263" alt=" ">
+			<img src="PARTIMAGE" itemprop="url" width="468" height="263" alt=" ">
 			<meta itemprop="width" content="468">
 			<meta itemprop="height" content="263">
 		</div>
@@ -95,7 +95,7 @@ divert(HEADER_END_START_BODY)dnl
 							<span itemprop="datePublished">SARG1(esyscmd([date '+[%-d. %-m. %Y],']))</span>
 						</span>
 				</div>
-				<p itemprop="description">PEREX</p>
+				<p itemprop="description">PARTINTRO</p>
 				<div class="perex__reading-duration">
 					READING_DURATION
 				</div>

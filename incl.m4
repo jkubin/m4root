@@ -35,12 +35,12 @@ Chars. {EXPLAIN_M4([`'], [quotation marks]), EXPLAIN_M4([[]], [square brackets])
 
 # common introductory text for perex
 # A → β
-define([PEREX_CS], [dnl czech
+define([PARTINTRO_CS], [dnl czech
 Makro procesor M4 se používá ke generování libovolně složitého kódu z[]NB()jednoduchého zdrojového kódu.
 ])
 
 # common introductory text for perex
 # A → β
-define([PEREX_EN], [dnl english
+define([PARTINTRO_EN], [dnl english
 The M4 macro processor is used to generate arbitrarily complex code from simple source code.
 ])

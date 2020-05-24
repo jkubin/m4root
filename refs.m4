@@ -148,7 +148,7 @@ pushdef([TEST_STRING], [
 
 
 # A → β
-define([CAPTION], [
+define([PART], [
 
 	# input files are defined in TOC_FILE_NAME
 	ifdef(__file__, [], [

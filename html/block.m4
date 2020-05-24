@@ -27,8 +27,8 @@ pushdef([CLASS_3_INFO],	[ class="rs-tip-major ADD_CLASS([info])]defn([CLASS_3_SU
 pushdef([CLASS_3_NOTE],	[ class="rs-tip-major ADD_CLASS([note])]defn([CLASS_3_SUFFIX]))
 pushdef([CLASS_3_ROOT_CMD],	[ class="ADD_CLASS([root])]defn([CLASS_3_SUFFIX]))
 pushdef([CLASS_3_TILE],	[ class="rs-tile]defn([CLASS_3_SUFFIX]))
-pushdef([CLASS_3_SRC],	[ class="ADD_CLASS([src])]defn([CLASS_3_SUFFIX]))
-pushdef([CLASS_3_USR_CMD],	[ class="ADD_CLASS([usc])]defn([CLASS_3_SUFFIX]))
+pushdef([CLASS_3_SOURCE],	[ class="ADD_CLASS([src])]defn([CLASS_3_SUFFIX]))
+pushdef([CLASS_3_COMMAND],	[ class="ADD_CLASS([usc])]defn([CLASS_3_SUFFIX]))
 pushdef([CLASS_3_WARN],	[ class="rs-tip-major ADD_CLASS([warn])]defn([CLASS_3_SUFFIX]))
 pushdef([STYLE_4],		[ifelse([$#], [4], [], [$4], [], [], [ style="[$4]"])])
 pushdef([ANYTHING_5],	[ifelse([$#], [5], [], [$5], [], [], [ [$5]])])
@@ -42,9 +42,9 @@ pushdef([HTML_HEADING_ATTRIBUTES],	[ id="ADD_ID_RULE(defn([#ID]))"]defn([TITLE_2
 pushdef([HTML_INFO_ATTRIBUTES],	defn([ID_1_MONO], [TITLE_2], [CLASS_3_INFO], [STYLE_4], [ANYTHING_5]))
 pushdef([HTML_MONO_GLOBAL_ATTRIBUTES],	defn([ID_1_MONO], [TITLE_2], [CLASS_3], [STYLE_4], [ANYTHING_5]))
 pushdef([HTML_NOTE_ATTRIBUTES],	defn([ID_1_MONO], [TITLE_2], [CLASS_3_NOTE], [STYLE_4], [ANYTHING_5]))
-pushdef([HTML_ROOT_CMD_ATTRIBUTES],	defn([ID_1_MONO], [TITLE_2], [CLASS_3_ROOT_CMD], [STYLE_4], [ANYTHING_5]))
-pushdef([HTML_SOURCE_CODE_ATTRIBUTES],	defn([ID_1_MONO], [TITLE_2], [CLASS_3_SRC], [STYLE_4], [ANYTHING_5]))
-pushdef([HTML_USR_CMD_ATTRIBUTES],	defn([ID_1_MONO], [TITLE_2], [CLASS_3_USR_CMD], [STYLE_4], [ANYTHING_5]))
+pushdef([HTML_COMMAND_ROOT_ATTRIBUTES],	defn([ID_1_MONO], [TITLE_2], [CLASS_3_ROOT_CMD], [STYLE_4], [ANYTHING_5]))
+pushdef([HTML_SOURCE_CODE_ATTRIBUTES],	defn([ID_1_MONO], [TITLE_2], [CLASS_3_SOURCE], [STYLE_4], [ANYTHING_5]))
+pushdef([HTML_COMMAND_ATTRIBUTES],	defn([ID_1_MONO], [TITLE_2], [CLASS_3_COMMAND], [STYLE_4], [ANYTHING_5]))
 pushdef([HTML_WARN_ATTRIBUTES],	defn([ID_1_MONO], [TITLE_2], [CLASS_3_WARN], [STYLE_4], [ANYTHING_5]))
 
 # convert {'&', '<', '>'} to html entities, strip trailing white chars
@@ -87,14 +87,20 @@ pushdef([HTML_MULTILINGUAL], [
 divert(-1)
 ])
 
-#      _________      ________
-# --->/ CAPTION \--->/ string \
-#     \_________/    \________/
+#      ______      ________
+# --->/ PART \--->/ string \
+#     \______/    \________/
 #
 # A → β
-define([CAPTION], defn([TEST_ATM])[
+define([PART], defn([TEST_ATM])[
 
 	define([FILE_PREFIX], __file__.LANG_CODE)
+
+	# reset automata
+	define([APPENDIX], defn([APPENDIX_INIT]))
+	define([CURRQU], 0)
+	define([SECT1], defn([SECT1_BODY]))
+	define([SECT2], defn([SECT2_BODY]))
 
 	# define counters for chapters and sections
 	define([CHAPTER_COUNTER], defn([COUNT_UP]))
@@ -110,12 +116,12 @@ define([CAPTION], defn([TEST_ATM])[
 	define([$0], EXPAND_LANG(]defn([EXPAND_LAST])[))
 ])
 
-#      _______      ________
-# --->/ PEREX \--->/ string \
-#     \_______/    \________/
+#      ___________      ________
+# --->/ PARTINTRO \--->/ string \
+#     \___________/    \________/
 #
 # A → β
-define([PEREX], defn([TEST_ATM])[
+define([PARTINTRO], defn([TEST_ATM])[
 
 	# transition to the next node (redefine itself to the selected string)
 	define([$0], SELECT_LANG_WITHOUT_TRAILING_LF(]defn([EXPAND_LAST])[))
@@ -152,7 +158,7 @@ define([CHAPTER], defn([MULTILINGUAL_HEADINGS], [SET_ANCHOR])[
 ])
 
 # A → β
-define([SECT1], defn([MULTILINGUAL_HEADINGS], [SET_ANCHOR])[
+define([SECT1_BODY], defn([MULTILINGUAL_HEADINGS], [SET_ANCHOR])[
 
 	# increment index
 	SECT1_COUNTER
@@ -171,7 +177,7 @@ define([SECT1], defn([MULTILINGUAL_HEADINGS], [SET_ANCHOR])[
 ])
 
 # A → β
-define([SECT2], defn([MULTILINGUAL_HEADINGS], [SET_ANCHOR])[
+define([SECT2_BODY], defn([MULTILINGUAL_HEADINGS], [SET_ANCHOR])[
 
 	# increment index
 	SECT2_COUNTER
@@ -228,7 +234,7 @@ divert(-1)
 #     \_SECT2_/    \_SECT2_APPENDIX_/<--'
 #
 # A → β
-define([APPENDIX], [
+define([APPENDIX_INIT], [
 
 	# starting letter is 65: ord('A')
 	define([APPENDIX_COUNTER], defn([COUNT_UP]))
@@ -237,15 +243,13 @@ define([APPENDIX], [
 	divert(APPENDIX_NAVIG_DATA)dnl
 <hr>
 divert(-1)
-	]defn([APPENDIX_NODE])[
 
-	# initialization for the appendix is done
-	# transition to the next node
-	define([$0], defn([APPENDIX_NODE]))
-
+	# transition to the next nodes
+	define([APPENDIX], defn([APPENDIX_NODE]))
 	define([SECT1], defn([SECT1_APPENDIX]))
 	define([SECT2], defn([SECT2_APPENDIX]))
-])
+
+]defn([APPENDIX_NODE]))
 
 # β
 define([SECT1_APPENDIX], defn([MULTILINGUAL_HEADINGS], [SET_ANCHOR])[
@@ -292,13 +296,13 @@ divert(-1)
 # β
 pushdef([FIND_IMG_DIM], [
 	# the "identify" program has a bug (silent if missing file)
-	ifelse(ARG1($6), [], [
+	ifelse(SARG1($6), [], [
 
 		ROOT_ERROR([missing image name])
 	])
 
 	# find out image dimension (copy of the image is uploaded on server)
-	define([IMAGE_DIM], esyscmd([identify -format "[%w, %h]" ]ARG1($6)))
+	define([IMAGE_DIM], esyscmd([identify -format "[%w, %h]" ]SARG1($6)))
 
 	# test return value from an external commad
 	ifelse(sysval, [0], [], [
@@ -307,9 +311,9 @@ pushdef([FIND_IMG_DIM], [
 	])
 ])
 
-# create and init counter for images
-define([COUNTER_FOR_IMAGES], defn([COUNT_UP]))
-COUNTER_FOR_IMAGES(1)
+# create and init image counter
+define([IMAGE_COUNTER], defn([COUNT_UP]))
+IMAGE_COUNTER(1)
 
 # IMAGEDATA(,,,,, [img.png, http://root.cz/img.png], [[czech], [english]])
 # IMAGEDATA([ID], [title],,,, [img.png, http://root.cz/img.png], [[czech], [english]])
@@ -325,8 +329,8 @@ define([IMAGEDATA], [
 	]defn([FIND_IMG_DIM])[
 
 	divert(CURRQU)dnl
-<img src="IMG_SRC($6)" alt="[&#160;]" width="ARG1(IMAGE_DIM)" height="ARG2(IMAGE_DIM)"]defn([HTML_MONO_GLOBAL_ATTRIBUTES])[>
-<p><em>WORD_IMAGE <a href="[#]defn(__file__.mono.[$1])" title="⚓">COUNTER_FOR_IMAGES</a>: EXPAND_LANG_WITHOUT_TRAILING_LF(]defn([EXPAND_LAST])[)</em></p>
+<img src="IMG_SRC($6)" alt="[]NB()" width="SARG1(IMAGE_DIM)" height="SARG2(IMAGE_DIM)"]defn([HTML_MONO_GLOBAL_ATTRIBUTES])[>
+<p><em>WORD_IMAGE <a href="[#]defn(__file__.mono.[$1])" title="⚓">IMAGE_COUNTER</a>: EXPAND_LANG_WITHOUT_TRAILING_LF(]defn([EXPAND_LAST])[)</em></p>
 divert(-1)
 ])
 
@@ -416,16 +420,16 @@ divert(-1)
 ])
 
 # A → β
-define([COMMAND_USR], [
+define([CMDSYNOPSIS], [
 	divert(CURRQU)dnl
-<div]defn([HTML_USR_CMD_ATTRIBUTES])><pre>defn([PROCESS_RAW_CODE_TO_HTML_ENTITIES])</pre>defn([ID_1_ANCHOR])[</div>
+<div]defn([HTML_COMMAND_ATTRIBUTES])><pre>defn([PROCESS_RAW_CODE_TO_HTML_ENTITIES])</pre>defn([ID_1_ANCHOR])[</div>
 divert(-1)
 ])
 
 # A → β
-define([COMMAND_ROOT], [
+define([CMDSYNOPSIS_ROOT], [
 	divert(CURRQU)dnl
-<div]defn([HTML_ROOT_CMD_ATTRIBUTES])><pre>defn([PROCESS_RAW_CODE_TO_HTML_ENTITIES])</pre>defn([ID_1_ANCHOR])[</div>
+<div]defn([HTML_COMMAND_ROOT_ATTRIBUTES])><pre>defn([PROCESS_RAW_CODE_TO_HTML_ENTITIES])</pre>defn([ID_1_ANCHOR])[</div>
 divert(-1)
 ])
 
@@ -566,18 +570,20 @@ popdef(
 	[CHAPTER_COMMON_CODE],
 	[CLASS_3],
 	[CLASS_3_BRIDGEHEAD],
+	[CLASS_3_COMMAND],
 	[CLASS_3_EXCL],
 	[CLASS_3_HEADING],
 	[CLASS_3_INFO],
 	[CLASS_3_NOTE],
 	[CLASS_3_ROOT_CMD],
-	[CLASS_3_SRC],
+	[CLASS_3_SOURCE],
 	[CLASS_3_SUFFIX],
 	[CLASS_3_TILE],
-	[CLASS_3_USR_CMD],
 	[CLASS_3_WARN],
 	[FIND_IMG_DIM],
 	[HTML_BRIDGEHEAD_ATTRIBUTES],
+	[HTML_COMMAND_ATTRIBUTES],
+	[HTML_COMMAND_ROOT_ATTRIBUTES],
 	[HTML_EXCL_ATTRIBUTES],
 	[HTML_GLOBAL_ATTRIBUTES],
 	[HTML_INFO_ATTRIBUTES],
@@ -585,10 +591,8 @@ popdef(
 	[HTML_MONO_GLOBAL_ATTRIBUTES],
 	[HTML_MULTILINGUAL],
 	[HTML_NOTE_ATTRIBUTES],
-	[HTML_ROOT_CMD_ATTRIBUTES],
 	[HTML_SOURCE_CODE_ATTRIBUTES],
 	[HTML_UNPAIRED_TAG],
-	[HTML_USR_CMD_ATTRIBUTES],
 	[HTML_WARN_ATTRIBUTES],
 	[ID_1],
 	[ID_1_ANCHOR],

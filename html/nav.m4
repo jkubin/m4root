@@ -3,9 +3,9 @@ ___DESCR([navigation logic for HTML page; table of content; all parts of the ser
 ___POINT([common script for preview and publish])
 
 # find the current index for navigation logic (previous part, current part, next part)
-define([CURRENT_INDEX], defn([#].LANG_CODE.defn([CAPTION])))
+define([CURRENT_INDEX], defn([#].LANG_CODE.defn([PART])))
 
-# empty index means no input document (without CAPTION)
+# empty index means no input document (without PART)
 ifelse(defn([CURRENT_INDEX]), [], [
 
 	ROOT_ERROR([unknown caption; run ‘make -B refs …’ to regenerate])
@@ -85,7 +85,7 @@ divert(-1)
 	])
 
 	# "this.page name" disables link for "this" page (because it looks better :-)
-	define(this.defn([CAPTION]))
+	define(this.defn([PART]))
 
 	# creates table of content for all parts
 	ifelse(defn(OTHER_LANG_CODE[]_OTHER_LANG), [], [

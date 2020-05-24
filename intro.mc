@@ -4,19 +4,19 @@ ___DESCR([the introductory part])
 VERSION_TEMPLATE(1, 0, 0)
 
 
-CAPTION([dnl czech
+PART([dnl czech
 [SERIES_NAME: úvod],
 dnl english: _next_language_
 [SERIES_NAME: introduction],
 ])
 
-PEREX_IMG([img/m4tux.png], [https://i.iinfo.cz/images/154/m4tux-1-prev.png])
+PARTIMAGE([img/m4tux.png], [https://i.iinfo.cz/images/154/m4tux-1-prev.png])
 
 
-PEREX([defn([PEREX_CS])[dnl czech
+PARTINTRO([defn([PARTINTRO_CS])[dnl czech
 Úvodní díl seriálu obsahuje jeho historii, základní principy jazyka, příklady použití a[]NB()nutné předpoklady pro jeho zvládnutí.
 ],
-defn([PEREX_EN])[dnl english: _next_language_
+defn([PARTINTRO_EN])[dnl english: _next_language_
 The introductory part of the series contains its history, the basic principles of language, examples of usage and prerequisites for its mastery.
 ]])
 
@@ -262,7 +262,7 @@ Argument CODE([0]) přepne výstup na CODE_M4([stdout]) (standardní výstup).
 [dnl english: _next_language_
 The HCODE([[divert](ULINK([ℤ], [integer], [https://en.wikipedia.org/wiki/Integer]))], [divert(-1), divert(0), divert(1), …, divert(2147483647)], [[[1, 5], [common_code]]]) keyword switches output queues.
 Argument CODE([-1]) completely disables any text output.
-Argument CODE([0]) switches output to CODE([stdout]) (standard output).
+Argument CODE([0]) switches output to CODE_M4([stdout]) (standard output).
 ]])
 
 BRIDGEHEAD_MONO([dnl monolingual
