@@ -4,24 +4,6 @@ __HEADER([Josef Kubin], [2019/12/23], [root_cz])
 ___DESCR([converts inline and block-level elements into a plain text file for checking jargon and typos])
 ___POINT([plain text file for spell checking and for suggestions from other people (text can be easily edited)])
 
-ifelse(defn([SOURCE]), [], [
-
-	ROOT_ERROR([set the -DSOURCE='file.mc' on the command line])
-])
-
-# The first line: https://vim.fandom.com/wiki/Modeline_magic
-# The second line: source_file.mc, creation_time, git_revision_of_source.mc, git_HEAD
-divert(0)dnl
-[#] vim:wrap:spell:spelllang=LANG_CODE,en
-#
-[#] DONTE()
-#
-[#] __SOURCE(LB()defn([SOURCE])RB(), SARG1(esyscmd([date '+[[%Y%m%d-%R:%S]],'])), SARG1(esyscmd([git log -1 --format='[[%h]],' ]defn([SOURCE]))), SARG1(esyscmd([git log -1 --format='[[%h]],'])))
-
-divert(1)dnl
----
-divert(-1)
-
 # extracts MACRO([…], [the text], …) if defined (`the text' is a title)
 # β
 pushdef([TITLE_ATTR], [
@@ -77,10 +59,22 @@ divert(-1)
 ])
 
 # A → β
-define([PART], defn([PRINT_LANG])[
+define([PART], [
 
 	define([FILE_PREFIX], __file__.LANG_CODE)
-])
+
+	divert(0)dnl
+[#] vim:wrap:spell:spelllang=LANG_CODE,en
+#
+[#] DONTE()
+#
+[#] __SOURCE(LB()__file__[]RB(), SARG1(esyscmd([date '+[[%Y%m%d-%R:%S]],'])), SARG1(esyscmd([git log -1 --format='[[%h]],' ]__file__)), SARG1(esyscmd([git log -1 --format='[[%h]],'])))
+
+divert(1)dnl
+---
+divert(-1)
+
+]defn([PRINT_LANG]))
 
 # prints a hyperlink or a linked text that dereferences
 # A → β
@@ -200,7 +194,7 @@ define([DELETED],	defn([BOLD]))
 define([DQ],		[ifelse([$#], [0], [[$0]], ["])])
 define([EMPHASIS],	defn([BOLD]))
 define([GT],		[ifelse([$#], [0], [[$0]], [>])])
-define([INS],		defn([BOLD]))
+define([INSERTED],	defn([BOLD]))
 define([ITALIC],	defn([BOLD]))
 define([LABEL],		defn([BOLD]))
 define([LI],		defn([BOLD]))
@@ -222,7 +216,7 @@ define([UL],		defn([BOLD]))
 define([UNDERLINE],	defn([BOLD]))
 define([VARIABLE],	defn([BOLD]))
 define([WBR])
-define([XSPAN],		[ifelse([$#], [0], [[$0]], [$2], [], [$1], [$1 ($2)])])	<--- expands title
+#define([XSPAN],		[ifelse([$#], [0], [[$0]], [$2], [], [$1], [$1 ($2)])])	<--- expands title
 
 # custom HTML5 inline elements for convenience
 

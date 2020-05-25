@@ -1,6 +1,6 @@
 __HEADER([Josef Kubin], [2020/05/16], [text])
-___DESCR([inserts (snippet of ) a source file])
-___POINT([text file for total number of words and characters])
+___DESCR([inserts (snippet of) a source file])
+___POINT([estimate the total number of words and characters])
 
 # A → β
 # β
@@ -44,7 +44,7 @@ define([TEXTDATA_MLH], defn([TEXTDATA]))
 # A → β
 # β
 define([TEXTDATA_PROCESS_RAW_DATA], [dnl
-TEXTDATA_SNIPPET(
+TEXTDATA_SET_PARAMETERS(
 	[$1],
 	[$2],
 	ifelse([$3], [], [1], [[$3]]),
@@ -53,6 +53,6 @@ TEXTDATA_SNIPPET(
 ])
 
 # A → β
-define([TEXTDATA_SNIPPET], [dnl
+define([TEXTDATA_SET_PARAMETERS], [dnl
 define([COMMAND_FOR_TEXTDATA], [awk -e 'NR==$3,NR==$4{' -f text/chr_to_esc.awk -e ']ifdef([LINE_NUMBERS], [[printf "%3d ", NR;]])[print}BEGIN{printf "["}END{printf "$5]"}' $1])dnl
 ])

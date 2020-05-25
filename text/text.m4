@@ -4,8 +4,7 @@ __HEADER([Josef Kubin], [2020/05/11], [m4root])
 ___DESCR([generates a plain text file from (multiple) source files])
 ___POINT([the total number of words and characters that would be printed])
 
-# m4 -DWITHOUT_HEADER …	<--- provides a more accurate total number of words and characters
-ifdef([WITHOUT_HEADER], [], [
+ifdef([PRINT_HEADER], [
 
 	divert(0)dnl
 vim:ts=4:sw=4
@@ -136,7 +135,7 @@ pushdef([PART_INIT], [
 	# current queue to stdout
 	define([CURRQU], 0)
 
-	ifdef([WITHOUT_HEADER], [], [
+	ifdef([PRINT_HEADER], [
 
 		divert(0)dnl
 __SOURCE(LB()__file__[]RB(), SARG1(esyscmd([date '+[[%Y%m%d-%R:%S]],'])), SARG1(esyscmd([git log -1 --format='[[%h]],' ]__file__)), SARG1(esyscmd([git log -1 --format='[[%h]],'])))
@@ -149,8 +148,8 @@ divert(-1)
 	define([APPENDIX],	defn([APPENDIX_FIRST]))
 	define([CHAPTER],	defn([CHAPTER_FIRST]))
 	define([REF],		defn([REF_FIRST]))
-	define([SECT1],		defn([SECT1_BODY]))
-	define([SECT2],		defn([SECT2_BODY]))
+	define([SECT1],		defn([SECT1_ARTICLE]))
+	define([SECT2],		defn([SECT2_ARTICLE]))
 
 	# needed for LINK(…) to dereference text from the references
 	define([FILE_PREFIX],	__file__.LANG_CODE)
@@ -230,7 +229,7 @@ divert(-1)
 define([PART_NEXT], defn([PART_FINISH])[
 
 	divert(0)dnl print the previous part to stdout, start the next part
-undivert[]ifdef([WITHOUT_HEADER], [], [------------------------ >8 ------------------------
+undivert[]ifdef([PRINT_HEADER], [------------------------ >8 ------------------------
 ])dnl
 divert(-1)
 
@@ -285,7 +284,7 @@ divert(-1)
 ]defn([CHAPTER_NEXT]))
 
 # A → β
-define([SECT1_BODY], [
+define([SECT1_ARTICLE], [
 
 	# increment index
 	SECT1_COUNTER
@@ -301,7 +300,7 @@ divert(-1)
 ])
 
 # A → β
-define([SECT2_BODY], [
+define([SECT2_ARTICLE], [
 
 	# increment index
 	SECT2_COUNTER
@@ -440,7 +439,7 @@ define([HCODE],		defn([BOLD]))
 define([HCODE_M4],	defn([CODE_M4]))
 define([HEXPLAIN],	defn([BOLD]))
 define([HEXPLAIN_M4],	defn([CODE_M4]))
-define([INS],		defn([BOLD]))
+define([INSERTED],	defn([BOLD]))
 define([ITALIC],	defn([BOLD]))
 define([LABEL],		defn([BOLD]))
 define([LI],		[ifelse([$#], [0], [[$0]], [• $1])])
@@ -464,7 +463,7 @@ define([UL],		[ifelse([$#], [0], [[$0]], [	$1])])
 define([UNDERLINE],	defn([BOLD]))
 define([VARIABLE],	defn([BOLD]))
 define([WBR])
-define([XSPAN],		defn([BOLD]))
+#define([XSPAN],		defn([BOLD]))
 
 # inline elements for convenience
 

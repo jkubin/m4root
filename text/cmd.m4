@@ -1,6 +1,6 @@
 __HEADER([Josef Kubin], [2020/05/19], [text])
 ___DESCR([command line with a list of input files, the last file is an output file])
-___POINT([generates plain text output])
+___POINT([estimate the total number of words and characters])
 
 # β
 pushdef([TEST_NUMBER_OF_ARGS], [
@@ -11,10 +11,10 @@ pushdef([TEST_NUMBER_OF_ARGS], [
 	])
 ])
 
-# XCOMMAND([foo -o a,b,c -DMACRO], [input/file1.src], [input/file2.src], [input/file3.src], …, [output/file.dst])
-# XCOMMAND([foo -o a,b,c -DMACRO], [input/file1.src,[-o x,y,z]], [input/file2.src], …, [output/file.dst])
+# EXECUTED([foo -o a,b,c -DMACRO], [input/file1.src], [input/file2.src], [input/file3.src], …, [output/file.dst])
+# EXECUTED([foo -o a,b,c -DMACRO], [input/file1.src,[-o x,y,z]], [input/file2.src], …, [output/file.dst])
 # A → β
-define([XCOMMAND], defn([TEST_NUMBER_OF_ARGS])[
+define([EXECUTED], defn([TEST_NUMBER_OF_ARGS])[
 
 	divert(COMMAND_ARGS_QUEUE)dnl
 PROMPT() $1 dnl
@@ -23,9 +23,9 @@ divert(-1)
 	FILES_ON_THE_COMMAND_LINE(shift($@))
 ])
 
-# XCOMMAND_ROOT(…)
+# EXECUTED_ROOT(…)
 # A → β
-define([XCOMMAND_ROOT], defn([TEST_NUMBER_OF_ARGS])[
+define([EXECUTED_ROOT], defn([TEST_NUMBER_OF_ARGS])[
 
 	divert(COMMAND_ARGS_QUEUE)dnl
 PROMPT_ROOT() $1 dnl
@@ -41,15 +41,14 @@ define([FILES_ON_THE_COMMAND_LINE], [
 
 		divert(CURRQU)dnl
 undivert(COMMAND_ARGS_QUEUE)dnl
-dnl > patsubst([$ 1], [.*/])
-> $1
+> patsubst([$1], [.*/])
 
 divert(-1)
 
 	], [
 
 		divert(COMMAND_ARGS_QUEUE)dnl
-SARG1($1) ifelse(SARG2($1), [], [], [ARG2($1) ])dnl
+patsubst(SARG1($1), [.*/]) ifelse(SARG2($1), [], [], [ARG2($1) ])dnl
 divert(-1)
 
 		# right recursive loop
