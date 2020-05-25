@@ -1197,7 +1197,7 @@ This example does not use output queues, HEXPLAIN([it only prints], [[[R, 5], [m
 ]])
 
 TEXTDATA([messages/hello.csv.m4],, [s/\<ERROR\>/MM(r)/g])
-XCOMMAND([m4], [gfiles/root0b.m4], [messages/hello.csv.m4], [messages/messages_raw.mc], [messages/hello.csv])
+EXECUTED([m4], [gfiles/root0b.m4], [messages/hello.csv.m4], [messages/messages_raw.mc], [messages/hello.csv])
 TEXTDATA([messages/hello.csv])
 
 
@@ -1224,7 +1224,7 @@ TEXTDATA([messages/counter.csv.m4],, [
 s/\<COUNT_UP\>/MM(a)/
 /\<ERR_\>/s/\<COUNTER\>/MM(b)/
 ])
-XCOMMAND([m4], [gfiles/root0b.m4], [gfiles/countb.m4], [messages/counter.csv.m4], [messages/messages_raw.mc], [messages/counter.csv])
+EXECUTED([m4], [gfiles/root0b.m4], [gfiles/countb.m4], [messages/counter.csv.m4], [messages/messages_raw.mc], [messages/counter.csv])
 TEXTDATA([messages/counter.csv])
 
 
@@ -1318,7 +1318,7 @@ The example uses one HEXPLAIN([output queue], [[[15], [messages/array.c.m4]]]) f
 ]])
 
 TEXTDATA([messages/array.c.m4])
-XCOMMAND([m4], [gfiles/root0b.m4], [messages/array.c.m4], [messages/code.m4], [messages/messages.mc], [messages/array.c])
+EXECUTED([m4], [gfiles/root0b.m4], [messages/array.c.m4], [messages/code.m4], [messages/messages.mc], [messages/array.c])
 TEXTDATA([messages/array.c])
 
 
@@ -1347,7 +1347,7 @@ s/SARG1/MM(c)/
 s/date \x27[^\x27]\+\x27/MM(d)/
 }
 ])
-XCOMMAND([m4], [gfiles/root0b.m4], [messages/hello.ini.m4], [messages/code.m4], [messages/messages.mc], [messages/hello.ini])
+EXECUTED([m4], [gfiles/root0b.m4], [messages/hello.ini.m4], [messages/code.m4], [messages/messages.mc], [messages/hello.ini])
 TEXTDATA([messages/hello.ini])
 
 
@@ -1375,7 +1375,7 @@ s//MM(c)/
 s/\<16, 2\>/MM(b)/
 }
 ])
-XCOMMAND([m4], [gfiles/root0b.m4], [gfiles/countb.m4], [messages/messages.h.m4], [messages/messages.mc], [messages/messages.h])
+EXECUTED([m4], [gfiles/root0b.m4], [gfiles/countb.m4], [messages/messages.h.m4], [messages/messages.mc], [messages/messages.h])
 TEXTDATA([messages/messages.h])
 
 
@@ -1400,7 +1400,7 @@ s/";/MM(b)/
 s/ε/MM(d)/
 /divert/s/\<NEW_LINE\>/MM(c)/
 ])
-XCOMMAND([m4], [gfiles/root0b.m4], [messages/stringl.c.m4], [messages/code.m4], [messages/messages.mc], [messages/stringl.c])
+EXECUTED([m4], [gfiles/root0b.m4], [messages/stringl.c.m4], [messages/code.m4], [messages/messages.mc], [messages/stringl.c])
 TEXTDATA([messages/stringl.c],, [
 s/\\n/MM(a)/g
 ])
@@ -1420,7 +1420,7 @@ This example is similar to the previous one, but each string is on a[]NB()HEXPLA
 ]])
 
 TEXTDATA_MLH([messages/string.c.m4],, [s/\\n"\n"/MM(a)/])
-XCOMMAND([m4], [gfiles/root0b.m4], [messages/string.c.m4], [messages/code.m4], [messages/messages.mc], [messages/string.c])
+EXECUTED([m4], [gfiles/root0b.m4], [messages/string.c.m4], [messages/code.m4], [messages/messages.mc], [messages/string.c])
 TEXTDATA_MLH([messages/string.c],, [s/\\n"\n"/MM(a)/g])
 
 
@@ -1446,7 +1446,7 @@ The HCODE([QUERY], [[[15], [messages/messages.html.m4]]]) and HCODE([WARNING], [
 ]])
 
 TEXTDATA([messages/messages.html.m4])
-XCOMMAND([m4], [gfiles/root0b.m4], [messages/messages.html.m4], [messages/markup.m4], [messages/messages.mc], [messages/messages.html])
+EXECUTED([m4], [gfiles/root0b.m4], [messages/messages.html.m4], [messages/markup.m4], [messages/messages.mc], [messages/messages.html])
 TEXTDATA([messages/messages.html])
 
 
@@ -1470,7 +1470,7 @@ HCODE_M4([WARNING → 🐝], [🐝], [[[6, 15], [messages/insect.txt.m4]], [[C],
 ]])
 
 TEXTDATA([messages/insect.txt.m4])
-XCOMMAND([m4], [gfiles/root0b.m4], [messages/insect.txt.m4], [messages/messages.mc], [messages/insect.txt])
+EXECUTED([m4], [gfiles/root0b.m4], [messages/insect.txt.m4], [messages/messages.mc], [messages/insect.txt])
 TEXTDATA([messages/insect.txt],, [
 s/🐛/MM(a)/g
 s/🐜/MM(b)/g
@@ -1525,7 +1525,7 @@ At the end the output queue number HCODE([1], [[[14], [messages/atm.json.m4]]]) 
 ]])
 
 TEXTDATA([messages/atm.json.m4])
-XCOMMAND([m4], [gfiles/root0b.m4], [messages/atm.json.m4], [messages/code.m4], [messages/messages.mc], [messages/atm.json])
+EXECUTED([m4], [gfiles/root0b.m4], [messages/atm.json.m4], [messages/code.m4], [messages/messages.mc], [messages/atm.json])
 TEXTDATA([messages/atm.json])
 
 
@@ -1551,7 +1551,7 @@ To avoid having to define similar rules, we copy the right side of CODE([ERROR])
 ]])
 
 TEXTDATA([messages/qnames.json.m4])
-XCOMMAND([m4], [gfiles/root0b.m4], [messages/qnames.json.m4], [messages/code.m4], [messages/messages.mc], [messages/qnames.json])
+EXECUTED([m4], [gfiles/root0b.m4], [messages/qnames.json.m4], [messages/code.m4], [messages/messages.mc], [messages/qnames.json])
 TEXTDATA([messages/qnames.json])
 
 
@@ -1576,7 +1576,7 @@ The following example shows how these indexes are generated.
 
 TEXTDATA([messages/queues.m4],, [/\<QUEUE_INDEX\>)$/s/\<QUEUE_INDEX\>/MM(a)/])
 TEXTDATA([messages/messages.json.m4])
-XCOMMAND([m4], [gfiles/root0b.m4], [gfiles/countb.m4], [messages/queues.m4], [messages/messages.json.m4], [messages/code.m4], [messages/messages.mc], [messages/messages.json])
+EXECUTED([m4], [gfiles/root0b.m4], [gfiles/countb.m4], [messages/queues.m4], [messages/messages.json.m4], [messages/code.m4], [messages/messages.mc], [messages/messages.json])
 TEXTDATA([messages/messages.json])
 
 
@@ -1598,7 +1598,7 @@ The example uses the same file for output queues as the LINK([example], [json_sy
 ]])
 
 TEXTDATA([messages/messages.ini.m4],, [/\<BRAC\>/s/\(.0\)\(_NAME\)/<span class="NSP()r">\1<\x2fspan><span class="NSP()a">\2<\x2fspan>/])
-XCOMMAND([m4], [gfiles/root0b.m4], [messages/messages.ini.m4], [gfiles/countb.m4], [messages/queues.m4], [messages/code.m4], [messages/messages.mc], [messages/messages.ini])
+EXECUTED([m4], [gfiles/root0b.m4], [messages/messages.ini.m4], [gfiles/countb.m4], [messages/queues.m4], [messages/code.m4], [messages/messages.mc], [messages/messages.ini])
 TEXTDATA([messages/messages.ini])
 
 
@@ -1616,7 +1616,7 @@ The example uses one output queue number HCODE([1], [[[21], [messages/mixed.xml.
 ]])
 
 TEXTDATA([messages/mixed.xml.m4])
-XCOMMAND([m4], [gfiles/root0b.m4], [messages/queues.m4], [messages/mixed.xml.m4], [messages/markup.m4], [messages/messages.mc], [messages/mixed.xml])
+EXECUTED([m4], [gfiles/root0b.m4], [messages/queues.m4], [messages/mixed.xml.m4], [messages/markup.m4], [messages/messages.mc], [messages/mixed.xml])
 TEXTDATA([messages/mixed.xml])
 
 
@@ -1634,7 +1634,7 @@ The example groups messages by their type using output queues.
 ]])
 
 TEXTDATA([messages/messages.xml.m4])
-XCOMMAND([m4], [gfiles/root0b.m4], [messages/queues.m4], [messages/messages.xml.m4], [messages/markup.m4], [messages/messages.mc], [messages/messages.xml])
+EXECUTED([m4], [gfiles/root0b.m4], [messages/queues.m4], [messages/messages.xml.m4], [messages/markup.m4], [messages/messages.mc], [messages/messages.xml])
 TEXTDATA([messages/messages.xml])
 
 
@@ -1645,7 +1645,7 @@ dnl english: _next_language_
 ])
 
 TEXTDATA([messages/doubleq.sh.m4])
-XCOMMAND([m4], [gfiles/root0b.m4], [messages/doubleq.sh.m4], [messages/doubleq.m4], [messages/messages.mc], [messages/doubleq.sh])
+EXECUTED([m4], [gfiles/root0b.m4], [messages/doubleq.sh.m4], [messages/doubleq.m4], [messages/messages.mc], [messages/doubleq.sh])
 TEXTDATA([messages/doubleq.sh])
 
 
@@ -1656,7 +1656,7 @@ dnl english: _next_language_
 ])
 
 TEXTDATA([messages/apost.sh.m4])
-XCOMMAND([m4], [gfiles/root0b.m4], [messages/apost.sh.m4], [messages/apost.m4], [messages/messages.mc], [messages/apost.sh])
+EXECUTED([m4], [gfiles/root0b.m4], [messages/apost.sh.m4], [messages/apost.m4], [messages/messages.mc], [messages/apost.sh])
 TEXTDATA([messages/apost.sh])
 
 
@@ -1700,7 +1700,7 @@ s/\x27/MM(a)/g
 s/\<SYMBOL\>/MM(c)/g
 /\<define\>/!s/\<ORD\>/MM(b)/
 ])
-XCOMMAND([m4 -DSYMBOL='Hello, world!'], [gfiles/root0q.m4], [preproc/file.c.m4], [preproc/file.c], [preproc/preproc.file.c])
+EXECUTED([m4 -DSYMBOL='Hello, world!'], [gfiles/root0q.m4], [preproc/file.c.m4], [preproc/file.c], [preproc/preproc.file.c])
 TEXTDATA([preproc/preproc.file.c],, [
 s/\x27/MM(a)/g
 s/\<SYMBOL\>/MM(c)/g
@@ -1727,7 +1727,7 @@ The comments can be turned off with the same HCODE_M4([changecom], [[[B], [prepr
 TEXTDATA([preproc/foo.css], LANG([soubor vložený makro procesorem], [file embedded by the macro processor]))
 TEXTDATA([preproc/file.css.m4],, [/\<define\>/s/#/MM(a)/])
 TEXTDATA([preproc/file.css],, [s/changecom(\/\*,\*\/)/MM(a)/;s/^changecom/MM(b)/;/\<DONTE\>/{/\<changecom\>/!s:/\*.*\*/:MM(c):}])
-XCOMMAND([m4 -DSYMBOL='Hello, world!'], [gfiles/root0q.m4], [preproc/file.css.m4], [preproc/file.css], [preproc/preproc.file.css])
+EXECUTED([m4 -DSYMBOL='Hello, world!'], [gfiles/root0q.m4], [preproc/file.css.m4], [preproc/file.css], [preproc/preproc.file.css])
 TEXTDATA([preproc/preproc.file.css],, [s/#/MM(a)/g;/\<DONTE\>/s:/\*.*\*/:MM(b):])
 
 
@@ -1748,7 +1748,7 @@ If we do not want to hide them either in an CODE_M4([LQ()]) or CODE_M4([LB()]) m
 
 TEXTDATA([preproc/file.sh.m4],, [s/[␂␆]/MM(a)/g])
 TEXTDATA([preproc/file.sh],, [s/[␂␆]/MM(a)/g])
-XCOMMAND([m4 -DSYMBOL='Hello, world!'], [gfiles/root0n.m4], [preproc/file.sh.m4], [preproc/file.sh], [preproc/preproc.file.sh])
+EXECUTED([m4 -DSYMBOL='Hello, world!'], [gfiles/root0n.m4], [preproc/file.sh.m4], [preproc/file.sh], [preproc/preproc.file.sh])
 TEXTDATA([preproc/preproc.file.sh])
 
 
@@ -1775,7 +1775,7 @@ Therefore, the left square bracket CODE([LB()]) is replaced by the HCODE_M4([LB(
 ]])
 
 TEXTDATA([hello_world/json.m4])
-XCOMMAND([m4 -DSYMBOL='Hello, world!'], [gfiles/root0b.m4], [hello_world/json.m4], [hello_world/hello_world.json])
+EXECUTED([m4 -DSYMBOL='Hello, world!'], [gfiles/root0b.m4], [hello_world/json.m4], [hello_world/hello_world.json])
 TEXTDATA([hello_world/hello_world.json])
 
 
@@ -1801,7 +1801,7 @@ s/\<COUNT_UP\>/MM(a)/
 s/\<COUNT_DOWN\>/MM(b)/
 /^define/s/\<LEFT\>\|\<OP\>\|\<RIGHT\>/MM(c)/
 ])
-XCOMMAND([m4 -DSYMBOL='Hello, world!'], [gfiles/root0b.m4], [gfiles/countb.m4], [hello_world/sh.m4], [hello_world/hello_world.sh])
+EXECUTED([m4 -DSYMBOL='Hello, world!'], [gfiles/root0b.m4], [gfiles/countb.m4], [hello_world/sh.m4], [hello_world/hello_world.sh])
 TEXTDATA([hello_world/hello_world.sh])
 
 
@@ -1829,7 +1829,7 @@ s/\\x5b;\\x5d;/MM(a)/g
 s/\\x5b;#\\x5d;/MM(b)/
 s/\\x5b;dnl\\x5d;/MM(c)/
 ])
-XCOMMAND([m4 -DSYMBOL='Hello, world!'], [gfiles/root0b.m4], [hello_world/h.m4], [hello_world/hello_world.h])
+EXECUTED([m4 -DSYMBOL='Hello, world!'], [gfiles/root0b.m4], [hello_world/h.m4], [hello_world/hello_world.h])
 TEXTDATA([hello_world/hello_world.h])
 
 
@@ -1854,7 +1854,7 @@ s/\<DONTE\>/MM(a)/
 s/\<LB\>/MM(b)/
 }
 ])
-XCOMMAND([m4 -DSYMBOL='Hello, world!'], [gfiles/root1b.m4], [hello_world/awk.m4], [hello_world/hello_world.awk])
+EXECUTED([m4 -DSYMBOL='Hello, world!'], [gfiles/root1b.m4], [hello_world/awk.m4], [hello_world/hello_world.awk])
 TEXTDATA([hello_world/hello_world.awk],, [
 /\<BEGIN\>/{
 s/\<DONTE\>/MM(a)/
