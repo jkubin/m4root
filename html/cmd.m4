@@ -3,7 +3,7 @@ ___DESCR([command line with a list of input files, the last file is an output fi
 ___POINT([generates HTML code from the command line])
 
 # β
-pushdef([#$XCOMMAND], [
+pushdef([#$EXECUTED], [
 
 	ifelse(eval([$# > 1]), [1], [], [
 
@@ -17,22 +17,22 @@ divert(-1)
 	FILES_ON_THE_COMMAND_LINE(shift($@))
 ])
 
-# XCOMMAND([foo -o a,b,c -DMACRO], [input/file1.src], [input/file2.src], [input/file3.src], …, [output/file.dst])
-# XCOMMAND([foo -o a,b,c -DMACRO], [input/file1.src,[-o x,y,z]], [input/file2.src], …, [output/file.dst])
+# EXECUTED([foo -o a,b,c -DMACRO], [input/file1.src], [input/file2.src], [input/file3.src], …, [output/file.dst])
+# EXECUTED([foo -o a,b,c -DMACRO], [input/file1.src,[-o x,y,z]], [input/file2.src], …, [output/file.dst])
 # A → β
-define([XCOMMAND], [
+define([EXECUTED], [
 
 	define([COMMAND_LINE_CLASS], [usc])
 
-]defn([#$XCOMMAND]))
+]defn([#$EXECUTED]))
 
-# XCOMMAND_ROOT(…)
+# EXECUTED_ROOT(…)
 # A → β
-define([XCOMMAND_ROOT], [
+define([EXECUTED_ROOT], [
 
 	define([COMMAND_LINE_CLASS], [root])
 
-]defn([#$XCOMMAND]))
+]defn([#$EXECUTED]))
 
 # A → β
 define([FILES_ON_THE_COMMAND_LINE], [
@@ -73,4 +73,4 @@ divert(-1)
 ])
 
 # no need for further
-popdef([#$XCOMMAND])
+popdef([#$EXECUTED])

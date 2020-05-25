@@ -66,52 +66,52 @@ pushdef([VAR_ANYTHING_6],	[ifelse([$#], [6], [], [$6], [], [], [ [$6]])])
 pushdef([VAR_ANYTHING_7],	[ifelse([$#], [7], [], [$7], [], [], [ [$7]])])
 
 # this is only an example, how to solve the problem of excessive commas (how to avoid coma :-)
-#define([ULINKT],	[ULINK([$1], ifelse([$#], [2], [], [[$2]]),,,, ifelse([$#], [3], [], [[$3]]), ]defn([SELECT_LAST])[)])
-# how to use ULINKT(…), an example how to reduce the amount of commas
+#define([ULINK_TWO],	[ULINK([$1], ifelse([$#], [2], [], [[$2]]),,,, ifelse([$#], [3], [], [[$3]]), ]defn([SELECT_LAST])[)])
+# how to use ULINK_TWO(…), an example how to reduce the amount of commas
 #
-# ULINKT([URL])	---> <a href="URL">URL</a>
-# ULINKT([text], [URL])	---> <a href="URL">text</a>
-# ULINKT([text], [my_title], [URL])	---> <a href="URL" title="my_title">text</a>
-# ULINKT([text], [my_title], [my_rel], [URL])	---> <a href="URL" title="my_title" rel="my_rel">text</a>
-# ULINKT([text],, [my_rel], [URL])	---> <a href="URL" rel="my_rel">text</a>
+# ULINK_TWO([URL])	---> <a href="URL">URL</a>
+# ULINK_TWO([text], [URL])	---> <a href="URL">text</a>
+# ULINK_TWO([text], [my_title], [URL])	---> <a href="URL" title="my_title">text</a>
+# ULINK_TWO([text], [my_title], [my_rel], [URL])	---> <a href="URL" title="my_title" rel="my_rel">text</a>
+# ULINK_TWO([text],, [my_rel], [URL])	---> <a href="URL" rel="my_rel">text</a>
 
 # β
-pushdef([CREATE_INLINE_ELEMENT],		[define([$1], [ifelse($][#, 0, ]BRAC(BRAC($[0]))[, ]BRAC([<$2]defn([HTML_GLOBAL_ATTRIBUTES])[>$][1</$2>])[)])])
-pushdef([CREATE_INLINE_ELEMENT_EXPAND],		[define([$1], [ifelse($][#, 0, ]BRAC(BRAC($[0]))[, ]BRAC([<$2]defn([XTITLE_2], [CLASS_3], [STYLE_4], [ID_5], [ANYTHING_6])[>$][1</$2>])[)])])
-pushdef([CREATE_INLINE_ELEMENT_SPECIAL],	[define([$1], [ifelse($][#, 0, ]BRAC(BRAC($[0]))[, ]BRAC([$2])[)])])
+pushdef([MAKE_INLINE_ELEMENT],		[define([$1], [ifelse($][#, 0, ]BRAC(BRAC($[0]))[, ]BRAC([<$2]defn([HTML_GLOBAL_ATTRIBUTES])[>$][1</$2>])[)])])
+pushdef([MAKE_INLINE_ELEMENT_EXPAND],		[define([$1], [ifelse($][#, 0, ]BRAC(BRAC($[0]))[, ]BRAC([<$2]defn([XTITLE_2], [CLASS_3], [STYLE_4], [ID_5], [ANYTHING_6])[>$][1</$2>])[)])])
+pushdef([MAKE_INLINE_ELEMENT_SPECIAL],	[define([$1], [ifelse($][#, 0, ]BRAC(BRAC($[0]))[, ]BRAC([$2])[)])])
 
-CREATE_INLINE_ELEMENT([ABBREV],	[abbr])
-CREATE_INLINE_ELEMENT([ACRONYM],	[acronym])
-CREATE_INLINE_ELEMENT([BOLD],	[b])
-CREATE_INLINE_ELEMENT([BUTTON],	[button])
-CREATE_INLINE_ELEMENT([CITATION],	[cite])
-CREATE_INLINE_ELEMENT([CODE],	[code])
-CREATE_INLINE_ELEMENT([DEFINITION],	[dfn])
-CREATE_INLINE_ELEMENT([DELETED],	[del])
-CREATE_INLINE_ELEMENT([EMPHASIS],	[em])
-CREATE_INLINE_ELEMENT([INS],	[ins])
-CREATE_INLINE_ELEMENT([ITALIC],	[i])
-CREATE_INLINE_ELEMENT([LABEL],	[label])
-CREATE_INLINE_ELEMENT([LI],	[li])
-CREATE_INLINE_ELEMENT([MARK],	[mark])
-CREATE_INLINE_ELEMENT([METER],	[meter])
-CREATE_INLINE_ELEMENT([OL],	[ol])
-CREATE_INLINE_ELEMENT([PROGRESS],	[progress])
-CREATE_INLINE_ELEMENT([QUOTE],	[q])
-CREATE_INLINE_ELEMENT([SAMP],	[samp])
-CREATE_INLINE_ELEMENT([SMALL],	[small])
-CREATE_INLINE_ELEMENT([SPAN],	[span])
-CREATE_INLINE_ELEMENT([STRIKETHROUGH],	[s])
-CREATE_INLINE_ELEMENT([STRONG],	[strong])
-CREATE_INLINE_ELEMENT([SUBSCRIPT],	[sub])
-CREATE_INLINE_ELEMENT([SUPERSCRIPT],	[sup])
-CREATE_INLINE_ELEMENT([TIME],	[time])
-CREATE_INLINE_ELEMENT([UL],	[ul])
-CREATE_INLINE_ELEMENT([UNDERLINE],	[u])
-CREATE_INLINE_ELEMENT([VARIABLE],	[var])
-CREATE_INLINE_ELEMENT_EXPAND([XSPAN],	[span])
-CREATE_INLINE_ELEMENT_SPECIAL([CODE_M4],	[<code]defn([HTML_GLOBAL_ATTRIBUTES])[>[$1]</code>])
-CREATE_INLINE_ELEMENT_SPECIAL([ULINK],	[<a href="]defn([SELECT_LAST])"defn([VAR_TITLE_2], [VAR_CLASS_3], [VAR_STYLE_4], [VAR_ID_5], [VAR_REL_6], [VAR_ANYTHING_7])[>$1</a>])
+# MAKE_INLINE_ELEMENT_EXPAND([XSPAN],	[span])	<--- expands title
+MAKE_INLINE_ELEMENT([ABBREV],	[abbr])
+MAKE_INLINE_ELEMENT([ACRONYM],	[acronym])
+MAKE_INLINE_ELEMENT([BOLD],	[b])
+MAKE_INLINE_ELEMENT([BUTTON],	[button])
+MAKE_INLINE_ELEMENT([CITATION],	[cite])
+MAKE_INLINE_ELEMENT([CODE],	[code])
+MAKE_INLINE_ELEMENT([DEFINITION],	[dfn])
+MAKE_INLINE_ELEMENT([DELETED],	[del])
+MAKE_INLINE_ELEMENT([EMPHASIS],	[em])
+MAKE_INLINE_ELEMENT([INSERTED],	[ins])
+MAKE_INLINE_ELEMENT([ITALIC],	[i])
+MAKE_INLINE_ELEMENT([LABEL],	[label])
+MAKE_INLINE_ELEMENT([LI],	[li])
+MAKE_INLINE_ELEMENT([MARK],	[mark])
+MAKE_INLINE_ELEMENT([METER],	[meter])
+MAKE_INLINE_ELEMENT([OL],	[ol])
+MAKE_INLINE_ELEMENT([PROGRESS],	[progress])
+MAKE_INLINE_ELEMENT([QUOTE],	[q])
+MAKE_INLINE_ELEMENT([SAMP],	[samp])
+MAKE_INLINE_ELEMENT([SMALL],	[small])
+MAKE_INLINE_ELEMENT([SPAN],	[span])
+MAKE_INLINE_ELEMENT([STRIKETHROUGH],	[s])
+MAKE_INLINE_ELEMENT([STRONG],	[strong])
+MAKE_INLINE_ELEMENT([SUBSCRIPT],	[sub])
+MAKE_INLINE_ELEMENT([SUPERSCRIPT],	[sup])
+MAKE_INLINE_ELEMENT([TIME],	[time])
+MAKE_INLINE_ELEMENT([UL],	[ul])
+MAKE_INLINE_ELEMENT([UNDERLINE],	[u])
+MAKE_INLINE_ELEMENT([VARIABLE],	[var])
+MAKE_INLINE_ELEMENT_SPECIAL([CODE_M4],	[<code]defn([HTML_GLOBAL_ATTRIBUTES])[>[$1]</code>])
+MAKE_INLINE_ELEMENT_SPECIAL([ULINK],	[<a href="]defn([SELECT_LAST])"defn([VAR_TITLE_2], [VAR_CLASS_3], [VAR_STYLE_4], [VAR_ID_5], [VAR_REL_6], [VAR_ANYTHING_7])[>$1</a>])
 
 # keyword to highlight line(s) in source code
 # how to use:
@@ -132,7 +132,7 @@ pushdef([BETA1], [pushdef([CURRQU], divnum)divert(-1)
 		ROOT_ERROR([the $0(…) requires at least 2 arguments])
 	])
 
-	CREATE_DATASET(dnl
+	MAKE_DATASET(dnl
 ])
 
 # β
@@ -163,7 +163,7 @@ define([REMOVE_SPACES],	[translit([[$1]], [ ])])
 define([SELECT_ARG2],	[[$2]])
 
 # A → β
-define([CREATE_DATASET], [
+define([MAKE_DATASET], [
 
 	ifelse([$1], [], [], [
 
@@ -322,11 +322,11 @@ popdef(
 	[BETA4],
 	[CLASS_3],
 	[CLASS_3_EXPLAIN],
-	[CREATE_INLINE_ELEMENT],
-	[CREATE_INLINE_ELEMENT_EXPAND],
-	[CREATE_INLINE_ELEMENT_SPECIAL],
 	[HTML_GLOBAL_ATTRIBUTES],
 	[ID_5],
+	[MAKE_INLINE_ELEMENT],
+	[MAKE_INLINE_ELEMENT_EXPAND],
+	[MAKE_INLINE_ELEMENT_SPECIAL],
 	[STYLE_4],
 	[SUPER_BETA],
 	[TITLE_2],

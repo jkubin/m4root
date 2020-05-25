@@ -99,15 +99,14 @@ define([PART], defn([TEST_ATM])[
 	# reset automata
 	define([APPENDIX], defn([APPENDIX_INIT]))
 	define([CURRQU], 0)
-	define([SECT1], defn([SECT1_BODY]))
-	define([SECT2], defn([SECT2_BODY]))
+	define([SECT1], defn([SECT1_ARTICLE]))
+	define([SECT2], defn([SECT2_ARTICLE]))
 
-	# define counters for chapters and sections
+	# counters for chapters and sections
 	define([CHAPTER_COUNTER], defn([COUNT_UP]))
 	define([SECT1_COUNTER], defn([COUNT_UP]))
 	define([SECT2_COUNTER], defn([COUNT_UP]))
 
-	# init counters for chapters and sections
 	CHAPTER_COUNTER(0)
 	SECT1_COUNTER(0)
 	SECT2_COUNTER(0)
@@ -127,17 +126,6 @@ define([PARTINTRO], defn([TEST_ATM])[
 	define([$0], SELECT_LANG_WITHOUT_TRAILING_LF(]defn([EXPAND_LAST])[))
 ])
 
-# β
-pushdef([CHAPTER_COMMON_CODE], [
-	define([CURRQU], ARTICLE_CONTENT)
-
-	divert(CHAPTER_NAVIG_DATA)dnl
-<p id="defn([#ID], [TOC_ANCH])"INDENT_LEVEL><a href="[#]defn([#ID])"><b>defn([#S0], [#S1], [#S2])</b>SELITM</a></p>
-divert(CURRQU)dnl
-<HEADING_TAG]defn([HTML_HEADING_ATTRIBUTES])>defn([BACK_TO_TOC], [CHAPTER_INDEXES])[SELITM]defn([GO_BACK_UP])[</HEADING_TAG>
-divert(-1)
-])
-
 # A → β
 define([CHAPTER], defn([MULTILINGUAL_HEADINGS], [SET_ANCHOR])[
 
@@ -149,16 +137,21 @@ define([CHAPTER], defn([MULTILINGUAL_HEADINGS], [SET_ANCHOR])[
 	define([SECT2_COUNTER_val], 0)
 
 	define([#S0], CHAPTER_COUNTER_val)
-	define([INDENT_LEVEL])
-	define([HEADING_TAG], [h2])
 
-	]defn([CHAPTER_COMMON_CODE])[
+	define([CURRQU], ARTICLE_CONTENT)
 
+	divert(CHAPTER_NAVIG_DATA)dnl
+<p id="defn([#ID], [TOC_ANCH])"><a href="[#]defn([#ID])"><b>defn([#S0], [#S1], [#S2])</b>SELITM</a></p>
+divert(CURRQU)dnl
+<h2]defn([HTML_HEADING_ATTRIBUTES])>defn([BACK_TO_TOC], [CHAPTER_INDEXES])[SELITM]defn([GO_BACK_UP])[</h2>
+divert(-1)
+
+	# following bridgeheads
 	define([HEADING_TAG], [h3])
 ])
 
 # A → β
-define([SECT1_BODY], defn([MULTILINGUAL_HEADINGS], [SET_ANCHOR])[
+define([SECT1_ARTICLE], defn([MULTILINGUAL_HEADINGS], [SET_ANCHOR])[
 
 	# increment index
 	SECT1_COUNTER
@@ -168,16 +161,18 @@ define([SECT1_BODY], defn([MULTILINGUAL_HEADINGS], [SET_ANCHOR])[
 	define([#S0], CHAPTER_COUNTER_val)
 	define([#S1], .SECT1_COUNTER_val)
 
-	define([INDENT_LEVEL], [ class="ADD_CLASS([l2])"])
-	define([HEADING_TAG], [h3])
+	divert(CHAPTER_NAVIG_DATA)dnl
+<p id="defn([#ID], [TOC_ANCH])" class="ADD_CLASS([l2])"><a href="[#]defn([#ID])"><b>defn([#S0], [#S1], [#S2])</b>SELITM</a></p>
+divert(CURRQU)dnl
+<h3]defn([HTML_HEADING_ATTRIBUTES])>defn([BACK_TO_TOC], [CHAPTER_INDEXES])[SELITM]defn([GO_BACK_UP])[</h3>
+divert(-1)
 
-	]defn([CHAPTER_COMMON_CODE])[
-
+	# following bridgeheads
 	define([HEADING_TAG], [h4])
 ])
 
 # A → β
-define([SECT2_BODY], defn([MULTILINGUAL_HEADINGS], [SET_ANCHOR])[
+define([SECT2_ARTICLE], defn([MULTILINGUAL_HEADINGS], [SET_ANCHOR])[
 
 	# increment index
 	SECT2_COUNTER
@@ -187,11 +182,13 @@ define([SECT2_BODY], defn([MULTILINGUAL_HEADINGS], [SET_ANCHOR])[
 	define([#S1], .SECT1_COUNTER_val)
 	define([#S2], .SECT2_COUNTER_val)
 
-	define([INDENT_LEVEL], [ class="ADD_CLASS([l3])"])
-	define([HEADING_TAG], [h4])
+	divert(CHAPTER_NAVIG_DATA)dnl
+<p id="defn([#ID], [TOC_ANCH])" class="ADD_CLASS([l3])"><a href="[#]defn([#ID])"><b>defn([#S0], [#S1], [#S2])</b>SELITM</a></p>
+divert(CURRQU)dnl
+<h4]defn([HTML_HEADING_ATTRIBUTES])>defn([BACK_TO_TOC], [CHAPTER_INDEXES])[SELITM]defn([GO_BACK_UP])[</h4>
+divert(-1)
 
-	]defn([CHAPTER_COMMON_CODE])[
-
+	# following bridgeheads
 	define([HEADING_TAG], [h5])
 ])
 
@@ -216,7 +213,7 @@ undivert(CURRQU)dnl
 <h2]defn([HTML_HEADING_ATTRIBUTES])>defn([BACK_TO_TOC], [CHAPTER_INDEXES])[SELITM]defn([GO_BACK_UP])[</h2>
 divert(-1)
 
-	# size of the following headings
+	# following bridgeheads
 	define([HEADING_TAG], [h3])
 
 	# temporarily change the current queue
@@ -268,7 +265,7 @@ divert(CURRQU)dnl
 <h3]defn([HTML_HEADING_ATTRIBUTES])>defn([BACK_TO_TOC], [CHAPTER_INDEXES])[SELITM]defn([GO_BACK_UP])[</h3>
 divert(-1)
 
-	# size of the following headings
+	# following bridgeheads
 	define([HEADING_TAG], [h4])
 ])
 
@@ -289,13 +286,14 @@ divert(CURRQU)dnl
 <h4]defn([HTML_HEADING_ATTRIBUTES])>defn([BACK_TO_TOC], [CHAPTER_INDEXES])[SELITM]defn([GO_BACK_UP])[</h4>
 divert(-1)
 
-	# size of the following headings
+	# following bridgeheads
 	define([HEADING_TAG], [h5])
 ])
 
 # β
 pushdef([FIND_IMG_DIM], [
-	# the "identify" program has a bug (silent if missing file)
+
+	# the "identify" program has a bug (silently ignores the missing file)
 	ifelse(SARG1($6), [], [
 
 		ROOT_ERROR([missing image name])
@@ -567,7 +565,6 @@ define([TTITLE_MONO],	defn([HTML_MONOLINGUAL]))
 popdef(
 
 	[ANYTHING_5],
-	[CHAPTER_COMMON_CODE],
 	[CLASS_3],
 	[CLASS_3_BRIDGEHEAD],
 	[CLASS_3_COMMAND],
