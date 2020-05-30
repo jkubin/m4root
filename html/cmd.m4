@@ -58,13 +58,19 @@ define([FILES_ON_THE_COMMAND_LINE], [
 		divert(CURRQU)dnl
 <div id="ADD_ID_RULE(defn([#ID])-command)" title="defn([WORD_COMMAND])" class="ADD_CLASS(defn([COMMAND_LINE_CLASS]))"><pre>dnl
 undivert(COMMAND_ARGS_QUEUE)dnl
-GT() <a href="SRC_FILE_PATH/SARG1($1)" title="defn([SRC_REPO_NAME])SARG1($1)">patsubst(SARG1($1), [.*/])</a></pre><a href="[#]defn([#ID])-command" title="⚓"></a></div>
+GT() <a href="SRC_FILE_PATH/SARG1($1)" title="SARG1($1)
+git hash: SARG2(GIT_CSV)
+sha1sum: SARG4(GIT_CSV)
+size [[B]]: SARG5(GIT_CSV)">patsubst(SARG1($1), [.*/])</a></pre><a href="[#]defn([#ID])-command" title="⚓"></a></div>
 divert(-1)
 
 	], [
 
 		divert(COMMAND_ARGS_QUEUE)dnl
-<a href="SRC_FILE_PATH/SARG1($1)" title="defn([SRC_REPO_NAME])SARG1($1)">patsubst(SARG1($1), [.*/])</a> ifelse(SARG2($1), [], [], [ARG2($1) ])dnl
+<a href="SRC_FILE_PATH/SARG1($1)" title="SARG1($1)
+git hash: SARG2(GIT_CSV)
+sha1sum: SARG4(GIT_CSV)
+size [[B]]: SARG5(GIT_CSV)">patsubst(SARG1($1), [.*/])</a> ifelse(SARG2($1), [], [], [ARG2($1) ])dnl
 divert(-1)
 
 		# right recursive loop

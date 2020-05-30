@@ -36,7 +36,7 @@ define([TEXTDATA], [
 	])
 
 	# the first is file name, the second is ID (not used here)
-	define([#FILE], ARG1($1))
+	define([#FILE], SARG1($1))
 
 	# finds a git record from a hash database
 	define([GIT_CSV], defn([./]defn([#FILE])))
@@ -60,7 +60,10 @@ define([TEXTDATA], [
 	divert(CURRQU)dnl
 <div id="ADD_ID_RULE(defn([#ID]))"ifelse([$2], [], [], [ title="[$2]"]) class="ADD_CLASS([src])"SET_CSS_LINE_COUNTER($4)><pre>$0_SET_PARAMETERS(defn([#FILE]), [$3], $4)dnl
 SARG1(esyscmd(defn([COMMAND_FOR_TEXTDATA])))dnl
-</pre><code><span title="SARG3(GIT_CSV)">SARG2(GIT_CSV)</span><a href="SRC_FILE_PATH/defn([#FILE])" title="defn([SRC_REPO_NAME], [#FILE])">patsubst(defn([#FILE]),
+</pre><code><span title="SARG3(GIT_CSV)">SARG2(GIT_CSV)</span><a href="SRC_FILE_PATH/defn([#FILE])" title="defn([#FILE])
+git hash: SARG2(GIT_CSV)
+sha1sum: SARG4(GIT_CSV)
+size [[B]]: SARG5(GIT_CSV)">patsubst(defn([#FILE]),
 [.*/])</a><a href="[#]defn([#ID])" title="⚓"></a></code></div>
 divert(-1)
 
@@ -75,7 +78,7 @@ divert(-1)
 )])
 ])
 
-# the whole file is inserted into the sed buffer as a one long string for multi-line regex processing
+# the whole file is inserted into the sed buffer as one long string for multi-line regex processing
 # otherwise behaves like TEXTDATA()
 # A → β
 define([TEXTDATA_MLH], defn([TEXTDATA]))
@@ -89,6 +92,7 @@ define([TEXTDATA_SET_PARAMETERS_REGEX], [dnl
 define([COMMAND_FOR_TEXTDATA], [sed -ne '$3,$4{' -f html/chr_to_esc.sed -e ']patsubst(patsubst([[[$2]]], [\<MM(\([^)]+\))], [<span class=NSP()\1>&<\\x2fspan>]), [NSP()], defn([NSP]))[' -e '$3s/^/\x5b/;$4$5;p}' $1])dnl
 ])
 
+# loads the file into the sed buffer
 # A → β
 define([TEXTDATA_MLH_SET_PARAMETERS_REGEX], [dnl
 define([COMMAND_FOR_TEXTDATA], [sed -ne '$3{:a;N;$4!ba' -f html/chr_to_esc.sed -e ']patsubst(patsubst([[[$2]]], [\<MM(\([^)]+\))], [<span class=NSP()\1>&<\\x2fspan>]), [NSP()], defn([NSP]))[' -e 's/^/\x5b/;$5;p}' $1])dnl
