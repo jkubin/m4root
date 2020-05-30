@@ -41,7 +41,7 @@ method_add_info: function () {
 		};
 
 	source_date.appendChild(document.createTextNode(this.title));
-	source_path.appendChild(document.createTextNode(this.nextSibling.title.split('\n')[1]));
+	source_path.appendChild(document.createTextNode(this.nextSibling.title.split('\n')[0]));
 	source_info.appendChild(source_date);
 	source_info.appendChild(source_path);
 	parent_node.appendChild(this.source_info = source_info);
