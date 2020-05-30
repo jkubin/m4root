@@ -52,8 +52,10 @@ iabbrev <buffer> <unique> dv DIV([[dnl czech<cr><cr>],<cr>[dnl english: _next_la
 iabbrev <buffer> <unique> emp EMPHASIS([<c-r>"])<esc>
 iabbrev <buffer> <unique> exc EXCL(, defn([WORD_IMPORTANT]), [[dnl czech<cr><cr>],<cr>[dnl english: _next_language_<cr>%%%<cr>]])<left><c-o>%<c-o>0<down><c-r>=Eatchar('.')<cr>
 "iabbrev <buffer> <unique> ex EXAMPLE([<c-r>"], [])<c-o>T[<c-r>=Eatchar('.')<cr>
-iabbrev <buffer> <unique> ex EXPLAIN([<c-r>"], [])<left><left><c-r>=Eatchar('.')<cr>
+iabbrev <buffer> <unique> ex EXECUTED([<c-r>"], [%%%], [%%%])<left><c-o>%;;<c-r>=Eatchar('.')<cr>
+iabbrev <buffer> <unique> exp EXPLAIN([<c-r>"], [])<left><left><c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> exm EXPLAIN_M4([<c-r>"], [])<left><left><c-r>=Eatchar('.')<cr>
+iabbrev <buffer> <unique> exr EXECUTED_ROOT([<c-r>"], [%%%], [%%%])<left><c-o>%;;<c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> fig FIGCAPTION([[dnl czech<cr><cr>],<cr>[dnl english: _next_language_<cr>%%%<cr>]])<left><c-o>%<c-o>0<down><c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> fim FIGCAPTION_MONO([[dnl monolingual<cr><cr>]])dnl FIGCAPTION_MONO<up><c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> ftn []FOOTNOTE([], [%%%])<c-o>T(<right><c-r>=Eatchar('.')<cr>
@@ -75,7 +77,7 @@ iabbrev <buffer> <unique> ifm INSERT_FILE_MLH([])<left><left><c-r>=Eatchar('.')<
 "iabbrev <buffer> <unique> ii LI([<c-r>"])<esc>
 iabbrev <buffer> <unique> im IMAGEDATA([],dnl id<cr>[%%%],dnl title<cr>[],dnl class<cr>[],dnl style<cr>[],dnl anything<cr>[%%%, %%%],dnl [local_img, server_img]<cr>[[dnl czech<cr>%%%<cr>],<cr>[dnl english: _next_language_<cr>%%%<cr>]])<left><c-o>%<right><right><c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> inf INFO(, defn([WORD_INFORMATION]), [[dnl czech<cr><cr>],<cr>[dnl english: _next_language_<cr>%%%<cr>]])<left><c-o>%<c-o>0<down><c-r>=Eatchar('.')<cr>
-iabbrev <buffer> <unique> ins INS([<c-r>"])<esc>
+iabbrev <buffer> <unique> ins INSERTED([<c-r>"])<esc>
 iabbrev <buffer> <unique> ita ITALIC([<c-r>"])<esc>
 iabbrev <buffer> <unique> itl ITEMIZEDLIST_WRAP([<cr><cr><cr><cr>])dnl ITEMIZEDLIST_WRAP<up><up><c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> itt ITALIC([<c-r>"])<esc>
@@ -150,8 +152,6 @@ iabbrev <buffer> <unique> uuu ULINK([<c-r>"], [%%%], [%%%])<left><c-o>%;;<c-o><c
 iabbrev <buffer> <unique> wa WARN(, defn([WORD_WARNING]), [[dnl czech<cr><cr>],<cr>[dnl english: _next_language_<cr>%%%<cr>]])<left><c-o>%<c-o>0<down><c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> wb []WBR()<c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> ww WARN(, defn([WORD_WARNING]), [[dnl czech<cr><cr>],<cr>[dnl english: _next_language_<cr>%%%<cr>]])<left><c-o>%<c-o>0<down><c-r>=Eatchar('.')<cr>
-iabbrev <buffer> <unique> xcr XCOMMAND_ROOT([<c-r>"], [%%%], [%%%])<left><c-o>%;;<c-r>=Eatchar('.')<cr>
-iabbrev <buffer> <unique> xc XCOMMAND([<c-r>"], [%%%], [%%%])<left><c-o>%;;<c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> xs XSPAN([<c-r>"], [%%%], [%%%])<left><c-o>%;;<c-r>=Eatchar('.')<cr>
 
 iabbrev <buffer> <unique> enh ENTRY_HEAD([[dnl czech<cr><cr>],<cr>[dnl english: _next_language_<cr>%%%<cr>]])<left><c-o>%<c-o>0<down><c-r>=Eatchar('.')<cr>
