@@ -62,11 +62,11 @@ m4wrap([
 <html id="css" class="js-inactive" lang="LANG_CODE">
 <head>
 <meta charset="utf-8">
-<title>PART</title>
+<title>PART_val</title>
 <link rel="stylesheet" type="text/css" href="../html/preview.css">
 divert(HEADER_END_START_BODY)dnl
 <meta name="author" content="AUTHOR_NAME">
-<meta name="description" content="PARTINTRO">
+<meta name="description" content="PARTINTRO_val">
 <meta name="generator" content="M4">
 </head>
 <body>
@@ -78,7 +78,7 @@ divert(HEADER_END_START_BODY)dnl
 <div class="design-tile--version-1 design-tile" itemtype="http://schema.org/Article" itemref="microdata-authors microdata-publisher" itemscope>
 
 <!-- Sklik-kontext-start -->
-<h1 class="detail__heading design-heading--level-1 design-heading" itemprop="headline">PART</h1>
+<h1 class="detail__heading design-heading--level-1 design-heading" itemprop="headline">PART_val</h1>
 
 <div class="detail__perex">
 	<div class=" perex">
@@ -95,7 +95,7 @@ divert(HEADER_END_START_BODY)dnl
 							<span itemprop="datePublished">SARG1(esyscmd([date '+[%-d. %-m. %Y],']))</span>
 						</span>
 				</div>
-				<p itemprop="description">PARTINTRO</p>
+				<p itemprop="description">PARTINTRO_val</p>
 				<div class="perex__reading-duration">
 					READING_DURATION
 				</div>

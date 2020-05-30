@@ -263,13 +263,12 @@ define([LINK], [pushdef([CURRQU], divnum)divert(-1)
 <a href="defn([EXTERN])[#]defn([ANCH])"defn([TITLE])>CAPT</a>popdef([CURRQU], [EXTERN], [PREF], [ANCH], [TITLE], [CAPT])dnl
 ])
 
-#      _____      __________
-# --->/ REF \--->/ REF_NEXT \---.
-#     \_____/    \__________/<--'
+#      ___________      __________
+# --->/ REF_FIRST \--->/ REF_NEXT \---.
+#     \___________/    \__________/<--'
 #
-# REF([name], [description], [URL])
 # A → β
-define([REF], [pushdef([CURRQU], divnum)divert(-1)
+define([REF_FIRST], [pushdef([CURRQU], divnum)divert(-1)
 
 	# set reference index, create symbol and an unique tuple
 	define([REF_COUNTER], [1])

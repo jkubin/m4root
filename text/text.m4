@@ -189,10 +189,10 @@ pushdef([PART_FINISH], [
 
 	# if the REF was used it changes automaton state to the REF_NEXT node
 	ifelse(defn([REF]), defn([REF_NEXT]), [
-	
+
 		# increment chapter index
 		CHAPTER_COUNTER
-	
+
 		# add item to navigation and below the page
 		divert(CHAPTER_NAVIG_DATA)dnl
 CHAPTER_COUNTER_val WORD_REFERENCES
@@ -203,18 +203,18 @@ divert(-1)
 
 	# if enabled, adds a code to references
 	ifdef([ADD_LINKS_TO_ALL_PARTS_OF_THE_SERIES], [
-	
+
 		# generate table of content for all parts
 		ifelse(defn(OTHER_LANG_CODE[]_OTHER_LANG), [], [
-	
+
 			TABLE_OF_CONTENT(LANG_CODE)
 		], [
 			TABLE_OF_CONTENT(LANG_CODE[,] OTHER_LANG_CODE)
 		])
-	
+
 		# increment chapter index
 		CHAPTER_COUNTER
-	
+
 		# add item to navigation and below the page
 		divert(CHAPTER_NAVIG_DATA)dnl
 CHAPTER_COUNTER_val SENTENCE_ALL_PARTS
@@ -229,7 +229,8 @@ divert(-1)
 define([PART_NEXT], defn([PART_FINISH])[
 
 	divert(0)dnl print the previous part to stdout, start the next part
-undivert[]ifdef([PRINT_HEADER], [------------------------ >8 ------------------------
+undivert[]ifdef([PRINT_HEADER],
+[------------------------ >8 ------------------------
 ])dnl
 divert(-1)
 
@@ -264,6 +265,9 @@ CHAPTER_COUNTER_val SELITM
 divert(-1)
 ])
 
+#      _______________      ______________
+# --->/ CHAPTER_FIRST \--->/ CHAPTER_NEXT \---.
+#     \_______________/    \______________/<--'
 # β
 define([CHAPTER_FIRST], [
 

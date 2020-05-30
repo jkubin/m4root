@@ -29,7 +29,7 @@ m4wrap([
 <html lang="LANG_CODE">
 <head>
 <meta charset="utf-8">
-<title>PART</title>
+<title>PART_val</title>
 <meta name="author" content="AUTHOR_NAME">
 <meta name="generator" content="M4">
 <link rel="stylesheet" type="text/css" href="../html/preview.css">

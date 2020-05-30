@@ -27,7 +27,7 @@ divert(END_OF_LANG_CODES)dnl
 divert(-1)
 
 # A → β
-define([CREATE_LANG_LIST], [
+define([MAKE_LANG_LIST], [
 
 	# test if lang code exists
 	ifdef([LANG_CODE_$1], [], [
@@ -37,7 +37,7 @@ define([CREATE_LANG_LIST], [
 
 	# create ordered list of languages according to the TOC_FILE_NAME
 	divert(LANG_CODE_$1)dnl
-	LANG_INDEX_ITEM([[$1]], [[$1_LANG]])
+	LANG_INDEX_ITEM([[$1]])
 divert(END_OF_LANG_CODES)dnl
 [define([LANG_INDEX_$1], ]eval(LANG_CODE_$1 - END_OF_TOC))
 divert(-1)
@@ -51,10 +51,10 @@ divert(-1)
 ])
 
 # creates a list of languages by TOC_FILE_NAME order
-CREATE_LANG_LIST(ALL_LANGS)
+MAKE_LANG_LIST(ALL_LANGS)
 
 # A → β
-define([CREATE_TABLE_OF_CONTENT], [
+define([MAKE_TABLE_OF_CONTENT], [
 
 	# test if file is defined
 	ifdef([$1], [], [
@@ -76,4 +76,4 @@ divert(-1)
 ])
 
 # creates a list of files by TOC_FILE_NAME order
-CREATE_TABLE_OF_CONTENT(FILE_LIST)
+MAKE_TABLE_OF_CONTENT(FILE_LIST)
