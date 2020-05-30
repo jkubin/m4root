@@ -8,8 +8,8 @@ ___POINT([definition of HTML5 block-level elements and unpaired tags])
 
 # also used in html/nav.m4
 # β
-define([BACK_TO_TOC],	[<a href="[#]defn([#ID], [TOC_ANCH])" title="defn([WORD_CONTENT])"></a>])
 define([CHAPTER_INDEXES],	[<a href="[#]defn([#ID])" title="⚓">defn([#S0], [#S1], [#S2])</a>])
+define([TOC_AND_ANCHOR],	[<a href="[#]defn([#ID], [TOC_ANCH])" title="defn([WORD_CONTENT])"></a>]defn([CHAPTER_INDEXES]))
 define([GO_BACK_UP],	[<a href="defn([#NSP], [TOC_ANCH])" title="defn([WORD_TOP])"></a>])
 
 # html tag attributes (at the end of this file will be forgotten)
@@ -19,7 +19,7 @@ pushdef([ID_1_MONO],	[[]ifelse([$#], [1], [], [$1], [], [], [ id="ADD_ID_MONO([$
 pushdef([ID_1_ANCHOR],	[[]ifelse([$#], [1], [], [$1], [], [], [<a href="[#]ADD_ID_MONO([$1])" title="⚓"></a>])])
 pushdef([TITLE_2],		[ifelse([$#], [2], [], [$2], [], [], [ title="[$2]"])])
 pushdef([CLASS_3],		[ifelse([$#], [3], [], [$3], [], [], [ class="ADD_CLASS([$3])"])])
-pushdef([CLASS_3_SUFFIX],	[ifelse([$#], [3], [], [$3], [], [], [ ADD_CLASS([$3])])"])		<--- Keep it up!
+pushdef([CLASS_3_SUFFIX],	[ifelse([$#], [3], [], [$3], [], [], [ ADD_CLASS([$3])])"])		<--- Keep it up (β)!
 pushdef([CLASS_3_EXCL],	[ class="rs-tip-major ADD_CLASS([excl])]defn([CLASS_3_SUFFIX]))
 pushdef([CLASS_3_BRIDGEHEAD],	[ class="ADD_CLASS([bh])]defn([CLASS_3_SUFFIX]))
 pushdef([CLASS_3_HEADING],	[ class="ADD_CLASS([ch])]defn([CLASS_3_SUFFIX]))
@@ -87,47 +87,52 @@ pushdef([HTML_MULTILINGUAL], [
 divert(-1)
 ])
 
-#      ______      ________
-# --->/ PART \--->/ string \
-#     \______/    \________/
+#      ______
+# --->/ PART \---.
+#     \______/<--'
 #
 # A → β
-define([PART], defn([TEST_ATM])[
+define([PART], [
 
 	define([FILE_PREFIX], __file__.LANG_CODE)
+	define([CURRQU], 0)
 
 	# reset automata
-	define([APPENDIX], defn([APPENDIX_INIT]))
-	define([CURRQU], 0)
-	define([SECT1], defn([SECT1_ARTICLE]))
-	define([SECT2], defn([SECT2_ARTICLE]))
+	define([APPENDIX],		defn([APPENDIX_INIT]))
+	define([CHAPTER],		defn([CHAPTER_FIRST]))
+	define([REF],		defn([REF_FIRST]))
+	define([SECT1],		defn([SECT1_ARTICLE]))
+	define([SECT2],		defn([SECT2_ARTICLE]))
 
-	# counters for chapters and sections
-	define([CHAPTER_COUNTER], defn([COUNT_UP]))
-	define([SECT1_COUNTER], defn([COUNT_UP]))
-	define([SECT2_COUNTER], defn([COUNT_UP]))
+	# define counters
+	define([CHAPTER_COUNTER],	defn([COUNT_UP]))
+	define([IMAGE_COUNTER],	defn([COUNT_UP]))
+	define([SECT1_COUNTER],	defn([COUNT_UP]))
+	define([SECT2_COUNTER],	defn([COUNT_UP]))
 
+	# init counters
 	CHAPTER_COUNTER(0)
+	IMAGE_COUNTER(1)
 	SECT1_COUNTER(0)
 	SECT2_COUNTER(0)
 
-	# transition to the next node (redefine itself to string)
-	define([$0], EXPAND_LANG(]defn([EXPAND_LAST])[))
+	# set value
+	define([PART_val], EXPAND_LANG(]defn([EXPAND_LAST])[))
 ])
 
-#      ___________      ________
-# --->/ PARTINTRO \--->/ string \
-#     \___________/    \________/
+#      ___________
+# --->/ PARTINTRO \---.
+#     \___________/<--'
 #
 # A → β
-define([PARTINTRO], defn([TEST_ATM])[
+define([PARTINTRO], [
 
-	# transition to the next node (redefine itself to the selected string)
-	define([$0], SELECT_LANG_WITHOUT_TRAILING_LF(]defn([EXPAND_LAST])[))
+	# set value
+	define([PARTINTRO_val], SELECT_LANG_WITHOUT_TRAILING_LF(]defn([EXPAND_LAST])[))
 ])
 
-# A → β
-define([CHAPTER], defn([MULTILINGUAL_HEADINGS], [SET_ANCHOR])[
+# β
+define([CHAPTER_NEXT], defn([MULTILINGUAL_HEADINGS], [SET_ANCHOR])[
 
 	# increment index
 	CHAPTER_COUNTER
@@ -138,17 +143,47 @@ define([CHAPTER], defn([MULTILINGUAL_HEADINGS], [SET_ANCHOR])[
 
 	define([#S0], CHAPTER_COUNTER_val)
 
-	define([CURRQU], ARTICLE_CONTENT)
-
 	divert(CHAPTER_NAVIG_DATA)dnl
 <p id="defn([#ID], [TOC_ANCH])"><a href="[#]defn([#ID])"><b>defn([#S0], [#S1], [#S2])</b>SELITM</a></p>
 divert(CURRQU)dnl
-<h2]defn([HTML_HEADING_ATTRIBUTES])>defn([BACK_TO_TOC], [CHAPTER_INDEXES])[SELITM]defn([GO_BACK_UP])[</h2>
+<h2]defn([HTML_HEADING_ATTRIBUTES])>defn([TOC_AND_ANCHOR])[SELITM]defn([GO_BACK_UP])[</h2>
 divert(-1)
 
 	# following bridgeheads
 	define([HEADING_TAG], [h3])
 ])
+
+#      _______________      ______________
+# --->/ CHAPTER_FIRST \--->/ CHAPTER_NEXT \---.
+#     \_______________/    \______________/<--'
+# β
+define([CHAPTER_FIRST], [
+
+	divert(START_OF_NAVIGATION)dnl table of content
+<div id="ADD_ID_RULE(defn([NSP], [TOC_ANCH]))"><h2>defn([WORD_CONTENT])ifelse(defn(OTHER_LANG_CODE[]_OTHER_LANG), [], [],
+[[ ](<a href="../defn([OTHER_LANGUAGE])defn(CURRENT_INDEX.OTHER_LANG_CODE.anch)/defn([OUTPUT_FILE], [#NSP], [TOC_ANCH])" title="defn(CURRENT_INDEX.OTHER_LANG_CODE.capt)">ARG1(OTHER_LANG_CODE)_OTHER_LANG</a>)])</h2><div>dnl
+<div class="ADD_CLASS([dwnl])">dnl
+<a href="SRC_FILE_PATH/__file__" style="font-weight:bold" title="defn([WORD_ARTICLE_SOURCE])">mc</a>dnl
+<a href="SRC_FILE_PATH/defn([ARTICLE_PATH]).txt" title="defn([WORD_ARTICLE_TEXT])">txt</a>dnl
+<a href="SRC_FILE_PATH/defn([ARTICLE_PATH])/publish.txt" title="defn([WORD_PUBLISH_TEXT])">pub</a><br>dnl
+<a href="SRC_FILE_PATH/defn([ARTICLE_PATH])/spell.txt" title="defn([WORD_SPELL_TEXT])">spell</a>dnl
+</div>dnl
+ifdef([NEW_ARTICLE], [], [<div class="ADD_CLASS([updt])">WORD_UPDATED<br>SARG1(esyscmd(defn([DATE_COMMAND])))</div>])dnl
+</div>dnl
+</div>
+divert(END_OF_NAVIGATION)dnl
+<!-- article content -->
+divert(APPENDIX_CONTENT_START)dnl
+<!-- appendix content -->
+divert(-1)
+
+	# set article queue
+	define([CURRQU], ARTICLE_CONTENT)
+
+	# transition to next node
+	define([$0], defn([CHAPTER_NEXT]))
+
+]defn([CHAPTER_NEXT]))
 
 # A → β
 define([SECT1_ARTICLE], defn([MULTILINGUAL_HEADINGS], [SET_ANCHOR])[
@@ -164,7 +199,7 @@ define([SECT1_ARTICLE], defn([MULTILINGUAL_HEADINGS], [SET_ANCHOR])[
 	divert(CHAPTER_NAVIG_DATA)dnl
 <p id="defn([#ID], [TOC_ANCH])" class="ADD_CLASS([l2])"><a href="[#]defn([#ID])"><b>defn([#S0], [#S1], [#S2])</b>SELITM</a></p>
 divert(CURRQU)dnl
-<h3]defn([HTML_HEADING_ATTRIBUTES])>defn([BACK_TO_TOC], [CHAPTER_INDEXES])[SELITM]defn([GO_BACK_UP])[</h3>
+<h3]defn([HTML_HEADING_ATTRIBUTES])>defn([TOC_AND_ANCHOR])[SELITM]defn([GO_BACK_UP])[</h3>
 divert(-1)
 
 	# following bridgeheads
@@ -185,7 +220,7 @@ define([SECT2_ARTICLE], defn([MULTILINGUAL_HEADINGS], [SET_ANCHOR])[
 	divert(CHAPTER_NAVIG_DATA)dnl
 <p id="defn([#ID], [TOC_ANCH])" class="ADD_CLASS([l3])"><a href="[#]defn([#ID])"><b>defn([#S0], [#S1], [#S2])</b>SELITM</a></p>
 divert(CURRQU)dnl
-<h4]defn([HTML_HEADING_ATTRIBUTES])>defn([BACK_TO_TOC], [CHAPTER_INDEXES])[SELITM]defn([GO_BACK_UP])[</h4>
+<h4]defn([HTML_HEADING_ATTRIBUTES])>defn([TOC_AND_ANCHOR])[SELITM]defn([GO_BACK_UP])[</h4>
 divert(-1)
 
 	# following bridgeheads
@@ -210,7 +245,7 @@ define([APPENDIX_NODE], defn([MULTILINGUAL_HEADINGS], [SET_ANCHOR])[
 <p id="defn([#ID], [TOC_ANCH])"><a href="[#]defn([#ID])" title="defn([WORD_APPENDIX])"><b>defn([#S0], [#S1], [#S2])</b>SELITM</a></p>
 divert(APPENDIX_NAVIGATION)dnl
 undivert(CURRQU)dnl
-<h2]defn([HTML_HEADING_ATTRIBUTES])>defn([BACK_TO_TOC], [CHAPTER_INDEXES])[SELITM]defn([GO_BACK_UP])[</h2>
+<h2]defn([HTML_HEADING_ATTRIBUTES])>defn([TOC_AND_ANCHOR])[SELITM]defn([GO_BACK_UP])[</h2>
 divert(-1)
 
 	# following bridgeheads
@@ -262,7 +297,7 @@ define([SECT1_APPENDIX], defn([MULTILINGUAL_HEADINGS], [SET_ANCHOR])[
 	divert(APPENDIX_NAVIGATION)dnl
 <p id="defn([#ID], [TOC_ANCH])" class="ADD_CLASS([l2])"><a href="[#]defn([#ID])"><b>defn([#S0], [#S1], [#S2])</b>SELITM</a></p>
 divert(CURRQU)dnl
-<h3]defn([HTML_HEADING_ATTRIBUTES])>defn([BACK_TO_TOC], [CHAPTER_INDEXES])[SELITM]defn([GO_BACK_UP])[</h3>
+<h3]defn([HTML_HEADING_ATTRIBUTES])>defn([TOC_AND_ANCHOR])[SELITM]defn([GO_BACK_UP])[</h3>
 divert(-1)
 
 	# following bridgeheads
@@ -283,7 +318,7 @@ define([SECT2_APPENDIX], defn([MULTILINGUAL_HEADINGS], [SET_ANCHOR])[
 	divert(APPENDIX_NAVIGATION)dnl
 <p id="defn([#ID], [TOC_ANCH])" class="ADD_CLASS([l3])"><a href="[#]defn([#ID])"><b>defn([#S0], [#S1], [#S2])</b>SELITM</a></p>
 divert(CURRQU)dnl
-<h4]defn([HTML_HEADING_ATTRIBUTES])>defn([BACK_TO_TOC], [CHAPTER_INDEXES])[SELITM]defn([GO_BACK_UP])[</h4>
+<h4]defn([HTML_HEADING_ATTRIBUTES])>defn([TOC_AND_ANCHOR])[SELITM]defn([GO_BACK_UP])[</h4>
 divert(-1)
 
 	# following bridgeheads
@@ -308,10 +343,6 @@ pushdef([FIND_IMG_DIM], [
 		ROOT_ERROR([$3 image dimensions; you may not have ImageMagick installed])
 	])
 ])
-
-# create and init image counter
-define([IMAGE_COUNTER], defn([COUNT_UP]))
-IMAGE_COUNTER(1)
 
 # IMAGEDATA(,,,,, [img.png, http://root.cz/img.png], [[czech], [english]])
 # IMAGEDATA([ID], [title],,,, [img.png, http://root.cz/img.png], [[czech], [english]])
