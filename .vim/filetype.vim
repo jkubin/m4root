@@ -7,7 +7,8 @@ endif
 augroup my_filetypedetect
 	autocmd!
 
-	autocmd BufNewFile,BufRead *.make,*.mk setlocal filetype=make		" makefile
+	autocmd BufNewFile,BufRead *.ls setlocal filetype=m4 mps+=⟦\:⟧	" L-system file
+	autocmd BufNewFile,BufRead *.make,*.mk setlocal filetype=make	" Makefile
 	autocmd BufNewFile,BufRead *.mc setlocal wrap			" m4 macro configuration
 
 	" http://vim.wikia.com/wiki/Automatically_open_the_quickfix_window_on_:make
