@@ -20,7 +20,15 @@ define([SRC_FILE_PATH], [..])
 define([SRC_REPO_NAME], defn([WORD_SRC])[localhost
 ])
 
-m4wrap([
+# A → β
+define([PART], defn([PART])[
+
+	# transition to next node (error if the next node)
+	define([$0], [
+
+		ROOT_ERROR([only one source file is allowed])
+	])
+
 	divert(0)dnl
 <!-- vim:wrap
 	DONTE()
@@ -29,7 +37,7 @@ m4wrap([
 <html lang="LANG_CODE">
 <head>
 <meta charset="utf-8">
-<title>PART_val</title>
+<title>EXPAND_LANG(]defn([EXPAND_LAST])[)</title>
 <meta name="author" content="AUTHOR_NAME">
 <meta name="generator" content="M4">
 <link rel="stylesheet" type="text/css" href="../html/preview.css">
@@ -41,4 +49,5 @@ divert(END_OF_ARTICLE)dnl
 </div>
 </body>
 </html>
+divert(-1)
 ])

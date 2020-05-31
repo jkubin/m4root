@@ -130,41 +130,16 @@ divert(-1)
 ])
 
 # β
-pushdef([PART_INIT], [
-
-	# current queue to stdout
-	define([CURRQU], 0)
+pushdef([PART_INIT], defn([PART_INIT])[
 
 	ifdef([PRINT_HEADER], [
 
 		divert(0)dnl
-__SOURCE(LB()__file__[]RB(), SARG1(esyscmd([date '+[[%Y%m%d-%R:%S]],'])), SARG1(esyscmd([git log -1 --format='[[%h]],' ]__file__)), SARG1(esyscmd([git log -1 --format='[[%h]],'])))
+__SOURCE(BRAC(__file__), SARG1(esyscmd([date '+[[%Y%m%d-%R:%S]],'])), SARG1(esyscmd([git log -1 --format='[[%h]],' ]__file__)), SARG1(esyscmd([git log -1 --format='[[%h]],'])))
 
 WORD_PART PART_COUNTER. dnl
 divert(-1)
 	])
-
-	# reset automata
-	define([APPENDIX],	defn([APPENDIX_FIRST]))
-	define([CHAPTER],	defn([CHAPTER_FIRST]))
-	define([REF],		defn([REF_FIRST]))
-	define([SECT1],		defn([SECT1_ARTICLE]))
-	define([SECT2],		defn([SECT2_ARTICLE]))
-
-	# needed for LINK(…) to dereference text from the references
-	define([FILE_PREFIX],	__file__.LANG_CODE)
-
-	# define counters
-	define([CHAPTER_COUNTER],	defn([COUNT_UP]))
-	define([IMAGE_COUNTER],	defn([COUNT_UP]))
-	define([SECT1_COUNTER],	defn([COUNT_UP]))
-	define([SECT2_COUNTER],	defn([COUNT_UP]))
-
-	# init counters
-	CHAPTER_COUNTER(0)
-	IMAGE_COUNTER(1)
-	SECT1_COUNTER(0)
-	SECT2_COUNTER(0)
 
 ]defn([PRINT_LANG]))
 
@@ -204,13 +179,7 @@ divert(-1)
 	# if enabled, adds a code to references
 	ifdef([ADD_LINKS_TO_ALL_PARTS_OF_THE_SERIES], [
 
-		# generate table of content for all parts
-		ifelse(defn(OTHER_LANG_CODE[]_OTHER_LANG), [], [
-
-			TABLE_OF_CONTENT(LANG_CODE)
-		], [
-			TABLE_OF_CONTENT(LANG_CODE[,] OTHER_LANG_CODE)
-		])
+		MAKE_TABLE_OF_CONTENT(FILE_LIST)
 
 		# increment chapter index
 		CHAPTER_COUNTER
@@ -228,7 +197,7 @@ divert(-1)
 # A → β
 define([PART_NEXT], defn([PART_FINISH])[
 
-	divert(0)dnl print the previous part to stdout, start the next part
+	divert(0)dnl print all cached previous parts to stdout, start the next part
 undivert[]ifdef([PRINT_HEADER],
 [------------------------ >8 ------------------------
 ])dnl
@@ -240,12 +209,18 @@ divert(-1)
 m4wrap(defn([PART_FINISH]))
 
 # A → β
-define([TABLE_OF_CONTENT_ITEM], [
+define([MAKE_TABLE_OF_CONTENT], [
 
-	# set caption from associative memory
-	divert(ALL_PARTS_ITEMS)dnl
-defn([$1.$2.capt])[]ifelse([$3], [], [], [, $3])
+	ifelse([$1], [], [], [
+
+		# set caption from associative memory
+		divert(ALL_PARTS_ITEMS)dnl
+defn([$1].LANG_CODE.capt)[]ifdef(OTHER_LANG_CODE[_OTHER_LANG], [, OTHER_LANG_CODE])
 divert(-1)
+
+		# right recursive loop
+		$0(shift($@))
+	])
 ])
 
 # β

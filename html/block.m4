@@ -87,49 +87,8 @@ pushdef([HTML_MULTILINGUAL], [
 divert(-1)
 ])
 
-#      ______
-# --->/ PART \---.
-#     \______/<--'
-#
 # A → β
-define([PART], [
-
-	define([FILE_PREFIX], __file__.LANG_CODE)
-	define([CURRQU], 0)
-
-	# reset automata
-	define([APPENDIX],		defn([APPENDIX_INIT]))
-	define([CHAPTER],		defn([CHAPTER_FIRST]))
-	define([REF],		defn([REF_FIRST]))
-	define([SECT1],		defn([SECT1_ARTICLE]))
-	define([SECT2],		defn([SECT2_ARTICLE]))
-
-	# define counters
-	define([CHAPTER_COUNTER],	defn([COUNT_UP]))
-	define([IMAGE_COUNTER],	defn([COUNT_UP]))
-	define([SECT1_COUNTER],	defn([COUNT_UP]))
-	define([SECT2_COUNTER],	defn([COUNT_UP]))
-
-	# init counters
-	CHAPTER_COUNTER(0)
-	IMAGE_COUNTER(1)
-	SECT1_COUNTER(0)
-	SECT2_COUNTER(0)
-
-	# set value
-	define([PART_val], EXPAND_LANG(]defn([EXPAND_LAST])[))
-])
-
-#      ___________
-# --->/ PARTINTRO \---.
-#     \___________/<--'
-#
-# A → β
-define([PARTINTRO], [
-
-	# set value
-	define([PARTINTRO_val], SELECT_LANG_WITHOUT_TRAILING_LF(]defn([EXPAND_LAST])[))
-])
+define([PART], defn([PART_INIT]))
 
 # β
 define([CHAPTER_NEXT], defn([MULTILINGUAL_HEADINGS], [SET_ANCHOR])[
@@ -228,7 +187,7 @@ divert(-1)
 ])
 
 # β
-define([APPENDIX_NODE], defn([MULTILINGUAL_HEADINGS], [SET_ANCHOR])[
+define([APPENDIX_NEXT], defn([MULTILINGUAL_HEADINGS], [SET_ANCHOR])[
 
 	# increment letter index
 	define([APPENDIX_LETTER], format([%c], APPENDIX_COUNTER))
@@ -258,15 +217,15 @@ divert(-1)
 	popdef([CURRQU])
 ])
 
-#      __________      _______________
-# --->/ APPENDIX \--->/ APPENDIX_NODE \---.
-#     \__________/    \_______________/<--'
+#      ________________      _______________
+# --->/ APPENDIX_FIRST \--->/ APPENDIX_NEXT \---.
+#     \________________/    \_______________/<--'
 #      _______      ________________
 # --->/ SECT1 \--->/ SECT1_APPENDIX \---.
 #     \_SECT2_/    \_SECT2_APPENDIX_/<--'
 #
 # A → β
-define([APPENDIX_INIT], [
+define([APPENDIX_FIRST], [
 
 	# starting letter is 65: ord('A')
 	define([APPENDIX_COUNTER], defn([COUNT_UP]))
@@ -277,11 +236,11 @@ define([APPENDIX_INIT], [
 divert(-1)
 
 	# transition to the next nodes
-	define([APPENDIX], defn([APPENDIX_NODE]))
+	define([APPENDIX], defn([APPENDIX_NEXT]))
 	define([SECT1], defn([SECT1_APPENDIX]))
 	define([SECT2], defn([SECT2_APPENDIX]))
 
-]defn([APPENDIX_NODE]))
+]defn([APPENDIX_NEXT]))
 
 # β
 define([SECT1_APPENDIX], defn([MULTILINGUAL_HEADINGS], [SET_ANCHOR])[
