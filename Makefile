@@ -24,7 +24,12 @@ REFS_MONO  = refs_mono.m4
 JAVASCRIPT = js/hgl_packed.js js/info_packed.js
 VPATH      = gfiles js
 SUBDIRS    = gfiles hello_world preproc messages asm
-MONITORED  = messages gfiles/*[bnqu].m4 hello_world asm preproc
+MONITORED  = \
+	messages \
+	gfiles/*[bnqu].m4 \
+	hello_world \
+	asm \
+	preproc \
 
 EMPTY =
 SPACE = $(EMPTY) $(EMPTY)
