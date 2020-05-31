@@ -63,7 +63,7 @@ SARG1(esyscmd(defn([COMMAND_FOR_TEXTDATA])))dnl
 </pre><code><span>SARG2(GIT_CSV)</span><a href="SRC_FILE_PATH/defn([#FILE])" title="defn([#FILE])
 date: SARG3(GIT_CSV)
 sha1sum: SARG4(GIT_CSV)
-size [[B]]: SARG5(GIT_CSV)">patsubst(defn([#FILE]),
+size: SARG5(GIT_CSV) B">patsubst(defn([#FILE]),
 [.*/])</a><a href="[#]defn([#ID])" title="⚓"></a></code></div>
 divert(-1)
 
