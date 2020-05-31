@@ -3,32 +3,38 @@ ___DESCR([generates additional rules extending the handwritten Makefile to gener
 ___POINT([additional rules to generate txt files])
 
 # A → β
-define([TABLE_OF_CONTENT_ITEM], [
+define([MAKE_RULE], [
 
-	# file stem is from an associative array
-	define([FILE_STEM], defn([$1.$2.anch]))
+	ifelse([$1], [], [], [
 
-	ifelse(defn([FILE_STEM]), [], [
+		# file stem is from an associative array
+		define([FILE_STEM], defn([$1].LANG_CODE.anch))
 
-		ROOT_ERROR([reference file ‘refs_xx.m4’ is missing or empty])
-	])
+		ifelse(defn([FILE_STEM]), [], [
 
-divert(1)dnl
+			ROOT_ERROR([reference file ‘refs_xx.m4’ is missing or empty])
+		])
+
+		divert(1)dnl
 defn([FILE_STEM]) \
-divert(2)dnl
-FILE_STEM.txt: rootb.m4 cfg.m4 order.m4 lang.m4 headings.m4 ver.m4 lang_$2.m4 git.m4 REFS_FILES incl.m4 text/file.m4 text/cmd.m4 text/queues.m4 text/ref.m4 text/link.m4 text/text.m4 $1
-	m4 -DLANG_CODE='$2' -DLINE_NUMBERS $(FLAGS) $^ | sed -f text/esc_to_txt.sed > $[@]
+divert(3)dnl
+FILE_STEM.txt: rootb.m4 cfg.m4 lang.m4 headings.m4 ver.m4 lang_[]LANG_CODE.m4 git.m4 REFS_FILES incl.m4 init.m4 text/file.m4 text/cmd.m4 text/queues.m4 text/ref.m4 text/link.m4 text/text.m4 $1
+	m4 -DLANG_CODE='LANG_CODE' -DFILE_LIST='FILE_LIST' -DLINE_NUMBERS $(FLAGS) $^ | sed -f text/esc_to_txt.sed > $[@]
 
 divert(-1)
+
+		# right recursive loop
+		$0(shift($@))
+	])
 ])
 
-# process table from the common content file
-TABLE_OF_CONTENT(LANG_CODE)
+MAKE_RULE(FILE_LIST)
 
 # define Makefile names
 # A → β
 define([ALL_SUBTARGETS],	[all-text-]LANG_CODE [at]LANG_CODE)
 define([CLEAN_SUBTARGETS],	[clean-text-]LANG_CODE [clt]LANG_CODE [ct]LANG_CODE)
+define([ALL_IN_ONE],		[all_]LANG_CODE.txt)
 define([TEXT_STEM],		[TEXT_STEM_]LANG_CODE)
 define([SRC_FILES],		[TEXT_]LANG_CODE)
 define([CC_NAMES],		[CHAR_COUNT_]LANG_CODE)
@@ -42,7 +48,7 @@ divert(0)dnl
 [#] DONTE()
 
 TEXT_STEM = \
-undivert(1)
+divert(2)
 SRC_FILES = $(TEXT_STEM:=.txt)
 CC_NAMES = $(TEXT_STEM:=.cc)
 WC_NAMES = $(TEXT_STEM:=.wc)
@@ -64,6 +70,10 @@ txt-sub-targets sub su: $(SRC_FILES)
 .PHONY: text txt tx
 text txt tx: $(SRC_FILES)
 
+#:plain/pla/p1	generates plain text in one file
+.PHONY: plain pla p1
+plain pla p1: ALL_IN_ONE
+
 #:gzt/gt	generates gzipped files
 .PHONY: gzt gt
 gzt gt: $(GZ_FILES)
@@ -80,4 +90,7 @@ ALL_SUBTARGETS: SUBTARGETS
 .PHONY: CLEAN_SUBTARGETS
 CLEAN_SUBTARGETS:
 	$(RM) SUBTARGETS
+
+ALL_IN_ONE: rootb.m4 cfg.m4 lang.m4 headings.m4 ver.m4 lang_[]LANG_CODE.m4 git.m4 REFS_FILES incl.m4 text/file.m4 text/cmd.m4 text/queues.m4 text/ref.m4 text/link.m4 text/text.m4 patsubst(defn([FILE_LIST]), [,], [ ])
+	m4 -DLANG_CODE='LANG_CODE' -DFILE_LIST='FILE_LIST' -DPRINT_HEADER -DLINE_NUMBERS $(FLAGS) $^ | sed -f text/esc_to_txt.sed > $@
 

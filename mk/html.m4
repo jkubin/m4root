@@ -5,34 +5,39 @@ ___DESCR([the script generates additional rules extending the handwritten Makefi
 ___POINT([additional rules by configuration from command line to generate HTML files])
 
 # A → β
-define([TABLE_OF_CONTENT_ITEM], [
+define([MAKE_RULE], [
 
-	# find the folder name from the associative memory
-	define([TARGET_FOLDER], defn([$1.$2.anch]))
+	ifelse([$1], [], [], [
 
-	ifelse(defn([TARGET_FOLDER]), [], [
+		# find the folder name from the associative memory
+		define([TARGET_FOLDER], defn([$1].LANG_CODE.anch))
 
-		ROOT_ERROR([reference file ‘refs_xx.m4’ is missing or empty])
-	])
+		ifelse(defn([TARGET_FOLDER]), [], [
 
-divert(1)dnl
+			ROOT_ERROR([reference file ‘refs_xx.m4’ is missing or empty])
+		])
+
+		divert(1)dnl
 defn([TARGET_FOLDER]) \
-divert(2)dnl
-TARGET_FOLDER/%.html: $(JAVASCRIPT) rootb.m4 queues.m4 cfg.m4 ent.m4 inline.m4 headings.m4 block.m4 ver.m4 style.m4 lang_$2.m4 css.m4 js.m4 git.m4 REFS_FILES order.m4 lang.m4 incl.m4 file.m4 cmd.m4 %.m4 $1 nav.m4
-	m4 -DLANG_CODE='$2' -DSOURCE='$1' -DOUTPUT_FILE='$[*].html' -DARTICLE_PATH='TARGET_FOLDER' $(FLAGS) $(filter-out $(JAVASCRIPT), $^) | sed -f html/esc_to_ent.sed > $[@]
+divert(3)dnl
+TARGET_FOLDER/%.html: $(JAVASCRIPT) rootb.m4 queues.m4 cfg.m4 ent.m4 init.m4 inline.m4 headings.m4 block.m4 ver.m4 style.m4 lang_[]LANG_CODE.m4 css.m4 js.m4 git.m4 REFS_FILES lang.m4 incl.m4 file.m4 cmd.m4 %.m4 $1 nav.m4
+	m4 -DLANG_CODE='LANG_CODE' -DARTICLE_PATH='TARGET_FOLDER' -DFILE_LIST='FILE_LIST' -DOUTPUT_FILE='$[*].html' $(FLAGS) $(filter-out $(JAVASCRIPT), $^) | sed -f html/esc_to_ent.sed > $[@]
 	tidy -qe $[@]
 
-TARGET_FOLDER/spell.txt: rootb.m4 cfg.m4 order.m4 lang.m4 headings.m4 ver.m4 lang_$2.m4 REFS_FILES incl.m4 spell.m4 $1
-	m4 -DLANG_CODE='$2' -DSOURCE='$1' $(FLAGS) $^ > $[@]
+TARGET_FOLDER/spell.txt: rootb.m4 cfg.m4 lang.m4 headings.m4 ver.m4 lang_[]LANG_CODE.m4 REFS_FILES incl.m4 spell.m4 $1
+	m4 -DLANG_CODE='LANG_CODE' $(FLAGS) $^ > $[@]
 
-TARGET_FOLDER/publish.txt: $(JAVASCRIPT) rootb.m4 queues.m4 cfg.m4 ent.m4 inline.m4 headings.m4 block.m4 ver.m4 style.m4 lang_$2.m4 css.m4 js.m4 git.m4 REFS_FILES order.m4 lang.m4 incl.m4 file.m4 cmd.m4 publish.m4 $1 nav.m4
-	m4 -DLANG_CODE='$2' -DSOURCE='$1' -DARTICLE_PATH='TARGET_FOLDER' $(FLAGS) $(filter-out $(JAVASCRIPT), $^) | sed -f html/publish.sed -f html/esc_to_ent.sed > $[@]
+TARGET_FOLDER/publish.txt: $(JAVASCRIPT) rootb.m4 queues.m4 cfg.m4 ent.m4 init.m4 inline.m4 headings.m4 block.m4 ver.m4 style.m4 lang_[]LANG_CODE.m4 css.m4 js.m4 git.m4 REFS_FILES lang.m4 incl.m4 file.m4 cmd.m4 publish.m4 $1 nav.m4
+	m4 -DLANG_CODE='LANG_CODE' -DARTICLE_PATH='TARGET_FOLDER' -DFILE_LIST='FILE_LIST' $(FLAGS) $(filter-out $(JAVASCRIPT), $^) | sed -f html/publish.sed -f html/esc_to_ent.sed > $[@]
 
 divert(-1)
+
+		# right recursive loop
+		$0(shift($@))
+	])
 ])
 
-# process table from the common content file
-TABLE_OF_CONTENT(LANG_CODE)
+MAKE_RULE(FILE_LIST)
 
 # define Makefile names
 # A → β
@@ -49,10 +54,10 @@ define([SUBTARGETS],		$(FOLDER_NAMES) $(ARTICLE_FILES) $(PREVIEW_FILES) $(PUBLIS
 divert(0)dnl
 [#] DONTE()
 
-VPATH = gfiles:html:js
+VPATH += html
 
 FOLDER_NAMES = \
-undivert(1)
+divert(2)
 ARTICLE_FILES = $(FOLDER_NAMES:=/index.html)
 PREVIEW_FILES = $(FOLDER_NAMES:=/preview.html)
 PUBLISH_FILES = $(FOLDER_NAMES:=/publish.txt)
