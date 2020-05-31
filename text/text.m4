@@ -179,7 +179,10 @@ divert(-1)
 	# if enabled, adds a code to references
 	ifdef([ADD_LINKS_TO_ALL_PARTS_OF_THE_SERIES], [
 
-		MAKE_TABLE_OF_CONTENT(FILE_LIST)
+		define([ALL_PARTS_COUNTER], defn([COUNT_UP]))
+		ALL_PARTS_COUNTER(1)
+
+		MAKE_ALL_PARTS(FILE_LIST)
 
 		# increment chapter index
 		CHAPTER_COUNTER
@@ -209,13 +212,13 @@ divert(-1)
 m4wrap(defn([PART_FINISH]))
 
 # A → β
-define([MAKE_TABLE_OF_CONTENT], [
+define([MAKE_ALL_PARTS], [
 
 	ifelse([$1], [], [], [
 
 		# set caption from associative memory
 		divert(ALL_PARTS_ITEMS)dnl
-defn([$1].LANG_CODE.capt)[]ifdef(OTHER_LANG_CODE[_OTHER_LANG], [, OTHER_LANG_CODE])
+	ALL_PARTS_COUNTER. defn([$1].LANG_CODE.capt)[]ifdef(OTHER_LANG_CODE[_OTHER_LANG], [, OTHER_LANG_CODE])
 divert(-1)
 
 		# right recursive loop
@@ -249,8 +252,8 @@ define([CHAPTER_FIRST], [
 	divert(START_OF_NAVIGATION)dnl generates table of content
 defn([WORD_CONTENT])dnl
 ifelse(defn(OTHER_LANG_CODE[]_OTHER_LANG), [], [], [ (ARG1(OTHER_LANG_CODE)_OTHER_LANG)])dnl
-ifdef([NEW_ARTICLE], [],
-[			WORD_UPDATED SARG1(esyscmd(defn([DATE_COMMAND])))])
+			mc txt pub spell dnl
+ifdef([NEW_ARTICLE], [], [WORD_UPDATED SARG1(esyscmd(defn([DATE_COMMAND])))])
 divert(END_OF_NAVIGATION)
 divert(-1)
 

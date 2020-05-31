@@ -88,7 +88,11 @@ divert(-1)
 ])
 
 # A → β
-define([PART], defn([PART_INIT]))
+define([PART], defn([PART_INIT])[
+
+	# set value (used in multiple places)
+	define([PART_val], EXPAND_LANG(]defn([EXPAND_LAST])[))
+])
 
 # β
 define([CHAPTER_NEXT], defn([MULTILINGUAL_HEADINGS], [SET_ANCHOR])[
@@ -118,9 +122,18 @@ divert(-1)
 # β
 define([CHAPTER_FIRST], [
 
+	# find the current index for navigation logic (previous part, current part, next part)
+	define([CURRENT_INDEX], defn([#].LANG_CODE.defn([PART_val])))
+
+	# no index means no input document (without PART)
+	ifelse(defn([CURRENT_INDEX]), [], [
+
+		ROOT_ERROR([unknown caption; run ‘make -B refs …’ to regenerate])
+	])
+
 	divert(START_OF_NAVIGATION)dnl table of content
-<div id="ADD_ID_RULE(defn([NSP], [TOC_ANCH]))"><h2>defn([WORD_CONTENT])ifelse(defn(OTHER_LANG_CODE[]_OTHER_LANG), [], [],
-[[ ](<a href="../defn([OTHER_LANGUAGE])defn(CURRENT_INDEX.OTHER_LANG_CODE.anch)/defn([OUTPUT_FILE], [#NSP], [TOC_ANCH])" title="defn(CURRENT_INDEX.OTHER_LANG_CODE.capt)">ARG1(OTHER_LANG_CODE)_OTHER_LANG</a>)])</h2><div>dnl
+<div id="ADD_ID_RULE(defn([NSP], [TOC_ANCH]))"><h2>defn([WORD_CONTENT])ifelse(defn(OTHER_LANG_CODE[_OTHER_LANG]), [], [],
+[ (<a href="../defn([OTHER_LANGUAGE])defn(CURRENT_INDEX.OTHER_LANG_CODE.anch)/defn([OUTPUT_FILE], [#NSP], [TOC_ANCH])" title="defn(CURRENT_INDEX.OTHER_LANG_CODE.capt)">defn(OTHER_LANG_CODE[_OTHER_LANG])</a>)])</h2><div>dnl
 <div class="ADD_CLASS([dwnl])">dnl
 <a href="SRC_FILE_PATH/__file__" style="font-weight:bold" title="defn([WORD_ARTICLE_SOURCE])">mc</a>dnl
 <a href="SRC_FILE_PATH/defn([ARTICLE_PATH]).txt" title="defn([WORD_ARTICLE_TEXT])">txt</a>dnl

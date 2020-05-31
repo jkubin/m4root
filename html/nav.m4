@@ -2,15 +2,6 @@ __HEADER([Josef Kubin], [2019/12/01], [root_cz])
 ___DESCR([navigation logic for HTML page; table of content; all parts of the series])
 ___POINT([common script for preview and publish])
 
-# find the current index for navigation logic (previous part, current part, next part)
-define([CURRENT_INDEX], defn([#].LANG_CODE.defn([PART_val])))
-
-# empty index means no input document (without PART)
-ifelse(defn([CURRENT_INDEX]), [], [
-
-	ROOT_ERROR([unknown caption; run ‘make -B refs …’ to regenerate])
-])
-
 # if the REF was used it changes automaton state to the REF_NEXT node
 ifelse(defn([REF]), defn([REF_NEXT]), [
 
@@ -35,37 +26,32 @@ divert(ARTICLE_REFER_CAPT)dnl
 divert(-1)
 ])
 
-# if enabled, adds a code to references
-ifdef([ADD_LINKS_TO_ALL_PARTS_OF_THE_SERIES], [
+# A → β
+define([MAKE_ALL_PARTS], [
 
-	# A → β
-	define([TABLE_OF_CONTENT_ITEM], [
-
-		# if multilingual pages are generated
-		ifelse([$3], [], [], [
-
-			# add reference to prefered language
-			define([ALL_PARTS_REF_TO_PREFERED_LANGUAGE],
-			[,] <a href="../defn([RELAT_PATH])defn([$1.$3.anch])/defn([OUTPUT_FILE], [#NSP], [TOC_ANCH])" title="defn([$1.$3.capt])">$3</a>)
-		])
+	ifelse([$1], [], [], [
 
 		divert(ALL_PARTS_ITEMS)dnl
-<li>ifdef([this.]defn([$1.$2.capt]),
-[defn([$1.$2.capt])],
-[<a href="../defn([$1.$2.anch])/defn([OUTPUT_FILE], [#NSP], [TOC_ANCH])">defn([$1.$2.capt])</a>])defn([ALL_PARTS_REF_TO_PREFERED_LANGUAGE])</li>
+<li>ifdef([this.]defn([$1].LANG_CODE.capt),
+[defn([$1].LANG_CODE.capt)],
+[<a href="../defn([$1].LANG_CODE.anch)/defn([OUTPUT_FILE], [#NSP], [TOC_ANCH])">defn([$1].LANG_CODE.capt)</a>])dnl
+ifdef(OTHER_LANG_CODE[_OTHER_LANG],
+[, <a href="../defn([RELAT_PATH])defn([$1].OTHER_LANG_CODE.anch)/defn([OUTPUT_FILE], [#NSP], [TOC_ANCH])" title="defn([$1].OTHER_LANG_CODE.capt)">OTHER_LANG_CODE</a>])dnl
+</li>
 divert(-1)
+
+		# right recursive loop
+		$0(shift($@))
 	])
+])
+
+# if enabled, adds a code to references
+ifdef([ADD_LINKS_TO_ALL_PARTS_OF_THE_SERIES], [
 
 	# "this.page name" disables link for "this" page (because it looks better :-)
 	define(this.defn([PART_val]))
 
-	# creates table of content for all parts
-	ifelse(defn(OTHER_LANG_CODE[]_OTHER_LANG), [], [
-
-		TABLE_OF_CONTENT(LANG_CODE)
-	], [
-		TABLE_OF_CONTENT(LANG_CODE[,] OTHER_LANG_CODE)
-	])
+	MAKE_ALL_PARTS(FILE_LIST)
 
 	# increment chapter index (this is the last item in navigation)
 	CHAPTER_COUNTER

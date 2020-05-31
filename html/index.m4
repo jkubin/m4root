@@ -20,6 +20,7 @@ define([SRC_FILE_PATH], [..])
 define([SRC_REPO_NAME], defn([WORD_SRC])[localhost
 ])
 
+# all parts of the data are available, so the resulting skeleton is created
 # A → β
 define([PART], defn([PART])[
 
@@ -37,7 +38,7 @@ define([PART], defn([PART])[
 <html lang="LANG_CODE">
 <head>
 <meta charset="utf-8">
-<title>EXPAND_LANG(]defn([EXPAND_LAST])[)</title>
+<title>PART_val</title>
 <meta name="author" content="AUTHOR_NAME">
 <meta name="generator" content="M4">
 <link rel="stylesheet" type="text/css" href="../html/preview.css">

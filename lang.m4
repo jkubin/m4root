@@ -2,10 +2,15 @@ __HEADER([Josef Kubin], [2019/12/30], [root_cz])
 ___DESCR([converts LANG_CODE to numeric index and selects desired language item])
 ___POINT([selects item from multilingual list])
 
-# if defined language code
-ifdef([LANG_CODE], [], [
+# map language codes to indexes
+# A → β
+define([LANG_INDEX_cs], 1)
+define([LANG_INDEX_en], 2)
 
-	ROOT_ERROR([set the -DLANG_CODE='??' on the command line])
+# test language code
+ifdef([LANG_INDEX_]LANG_CODE, [], [
+
+	ROOT_ERROR([undefined LANG_CODE ‘]LANG_CODE[’, assign a new index])
 ])
 
 # language

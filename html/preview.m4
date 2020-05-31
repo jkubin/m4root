@@ -5,11 +5,11 @@ ___POINT([preview html file])
 # A → β
 define([AUTHOR_SHORT_DESCRIPTION], LANGW([dnl czech
 PERSON([AUTHOR_NAME]) vystudoval Fakultu[]NB()informatiky Masarykovy univerzity v Brně, zabýval se teoretickou informatikou a[]NB()programováním hardware.
-Pracuje ve společnosti Red[]NB()Hat v[]NB()ABBR([GSS], [Global Support Services]).
+Pracuje ve společnosti Red[]NB()Hat v[]NB()ABBREV([GSS], [Global Support Services]).
 ],
 [dnl english: _next_language_
 PERSON([AUTHOR_NAME]) graduated from the Faculty of Informatics, Masaryk University, where he studied theoretical computer science and hardware programming.
-Works at Red[]NB()Hat in[]NB()ABBR([GSS], [Global Support Services]).
+Works at Red[]NB()Hat in[]NB()ABBREV([GSS], [Global Support Services]).
 ]))
 
 # expand the selected language
@@ -55,7 +55,20 @@ define([IMG_SRC], [../$1])
 # A → ε
 define([OTHER_LANGUAGE])
 
-m4wrap([
+# A → β
+define([PART], defn([PART])[
+
+	# transition to next node (error if the next node)
+	define([$0], [
+
+		ROOT_ERROR([only one source file is allowed])
+	])
+])
+
+# all parts of the data are available, so the resulting skeleton is created
+# A → β
+define([PARTINTRO], [
+
 	divert(0)dnl
 <!-- DONTE() -->
 <!doctype html>
@@ -65,9 +78,6 @@ m4wrap([
 <title>PART_val</title>
 <link rel="stylesheet" type="text/css" href="../html/preview.css">
 divert(HEADER_END_START_BODY)dnl
-<meta name="author" content="AUTHOR_NAME">
-<meta name="description" content="PARTINTRO_val">
-<meta name="generator" content="M4">
 </head>
 <body>
 <div class="design-page__content">
@@ -95,7 +105,7 @@ divert(HEADER_END_START_BODY)dnl
 							<span itemprop="datePublished">SARG1(esyscmd([date '+[%-d. %-m. %Y],']))</span>
 						</span>
 				</div>
-				<p itemprop="description">PARTINTRO_val</p>
+				<p itemprop="description">EXPAND_LANG_WITHOUT_TRAILING_LF(]defn([EXPAND_LAST])[)</p>
 				<div class="perex__reading-duration">
 					READING_DURATION
 				</div>
@@ -131,7 +141,7 @@ divert(END_OF_ARTICLE)dnl
 			<div class="author clearfix" itemprop="author" itemtype="http://schema.org/Person" itemscope="">
 				<div class="author__pic avatar-round">
 					<a class="avatar__wrap" href="[#]" title="AUTHOR_PROFILE">
-						<img class="avatar__img" src="../img/defn(AUTHOR_NAME)" width="70" height="70" alt="AUTHOR_NAME">
+						<img class="avatar__img" src="../img/defn(defn([AUTHOR_NAME]))" width="70" height="70" alt="AUTHOR_NAME">
 					</a>
 				</div>
 				<div class="author__info">
@@ -174,4 +184,5 @@ divert(END_OF_ARTICLE)dnl
 </div>
 </body>
 </html>
+divert(-1)
 ])
