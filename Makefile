@@ -12,13 +12,17 @@
 MAKEFLAGS += --no-builtin-rules
 
 
-SOURCE     = $(wildcard *.mc)
+# source files in desired order
+SOURCE = \
+	intro.mc \
+	fundamentals.mc \
+
+
 DOC_FILE   = brief_documentation.txt
 DEBUG_FILE = debug.m4
-ORDER_FILE = order.m4
 REFS_MONO  = refs_mono.m4
 JAVASCRIPT = js/hgl_packed.js js/info_packed.js
-VPATH      = gfiles:js
+VPATH      = gfiles js
 SUBDIRS    = gfiles hello_world preproc messages asm
 MONITORED  = messages gfiles/*[bnqu].m4 hello_world asm preproc
 
@@ -37,7 +41,7 @@ MAKE_INCLL = $(patsubst %,*_%.mk,$(REQ_LANGS))
 REFS_LANG  = $(patsubst %,refs_%.m4,$(REQ_LANGS))
 REFS_ALL   = $(patsubst %,refs_%.m4,$(LANG_CODES))
 LANGS_ALL  = $(subst $(SPACE),$(COMMA),$(LANG_CODES))
-FILE_LIST  = $(subst $(SPACE),$(COMMA),$(SOURCE))
+FILE_LIST  = $(subst $(SPACE),$(COMMA),$(strip $(SOURCE)))
 CLSUBDIRS  = $(SUBDIRS:%=clean-%)
 
 -include $(wildcard $(MAKE_INCLL))
@@ -131,7 +135,7 @@ debug dbg db d:
 #:clean/cle/del/cl	deletes all generated files
 .PHONY: clean cle del cl
 clean cle del cl:
-	$(RM) -r $(DEBUG_FILE) $(DOC_FILE) $(JAVASCRIPT) $(REFS_MONO) $(ORDER_FILE) $(REFS_ALL) $(FOLDERS) $(TEXT) $(TEXT_GZ) $(TEXT_XZ) *.{mk,m4f}
+	$(RM) -r $(DEBUG_FILE) $(DOC_FILE) $(JAVASCRIPT) $(REFS_MONO) $(REFS_ALL) $(FOLDERS) $(TEXT) $(TEXT_GZ) $(TEXT_XZ) *.{mk,m4f}
 
 #:distclean/dcl/cld/dc	also deletes generated files in all example folders
 .PHONY: distclean dcl cld dc
@@ -162,32 +166,29 @@ pkjs pjs js j: $(JAVASCRIPT)
 %_packed.js: packer.sed %_packer.sed %_src.js
 	sed -f $< -f $(word 2, $^) $(lastword $^) | head -c -1 > $@
 
-$(ORDER_FILE): rootb.m4 toc.m4 toc_list.m4
-	m4 -DALL_LANGS='$(LANGS_ALL)' -DFILE_LIST='$(FILE_LIST)' $^ > $@
-
 $(REFS_MONO): rootb.m4 cfg.m4 refs/mono.m4
 	m4 $^ $(SOURCE) > $@
 
-refs_%.m4: rootb.m4 cfg.m4 lang_%.m4 toc.m4 $(ORDER_FILE) lang.m4 headings.m4 refs.m4
-	m4 -DLANG_CODE='$*' $^ $(SOURCE) | sed -f refs.sed > $@
+refs_%.m4: rootb.m4 cfg.m4 lang_%.m4 lang.m4 headings.m4 refs.m4
+	m4 -DLANG_CODE='$*' -DFILE_LIST='$(FILE_LIST)' $^ $(SOURCE) | sed -f refs.sed > $@
 
-man_%.mk: rootb.m4 $(ORDER_FILE) refs_%.m4 lang.m4 headings.m4 mk/man.m4
-	m4 -DLANG_CODE='$*' -DREFS_FILES='$(REFS_LANG) $(REFS_MONO)' $^ > $@
+man_%.mk: rootb.m4 refs_%.m4 lang.m4 headings.m4 mk/man.m4
+	m4 -DLANG_CODE='$*' -DFILE_LIST='$(FILE_LIST)' -DREFS_FILES='$(REFS_LANG) $(REFS_MONO)' $^ > $@
 
-tex_%.mk: rootb.m4 $(ORDER_FILE) refs_%.m4 lang.m4 headings.m4 mk/tex.m4
-	m4 -DLANG_CODE='$*' -DREFS_FILES='$(REFS_LANG) $(REFS_MONO)' $^ > $@
+tex_%.mk: rootb.m4 refs_%.m4 lang.m4 headings.m4 mk/tex.m4
+	m4 -DLANG_CODE='$*' -DFILE_LIST='$(FILE_LIST)' -DREFS_FILES='$(REFS_LANG) $(REFS_MONO)' $^ > $@
 
-texi_%.mk: rootb.m4 $(ORDER_FILE) refs_%.m4 lang.m4 headings.m4 mk/texi.m4
-	m4 -DLANG_CODE='$*' -DREFS_FILES='$(REFS_LANG) $(REFS_MONO)' $^ > $@
+texi_%.mk: rootb.m4 refs_%.m4 lang.m4 headings.m4 mk/texi.m4
+	m4 -DLANG_CODE='$*' -DFILE_LIST='$(FILE_LIST)' -DREFS_FILES='$(REFS_LANG) $(REFS_MONO)' $^ > $@
 
-text_%.mk: rootb.m4 $(ORDER_FILE) refs_%.m4 lang.m4 headings.m4 mk/text.m4
-	m4 -DLANG_CODE='$*' -DREFS_FILES='$(REFS_LANG) $(REFS_MONO)' $^ > $@
+text_%.mk: rootb.m4 refs_%.m4 lang.m4 headings.m4 mk/text.m4
+	m4 -DLANG_CODE='$*' -DFILE_LIST='$(FILE_LIST)' -DREFS_FILES='$(REFS_LANG) $(REFS_MONO)' $^ > $@
 
-html_%.mk: rootb.m4 $(ORDER_FILE) refs_%.m4 lang.m4 headings.m4 mk/html.m4
-	m4 -DLANG_CODE='$*' -DREFS_FILES='$(REFS_LANG) $(REFS_MONO)' $^ > $@
+html_%.mk: rootb.m4 refs_%.m4 lang.m4 headings.m4 mk/html.m4
+	m4 -DLANG_CODE='$*' -DFILE_LIST='$(FILE_LIST)' -DREFS_FILES='$(REFS_LANG) $(REFS_MONO)' $^ > $@
 
-fhtml_%.mk: rootb.m4 $(ORDER_FILE) refs_%.m4 lang.m4 headings.m4 mk/fhtml.m4
-	m4 -DLANG_CODE='$*' -DREFS_FILES='$(REFS_LANG) $(REFS_MONO)' $^ > $@
+fhtml_%.mk: rootb.m4 refs_%.m4 lang.m4 headings.m4 mk/fhtml.m4
+	m4 -DLANG_CODE='$*' -DFILE_LIST='$(FILE_LIST)' -DREFS_FILES='$(REFS_LANG) $(REFS_MONO)' $^ > $@
 
 git.m4: $(shell git ls-tree -r --name-only HEAD $(MONITORED))
 	./git.sh $^ > $@

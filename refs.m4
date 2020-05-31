@@ -2,6 +2,19 @@ __HEADER([Josef Kubin], [2019/12/11], [root_cz])
 ___DESCR([tests logic flow (CHAPTER → SECT1 → SECT2) and generates references for anchors])
 ___POINT([extracts all IDs from files and creates hashing pair])
 
+# define counter for output queues and source files
+# A → β
+define([QUEUE_INDEX], defn([COUNT_UP]))
+define([SOURCE_COUNTER], defn([COUNT_UP]))
+
+# init counters
+QUEUE_INDEX(1)
+SOURCE_COUNTER(1)
+
+define([NAVIGATION_LOGIC],	QUEUE_INDEX)
+define([ANCHORS],		QUEUE_INDEX)
+define([SEL_WORDS],		QUEUE_INDEX)
+
 # create aliases to existing macros
 # A → β
 define([LBR], defn([LB]))
@@ -148,15 +161,7 @@ pushdef([TEST_STRING], [
 
 
 # A → β
-define([PART], [
-
-	# input files are defined in TOC_FILE_NAME
-	ifdef(__file__, [], [
-
-		ROOT_ERROR([a new input file found, open the ‘]TOC_FILE_NAME[’ and include it in the file list])
-	])
-
-	]defn([MULTILINGUAL_HEADINGS], [TEST_STRING])[
+define([PART], defn([MULTILINGUAL_HEADINGS], [TEST_STRING])[
 
 	define([FILE_PREFIX], __file__.LANG_CODE)
 
@@ -166,7 +171,7 @@ define([PART], [
 	define([SELITM], SELITM)
 
 	divert(NAVIGATION_LOGIC)dnl
-NAVIGATION(__file__, LANG_CODE, defn([SELITM]), defn(__file__))
+NAVIGATION(__file__, LANG_CODE, defn([SELITM]), SOURCE_COUNTER)
 divert(-1)
 ])
 
