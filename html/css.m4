@@ -450,7 +450,7 @@ background:teal;
 
 ])
 
-# the default font-style:italic on root.cz looks weird, but if you need it, disable the following ruleset
+# the default font-style:italic on root.cz _is_wrong_, but if you need it, disable the following ruleset
 CSS_CLASS_RULE_SET([[.urs q]],	[],	[[]], [
 
 font-style:initial;
@@ -461,7 +461,6 @@ font-style:initial;
 CSS_CLASS_RULE_SET([[.urs q::before]],	[],	[[]], [
 
 content:"ifelse(defn([LANG_CODE]), [cs], [„], [“])";
-padding:0;
 
 ])
 
@@ -469,7 +468,6 @@ padding:0;
 CSS_CLASS_RULE_SET([[.urs q::after]],	[],	[[]], [
 
 content:"ifelse(defn([LANG_CODE]), [cs], [“], [”])";
-padding:0;
 
 ])
 
