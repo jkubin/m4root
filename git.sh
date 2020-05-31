@@ -13,7 +13,7 @@ cat << EOF
 EOF
 
 for filename in $@; do
-	git log -1 --date='format:%Y%m%d.%T' --pretty="format:define([./$filename], [[%H], [%h], [%ad], [" -- $filename
+	git log -1 --date='format:%Y%m%d %T' --pretty="format:define([./$filename], [[%H], [%h], [%ad], [" -- $filename
 	sha1sum $filename | head -c 7
 	stat --printf="], [%s], [%F]])\n" $filename
 done

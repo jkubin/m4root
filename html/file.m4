@@ -60,8 +60,8 @@ define([TEXTDATA], [
 	divert(CURRQU)dnl
 <div id="ADD_ID_RULE(defn([#ID]))"ifelse([$2], [], [], [ title="[$2]"]) class="ADD_CLASS([src])"SET_CSS_LINE_COUNTER($4)><pre>$0_SET_PARAMETERS(defn([#FILE]), [$3], $4)dnl
 SARG1(esyscmd(defn([COMMAND_FOR_TEXTDATA])))dnl
-</pre><code><span title="SARG3(GIT_CSV)">SARG2(GIT_CSV)</span><a href="SRC_FILE_PATH/defn([#FILE])" title="defn([#FILE])
-git hash: SARG2(GIT_CSV)
+</pre><code><span>SARG2(GIT_CSV)</span><a href="SRC_FILE_PATH/defn([#FILE])" title="defn([#FILE])
+date: SARG3(GIT_CSV)
 sha1sum: SARG4(GIT_CSV)
 size [[B]]: SARG5(GIT_CSV)">patsubst(defn([#FILE]),
 [.*/])</a><a href="[#]defn([#ID])" title="⚓"></a></code></div>
