@@ -57,10 +57,12 @@ init: function (
 		striped_background.className = striped_background_classname;
 
 		/*
-		 * adds an event handler to display additional source code information
+		 * display additional source code information
 		 */
-		if (source_info && source_info.tagName == "CODE")
+		if (source_info && source_info.tagName == "CODE") {
 			source_info.firstChild.onclick = this.method_add_info;
+			source_info.firstChild.title = "git";
+		}
 
 		/*
 		 * creates and appends stripes

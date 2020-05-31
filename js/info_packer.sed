@@ -6,10 +6,10 @@
 # '<,'>s:^\(.\)\(.*\)/g:\2\1/g:
 
 s/\<parent_node\>/a/g
-s/\<source_date\>/b/g
-s/\<source_info\>/c/g
-s/\<source_path\>/d/g
-s/\<selected_text\>/e/g
+s/\<source_info\>/b/g
+s/\<source_item\>/c/g
+s/\<text_item\>/d/g
+s/\<title_data\>/e/g
 
 # the letters below are for regexes above, letters {i, j} are reserved for loops
 
