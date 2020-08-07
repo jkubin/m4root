@@ -199,6 +199,7 @@ fhtml_%.mk: rootb.m4 refs_%.m4 lang.m4 headings.m4 mk/fhtml.m4
 	m4 -DLANG_CODE='$*' -DFILE_LIST='$(FILE_LIST)' -DREFS_FILES='$(REFS_LANG) $(REFS_MONO)' -DJAVASCRIPT='$(JAVASCRIPT)' $^ > $@
 
 git.m4: $(shell git ls-tree -r --name-only HEAD $(MONITORED))
+	@git status --porcelain $^
 	./git.sh $^ > $@
 
 git_mc.m4: $(SOURCE)
