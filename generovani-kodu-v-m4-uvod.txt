@@ -655,7 +655,7 @@ Makro SARG1() vybere první položku, protože druhá položka obsahuje nežádo
 299505d messages/hello.ini
   1 ; DO NOT EDIT! This file is generated automatically!
   2 
-  3 [hello_20200806]
+  3 [hello_20200807]
   4 COMPLEX="!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~"
   5 SUCCESS="Too complex M4 code failed successfully."
   6 NOFAULT="It's not a language fault!"
