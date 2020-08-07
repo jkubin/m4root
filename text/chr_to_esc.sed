@@ -7,12 +7,4 @@ s/\[/\\x5b;/g
 s/]/\\x5d;/g
 
 # replace non-printable characters with UTF-8 printable characters
-s/\x00/␀/g
-s/\x01/␁/g
-s/\x02/␂/g
-s/\x03/␃/g
-s/\x04/␄/g
-s/\x05/␅/g
-s/\x06/␆/g
-s/\x0c/␌/g
-s/\x0d/␍/g
+y/\x00\x01\x02\x03\x04\x05\x06\x0c\x0d/␀␁␂␃␄␅␆␌␍/
