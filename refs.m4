@@ -1,6 +1,6 @@
 __HEADER([Josef Kubin], [2019/12/11], [root_cz])
 ___DESCR([tests logic flow (CHAPTER → SECT1 → SECT2) and generates references for anchors])
-___POINT([extracts all IDs from files and creates hashing pair])
+___POINT([extracts all IDs from files and creates associative pair])
 
 # define counter for output queues and source files
 # A → β
