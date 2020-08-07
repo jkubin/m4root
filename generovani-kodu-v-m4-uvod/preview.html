@@ -190,17 +190,17 @@ Cílem tohoto úvodního dílu je hlavně ukázat praktické použití M4 na př
 <p>Bezkontextová gramatika (krátce <abbr title="Context-Free Grammar – bezkontextová gramatika">CFG</abbr>) je <a href="#m4-formalni-gramatika-chomskeho" title="Formální gramatika (Chomského typu)">formální gramatika</a>, ve které mají všechna přepisovací pravidla tvar <code class="m4-hgl" data-2="1" data-3="2">A → β</code>.
 Neterminál <code class="m4-hgl" data-2="D">A</code> se <span class="m4-hgl" data-2="E">přepíše</span> na libovolně dlouhý řetězec <abbr title="pravá strana přepisovacího pravidla"><code class="m4-hgl" data-2="F">β</code></abbr> složený z&nbsp;<span class="m4-hgl" data-2="B">neterminálů <code>N</code></span> <span class="m4-hgl" data-2="G">nebo</span> <span class="m4-hgl" data-2="A">terminálů <code>Σ</code></span>.
 <span class="m4-hgl" data-2="C"><a href="https://en.wikipedia.org/wiki/Kleene_star" title="Wikipedie">Kleeneho hvězda</a></span> znamená, že se neterminál <code class="m4-hgl" data-2="D" data-3="D">A</code> může přepsat na <abbr title="epsilon – prázdný symbol"><code>ε</code></abbr> (přepisovací pravidlo <code class="m4-hgl" data-3="5,6">A → ε</code>).</p>
-<div id="m4-all-context-free-grammar-rules" title="přepisovací pravidla bezkontextové gramatiky" class="m4-src"><pre>P: <span class=m4-d>A</span> <span class=m4-e>→</span> <span class=m4-f>β</span>
-   <span class=m4-d>A</span> ∈ <span class=m4-b>N</span>
-   <span class=m4-f>β</span> ∈ (<span class=m4-b>N</span> <span class=m4-g>∪</span> <span class=m4-a>Σ</span>)<span class=m4-c>*</span></pre><a href="#m4-all-context-free-grammar-rules" title="⚓"></a></div>
+<div id="m4-all-context-free-grammar-rules" title="přepisovací pravidla bezkontextové gramatiky" class="m4-src"><pre>P: <span class="m4-d">A</span> <span class="m4-e">→</span> <span class="m4-f">β</span>
+   <span class="m4-d">A</span> ∈ <span class="m4-b">N</span>
+   <span class="m4-f">β</span> ∈ (<span class="m4-b">N</span> <span class="m4-g">∪</span> <span class="m4-a">Σ</span>)<span class="m4-c">*</span></pre><a href="#m4-all-context-free-grammar-rules" title="⚓"></a></div>
 <h4 id="m4-prepisovaci-pravidla-m4" class="m4-bh"><a href="#m4-prepisovaci-pravidla-m4" title="⚓"></a>Přepisovací pravidla M4<a href="#m4--toc" title="Nahoru"></a></h4>
 <p>Přepisovací pravidla M4 <span class="m4-hgl" data-2="1" data-3="2">jsou stejná</span> jako přepisovací pravidla bezkontextové gramatiky.</p>
 <div id="m4-rewriting-rules" title="přepisovací pravidla M4" class="m4-src"><pre># A → β
-define(`<span class=m4-d>A</span>', `<span class=m4-f>β</span>')
+define(`<span class="m4-d">A</span>', `<span class="m4-f">β</span>')
 
 # A → ε
-define(`<span class=m4-d>A</span>')
-define(`<span class=m4-d>A</span>', `')</pre><a href="#m4-rewriting-rules" title="⚓"></a></div>
+define(`<span class="m4-d">A</span>')
+define(`<span class="m4-d">A</span>', `')</pre><a href="#m4-rewriting-rules" title="⚓"></a></div>
 <p>Všechna klíčová slova M4 jsou neterminály (makra), provedou nějakou akci a&nbsp;přepíší se na <abbr title="epsilon – prázdný symbol"><code>ε</code></abbr> nebo jiný symbol.
 Všechna klíčová slova lze přejmenovat nebo úplně vypnout.
 Tato vlastnost je velmi důležitá pro režim preprocesoru.</p>
@@ -233,7 +233,7 @@ Na závěr jsou všechny neprázdné fronty vypsány ve vzestupném pořadí na 
 <p>M4 se používá ke generování zdrojového kódu libovolného programovacího jazyka nebo jako preprocesor jakéhokoliv zdrojového kódu.</p>
 <h3 id="m4-generovani-kodu" class="m4-ch"><a href="#m4-generovani-kodu-toc" title="Obsah"></a><a href="#m4-generovani-kodu" title="⚓">4.1</a>Generování kódu<a href="#m4--toc" title="Nahoru"></a></h3>
 <p>M4 transformuje vstupní data ze souborů <abbr title="Macro Configuration"><code>.mc</code></abbr> na výsledná data následujícím příkazem:</p>
-<div id="m4-files-on-command-line" title="← nejobecnější.m4 … nejspeciálnější.m4 →" class="m4-usc"><pre>m4 root.m4 stem.m4 branch.m4 leaf.m4 input1.mc input2.mc &gt; output.file</pre><a href="#m4-files-on-command-line" title="⚓"></a></div>
+<div id="m4-files-on-command-line" title="← nejobecnější.m4 … nejspeciálnější.m4 →" class="m4-usc"><pre>m4 root.m4 stem.m4 branch.m4 leaf.m4 input1.mc input2.mc > output.file</pre><a href="#m4-files-on-command-line" title="⚓"></a></div>
 <p>Během načítání souborů jsou prováděny dvě základní operace:</p>
 <ol>
 <li>čtení transformačních pravidel ze souborů s&nbsp;příponou <code>.m4</code></li>
@@ -242,7 +242,7 @@ Na závěr jsou všechny neprázdné fronty vypsány ve vzestupném pořadí na 
 <p>Soubory <code>input1.mc</code> a&nbsp;<code>input2.mc</code> obsahují <b>vstupní data</b> ve specifickém formátu, který umožňuje jejich transformaci na <b>výstupní data</b> podle pravidel v&nbsp;předchozích <code>.m4</code> souborech.
 Datové soubory <code>.mc</code> obvykle neobsahují žádná transformační pravidla.</p>
 <p>Vstupní data mohou také přicházet z&nbsp;kolony:</p>
-<div title="vstupní kód → generování zdrojového kódu → soubor" class="m4-usc"><pre>cat input.mc | m4 root.m4 stem.m4 branch.m4 leaf.m4 - &gt; output.file</pre></div>
+<div title="vstupní kód → generování zdrojového kódu → soubor" class="m4-usc"><pre>cat input.mc | m4 root.m4 stem.m4 branch.m4 leaf.m4 - > output.file</pre></div>
 <div title="vstupní kód → generování zdrojového kódu → program" class="m4-usc"><pre>cat input.mc | m4 root.m4 stem.m4 branch.m4 leaf.m4 - | gcc -x c -o progr -</pre></div>
 <p>Vyzkoušejte: <a href="#m4-priklady-generovani-kodu" title="Příklady generování kódu">Příklady generování kódu</a></p>
 <h3 id="m4-preprocesor" class="m4-ch"><a href="#m4-preprocesor-toc" title="Obsah"></a><a href="#m4-preprocesor" title="⚓">4.2</a>Preprocesor<a href="#m4--toc" title="Nahoru"></a></h3>
@@ -252,7 +252,7 @@ Nalezené neterminály jsou expandovány na terminály a&nbsp;odchází spolu se
 M4 může rozšířit jakýkoliv jiný jazyk, kde je preprocesor nedostatečný (bez rekurze) nebo žádný.
 Důležité je zvolit vhodný levý znak pro řízení expanze neterminálů, který nesmí kolidovat se znakem vstupního zdrojového kódu.
 Kolize znaku je ale snadno řešitelná regulárním výrazem.</p>
-<div title="M4 jako preprocesor – obecně" class="m4-usc"><pre>m4 root.m4 stem.m4 branch.m4 leaf.m4 file.c &gt; preproc.file.c</pre></div>
+<div title="M4 jako preprocesor – obecně" class="m4-usc"><pre>m4 root.m4 stem.m4 branch.m4 leaf.m4 file.c > preproc.file.c</pre></div>
 <div title="M4 jako preprocesor – bez dočasného souboru" class="m4-usc"><pre>m4 root.m4 stem.m4 branch.m4 leaf.m4 file.c | gcc -x c -o progr -</pre></div>
 <h4 id="m4-ba-vychozi-znaky" class="m4-bh"><a href="#m4-ba-vychozi-znaky" title="⚓"></a><code>`'</code> Výchozí znaky<a href="#m4--toc" title="Nahoru"></a></h4>
 <p>Konfliktní znak <code>`</code> ze vstupního zdrojového kódu je skryt do makra <code>`'LQ()</code>.
@@ -312,7 +312,7 @@ N: konečná množina neterminálních symbolů
 Σ: konečná množina terminálních symbolů
    N ∩ Σ = ø
 P: konečná množina přepisovacích pravidel
-   <span class=m4-x>(N ∪ Σ)*</span> <span class=m4-s>N</span> <span class=m4-x>(N ∪ Σ)*</span> → <span class=m4-s>(N ∪ Σ)*</span>
+   <span class="m4-x">(N ∪ Σ)*</span> <span class="m4-s">N</span> <span class="m4-x">(N ∪ Σ)*</span> → <span class="m4-s">(N ∪ Σ)*</span>
 S: je počáteční (startovací) symbol
    S ∈ N</pre><a href="#m4-formal-definition" title="⚓"></a></div>
 <p><a href="https://cs.wikipedia.org/wiki/Form%C3%A1ln%C3%AD_gramatika" title="Wikipedie">Formální gramatika</a> popisuje <a href="https://cs.wikipedia.org/wiki/Chomsk%C3%A9ho_hierarchie" title="Chomského hierarchie
@@ -334,14 +334,14 @@ Automat je shodný s&nbsp;regulárním výrazem <code>(1*01*01*)*1*</code>.</em>
 <div title="ASCII art jako dokumentace M4 kódu" class="m4-src"><pre>#          ____1
 #         |   /
 #      ___V__/   0    ____
-# ---&gt;// S1 \\------&gt;/ S2 \---.1
+# --->// S1 \\------>/ S2 \---.1
 #     \\____//&lt;------\____/&lt;--'
 #                0</pre></div>
 <h4 id="m4-generujici-automat" class="m4-bh"><a href="#m4-generujici-automat" title="⚓"></a>Generující automat<a href="#m4--toc" title="Nahoru"></a></h4>
 <p>Vstupní symboly mění uzly automatu, čímž zároveň mění přepisovací pravidla pro generování kódu.
 Příklad <a href="#m4-json-generujici-automat" title="[] JSON: generující automat">generujícího automatu</a> naleznete v&nbsp;příloze:</p>
 <div title="ASCII art generujícího automatu" class="m4-src"><pre>#      _______      ___________
-# ---&gt;/ ERROR \---&gt;/ NEXT_ITEM \---.
+# --->/ ERROR \--->/ NEXT_ITEM \---.
 #     \_______/    \___________/&lt;--'</pre></div>
 <h3 id="m4-gnu-make" class="m4-ch"><a href="#m4-gnu-make-toc" title="Obsah"></a><a href="#m4-gnu-make" title="⚓">5.3</a>(GNU) make<a href="#m4--toc" title="Nahoru"></a></h3>
 <p>Dobře navržený generátor kódu se obvykle skládá z&nbsp;několika menších souborů, jejichž pořadí, závislosti a&nbsp;parametry se zapisují do souboru <code>Makefile</code>.
@@ -419,11 +419,11 @@ Zásobníky v&nbsp;příkladech nejsou použity.
 Vstupní zdrojový kód obsahuje speciální znaky, které je nutné skrýt:</p>
 <div id="m4-messages_messages_raw-mc" class="m4-src"><pre># 2018/05/15 Josef Kubin
 
-<span class=m4-r>ERROR</span>([COMPLEX],     [!"#$%&amp;'()*+,-./:;&lt;=&gt;?@[\]^_`{|}~])
+<span class="m4-r">ERROR</span>([COMPLEX],     [!"#$%&amp;'()*+,-./:;&lt;=>?@[\]^_`{|}~])
 QUERY([READABLE],    [Is badly written M4 code readable [N/y]?])
-<span class=m4-r>ERROR</span>([SUCCESS],     [Too complex M4 code failed successfully.])
+<span class="m4-r">ERROR</span>([SUCCESS],     [Too complex M4 code failed successfully.])
 WARNING([ADDICTIVE], [Programming in M4 is addictive!])
-<span class=m4-r>ERROR</span>([NOFAULT],     [It's not a language fault!])
+<span class="m4-r">ERROR</span>([NOFAULT],     [It's not a language fault!])
 WARNING([NO_ERRORS], [No other errors detected.])</pre><code><span>2599236</span><a href="../messages/messages_raw.mc" title="messages/messages_raw.mc
 date: 20200517-17:56:55
 sha1sum: ca0fa15
@@ -432,7 +432,7 @@ size: 370 B">messages_raw.mc</a><a href="#m4-messages_messages_raw-mc" title="�
 <h3 id="m4-csv-nejjednodussi-priklad" class="m4-ch"><a href="#m4-csv-nejjednodussi-priklad-toc" title="Obsah"></a><a href="#m4-csv-nejjednodussi-priklad" title="⚓">A.2</a><code>[]</code> CSV: nejjednodušší příklad<a href="#m4--toc" title="Nahoru"></a></h3>
 <p>Tento příklad nepoužívá výstupní fronty, <span class="m4-hgl" data-9="R,5" data-10="1-3" data-8="R,3,5,7">pouze vypisuje</span> <abbr title="Comma Separated Values">CSV</abbr> oddělené znakem <code>TAB</code> na <span class="m4-hgl" data-9="4">standardní výstup</span>.</p>
 <div id="m4-messages_hello-csv-m4" class="m4-src"><pre># A → β
-define([<span class=m4-r>ERROR</span>], [
+define([<span class="m4-r">ERROR</span>], [
 
 	divert(0)dnl
 [$1	$2]
@@ -458,7 +458,7 @@ date: 20200331-19:30:06
 git rev: 9156810
 sha1sum: 5546563
 size: 125 B">hello.csv</a></pre><a href="#m4-messages_hello-csv-command" title="⚓"></a></div>
-<div id="m4-messages_hello-csv" class="m4-src"><pre>COMPLEX	!"#$%&amp;'()*+,-./:;&lt;=&gt;?@[\]^_`{|}~
+<div id="m4-messages_hello-csv" class="m4-src"><pre>COMPLEX	!"#$%&amp;'()*+,-./:;&lt;=>?@[\]^_`{|}~
 SUCCESS	Too complex M4 code failed successfully.
 NOFAULT	It's not a language fault!</pre><code><span>9156810</span><a href="../messages/hello.csv" title="messages/hello.csv
 date: 20200331-19:30:06
@@ -470,7 +470,7 @@ Během první expanze <code class="m4-hgl" data-11="5">COUNTER</code> proběhne 
 <span class="m4-hgl" data-11="B">Další expanze</span> vrátí číselný terminální symbol a&nbsp;proběhne zvýšení vnitřního pomocného (globálního) symbolu o&nbsp;jedničku.
 <code>COUNTER</code> je malý automat.</p>
 <div id="m4-messages_counter-csv-m4" class="m4-src"><pre># A → β
-define([COUNTER], defn([<span class=m4-a>COUNT_UP</span>]))
+define([COUNTER], defn([<span class="m4-a">COUNT_UP</span>]))
 
 # init counter
 COUNTER(1)
@@ -479,7 +479,7 @@ COUNTER(1)
 define([ERROR], [
 
 	divert(0)dnl
-ERR_[]<span class=m4-b>COUNTER</span>	[$1	$2]
+ERR_[]<span class="m4-b">COUNTER</span>	[$1	$2]
 divert(-1)
 ])</pre><code><span>5ad6e1b</span><a href="../messages/counter.csv.m4" title="messages/counter.csv.m4
 date: 20200517-17:54:17
@@ -506,7 +506,7 @@ date: 20200331-19:30:06
 git rev: 9156810
 sha1sum: ff8c9b8
 size: 143 B">counter.csv</a></pre><a href="#m4-messages_counter-csv-command" title="⚓"></a></div>
-<div id="m4-messages_counter-csv" class="m4-src"><pre>ERR_1	COMPLEX	!"#$%&amp;'()*+,-./:;&lt;=&gt;?@[\]^_`{|}~
+<div id="m4-messages_counter-csv" class="m4-src"><pre>ERR_1	COMPLEX	!"#$%&amp;'()*+,-./:;&lt;=>?@[\]^_`{|}~
 ERR_2	SUCCESS	Too complex M4 code failed successfully.
 ERR_3	NOFAULT	It's not a language fault!</pre><code><span>9156810</span><a href="../messages/counter.csv" title="messages/counter.csv
 date: 20200331-19:30:06
@@ -519,11 +519,11 @@ Všechny speciální znaky vstupního souboru proto napřed skryjeme do <span cl
 <h4 id="m4-upraveny-vstupni-kod" class="m4-bh"><a href="#m4-upraveny-vstupni-kod" title="⚓"></a>Upravený vstupní kód<a href="#m4--toc" title="Nahoru"></a></h4>
 <div id="m4-messages_messages-mc" class="m4-src"><pre title="všechny speciální znaky jsou skryty do maker"># 2018/05/15 Josef Kubin
 
-ERROR([COMPLEX],     [[]<span class=m4-a>EX()</span>[]<span class=m4-a>DQ()</span>[#]$%[]<span class=m4-a>AMP()</span>[]<span class=m4-a>AP()</span>()*+,-./:;[]<span class=m4-a>LT()</span>=[]<span class=m4-a>GT()</span>?@[]<span class=m4-a>LB()</span>[]<span class=m4-a>BS()</span>[]<span class=m4-a>RB()</span>^_[]<span class=m4-a>BQ()</span>{|}~])
-QUERY([READABLE],    [Is badly written M4 code readable []<span class=m4-a>LB()</span>N/y[]<span class=m4-a>RB()</span>?])
+ERROR([COMPLEX],     [[]<span class="m4-a">EX()</span>[]<span class="m4-a">DQ()</span>[#]$%[]<span class="m4-a">AMP()</span>[]<span class="m4-a">AP()</span>()*+,-./:;[]<span class="m4-a">LT()</span>=[]<span class="m4-a">GT()</span>?@[]<span class="m4-a">LB()</span>[]<span class="m4-a">BS()</span>[]<span class="m4-a">RB()</span>^_[]<span class="m4-a">BQ()</span>{|}~])
+QUERY([READABLE],    [Is badly written M4 code readable []<span class="m4-a">LB()</span>N/y[]<span class="m4-a">RB()</span>?])
 ERROR([SUCCESS],     [Too complex M4 code failed successfully.])
-WARNING([ADDICTIVE], [Programming in M4 is addictive[]<span class=m4-a>EX()</span>])
-ERROR([NOFAULT],     [It[]<span class=m4-a>AP()</span>s not a language fault[]<span class=m4-a>EX()</span>])
+WARNING([ADDICTIVE], [Programming in M4 is addictive[]<span class="m4-a">EX()</span>])
+ERROR([NOFAULT],     [It[]<span class="m4-a">AP()</span>s not a language fault[]<span class="m4-a">EX()</span>])
 WARNING([NO_ERRORS], [No other errors detected.])</pre><code><span>0a4e91e</span><a href="../messages/messages.mc" title="messages/messages.mc
 date: 20200331-19:29:14
 sha1sum: 74c3260
@@ -550,7 +550,7 @@ define([BQ], [`])
 define([BS], [\\])
 define([DQ], [\"])
 define([EX], [!])
-define([GT], [&gt;])
+define([GT], [>])
 define([LT], [&lt;])</pre><code><span>b53eafe</span><a href="../messages/code.m4" title="messages/code.m4
 date: 20200106-16:21:10
 sha1sum: c853073
@@ -563,7 +563,7 @@ define([BQ], [\`])
 define([BS], [\\])
 define([DQ], [\"])
 define([EX], ["\!"])
-define([GT], [&gt;])
+define([GT], [>])
 define([LT], [&lt;])</pre><code><span>b53eafe</span><a href="../messages/doubleq.m4" title="messages/doubleq.m4
 date: 20200106-16:21:10
 sha1sum: 2fdd370
@@ -576,7 +576,7 @@ define([BQ], [`])
 define([BS], [\])
 define([DQ], ["])
 define([EX], [!])
-define([GT], [&gt;])
+define([GT], [>])
 define([LT], [&lt;])</pre><code><span>b53eafe</span><a href="../messages/apost.m4" title="messages/apost.m4
 date: 20200106-16:21:10
 sha1sum: fff97cc
@@ -589,7 +589,7 @@ define([BQ], [`])
 define([BS], [\])
 define([DQ], ["])
 define([EX], [!])
-define([GT], [&gt;])
+define([GT], [>])
 define([LT], [&lt;])</pre><code><span>f175bef</span><a href="../messages/unchanged.m4" title="messages/unchanged.m4
 date: 20200110-04:42:49
 sha1sum: b82e5c2
@@ -642,7 +642,7 @@ size: 198 B">array.c</a></pre><a href="#m4-messages_array-c-command" title="⚓"
  */
 
 char *error[] = {
-	"!\"#$%&amp;'()*+,-./:;&lt;=&gt;?@[\\]^_`{|}~",
+	"!\"#$%&amp;'()*+,-./:;&lt;=>?@[\\]^_`{|}~",
 	"Too complex M4 code failed successfully.",
 	"It's not a language fault!",
 };</pre><code><span>9156810</span><a href="../messages/array.c" title="messages/array.c
@@ -664,7 +664,7 @@ divert(-1)
 divert(0)dnl
 ; DONTE()
 
-<span class=m4-c>SARG1</span>(esyscmd([<span class=m4-d>date '+<span class="m4-b">[[hello_%Y%m%d]]</span><span class=m4-a>,</span>'</span>]))
+<span class="m4-c">SARG1</span>(esyscmd([<span class="m4-d">date '+<span class="m4-b">[[hello_%Y%m%d]]</span><span class="m4-a">,</span>'</span>]))
 divert(-1)</pre><code><span>5889f4e</span><a href="../messages/hello.ini.m4" title="messages/hello.ini.m4
 date: 20200517-17:56:13
 sha1sum: 8489f0e
@@ -686,17 +686,17 @@ date: 20200331-19:29:14
 git rev: 0a4e91e
 sha1sum: 74c3260
 size: 448 B">messages.mc</a> &gt; <a href="../messages/hello.ini" title="messages/hello.ini
-date: 20200523-11:09:25
-git rev: 135d8b2
+date: 20200807-19:39:39
+git rev: 299505d
 sha1sum: 32bfac6
 size: 204 B">hello.ini</a></pre><a href="#m4-messages_hello-ini-command" title="⚓"></a></div>
 <div id="m4-messages_hello-ini" class="m4-src"><pre>; DO NOT EDIT! This file is generated automatically!
 
 [hello_20200806]
-COMPLEX="!\"#$%&amp;'()*+,-./:;&lt;=&gt;?@[\\]^_`{|}~"
+COMPLEX="!\"#$%&amp;'()*+,-./:;&lt;=>?@[\\]^_`{|}~"
 SUCCESS="Too complex M4 code failed successfully."
-NOFAULT="It's not a language fault!"</pre><code><span>135d8b2</span><a href="../messages/hello.ini" title="messages/hello.ini
-date: 20200523-11:09:25
+NOFAULT="It's not a language fault!"</pre><code><span>299505d</span><a href="../messages/hello.ini" title="messages/hello.ini
+date: 20200807-19:39:39
 sha1sum: 32bfac6
 size: 204 B">hello.ini</a><a href="#m4-messages_hello-ini" title="⚓"></a></code></div>
 <h3 id="m4-h-hex-pocitadlo" class="m4-ch"><a href="#m4-h-hex-pocitadlo-toc" title="Obsah"></a><a href="#m4-h-hex-pocitadlo" title="⚓">A.7</a><code>[]</code> .h: hex počítadlo<a href="#m4--toc" title="Nahoru"></a></h3>
@@ -704,16 +704,16 @@ size: 204 B">hello.ini</a><a href="#m4-messages_hello-ini" title="⚓"></a></cod
 Fronta číslo <code class="m4-hgl" data-23="23">1</code> obsahuje direktivu preprocesoru <code class="m4-hgl" data-23="24" data-24="12">#endif</code> pro zakončení hlavičkového souboru.
 Převod dekadické hodnoty počítadla na <span class="m4-hgl" data-23="B">dvoumístné hex-a číslo</span> provádí klíčové slovo <code class="m4-hgl" data-23="C">eval()</code>.</p>
 <div id="m4-messages_messages-h-m4" class="m4-src"><pre># A → β
-define([<span class=m4-a>COUNTER</span>], defn([COUNT_UP]))
+define([<span class="m4-a">COUNTER</span>], defn([COUNT_UP]))
 
 # init counter
-<span class=m4-a>COUNTER(0)</span>
+<span class="m4-a">COUNTER(0)</span>
 
 # A → β
 define([ERROR], [
 
 	divert(0)dnl
-[#define $1		0x]<span class=m4-c>eval</span>(<span class=m4-a>COUNTER</span>, <span class=m4-b>16, 2</span>)
+[#define $1		0x]<span class="m4-c">eval</span>(<span class="m4-a">COUNTER</span>, <span class="m4-b">16, 2</span>)
 divert(-1)
 ])
 
@@ -772,16 +772,16 @@ size: 189 B">messages.h</a><a href="#m4-messages_messages-h" title="⚓"></a></c
 Poprvé se <code class="m4-hgl" data-25="C">NEW_LINE</code> přepíše na <abbr title="epsilon – prázdný symbol"><code class="m4-hgl" data-25="D">ε</code></abbr>, podruhé a dále se přepíše na <code class="m4-hgl" data-25="A" data-26="A">\n</code>.</p>
 <div id="m4-messages_stringl-c-m4" class="m4-src"><pre>#     NEW_LINE automaton
 #      ___      ____
-# ---&gt;/ <span class=m4-d>ε</span> \---&gt;/ <span class=m4-a>\n</span> \---.
+# --->/ <span class="m4-d">ε</span> \--->/ <span class="m4-a">\n</span> \---.
 #     \___/    \____/&lt;--'
 
 # A → β
-define([NEW_LINE], [define([$0], [<span class=m4-a>\n</span>])])
+define([NEW_LINE], [define([$0], [<span class="m4-a">\n</span>])])
 
 # A → β
 define([ERROR], [
 
-	divert(0)<span class=m4-c>NEW_LINE</span>[]$2[]dnl
+	divert(0)<span class="m4-c">NEW_LINE</span>[]$2[]dnl
 divert(-1)
 ])
 
@@ -791,7 +791,7 @@ divert(0)dnl
  */
 
 char error[[]] =
-"divert(1)<span class=m4-b>";</span>
+"divert(1)<span class="m4-b">";</span>
 divert(-1)</pre><code><span>b53eafe</span><a href="../messages/stringl.c.m4" title="messages/stringl.c.m4
 date: 20200106-16:21:10
 sha1sum: a143c98
@@ -822,7 +822,7 @@ size: 185 B">stringl.c</a></pre><a href="#m4-messages_stringl-c-command" title="
  */
 
 char error[] =
-"!\"#$%&amp;'()*+,-./:;&lt;=&gt;?@[\\]^_`{|}~<span class=m4-a>\n</span>Too complex M4 code failed successfully.<span class=m4-a>\n</span>It's not a language fault!";</pre><code><span>9156810</span><a href="../messages/stringl.c" title="messages/stringl.c
+"!\"#$%&amp;'()*+,-./:;&lt;=>?@[\\]^_`{|}~<span class="m4-a">\n</span>Too complex M4 code failed successfully.<span class="m4-a">\n</span>It's not a language fault!";</pre><code><span>9156810</span><a href="../messages/stringl.c" title="messages/stringl.c
 date: 20200331-19:30:06
 sha1sum: dc45b92
 size: 185 B">stringl.c</a><a href="#m4-messages_stringl-c" title="⚓"></a></code></div>
@@ -830,11 +830,11 @@ size: 185 B">stringl.c</a><a href="#m4-messages_stringl-c" title="⚓"></a></cod
 <p>Tento příklad je podobný předchozímu, avšak každý řetězec <span class="m4-hgl" data-27="A" data-28="A">je na novém řádku</span>.</p>
 <div id="m4-messages_string-c-m4" class="m4-src"><pre>#      NEW_LINE automaton
 #      ___      _________
-# ---&gt;/ ε \---&gt;/ \n"\xa" \---.
+# --->/ ε \--->/ \n"\xa" \---.
 #     \___/    \_________/&lt;--'
 
 # A → β
-define([NEW_LINE], [define([$0], [<span class=m4-a>\n"
+define([NEW_LINE], [define([$0], [<span class="m4-a">\n"
 "</span>])])
 
 # A → β
@@ -881,8 +881,8 @@ size: 191 B">string.c</a></pre><a href="#m4-messages_string-c-command" title="�
  */
 
 char error[] =
-"!\"#$%&amp;'()*+,-./:;&lt;=&gt;?@[\\]^_`{|}~<span class=m4-a>\n"
-"</span>Too complex M4 code failed successfully.<span class=m4-a>\n"
+"!\"#$%&amp;'()*+,-./:;&lt;=>?@[\\]^_`{|}~<span class="m4-a">\n"
+"</span>Too complex M4 code failed successfully.<span class="m4-a">\n"
 "</span>It's not a language fault!";</pre><code><span>9156810</span><a href="../messages/string.c" title="messages/string.c
 date: 20200331-19:30:06
 sha1sum: 76ca62e
@@ -900,9 +900,9 @@ Zprávy typu <code class="m4-hgl" data-29="15">QUERY</code> a&nbsp;<code class="
 define([ERROR], [
 
 	divert(0)dnl
-		[&lt;li&gt;$0: &lt;a href="#$1"&gt;$1&lt;/a&gt;&lt;/li&gt;]
+		[&lt;li>$0: &lt;a href="#$1">$1&lt;/a>&lt;/li>]
 divert(1)dnl
-	&lt;p id="[$1]"&gt;$2&lt;/p&gt;
+	&lt;p id="[$1]">$2&lt;/p>
 divert(-1)
 ])
 
@@ -911,19 +911,19 @@ define([QUERY], defn([ERROR]))
 define([WARNING], defn([ERROR]))
 
 divert(0)dnl
-&lt;!-- DONTE() --&gt;
-&lt;!doctype html&gt;
-&lt;html lang="en"&gt;
-	&lt;meta charset="utf-8"&gt;
-	&lt;title&gt;__file__&lt;/title&gt;
-&lt;body&gt;
-	&lt;h1&gt;The power of M4&lt;/h1&gt;
-	&lt;ul&gt;
+&lt;!-- DONTE() -->
+&lt;!doctype html>
+&lt;html lang="en">
+	&lt;meta charset="utf-8">
+	&lt;title>__file__&lt;/title>
+&lt;body>
+	&lt;h1>The power of M4&lt;/h1>
+	&lt;ul>
 divert(1)dnl
-	&lt;/ul&gt;
+	&lt;/ul>
 divert(2)dnl
-&lt;/body&gt;
-&lt;/html&gt;
+&lt;/body>
+&lt;/html>
 divert(-1)</pre><code><span>b53eafe</span><a href="../messages/messages.html.m4" title="messages/messages.html.m4
 date: 20200106-16:21:10
 sha1sum: e06bb32
@@ -949,29 +949,29 @@ date: 20200331-19:30:06
 git rev: 9156810
 sha1sum: b70e611
 size: 861 B">messages.html</a></pre><a href="#m4-messages_messages-html-command" title="⚓"></a></div>
-<div id="m4-messages_messages-html" class="m4-src"><pre>&lt;!-- DO NOT EDIT! This file is generated automatically! --&gt;
-&lt;!doctype html&gt;
-&lt;html lang="en"&gt;
-	&lt;meta charset="utf-8"&gt;
-	&lt;title&gt;messages.html.m4&lt;/title&gt;
-&lt;body&gt;
-	&lt;h1&gt;The power of M4&lt;/h1&gt;
-	&lt;ul&gt;
-		&lt;li&gt;ERROR: &lt;a href="#COMPLEX"&gt;COMPLEX&lt;/a&gt;&lt;/li&gt;
-		&lt;li&gt;QUERY: &lt;a href="#READABLE"&gt;READABLE&lt;/a&gt;&lt;/li&gt;
-		&lt;li&gt;ERROR: &lt;a href="#SUCCESS"&gt;SUCCESS&lt;/a&gt;&lt;/li&gt;
-		&lt;li&gt;WARNING: &lt;a href="#ADDICTIVE"&gt;ADDICTIVE&lt;/a&gt;&lt;/li&gt;
-		&lt;li&gt;ERROR: &lt;a href="#NOFAULT"&gt;NOFAULT&lt;/a&gt;&lt;/li&gt;
-		&lt;li&gt;WARNING: &lt;a href="#NO_ERRORS"&gt;NO_ERRORS&lt;/a&gt;&lt;/li&gt;
-	&lt;/ul&gt;
-	&lt;p id="COMPLEX"&gt;!"#$%&amp;amp;'()*+,-./:;&amp;lt;=&amp;gt;?@[\]^_`{|}~&lt;/p&gt;
-	&lt;p id="READABLE"&gt;Is badly written M4 code readable [N/y]?&lt;/p&gt;
-	&lt;p id="SUCCESS"&gt;Too complex M4 code failed successfully.&lt;/p&gt;
-	&lt;p id="ADDICTIVE"&gt;Programming in M4 is addictive!&lt;/p&gt;
-	&lt;p id="NOFAULT"&gt;It's not a language fault!&lt;/p&gt;
-	&lt;p id="NO_ERRORS"&gt;No other errors detected.&lt;/p&gt;
-&lt;/body&gt;
-&lt;/html&gt;</pre><code><span>9156810</span><a href="../messages/messages.html" title="messages/messages.html
+<div id="m4-messages_messages-html" class="m4-src"><pre>&lt;!-- DO NOT EDIT! This file is generated automatically! -->
+&lt;!doctype html>
+&lt;html lang="en">
+	&lt;meta charset="utf-8">
+	&lt;title>messages.html.m4&lt;/title>
+&lt;body>
+	&lt;h1>The power of M4&lt;/h1>
+	&lt;ul>
+		&lt;li>ERROR: &lt;a href="#COMPLEX">COMPLEX&lt;/a>&lt;/li>
+		&lt;li>QUERY: &lt;a href="#READABLE">READABLE&lt;/a>&lt;/li>
+		&lt;li>ERROR: &lt;a href="#SUCCESS">SUCCESS&lt;/a>&lt;/li>
+		&lt;li>WARNING: &lt;a href="#ADDICTIVE">ADDICTIVE&lt;/a>&lt;/li>
+		&lt;li>ERROR: &lt;a href="#NOFAULT">NOFAULT&lt;/a>&lt;/li>
+		&lt;li>WARNING: &lt;a href="#NO_ERRORS">NO_ERRORS&lt;/a>&lt;/li>
+	&lt;/ul>
+	&lt;p id="COMPLEX">!"#$%&amp;amp;'()*+,-./:;&amp;lt;=&amp;gt;?@[\]^_`{|}~&lt;/p>
+	&lt;p id="READABLE">Is badly written M4 code readable [N/y]?&lt;/p>
+	&lt;p id="SUCCESS">Too complex M4 code failed successfully.&lt;/p>
+	&lt;p id="ADDICTIVE">Programming in M4 is addictive!&lt;/p>
+	&lt;p id="NOFAULT">It's not a language fault!&lt;/p>
+	&lt;p id="NO_ERRORS">No other errors detected.&lt;/p>
+&lt;/body>
+&lt;/html></pre><code><span>9156810</span><a href="../messages/messages.html" title="messages/messages.html
 date: 20200331-19:30:06
 sha1sum: b70e611
 size: 861 B">messages.html</a><a href="#m4-messages_messages-html" title="⚓"></a></code></div>
@@ -1015,19 +1015,19 @@ date: 20200106-16:21:10
 git rev: b53eafe
 sha1sum: a08c5e8
 size: 24 B">insect.txt</a></pre><a href="#m4-messages_insect-txt-command" title="⚓"></a></div>
-<div id="m4-messages_insect-txt" class="m4-src"><pre><span class=m4-a>🐛</span><span class=m4-b>🐜</span><span class=m4-a>🐛</span><span class=m4-c>🐝</span><span class=m4-a>🐛</span><span class=m4-c>🐝</span></pre><code><span>b53eafe</span><a href="../messages/insect.txt" title="messages/insect.txt
+<div id="m4-messages_insect-txt" class="m4-src"><pre><span class="m4-a">🐛</span><span class="m4-b">🐜</span><span class="m4-a">🐛</span><span class="m4-c">🐝</span><span class="m4-a">🐛</span><span class="m4-c">🐝</span></pre><code><span>b53eafe</span><a href="../messages/insect.txt" title="messages/insect.txt
 date: 20200106-16:21:10
 sha1sum: a08c5e8
 size: 24 B">insect.txt</a><a href="#m4-messages_insect-txt" title="⚓"></a></code></div>
 <h4 id="m4-vetveni-gramatikou-zakladni-p" class="m4-bh"><a href="#m4-vetveni-gramatikou-zakladni-p" title="⚓"></a>Větvení gramatikou – základní princip<a href="#m4--toc" title="Nahoru"></a></h4>
 <p>Proměnná <code class="m4-hgl" data-33="A">$0</code> se nahradí za <span class="m4-hgl" data-33="B">jméno makra</span> a&nbsp;<span class="m4-hgl" data-33="C">zřetězí se s&nbsp;dalším symbolem</span>.
 <span class="m4-hgl" data-33="B,C">Nově vzniklý neterminál</span> se přepíše na odpovídající <span class="m4-hgl" data-33="D">terminální symbol</span> (číslo fronty nebo jméno).</p>
-<div id="m4-nonterminals-for-branches" title="větvení gramatikou v M4" class="m4-src"><pre><span class=m4-a>$0</span>_QU → <span class=m4-b>ERROR</span><span class=m4-c>_QU</span> → <span class=m4-d>2</span>
-<span class=m4-a>$0</span>_END → <span class=m4-b>ERROR</span><span class=m4-c>_END</span> → <span class=m4-d>3</span>
-<span class=m4-a>$0</span>_NAME → <span class=m4-b>ERROR</span><span class=m4-c>_NAME</span> → <span class=m4-d>error</span>
-<span class=m4-a>$0</span>_QU → <span class=m4-b>QUERY</span><span class=m4-c>_QU</span> → <span class=m4-d>0</span>
-<span class=m4-a>$0</span>_END → <span class=m4-b>QUERY</span><span class=m4-c>_END</span> → <span class=m4-d>1</span>
-<span class=m4-a>$0</span>_NAME → <span class=m4-b>QUERY</span><span class=m4-c>_NAME</span> → <span class=m4-d>query</span>
+<div id="m4-nonterminals-for-branches" title="větvení gramatikou v M4" class="m4-src"><pre><span class="m4-a">$0</span>_QU → <span class="m4-b">ERROR</span><span class="m4-c">_QU</span> → <span class="m4-d">2</span>
+<span class="m4-a">$0</span>_END → <span class="m4-b">ERROR</span><span class="m4-c">_END</span> → <span class="m4-d">3</span>
+<span class="m4-a">$0</span>_NAME → <span class="m4-b">ERROR</span><span class="m4-c">_NAME</span> → <span class="m4-d">error</span>
+<span class="m4-a">$0</span>_QU → <span class="m4-b">QUERY</span><span class="m4-c">_QU</span> → <span class="m4-d">0</span>
+<span class="m4-a">$0</span>_END → <span class="m4-b">QUERY</span><span class="m4-c">_END</span> → <span class="m4-d">1</span>
+<span class="m4-a">$0</span>_NAME → <span class="m4-b">QUERY</span><span class="m4-c">_NAME</span> → <span class="m4-d">query</span>
 …</pre><a href="#m4-nonterminals-for-branches" title="⚓"></a></div>
 <h3 id="m4-json-generujici-automat" class="m4-ch"><a href="#m4-json-generujici-automat-toc" title="Obsah"></a><a href="#m4-json-generujici-automat" title="⚓">A.12</a><code>[]</code> JSON: generující automat<a href="#m4--toc" title="Nahoru"></a></h3>
 <p>Příklad používá <span class="m4-hgl" data-34="14,30">dvě výstupní fronty</span> a&nbsp;jeden <span class="m4-hgl" data-34="1-3">generující automat</span>.
@@ -1036,7 +1036,7 @@ První chybová zpráva <code>ERROR([…])</code> ve stavu <code class="m4-hgl" 
 Následující chybové zprávy ve stavu <code class="m4-hgl" data-34="20-25">NEXT_ITEM</code> pouze <span class="m4-hgl" data-34="22">vypisují na výstup</span> <span class="m4-hgl" data-34="23" data-35="5,6">jednotlivé záznamy</span>.
 Na závěr výstupní fronty číslo <code class="m4-hgl" data-34="14">1</code> a&nbsp;<code class="m4-hgl" data-34="30">2</code> vypíšou znaky <code class="m4-hgl" data-34="15" data-35="7">]</code> a&nbsp;<code class="m4-hgl" data-34="31" data-35="8">}}</code> čímž zakončí výsledný JSON.</p>
 <div id="m4-messages_atm-json-m4" class="m4-src"><pre>#      _______      ___________
-# ---&gt;/ ERROR \---&gt;/ NEXT_ITEM \---.
+# --->/ ERROR \--->/ NEXT_ITEM \---.
 #     \_______/    \___________/&lt;--'
 
 # A → β
@@ -1094,7 +1094,7 @@ size: 268 B">atm.json</a></pre><a href="#m4-messages_atm-json-command" title="�
 <div id="m4-messages_atm-json" class="m4-src"><pre>{"generating_automaton": {
 	"_comment": "DO NOT EDIT! This file is generated automatically!",
 	"error": [
-		{"COMPLEX": "!\"#$%&amp;'()*+,-./:;&lt;=&gt;?@[\\]^_`{|}~"},
+		{"COMPLEX": "!\"#$%&amp;'()*+,-./:;&lt;=>?@[\\]^_`{|}~"},
 		{"SUCCESS": "Too complex M4 code failed successfully."},
 		{"NOFAULT": "It's not a language fault!"}
 	]
@@ -1123,7 +1123,7 @@ define([ERROR_NAME],   [error])
 define([QUERY_NAME],   [query])
 
 #      _________      ___________
-# ---&gt;/  ERROR  \---&gt;/ NEXT_ITEM \---.
+# --->/  ERROR  \--->/ NEXT_ITEM \---.
 #     |  QUERY  |    \___________/&lt;--'
 #     \_WARNING_/
 
@@ -1190,7 +1190,7 @@ size: 449 B">qnames.json</a></pre><a href="#m4-messages_qnames-json-command" tit
 		{"READABLE": "Is badly written M4 code readable [N/y]?"}
 	],
 	"error": [
-		{"COMPLEX": "!\"#$%&amp;'()*+,-./:;&lt;=&gt;?@[\\]^_`{|}~"},
+		{"COMPLEX": "!\"#$%&amp;'()*+,-./:;&lt;=>?@[\\]^_`{|}~"},
 		{"SUCCESS": "Too complex M4 code failed successfully."},
 		{"NOFAULT": "It's not a language fault!"}
 	],
@@ -1216,14 +1216,14 @@ QUEUE_INDEX(0)
 
 # symbolic names for indices of output queues
 # A → β
-define([QUERY_QU],     <span class=m4-a>QUEUE_INDEX</span>)
-define([QUERY_END],    <span class=m4-a>QUEUE_INDEX</span>)
-define([ERROR_QU],     <span class=m4-a>QUEUE_INDEX</span>)
-define([ERROR_END],    <span class=m4-a>QUEUE_INDEX</span>)
-define([WARNING_QU],   <span class=m4-a>QUEUE_INDEX</span>)
-define([WARNING_END],  <span class=m4-a>QUEUE_INDEX</span>)
+define([QUERY_QU],     <span class="m4-a">QUEUE_INDEX</span>)
+define([QUERY_END],    <span class="m4-a">QUEUE_INDEX</span>)
+define([ERROR_QU],     <span class="m4-a">QUEUE_INDEX</span>)
+define([ERROR_END],    <span class="m4-a">QUEUE_INDEX</span>)
+define([WARNING_QU],   <span class="m4-a">QUEUE_INDEX</span>)
+define([WARNING_END],  <span class="m4-a">QUEUE_INDEX</span>)
 # Keep it last!
-define([LAST_QUEUE],   <span class=m4-a>QUEUE_INDEX</span>)
+define([LAST_QUEUE],   <span class="m4-a">QUEUE_INDEX</span>)
 
 # names of message types
 # A → β
@@ -1234,7 +1234,7 @@ date: 20200517-17:50:57
 sha1sum: dbe6e65
 size: 614 B">queues.m4</a><a href="#m4-messages_queues-m4" title="⚓"></a></code></div>
 <div id="m4-messages_messages-json-m4" class="m4-src"><pre>#      _________      ___________
-# ---&gt;/  ERROR  \---&gt;/ NEXT_ITEM \---.
+# --->/  ERROR  \--->/ NEXT_ITEM \---.
 #     |  QUERY  |    \___________/&lt;--'
 #     \_WARNING_/
 
@@ -1309,7 +1309,7 @@ size: 446 B">messages.json</a></pre><a href="#m4-messages_messages-json-command"
 		{"READABLE": "Is badly written M4 code readable [N/y]?"}
 	],
 	"error": [
-		{"COMPLEX": "!\"#$%&amp;'()*+,-./:;&lt;=&gt;?@[\\]^_`{|}~"},
+		{"COMPLEX": "!\"#$%&amp;'()*+,-./:;&lt;=>?@[\\]^_`{|}~"},
 		{"SUCCESS": "Too complex M4 code failed successfully."},
 		{"NOFAULT": "It's not a language fault!"}
 	],
@@ -1326,7 +1326,7 @@ size: 446 B">messages.json</a><a href="#m4-messages_messages-json" title="⚓"><
 <span class="m4-hgl" data-41="11" data-42="3,6,11">Názvy INI sekcí</span> jsou generovány <span class="m4-hgl" data-41="A,R">řetězením symbolů</span> (viz. <a href="#m4-vetveni-gramatikou-zakladni-p" title="Větvení gramatikou – základní princip">větvení</a>).
 Příklad používá stejný soubor pro výstupní fronty jako <a href="#m4-json-generovane-indexy-front" title="[] JSON: generované indexy front">příklad</a> pro generování JSON.</p>
 <div id="m4-messages_messages-ini-m4" class="m4-src"><pre>#      _________      ___________
-# ---&gt;/  ERROR  \---&gt;/ NEXT_ITEM \---.
+# --->/  ERROR  \--->/ NEXT_ITEM \---.
 #     |  QUERY  |    \___________/&lt;--'
 #     \_WARNING_/
 
@@ -1396,7 +1396,7 @@ size: 349 B">messages.ini</a></pre><a href="#m4-messages_messages-ini-command" t
 READABLE="Is badly written M4 code readable [N/y]?"
 
 [error]
-COMPLEX="!\"#$%&amp;'()*+,-./:;&lt;=&gt;?@[\\]^_`{|}~"
+COMPLEX="!\"#$%&amp;'()*+,-./:;&lt;=>?@[\\]^_`{|}~"
 SUCCESS="Too complex M4 code failed successfully."
 NOFAULT="It's not a language fault!"
 
@@ -1413,10 +1413,10 @@ size: 349 B">messages.ini</a><a href="#m4-messages_messages-ini" title="⚓"></a
 define([ERROR], [
 
 	divert(0)dnl
-	&lt;$0_NAME&gt;
-		&lt;name&gt;[$1]&lt;/name&gt;
-		&lt;value&gt;$2&lt;/value&gt;
-	&lt;/$0_NAME&gt;
+	&lt;$0_NAME>
+		&lt;name>[$1]&lt;/name>
+		&lt;value>$2&lt;/value>
+	&lt;/$0_NAME>
 divert(-1)
 ])
 
@@ -1425,11 +1425,11 @@ define([QUERY], defn([ERROR]))
 define([WARNING], defn([ERROR]))
 
 divert(0)dnl
-&lt;!-- DONTE() --&gt;
-&lt;?xml version="1.0" encoding="utf-8"?&gt;
-&lt;messages&gt;
+&lt;!-- DONTE() -->
+&lt;?xml version="1.0" encoding="utf-8"?>
+&lt;messages>
 divert(1)dnl
-&lt;/messages&gt;
+&lt;/messages>
 divert(-1)</pre><code><span>b53eafe</span><a href="../messages/mixed.xml.m4" title="messages/mixed.xml.m4
 date: 20200106-16:21:10
 sha1sum: 5964a8e
@@ -1459,34 +1459,34 @@ date: 20200331-19:30:06
 git rev: 9156810
 sha1sum: 5a78150
 size: 699 B">mixed.xml</a></pre><a href="#m4-messages_mixed-xml-command" title="⚓"></a></div>
-<div id="m4-messages_mixed-xml" class="m4-src"><pre>&lt;!-- DO NOT EDIT! This file is generated automatically! --&gt;
-&lt;?xml version="1.0" encoding="utf-8"?&gt;
-&lt;messages&gt;
-	&lt;error&gt;
-		&lt;name&gt;COMPLEX&lt;/name&gt;
-		&lt;value&gt;!"#$%&amp;amp;'()*+,-./:;&amp;lt;=&amp;gt;?@[\]^_`{|}~&lt;/value&gt;
-	&lt;/error&gt;
-	&lt;query&gt;
-		&lt;name&gt;READABLE&lt;/name&gt;
-		&lt;value&gt;Is badly written M4 code readable [N/y]?&lt;/value&gt;
-	&lt;/query&gt;
-	&lt;error&gt;
-		&lt;name&gt;SUCCESS&lt;/name&gt;
-		&lt;value&gt;Too complex M4 code failed successfully.&lt;/value&gt;
-	&lt;/error&gt;
-	&lt;warning&gt;
-		&lt;name&gt;ADDICTIVE&lt;/name&gt;
-		&lt;value&gt;Programming in M4 is addictive!&lt;/value&gt;
-	&lt;/warning&gt;
-	&lt;error&gt;
-		&lt;name&gt;NOFAULT&lt;/name&gt;
-		&lt;value&gt;It's not a language fault!&lt;/value&gt;
-	&lt;/error&gt;
-	&lt;warning&gt;
-		&lt;name&gt;NO_ERRORS&lt;/name&gt;
-		&lt;value&gt;No other errors detected.&lt;/value&gt;
-	&lt;/warning&gt;
-&lt;/messages&gt;</pre><code><span>9156810</span><a href="../messages/mixed.xml" title="messages/mixed.xml
+<div id="m4-messages_mixed-xml" class="m4-src"><pre>&lt;!-- DO NOT EDIT! This file is generated automatically! -->
+&lt;?xml version="1.0" encoding="utf-8"?>
+&lt;messages>
+	&lt;error>
+		&lt;name>COMPLEX&lt;/name>
+		&lt;value>!"#$%&amp;amp;'()*+,-./:;&amp;lt;=&amp;gt;?@[\]^_`{|}~&lt;/value>
+	&lt;/error>
+	&lt;query>
+		&lt;name>READABLE&lt;/name>
+		&lt;value>Is badly written M4 code readable [N/y]?&lt;/value>
+	&lt;/query>
+	&lt;error>
+		&lt;name>SUCCESS&lt;/name>
+		&lt;value>Too complex M4 code failed successfully.&lt;/value>
+	&lt;/error>
+	&lt;warning>
+		&lt;name>ADDICTIVE&lt;/name>
+		&lt;value>Programming in M4 is addictive!&lt;/value>
+	&lt;/warning>
+	&lt;error>
+		&lt;name>NOFAULT&lt;/name>
+		&lt;value>It's not a language fault!&lt;/value>
+	&lt;/error>
+	&lt;warning>
+		&lt;name>NO_ERRORS&lt;/name>
+		&lt;value>No other errors detected.&lt;/value>
+	&lt;/warning>
+&lt;/messages></pre><code><span>9156810</span><a href="../messages/mixed.xml" title="messages/mixed.xml
 date: 20200331-19:30:06
 sha1sum: 5a78150
 size: 699 B">mixed.xml</a><a href="#m4-messages_mixed-xml" title="⚓"></a></code></div>
@@ -1500,13 +1500,13 @@ define([ERROR], [
 	define([$0], defn([NEXT_ITEM]))
 
 	divert($0_QU)dnl
-	&lt;$0_NAME&gt;
-		&lt;item&gt;
-			&lt;name&gt;[$1]&lt;/name&gt;
-			&lt;value&gt;$2&lt;/value&gt;
-		&lt;/item&gt;
+	&lt;$0_NAME>
+		&lt;item>
+			&lt;name>[$1]&lt;/name>
+			&lt;value>$2&lt;/value>
+		&lt;/item>
 divert($0_END)dnl
-	&lt;/$0_NAME&gt;
+	&lt;/$0_NAME>
 divert(-1)
 ])
 
@@ -1514,10 +1514,10 @@ divert(-1)
 define([NEXT_ITEM], [
 
 	divert($0_QU)dnl
-		&lt;item&gt;
-			&lt;name&gt;[$1]&lt;/name&gt;
-			&lt;value&gt;$2&lt;/value&gt;
-		&lt;/item&gt;
+		&lt;item>
+			&lt;name>[$1]&lt;/name>
+			&lt;value>$2&lt;/value>
+		&lt;/item>
 divert(-1)
 ])
 
@@ -1526,11 +1526,11 @@ define([QUERY],        defn([ERROR]))
 define([WARNING],      defn([ERROR]))
 
 divert(0)dnl
-&lt;!-- DONTE() --&gt;
-&lt;?xml version="1.0" encoding="utf-8"?&gt;
-&lt;messages&gt;
+&lt;!-- DONTE() -->
+&lt;?xml version="1.0" encoding="utf-8"?>
+&lt;messages>
 divert(LAST_QUEUE)dnl
-&lt;/messages&gt;
+&lt;/messages>
 divert(-1)</pre><code><span>b53eafe</span><a href="../messages/messages.xml.m4" title="messages/messages.xml.m4
 date: 20200106-16:21:10
 sha1sum: 4d214fd
@@ -1560,40 +1560,40 @@ date: 20200331-19:30:06
 git rev: 9156810
 sha1sum: ce2af14
 size: 764 B">messages.xml</a></pre><a href="#m4-messages_messages-xml-command" title="⚓"></a></div>
-<div id="m4-messages_messages-xml" class="m4-src"><pre>&lt;!-- DO NOT EDIT! This file is generated automatically! --&gt;
-&lt;?xml version="1.0" encoding="utf-8"?&gt;
-&lt;messages&gt;
-	&lt;query&gt;
-		&lt;item&gt;
-			&lt;name&gt;READABLE&lt;/name&gt;
-			&lt;value&gt;Is badly written M4 code readable [N/y]?&lt;/value&gt;
-		&lt;/item&gt;
-	&lt;/query&gt;
-	&lt;error&gt;
-		&lt;item&gt;
-			&lt;name&gt;COMPLEX&lt;/name&gt;
-			&lt;value&gt;!"#$%&amp;amp;'()*+,-./:;&amp;lt;=&amp;gt;?@[\]^_`{|}~&lt;/value&gt;
-		&lt;/item&gt;
-		&lt;item&gt;
-			&lt;name&gt;SUCCESS&lt;/name&gt;
-			&lt;value&gt;Too complex M4 code failed successfully.&lt;/value&gt;
-		&lt;/item&gt;
-		&lt;item&gt;
-			&lt;name&gt;NOFAULT&lt;/name&gt;
-			&lt;value&gt;It's not a language fault!&lt;/value&gt;
-		&lt;/item&gt;
-	&lt;/error&gt;
-	&lt;warning&gt;
-		&lt;item&gt;
-			&lt;name&gt;ADDICTIVE&lt;/name&gt;
-			&lt;value&gt;Programming in M4 is addictive!&lt;/value&gt;
-		&lt;/item&gt;
-		&lt;item&gt;
-			&lt;name&gt;NO_ERRORS&lt;/name&gt;
-			&lt;value&gt;No other errors detected.&lt;/value&gt;
-		&lt;/item&gt;
-	&lt;/warning&gt;
-&lt;/messages&gt;</pre><code><span>9156810</span><a href="../messages/messages.xml" title="messages/messages.xml
+<div id="m4-messages_messages-xml" class="m4-src"><pre>&lt;!-- DO NOT EDIT! This file is generated automatically! -->
+&lt;?xml version="1.0" encoding="utf-8"?>
+&lt;messages>
+	&lt;query>
+		&lt;item>
+			&lt;name>READABLE&lt;/name>
+			&lt;value>Is badly written M4 code readable [N/y]?&lt;/value>
+		&lt;/item>
+	&lt;/query>
+	&lt;error>
+		&lt;item>
+			&lt;name>COMPLEX&lt;/name>
+			&lt;value>!"#$%&amp;amp;'()*+,-./:;&amp;lt;=&amp;gt;?@[\]^_`{|}~&lt;/value>
+		&lt;/item>
+		&lt;item>
+			&lt;name>SUCCESS&lt;/name>
+			&lt;value>Too complex M4 code failed successfully.&lt;/value>
+		&lt;/item>
+		&lt;item>
+			&lt;name>NOFAULT&lt;/name>
+			&lt;value>It's not a language fault!&lt;/value>
+		&lt;/item>
+	&lt;/error>
+	&lt;warning>
+		&lt;item>
+			&lt;name>ADDICTIVE&lt;/name>
+			&lt;value>Programming in M4 is addictive!&lt;/value>
+		&lt;/item>
+		&lt;item>
+			&lt;name>NO_ERRORS&lt;/name>
+			&lt;value>No other errors detected.&lt;/value>
+		&lt;/item>
+	&lt;/warning>
+&lt;/messages></pre><code><span>9156810</span><a href="../messages/messages.xml" title="messages/messages.xml
 date: 20200331-19:30:06
 sha1sum: ce2af14
 size: 764 B">messages.xml</a><a href="#m4-messages_messages-xml" title="⚓"></a></code></div>
@@ -1645,7 +1645,7 @@ size: 322 B">doubleq.sh</a></pre><a href="#m4-messages_doubleq-sh-command" title
 #
 # DO NOT EDIT! This file is generated automatically!
 
-echo ""\!"\"#$%&amp;'()*+,-./:;&lt;=&gt;?@[\\]^_\`{|}~"
+echo ""\!"\"#$%&amp;'()*+,-./:;&lt;=>?@[\\]^_\`{|}~"
 echo "Is badly written M4 code readable [N/y]?"
 echo "Too complex M4 code failed successfully."
 echo "Programming in M4 is addictive"\!""
@@ -1702,7 +1702,7 @@ size: 316 B">apost.sh</a></pre><a href="#m4-messages_apost-sh-command" title="�
 #
 # DO NOT EDIT! This file is generated automatically!
 
-echo '!"#$%&amp;'\''()*+,-./:;&lt;=&gt;?@[\]^_`{|}~'
+echo '!"#$%&amp;'\''()*+,-./:;&lt;=>?@[\]^_`{|}~'
 echo 'Is badly written M4 code readable [N/y]?'
 echo 'Too complex M4 code failed successfully.'
 echo 'Programming in M4 is addictive!'
@@ -1727,8 +1727,8 @@ Všimněte si jmen funkcí <code class="m4-hgl" data-52="17,27" data-53="17,27">
 <div id="m4-preproc_file-c-m4" class="m4-src"><pre># ORDinary and SAFe macros have different expansion:
 
 # A → β
-define(`ORD', `$0_M4 <span class=m4-a>RQ()</span><span class=m4-c>SYMBOL</span>`'<span class=m4-a>RQ()</span>')
-define(`SAF', `ifelse(`$#', `0', ``$0'', `($1) * ($1)	/* $0_M4 <span class=m4-c>SYMBOL</span> */')')
+define(`ORD', `$0_M4 <span class="m4-a">RQ()</span><span class="m4-c">SYMBOL</span>`'<span class="m4-a">RQ()</span>')
+define(`SAF', `ifelse(`$#', `0', ``$0'', `($1) * ($1)	/* $0_M4 <span class="m4-c">SYMBOL</span> */')')
 
 divert(0)dnl</pre><code><span>b53eafe</span><a href="../preproc/file.c.m4" title="preproc/file.c.m4
 date: 20200106-16:21:10
@@ -1738,17 +1738,17 @@ size: 196 B">file.c.m4</a><a href="#m4-preproc_file-c-m4" title="⚓"></a></code
  * DONTE()
  */
 
-#include &lt;stdio.h&gt;	/* CPP <span class=m4-c>SYMBOL</span> */
+#include &lt;stdio.h>	/* CPP <span class="m4-c">SYMBOL</span> */
 
-#define <span class=m4-c>SYMBOL</span>		/* CPP <span class=m4-c>SYMBOL</span> */
-#define SAF(x)		((x) * ((x) - 1))	/* CPP <span class=m4-c>SYMBOL</span> */
-#define ORD(x)		CPP <span class=m4-c>SYMBOL</span> x
+#define <span class="m4-c">SYMBOL</span>		/* CPP <span class="m4-c">SYMBOL</span> */
+#define SAF(x)		((x) * ((x) - 1))	/* CPP <span class="m4-c">SYMBOL</span> */
+#define ORD(x)		CPP <span class="m4-c">SYMBOL</span> x
 
 int a = SAF (1 + 1);	/* CPP */
 int b = SAF(2 + 2);	/* M4 */
-char chr = <span class=m4-a>'</span>x<span class=m4-a>'</span>;
-char foo[] = "Let<span class=m4-a>'</span>s say: <span class=m4-a>'</span><span class=m4-c>SYMBOL</span><span class=m4-a>'</span>";
-char bar[] = "<span class=m4-b>ORD</span> (args, are, ignored)";
+char chr = <span class="m4-a">'</span>x<span class="m4-a">'</span>;
+char foo[] = "Let<span class="m4-a">'</span>s say: <span class="m4-a">'</span><span class="m4-c">SYMBOL</span><span class="m4-a">'</span>";
+char bar[] = "<span class="m4-b">ORD</span> (args, are, ignored)";
 
 static void define (char *s) { puts(s);}
 static void ifelse (char *s) { puts(s);}
@@ -1756,12 +1756,12 @@ static void ifelse (char *s) { puts(s);}
 int main(void)
 {
 
-#ifdef <span class=m4-c>SYMBOL</span>			/* <span class=m4-c>SYMBOL</span> */
-	puts("LQ()<span class=m4-c>SYMBOL</span><span class=m4-a>'</span>");	/* note: `LQ()<span class=m4-c>SYMBOL</span><span class=m4-a>'</span> */
+#ifdef <span class="m4-c">SYMBOL</span>			/* <span class="m4-c">SYMBOL</span> */
+	puts("LQ()<span class="m4-c">SYMBOL</span><span class="m4-a">'</span>");	/* note: `LQ()<span class="m4-c">SYMBOL</span><span class="m4-a">'</span> */
 #endif
 
-	define (foo);		/* <span class=m4-c>SYMBOL</span> */
-	ifelse (bar);		/* <span class=m4-c>SYMBOL</span>() */
+	define (foo);		/* <span class="m4-c">SYMBOL</span> */
+	ifelse (bar);		/* <span class="m4-c">SYMBOL</span>() */
 
 	return 0;
 }</pre><code><span>b53eafe</span><a href="../preproc/file.c" title="preproc/file.c
@@ -1769,8 +1769,8 @@ date: 20200106-16:21:10
 sha1sum: c5c3d09
 size: 583 B">file.c</a><a href="#m4-preproc_file-c" title="⚓"></a></code></div>
 <div id="m4-preproc_preproc-file-c-command" class="m4-usc"><pre title="příkaz">m4 -DSYMBOL='Hello, world!' <a href="../gfiles/root0q.m4" title="gfiles/root0q.m4
-date: 20200523-11:09:25
-git rev: 135d8b2
+date: 20200807-19:39:39
+git rev: 299505d
 sha1sum: fa44b03
 size: 1267 B">root0q.m4</a> <a href="../preproc/file.c.m4" title="preproc/file.c.m4
 date: 20200106-16:21:10
@@ -1789,17 +1789,17 @@ size: 700 B">preproc.file.c</a></pre><a href="#m4-preproc_preproc-file-c-command
  * DO NOT EDIT! This file is generated automatically!
  */
 
-#include &lt;stdio.h&gt;	/* CPP <span class=m4-c>SYMBOL</span> */
+#include &lt;stdio.h>	/* CPP <span class="m4-c">SYMBOL</span> */
 
-#define <span class=m4-c>SYMBOL</span>		/* CPP <span class=m4-c>SYMBOL</span> */
-#define SAF(x)		((x) * ((x) - 1))	/* CPP <span class=m4-c>SYMBOL</span> */
-#define ORD(x)		CPP <span class=m4-c>SYMBOL</span> x
+#define <span class="m4-c">SYMBOL</span>		/* CPP <span class="m4-c">SYMBOL</span> */
+#define SAF(x)		((x) * ((x) - 1))	/* CPP <span class="m4-c">SYMBOL</span> */
+#define ORD(x)		CPP <span class="m4-c">SYMBOL</span> x
 
 int a = SAF (1 + 1);	/* CPP */
 int b = (2 + 2) * (2 + 2)	/* SAF_M4 Hello, world! */;	/* M4 */
-char chr = <span class=m4-a>'</span>x<span class=m4-a>'</span>;
-char foo[] = "Let<span class=m4-a>'</span>s say: <span class=m4-a>'</span>Hello, world!<span class=m4-a>'</span>";
-char bar[] = "ORD_M4 <span class=m4-a>'</span>Hello, world!<span class=m4-a>'</span> (args, are, ignored)";
+char chr = <span class="m4-a">'</span>x<span class="m4-a">'</span>;
+char foo[] = "Let<span class="m4-a">'</span>s say: <span class="m4-a">'</span>Hello, world!<span class="m4-a">'</span>";
+char bar[] = "ORD_M4 <span class="m4-a">'</span>Hello, world!<span class="m4-a">'</span> (args, are, ignored)";
 
 static void define (char *s) { puts(s);}
 static void ifelse (char *s) { puts(s);}
@@ -1807,8 +1807,8 @@ static void ifelse (char *s) { puts(s);}
 int main(void)
 {
 
-#ifdef <span class=m4-c>SYMBOL</span>			/* <span class=m4-c>SYMBOL</span> */
-	puts("`Hello, world!<span class=m4-a>'</span>");	/* note: LQ()<span class=m4-c>SYMBOL</span> */
+#ifdef <span class="m4-c">SYMBOL</span>			/* <span class="m4-c">SYMBOL</span> */
+	puts("`Hello, world!<span class="m4-a">'</span>");	/* note: LQ()<span class="m4-c">SYMBOL</span> */
 #endif
 
 	define (foo);		/* Hello, world! */
@@ -1832,9 +1832,9 @@ size: 33 B">foo.css</a><a href="#m4-preproc_foo-css" title="⚓"></a></code></di
 <div id="m4-preproc_file-css-m4" class="m4-src"><pre># CSS preprocessor
 
 define(`WIDTH', `3px')
-define(`TOP', `<span class=m4-a>#</span>f00')
-define(`SIDES', `<span class=m4-a>#</span>0f0')
-define(`BOTTOM', `<span class=m4-a>#</span>00f')
+define(`TOP', `<span class="m4-a">#</span>f00')
+define(`SIDES', `<span class="m4-a">#</span>0f0')
+define(`BOTTOM', `<span class="m4-a">#</span>00f')
 define(`SITE', `www.root.cz')
 define(`IMAGE', `m4tux.png')
 define(`PATH', `https://SITE/IMAGE')
@@ -1843,8 +1843,8 @@ divert(0)dnl</pre><code><span>9e13656</span><a href="../preproc/file.css.m4" tit
 date: 20200211-02:32:35
 sha1sum: df580d7
 size: 224 B">file.css.m4</a><a href="#m4-preproc_file-css-m4" title="⚓"></a></code></div>
-<div id="m4-preproc_file-css" class="m4-src"><pre>/* DONTE() */<span class=m4-a>changecom(/*,*/)</span>
-<span class=m4-c>/* DONTE() */</span>
+<div id="m4-preproc_file-css" class="m4-src"><pre>/* DONTE() */<span class="m4-a">changecom(/*,*/)</span>
+<span class="m4-c">/* DONTE() */</span>
 
 include(`foo.css')dnl
 
@@ -1854,14 +1854,14 @@ include(`foo.css')dnl
 	background-image: url('PATH');
 }
 
-<span class=m4-c>/* DONTE() */</span>
-<span class=m4-b>changecom</span>/* DONTE() */<span class=m4-a>changecom(/*,*/)</span></pre><code><span>3ed8f6a</span><a href="../preproc/file.css" title="preproc/file.css
+<span class="m4-c">/* DONTE() */</span>
+<span class="m4-b">changecom</span>/* DONTE() */<span class="m4-a">changecom(/*,*/)</span></pre><code><span>3ed8f6a</span><a href="../preproc/file.css" title="preproc/file.css
 date: 20200505-00:05:58
 sha1sum: 380eb22
 size: 218 B">file.css</a><a href="#m4-preproc_file-css" title="⚓"></a></code></div>
 <div id="m4-preproc_preproc-file-css-command" class="m4-usc"><pre title="příkaz">m4 -DSYMBOL='Hello, world!' <a href="../gfiles/root0q.m4" title="gfiles/root0q.m4
-date: 20200523-11:09:25
-git rev: 135d8b2
+date: 20200807-19:39:39
+git rev: 299505d
 sha1sum: fa44b03
 size: 1267 B">root0q.m4</a> <a href="../preproc/file.css.m4" title="preproc/file.css.m4
 date: 20200211-02:32:35
@@ -1877,7 +1877,7 @@ git rev: 41542d1
 sha1sum: 65fa35b
 size: 293 B">preproc.file.css</a></pre><a href="#m4-preproc_preproc-file-css-command" title="⚓"></a></div>
 <div id="m4-preproc_preproc-file-css" class="m4-src"><pre>/* DO NOT EDIT! This file is generated automatically! */
-<span class=m4-b>/* DONTE() */</span>
+<span class="m4-b">/* DONTE() */</span>
 
 .foo {
 	border: 3px 2px 1px;
@@ -1885,11 +1885,11 @@ size: 293 B">preproc.file.css</a></pre><a href="#m4-preproc_preproc-file-css-com
 
 .bar {
 	border-width: 3px;
-	border-color: <span class=m4-a>#</span>f00 <span class=m4-a>#</span>0f0 <span class=m4-a>#</span>00f;
+	border-color: <span class="m4-a">#</span>f00 <span class="m4-a">#</span>0f0 <span class="m4-a">#</span>00f;
 	background-image: url('https://www.root.cz/m4tux.png');
 }
 
-<span class=m4-b>/* DONTE() */</span>
+<span class="m4-b">/* DONTE() */</span>
 /* DO NOT EDIT! This file is generated automatically! */</pre><code><span>41542d1</span><a href="../preproc/preproc.file.css" title="preproc/preproc.file.css
 date: 20200509-00:48:05
 sha1sum: 65fa35b
@@ -1897,12 +1897,12 @@ size: 293 B">preproc.file.css</a><a href="#m4-preproc_preproc-file-css" title="�
 <h3 id="m4-bash-netisknutelne-znaky" class="m4-ch"><a href="#m4-bash-netisknutelne-znaky-toc" title="Obsah"></a><a href="#m4-bash-netisknutelne-znaky" title="⚓">B.3</a><b><code>␂␆</code></b> Bash: netisknutelné znaky<a href="#m4--toc" title="Nahoru"></a></h3>
 <p>Bash používá oba znaky, <code>`</code> a <code>[</code>.
 Nechceme-li je skrývat do makra <code>LQ()</code> nebo <code>LB()</code>, můžeme použít pro <a href="#m4-rizeni-expanze-neterminalu" title="Řízení expanze neterminálů">řízení expanze neterminálů</a> <span title="zobrazené jako UTF-8 znaky" class="m4-hgl" data-58="A" data-59="A">netisknutelné znaky</span>, viz. příklad:</p>
-<div id="m4-preproc_file-sh-m4" class="m4-src"><pre># vim:mps+=<span class=m4-a>␂</span>\:<span class=m4-a>␆</span>
+<div id="m4-preproc_file-sh-m4" class="m4-src"><pre># vim:mps+=<span class="m4-a">␂</span>\:<span class="m4-a">␆</span>
 
 # A → β
-define(<span class=m4-a>␂</span>LEFT<span class=m4-a>␆</span>, <span class=m4-a>␂</span>$<span class=m4-a>␂</span>#<span class=m4-a>␆</span><span class=m4-a>␆</span>)
-define(<span class=m4-a>␂</span>OP<span class=m4-a>␆</span>, <span class=m4-a>␂</span>-eq<span class=m4-a>␆</span>)
-define(<span class=m4-a>␂</span>RIGHT<span class=m4-a>␆</span>, <span class=m4-a>␂</span>0<span class=m4-a>␆</span>)
+define(<span class="m4-a">␂</span>LEFT<span class="m4-a">␆</span>, <span class="m4-a">␂</span>$<span class="m4-a">␂</span>#<span class="m4-a">␆</span><span class="m4-a">␆</span>)
+define(<span class="m4-a">␂</span>OP<span class="m4-a">␆</span>, <span class="m4-a">␂</span>-eq<span class="m4-a">␆</span>)
+define(<span class="m4-a">␂</span>RIGHT<span class="m4-a">␆</span>, <span class="m4-a">␂</span>0<span class="m4-a">␆</span>)
 
 divert(0)dnl</pre><code><span>b53eafe</span><a href="../preproc/file.sh.m4" title="preproc/file.sh.m4
 date: 20200106-16:21:10
@@ -1910,7 +1910,7 @@ sha1sum: f1c81b2
 size: 106 B">file.sh.m4</a><a href="#m4-preproc_file-sh-m4" title="⚓"></a></code></div>
 <div id="m4-preproc_file-sh" class="m4-src"><pre>#!/bin/bash
 #
-<span class=m4-a>␂</span>#<span class=m4-a>␆</span> DONTE()
+<span class="m4-a">␂</span>#<span class="m4-a">␆</span> DONTE()
 
 HELLO=`echo 'SYMBOL'`
 
@@ -1922,8 +1922,8 @@ date: 20200106-16:21:10
 sha1sum: fe8d3e3
 size: 94 B">file.sh</a><a href="#m4-preproc_file-sh" title="⚓"></a></code></div>
 <div id="m4-preproc_preproc-file-sh-command" class="m4-usc"><pre title="příkaz">m4 -DSYMBOL='Hello, world!' <a href="../gfiles/root0n.m4" title="gfiles/root0n.m4
-date: 20200523-11:09:25
-git rev: 135d8b2
+date: 20200807-19:39:39
+git rev: 299505d
 sha1sum: 718cee8
 size: 1281 B">root0n.m4</a> <a href="../preproc/file.sh.m4" title="preproc/file.sh.m4
 date: 20200106-16:21:10
@@ -1999,14 +1999,14 @@ size: 120 B">hello_world.json</a><a href="#m4-hello_world_hello_world-json" titl
 <span class="m4-hgl" data-63="C">Neterminály</span> <code class="m4-hgl" data-63="20" data-64="5">[… uvnitř závorek …]</code> nebudou expandovány, pouze se odeberou vnější závorky.
 Nutno použít makro <code class="m4-hgl" data-63="30" data-64="15">LB()</code> z&nbsp;kořenového souboru.</p>
 <div id="m4-hello_world_sh-m4" class="m4-src"><pre># A → β
-define([<span class=m4-c>LEFT</span>], [$[#]])
-define([<span class=m4-c>OP</span>], [-eq])
-define([<span class=m4-c>RIGHT</span>], [0])
+define([<span class="m4-c">LEFT</span>], [$[#]])
+define([<span class="m4-c">OP</span>], [-eq])
+define([<span class="m4-c">RIGHT</span>], [0])
 
 # define two counters
 # A → β
-define([__COUNTUP__], defn([<span class=m4-a>COUNT_UP</span>]))
-define([__COUNTDN__], defn([<span class=m4-b>COUNT_DOWN</span>]))
+define([__COUNTUP__], defn([<span class="m4-a">COUNT_UP</span>]))
+define([__COUNTDN__], defn([<span class="m4-b">COUNT_DOWN</span>]))
 
 # init counters
 __COUNTUP__(10)
@@ -2083,15 +2083,15 @@ define([HELLO], [HELLO_WORLD])
 
 divert(0)dnl
 /*
- * <span class=m4-c>[dnl]</span> DONTE()
+ * <span class="m4-c">[dnl]</span> DONTE()
  */
 
-<span class=m4-b>[#]</span>ifndef __<span class=m4-a>[]</span>HELLO<span class=m4-a>[]</span>_H
-<span class=m4-b>[#]</span>define __<span class=m4-a>[]</span>HELLO<span class=m4-a>[]</span>_H
+<span class="m4-b">[#]</span>ifndef __<span class="m4-a">[]</span>HELLO<span class="m4-a">[]</span>_H
+<span class="m4-b">[#]</span>define __<span class="m4-a">[]</span>HELLO<span class="m4-a">[]</span>_H
 
-<span class=m4-b>[#]</span>define HELLO	SYMBOL
+<span class="m4-b">[#]</span>define HELLO	SYMBOL
 
-<span class=m4-b>[#]</span>endif /* __<span class=m4-a>[]</span>HELLO<span class=m4-a>[]</span>_H */</pre><code><span>ce5cd99</span><a href="../hello_world/h.m4" title="hello_world/h.m4
+<span class="m4-b">[#]</span>endif /* __<span class="m4-a">[]</span>HELLO<span class="m4-a">[]</span>_H */</pre><code><span>ce5cd99</span><a href="../hello_world/h.m4" title="hello_world/h.m4
 date: 20200213-14:50:23
 sha1sum: 267465d
 size: 183 B">h.m4</a><a href="#m4-hello_world_h-m4" title="⚓"></a></code></div>
@@ -2109,15 +2109,15 @@ git rev: 6b10c6c
 sha1sum: 306af96
 size: 179 B">hello_world.h</a></pre><a href="#m4-hello_world_hello_world-h-command" title="⚓"></a></div>
 <div id="m4-hello_world_hello_world-h" class="m4-src"><pre>/*
- * <span class=m4-c>dnl</span> DO NOT EDIT! This file is generated automatically!
+ * <span class="m4-c">dnl</span> DO NOT EDIT! This file is generated automatically!
  */
 
-<span class=m4-b>#</span>ifndef __HELLO_WORLD_H
-<span class=m4-b>#</span>define __HELLO_WORLD_H
+<span class="m4-b">#</span>ifndef __HELLO_WORLD_H
+<span class="m4-b">#</span>define __HELLO_WORLD_H
 
-<span class=m4-b>#</span>define HELLO_WORLD	Hello, world!
+<span class="m4-b">#</span>define HELLO_WORLD	Hello, world!
 
-<span class=m4-b>#</span>endif /* __HELLO_WORLD_H */</pre><code><span>6b10c6c</span><a href="../hello_world/hello_world.h" title="hello_world/hello_world.h
+<span class="m4-b">#</span>endif /* __HELLO_WORLD_H */</pre><code><span>6b10c6c</span><a href="../hello_world/hello_world.h" title="hello_world/hello_world.h
 date: 20200213-14:51:13
 sha1sum: 306af96
 size: 179 B">hello_world.h</a><a href="#m4-hello_world_hello_world-h" title="⚓"></a></code></div>
@@ -2129,9 +2129,9 @@ Taková makra explicitně vytváří vývojář skriptů, prohlédněte si koře
 divert(0)dnl
 #!/bin/awk -f
 #
-[# DONTE()] ---&gt; "DONTE()"
+[# DONTE()] ---> "DONTE()"
 
-BEGIN { print "<span class=m4-a>DONTE</span>[]() <span class=m4-b>LB</span> () LB() SYMBOL ]" }</pre><code><span>3a8a5dd</span><a href="../hello_world/awk.m4" title="hello_world/awk.m4
+BEGIN { print "<span class="m4-a">DONTE</span>[]() <span class="m4-b">LB</span> () LB() SYMBOL ]" }</pre><code><span>3a8a5dd</span><a href="../hello_world/awk.m4" title="hello_world/awk.m4
 date: 20200106-23:32:45
 sha1sum: b9ab8e3
 size: 112 B">awk.m4</a><a href="#m4-hello_world_awk-m4" title="⚓"></a></code></div>
@@ -2150,9 +2150,9 @@ sha1sum: 1657fde
 size: 135 B">hello_world.awk</a></pre><a href="#m4-hello_world_hello_world-awk-command" title="⚓"></a></div>
 <div id="m4-hello_world_hello_world-awk" class="m4-src"><pre>#!/bin/awk -f
 #
-# DONTE() ---&gt; "DO NOT EDIT! This file is generated automatically!"
+# DONTE() ---> "DO NOT EDIT! This file is generated automatically!"
 
-BEGIN { print "<span class=m4-a>DONTE</span>() <span class=m4-b>LB</span> () [ Hello, world! ]" }</pre><code><span>3a8a5dd</span><a href="../hello_world/hello_world.awk" title="hello_world/hello_world.awk
+BEGIN { print "<span class="m4-a">DONTE</span>() <span class="m4-b">LB</span> () [ Hello, world! ]" }</pre><code><span>3a8a5dd</span><a href="../hello_world/hello_world.awk" title="hello_world/hello_world.awk
 date: 20200106-23:32:45
 sha1sum: 1657fde
 size: 135 B">hello_world.awk</a><a href="#m4-hello_world_hello_world-awk" title="⚓"></a></code></div>
