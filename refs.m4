@@ -24,14 +24,14 @@ define([RBR], defn([RB]))
 # A → β
 define([AP],		[ifelse([$#], [0], [[$0]], [a])])
 define([BOLD],		[ifelse([$#], [0], [[$0]], [$1])])
+define([CODE],		[ifelse([$#], [0], [[$0]], [[$1]])])
 define([DQ],		[ifelse([$#], [0], [[$0]], [d])])
-define([NB],		[ifelse([$#], [0], [[$0]], [ ])])
-define([CODE],		defn([BOLD]))
-define([CODE_M4],	[ifelse([$#], [0], [[$0]], [[$1]])])
 define([LB],		[b])
-define([LQ],		[g])
 define([LN],		[n])
+define([LQ],		[g])
 define([LU],		[u])
+define([NB],		[ifelse([$#], [0], [[$0]], [ ])])
+define([XCODE],		defn([BOLD]))
 
 # A → ε
 define([RB])

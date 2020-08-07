@@ -26,10 +26,10 @@ The result of the series is also a set of sample scripts for generating code.
 # A → β
 define([APPENDIX_APPEND_CODE], [
 	INFO(, defn([WORD_INFORMATION]), [[dnl czech
-Znaky {EXPLAIN_M4([`'], [uvozovky]), EXPLAIN_M4([[]], [hranaté závorky]), EXPLAIN_M4([␂␆], [netisknutelné znaky]), EXPLAIN_M4([⟦⟧], [UTF-8 znaky])} v[]NB()názvu příkladu LINK([řídí expanzi neterminálů], [expansion_control], [intro.mc]).
+Znaky {EXPLAIN_CODE([`'], [uvozovky]), EXPLAIN_CODE([[]], [hranaté závorky]), EXPLAIN_CODE([␂␆], [netisknutelné znaky]), EXPLAIN_CODE([⟦⟧], [UTF-8 znaky])} v[]NB()názvu příkladu LINK([řídí expanzi neterminálů], [expansion_control], [intro.mc]).
 ],
 [dnl english: _next_language_
-Chars. {EXPLAIN_M4([`'], [quotation marks]), EXPLAIN_M4([[]], [square brackets]), EXPLAIN_M4([␂␆], [nonprintable characters]), EXPLAIN_M4([⟦⟧], [UTF-8 characters])} in the name controls the LINK([expansion of nonterminals], [expansion_control], [intro.mc]).
+Chars. {EXPLAIN_CODE([`'], [quotation marks]), EXPLAIN_CODE([[]], [square brackets]), EXPLAIN_CODE([␂␆], [nonprintable characters]), EXPLAIN_CODE([⟦⟧], [UTF-8 characters])} in the name controls the LINK([expansion of nonterminals], [expansion_control], [intro.mc]).
 ]])
 ])
 

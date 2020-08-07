@@ -150,7 +150,7 @@ define([HEXPLAIN], defn([ULINK]))
 
 # A → β
 # β
-define([HCODE_M4], [ifelse(
+define([HCODE], [ifelse(
 	[$#], [0], [],
 	[$#], [1], [],
 	[$#], [2], [],
@@ -159,8 +159,7 @@ define([HCODE_M4], [ifelse(
 ])
 
 # A → β
-define([HCODE], defn([HCODE_M4]))
-define([HEXPLAIN_M4], defn([HCODE_M4]))
+define([HXCODE], defn([HCODE]))
 
 # A → β
 define([BR], [
@@ -222,14 +221,15 @@ define([WBR])
 
 # A → β
 #define([BUN],		defn([BOLD]))
-define([CODE_BLUE],	defn([CODE]))
-define([CODE_M4U],	defn([CODE]))
-define([CODE_M4],	defn([CODE]))
-define([CODE_UND],	defn([CODE]))
+#define([CODE_BLUE],	defn([CODE]))
+#define([CODE_M4U],	defn([CODE]))
+#define([CODE_UND],	defn([CODE]))
 define([EXPLAIN],	defn([BOLD]))
-define([EXPLAIN_M4],	defn([CODE]))
+define([EXPLAIN_CODE],	defn([CODE]))
+define([EXPLAIN_XCODE],	defn([BOLD]))
 define([GRAY],		defn([BOLD]))
 define([PERSON],	defn([BOLD]))
+define([XCODE],		defn([CODE]))
 
 # HTML5 block-level elements
 

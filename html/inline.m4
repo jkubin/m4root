@@ -22,13 +22,13 @@ pushdef([HTML_GLOBAL_ATTRIBUTES],	defn([TITLE_2], [CLASS_3], [STYLE_4], [ID_5], 
 
 # custom macros for convenience
 # A → β
-#define([BUN],	[BOLD([$1], [$2], [un])])
-define([CODE_BLUE],	[CODE([$1], [$2], [bl])])
-define([CODE_M4U],	[CODE_M4([$1], [$2], [un])])
-define([CODE_UND],	[CODE([$1], [$2], [un])])
-define([EXPLAIN],	[SPAN([$1], [$2], [xp])])
-define([EXPLAIN_M4],	[CODE_M4([$1], [$2], [xp])])
-define([MM],	[ifelse([$#], [0], [[$0]], [<span class=NSP()$2>$1</span>])])	<--- mnemonic: Marking Macro
+#define([BUN],		[BOLD([$1], [$2], [un])])
+#define([CODE_BLUE],	[XCODE([$1], [$2], [bl])])
+#define([CODE_UND],		[XCODE([$1], [$2], [un])])
+define([EXPLAIN],		[SPAN([$1], [$2], [xp])])
+define([EXPLAIN_CODE],	[CODE([$1], [$2], [xp])])
+define([EXPLAIN_XCODE],	[XCODE([$1], [$2], [xp])])
+define([MM],		[ifelse([$#], [0], [[$0]], [<span class="NSP()$2">$1</span>])])	<--- mnemonic: Marking Macro
 
 # built-in styles for root.cz
 # A → β
@@ -86,7 +86,7 @@ MAKE_INLINE_ELEMENT([ACRONYM],	[acronym])
 MAKE_INLINE_ELEMENT([BOLD],	[b])
 MAKE_INLINE_ELEMENT([BUTTON],	[button])
 MAKE_INLINE_ELEMENT([CITATION],	[cite])
-MAKE_INLINE_ELEMENT([CODE],	[code])
+MAKE_INLINE_ELEMENT([XCODE],	[code])
 MAKE_INLINE_ELEMENT([DEFINITION],	[dfn])
 MAKE_INLINE_ELEMENT([DELETED],	[del])
 MAKE_INLINE_ELEMENT([EMPHASIS],	[em])
@@ -110,7 +110,7 @@ MAKE_INLINE_ELEMENT([TIME],	[time])
 MAKE_INLINE_ELEMENT([UL],	[ul])
 MAKE_INLINE_ELEMENT([UNDERLINE],	[u])
 MAKE_INLINE_ELEMENT([VARIABLE],	[var])
-MAKE_INLINE_ELEMENT_SPECIAL([CODE_M4],	[<code]defn([HTML_GLOBAL_ATTRIBUTES])[>[$1]</code>])
+MAKE_INLINE_ELEMENT_SPECIAL([CODE],	[<code]defn([HTML_GLOBAL_ATTRIBUTES])[>[$1]</code>])
 MAKE_INLINE_ELEMENT_SPECIAL([ULINK],	[<a href="]defn([SELECT_LAST])"defn([VAR_TITLE_2], [VAR_CLASS_3], [VAR_STYLE_4], [VAR_ID_5], [VAR_REL_6], [VAR_ANYTHING_7])[>$1</a>])
 
 # keyword to highlight line(s) in source code
@@ -147,16 +147,14 @@ pushdef([BETA4], [defn([DATA_SET])>[$1]</$0_TAG>popdef([CURRQU], [DATA_SET_KEY],
 pushdef([SUPER_BETA], defn([BETA1], [EXPAND_LAST], [BETA2], [VAR_TITLE_2], [VAR_CLASS_3_HGL], [VAR_STYLE_4], [VAR_ID_5], [VAR_ANYTHING_6]))
 
 # A → β
-define([HCODE], defn([SUPER_BETA], [BETA3]))
-define([HCODE_M4], defn([SUPER_BETA], [BETA4]))
+define([HCODE], defn([SUPER_BETA], [BETA4]))
 define([HEXPLAIN], defn([SUPER_BETA], [BETA3]))
-define([HEXPLAIN_M4], defn([SUPER_BETA], [BETA4]))
+define([HXCODE], defn([SUPER_BETA], [BETA3]))
 
 # A → β
-define([HCODE_M4_TAG], [code])
 define([HCODE_TAG], [code])
-define([HEXPLAIN_M4_TAG], [span])
 define([HEXPLAIN_TAG], [span])
+define([HXCODE_TAG], [code])
 
 # A → β
 define([REMOVE_SPACES],	[translit([[$1]], [ ])])
@@ -227,8 +225,8 @@ define([LINK], [pushdef([CURRQU], divnum)divert(-1)
 		# temporarily redefine macros (disable the original meaning)
 		pushdef([BOLD], defn([FST]))
 		pushdef([CODE], defn([SARG1]))
-		pushdef([CODE_M4], defn([SARG1]))
 		pushdef([NB], [ifelse([$#], [0], [[$0]], [ ])])
+		pushdef([XCODE], defn([SARG1]))
 
 		# expand title
 		define([TITLE], [ ]title="TITLE")
@@ -238,8 +236,8 @@ define([LINK], [pushdef([CURRQU], divnum)divert(-1)
 
 			[BOLD],
 			[CODE],
-			[CODE_M4],
 			[NB],
+			[XCODE],
 
 		)
 	])

@@ -387,7 +387,7 @@ divert(-1)
 define([BR], [
 ])
 
-# quotation marks are automatically set according to the language code
+# correct quotes are automatically set according to the language code
 # A → β
 ifelse(defn([LANG_CODE]), [cs], [
 	define([QUOTE],	[ifelse([$#], [0], [[$0]], [„$1“])])
@@ -402,25 +402,25 @@ define([BOLD],		[ifelse([$#], [0], [[$0]], [$1])])
 # A → β
 # A → ε
 # β
+#define([XSPAN],		defn([BOLD]))
 define([ABBREV],	defn([BOLD]))
 define([ACRONYM],	defn([BOLD]))
 define([AMP],		[ifelse([$#], [0], [[$0]], [&])])
 define([AP],		[ifelse([$#], [0], [[$0]], ['])])
 define([BUTTON],	defn([BOLD]))
 define([CITATION],	defn([BOLD]))
-define([CODE],		defn([BOLD]))
-define([CODE_M4],	[ifelse([$#], [0], [[$0]], [[$1]])])
+define([CODE],		[ifelse([$#], [0], [[$0]], [[$1]])])
 define([DEFINITION],	defn([BOLD]))
 define([DELETED],	defn([BOLD]))
 define([DQ],		[ifelse([$#], [0], [[$0]], ["])])
 define([EMPHASIS],	defn([BOLD]))
 define([EXPLAIN],	defn([BOLD]))
-define([EXPLAIN_M4],	defn([CODE_M4]))
+define([EXPLAIN_CODE],	defn([CODE]))
+define([EXPLAIN_XCODE],	defn([BOLD]))
 define([GT],		[ifelse([$#], [0], [[$0]], [>])])
-define([HCODE],		defn([BOLD]))
-define([HCODE_M4],	defn([CODE_M4]))
+define([HCODE],		defn([CODE]))
 define([HEXPLAIN],	defn([BOLD]))
-define([HEXPLAIN_M4],	defn([CODE_M4]))
+define([HXCODE],	defn([BOLD]))
 define([INSERTED],	defn([BOLD]))
 define([ITALIC],	defn([BOLD]))
 define([LABEL],		defn([BOLD]))
@@ -445,15 +445,15 @@ define([UL],		[ifelse([$#], [0], [[$0]], [	$1])])
 define([UNDERLINE],	defn([BOLD]))
 define([VARIABLE],	defn([BOLD]))
 define([WBR])
-#define([XSPAN],		defn([BOLD]))
+define([XCODE],		defn([BOLD]))
 
 # inline elements for convenience
 
 # A → β
 #define([BUN],		defn([BOLD]))
-define([CODE_BLUE],	defn([BOLD]))
-define([CODE_M4U],	defn([CODE_M4]))
-define([CODE_UND],	defn([BOLD]))
+#define([CODE_BLUE],	defn([BOLD]))
+#define([CODE_M4U],	defn([CODE]))
+#define([CODE_UND],	defn([BOLD]))
 define([GRAY],		defn([BOLD]))
 define([PERSON],	defn([BOLD]))
 
