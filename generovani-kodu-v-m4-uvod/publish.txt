@@ -13,9 +13,9 @@ Makro procesor M4 se používá ke generování libovolně složitého kódu z&n
 
 # shortcut for article: "+yG
 
-<!-- "Generování kódu v M4: úvod" __SOURCE([intro.mc], [20200807-20:30:39], [ccf8c59], [ca70ed8]) -->
+<!-- "Generování kódu v M4: úvod" __SOURCE([intro.mc], [20200807-23:49:36], [37d5da7], [3a193d5]) -->
 <style>.m4-ev{background:#f5f5f5}.urs p[id$="-toc"]>a>b{font-weight:normal;margin-right:.6em}.urs a[id^="m4-ref"]{font-size:.65em;vertical-align:super}.m4-A .m4-a,.m4-B .m4-b,.m4-C .m4-c,.m4-D .m4-d,.m4-E .m4-e,.m4-F .m4-f,.m4-G .m4-g,.m4-dh{background:lawngreen}.m4-R .m4-r{background:gold}.m4-S .m4-s{font-weight:bold}.m4-X .m4-x{visibility:hidden}.urs q{font-style:initial}.urs q::before{content:"\201e"}.urs q::after{content:"\201c"}#m4--toc{position:relative}#m4--toc>div{position:absolute;right:0;top:0}#m4--toc>div>div{display:inline-block}.m4-dwnl a{margin-left:.4em}.m4-updt{color:#666;text-align:right;margin-left:.6em}.m4-ch,.m4-bh,.m4-usc,.m4-root{position:relative}.m4-bh>a:first-child::before,.m4-ch>a:first-child::before{font-size:.9em;font-weight:normal;position:absolute;right:100%;width:1.1em}.m4-ch>a:first-child::before{content:"\2630"}.m4-ch>a:first-child+a{margin-right:.4em}.m4-ch>a:last-child::before,.m4-bh>a:last-child::before{content:"\1f845";font-size:.65em;margin-left:.3em;position:absolute}.m4-ch>a:first-child,.m4-ch>a:last-child,.m4-bh>a:first-child,.m4-bh>a:last-child{opacity:0}.m4-ch:hover>a:first-child,.m4-ch:hover>a:last-child,.m4-bh:hover>a:first-child,.m4-bh:hover>a:last-child{opacity:1}.m4-xp{border-bottom:1px dotted #000;cursor:help}.m4-xp:active::after{content:" (" attr(title) ")"}.m4-note::before{content:"\1f5b9";margin-right:.2em;font-size:1.5em}.urs .m4-note,.urs .m4-info,.urs .m4-excl,.urs .m4-warn{padding-top:.2em;padding-bottom:.4em}.m4-note ul{margin-bottom:0;margin-left:1em}ol.m4-refs a:first-child::before{content:"\2191"}ol.m4-refs a:first-child{margin-right:.3em;text-decoration:none}.m4-l2{padding-left:1em}.m4-bh>a:first-child::before{content:"\1f517"}.m4-info::before{content:"\1f6c8";margin-right:.2em;font-size:1.5em}.m4-src{counter-reset:m4-nl}.m4-src>a,.m4-usc>a,.m4-root>a{background-color:hsla(0,0%,86%,.5);border:1px solid #ddd;border-radius:0 4px;font-size:.7em;padding:2px 4px;position:absolute;right:0;top:0}.m4-src>a::before,.m4-usc>a::before,.m4-root>a::before{content:"\1f517"}.m4-src>code{border-radius:0 4px;border:1px solid #ddd;font-size:.7em;font-weight:bold;padding:2px 4px;position:absolute;right:0;text-align:right;top:0}.m4-src>code a{margin-left:.6em}.m4-src>code>div{background:#eee;font-weight:initial;padding:0 2px;text-align:left}.m4-src>code>span+a{color:inherit}.m4-src>code a+a{font-weight:normal}.m4-src>code a+a::before{content:"\1f517"}.m4-src>code>span:first-child{cursor:pointer;text-decoration:#f04c23 underline dashed}.m4-src>pre.m4-re{left:0;overflow:visible;padding-left:0;padding-right:0;position:absolute;top:0}.m4-src>pre+pre{background:none}.m4-src,.m4-src>pre,.m4-src>pre.m4-re>div{position:relative}.m4-src>pre.m4-re>div::before{content:counter(m4-nl);counter-increment:m4-nl;left:-3em;position:absolute;text-align:right;top:0;width:2.5em}.m4-src>pre.m4-re>div::after{content:" "}.m4-hgl{border-bottom:1px dashed #000;cursor:help}.m4-usc>pre,.m4-root>pre{font-weight:bold;padding-right:0;white-space:normal;word-break:normal}.m4-usc>pre a,.m4-root>pre a{color:inherit}.m4-root pre::before{content:"~]# ";font-weight:normal}.m4-usc pre::before{content:"~]$ ";font-weight:normal}.m4-l3{padding-left:2em}</style>
-<div id="m4--toc"><h2>Obsah (<a href="../../texty/generating-code-in-m4-introduction/#m4--toc" title="Generating code in M4: introduction">English</a>)</h2><div><div class="m4-dwnl"><a href="https://raw.githubusercontent.com/jkubin/m4root/ccf8c59a79839204e1a46279c15d321325106a64/intro.mc" style="font-weight:bold" title="zdrojový text pro všechny vygenerované texty">mc</a><a href="https://raw.githubusercontent.com/jkubin/m4root/10bd3144b9c37c8dca4afeb90375dd137b2dd52d/generovani-kodu-v-m4-uvod/spell.txt" title="vygenerovaný text pro kontrolu překlepů a žargonu (určeno pro Vim)">spell</a><a href="https://raw.githubusercontent.com/jkubin/m4root/ca70ed82817d83d4977e0b1d5dbe3b0b09c9f90b/generovani-kodu-v-m4-uvod.txt" title="vygenerovaný text pro odhad počtu znaků">txt</a><a href="https://raw.githubusercontent.com/jkubin/m4root/ca70ed82817d83d4977e0b1d5dbe3b0b09c9f90b/generovani-kodu-v-m4-uvod/index.html" title="vygenerovaná html stránka pro off-line vývoj">dev</a><a href="https://raw.githubusercontent.com/jkubin/m4root/ca70ed82817d83d4977e0b1d5dbe3b0b09c9f90b/generovani-kodu-v-m4-uvod/preview.html" title="vygenerovaná html stránka pro off-line náhled">pre</a><a href="https://raw.githubusercontent.com/jkubin/m4root/master/generovani-kodu-v-m4-uvod/publish.txt" title="vygenerovaný text, který právě čtete a který byl vložen do redakčního systému (CMS)">pub</a><br>&nbsp;</div><div class="m4-updt">aktualizováno<br>7. srpna 2020</div></div></div>
+<div id="m4--toc"><h2>Obsah (<a href="../../texty/generating-code-in-m4-introduction/#m4--toc" title="Generating code in M4: introduction">English</a>)</h2><div><div class="m4-dwnl"><a href="https://raw.githubusercontent.com/jkubin/m4root/37d5da77c539e730471c66f9dcd164b7023d78ea/intro.mc" style="font-weight:bold" title="zdrojový kód článku">mc</a><a href="https://raw.githubusercontent.com/jkubin/m4root/3a193d5cf50a4951a69ab1764f767b63e9d1387e/generovani-kodu-v-m4-uvod/spell.txt" title="vygenerovaný text pro kontrolu překlepů a žargonu (určeno pro Vim)">spell</a><a href="https://raw.githubusercontent.com/jkubin/m4root/3a193d5cf50a4951a69ab1764f767b63e9d1387e/generovani-kodu-v-m4-uvod.txt" title="vygenerovaný text pro odhad počtu znaků">txt</a><a href="https://raw.githubusercontent.com/jkubin/m4root/3a193d5cf50a4951a69ab1764f767b63e9d1387e/generovani-kodu-v-m4-uvod/index.html" title="vygenerovaná html stránka pro off-line vývoj">devel</a><a href="https://raw.githubusercontent.com/jkubin/m4root/3a193d5cf50a4951a69ab1764f767b63e9d1387e/generovani-kodu-v-m4-uvod/preview.html" title="vygenerovaná html stránka pro off-line náhled">preview</a><a href="https://raw.githubusercontent.com/jkubin/m4root/master/generovani-kodu-v-m4-uvod/publish.txt" title="vygenerovaný text, který právě čtete a který byl vložen do redakčního systému (CMS)">pub</a><br>&nbsp;</div><div class="m4-updt">aktualizováno<br>7. srpna 2020</div></div></div>
 <noscript><div title="pro informaci" class="rs-tip-major m4-info">Srozumitelnost ukázek zdrojového kódu zvyšuje povolený JavaScript.</div></noscript>
 <p id="m4-uvod-toc"><a href="#m4-uvod"><b>1</b>Úvod</a></p>
 <p id="m4-priklady-pro-ctenare-toc" class="m4-l2"><a href="#m4-priklady-pro-ctenare"><b>1.1</b>Příklady pro čtenáře</a></p>
@@ -420,7 +420,7 @@ size: 66 B">hello.csv.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m
 date: 20200517-17:56:55
 git rev: 2599236
 sha1sum: ca0fa15
-size: 370 B">messages_raw.mc</a> &gt; <a href="https://raw.githubusercontent.com/jkubin/m4root/91568108231a0a6510905d67a6b33dfd0d6ecd39/messages/hello.csv" title="messages/hello.csv
+size: 370 B">messages_raw.mc</a> > <a href="https://raw.githubusercontent.com/jkubin/m4root/91568108231a0a6510905d67a6b33dfd0d6ecd39/messages/hello.csv" title="messages/hello.csv
 date: 20200331-19:30:06
 git rev: 9156810
 sha1sum: 5546563
@@ -468,7 +468,7 @@ size: 155 B">counter.csv.m4</a> <a href="https://raw.githubusercontent.com/jkubi
 date: 20200517-17:56:55
 git rev: 2599236
 sha1sum: ca0fa15
-size: 370 B">messages_raw.mc</a> &gt; <a href="https://raw.githubusercontent.com/jkubin/m4root/91568108231a0a6510905d67a6b33dfd0d6ecd39/messages/counter.csv" title="messages/counter.csv
+size: 370 B">messages_raw.mc</a> > <a href="https://raw.githubusercontent.com/jkubin/m4root/91568108231a0a6510905d67a6b33dfd0d6ecd39/messages/counter.csv" title="messages/counter.csv
 date: 20200331-19:30:06
 git rev: 9156810
 sha1sum: ff8c9b8
@@ -599,7 +599,7 @@ size: 158 B">code.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4roo
 date: 20200331-19:29:14
 git rev: 0a4e91e
 sha1sum: 74c3260
-size: 448 B">messages.mc</a> &gt; <a href="https://raw.githubusercontent.com/jkubin/m4root/91568108231a0a6510905d67a6b33dfd0d6ecd39/messages/array.c" title="messages/array.c
+size: 448 B">messages.mc</a> > <a href="https://raw.githubusercontent.com/jkubin/m4root/91568108231a0a6510905d67a6b33dfd0d6ecd39/messages/array.c" title="messages/array.c
 date: 20200331-19:30:06
 git rev: 9156810
 sha1sum: 9651d22
@@ -652,19 +652,19 @@ size: 158 B">code.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4roo
 date: 20200331-19:29:14
 git rev: 0a4e91e
 sha1sum: 74c3260
-size: 448 B">messages.mc</a> &gt; <a href="https://raw.githubusercontent.com/jkubin/m4root/299505d34841516250138ca82e1fa3dfbf197b38/messages/hello.ini" title="messages/hello.ini
+size: 448 B">messages.mc</a> > <a href="https://raw.githubusercontent.com/jkubin/m4root/299505d34841516250138ca82e1fa3dfbf197b38/messages/hello.ini" title="messages/hello.ini
 date: 20200807-19:39:39
 git rev: 299505d
-sha1sum: 32bfac6
+sha1sum: aa44f66
 size: 204 B">hello.ini</a></pre><a href="#m4-messages_hello-ini-command" title="⚓"></a></div>
 <div id="m4-messages_hello-ini" class="m4-src"><pre>; DO NOT EDIT! This file is generated automatically!
 
-[hello_20200806]
+[hello_20200807]
 COMPLEX="!\"#$%&amp;'()*+,-./:;&lt;=>?@[\\]^_`{|}~"
 SUCCESS="Too complex M4 code failed successfully."
 NOFAULT="It's not a language fault!"</pre><code><span>299505d</span><a href="https://raw.githubusercontent.com/jkubin/m4root/299505d34841516250138ca82e1fa3dfbf197b38/messages/hello.ini" title="messages/hello.ini
 date: 20200807-19:39:39
-sha1sum: 32bfac6
+sha1sum: aa44f66
 size: 204 B">hello.ini</a><a href="#m4-messages_hello-ini" title="⚓"></a></code></div>
 <h3 id="m4-h-hex-pocitadlo" class="m4-ch"><a href="#m4-h-hex-pocitadlo-toc" title="Obsah"></a><a href="#m4-h-hex-pocitadlo" title="⚓">A.7</a><code>[]</code> .h: hex počítadlo<a href="#m4--toc" title="Nahoru"></a></h3>
 <p>Příklad používá makro <code class="m4-hgl" data-23="A,2">COUNTER</code> pro číslování výsledných <abbr title="Preprocesor jazyka C">CPP</abbr> <span class="m4-hgl" data-23="11" data-24="8-10">maker</span> a&nbsp;jednu výstupní frontu.
@@ -714,7 +714,7 @@ size: 284 B">messages.h.m4</a> <a href="https://raw.githubusercontent.com/jkubin
 date: 20200331-19:29:14
 git rev: 0a4e91e
 sha1sum: 74c3260
-size: 448 B">messages.mc</a> &gt; <a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/messages/messages.h" title="messages/messages.h
+size: 448 B">messages.mc</a> > <a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/messages/messages.h" title="messages/messages.h
 date: 20200106-16:21:10
 git rev: b53eafe
 sha1sum: 50550b3
@@ -779,7 +779,7 @@ size: 158 B">code.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4roo
 date: 20200331-19:29:14
 git rev: 0a4e91e
 sha1sum: 74c3260
-size: 448 B">messages.mc</a> &gt; <a href="https://raw.githubusercontent.com/jkubin/m4root/91568108231a0a6510905d67a6b33dfd0d6ecd39/messages/stringl.c" title="messages/stringl.c
+size: 448 B">messages.mc</a> > <a href="https://raw.githubusercontent.com/jkubin/m4root/91568108231a0a6510905d67a6b33dfd0d6ecd39/messages/stringl.c" title="messages/stringl.c
 date: 20200331-19:30:06
 git rev: 9156810
 sha1sum: dc45b92
@@ -838,7 +838,7 @@ size: 158 B">code.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4roo
 date: 20200331-19:29:14
 git rev: 0a4e91e
 sha1sum: 74c3260
-size: 448 B">messages.mc</a> &gt; <a href="https://raw.githubusercontent.com/jkubin/m4root/91568108231a0a6510905d67a6b33dfd0d6ecd39/messages/string.c" title="messages/string.c
+size: 448 B">messages.mc</a> > <a href="https://raw.githubusercontent.com/jkubin/m4root/91568108231a0a6510905d67a6b33dfd0d6ecd39/messages/string.c" title="messages/string.c
 date: 20200331-19:30:06
 git rev: 9156810
 sha1sum: 76ca62e
@@ -911,7 +911,7 @@ size: 166 B">markup.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4r
 date: 20200331-19:29:14
 git rev: 0a4e91e
 sha1sum: 74c3260
-size: 448 B">messages.mc</a> &gt; <a href="https://raw.githubusercontent.com/jkubin/m4root/91568108231a0a6510905d67a6b33dfd0d6ecd39/messages/messages.html" title="messages/messages.html
+size: 448 B">messages.mc</a> > <a href="https://raw.githubusercontent.com/jkubin/m4root/91568108231a0a6510905d67a6b33dfd0d6ecd39/messages/messages.html" title="messages/messages.html
 date: 20200331-19:30:06
 git rev: 9156810
 sha1sum: b70e611
@@ -977,7 +977,7 @@ size: 255 B">insect.txt.m4</a> <a href="https://raw.githubusercontent.com/jkubin
 date: 20200331-19:29:14
 git rev: 0a4e91e
 sha1sum: 74c3260
-size: 448 B">messages.mc</a> &gt; <a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/messages/insect.txt" title="messages/insect.txt
+size: 448 B">messages.mc</a> > <a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/messages/insect.txt" title="messages/insect.txt
 date: 20200106-16:21:10
 git rev: b53eafe
 sha1sum: a08c5e8
@@ -1053,7 +1053,7 @@ size: 158 B">code.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4roo
 date: 20200331-19:29:14
 git rev: 0a4e91e
 sha1sum: 74c3260
-size: 448 B">messages.mc</a> &gt; <a href="https://raw.githubusercontent.com/jkubin/m4root/91568108231a0a6510905d67a6b33dfd0d6ecd39/messages/atm.json" title="messages/atm.json
+size: 448 B">messages.mc</a> > <a href="https://raw.githubusercontent.com/jkubin/m4root/91568108231a0a6510905d67a6b33dfd0d6ecd39/messages/atm.json" title="messages/atm.json
 date: 20200331-19:30:06
 git rev: 9156810
 sha1sum: ade7739
@@ -1146,7 +1146,7 @@ size: 158 B">code.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4roo
 date: 20200331-19:29:14
 git rev: 0a4e91e
 sha1sum: 74c3260
-size: 448 B">messages.mc</a> &gt; <a href="https://raw.githubusercontent.com/jkubin/m4root/91568108231a0a6510905d67a6b33dfd0d6ecd39/messages/qnames.json" title="messages/qnames.json
+size: 448 B">messages.mc</a> > <a href="https://raw.githubusercontent.com/jkubin/m4root/91568108231a0a6510905d67a6b33dfd0d6ecd39/messages/qnames.json" title="messages/qnames.json
 date: 20200331-19:30:06
 git rev: 9156810
 sha1sum: a70edc0
@@ -1265,7 +1265,7 @@ size: 158 B">code.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4roo
 date: 20200331-19:29:14
 git rev: 0a4e91e
 sha1sum: 74c3260
-size: 448 B">messages.mc</a> &gt; <a href="https://raw.githubusercontent.com/jkubin/m4root/91568108231a0a6510905d67a6b33dfd0d6ecd39/messages/messages.json" title="messages/messages.json
+size: 448 B">messages.mc</a> > <a href="https://raw.githubusercontent.com/jkubin/m4root/91568108231a0a6510905d67a6b33dfd0d6ecd39/messages/messages.json" title="messages/messages.json
 date: 20200331-19:30:06
 git rev: 9156810
 sha1sum: 0cde843
@@ -1352,7 +1352,7 @@ size: 158 B">code.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4roo
 date: 20200331-19:29:14
 git rev: 0a4e91e
 sha1sum: 74c3260
-size: 448 B">messages.mc</a> &gt; <a href="https://raw.githubusercontent.com/jkubin/m4root/91568108231a0a6510905d67a6b33dfd0d6ecd39/messages/messages.ini" title="messages/messages.ini
+size: 448 B">messages.mc</a> > <a href="https://raw.githubusercontent.com/jkubin/m4root/91568108231a0a6510905d67a6b33dfd0d6ecd39/messages/messages.ini" title="messages/messages.ini
 date: 20200331-19:30:06
 git rev: 9156810
 sha1sum: f9c5873
@@ -1421,7 +1421,7 @@ size: 166 B">markup.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4r
 date: 20200331-19:29:14
 git rev: 0a4e91e
 sha1sum: 74c3260
-size: 448 B">messages.mc</a> &gt; <a href="https://raw.githubusercontent.com/jkubin/m4root/91568108231a0a6510905d67a6b33dfd0d6ecd39/messages/mixed.xml" title="messages/mixed.xml
+size: 448 B">messages.mc</a> > <a href="https://raw.githubusercontent.com/jkubin/m4root/91568108231a0a6510905d67a6b33dfd0d6ecd39/messages/mixed.xml" title="messages/mixed.xml
 date: 20200331-19:30:06
 git rev: 9156810
 sha1sum: 5a78150
@@ -1522,7 +1522,7 @@ size: 166 B">markup.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4r
 date: 20200331-19:29:14
 git rev: 0a4e91e
 sha1sum: 74c3260
-size: 448 B">messages.mc</a> &gt; <a href="https://raw.githubusercontent.com/jkubin/m4root/91568108231a0a6510905d67a6b33dfd0d6ecd39/messages/messages.xml" title="messages/messages.xml
+size: 448 B">messages.mc</a> > <a href="https://raw.githubusercontent.com/jkubin/m4root/91568108231a0a6510905d67a6b33dfd0d6ecd39/messages/messages.xml" title="messages/messages.xml
 date: 20200331-19:30:06
 git rev: 9156810
 sha1sum: ce2af14
@@ -1603,7 +1603,7 @@ size: 162 B">doubleq.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4
 date: 20200331-19:29:14
 git rev: 0a4e91e
 sha1sum: 74c3260
-size: 448 B">messages.mc</a> &gt; <a href="https://raw.githubusercontent.com/jkubin/m4root/91568108231a0a6510905d67a6b33dfd0d6ecd39/messages/doubleq.sh" title="messages/doubleq.sh
+size: 448 B">messages.mc</a> > <a href="https://raw.githubusercontent.com/jkubin/m4root/91568108231a0a6510905d67a6b33dfd0d6ecd39/messages/doubleq.sh" title="messages/doubleq.sh
 date: 20200331-19:30:06
 git rev: 9156810
 sha1sum: f718cd3
@@ -1660,7 +1660,7 @@ size: 159 B">apost.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4ro
 date: 20200331-19:29:14
 git rev: 0a4e91e
 sha1sum: 74c3260
-size: 448 B">messages.mc</a> &gt; <a href="https://raw.githubusercontent.com/jkubin/m4root/91568108231a0a6510905d67a6b33dfd0d6ecd39/messages/apost.sh" title="messages/apost.sh
+size: 448 B">messages.mc</a> > <a href="https://raw.githubusercontent.com/jkubin/m4root/91568108231a0a6510905d67a6b33dfd0d6ecd39/messages/apost.sh" title="messages/apost.sh
 date: 20200331-19:30:06
 git rev: 9156810
 sha1sum: b2faa2d
@@ -1747,7 +1747,7 @@ size: 196 B">file.c.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4r
 date: 20200106-16:21:10
 git rev: b53eafe
 sha1sum: c5c3d09
-size: 583 B">file.c</a> &gt; <a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/preproc/preproc.file.c" title="preproc/preproc.file.c
+size: 583 B">file.c</a> > <a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/preproc/preproc.file.c" title="preproc/preproc.file.c
 date: 20200106-16:21:10
 git rev: b53eafe
 sha1sum: cbffdb4
@@ -1838,7 +1838,7 @@ size: 224 B">file.css.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m
 date: 20200505-00:05:58
 git rev: 3ed8f6a
 sha1sum: 380eb22
-size: 218 B">file.css</a> &gt; <a href="https://raw.githubusercontent.com/jkubin/m4root/41542d13c5aa57e1c87679d5075546b27e45c4b3/preproc/preproc.file.css" title="preproc/preproc.file.css
+size: 218 B">file.css</a> > <a href="https://raw.githubusercontent.com/jkubin/m4root/41542d13c5aa57e1c87679d5075546b27e45c4b3/preproc/preproc.file.css" title="preproc/preproc.file.css
 date: 20200509-00:48:05
 git rev: 41542d1
 sha1sum: 65fa35b
@@ -1900,7 +1900,7 @@ size: 106 B">file.sh.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4
 date: 20200106-16:21:10
 git rev: b53eafe
 sha1sum: fe8d3e3
-size: 94 B">file.sh</a> &gt; <a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/preproc/preproc.file.sh" title="preproc/preproc.file.sh
+size: 94 B">file.sh</a> > <a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/preproc/preproc.file.sh" title="preproc/preproc.file.sh
 date: 20200106-16:21:10
 git rev: b53eafe
 sha1sum: 504d5cd
@@ -1947,7 +1947,7 @@ size: 1200 B">root0b.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4
 date: 20200106-16:21:10
 git rev: b53eafe
 sha1sum: e39e92c
-size: 94 B">json.m4</a> &gt; <a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/hello_world/hello_world.json" title="hello_world/hello_world.json
+size: 94 B">json.m4</a> > <a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/hello_world/hello_world.json" title="hello_world/hello_world.json
 date: 20200106-16:21:10
 git rev: b53eafe
 sha1sum: 94f820a
@@ -2013,7 +2013,7 @@ size: 766 B">countb.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4r
 date: 20200106-16:21:10
 git rev: b53eafe
 sha1sum: d0c1127
-size: 511 B">sh.m4</a> &gt; <a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/hello_world/hello_world.sh" title="hello_world/hello_world.sh
+size: 511 B">sh.m4</a> > <a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/hello_world/hello_world.sh" title="hello_world/hello_world.sh
 date: 20200106-16:21:10
 git rev: b53eafe
 sha1sum: 6d2cc4c
@@ -2070,7 +2070,7 @@ size: 1200 B">root0b.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4
 date: 20200213-14:50:23
 git rev: ce5cd99
 sha1sum: 267465d
-size: 183 B">h.m4</a> &gt; <a href="https://raw.githubusercontent.com/jkubin/m4root/6b10c6c67a04e8172b361ce5852b934c774a4faf/hello_world/hello_world.h" title="hello_world/hello_world.h
+size: 183 B">h.m4</a> > <a href="https://raw.githubusercontent.com/jkubin/m4root/6b10c6c67a04e8172b361ce5852b934c774a4faf/hello_world/hello_world.h" title="hello_world/hello_world.h
 date: 20200213-14:51:13
 git rev: 6b10c6c
 sha1sum: 306af96
@@ -2110,7 +2110,7 @@ size: 1932 B">root1b.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4
 date: 20200106-23:32:45
 git rev: 3a8a5dd
 sha1sum: b9ab8e3
-size: 112 B">awk.m4</a> &gt; <a href="https://raw.githubusercontent.com/jkubin/m4root/3a8a5dd754e3ccaad3641a3469597647710ca68d/hello_world/hello_world.awk" title="hello_world/hello_world.awk
+size: 112 B">awk.m4</a> > <a href="https://raw.githubusercontent.com/jkubin/m4root/3a8a5dd754e3ccaad3641a3469597647710ca68d/hello_world/hello_world.awk" title="hello_world/hello_world.awk
 date: 20200106-23:32:45
 git rev: 3a8a5dd
 sha1sum: 1657fde
