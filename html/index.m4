@@ -12,13 +12,12 @@ define([OTHER_LANGUAGE])
 
 # path for files
 # A → β
-#define([SRC_FILE_PATH], [[https://raw.githubusercontent.com/jkubin/m4root/]SARG1(GIT_CSV)])
-define([SRC_FILE_PATH], [..])
+define([SRC_FILE_PATH], [[../$1]])
 
 # name of repository
 # A → β
-define([SRC_REPO_NAME], defn([WORD_SRC])[localhost
-])
+#define([SRC_REPO_NAME], defn([WORD_SRC])[localhost
+#])
 
 # all parts of the data are available, so the resulting skeleton is created
 # A → β
@@ -39,7 +38,6 @@ define([PART], defn([PART])[
 <head>
 <meta charset="utf-8">
 <title>PART_val</title>
-<meta name="author" content="AUTHOR_NAME">
 <meta name="generator" content="M4">
 <link rel="stylesheet" type="text/css" href="../html/preview.css">
 divert(HEADER_END_START_BODY)dnl

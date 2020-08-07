@@ -3,9 +3,9 @@
 # A → β
 define([DATE], esyscmd([date '+[[%-d. %-m. %Y], [%FT%R:%S%:z], [%Y%m%d-%R:%S], [%Y%m%d-%R:%S.%N],]']))
 
-define([PODROBNY], FST(DATE))
-define([DATUM], SND(DATE))
-define([PRESNY], TRD(DATE))
+define([PODROBNY], SARG1(DATE))
+define([DATUM], SARG2(DATE))
+define([PRESNY], SARG3(DATE))
 
 nastrkat do nejakeho datumu carky
 
