@@ -118,7 +118,7 @@ iabbrev <buffer> <unique> prm PROMPT()
 iabbrev <buffer> <unique> prmr PROMPT_ROOT()
 iabbrev <buffer> <unique> prmt PROMPT()
 iabbrev <buffer> <unique> prog PROGRESS([],,,,, [value="22" max="100"])<c-r>=Eatchar('.')<cr>
-iabbrev <buffer> <unique> pr PROGRAMLISTING([dnl<cr><cr>])dnl PROGRAMLISTING note: The symbols [#] or [dnl] on the last line must be in brackets!<up><c-r>=Eatchar('.')<cr>
+iabbrev <buffer> <unique> pr PROGRAMLISTING([dnl<cr><cr>])dnl PROGRAMLISTING note: put [#] or [dnl] in brackets on the last line!<up><c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> qc „<c-r>"“<esc>
 "iabbrev <buffer> <unique> qc Quote Czech
 iabbrev <buffer> <unique> qe “<c-r>"”<esc>
