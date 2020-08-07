@@ -457,17 +457,22 @@ font-style:initial;
 
 ])
 
+# A → β
+define([“], [201c])
+define([”], [201d])
+define([„], [201e])
+
 # quotation marks are automatically set according to the language code
 CSS_CLASS_RULE_SET([[.urs q::before]],	[],	[[]], [
 
-content:"ifelse(defn([LANG_CODE]), [cs], [„], [“])";
+content:"\defn(ifelse(defn([LANG_CODE]), [cs], [„], [“]))";
 
 ])
 
 # quotation marks are automatically set according to the language code
 CSS_CLASS_RULE_SET([[.urs q::after]],	[],	[[]], [
 
-content:"ifelse(defn([LANG_CODE]), [cs], [“], [”])";
+content:"\defn(ifelse(defn([LANG_CODE]), [cs], [“], [”]))";
 
 ])
 

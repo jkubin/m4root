@@ -135,10 +135,20 @@ define([CHAPTER_FIRST], [
 <div id="ADD_ID_RULE(defn([NSP], [TOC_ANCH]))"><h2>defn([WORD_CONTENT])ifelse(defn(OTHER_LANG_CODE[_OTHER_LANG]), [], [],
 [ (<a href="../defn([OTHER_LANGUAGE])defn(CURRENT_INDEX.OTHER_LANG_CODE.anch)/defn([OUTPUT_FILE], [#NSP], [TOC_ANCH])" title="defn(CURRENT_INDEX.OTHER_LANG_CODE.capt)">defn(OTHER_LANG_CODE[_OTHER_LANG])</a>)])</h2><div>dnl
 <div class="ADD_CLASS([dwnl])">dnl
-<a href="SRC_FILE_PATH/__file__" style="font-weight:bold" title="defn([WORD_ARTICLE_SOURCE])">mc</a>dnl
-<a href="SRC_FILE_PATH/defn([ARTICLE_PATH]).txt" title="defn([WORD_ARTICLE_TEXT])">txt</a>dnl
-<a href="SRC_FILE_PATH/defn([ARTICLE_PATH])/publish.txt" title="defn([WORD_PUBLISH_TEXT])">pub</a><br>dnl
-<a href="SRC_FILE_PATH/defn([ARTICLE_PATH])/spell.txt" title="defn([WORD_SPELL_TEXT])">spell</a>dnl
+dnl
+dnl the following code generates the links at the top of the download next to the TOC
+dnl (the ARTICLE_PATH macro comes from the command line)
+dnl
+dnl the first line containing links to download files
+dnl
+<a href="SRC_FILE_PATH(__file__)" style="font-weight:bold" title="defn([WORD_ARTICLE_SOURCE])">mc</a>dnl
+esyscmd([test -f ./]defn([ARTICLE_PATH])[/spell.txt])ifelse(sysval, [0],   [<a href="SRC_FILE_PATH(defn([ARTICLE_PATH])[/spell.txt])" title="defn([WORD_SPELL_TEXT])">spell</a>])dnl
+esyscmd([test -f ./]defn([ARTICLE_PATH])[.txt])ifelse(sysval, [0],         [<a href="SRC_FILE_PATH(defn([ARTICLE_PATH])[.txt])" title="defn([WORD_ARTICLE_TEXT])">txt</a>])dnl
+esyscmd([test -f ./]defn([ARTICLE_PATH])[/index.html])ifelse(sysval, [0],  [<a href="SRC_FILE_PATH(defn([ARTICLE_PATH])[/index.html])" title="defn([WORD_ARTICLE_HTML])">html</a>])dnl
+esyscmd([test -f ./]defn([ARTICLE_PATH])[/publish.txt])ifelse(sysval, [0], [<a href="SRC_FILE_PATH(defn([ARTICLE_PATH])[/publish.txt])" title="defn([WORD_PUBLISH_TEXT])">pub</a>])dnl
+<br>dnl … unfinished …
+esyscmd([test -f ./]defn([ARTICLE_PATH])[.md])ifelse(sysval, [0],          [<a href="SRC_FILE_PATH(defn([ARTICLE_PATH])[.md])" title="defn([WORD_ARTICLE_MARKDOWN])">md</a>])dnl
+[]NB()dnl
 </div>dnl
 ifdef([NEW_ARTICLE], [], [<div class="ADD_CLASS([updt])">WORD_UPDATED<br>SARG1(esyscmd(defn([DATE_COMMAND])))</div>])dnl
 </div>dnl

@@ -1813,13 +1813,15 @@ dnl english: _next_language_
 
 PARA([[dnl czech
 Prázdný pár HCODE_M4([[]], [[[A], [hello_world/h.m4]]]) (nebo prázdný symbol v[]NB()závorkách CODE_M4([[ε]])) slouží jako oddělovač symbolů.
-Závorky kolem znaku komentáře HCODE_M4([[#]], [[[B], [hello_world/h.m4]]]) vypnou jeho původní význam, stejně jako vypnou význam ITALIC([silnějšího]) M4 komentáře HCODE_M4([[dnl]], [[[C], [hello_world/h.m4]]]).
+Závorky kolem znaku komentáře HCODE_M4([[#]], [[[B], [hello_world/h.m4]], [[B], [hello_world/hello_world.h]]]) vypnou jeho původní význam, stejně jako vypnou význam ITALIC([silnějšího]) M4 komentáře
+HCODE_M4([[dnl]], [[[C], [hello_world/h.m4]], [[C], [hello_world/hello_world.h]]]).
 Vypnou také původní význam čárky CODE_M4([[,]]) jako oddělovače argumentů maker.
 Tyto symboly se stanou obyčejnými terminálními symboly bez jakéhokoliv vedlejšího efektu.
 ],
 [dnl english: _next_language_
 The empty pair HCODE_M4([[]], [[[A], [hello_world/h.m4]]]) (or the empty symbol in brackets CODE_M4([[ε]])) serves as a[]NB()symbol separator.
-Brackets around the comment character HCODE_M4([[#]], [[[B], [hello_world/h.m4]]]) turn off its original meaning as well as the meaning of the ITALIC([more powerful]) M4 comment HCODE_M4([[dnl]], [[[C], [hello_world/h.m4]]]).
+Brackets around the comment character HCODE_M4([[#]], [[[B], [hello_world/h.m4]], [[B], [hello_world/hello_world.h]]]) turn off its original meaning as well as the meaning of the ITALIC([more powerful]) M4 comment
+HCODE_M4([[dnl]], [[[C], [hello_world/h.m4]], [[C], [hello_world/hello_world.h]]]).
 They also turn off the original meaning of the comma CODE_M4([[,]]) as a[]NB()macro argument delimiter.
 These symbols become ordinary terminal symbols without any side effect.
 ]])
@@ -1830,7 +1832,10 @@ s/\\x5b;#\\x5d;/MM(b)/
 s/\\x5b;dnl\\x5d;/MM(c)/
 ])
 EXECUTED([m4 -DSYMBOL='Hello, world!'], [gfiles/root0b.m4], [hello_world/h.m4], [hello_world/hello_world.h])
-TEXTDATA([hello_world/hello_world.h])
+TEXTDATA([hello_world/hello_world.h],, [
+s/#/MM(b)/
+s/\<dnl\>/MM(c)/
+])
 
 
 SECT1([safe_example], [dnl czech
@@ -1966,11 +1971,11 @@ UL([LI([BOLD([that is why]) the M4 can be considered a challenging language])])
 
 LISTITEM([experience_dependent], [[dnl czech
 produktivita značně závisí na zkušenostech (možný problém s[]NB()termíny)
-UL([LI([psaní M4 skriptů vyžaduje základní znalost automatů a gramatik])])
+UL([LI([psaní M4 skriptů vyžaduje BOLD([základní]) znalost automatů a gramatik])])
 ],
 [dnl english: _next_language_
 productivity greatly depends on experience (problem with short-term deadlines)
-UL([LI([writing M4 scripts requires basic knowledge of automata and grammars])])
+UL([LI([writing M4 scripts requires BOLD([basic]) knowledge of automata and grammars])])
 ]])
 
 LISTITEM([maintenance_could_be_hard], [[dnl czech
