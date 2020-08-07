@@ -14,21 +14,23 @@ define([MAKE_RULE], [
 
 		ifelse(defn([TARGET_FOLDER]), [], [
 
-			ROOT_ERROR([reference file ‘refs_xx.m4’ is missing or empty])
+			ROOT_ERROR([‘$1.]LANG_CODE[.anch’ is not defined])
 		])
 
 		divert(1)dnl
 defn([TARGET_FOLDER]) \
 divert(3)dnl
-TARGET_FOLDER/%.html: $(JAVASCRIPT) rootb.m4 queues.m4 cfg.m4 ent.m4 init.m4 inline.m4 headings.m4 block.m4 ver.m4 style.m4 lang_[]LANG_CODE.m4 css.m4 js.m4 git.m4 REFS_FILES lang.m4 incl.m4 file.m4 cmd.m4 %.m4 $1 nav.m4
-	m4 -DLANG_CODE='LANG_CODE' -DARTICLE_PATH='TARGET_FOLDER' -DFILE_LIST='FILE_LIST' -DOUTPUT_FILE='$[*].html' $(FLAGS) $(filter-out $(JAVASCRIPT), $^) | sed -f html/esc_to_ent.sed > $[@]
+TARGET_FOLDER/%.html: JAVASCRIPT rootb.m4 html/queues.m4 html/ent.m4 cfg.m4 init.m4 html/inline.m4 headings.m4 html/block.m4 ver.m4 html/style.m4 lang_[]LANG_CODE.m4 html/css.m4 js.m4 git.m4 REFS_FILES lang.m4 incl.m4 html/file.m4 html/cmd.m4 html/%.m4 $1 html/nav.m4
+	m4 -DLANG_CODE='LANG_CODE' -DARTICLE_PATH='TARGET_FOLDER' -DFILE_LIST='FILE_LIST' -DOUTPUT_FILE='$[*].html' $(FLAGS) $(filter-out JAVASCRIPT, $^) | sed -f html/esc_to_ent.sed > $[@]
 	tidy -qe $[@]
 
 TARGET_FOLDER/spell.txt: rootb.m4 cfg.m4 lang.m4 headings.m4 ver.m4 lang_[]LANG_CODE.m4 REFS_FILES incl.m4 spell.m4 $1
 	m4 -DLANG_CODE='LANG_CODE' $(FLAGS) $^ > $[@]
 
-TARGET_FOLDER/publish.txt: $(JAVASCRIPT) rootb.m4 queues.m4 cfg.m4 ent.m4 init.m4 inline.m4 headings.m4 block.m4 ver.m4 style.m4 lang_[]LANG_CODE.m4 css.m4 js.m4 git.m4 REFS_FILES lang.m4 incl.m4 file.m4 cmd.m4 publish.m4 $1 nav.m4
-	m4 -DLANG_CODE='LANG_CODE' -DARTICLE_PATH='TARGET_FOLDER' -DFILE_LIST='FILE_LIST' $(FLAGS) $(filter-out $(JAVASCRIPT), $^) | sed -f html/publish.sed -f html/esc_to_ent.sed > $[@]
+TARGET_FOLDER/publish.txt: JAVASCRIPT rootb.m4 html/queues.m4 html/ent.m4 cfg.m4 init.m4 html/inline.m4 headings.m4 html/block.m4 ver.m4 html/style.m4 lang_[]LANG_CODE.m4 html/css.m4 js.m4 git.m4 git_mc.m4 git_[]LANG_CODE.m4 REFS_FILES lang.m4 incl.m4 html/file.m4 html/cmd.m4 html/publish.m4 $1 html/nav.m4
+	m4 -DLANG_CODE='LANG_CODE' -DARTICLE_PATH='TARGET_FOLDER' --define='./$[@]'='[[master]]' -DFILE_LIST='FILE_LIST' $(FLAGS) $(filter-out JAVASCRIPT, $^) | sed -f html/publish.sed -f html/esc_to_ent.sed > $[@]
+	git add $[@]
+	git ci -m 'generated file'
 
 divert(-1)
 
@@ -48,13 +50,11 @@ define([PREVIEW_FILES],		[PREVIEW_]LANG_CODE)
 define([SPCHECK_FILES],		[SPCHECK_]LANG_CODE)
 define([ARTICLE_FILES],		[ARTICLE_]LANG_CODE)
 define([FOLDER_NAMES],		[FOLDERS_]LANG_CODE)
-define([SUBTARGETS],		$(FOLDER_NAMES) $(ARTICLE_FILES) $(PREVIEW_FILES) $(PUBLISH_FILES) $(SPCHECK_FILES))
+define([SUBTARGETS],		$(FOLDER_NAMES) $(ARTICLE_FILES) $(PREVIEW_FILES) $(SPCHECK_FILES))
 
 # generate the final output
 divert(0)dnl
 [#] DONTE()
-
-VPATH += html
 
 FOLDER_NAMES = \
 divert(2)
@@ -69,9 +69,9 @@ PUBLISH  += $(FOLDER_NAMES) $(PUBLISH_FILES)
 SPCHECK  += $(FOLDER_NAMES) $(SPCHECK_FILES)
 TARGETS  += SUBTARGETS
 
-#:html-sub-targets/sub/su	generates all files from generated rules (default target)
-.PHONY: html-sub-targets sub su
-html-sub-targets sub su: $(TARGETS)
+#:sub-targets/sub/su	generates all files from generated rules (default target)
+.PHONY: sub-targets sub su
+sub-targets sub su: $(TARGETS)
 
 #:preview/pre/pr/p	generates html page as close as possible in real website
 .PHONY: preview pre pr p
@@ -97,6 +97,8 @@ ALL_SUBTARGETS: SUBTARGETS
 .PHONY: CLEAN_SUBTARGETS
 CLEAN_SUBTARGETS:
 	$(RM) -r $(FOLDER_NAMES)
+
+git_[]LANG_CODE.m4: $(SPCHECK_FILES) $(ARTICLE_FILES)
 
 [#]:fhtml	is disabled for ‘LANG_CODE’
 fhtml_[]LANG_CODE.mk: ;

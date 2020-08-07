@@ -12,7 +12,7 @@ define([MAKE_RULE], [
 
 		ifelse(defn([FILE_STEM]), [], [
 
-			ROOT_ERROR([reference file ‘refs_xx.m4’ is missing or empty])
+			ROOT_ERROR([‘$1.]LANG_CODE[.anch’ is not defined])
 		])
 
 		divert(1)dnl
@@ -36,12 +36,12 @@ define([ALL_SUBTARGETS],	[all-text-]LANG_CODE [at]LANG_CODE)
 define([CLEAN_SUBTARGETS],	[clean-text-]LANG_CODE [clt]LANG_CODE [ct]LANG_CODE)
 define([ALL_IN_ONE],		[all_]LANG_CODE.txt)
 define([TEXT_STEM],		[TEXT_STEM_]LANG_CODE)
-define([SRC_FILES],		[TEXT_]LANG_CODE)
+define([TXT_FILES],		[TEXT_]LANG_CODE)
 define([CC_NAMES],		[CHAR_COUNT_]LANG_CODE)
 define([WC_NAMES],		[WORD_COUNT_]LANG_CODE)
 define([GZ_FILES],		[GZIPPED_TEXT_]LANG_CODE)
 define([XZ_FILES],		[XZIPPED_TEXT_]LANG_CODE)
-define([SUBTARGETS],		$(SRC_FILES) $(GZ_FILES) $(XZ_FILES))
+define([SUBTARGETS],		$(TXT_FILES) $(GZ_FILES) $(XZ_FILES))
 
 # generate the final output
 divert(0)dnl
@@ -49,26 +49,26 @@ divert(0)dnl
 
 TEXT_STEM = \
 divert(2)
-SRC_FILES = $(TEXT_STEM:=.txt)
+TXT_FILES = $(TEXT_STEM:=.txt)
 CC_NAMES = $(TEXT_STEM:=.cc)
 WC_NAMES = $(TEXT_STEM:=.wc)
 GZ_FILES = $(TEXT_STEM:=.txt.gz)
 XZ_FILES = $(TEXT_STEM:=.txt.xz)
-TEXT    += $(SRC_FILES)
+TEXT    += $(TXT_FILES)
 TEXT_CC += $(CC_NAMES)
 TEXT_WC += $(WC_NAMES)
 TEXT_GZ += $(GZ_FILES)
 TEXT_XZ += $(XZ_FILES)
-TARGETS += $(SRC_FILES)
+TARGETS += $(TXT_FILES)
 
-#:txt-sub-targets/sub/su	generates all files from generated rules (default target)
-.PHONY: txt-sub-targets sub su
-dnl txt-sub-targets sub su: $(TARGETS)
-txt-sub-targets sub su: $(SRC_FILES)
+#:sub-targets/sub/su	generates all files from generated rules (default target)
+.PHONY: sub-targets sub su
+sub-targets sub su: $(TARGETS)
+dnl txt-sub-targets sub su: $(TXT_FILES)
 
 #:text/txt/tx	generates plain text to specify the length of the article
 .PHONY: text txt tx
-text txt tx: $(SRC_FILES)
+text txt tx: $(TXT_FILES)
 
 #:plain/pla/p1	generates plain text in one file
 .PHONY: plain pla p1
@@ -81,6 +81,8 @@ gzt gt: $(GZ_FILES)
 #:xzt/xt	generates xzipped files
 .PHONY: xzt xt
 xzt xt: $(XZ_FILES)
+
+git_[]LANG_CODE.m4: $(TXT_FILES)
 
 [#]:patsubst(defn([ALL_SUBTARGETS]), [ ], [/])	generates all ‘LANG_CODE’ text and compressed files
 .PHONY: ALL_SUBTARGETS

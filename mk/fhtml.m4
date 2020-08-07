@@ -14,7 +14,7 @@ define([MAKE_RULE], [
 
 		ifelse(defn([TARGET_FOLDER]), [], [
 
-			ROOT_ERROR([reference file ‘refs_xx.m4’ is missing or empty])
+			ROOT_ERROR([‘$1.]LANG_CODE[.anch’ is not defined])
 		])
 
 		divert(1)dnl
@@ -24,7 +24,7 @@ TARGET_FOLDER/%.html: html_[]LANG_CODE.m4f $(JAVASCRIPT) %.m4 $1 nav.m4
 	m4 -DOUTPUT_FILE='$[@]' -DARTICLE_PATH='TARGET_FOLDER' $(FLAGS) -R $(filter-out $(JAVASCRIPT), $^) | sed -f html/esc_to_ent.sed > $[@]
 	tidy -qe $[@]
 
-TARGET_FOLDER/publish.txt: html_[]LANG_CODE.m4f $(JAVASCRIPT) publish.m4 $1 nav.m4
+TARGET_FOLDER/publish.txt: html_[]LANG_CODE.m4f git_mc.m4 git_[]LANG_CODE.m4 $(JAVASCRIPT) publish.m4 $1 nav.m4
 	m4 -DARTICLE_PATH='TARGET_FOLDER' $(FLAGS) -R $(filter-out $(JAVASCRIPT), $^) | sed -f html/publish.sed -f html/esc_to_ent.sed > $[@]
 
 TARGET_FOLDER/spell.txt: rootb.m4 aux.m4 lang.m4 headings.m4 ver.m4 lang_[]LANG_CODE.m4 REFS_FILES incl.m4 spell.m4 $1
@@ -71,9 +71,9 @@ PUBLISH  += $(FOLDER_NAMES) $(PUBLISH_FILES)
 SPCHECK  += $(FOLDER_NAMES) $(SPCHECK_FILES)
 TARGETS  += SUBTARGETS
 
-#:html-sub-targets/sub/su	generates all files from generated rules (default target)
-.PHONY: fhtml-sub-targets sub su
-fhtml-sub-targets sub su: $(TARGETS)
+#:sub-targets/sub/su	generates all files from generated rules (default target)
+.PHONY: sub-targets sub su
+sub-targets sub su: $(TARGETS)
 
 #:preview/pre/pr/p	generates html page as close as possible in real website
 .PHONY: preview pre pr p
@@ -106,6 +106,8 @@ html_[]LANG_CODE.mk: ;
 $(FOLDER_NAMES):
 	mkdir -p $@
 
-FROZEN_FILE: $(JAVASCRIPT) rootb.m4 queues.m4 cfg.m4 ent.m4 init.m4 inline.m4 headings.m4 block.m4 ver.m4 style.m4 lang_[]LANG_CODE.m4 css.m4 js.m4 git.m4 REFS_FILES lang.m4 incl.m4 file.m4 cmd.m4
-	m4 -F $@ -DLANG_CODE='LANG_CODE' -DFILE_LIST='FILE_LIST' $(filter-out $(JAVASCRIPT) , $^)
+git_[]LANG_CODE.m4: $(SPCHECK_FILES) $(ARTICLE_FILES)
+
+FROZEN_FILE: JAVASCRIPT rootb.m4 queues.m4 cfg.m4 ent.m4 init.m4 inline.m4 headings.m4 block.m4 ver.m4 style.m4 lang_[]LANG_CODE.m4 css.m4 js.m4 git.m4 REFS_FILES lang.m4 incl.m4 file.m4 cmd.m4
+	m4 -F $@ -DLANG_CODE='LANG_CODE' -DFILE_LIST='FILE_LIST' $(filter-out JAVASCRIPT, $^)
 
