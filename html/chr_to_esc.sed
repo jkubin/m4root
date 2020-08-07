@@ -5,7 +5,7 @@
 # hide M4 and HTML problematic characters to https://en.wikipedia.org/wiki/Escape_sequences_in_C
 s/&/\\x26;/g
 s/</\\x3c;/g
-s/>/\\x3e;/g
+#s/>/\\x3e;/g	no need hide for HTML5
 s/\[/\\x5b;/g
 s/]/\\x5d;/g
 
