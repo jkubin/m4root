@@ -651,7 +651,7 @@ The SARG1() macro selects the first item because the second item contains an unw
 
 ~]$ m4 root0b.m4 hello.ini.m4 code.m4 messages.mc > hello.ini
 
-135d8b2 messages/hello.ini
+299505d messages/hello.ini
   1 ; DO NOT EDIT! This file is generated automatically!
   2 
   3 [hello_20200806]
