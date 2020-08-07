@@ -1,15 +1,9 @@
-vim:ts=4:sw=4
-
-DO NOT EDIT! This file is generated automatically!
-
-__SOURCE([intro.mc], [20200523-11:10:01], [1e696e5], [135d8b2])
-
 Generating code in M4: introduction
 
 The M4 macro processor is used to generate arbitrarily complex code from simple source code.
 The introductory part of the series contains its history, the basic principles of language, examples of usage and prerequisites for its mastery.
 
-Content (Česky)			updated May 23, 2020
+Content (Česky)			mc txt pub spell updated August 7, 2020
 1 Introduction
 	1.1 Examples for readers
 2 History of macro languages
@@ -61,13 +55,9 @@ At the beginning of each episode, some parts of the M4 language will be describe
 Each part can be read in any order.
 
 • Code generation examples
-
 • Preprocessor examples
-
 • M4: examples
-
 • Why to use M4 and why not?
-
 • http://github.com/jkubin/m4root – more complex project generating this series
 
 2 History of macro languages
@@ -83,14 +73,12 @@ The speed, performance and efficiency of a complex lower-level programming langu
 However, it is important to understand all layers of code well.
 
 GPM (General Purpose Macro-generator)
-
 Christopher Strachey introduced the basic idea of rewritable strings with arguments which recursively rewrite to other strings in his
 GPM[2] in 1965.
 The next generation of M3 and M4 macro processors basically just expanded the original GPM.
 The basic idea of the original proposal remained the same.
 
 M3
-
 Dennis Ritchie took over the basic idea of GPM and wrote an improved macro processor for generating source code of C (1972) language, which he himself designed.
 The new macro processor was written for the minicomputer AP-3, hence the name M3.
 This direct ancestor of the current M4 managed to significantly save heavy and time-consuming work and attract developers programming to other languages (FORTRAN, COBOL, PL/I, …).
@@ -99,15 +87,10 @@ Developers have customized M3 for these languages turning it into a universally 
 Dennis Ritchie was also a co-creator of UNIX and therefore:
 
 • M4 is minimalist and fast, it does one thing and it does well
-
 • it relies solely on the non-interactive command line interface
-
 • parameters and dependencies of M4 scripts are described by Makefile
-
 • the # character begins with a one-line comment like in a UNIX shell
-
 • variables $@, $*, $#, $0, $1, $2, … have similar meanings as in a UNIX shell
-
 • the argument delimiter is comma
 
 The M3 macro processor was also extended by Jim E. Weythman, the author of program construction, which is used in almost every M4 script:
@@ -124,7 +107,6 @@ Argument -1 completely disables any text output.
 Argument 0 switches output to stdout (standard output).
 
 M4
-
 Brian Kernighan has enhanced the M3 macro processor to the FORTRAN 66
 preprocessor to create a hybrid language extension named RATFOR[3].
 The basic program constructions of this extension (conditions, cycles) are the same as in C language.
@@ -134,20 +116,15 @@ The macro processor converts the source code back to FORTRAN, then the compiler 
 Note the almost perfect symbiosis with the C language:
 
 • CPP directives #define, #include, #ifdef, … are comments for M4
-
 • most keywords separated from parentheses by a white character lose meaning
 	• for example, M4 ignores void define (char c, int i) {…}
-
 • macro arguments separate commas just like commas in C functions
 	• if the FUNC(char c, int i) macro is defined, its variables are:
 $# → 2, $0 → FUNC, $1 → char c, $2 → int i
-
 • the left control character ` is not a part of the C family syntax
-
 • the right control character ' does not matter if it is not part of the macro
 
 	• both control characters can be hidden into user-defined macros LQ(), RQ()
-
 • macros are written IN_UPPERCASE, just like nonterminal symbols
 	• this delimits their namespace
 
@@ -159,7 +136,6 @@ Dennis Ritchie[6],
 Brian Kernighan[7]
 
 GNU M4
-
 Today, there are several implementations that differ from the original implementation rather by small details.
 The most common implementation of M4 is the GNU M4 used for Autotools
 and for translating the simple sendmail.mc configuration file to complex sendmail.cf.
@@ -191,7 +167,6 @@ P: A → β
    β ∈ (N ∪ Σ)*
 
 M4 rewriting rules
-
 The rules for rewriting are the same for context-free grammar and M4.
 
 # A → β
@@ -212,7 +187,6 @@ ifelse(`', `', `ifdef(`dnl', `1', `0')', `no') → ifdef(`dnl', `1', `0') → 1
 …
 
 Nonterminal expansion control
-
 The default character pair `' in M4 controls the expansion of nonterminals.
 The keyword changequote() can change them to other characters, for example {[], ␂␆, ⟦⟧}.
 The nonterminals that we do not want to (immediately) expand are surrounded by this pair of characters.
@@ -246,9 +220,7 @@ M4 transforms input data from .mc files to output data with the following comman
 Two basic operations are performed during file loading:
 
 • the reading transformation rules from files with the .m4 extension
-
 • the expansion of macros inside .mc files
-
 The input1.mc and input2.mc files contain the input data in a format that allows them to be transformed into output data according to the rules in the previous .m4 files.
 The .mc data files usually do not contain any transformation rules.
 
@@ -273,7 +245,6 @@ However the character collision is easily solved by a regex.
 ~]$ m4 root.m4 stem.m4 branch.m4 leaf.m4 file.c | gcc -x c -o progr -
 
 `' Default characters
-
 The conflicting character ` from the input source code is hidden into a macro `'LQ().
 An empty pair of control characters `' before the macro serves as a symbol separator.
 When the source code is passed through the macro processor, the `'LQ() macro is rewritten back to the original ` character and the empty pair `' is removed.
@@ -290,7 +261,6 @@ M4 # and dnl comments are hidden between default characters: `#' `dnl'
 ~]$ sed 's/`/`'\''LQ()/g;s/#/`#'\''/g;s/\<dnl\>/`dnl'\''/g' any.src | m4 …
 
 [] Square brackets
-
 If square brackets are used to control the expansion of nonterminals, the left [ square bracket is hidden in the same way.
 Everything else applies as for default characters `'.
 
@@ -303,7 +273,6 @@ M4 # and dnl comments are hidden between parentheses: [#] [dnl]
 ~]$ sed 's/\[/[]LB()/g;s/#/[#]/g;s/\<dnl\>/[dnl]/g' any.src | m4 rootb.m4 …
 
 ␂␆ Non printable characters
-
 Non printable characters ␂ (0x02) and ␆ (0x06) can be used to control the expansion of nonterminals.
 These characters cannot interfere with printable source code characters.
 
@@ -316,7 +285,6 @@ M4 # and dnl comments are hidden between non printable characters: ␂#␆ ␂dn
 ~]$ sed 's/#/␂#␆/g;s/\<dnl\>/␂dnl␆/g' any.src | m4 rootn.m4 leaf.m4 - | gcc …
 
 ⟦⟧ UTF-8 characters
-
 Expansion of nonterminals can also be controlled by a suitably selected UTF-8 character pair.
 The usual source code does not contain such characters, so we do not have to solve the collision of the left ⟦ bracket.
 UTF-8 characters offer similar advantages to non printable characters.
@@ -332,7 +300,6 @@ M4 # and dnl comments are hidden between UTF-8 characters: ⟦#⟧ ⟦dnl⟧
 Try: Preprocessor examples
 
 Mixed mode
-
 The mixed mode is a combination of the previous modes and is mainly used for experiments.
 The data is not separated from the rules for its transformation.
 The leaf file leaf.m4 contains transformation rule definitions along with input data.
@@ -350,14 +317,12 @@ Each string is either a terminal or a nonterminal symbol, including all language
 M4 intentionally does not have keywords for cycles (for/while) because its basis is quite different from procedural or functional languages.
 
 • loops are only left-recursive or right-recursive
-
 • branching is made by symbol concatenation or ifelse(), ifdef() keywords
 
 5.1 Fundamentals of grammars
 All grammars are based on the rules for rewriting and their forms are generally described:
 
 Formal grammar (Chomsky type)
-
 G = (N, Σ, P, S)
 N: a finite set of nonterminal symbols
 Σ: a finite set of terminal symbols
@@ -378,7 +343,6 @@ Some of the following episodes of this series will focus on formal grammar in de
 The ability to use predominantly two-state automata is an essential thing for writing simple M4 scripts because the vast majority of scripts use small automata.
 
 Testing automaton
-
 The order of input symbols or their context can be tested by an automaton.
 If the input symbols meet the required properties, the automaton ends up in a double-ring node which indicates the accepting state.
 
@@ -395,7 +359,6 @@ The previous automaton can be written as an ASCII art accompanying the M4 script
 #                0
 
 Generating automaton
-
 Input symbols change the nodes of the automaton, thereby changing the rewriting rules for code generation.
 See the appendix for this generating automaton:
 
@@ -463,7 +426,6 @@ https://is.muni.cz/elportal/estud/fi/js06/ib005/Formalni_jazyky_a_automaty_I.pdf
 13. Automaty a gramatiky, Michal Chytil, 1. vydání, Praha, 331 s. 1984.
 https://is.muni.cz/publication/173173
 
-
 A Code generation examples
 🛈 Chars. {`', [], ␂␆, ⟦⟧} in the name controls the expansion of nonterminals.
 
@@ -519,7 +481,7 @@ This example does not use output queues, it only prints CSV separated by TAB to 
   6 divert(-1)
   7 ])
 
-~]$ m4 gfiles/root0b.m4 messages/hello.csv.m4 messages/messages_raw.mc > messages/hello.csv
+~]$ m4 root0b.m4 hello.csv.m4 messages_raw.mc > hello.csv
 
 9156810 messages/hello.csv
   1 COMPLEX	!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~
@@ -547,7 +509,7 @@ COUNTER is a small automaton.
  12 divert(-1)
  13 ])
 
-~]$ m4 gfiles/root0b.m4 gfiles/countb.m4 messages/counter.csv.m4 messages/messages_raw.mc > messages/counter.csv
+~]$ m4 root0b.m4 countb.m4 counter.csv.m4 messages_raw.mc > counter.csv
 
 9156810 messages/counter.csv
   1 ERR_1	COMPLEX	!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~
@@ -560,7 +522,6 @@ The M4 patsubst() keyword is inappropriate for this type of task.
 First, we hide all special characters of the input file into appropriately named macros using regular expressions.
 
 Modified input code
-
 0a4e91e messages/messages.mc
   1 # 2018/05/15 Josef Kubin
   2 
@@ -574,7 +535,6 @@ Modified input code
 We create several conversion files according to the target code type, LB() and RB() macros for square brackets are already defined in the root file.
 
 [] Conversion file for XML, XSLT, HTML
-
 b53eafe messages/markup.m4
   1 # A → β
   2 define([AMP], [&amp;])
@@ -587,7 +547,6 @@ b53eafe messages/markup.m4
   9 define([LT], [&lt;])
 
 [] Conversion file for C, JSON, INI: "string"
-
 b53eafe messages/code.m4
   1 # A → β
   2 define([AMP], [&])
@@ -600,7 +559,6 @@ b53eafe messages/code.m4
   9 define([LT], [<])
 
 [] Conversion file for Bash: "string"
-
 b53eafe messages/doubleq.m4
   1 # A → β
   2 define([AMP], [&])
@@ -613,7 +571,6 @@ b53eafe messages/doubleq.m4
   9 define([LT], [<])
 
 [] Conversion file for Bash: 'string'
-
 b53eafe messages/apost.m4
   1 # A → β
   2 define([AMP], [&])
@@ -626,7 +583,6 @@ b53eafe messages/apost.m4
   9 define([LT], [<])
 
 [] Conversion file for CSV, M4 (returns all characters)
-
 f175bef messages/unchanged.m4
   1 # A → β
   2 define([AMP], [&])
@@ -660,7 +616,7 @@ b53eafe messages/array.c.m4
  16 };
  17 divert(-1)
 
-~]$ m4 gfiles/root0b.m4 messages/array.c.m4 messages/code.m4 messages/messages.mc > messages/array.c
+~]$ m4 root0b.m4 array.c.m4 code.m4 messages.mc > array.c
 
 9156810 messages/array.c
   1 /*
@@ -693,12 +649,12 @@ The SARG1() macro selects the first item because the second item contains an unw
  12 SARG1(esyscmd([date '+[[hello_%Y%m%d]],']))
  13 divert(-1)
 
-~]$ m4 gfiles/root0b.m4 messages/hello.ini.m4 messages/code.m4 messages/messages.mc > messages/hello.ini
+~]$ m4 root0b.m4 hello.ini.m4 code.m4 messages.mc > hello.ini
 
-1d582bc messages/hello.ini
+135d8b2 messages/hello.ini
   1 ; DO NOT EDIT! This file is generated automatically!
   2 
-  3 [hello_20200518]
+  3 [hello_20200806]
   4 COMPLEX="!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~"
   5 SUCCESS="Too complex M4 code failed successfully."
   6 NOFAULT="It's not a language fault!"
@@ -735,7 +691,7 @@ b53eafe messages/messages.h.m4
  24 #endif /* __ERROR_H */
  25 divert(-1)
 
-~]$ m4 gfiles/root0b.m4 gfiles/countb.m4 messages/messages.h.m4 messages/messages.mc > messages/messages.h
+~]$ m4 root0b.m4 countb.m4 messages.h.m4 messages.mc > messages.h
 
 b53eafe messages/messages.h
   1 /*
@@ -780,7 +736,7 @@ b53eafe messages/stringl.c.m4
  22 "divert(1)";
  23 divert(-1)
 
-~]$ m4 gfiles/root0b.m4 messages/stringl.c.m4 messages/code.m4 messages/messages.mc > messages/stringl.c
+~]$ m4 root0b.m4 stringl.c.m4 code.m4 messages.mc > stringl.c
 
 9156810 messages/stringl.c
   1 /*
@@ -819,7 +775,7 @@ This example is similar to the previous one, but each string is on a new line.
  23 "divert(1)";
  24 divert(-1)
 
-~]$ m4 gfiles/root0b.m4 messages/string.c.m4 messages/code.m4 messages/messages.mc > messages/string.c
+~]$ m4 root0b.m4 string.c.m4 code.m4 messages.mc > string.c
 
 9156810 messages/string.c
   1 /*
@@ -872,7 +828,7 @@ b53eafe messages/messages.html.m4
  31 </html>
  32 divert(-1)
 
-~]$ m4 gfiles/root0b.m4 messages/messages.html.m4 messages/markup.m4 messages/messages.mc > messages/messages.html
+~]$ m4 root0b.m4 messages.html.m4 markup.m4 messages.mc > messages.html
 
 9156810 messages/messages.html
   1 <!-- DO NOT EDIT! This file is generated automatically! -->
@@ -922,10 +878,22 @@ b53eafe messages/insect.txt.m4
  14 define([QUERY_INSECT],   [🐜])
  15 define([WARNING_INSECT], [🐝])
 
-~]$ m4 gfiles/root0b.m4 messages/insect.txt.m4 messages/messages.mc > messages/insect.txt
+~]$ m4 root0b.m4 insect.txt.m4 messages.mc > insect.txt
 
 b53eafe messages/insect.txt
   1 🐛🐜🐛🐝🐛🐝
+
+Branching by grammar – basic principle
+The $0 variable is replaced by the name of the macro and concatenated with another symbol.
+The newly formed nonterminal is rewritten to the corresponding terminal symbol (queue number or name).
+
+$0_QU → ERROR_QU → 2
+$0_END → ERROR_END → 3
+$0_NAME → ERROR_NAME → error
+$0_QU → QUERY_QU → 0
+$0_END → QUERY_END → 1
+$0_NAME → QUERY_NAME → query
+…
 
 A.12 [] JSON: generating automaton
 The example uses two output queues and one generating automaton.
@@ -968,7 +936,7 @@ b53eafe messages/atm.json.m4
  31 }}
  32 divert(-1)
 
-~]$ m4 gfiles/root0b.m4 messages/atm.json.m4 messages/code.m4 messages/messages.mc > messages/atm.json
+~]$ m4 root0b.m4 atm.json.m4 code.m4 messages.mc > atm.json
 
 9156810 messages/atm.json
   1 {"generating_automaton": {
@@ -986,19 +954,6 @@ It uses three automata and six output queues.
 If we generate more complex source code, we will soon encounter the problem of maintaining index consistency for output queues.
 To avoid confusion, we use queue names instead of numbers.
 To avoid having to define similar rules, we copy the right side of ERROR (it is also a β rule) to the right side of the QUERY and WARNING rules.
-
-Branching by grammar – basic principle
-
-The $0 variable is replaced by the name of the macro and concatenated with another symbol.
-The newly formed nonterminal is rewritten to the corresponding terminal symbol (queue number or name).
-
-$0_QU → ERROR_QU → 2
-$0_END → ERROR_END → 3
-$0_NAME → ERROR_NAME → error
-$0_QU → QUERY_QU → 0
-$0_END → QUERY_END → 1
-$0_NAME → QUERY_NAME → query
-…
 
 b53eafe messages/qnames.json.m4
   1 # DO NOT WRITE INDEXES MANUALLY, use counter!
@@ -1054,7 +1009,7 @@ b53eafe messages/qnames.json.m4
  51 }}
  52 divert(-1)
 
-~]$ m4 gfiles/root0b.m4 messages/qnames.json.m4 messages/code.m4 messages/messages.mc > messages/qnames.json
+~]$ m4 root0b.m4 qnames.json.m4 code.m4 messages.mc > qnames.json
 
 9156810 messages/qnames.json
   1 {"queue_names": {
@@ -1144,7 +1099,7 @@ b53eafe messages/messages.json.m4
  37 }}
  38 divert(-1)
 
-~]$ m4 gfiles/root0b.m4 gfiles/countb.m4 messages/queues.m4 messages/messages.json.m4 messages/code.m4 messages/messages.mc > messages/messages.json
+~]$ m4 root0b.m4 countb.m4 queues.m4 messages.json.m4 code.m4 messages.mc > messages.json
 
 9156810 messages/messages.json
   1 {"messages": {
@@ -1203,7 +1158,7 @@ c145bef messages/messages.ini.m4
  32 ; DONTE()
  33 divert(-1)
 
-~]$ m4 gfiles/root0b.m4 messages/messages.ini.m4 gfiles/countb.m4 messages/queues.m4 messages/code.m4 messages/messages.mc > messages/messages.ini
+~]$ m4 root0b.m4 messages.ini.m4 countb.m4 queues.m4 code.m4 messages.mc > messages.ini
 
 9156810 messages/messages.ini
   1 ; DO NOT EDIT! This file is generated automatically!
@@ -1248,7 +1203,7 @@ b53eafe messages/mixed.xml.m4
  22 </messages>
  23 divert(-1)
 
-~]$ m4 gfiles/root0b.m4 messages/queues.m4 messages/mixed.xml.m4 messages/markup.m4 messages/messages.mc > messages/mixed.xml
+~]$ m4 root0b.m4 queues.m4 mixed.xml.m4 markup.m4 messages.mc > mixed.xml
 
 9156810 messages/mixed.xml
   1 <!-- DO NOT EDIT! This file is generated automatically! -->
@@ -1325,7 +1280,7 @@ b53eafe messages/messages.xml.m4
  39 </messages>
  40 divert(-1)
 
-~]$ m4 gfiles/root0b.m4 messages/queues.m4 messages/messages.xml.m4 messages/markup.m4 messages/messages.mc > messages/messages.xml
+~]$ m4 root0b.m4 queues.m4 messages.xml.m4 markup.m4 messages.mc > messages.xml
 
 9156810 messages/messages.xml
   1 <!-- DO NOT EDIT! This file is generated automatically! -->
@@ -1385,7 +1340,7 @@ b53eafe messages/doubleq.sh.m4
  18 
  19 divert(-1)
 
-~]$ m4 gfiles/root0b.m4 messages/doubleq.sh.m4 messages/doubleq.m4 messages/messages.mc > messages/doubleq.sh
+~]$ m4 root0b.m4 doubleq.sh.m4 doubleq.m4 messages.mc > doubleq.sh
 
 9156810 messages/doubleq.sh
   1 #!/bin/bash
@@ -1421,7 +1376,7 @@ b53eafe messages/apost.sh.m4
  18 
  19 divert(-1)
 
-~]$ m4 gfiles/root0b.m4 messages/apost.sh.m4 messages/apost.m4 messages/messages.mc > messages/apost.sh
+~]$ m4 root0b.m4 apost.sh.m4 apost.m4 messages.mc > apost.sh
 
 9156810 messages/apost.sh
   1 #!/bin/bash
@@ -1493,7 +1448,7 @@ b53eafe preproc/file.c
  30 	return 0;
  31 }
 
-~]$ m4 -DSYMBOL='Hello, world!' gfiles/root0q.m4 preproc/file.c.m4 preproc/file.c > preproc/preproc.file.c
+~]$ m4 -DSYMBOL='Hello, world!' root0q.m4 file.c.m4 file.c > preproc.file.c
 
 b53eafe preproc/preproc.file.c
   1 /*
@@ -1566,7 +1521,7 @@ The comments can be turned off with the same changecom keyword without parameter
  12 /* DONTE() */
  13 changecom/* DONTE() */changecom(/*,*/)
 
-~]$ m4 -DSYMBOL='Hello, world!' gfiles/root0q.m4 preproc/file.css.m4 preproc/file.css > preproc/preproc.file.css
+~]$ m4 -DSYMBOL='Hello, world!' root0q.m4 file.css.m4 file.css > preproc.file.css
 
 41542d1 preproc/preproc.file.css
   1 /* DO NOT EDIT! This file is generated automatically! */
@@ -1611,7 +1566,7 @@ b53eafe preproc/file.sh
   9 	echo $HELLO
  10 fi
 
-~]$ m4 -DSYMBOL='Hello, world!' gfiles/root0n.m4 preproc/file.sh.m4 preproc/file.sh > preproc/preproc.file.sh
+~]$ m4 -DSYMBOL='Hello, world!' root0n.m4 file.sh.m4 file.sh > preproc.file.sh
 
 b53eafe preproc/preproc.file.sh
   1 #!/bin/bash
@@ -1648,7 +1603,7 @@ b53eafe hello_world/json.m4
   8 	]
   9 }}
 
-~]$ m4 -DSYMBOL='Hello, world!' gfiles/root0b.m4 hello_world/json.m4 > hello_world/hello_world.json
+~]$ m4 -DSYMBOL='Hello, world!' root0b.m4 json.m4 > hello_world.json
 
 b53eafe hello_world/hello_world.json
   1 {"foo": {
@@ -1698,7 +1653,7 @@ b53eafe hello_world/sh.m4
  32 	echo '__COUNTUP__] SYMBOL LB()__COUNTDN__'
  33 fi
 
-~]$ m4 -DSYMBOL='Hello, world!' gfiles/root0b.m4 gfiles/countb.m4 hello_world/sh.m4 > hello_world/hello_world.sh
+~]$ m4 -DSYMBOL='Hello, world!' root0b.m4 countb.m4 sh.m4 > hello_world.sh
 
 b53eafe hello_world/hello_world.sh
   1 #!/bin/bash
@@ -1722,7 +1677,8 @@ b53eafe hello_world/hello_world.sh
 
 C.3 [] .h: brackets [], [,], [#], [dnl]
 The empty pair [] (or the empty symbol in brackets [ε]) serves as a symbol separator.
-Brackets around the comment character [#] turn off its original meaning as well as the meaning of the more powerful M4 comment [dnl].
+Brackets around the comment character [#] turn off its original meaning as well as the meaning of the more powerful M4 comment
+[dnl].
 They also turn off the original meaning of the comma [,] as a macro argument delimiter.
 These symbols become ordinary terminal symbols without any side effect.
 
@@ -1742,7 +1698,7 @@ ce5cd99 hello_world/h.m4
  13 
  14 [#]endif /* __[]HELLO[]_H */
 
-~]$ m4 -DSYMBOL='Hello, world!' gfiles/root0b.m4 hello_world/h.m4 > hello_world/hello_world.h
+~]$ m4 -DSYMBOL='Hello, world!' root0b.m4 h.m4 > hello_world.h
 
 6b10c6c hello_world/hello_world.h
   1 /*
@@ -1770,7 +1726,7 @@ Such macros are explicitly created by a script developer, see the root file root
   7 
   8 BEGIN { print "DONTE[]() LB () LB() SYMBOL ]" }
 
-~]$ m4 -DSYMBOL='Hello, world!' gfiles/root1b.m4 hello_world/awk.m4 > hello_world/hello_world.awk
+~]$ m4 -DSYMBOL='Hello, world!' root1b.m4 awk.m4 > hello_world.awk
 
 3a8a5dd hello_world/hello_world.awk
   1 #!/bin/awk -f
@@ -1786,32 +1742,24 @@ D Why to use M4 and why not?
 D.1 👍 Why to generate code in M4
 • direct use of context-free grammar (recursion for free)
 	• minimum M4 code is required for data transformation
-
 • direct use of automata
 	• possibility to model necessary algorithms (M4 does not need versions)
-
 • direct use of stacks
 	• stacks connected to automata extend capabilities of code generator
-
 • direct use of output queues to temporarily store resulting pieces of code
 	• individual queues are finally dumped to output in ascending order
-
 • significantly faster code generation (compared to XSLT)
 	• low demands on computing resources
 
 D.2 👎 Why to avoid M4
 • low-level universal language (similar to C language)
 	• which in return it provides tremendous flexibility as UNIX
-
 • (almost) nonexistent developer community (as of Autumn 2019)
 	• M4 is nearly forgotten language with small number of existing projects
-
 • unusual programming paradigm requiring several prerequisites
 	• that is why the M4 can be considered a challenging language
-
 • productivity greatly depends on experience (problem with short-term deadlines)
 	• writing M4 scripts requires basic knowledge of automata and grammars
-
 • maintaining badly written M4 code is not easy
 	• existing M4 code is easily thrown into confusion (supervision required!)
 

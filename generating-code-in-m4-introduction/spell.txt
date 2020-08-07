@@ -2,7 +2,7 @@
 #
 # DO NOT EDIT! This file is generated automatically!
 #
-# __SOURCE([intro.mc], [20200523-11:08:38], [1e696e5], [6a10357])
+# __SOURCE([intro.mc], [20200807-17:23:07], [ccf8c59], [ccf8c59])
 
 7
 Generating code in M4: introduction
@@ -717,35 +717,35 @@ Input nonterminals are rewritten to terminals (🐛),
 1474
 []
 
-1481
+1480
+Branching by grammar – basic principle
+
+1486
+The  variable is replaced by the name of the macro and concatenated with another symbol.
+The newly formed nonterminal is rewritten to the corresponding terminal symbol (queue number or name).
+
+1495
+[grammar branching in M4]
+
+1506
  JSON: generating automaton
 
-1487
+1512
 The example uses two output queues and one generating automaton.
 The first  error message in the  state generates a header with brackets and outputs the first record.
 The automaton goes to the state  which is a  rule (the rule is used as the right side of another rewriting rule).
 The following error messages in the  state only output individual records.
 At the end the output queue number  and number  print the characters  and  to close the resulting JSON.
 
-1507
+1532
  JSON: named queues
 
-1513
+1538
 The example processes other types of messages  and .
 It uses three automata and six output queues.
 If we generate more complex source code, we will soon encounter the problem of maintaining index consistency for output queues.
 To avoid confusion, we use queue names instead of numbers.
 To avoid having to define similar rules, we copy the right side of  (it is also a  rule (the rule is used as the right side of another rewriting rule)) to the right side of the  and  rules.
-
-1528
-Branching by grammar – basic principle
-
-1534
-The  variable is replaced by the name of the macro and concatenated with another symbol.
-The newly formed nonterminal is rewritten to the corresponding terminal symbol (queue number or name).
-
-1543
-[grammar branching in M4]
 
 1558
  JSON: generated queue indexes
@@ -883,78 +883,82 @@ The  macro defined in the root file must be used.
 
 1814
 The empty pair  (or the empty symbol in brackets ) serves as a symbol separator.
-Brackets around the comment character  turn off its original meaning as well as the meaning of the more powerful M4 comment .
+Brackets around the comment character  turn off its original meaning as well as the meaning of the more powerful M4 comment
+.
 They also turn off the original meaning of the comma  as a macro argument delimiter.
 These symbols become ordinary terminal symbols without any side effect.
 
-1827
+1829
 []
 
-1836
+1835
+[]
+
+1841
  AWK: examples of safer macros
 
-1842
+1847
 The universal alert  is ignored without parentheses, such as for example  or .
 Such macros are explicitly created by a script developer, see the root file .
 
-1851
+1856
 []
 
-1858
+1863
 []
 
-1868
+1873
 Why to use M4 and why not?
 
-1868
+1873
 [for information]
 
-1868
+1873
 Chars. {(quotation marks), (square brackets), (nonprintable characters), (UTF-8 characters)} in the name controls the expansion of nonterminals.
 
-1876
+1881
  Why to generate code in M4
 
-1882
+1887
 direct use of context-free grammar (recursion for free)
 minimum M4 code is required for data transformation
 
-1882
+1887
 direct use of automata
 possibility to model necessary algorithms (M4 does not need versions)
 
-1882
+1887
 direct use of stacks
 stacks connected to automata extend capabilities of code generator
 
-1882
+1887
 direct use of output queues to temporarily store resulting pieces of code
 individual queues are finally dumped to output in ascending order
 
-1882
+1887
 significantly faster code generation (compared to XSLT)
 low demands on computing resources
 
-1932
+1937
  Why to avoid M4
 
-1938
+1943
 low-level universal language (similar to C language)
 which in return it provides tremendous flexibility as UNIX
 
-1938
+1943
 (almost) nonexistent developer community (as of Autumn 2019)
 M4 is nearly forgotten language with small number of existing projects
 
-1938
+1943
 unusual programming paradigm requiring several prerequisites
 that is why the M4 can be considered a challenging language
 
-1938
+1943
 productivity greatly depends on experience (problem with short-term deadlines)
 writing M4 scripts requires basic knowledge of automata and grammars
 
-1938
+1943
 maintaining badly written M4 code is not easy
 existing M4 code is easily thrown into confusion (supervision required!)
 
