@@ -1,14 +1,17 @@
 # vim:wrap:spell:spelllang=en
-This is a generated brief documentation from all source files.
-It also shows the possibilities of the M4.
+# DO NOT EDIT! This file is generated automatically!
+
+Extracted data from all source files.
 To update this file, run the following command:
+
 ~]$ make doc
+
 ---
 File: gfiles/rulerb.m4
 Author: Josef Kubin
 Started: 2019/11/16
 Note: root
-Description: generates a string to shorten another string (by hand) because truncation is hardly acceptable
+Description: generates a string to truncate the next string (manually) because machine truncation is hardly acceptable
 Reason: computer cannot truncate the string to remain readable
 Usage: m4 rootb.m4 rulerb.m4 …
 ---
@@ -90,7 +93,7 @@ Author: Josef Kubin
 Started: 2019/12/11
 Note: root_cz
 Description: tests logic flow (CHAPTER → SECT1 → SECT2) and generates references for anchors
-Reason: extracts all IDs from files and creates hashing pair
+Reason: extracts all IDs from files and creates associative pair
 ---
 File: hello_world/Makefile
 Author: Josef Kubin
@@ -276,13 +279,6 @@ Note: root_cz
 Description: (this is a generated file) associative memory to linking references, contains captions and ID
 Reason: linking links and simple database
 ---
-File: tmp/file.m4
-Author: Josef Kubin
-Started: 2019/12/15
-Note: root_cz
-Description: processes an inserted source file; converts forbidden characters; sets string highlighting
-Reason: source file (possibly snippet) in format for HTML
----
 File: tmp/publish.sed
 Author: Josef Kubin
 Started: 2019/12/22
@@ -297,26 +293,12 @@ Note: html
 Description: 
 Reason: 
 ---
-File: tmp/cnv.m4
-Author: Josef Kubin
-Started: 2020/04/27
-Note: m4root
-Description: 
-Reason: 
----
 File: ver.m4
 Author: Josef Kubin
 Started: 2019/12/22
 Note: root_cz
 Description: the project is in constant development; to avoid frustrating innocent users a version number is used
 Reason: stops source.mc processing if the major version number is different
----
-File: toc.m4
-Author: Josef Kubin
-Started: 2019/08/25
-Note: root_cz
-Description: definitions of queues; table of content; languages
-Reason: source files and their order
 ---
 File: refs.sed
 Author: Josef Kubin
@@ -346,13 +328,6 @@ Note: m4root
 Description: transforms C esc sequences to ASCII
 Reason: post processing after M4 scripts
 ---
-File: text/nav.m4
-Author: Josef Kubin
-Started: 2020/05/19
-Note: text
-Description: table of content; all parts of the series
-Reason: not finished yet
----
 File: text/chr_to_esc.sed
 Author: Josef Kubin
 Started: 2020/05/19
@@ -365,14 +340,21 @@ Author: Josef Kubin
 Started: 2020/05/19
 Note: text
 Description: command line with a list of input files, the last file is an output file
-Reason: generates plain text output
+Reason: estimate the total number of words and characters
 ---
 File: text/text.m4
 Author: Josef Kubin
 Started: 2020/05/11
 Note: m4root
-Description: creates a plain text file as a basis for other transformations
-Reason: text file for total number of words and characters
+Description: generates a plain text file from (multiple) source files
+Reason: the total number of words and characters that would be printed
+---
+File: text/ref.m4
+Author: Josef Kubin
+Started: 2020/05/16
+Note: text
+Description: automaton for generating text references
+Reason: two nodes to generate references
 ---
 File: text/queues.m4
 Author: Josef Kubin
@@ -385,22 +367,15 @@ File: text/file.m4
 Author: Josef Kubin
 Started: 2020/05/16
 Note: text
-Description: inserts (snippet of ) a source file
-Reason: text file for total number of words and characters
+Description: inserts (snippet of) a source file
+Reason: estimate the total number of words and characters
 ---
-File: text/inline.m4
+File: text/link.m4
 Author: Josef Kubin
-Started: 2020/05/16
+Started: 2020/05/24
 Note: text
-Description: processes inline elements
-Reason: several inline elements
----
-File: toc_list.m4
-Author: Josef Kubin
-Started: 2019/11/29
-Note: root_cz
-Description: generates the necessary common macros for other M4 scripts
-Reason: the order is based on the queue index
+Description: generates text link
+Reason: copies captions to text
 ---
 File: test.m4
 Author: Josef Kubin
@@ -442,7 +417,7 @@ Author: Josef Kubin
 Started: 2019/12/24
 Note: root_cz
 Description: the resulting style sheet is embedded in the web page or can be extracted into a separated file
-Reason: here are main CSS rules; a subset will be selected into the final style sheet
+Reason: here are the main CSS rules; a subset will be selected into the final style sheet
 ---
 File: html/cmd.m4
 Author: Josef Kubin
@@ -479,19 +454,12 @@ Note: root_cz
 Description: creates the final file for Content Management System (copy and paste)
 Reason: template for Content Management System
 ---
-File: html/cfg.m4
-Author: Josef Kubin
-Started: 2019/12/09
-Note: root_cz
-Description: main configuration for the html template
-Reason: one place to configure ALL generated web pages
----
 File: html/file.m4
 Author: Josef Kubin
 Started: 2019/12/15
 Note: root_cz
-Description: processes an inserted source file; converts forbidden characters; sets string highlighting
-Reason: source file (possibly snippet) in format for HTML
+Description: processes a source file inserted to HTML; converts forbidden characters; sets string highlighting
+Reason: source file (possibly snippet) suitable for HTML
 ---
 File: html/ent.m4
 Author: Josef Kubin
@@ -532,15 +500,8 @@ File: git.sh
 Author: Josef Kubin
 Started: 2020/03/08
 Note: m4root
-Description: extracts data from the git repository for M4 scripts
-Reason: fast code generation
----
-File: order.m4
-Author: Josef Kubin
-Started: 2019/11/29
-Note: root_cz
-Description: (this is a generated file) contains extracted items from the ‘toc.m4’ file for other scripts
-Reason: ordered files to generate other files
+Description: generates a simple associative file database for the resulting generated code
+Reason: fast code generation using associative memory
 ---
 File: loops/test.m4
 Author: Josef Kubin
@@ -556,6 +517,13 @@ Note: root_cz
 Description: testing laboratory for new features
 Reason: M4 script development
 ---
+File: init.m4
+Author: Josef Kubin
+Started: 2020/05/31
+Note: m4root
+Description: initialization code of each target
+Reason: reduces duplicate code
+---
 File: refs_cs.m4
 Author: Josef Kubin
 Started: 2019/12/11
@@ -569,6 +537,13 @@ Started: 2019/12/23
 Note: root_cz
 Description: converts inline and block-level elements into a plain text file for checking jargon and typos
 Reason: plain text file for spell checking and for suggestions from other people (text can be easily edited)
+---
+File: smaz.m4
+Author: Josef Kubin
+Started: 2020/06/29
+Note: m4root
+Reason: 
+Usage: m4 smaz.m4
 ---
 File: asm/Makefile
 Author: Josef Kubin
@@ -585,12 +560,12 @@ Note: m4root
 Description: (this is a generated file) associative memory for linking files
 Reason: simple hash database for files
 ---
-File: aux.m4
+File: cfg.m4
 Author: Josef Kubin
-Started: 2019/12/07
+Started: 2019/12/09
 Note: root_cz
-Description: auxiliary macros that could not fit elsewhere: CMD(); ROO();
-Reason: automate anything you can
+Description: configuration file for all generated files
+Reason: one file to configure all generated files
 ---
 File: refs_en.m4
 Author: Josef Kubin
@@ -603,15 +578,15 @@ File: mk/fhtml.m4
 Author: Josef Kubin
 Started: 2020/01/05
 Note: root_cz
-Description: the script creates experimental additional rules extending the handwritten Makefile to generate HTML files
+Description: the script generates experimental additional rules extending the handwritten Makefile to generate HTML files
 Reason: additional rules by configuration from command line; the rules utilise M4 frozen files to generate HTML files
 ---
 File: mk/text.m4
 Author: Josef Kubin
 Started: 2020/05/19
 Note: mk
-Description: the script generates additional rules extending the handwritten Makefile to generate txt files
-Reason: additional rules by configuration from command line to generate txt files
+Description: generates additional rules extending the handwritten Makefile to generate txt files
+Reason: additional rules to generate txt files
 ---
 File: mk/html.m4
 Author: Josef Kubin
@@ -645,7 +620,7 @@ File: Makefile
 Author: Josef Kubin
 Started: 2019/10/09
 Note: m4root
-Description: this handwritten Makefile automatically generates additional rules for creating target files
+Description: this handwritten Makefile automatically generates additional rules to generate target files
 Reason: learning M4 using the examples in this series
 Usage: make h && make && make
 ---
