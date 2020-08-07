@@ -1,16 +1,15 @@
 divert(-1)changequote([,])
 
-# adds LOUD alert for unsuspecting users
-# note: `donte' is not a word from the dictionary
+# LOUD alert for unsuspecting users (note: `donte' is not a word from the dictionary)
 define([DONTE], [DO NOT EDIT! This file is generated automatically!])
 
-# adds a left/right unpaired symbol bypassing the non-terminal control
+# a left/right unpaired symbol bypassing the non-terminal control
 define([LB], [changequote[dnl]
 changequote([,])])
 define([RB], [changequote`'dnl[
 ]changequote([,])])
 
-# adds number of arguments (used for loops)
+# number of arguments (loops)
 define([NAR], [$#])
 
 # expands n-th argument (use Vim shortcuts Ctrl-a or Ctrl-x to change ARGn)
@@ -23,12 +22,10 @@ define([SARG1],	[[$1]])
 define([SARG2],	[[$2]])
 define([SARG3],	[[$3]])
 
-# adds another universal pair of symbols that protects unwanted expansion
-# note: `payr' is not a word from the dictionary
+# another universal pair of symbols that protects unwanted expansion (intentionally: `paYr')
 define([PAYR], [[$@]])
 
-# adds another layer of paired symbols (the control pairs will be changed)
-# note: `brac', `npri', `quot' and `utfp' are not words from the dictionary
+# another layer of paired symbols (if the control pairs are changed)
 define([BRAC], [[$@]])
 define([NPRI], [$@])
 define([QUOT], [`$@'])

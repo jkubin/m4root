@@ -1,5 +1,5 @@
 __HEADER([Josef Kubin], [2019/11/16], [root])
-___DESCR([generates a string to shorten another string (by hand) because truncation is hardly acceptable])
+___DESCR([generates a string to truncate the next string (manually) because machine truncation is hardly acceptable])
 ___POINT([computer cannot truncate the string to remain readable])
 ___USAGE([m4 rootb.m4 rulerb.m4 …])
 
