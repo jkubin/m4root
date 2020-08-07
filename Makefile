@@ -3,7 +3,8 @@
 # ___POINT([learning M4 using the examples in this series])
 # ___USAGE([make h && make && make])
 
- # <--- this is the form-feed character for Vim, type: [[ to skip backward, type: ]] to skip forward
+ # <--- this is the form-feed character for Vim shortcut in normal mode
+ #      type: [[ to skip backward, type: ]] to skip forward
 
 # keep secondary generated files
 .SECONDARY:
@@ -121,6 +122,8 @@ test tst t: trunc devel
 #devel: rootb.m4 cfg.m4 queues.m4 style.m4 css.m4 inline.m4 test.m4
 #devel: rootb.m4 cfg.m4 queues.m4 style.m4 css.m4 js.m4 test.m4
 #devel: rootb.m4 cfg.m4 queues.m4 style.m4 css.m4 test.m4
+#devel:
+#	m4 gfiles/rootb.m4 --define='. a b c'='[xyz], [LU()], [123]' test.m4
 devel: rootb.m4 cfg.m4 git.m4 text/queues.m4 text/cmd.m4 html/ent.m4 test.m4
 	m4 $^
 
@@ -190,12 +193,28 @@ text_%.mk: rootb.m4 refs_%.m4 lang.m4 headings.m4 mk/text.m4
 	m4 -DLANG_CODE='$*' -DFILE_LIST='$(FILE_LIST)' -DREFS_FILES='$(REFS_LANG) $(REFS_MONO)' $^ > $@
 
 html_%.mk: rootb.m4 refs_%.m4 lang.m4 headings.m4 mk/html.m4
-	m4 -DLANG_CODE='$*' -DFILE_LIST='$(FILE_LIST)' -DREFS_FILES='$(REFS_LANG) $(REFS_MONO)' $^ > $@
+	m4 -DLANG_CODE='$*' -DFILE_LIST='$(FILE_LIST)' -DREFS_FILES='$(REFS_LANG) $(REFS_MONO)' -DJAVASCRIPT='$(JAVASCRIPT)' $^ > $@
 
 fhtml_%.mk: rootb.m4 refs_%.m4 lang.m4 headings.m4 mk/fhtml.m4
-	m4 -DLANG_CODE='$*' -DFILE_LIST='$(FILE_LIST)' -DREFS_FILES='$(REFS_LANG) $(REFS_MONO)' $^ > $@
+	m4 -DLANG_CODE='$*' -DFILE_LIST='$(FILE_LIST)' -DREFS_FILES='$(REFS_LANG) $(REFS_MONO)' -DJAVASCRIPT='$(JAVASCRIPT)' $^ > $@
 
 git.m4: $(shell git ls-tree -r --name-only HEAD $(MONITORED))
+	./git.sh $^ > $@
+
+git_mc.m4: $(SOURCE)
+	$(error ‘$?’ is/are modified, you have to: `git add $? && git ci -m 'my comment' && make git_mc` )
+
+.PHONY: git_mc
+git_mc: $(SOURCE)
+	./git.sh $^ > git_mc.m4
+
+# tests if there are uncommitted (forgotten) files
+# commits generated files to git repository
+# generates an associative database to generate publish.txt
+git_%.m4:
+	git diff-index --cached --quiet HEAD
+	git add $?
+	git ci -m 'generated file'
 	./git.sh $^ > $@
 
 %.txt.gz: %.txt
