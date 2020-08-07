@@ -83,19 +83,18 @@ divert(-1)
 # A → β
 define([TEXTDATA_MLH], defn([TEXTDATA]))
 
-# Marking Macro MM(my_class_name) saves a lot of typing (<span class=m4-my_class_name>&<\x2fspan>), concatenates user defined prefix to my_class_name
-# (class=m4-my_class_name is intentionally without quotes)
+# Marking Macro MM(my_class_name) saves a lot of typing (<span class="m4-my_class_name">&<\x2fspan>), concatenates user defined prefix to my_class_name
 #
 # SARG1 after the file processing removes unwanted trailing LF
 # A → β
 define([TEXTDATA_SET_PARAMETERS_REGEX], [dnl
-define([COMMAND_FOR_TEXTDATA], [sed -ne '$3,$4{' -f html/chr_to_esc.sed -e ']patsubst(patsubst([[[$2]]], [\<MM(\([^)]+\))], [<span class=NSP()\1>&<\\x2fspan>]), [NSP()], defn([NSP]))[' -e '$3s/^/\x5b/;$4$5;p}' $1])dnl
+define([COMMAND_FOR_TEXTDATA], [sed -ne '$3,$4{' -f html/chr_to_esc.sed -e ']patsubst(patsubst([[[$2]]], [\<MM(\([^)]+\))], [<span class="NSP()\1">&<\\x2fspan>]), [NSP()], defn([NSP]))[' -e '$3s/^/\x5b/;$4$5;p}' $1])dnl
 ])
 
 # loads the file into the sed buffer
 # A → β
 define([TEXTDATA_MLH_SET_PARAMETERS_REGEX], [dnl
-define([COMMAND_FOR_TEXTDATA], [sed -ne '$3{:a;N;$4!ba' -f html/chr_to_esc.sed -e ']patsubst(patsubst([[[$2]]], [\<MM(\([^)]+\))], [<span class=NSP()\1>&<\\x2fspan>]), [NSP()], defn([NSP]))[' -e 's/^/\x5b/;$5;p}' $1])dnl
+define([COMMAND_FOR_TEXTDATA], [sed -ne '$3{:a;N;$4!ba' -f html/chr_to_esc.sed -e ']patsubst(patsubst([[[$2]]], [\<MM(\([^)]+\))], [<span class="NSP()\1">&<\\x2fspan>]), [NSP()], defn([NSP]))[' -e 's/^/\x5b/;$5;p}' $1])dnl
 ])
 
 # A → β
