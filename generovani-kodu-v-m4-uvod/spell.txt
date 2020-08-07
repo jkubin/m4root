@@ -2,7 +2,7 @@
 #
 # DO NOT EDIT! This file is generated automatically!
 #
-# __SOURCE([intro.mc], [20200523-11:08:37], [1e696e5], [6a10357])
+# __SOURCE([intro.mc], [20200807-17:17:35], [273e49b], [73b7d52])
 
 7
 Generování kódu v M4: úvod
@@ -718,35 +718,35 @@ Vstupní neterminály se přepisují na terminály (🐛),
 1474
 []
 
-1481
+1480
+Větvení gramatikou – základní princip
+
+1486
+Proměnná  se nahradí za jméno makra a zřetězí se s dalším symbolem.
+Nově vzniklý neterminál se přepíše na odpovídající terminální symbol (číslo fronty nebo jméno).
+
+1495
+[větvení gramatikou v M4]
+
+1506
  JSON: generující automat
 
-1487
+1512
 Příklad používá dvě výstupní fronty a jeden generující automat.
 První chybová zpráva  ve stavu  vygeneruje záhlaví se závorkami a vypíše na výstup první záznam.
 Automat přejde do stavu  což je  pravidlo (takové pravidlo se používá jako pravá strana jiného přepisovacího pravidla).
 Následující chybové zprávy ve stavu  pouze vypisují na výstup jednotlivé záznamy.
 Na závěr výstupní fronty číslo  a  vypíšou znaky  a  čímž zakončí výsledný JSON.
 
-1507
+1532
  JSON: pojmenované fronty
 
-1513
+1538
 Příklad zpracovává další zprávy typu  a .
 Používá tři automaty a šest výstupních front.
 Generujeme-li složitější zdrojový kód, brzy narazíme na problém udržení konzistence indexů pro výstupní fronty.
 Abychom se vyhnuli zmatku, pojmenujeme si fronty a místo čísel používáme jména.
 Abychom nemuseli definovat podobná pravidla, zkopírujeme si pravou stranu  (je to také  pravidlo (takové pravidlo se používá jako pravá strana jiného přepisovacího pravidla)) do pravé strany pravidel  a .
-
-1528
-Větvení gramatikou – základní princip
-
-1534
-Proměnná  se nahradí za jméno makra a zřetězí se s dalším symbolem.
-Nově vzniklý neterminál se přepíše na odpovídající terminální symbol (číslo fronty nebo jméno).
-
-1543
-[větvení gramatikou v M4]
 
 1558
  JSON: generované indexy front
@@ -884,78 +884,82 @@ Nutno použít makro  z kořenového souboru.
 
 1814
 Prázdný pár  (nebo prázdný symbol v závorkách ) slouží jako oddělovač symbolů.
-Závorky kolem znaku komentáře  vypnou jeho původní význam, stejně jako vypnou význam silnějšího M4 komentáře .
+Závorky kolem znaku komentáře  vypnou jeho původní význam, stejně jako vypnou význam silnějšího M4 komentáře
+.
 Vypnou také původní význam čárky  jako oddělovače argumentů maker.
 Tyto symboly se stanou obyčejnými terminálními symboly bez jakéhokoliv vedlejšího efektu.
 
-1827
+1829
 []
 
-1836
+1835
+[]
+
+1841
  AWK: příklady bezpečnějších maker
 
-1842
+1847
 Univerzální výstraha  se ignoruje bez závorek, stejně jako , , …
 Taková makra explicitně vytváří vývojář skriptů, prohlédněte si kořenový soubor .
 
-1851
+1856
 []
 
-1858
+1863
 []
 
-1868
+1873
 Proč používat M4 a proč ne?
 
-1868
+1873
 [pro informaci]
 
-1868
+1873
 Znaky {(uvozovky), (hranaté závorky), (netisknutelné znaky), (UTF-8 znaky)} v názvu příkladu řídí expanzi neterminálů.
 
-1876
+1881
  Proč generovat kód v M4
 
-1882
+1887
 přímé použití bezkontextové gramatiky (rekurze zdarma)
 pro transformaci dat stačí napsat minimum M4 kódu
 
-1882
+1887
 přímé použití automatů
 možnost vymodelovat si potřebné algoritmy (M4 nepotřebuje verze)
 
-1882
+1887
 přímé použití zásobníků
 zásobníky propojené s automaty rozšiřují možnosti generátoru kódu
 
-1882
+1887
 přímé použití výstupních front pro dočasné uložení výsledných částí kódu
 jednotlivé fronty jsou na závěr vypsány na výstup ve vzestupném pořadí
 
-1882
+1887
 výrazně vyšší rychlost generování kódu (ve srovnání s XSLT)
 nízké nároky na výpočetní zdroje
 
-1932
+1937
  Proč se vyhnout M4
 
-1938
+1943
 univerzální jazyk nízké úrovně (podobně jako jazyk C)
 což výměnou poskytuje ohromnou flexibilitu jako UNIX
 
-1938
+1943
 (téměř) neexistující komunita vývojářů (podzim 2019)
 M4 je téměř zapomenutý jazyk, málo existujících projektů
 
-1938
+1943
 neobvyklé programovací paradigma vyžadující splnění několika předpokladů
 právě proto lze M4 považovat za náročný jazyk
 
-1938
+1943
 produktivita značně závisí na zkušenostech (možný problém s termíny)
 psaní M4 skriptů vyžaduje základní znalost automatů a gramatik
 
-1938
+1943
 údržba špatně napsaného M4 kódu není jednoduchá
 existující M4 kód je snadné proměnit ve zmatek (nutný dohled!)
 

@@ -1,18 +1,11 @@
-vim:ts=4:sw=4
-
-DO NOT EDIT! This file is generated automatically!
-
-__SOURCE([fundamentals.mc], [20200523-11:10:01], [e396d0f], [135d8b2])
-
 Generování kódu v M4: základy
 
 Makro procesor M4 se používá ke generování libovolně složitého kódu z jednoduchého zdrojového kódu.
 Tento díl je zaměřen na vysvětlení potřebných, zdánlivě složitých pojmů teoretické informatiky.
 
-Obsah (English)			aktualizováno 23. května 2020
+Obsah (English)			mc txt pub spell aktualizováno 7. srpna 2020
 1 Úvod
 
 1 Úvod
 %%%
-
 
