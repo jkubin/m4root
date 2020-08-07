@@ -56,10 +56,13 @@ define([doc_ifelse], defn([ifelse]))
 # comment out this paragraph if you do not like it (note the right unpaired bracket)
 divert(0)dnl
 [#] vim:wrap:spell:spelllang=en
-This is a generated brief documentation from all source files.
-It also shows the possibilities of the M4.
+# DO NOT EDIT! This file is generated automatically!
+
+Extracted data from all source files.
 To update this file, run the following command:
+
 ~]$ make doc
+
 divert(-1)
 
 # disable one-line comments and turn off all M4 keywords
@@ -78,6 +81,7 @@ undefine(
 	[changecom],
 	[changequote],
 	[changeword],
+	[debugfile],
 	[debugmode],
 	[decr],
 	[define],
