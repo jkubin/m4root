@@ -2,7 +2,7 @@
 #
 # DO NOT EDIT! This file is generated automatically!
 #
-# __SOURCE([intro.mc], [20200807-17:17:35], [273e49b], [73b7d52])
+# __SOURCE([intro.mc], [20200807-17:23:06], [ccf8c59], [ccf8c59])
 
 7
 Generování kódu v M4: úvod
