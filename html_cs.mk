@@ -13,7 +13,7 @@ FOLDERS  += $(FOLDERS_cs)
 PREVIEW  += $(FOLDERS_cs) $(PREVIEW_cs)
 PUBLISH  += $(FOLDERS_cs) $(PUBLISH_cs)
 SPCHECK  += $(FOLDERS_cs) $(SPCHECK_cs)
-TARGETS  += $(FOLDERS_cs) $(ARTICLE_cs) $(PREVIEW_cs) $(SPCHECK_cs)
+TARGETS  += $(FOLDERS_cs) $(SPCHECK_cs) $(PREVIEW_cs) $(ARTICLE_cs)
 
 #:sub-targets/sub/su	generates all files from generated rules (default target)
 .PHONY: sub-targets sub su
@@ -37,7 +37,7 @@ article art a: $(ARTICLE)
 
 #:all_cs/acs/cs	generates ‘cs’ files
 .PHONY: all_cs acs cs
-all_cs acs cs: $(FOLDERS_cs) $(ARTICLE_cs) $(PREVIEW_cs) $(SPCHECK_cs)
+all_cs acs cs: $(FOLDERS_cs) $(SPCHECK_cs) $(PREVIEW_cs) $(ARTICLE_cs)
 
 #:clean_cs/cl_cs/clcs/ccs	deletes ‘cs’ files
 .PHONY: clean_cs cl_cs clcs ccs

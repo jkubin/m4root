@@ -4,11 +4,11 @@
 #
 # define([./path/to/file], [[git commit hash], [git abbreviated commit hash], [git author date], [abbreviated sha1sum], [size [B]], [file type]])
 #
-define([./generating-code-in-m4-introduction/spell.txt], [[3a2812a5de275f753106c20910963bab7c87c166], [3a2812a], [20200807-19:31:44], [054cbc8], [29314], [regular file]])
-define([./generating-code-in-m4-fundamentals/spell.txt], [[3a2812a5de275f753106c20910963bab7c87c166], [3a2812a], [20200807-19:31:44], [ebb14cc], [502], [regular file]])
-define([./generating-code-in-m4-introduction/preview.html], [[183f8a6a2e3867091c48abd16a1b48a1c884cae4], [183f8a6], [20200807-18:18:35], [a364757], [142644], [regular file]])
-define([./generating-code-in-m4-fundamentals/preview.html], [[7cdd3c6c77bdb4fdaca04040730bb15d21c8a701], [7cdd3c6], [20200807-17:34:55], [a4ca04f], [6159], [regular file]])
-define([./generating-code-in-m4-introduction/index.html], [[51b299659a74c23655b8ba47320a428fdfbd3509], [51b2996], [20200807-18:16:42], [04b4ee1], [138883], [regular file]])
-define([./generating-code-in-m4-fundamentals/index.html], [[ed3c54ee509c18288d40620a41633a543c201b7e], [ed3c54e], [20200807-17:23:16], [eaebd33], [2439], [regular file]])
-define([./generating-code-in-m4-introduction.txt], [[ed3c54ee509c18288d40620a41633a543c201b7e], [ed3c54e], [20200807-17:23:16], [3d512fe], [55579], [regular file]])
+define([./generating-code-in-m4-introduction/spell.txt], [[f8cd588590eedd92053ae03b2ccd48879c168c24], [f8cd588], [20200807-23:49:37], [af7d3b5], [29301], [regular file]])
+define([./generating-code-in-m4-fundamentals/spell.txt], [[f8cd588590eedd92053ae03b2ccd48879c168c24], [f8cd588], [20200807-23:49:37], [1ebba7d], [502], [regular file]])
+define([./generating-code-in-m4-introduction/preview.html], [[f8cd588590eedd92053ae03b2ccd48879c168c24], [f8cd588], [20200807-23:49:37], [83ee0c2], [142640], [regular file]])
+define([./generating-code-in-m4-fundamentals/preview.html], [[f8cd588590eedd92053ae03b2ccd48879c168c24], [f8cd588], [20200807-23:49:37], [df0a28d], [6526], [regular file]])
+define([./generating-code-in-m4-introduction/index.html], [[f8cd588590eedd92053ae03b2ccd48879c168c24], [f8cd588], [20200807-23:49:37], [731e999], [138879], [regular file]])
+define([./generating-code-in-m4-fundamentals/index.html], [[f8cd588590eedd92053ae03b2ccd48879c168c24], [f8cd588], [20200807-23:49:37], [3e8dcae], [2806], [regular file]])
+define([./generating-code-in-m4-introduction.txt], [[f8cd588590eedd92053ae03b2ccd48879c168c24], [f8cd588], [20200807-23:49:37], [2f239c7], [55566], [regular file]])
 define([./generating-code-in-m4-fundamentals.txt], [[ed3c54ee509c18288d40620a41633a543c201b7e], [ed3c54e], [20200807-17:23:16], [6acd731], [336], [regular file]])

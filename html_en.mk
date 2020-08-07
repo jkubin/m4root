@@ -13,7 +13,7 @@ FOLDERS  += $(FOLDERS_en)
 PREVIEW  += $(FOLDERS_en) $(PREVIEW_en)
 PUBLISH  += $(FOLDERS_en) $(PUBLISH_en)
 SPCHECK  += $(FOLDERS_en) $(SPCHECK_en)
-TARGETS  += $(FOLDERS_en) $(ARTICLE_en) $(PREVIEW_en) $(SPCHECK_en)
+TARGETS  += $(FOLDERS_en) $(SPCHECK_en) $(PREVIEW_en) $(ARTICLE_en)
 
 #:sub-targets/sub/su	generates all files from generated rules (default target)
 .PHONY: sub-targets sub su
@@ -37,7 +37,7 @@ article art a: $(ARTICLE)
 
 #:all_en/aen/en	generates ‘en’ files
 .PHONY: all_en aen en
-all_en aen en: $(FOLDERS_en) $(ARTICLE_en) $(PREVIEW_en) $(SPCHECK_en)
+all_en aen en: $(FOLDERS_en) $(SPCHECK_en) $(PREVIEW_en) $(ARTICLE_en)
 
 #:clean_en/cl_en/clen/cen	deletes ‘en’ files
 .PHONY: clean_en cl_en clen cen

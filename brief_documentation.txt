@@ -538,13 +538,6 @@ Note: root_cz
 Description: converts inline and block-level elements into a plain text file for checking jargon and typos
 Reason: plain text file for spell checking and for suggestions from other people (text can be easily edited)
 ---
-File: smaz.m4
-Author: Josef Kubin
-Started: 2020/06/29
-Note: m4root
-Reason: 
-Usage: m4 smaz.m4
----
 File: asm/Makefile
 Author: Josef Kubin
 Started: 2019/10/13
