@@ -9,8 +9,9 @@ if exists("b:usr_ftplugin_m4_maps")
 endif
 let b:usr_ftplugin_m4_maps = 1
 
-iabbrev <buffer> <unique> ar ARG1()<c-r>=Eatchar('.')<cr>
+iabbrev <buffer> <unique> ar ARG1(<c-r>")<esc>
 iabbrev <buffer> <unique> ,b ⟦⟧<c-r>=Eatchar('.')<cr>
+iabbrev <buffer> <unique> bra BRAC(<c-r>")<esc>
 "iabbrev <buffer> <unique> bu builtin(⟦⟧, ⟦%%%⟧, ⟦%%%⟧)<left><c-o>%<right><c-r>=Eatchar('.')<cr>
 "iabbrev <buffer> <unique> cc changecom()<left><c-r>=Eatchar('.')<cr>	<--- kolize
 "iabbrev <buffer> <unique> chw changeword()<left><c-r>=Eatchar('.')<cr>	<--- nevyuzito
@@ -46,8 +47,8 @@ iabbrev <buffer> <unique> di divert()dnl0<c-d><c-o>T(<c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> dii divert(-1)0<c-d><c-r>=Eatchar('\s')<cr>
 "iabbrev <buffer> <unique> din divert(1)dnl0<c-d><c-o>T1<esc><c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> dio divert(0)dnl<cr><c-u><c-r>=Eatchar('\s')<cr>
-iabbrev <buffer> <unique> dive divert()dnl<c-o>T(<c-r>=Eatchar('.')<cr>
 "iabbrev <buffer> <unique> dive divert()dnl0<c-d><c-o>T(<c-r>=Eatchar('.')<cr>
+iabbrev <buffer> <unique> dive divert()dnl<c-o>T(<c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> diven divert(1)dnl0<c-d><c-o>T(<esc><c-r>=Eatchar('.')<cr>
 "iabbrev <buffer> <unique> divn divnum<c-r>=Eatchar('\s')<cr>
 "iabbrev <buffer> <unique> dn dnl<c-r>=Eatchar('\s')<cr>
@@ -104,7 +105,7 @@ iabbrev <buffer> <unique> mkt maketemp(⟦⟧)<left><left><c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> mw m4wrap(⟦<cr><cr>⟧)<up><tab><c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> mx m4exit(1)<c-r>=Eatchar('.')<cr>
 "iabbrev <buffer> <unique> os2 __os2__<c-r>=Eatchar('\s')<cr>
-iabbrev <buffer> <unique> pa PAYR()<c-o>T(<c-r>=Eatchar('.')<cr>
+iabbrev <buffer> <unique> pai PAYR(<c-r>")<esc>
 "iabbrev <buffer> <unique> pa patsubst(⟦$⟧, ⟦%%%⟧, ⟦%%%⟧)<c-o>T$<c-r>=Eatchar('\s')<cr>
 iabbrev <buffer> <unique> pat patsubst(⟦$⟧, ⟦%%%⟧, ⟦%%%⟧)<c-o>T$<c-r>=Eatchar('\s')<cr>
 "iabbrev <buffer> <unique> pod popdef(⟦⟧)<c-o>T(<right><c-r>=Eatchar('.')<cr>

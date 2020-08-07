@@ -16,9 +16,9 @@ TEXT_GZ += $(GZIPPED_TEXT_en)
 TEXT_XZ += $(XZIPPED_TEXT_en)
 TARGETS += $(TEXT_en)
 
-#:txt-sub-targets/sub/su	generates all files from generated rules (default target)
-.PHONY: txt-sub-targets sub su
-txt-sub-targets sub su: $(TEXT_en)
+#:sub-targets/sub/su	generates all files from generated rules (default target)
+.PHONY: sub-targets sub su
+sub-targets sub su: $(TARGETS)
 
 #:text/txt/tx	generates plain text to specify the length of the article
 .PHONY: text txt tx
@@ -35,6 +35,8 @@ gzt gt: $(GZIPPED_TEXT_en)
 #:xzt/xt	generates xzipped files
 .PHONY: xzt xt
 xzt xt: $(XZIPPED_TEXT_en)
+
+git_en.m4: $(TEXT_en)
 
 #:all-text-en/aten	generates all ‘en’ text and compressed files
 .PHONY: all-text-en aten
