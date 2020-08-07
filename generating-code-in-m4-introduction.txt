@@ -58,7 +58,7 @@ Each part can be read in any order.
 • Preprocessor examples
 • M4: examples
 • Why to use M4 and why not?
-• http://github.com/jkubin/m4root – more complex project generating this series
+• http://github.com/jkubin/m4root – project generating this series
 
 2 History of macro languages
 Macro languages were invented when the assembly language (ASM) dominated.

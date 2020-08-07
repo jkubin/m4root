@@ -2,7 +2,7 @@
 #
 # DO NOT EDIT! This file is generated automatically!
 #
-# __SOURCE([intro.mc], [20200807-19:31:37], [ccf8c59], [449b7b4])
+# __SOURCE([intro.mc], [20200807-19:59:09], [ccf8c59], [37a83cf])
 
 7
 Generating code in M4: introduction
@@ -64,7 +64,7 @@ M4: examples
 Why to use M4 and why not?
 
 94
-http://github.com/jkubin/m4root (Generating code in M4) – more complex project generating this series
+http://github.com/jkubin/m4root (Generating code in M4) – project generating this series
 
 113
 History of macro languages
