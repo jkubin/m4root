@@ -61,7 +61,7 @@ init: function (
 		 */
 		if (source_info && source_info.tagName == "CODE") {
 			source_info.firstChild.onclick = this.method_add_info;
-			source_info.firstChild.title = "git";
+			// source_info.firstChild.title = "git …";
 		}
 
 		/*
