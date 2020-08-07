@@ -2,7 +2,7 @@
 #
 # DO NOT EDIT! This file is generated automatically!
 #
-# __SOURCE([intro.mc], [20200807-19:31:37], [ccf8c59], [449b7b4])
+# __SOURCE([intro.mc], [20200807-19:59:08], [ccf8c59], [299505d])
 
 7
 Generování kódu v M4: úvod
@@ -64,7 +64,7 @@ M4: příklady
 Proč používat M4 a proč ne?
 
 94
-http://github.com/jkubin/m4root (Generování kódu v M4) – složitější projekt generující tento seriál
+http://github.com/jkubin/m4root (Generování kódu v M4) – projekt generující tento seriál
 
 113
 Historie makro jazyků

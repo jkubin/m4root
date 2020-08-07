@@ -58,7 +58,7 @@ Každý díl je možné číst v libovolném pořadí.
 • Příklady preprocesoru
 • M4: příklady
 • Proč používat M4 a proč ne?
-• http://github.com/jkubin/m4root – složitější projekt generující tento seriál
+• http://github.com/jkubin/m4root – projekt generující tento seriál
 
 2 Historie makro jazyků
 Makro jazyky byly vynalezeny v době, kdy dominoval jazyk symbolických adres – JSA.
