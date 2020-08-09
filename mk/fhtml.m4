@@ -22,7 +22,7 @@ defn([TARGET_FOLDER]) \
 divert(3)dnl
 TARGET_FOLDER/%.html: html_[]LANG_CODE.m4f $(JAVASCRIPT) %.m4 $1 nav.m4
 	m4 -DOUTPUT_FILE='$[@]' -DARTICLE_PATH='TARGET_FOLDER' $(FLAGS) -R $(filter-out $(JAVASCRIPT), $^) | sed -f html/esc_to_ent.sed > $[@]
-	tidy -qe $[@]
+	tidy -qe --drop-empty-elements no $[@]
 
 TARGET_FOLDER/publish.txt: html_[]LANG_CODE.m4f git_mc.m4 git_[]LANG_CODE.m4 $(JAVASCRIPT) publish.m4 $1 nav.m4
 	m4 -DARTICLE_PATH='TARGET_FOLDER' $(FLAGS) -R $(filter-out $(JAVASCRIPT), $^) | sed -f html/publish.sed -f html/esc_to_ent.sed > $[@]
