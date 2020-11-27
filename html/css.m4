@@ -123,7 +123,7 @@ counter-reset:defn([SOURCE_COUNTER]);
 ])
 
 font-weight:normal;
-CSS_CLASS_RULE_SET([[]],	[src, usc, root],	[[>a]], [
+_CSS_CLASS_RULE_SET([[]],	[src, usc, root],	[[>a]], [
 
 background-color:hsla(0,0%,86%,.5);
 border:1px solid #ddd;
@@ -137,14 +137,21 @@ top:0;
 ])
 
 # 🔗
-CSS_CLASS_RULE_SET([[]],	[src, usc, root],	[[>a::before]], [
+CSS_CLASS_RULE_SET([[]],	[src, usc, root],	[[>code>.NSP()cb+a::before]], [
 
 content:"\1f517";
 
 ])
 
+# 🔗
+CSS_CLASS_RULE_SET([[]],	[src, usc, root],	[[>code>.NSP()cb+a]], [
+
+font-weight:normal;
+
+])
+
 font-family:monospace,monospace;
-CSS_CLASS_RULE_SET([[]],	[src],	[[>code]], [
+CSS_CLASS_RULE_SET([[]],	[src, usc, root],	[[>code]], [
 
 border-radius:0 4px;
 border:1px solid #ddd;
@@ -158,7 +165,7 @@ top:0;
 
 ])
 
-CSS_CLASS_RULE_SET([[]],	[src],	[[>code a]], [
+CSS_CLASS_RULE_SET([[]],	[src, usc, root],	[[>code a]], [
 
 margin-left:.6em;
 
@@ -174,20 +181,21 @@ text-align:left;
 
 ])
 
-CSS_CLASS_RULE_SET([[]],	[src],	[[>code>span+a]], [
+CSS_CLASS_RULE_SET([[]],	[src],	[[>code>.NSP()sha+a]], [
 
 color:inherit;
+margin:0 .6em;
 
 ])
 
-CSS_CLASS_RULE_SET([[]],	[src],	[[>code a+a]], [
+_CSS_CLASS_RULE_SET([[]],	[src],	[[>code a+a]], [
 
 font-weight:normal;
 
 ])
 
 # 🔗
-CSS_CLASS_RULE_SET([[]],	[src],	[[>code a+a::before]], [
+_CSS_CLASS_RULE_SET([[]],	[src],	[[>code a+a::before]], [
 
 content:"\1f517";
 
@@ -202,7 +210,7 @@ margin-right:.5em;
 
 ])
 
-CSS_CLASS_RULE_SET([[]],	[src],	[[>code>span:first-child]], [
+CSS_CLASS_RULE_SET([[]],	[sha],	[[]], [
 
 cursor:pointer;
 text-decoration:#f04c23 underline dashed;
@@ -387,6 +395,19 @@ CSS_CLASS_RULE_SET([[.urs p[]BRAC(id$="TOC_ANCH")>a>b]],	[],	[[]], [
 
 font-weight:normal;
 margin-right:.6em;
+
+])
+
+CSS_CLASS_RULE_SET([[]],	[cb],	[[]], [
+
+cursor:pointer;
+
+])
+
+# 📋
+CSS_CLASS_RULE_SET([[]],	[cb],	[[::before]], [
+
+content:"\1f4cb";
 
 ])
 

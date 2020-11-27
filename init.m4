@@ -29,4 +29,7 @@ define([PART_INIT], [
 	IMAGE_COUNTER(1)
 	SECT1_COUNTER(0)
 	SECT2_COUNTER(0)
+
+	define([ANCH_COUNTER_val], [1])
+	define([ANCH_COUNTER], [define([ANCH_COUNTER_val], incr(ANCH_COUNTER_val))])
 ])

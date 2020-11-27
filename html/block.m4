@@ -16,7 +16,9 @@ define([GO_BACK_UP],	[<a href="defn([#NSP], [TOC_ANCH])" title="defn([WORD_TOP])
 # β
 pushdef([ID_1],		[[]ifelse([$#], [1], [], [$1], [], [], [ id="ADD_ID_ANCH([$1])"])])
 pushdef([ID_1_MONO],	[[]ifelse([$#], [1], [], [$1], [], [], [ id="ADD_ID_MONO([$1])"])])
-pushdef([ID_1_ANCHOR],	[[]ifelse([$#], [1], [], [$1], [], [], [<a href="[#]ADD_ID_MONO([$1])" title="⚓"></a>])])
+pushdef([ID_1_SOURCE],	[ ANCH_COUNTER()id="ifelse([$#], [1], [NSP()anch-ANCH_COUNTER_val], [$1], [], [NSP()anch-ANCH_COUNTER_val], [ADD_ID_MONO([$1])])"])
+pushdef([ID_1_ANCHOR],	[<code><span class="ADD_CLASS([cb])" title="defn([WORD_CLIPBOARD])"></span><a href="[#]ifelse([$#], [1], [NSP()anch-ANCH_COUNTER_val], [$1], [], [NSP()anch-ANCH_COUNTER_val], [ADD_ID_MONO([$1])])" title="⚓"></a></code>])
+#pushdef([ID_1_ANCHOR],	[[]ifelse([$#], [1], [], [$1], [], [], [<code><span class="ADD_CLASS([cb])"></span><a href="[#]ADD_ID_MONO([$1])" title="⚓"></a></code>])])
 pushdef([TITLE_2],		[ifelse([$#], [2], [], [$2], [], [], [ title="[$2]"])])
 pushdef([CLASS_3],		[ifelse([$#], [3], [], [$3], [], [], [ class="ADD_CLASS([$3])"])])
 pushdef([CLASS_3_SUFFIX],	[ifelse([$#], [3], [], [$3], [], [], [ ADD_CLASS([$3])])"])		<--- Keep it up (β)!
@@ -42,9 +44,9 @@ pushdef([HTML_HEADING_ATTRIBUTES],	[ id="ADD_ID_RULE(defn([#ID]))"]defn([TITLE_2
 pushdef([HTML_INFO_ATTRIBUTES],	defn([ID_1_MONO], [TITLE_2], [CLASS_3_INFO], [STYLE_4], [ANYTHING_5]))
 pushdef([HTML_MONO_GLOBAL_ATTRIBUTES],	defn([ID_1_MONO], [TITLE_2], [CLASS_3], [STYLE_4], [ANYTHING_5]))
 pushdef([HTML_NOTE_ATTRIBUTES],	defn([ID_1_MONO], [TITLE_2], [CLASS_3_NOTE], [STYLE_4], [ANYTHING_5]))
-pushdef([HTML_COMMAND_ROOT_ATTRIBUTES],	defn([ID_1_MONO], [TITLE_2], [CLASS_3_ROOT_CMD], [STYLE_4], [ANYTHING_5]))
-pushdef([HTML_SOURCE_CODE_ATTRIBUTES],	defn([ID_1_MONO], [TITLE_2], [CLASS_3_SOURCE], [STYLE_4], [ANYTHING_5]))
-pushdef([HTML_COMMAND_ATTRIBUTES],	defn([ID_1_MONO], [TITLE_2], [CLASS_3_COMMAND], [STYLE_4], [ANYTHING_5]))
+pushdef([HTML_COMMAND_ROOT_ATTRIBUTES],	defn([ID_1_SOURCE], [TITLE_2], [CLASS_3_ROOT_CMD], [STYLE_4], [ANYTHING_5]))
+pushdef([HTML_SOURCE_CODE_ATTRIBUTES],	defn([ID_1_SOURCE], [TITLE_2], [CLASS_3_SOURCE], [STYLE_4], [ANYTHING_5]))
+pushdef([HTML_COMMAND_ATTRIBUTES],	defn([ID_1_SOURCE], [TITLE_2], [CLASS_3_COMMAND], [STYLE_4], [ANYTHING_5]))
 pushdef([HTML_WARN_ATTRIBUTES],	defn([ID_1_MONO], [TITLE_2], [CLASS_3_WARN], [STYLE_4], [ANYTHING_5]))
 
 # convert {'&', '<', '>'} to html entities, strip trailing white chars

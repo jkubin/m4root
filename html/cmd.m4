@@ -62,7 +62,7 @@ undivert(COMMAND_ARGS_QUEUE)dnl
 date: SARG3(GIT_CSV)
 git rev: SARG2(GIT_CSV)
 sha1sum: SARG4(GIT_CSV)
-size: SARG5(GIT_CSV) B">patsubst(SARG1($1), [.*/])</a></pre><a href="[#]defn([#ID])-command" title="⚓"></a></div>
+size: SARG5(GIT_CSV) B">patsubst(SARG1($1), [.*/])</a></pre><code><span class="ADD_CLASS([cb])" title="defn([WORD_CLIPBOARD])"></span><a href="[#]defn([#ID])-command" title="⚓"></a></code></div>
 divert(-1)
 
 	], [
