@@ -2,7 +2,7 @@
 #
 # DO NOT EDIT! This file is generated automatically!
 #
-# __SOURCE([intro.mc], [20200807-23:34:01], [ccf8c59], [1cb4d81])
+# __SOURCE([intro.mc], [20201127-20:27:16], [37d5da7], [4dcc722])
 
 7
 Generating code in M4: introduction
@@ -947,7 +947,7 @@ low-level universal language (similar to C language)
 which in return it provides tremendous flexibility as UNIX
 
 1943
-(almost) nonexistent developer community (as of Autumn 2019)
+almost nonexistent developer community (as of Autumn 2019)
 M4 is nearly forgotten language with small number of existing projects
 
 1943

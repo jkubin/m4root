@@ -3,7 +3,7 @@ Generating code in M4: introduction
 The M4 macro processor is used to generate arbitrarily complex code from simple source code.
 The introductory part of the series contains its history, the basic principles of language, examples of usage and prerequisites for its mastery.
 
-Content (Česky)			mc txt pub spell updated August 7, 2020
+Content (Česky)			mc txt pub spell updated November 27, 2020
 1 Introduction
 	1.1 Examples for readers
 2 History of macro languages
@@ -651,7 +651,7 @@ The SARG1() macro selects the first item because the second item contains an unw
 
 ~]$ m4 root0b.m4 hello.ini.m4 code.m4 messages.mc > hello.ini
 
-299505d messages/hello.ini
+7900e9c messages/hello.ini
   1 ; DO NOT EDIT! This file is generated automatically!
   2 
   3 [hello_20200807]
@@ -1754,7 +1754,7 @@ D.1 👍 Why to generate code in M4
 D.2 👎 Why to avoid M4
 • low-level universal language (similar to C language)
 	• which in return it provides tremendous flexibility as UNIX
-• (almost) nonexistent developer community (as of Autumn 2019)
+• almost nonexistent developer community (as of Autumn 2019)
 	• M4 is nearly forgotten language with small number of existing projects
 • unusual programming paradigm requiring several prerequisites
 	• that is why the M4 can be considered a challenging language
