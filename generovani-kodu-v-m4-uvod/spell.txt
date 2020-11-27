@@ -2,7 +2,7 @@
 #
 # DO NOT EDIT! This file is generated automatically!
 #
-# __SOURCE([intro.mc], [20200807-23:34:01], [ccf8c59], [1cb4d81])
+# __SOURCE([intro.mc], [20201127-20:27:16], [37d5da7], [4dcc722])
 
 7
 Generování kódu v M4: úvod
@@ -948,7 +948,7 @@ univerzální jazyk nízké úrovně (podobně jako jazyk C)
 což výměnou poskytuje ohromnou flexibilitu jako UNIX
 
 1943
-(téměř) neexistující komunita vývojářů (podzim 2019)
+téměř neexistující komunita vývojářů (podzim 2019)
 M4 je téměř zapomenutý jazyk, málo existujících projektů
 
 1943

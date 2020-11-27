@@ -3,7 +3,7 @@ Generování kódu v M4: úvod
 Makro procesor M4 se používá ke generování libovolně složitého kódu z jednoduchého zdrojového kódu.
 Úvodní díl seriálu obsahuje jeho historii, základní principy jazyka, příklady použití a nutné předpoklady pro jeho zvládnutí.
 
-Obsah (English)			mc txt pub spell aktualizováno 7. srpna 2020
+Obsah (English)			mc txt pub spell aktualizováno 27. listopadu 2020
 1 Úvod
 	1.1 Příklady pro čtenáře
 2 Historie makro jazyků
@@ -652,7 +652,7 @@ Makro SARG1() vybere první položku, protože druhá položka obsahuje nežádo
 
 ~]$ m4 root0b.m4 hello.ini.m4 code.m4 messages.mc > hello.ini
 
-299505d messages/hello.ini
+7900e9c messages/hello.ini
   1 ; DO NOT EDIT! This file is generated automatically!
   2 
   3 [hello_20200807]
@@ -1755,7 +1755,7 @@ D.1 👍 Proč generovat kód v M4
 D.2 👎 Proč se vyhnout M4
 • univerzální jazyk nízké úrovně (podobně jako jazyk C)
 	• což výměnou poskytuje ohromnou flexibilitu jako UNIX
-• (téměř) neexistující komunita vývojářů (podzim 2019)
+• téměř neexistující komunita vývojářů (podzim 2019)
 	• M4 je téměř zapomenutý jazyk, málo existujících projektů
 • neobvyklé programovací paradigma vyžadující splnění několika předpokladů
 	• právě proto lze M4 považovat za náročný jazyk
