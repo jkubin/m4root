@@ -54,7 +54,7 @@ $(FOLDERS_en):
 
 generating-code-in-m4-introduction/%.html: js/hgl_packed.js js/info_packed.js rootb.m4 html/queues.m4 html/ent.m4 cfg.m4 init.m4 html/inline.m4 headings.m4 html/block.m4 ver.m4 html/style.m4 lang_en.m4 html/css.m4 js.m4 git.m4 refs_cs.m4 refs_en.m4 refs_mono.m4 lang.m4 incl.m4 html/file.m4 html/cmd.m4 html/%.m4 intro.mc html/nav.m4
 	m4 -DLANG_CODE='en' -DARTICLE_PATH='generating-code-in-m4-introduction' -DFILE_LIST='intro.mc,fundamentals.mc' -DOUTPUT_FILE='$*.html' $(FLAGS) $(filter-out js/hgl_packed.js js/info_packed.js, $^) | sed -f html/esc_to_ent.sed > $@
-	tidy -qe $@
+	tidy -qe --drop-empty-elements no $@
 
 generating-code-in-m4-introduction/spell.txt: rootb.m4 cfg.m4 lang.m4 headings.m4 ver.m4 lang_en.m4 refs_cs.m4 refs_en.m4 refs_mono.m4 incl.m4 spell.m4 intro.mc
 	m4 -DLANG_CODE='en' $(FLAGS) $^ > $@
@@ -66,7 +66,7 @@ generating-code-in-m4-introduction/publish.txt: js/hgl_packed.js js/info_packed.
 
 generating-code-in-m4-fundamentals/%.html: js/hgl_packed.js js/info_packed.js rootb.m4 html/queues.m4 html/ent.m4 cfg.m4 init.m4 html/inline.m4 headings.m4 html/block.m4 ver.m4 html/style.m4 lang_en.m4 html/css.m4 js.m4 git.m4 refs_cs.m4 refs_en.m4 refs_mono.m4 lang.m4 incl.m4 html/file.m4 html/cmd.m4 html/%.m4 fundamentals.mc html/nav.m4
 	m4 -DLANG_CODE='en' -DARTICLE_PATH='generating-code-in-m4-fundamentals' -DFILE_LIST='intro.mc,fundamentals.mc' -DOUTPUT_FILE='$*.html' $(FLAGS) $(filter-out js/hgl_packed.js js/info_packed.js, $^) | sed -f html/esc_to_ent.sed > $@
-	tidy -qe $@
+	tidy -qe --drop-empty-elements no $@
 
 generating-code-in-m4-fundamentals/spell.txt: rootb.m4 cfg.m4 lang.m4 headings.m4 ver.m4 lang_en.m4 refs_cs.m4 refs_en.m4 refs_mono.m4 incl.m4 spell.m4 fundamentals.mc
 	m4 -DLANG_CODE='en' $(FLAGS) $^ > $@
