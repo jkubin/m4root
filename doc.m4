@@ -3,8 +3,8 @@ divert(-1)changequote([,])
 
 __HEADER([Josef Kubin], [2020/01/20], [m4root])
 ___DESCR([extracts headers from source files and creates brief documentation])
-___POINT([brief documentation is a solution for cryptic short filenames])
-___USAGE([m4 doc.m4 …])
+___POINT([a solution for cryptic short filenames])
+___USAGE([m4 doc.m4 file1.m4 file2.sed file3.abc …])
 
 # strings for documentation
 define([__AUTHOR_NAME],	[Author])
@@ -20,12 +20,18 @@ define([___USAGE_CAPT],	[Usage])
 define([__FILE_VERSION],	[__VERSION: $1.$2.$3
 ])
 
+# counter for input files
+# A → β
+define([file_COUNTER_val],	0)
+define([file_COUNTER],	[doc_define([file_COUNTER_val], doc_incr(file_COUNTER_val))])
+
 # A → β
 define([__HEADER], [
 
-	doc_divert(0)doc_dnl
+	file_COUNTER
+	doc_divert(2)doc_dnl
 ---
-__FILE_NAME: doc___file__
+__FILE_NAME[]file_COUNTER_val: doc___file__
 __AUTHOR_NAME: $1
 __CREATION_DATE: $2
 __HEADER_NOTE: $3
@@ -36,34 +42,40 @@ doc_divert(-1)
 # A → β
 define([__THANKS], [
 
-	doc_divert(0)doc_dnl
+	doc_divert(2)doc_dnl
 $0_CAPT: $1
 doc_divert(-1)
 ])
 
 # A → β
-define([___DESCR], defn([__THANKS]))
-define([___POINT], defn([__THANKS]))
-define([___USAGE], defn([__THANKS]))
+define([___DESCR],	defn([__THANKS]))
+define([___POINT],	defn([__THANKS]))
+define([___USAGE],	defn([__THANKS]))
 
 # create aliases for the necessary keywords
 # A → β
-define([doc___file__], defn([__file__]))
-define([doc_divert], defn([divert]))
-define([doc_dnl], defn([dnl]))
-define([doc_ifelse], defn([ifelse]))
+define([doc___file__],	defn([__file__]))
+define([doc_divert],	defn([divert]))
+define([doc_dnl],	defn([dnl]))
+define([doc_incr],	defn([incr]))
+define([doc_define],	defn([define]))
+define([doc_ifelse],	defn([ifelse]))
 
 # comment out this paragraph if you do not like it (note the right unpaired bracket)
 divert(0)dnl
 [#] vim:wrap:spell:spelllang=en
 # DO NOT EDIT! This file is generated automatically!
-
-Extracted data from all source files.
-To update this file, run the following command:
-
-~]$ make doc
+divert(2)dnl
+#
+# To update this file, run:
+# ~]$ make doc
 
 divert(-1)
+
+m4wrap([
+	doc_divert(1)doc_dnl
+[#] the total number of files processed: file_COUNTER_val
+])
 
 # disable one-line comments and turn off all M4 keywords
 changecom
