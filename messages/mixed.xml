@@ -23,6 +23,6 @@
 	</error>
 	<warning>
 		<name>NO_ERRORS</name>
-		<value>No other errors detected.</value>
+		<value>No other errors were found.</value>
 	</warning>
 </messages>

@@ -230,6 +230,13 @@ Note: m4root
 Description: replaces the local long_self_descriptive_funny_variables with single letters
 Reason: packs local method variables
 ---
+File: js/select_packer.sed
+Author: Josef Kubin
+Started: 2020/12/24
+Note: 
+Description: replaces the local long_self_descriptive_funny_variables with single letters
+Reason: packs local method variables
+---
 File: tmp/refs.m4
 Author: Josef Kubin
 Started: 2019/12/11
@@ -415,7 +422,7 @@ Reason: preview html file
 File: html/css.m4
 Author: Josef Kubin
 Started: 2019/12/24
-Note: root_cz
+Note: 
 Description: the resulting style sheet is embedded in the web page or can be extracted into a separated file
 Reason: here are the main CSS rules; a subset will be selected into the final style sheet
 ---

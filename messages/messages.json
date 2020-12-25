@@ -10,6 +10,6 @@
 	],
 	"warning": [
 		{"ADDICTIVE": "Programming in M4 is addictive!"},
-		{"NO_ERRORS": "No other errors detected."}
+		{"NO_ERRORS": "No other errors were found."}
 	]
 }}
