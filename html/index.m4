@@ -1,6 +1,6 @@
 __HEADER([Josef Kubin], [2019/12/27], [m4root])
 ___DESCR([creates a html file for article development])
-___POINT([development and preview of html file before publishing])
+__REASON([development and preview of html file before publishing])
 
 # set local image
 # A → β

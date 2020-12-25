@@ -2,7 +2,7 @@
 #
 # __HEADER([Josef Kubin], [2019/09/22], [m4root])
 # ___DESCR([converts the root file for square brackets to the root file for original quotation marks])
-# ___POINT([root file for original quotation marks])
+# __REASON([root file for original quotation marks])
 
 1{
 # set vim modeline; write LOUD alert for unsuspecting users

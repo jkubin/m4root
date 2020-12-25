@@ -1,6 +1,6 @@
 # __HEADER([Josef Kubin], [2019/09/01], [m4root])
 # ___DESCR([the script modifies input source code for use in M4 source code and for resulting HTML page])
-# ___POINT([problematic characters in source code must be processed first])
+# __REASON([problematic characters in source code must be processed first])
 
 # hide M4 and HTML problematic characters to https://en.wikipedia.org/wiki/Escape_sequences_in_C
 s/&/\\x26;/g

@@ -1,6 +1,6 @@
 # __HEADER([Josef Kubin], [2019/08/24], [root_cz])
 # ___DESCR([examples generate several hello world source files])
-# ___POINT([how to generate files for different computer languages])
+# __REASON([how to generate files for different computer languages])
 # ___USAGE([make h && make])
 
 SYMBOL = Hello, world!

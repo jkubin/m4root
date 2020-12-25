@@ -2,7 +2,7 @@
  *
  * __HEADER([Josef Kubin], [2020/12/24])
  * ___DESCR([selects source code and put it into clipboard (Linux)])
- * ___POINT([easily code selection in one mouse click])
+ * __REASON([easily code selection in one mouse click])
  *
  * /!\ keep all variable names consistent with the file html/js_packer.sed
  * because lengthy JavaScript is eventually packed to a smaller one-line script

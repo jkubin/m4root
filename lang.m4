@@ -1,6 +1,6 @@
 __HEADER([Josef Kubin], [2019/12/30], [root_cz])
 ___DESCR([converts LANG_CODE to numeric index and selects desired language item])
-___POINT([selects item from multilingual list])
+__REASON([selects item from multilingual list])
 
 # map language codes to indexes
 # A → β

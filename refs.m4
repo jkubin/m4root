@@ -1,6 +1,6 @@
 __HEADER([Josef Kubin], [2019/12/11], [root_cz])
 ___DESCR([tests logic flow (CHAPTER → SECT1 → SECT2) and generates references for anchors])
-___POINT([extracts all IDs from files and creates associative pair])
+__REASON([extracts all IDs from files and creates associative pair])
 
 # define counter for output queues and source files
 # A → β
@@ -272,7 +272,7 @@ divert(0)dnl
 [
 __HEADER([Josef Kubin], [2019/12/11], [root_cz])
 ___DESCR([(this is a generated file) associative memory to linking references, contains captions and ID])
-___POINT([simple hash database for linking references])
+__REASON([simple hash database for linking references])
 ]
 # A → β
 divert(ANCHORS)dnl

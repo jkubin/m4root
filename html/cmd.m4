@@ -1,6 +1,6 @@
 __HEADER([Josef Kubin], [2020/04/26], [html])
 ___DESCR([command line with a list of input files, the last file is an output file])
-___POINT([generates HTML code from the command line])
+__REASON([generates HTML code from the command line])
 
 # β
 pushdef([#$EXECUTED], [

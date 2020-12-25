@@ -1,6 +1,6 @@
 __HEADER([Josef Kubin], [2020/03/29], [refs])
 ___DESCR([references to monolingual macros])
-___POINT([breakdown of references])
+__REASON([breakdown of references])
 
 # A → β
 define([COUNTER], defn([COUNT_UP]))
@@ -120,7 +120,7 @@ divert(0)dnl
 [
 __HEADER([Josef Kubin], [2020/04/01], [m4root])
 ___DESCR([(this is a generated file) associative memory for linking files])
-___POINT([simple hash database for files])
+__REASON([simple hash database for files])
 ]
 divert(-1)
 

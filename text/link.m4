@@ -1,6 +1,6 @@
 __HEADER([Josef Kubin], [2020/05/24], [text])
 ___DESCR([generates text link])
-___POINT([copies captions to text])
+__REASON([copies captions to text])
 
 # prints a hyperlink or a linked text that dereferences
 # A → β

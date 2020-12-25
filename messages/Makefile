@@ -1,6 +1,6 @@
 # __HEADER([Josef Kubin], [2019/11/17], [root_cz])
 # ___DESCR([the examples show how to generate messages into various target formats requiring modification of special characters])
-# ___POINT([different target files with specially modified characters for each file])
+# __REASON([different target files with specially modified characters for each file])
 # ___USAGE([make h && make])
 
 SOURCE_CODE = \

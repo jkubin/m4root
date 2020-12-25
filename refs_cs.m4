@@ -2,7 +2,7 @@
 
 __HEADER([Josef Kubin], [2019/12/11], [root_cz])
 ___DESCR([(this is a generated file) associative memory to linking references, contains captions and ID])
-___POINT([simple hash database for linking references])
+__REASON([simple hash database for linking references])
 
 # A → β
 define([intro.mc.cs.capt], [Generování kódu v M4: úvod])

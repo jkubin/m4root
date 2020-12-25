@@ -6,7 +6,7 @@ divert(-1)changequote(⟦,⟧)
 
 __HEADER(⟦Josef Kubin⟧, ⟦2020/02/18⟧, ⟦gfiles⟧)
 ___DESCR(⟦minimal root script for simple projects⟧)
-___POINT(⟦root script as small as possible⟧)
+__REASON(⟦root script as small as possible⟧)
 ___USAGE(⟦m4 mroot.m4 stem.m4 branch.m4 sub_branch.m4 leaf.m4 data.mc > output.file⟧)
 
 # adds LOUD alert for unsuspecting users

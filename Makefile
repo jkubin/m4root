@@ -1,6 +1,6 @@
 # __HEADER([Josef Kubin], [2019/10/09], [m4root])
 # ___DESCR([this handwritten Makefile automatically generates additional rules to generate target files])
-# ___POINT([learning M4 using the examples in this series])
+# __REASON([learning M4 using the examples in this series])
 # ___USAGE([make h && make && make])
 
  # <--- this is the form-feed character for Vim shortcut in normal mode

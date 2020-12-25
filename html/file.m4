@@ -1,6 +1,6 @@
 __HEADER([Josef Kubin], [2019/12/15], [root_cz])
 ___DESCR([processes a source file inserted to HTML; converts forbidden characters; sets string highlighting])
-___POINT([source file (possibly snippet) suitable for HTML])
+__REASON([source file (possibly snippet) suitable for HTML])
 
 # insert the entire file with a possible comma-separated ID to distinguish the same file
 # TEXTDATA([path/file.src])

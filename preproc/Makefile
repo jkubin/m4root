@@ -1,6 +1,6 @@
 # __HEADER([Josef Kubin], [2019/11/18], [root_cz])
 # ___DESCR([generic examples how to use M4 as a preprocessor])
-# ___POINT([M4 as a preprocessor])
+# __REASON([M4 as a preprocessor])
 # ___USAGE([make h && make])
 
 SYMBOL = Hello, world!

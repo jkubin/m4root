@@ -1,6 +1,6 @@
 __HEADER([Josef Kubin], [2020/05/31], [m4root])
 ___DESCR([initialization code of each target])
-___POINT([reduces duplicate code])
+__REASON([reduces duplicate code])
 
 # β
 define([PART_INIT], [

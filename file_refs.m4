@@ -2,7 +2,7 @@
 
 __HEADER([Josef Kubin], [2020/04/01], [m4root])
 ___DESCR([(this is a generated file) associative memory for linking files])
-___POINT([simple hash database for files])
+__REASON([simple hash database for files])
 
 define([intro.mc.mono.common_code], [m4-common-code])
 define([intro.mc.dset.common_code], [0])

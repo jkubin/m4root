@@ -2,7 +2,7 @@
 
 __HEADER([Josef Kubin], [2019/12/23], [root_cz])
 ___DESCR([converts inline and block-level elements into a plain text file for checking jargon and typos])
-___POINT([plain text file for spell checking and for suggestions from other people (text can be easily edited)])
+__REASON([plain text file for spell checking and for suggestions from other people (text can be easily edited)])
 
 # extracts MACRO([…], [the text], …) if defined (`the text' is a title)
 # β

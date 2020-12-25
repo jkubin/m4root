@@ -3,7 +3,7 @@ divert(-1)changequote([,])
 
 __HEADER([Josef Kubin], [2020/01/20], [m4root])
 ___DESCR([extracts headers from source files and creates brief documentation])
-___POINT([a solution for cryptic short filenames])
+__REASON([a solution for cryptic short filenames])
 ___USAGE([m4 doc.m4 file1.m4 file2.sed file3.abc …])
 
 # strings for documentation
@@ -14,7 +14,7 @@ define([__HEADER_NOTE],	[Note])
 define([__THANKS_CAPT],	[Thanks])
 define([__VERSION],	[Version])
 define([___DESCR_CAPT],	[Description])
-define([___POINT_CAPT],	[Reason])
+define([__REASON_CAPT],	[Reason])
 define([___USAGE_CAPT],	[Usage])
 
 define([__FILE_VERSION],	[__VERSION: $1.$2.$3
@@ -49,7 +49,7 @@ doc_divert(-1)
 
 # A → β
 define([___DESCR],	defn([__THANKS]))
-define([___POINT],	defn([__THANKS]))
+define([__REASON],	defn([__THANKS]))
 define([___USAGE],	defn([__THANKS]))
 
 # create aliases for the necessary keywords

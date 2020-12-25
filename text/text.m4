@@ -2,7 +2,7 @@
 
 __HEADER([Josef Kubin], [2020/05/11], [m4root])
 ___DESCR([generates a plain text file from (multiple) source files])
-___POINT([the total number of words and characters that would be printed])
+__REASON([the total number of words and characters that would be printed])
 
 ifdef([PRINT_HEADER], [
 

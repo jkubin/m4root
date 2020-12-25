@@ -2,7 +2,7 @@
  *
  * __HEADER([Josef Kubin], [2020/05/04], [m4root])
  * ___DESCR([copy additional file information to other element])
- * ___POINT([data selected by mouse])
+ * __REASON([data selected by mouse])
  *
  * /!\ keep all variable names consistent with packer
  */

@@ -1,6 +1,6 @@
 # __HEADER([Josef Kubin], [2019/10/26], [root_cz])
 # ___DESCR([maintains consistent files with square bracket files])
-# ___POINT([one hand-written file to generate additional files])
+# __REASON([one hand-written file to generate additional files])
 # ___USAGE([make h && make])
 
 # stem for generated files

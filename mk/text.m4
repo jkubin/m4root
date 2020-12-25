@@ -1,6 +1,6 @@
 __HEADER([Josef Kubin], [2020/05/19], [mk])
 ___DESCR([generates additional rules extending the handwritten Makefile to generate txt files])
-___POINT([additional rules to generate txt files])
+__REASON([additional rules to generate txt files])
 
 # A → β
 define([MAKE_RULE], [

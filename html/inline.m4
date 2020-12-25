@@ -2,7 +2,7 @@
 
 __HEADER([Josef Kubin], [2019/12/28], [root_cz])
 ___DESCR([inline elements and unpaired tags with a subset of global attributes])
-___POINT([definition of HTML5 inline elements and unpaired tags])
+__REASON([definition of HTML5 inline elements and unpaired tags])
 
 # WARNING: keep 1:1 consistency: spell.m4 text.m4 man.m4 info.m4
 

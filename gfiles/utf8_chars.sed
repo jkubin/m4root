@@ -2,7 +2,7 @@
 #
 # __HEADER([Josef Kubin], [2019/09/22], [m4root])
 # ___DESCR([converts the root file for square brackets to the root file for UTF-8 characters])
-# ___POINT([root file for UTF-8 characters])
+# __REASON([root file for UTF-8 characters])
 #
 # some UTF-8 characters can be written as digraphs:
 # ⟦	Ctrl-k(I

@@ -1,6 +1,6 @@
 __HEADER([Josef Kubin], [2020/05/16], [text])
 ___DESCR([inserts (snippet of) a source file])
-___POINT([estimate the total number of words and characters])
+__REASON([estimate the total number of words and characters])
 
 # A → β
 # β
