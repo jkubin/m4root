@@ -1,6 +1,6 @@
 __HEADER([Josef Kubin], [2019/12/27], [m4root])
-___DESCR([creates HTML page for off-line article development and validator (tidy)])
-___POINT([develop and test the result before publishing])
+___DESCR([creates a html file for article development])
+___POINT([development and preview of html file before publishing])
 
 # set local image
 # A → β
@@ -34,17 +34,33 @@ define([PART], defn([PART])[
 	DONTE()
 -->
 <!doctype html>
-<html lang="LANG_CODE">
+<html id="css" lang="LANG_CODE">
 <head>
 <meta charset="utf-8">
-<title>PART_val</title>
 <meta name="generator" content="M4">
-<link rel="stylesheet" type="text/css" href="../html/preview.css">
+<title>PART_val</title>
+<link rel="stylesheet" type="text/css" href="../html/root_cz.css">
 divert(HEADER_END_START_BODY)dnl
 </head>
-<body class="design-tile layout-article-content">
-<div class="urs">
+<body id="root" class="js-advert-branding-click-event js-advert-sas-position-mark-background p-text design-page--theme-default design-page--root-cz design-page design-body design-page--has-advert--article-intext-1 design-page--has-advert--as-clanky-300x250 design-page--has-advert--mobile-footer design-page--has-advert--mobile-vignette design-page--has-advert--sidebar-sticky-1 design-page--has-advert--leaderboard design-page--has-advert--rectangle design-page--has-advert--sidebar-sticky-2 design-page--has-advert--megaboard">
+
+<div class="parter-cpex-branding-wrapper design-advert-background-outer-element design-page__content" data-partner-cpex-branding-wrapper-z-index="0"> 
+<div class=" js-sticker-init layout-main--has-sidebar--default layout-main--has-sidebar  layout-main main">
+<div class="js-sticker-compare-wrapper layout-columns layout-main__content">
+<div class="layout-columns__item--main layout-columns__item">
+<div class="design-tile--version-1 design-tile">
+<h1 class="detail__heading design-heading--level-1 design-heading">PART_val</h1>
+<div class="detail__article ">
+<div class=" layout-article-content">
+<div class="element-margin-top-half php-urs urs">
 divert(END_OF_ARTICLE)dnl
+</div>
+</div>
+</div>
+</div>
+</div> 
+</div> 
+</div> 
 </div>
 </body>
 </html>

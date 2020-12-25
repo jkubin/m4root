@@ -1,13 +1,13 @@
 __HEADER([Josef Kubin], [2019/07/11], [root_cz])
-___DESCR([creates preview html page for off-line article development])
-___POINT([preview html file])
+___DESCR([creates a preview of the html page for article development])
+___POINT([development and preview of html file])
 
 # A → β
-define([AUTHOR_SHORT_DESCRIPTION], LANGW([dnl czech
+define([AUTHOR_SHORT_DESCRIPTION], LANGW([dnl _first_language_
 PERSON([AUTHOR_NAME]) vystudoval Fakultu[]NB()informatiky Masarykovy univerzity v Brně, zabýval se teoretickou informatikou a[]NB()programováním hardware.
 Pracuje ve společnosti Red[]NB()Hat v[]NB()ABBREV([GSS], [Global Support Services]).
 ],
-[dnl english: _next_language_
+[dnl _next_language_
 PERSON([AUTHOR_NAME]) graduated from the Faculty of Informatics, Masaryk University, where he studied theoretical computer science and hardware programming.
 Works at Red[]NB()Hat in[]NB()ABBREV([GSS], [Global Support Services]).
 ]))
@@ -15,18 +15,18 @@ Works at Red[]NB()Hat in[]NB()ABBREV([GSS], [Global Support Services]).
 # expand the selected language
 XLANG([
 
-	# czech
+	# _first_language_
 	define([AUTHOR_OF_THE_ARTICLE],		[Autor článku])
+	define([AUTHOR_WORD],			[Autor])
 	define([AUTHOR_PROFILE],		[Profil autora])
-	define([READING_DURATION],		[Doba čtení: BOLD([123 minut])])
 	define([WORD_STICKERS],			[Nálepky])
 
 ], [
 
-	# english
+	# _next_language_
 	define([AUTHOR_OF_THE_ARTICLE],		[Author of the article])
+	define([AUTHOR_WORD],			[Author])
 	define([AUTHOR_PROFILE],		[Author's profile])
-	define([READING_DURATION],		[Reading time: BOLD([123 minutes])])
 	define([WORD_STICKERS],			[Stickers])
 
 ])
@@ -72,114 +72,82 @@ define([PARTINTRO], [
 	divert(0)dnl
 <!-- DONTE() -->
 <!doctype html>
-<html id="css" class="js-inactive" lang="LANG_CODE">
+<html id="css" lang="LANG_CODE">
 <head>
 <meta charset="utf-8">
 <title>PART_val</title>
-<link rel="stylesheet" type="text/css" href="../html/preview.css">
+<link rel="stylesheet" type="text/css" href="../html/root_cz.css">
 divert(HEADER_END_START_BODY)dnl
 </head>
-<body>
-<div class="design-page__content">
+<body id="root" class="js-advert-branding-click-event js-advert-sas-position-mark-background p-text design-page--theme-default design-page--root-cz design-page design-body design-page--has-advert--article-intext-1 design-page--has-advert--as-clanky-300x250 design-page--has-advert--mobile-footer design-page--has-advert--mobile-vignette design-page--has-advert--sidebar-sticky-1 design-page--has-advert--leaderboard design-page--has-advert--rectangle design-page--has-advert--sidebar-sticky-2 design-page--has-advert--megaboard">
+<div class="parter-cpex-branding-wrapper design-advert-background-outer-element design-page__content" data-partner-cpex-branding-wrapper-z-index="0">
 <div class=" js-sticker-init layout-main--has-sidebar--default layout-main--has-sidebar  layout-main main">
 <div class="js-sticker-compare-wrapper layout-columns layout-main__content">
 <div class="layout-columns__item--main layout-columns__item">
-
-<div class="design-tile--version-1 design-tile" itemtype="http://schema.org/Article" itemref="microdata-authors microdata-publisher" itemscope>
-
-<!-- Sklik-kontext-start -->
-<h1 class="detail__heading design-heading--level-1 design-heading" itemprop="headline">PART_val</h1>
-
-<div class="detail__perex">
-	<div class=" perex">
-		<div  style="max-width: 468px"  class=" element-print-hidden  perex__img" itemprop="image" itemtype="http://schema.org/ImageObject" itemscope>
-			<img src="PARTIMAGE" itemprop="url" width="468" height="263" alt=" ">
-			<meta itemprop="width" content="468">
-			<meta itemprop="height" content="263">
-		</div>
-		<div class=" perex__text--has-reading-duration  perex__text--detail perex__text">
-			<div class="perex__text-content">
-				<div class="perex__impressum">
-						<span class="perex__author">AUTHOR_NAME</span>
-						<span class="perex__date">
-							<span itemprop="datePublished">SARG1(esyscmd([date '+[%-d. %-m. %Y],']))</span>
-						</span>
-				</div>
-				<p itemprop="description">EXPAND_LANG_WITHOUT_TRAILING_LF(]defn([EXPAND_LAST])[)</p>
-				<div class="perex__reading-duration">
-					READING_DURATION
-				</div>
-			</div>
-		</div>
-	</div>
+<div class="design-tile--version-1 design-tile">
+<h1 class="detail__heading design-heading--level-1 design-heading">PART_val</h1>
+<div class="design-list--articles--article-detail  design-list--articles--opener design-list--articles design-list list-reset">
+<div class="design-list__item">
+<div class="design-article--opener--simple design-article--opener design-article--with-image design-article design-tile">
+<span class=" element-print-hidden  design-article__image-outer">
+<img class="design-image--responsive design-image design-article__image" src="PARTIMAGE" width="670" height="377" alt=" ">
+<span class="design-article__image-author">AUTHOR_WORD: AUTHOR_NAME_SHORT</span>
+</span>
+<div class="design-article__text">
+<div class="design-article__perex">
+<div class="design-article__perex-content">EXPAND_LANG_WITHOUT_TRAILING_LF(]defn([EXPAND_LAST])[)</div>
 </div>
-
-<div class="detail__article" itemprop="articleBody">
-
-<!-- Sklik-kontext-start -->
+</div>
+</div>
+</div>
+</div>
+<div class="detail__article ">
 <div class=" layout-article-content">
-<div class="php-urs urs">
+<div class="element-margin-top-half php-urs urs">
 divert(END_OF_ARTICLE)dnl
 </div>
 </div>
-<!-- Sklik-kontext-stop -->
-
+</div>
+<div class="element-margin-top  section ">
+<div class="section__header">
+<h2 class="section__heading">AUTHOR_OF_THE_ARTICLE</h2>
+</div>
+<div class="design-box__content">
+<div class="author">
+<div class="author__pic avatar-round">
+<a class="avatar__wrap" href="[#]" title="AUTHOR_PROFILE">
+<img class="avatar__img" src="../img/defn(defn([AUTHOR_NAME]))" width="70" height="70" alt="AUTHOR_NAME">
+</a>
+</div>
+<div class="author__info">
+<div class="author__details">
+<h3 class="author__name">
+<a href="https://www.root.cz/autori/">AUTHOR_NAME</a>
+</h3>
+</div>
+<div class="author__bio urs">
+<p>AUTHOR_SHORT_DESCRIPTION</p>
 </div>
 </div>
 </div>
-
-<div id="sidebar" class="js-sticker-wrapper sidebar layout-columns__item--sidebar layout-columns__item design-sidebar design-tile--version-2 design-tile">
-
-	<div class="box-actualities--details page-block--actualities page-block design-box">
-		<div class="section__header">
-			<h2 class="section__heading">
-				AUTHOR_OF_THE_ARTICLE
-			</h2>
-		</div>
-
-		<div id="microdata-authors">
-			<div class="author clearfix" itemprop="author" itemtype="http://schema.org/Person" itemscope="">
-				<div class="author__pic avatar-round">
-					<a class="avatar__wrap" href="[#]" title="AUTHOR_PROFILE">
-						<img class="avatar__img" src="../img/defn(defn([AUTHOR_NAME]))" width="70" height="70" alt="AUTHOR_NAME">
-					</a>
-				</div>
-				<div class="author__info">
-					<div class="row">
-						<h3 class="author__name">
-							<a href="[#]">
-								<span itemprop="name">AUTHOR_NAME</span>
-							</a>
-						</h3>
-	
-					</div>
-	
-					<div class="author__bio urs">
-						<p>AUTHOR_SHORT_DESCRIPTION</p>
-					</div>
-				</div>
-			</div>
-		</div>
-
-		<div class="row design-impressum__item-wrapper--rubrics design-impressum__item-wrapper">
-			<h3 class="rubrics__heading rubrics__heading--sidebar">
-				<a class="design-label--empty design-label" href="/n/">WORD_STICKERS:</a>
-			</h3>
-			<ul class="rubrics__list--sidebar rubrics__list design-list--labels design-list list-reset">
-				<li>
-					<a class="rubrics__item design-label--default design-label" href="/n/m4/">M4</a>
-				</li>
-				<li>
-					<a class="rubrics__item design-label--default design-label" href="/n/vim/">Vim</a>
-				</li>
-				<li>
-					<a class="rubrics__item design-label--default design-label" href="/n/c-c/">C</a>
-				</li>
-			</ul>
-		</div>
-	</div>
+</div>
+<div class="design-impressum__item-wrapper--rubrics design-impressum__item-wrapper">
+<h3 class="element-heading-reset">
+<a class="design-label--empty design-label" href="https://www.root.cz/n/">WORD_STICKERS:</a>
+</h3>
+<ul class="design-list--labels design-list--inline design-list list-reset">
+<li>
+<a class="design-label--default design-label" href="https://www.root.cz/n/unix/">UNIX</a>
+</li>
+<li>
+<a class="design-label--default design-label" href="https://www.root.cz/n/vim/">Vim</a>
+</li>
+</ul>
 </div>
 </div>
+</div> 
+</div> 
+</div> 
 </div>
 </div>
 </body>
