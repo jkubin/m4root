@@ -56,7 +56,7 @@ define([FILES_ON_THE_COMMAND_LINE], [
 		])
 
 		divert(CURRQU)dnl
-<div id="ADD_ID_RULE(defn([#ID])-command)" class="ADD_CLASS(defn([COMMAND_LINE_CLASS]))"><pre title="defn([WORD_COMMAND])">dnl
+<div id="ADD_ID_RULE(defn([#ID])-command)" class="ADD_CLASS([cmd]) ADD_CLASS(defn([COMMAND_LINE_CLASS]))"><pre title="defn([WORD_COMMAND])">dnl
 undivert(COMMAND_ARGS_QUEUE)dnl
 > <a href="SRC_FILE_PATH(SARG1($1))" title="SARG1($1)
 date: SARG3(GIT_CSV)

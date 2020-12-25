@@ -1,6 +1,6 @@
 # vim:ts=10:sw=10
 
-__HEADER([Josef Kubin], [2019/12/24], [root_cz])
+__HEADER([Josef Kubin], [2019/12/24])
 ___DESCR([the resulting style sheet is embedded in the web page or can be extracted into a separated file])
 ___POINT([here are the main CSS rules; a subset will be selected into the final style sheet])
 
@@ -101,18 +101,36 @@ font-weight:bold;
 
 ])
 
-CSS_CLASS_RULE_SET([[]],	[ch, bh, usc, root],	[[]], [
+CSS_CLASS_RULE_SET([[]],	[ch, bh, cmd],	[[]], [
 
 position:relative;
 
 ])
 
-CSS_CLASS_RULE_SET([[]],	[usc, root],	[[>pre]], [
+CSS_CLASS_RULE_SET([[]],	[cmd],	[[>pre]], [
 
 font-weight:bold;
 padding-right:0;
 white-space:normal;
 word-break:normal;
+
+])
+
+CSS_CLASS_RULE_SET([[]],	[cmd],	[[>code]], [
+
+visibility:hidden;
+
+])
+
+CSS_CLASS_RULE_SET([[]],	[cmd],	[[:hover>code]], [
+
+visibility:visible;
+
+])
+
+CSS_CLASS_RULE_SET([[]],	[cmd],	[[>pre a]], [
+
+color:inherit;
 
 ])
 
@@ -123,7 +141,7 @@ counter-reset:defn([SOURCE_COUNTER]);
 ])
 
 font-weight:normal;
-_CSS_CLASS_RULE_SET([[]],	[src, usc, root],	[[>a]], [
+_CSS_CLASS_RULE_SET([[]],	[src, cmd],	[[>a]], [
 
 background-color:hsla(0,0%,86%,.5);
 border:1px solid #ddd;
@@ -137,21 +155,21 @@ top:0;
 ])
 
 # 🔗
-CSS_CLASS_RULE_SET([[]],	[src, usc, root],	[[>code>.NSP()cb+a::before]], [
+CSS_CLASS_RULE_SET([[]],	[src, cmd],	[[>code>.NSP()cb+a::before]], [
 
 content:"\1f517";
 
 ])
 
 # 🔗
-CSS_CLASS_RULE_SET([[]],	[src, usc, root],	[[>code>.NSP()cb+a]], [
+CSS_CLASS_RULE_SET([[]],	[src, cmd],	[[>code>.NSP()cb+a]], [
 
 font-weight:normal;
 
 ])
 
 font-family:monospace,monospace;
-CSS_CLASS_RULE_SET([[]],	[src, usc, root],	[[>code]], [
+CSS_CLASS_RULE_SET([[]],	[src, cmd],	[[>code]], [
 
 border-radius:0 4px;
 border:1px solid #ddd;
@@ -165,7 +183,7 @@ top:0;
 
 ])
 
-CSS_CLASS_RULE_SET([[]],	[src, usc, root],	[[>code a]], [
+CSS_CLASS_RULE_SET([[]],	[src, cmd],	[[>code a]], [
 
 margin-left:.6em;
 
@@ -218,6 +236,7 @@ text-decoration:#f04c23 underline dashed;
 ])
 
 # macros for class names for JavaScript code helps maintain consistency
+define([CLASS_COMMAND_LINE],		defn([NSP])[cmd])
 define([CLASS_HIGHLIGHT],		defn([NSP])[hgl])
 define([CLASS_REAR],		defn([NSP])[re])
 define([CLASS_SOURCE],		defn([NSP])[src])
@@ -302,20 +321,14 @@ cursor:help;
 
 ])
 
-CSS_CLASS_RULE_SET([[]],	[usc, root],	[[>pre a]], [
-
-color:inherit;
-
-])
-
-CSS_CLASS_RULE_SET([[]],	[usc],	[[ pre::before]], [
+CSS_CLASS_RULE_SET([[]],	[usc],	[[>pre::before]], [
 
 content:"PROMPT() ";
 font-weight:normal;
 
 ])
 
-CSS_CLASS_RULE_SET([[]],	[root],	[[ pre::before]], [
+CSS_CLASS_RULE_SET([[]],	[root],	[[>pre::before]], [
 
 content:"PROMPT_ROOT() ";
 font-weight:normal;
@@ -336,7 +349,7 @@ font-size:.9em;
 font-weight:normal;
 position:absolute;
 right:100%;
-width:1.1em;
+width:1.3em;
 
 ])
 
