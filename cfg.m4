@@ -11,10 +11,10 @@ ___POINT([one file to configure all generated files])
 # nice looking user command line PROMPT(path) ---> path]$
 #
 # A → β
-define([PROMPT], [ifelse([$#], [0], [[$0]], [$1], [], [~RB()$], [[$1]RB()$])])
+#define([PROMPT], [ifelse([$#], [0], [[$0]], [$1], [], [~RB()$], [[$1]RB()$])])
 
 # or briefly PROMPT() ---> $
-#define([PROMPT], [ifelse([$#], [0], [[$0]], [$])])
+define([PROMPT], [ifelse([$#], [0], [[$0]], [$])])
 
 # uncomment PROMPT_ROOT() what you like more:
 # [
@@ -23,10 +23,10 @@ define([PROMPT], [ifelse([$#], [0], [[$0]], [$1], [], [~RB()$], [[$1]RB()$])])
 # nice looking root command line PROMPT_ROOT(path) ---> path]#
 #
 # A → β
-define([PROMPT_ROOT], [ifelse([$#], [0], [[$0]], [$1], [], [~RB()[#]], [[$1]RB()[#]])])
+#define([PROMPT_ROOT], [ifelse([$#], [0], [[$0]], [$1], [], [~RB()[#]], [[$1]RB()[#]])])
 
 # or briefly PROMPT_ROOT() --->  #
-#define([PROMPT_ROOT], [ifelse([$#], [0], [[$0]], [[#]])])
+define([PROMPT_ROOT], [ifelse([$#], [0], [[$0]], [[#]])])
 
 # add all parts of the series
 # A → ε

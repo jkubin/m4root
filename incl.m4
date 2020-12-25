@@ -2,9 +2,10 @@ __HEADER([Josef Kubin], [2019/12/10], [root_cz])
 ___DESCR([repeated text patterns for ALL parts should be written here; modified files from the include keyword are invisible for make])
 ___POINT([how to avoid include keyword; Note: this is M4 not C!])
 
-# paired author name with image (associatively)
+# author name with image (associative definition)
 # A → β
 define([AUTHOR_NAME],		[Josef Kubín])
+define([AUTHOR_NAME_SHORT],	[jkubin])
 define(defn([AUTHOR_NAME]),	[pepa.png])
 
 # common tip box

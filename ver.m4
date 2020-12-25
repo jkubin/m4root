@@ -7,7 +7,7 @@ ___POINT([stops source.mc processing if the major version number is different])
 # PATCH change means a backward compatible bug fixes
 
 # A → β
-define([VERSION_TEMPLATE], [
+define([__TPLVER], [
 
 	ifdef([VERSION_MAJOR_$1], [
 
