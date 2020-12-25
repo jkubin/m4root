@@ -142,13 +142,13 @@ a pro překlad jednoduchého konfiguračního souboru sendmail.mc na složitý s
 Autorem této implementace z roku 1990 je René Seindal.
 Následující příkaz nainstaluje m4:
 
-~]# dnf -y install make m4 pinfo
+# dnf -y install make m4 pinfo
 
 Podrobný popis klíčových slov se nachází v dokumentaci[8]:
 
-~]$ pinfo m4
-~]$ man m4
-~]$ m4 --help
+$ pinfo m4
+$ man m4
+$ m4 --help
 
 3 Základy jazyka M4
 Základem jazyka M4 je bezkontextová gramatika, automaty, zásobníky a výstupní fronty.
@@ -216,7 +216,7 @@ M4 se používá ke generování zdrojového kódu libovolného programovacího 
 4.1 Generování kódu
 M4 transformuje vstupní data ze souborů .mc na výsledná data následujícím příkazem:
 
-~]$ m4 root.m4 stem.m4 branch.m4 leaf.m4 input1.mc input2.mc > output.file
+$ m4 root.m4 stem.m4 branch.m4 leaf.m4 input1.mc input2.mc > output.file
 
 Během načítání souborů jsou prováděny dvě základní operace:
 
@@ -227,9 +227,9 @@ Datové soubory .mc obvykle neobsahují žádná transformační pravidla.
 
 Vstupní data mohou také přicházet z kolony:
 
-~]$ cat input.mc | m4 root.m4 stem.m4 branch.m4 leaf.m4 - > output.file
+$ cat input.mc | m4 root.m4 stem.m4 branch.m4 leaf.m4 - > output.file
 
-~]$ cat input.mc | m4 root.m4 stem.m4 branch.m4 leaf.m4 - | gcc -x c -o progr -
+$ cat input.mc | m4 root.m4 stem.m4 branch.m4 leaf.m4 - | gcc -x c -o progr -
 
 Vyzkoušejte: Příklady generování kódu
 
@@ -241,62 +241,62 @@ M4 může rozšířit jakýkoliv jiný jazyk, kde je preprocesor nedostatečný 
 Důležité je zvolit vhodný levý znak pro řízení expanze neterminálů, který nesmí kolidovat se znakem vstupního zdrojového kódu.
 Kolize znaku je ale snadno řešitelná regulárním výrazem.
 
-~]$ m4 root.m4 stem.m4 branch.m4 leaf.m4 file.c > preproc.file.c
+$ m4 root.m4 stem.m4 branch.m4 leaf.m4 file.c > preproc.file.c
 
-~]$ m4 root.m4 stem.m4 branch.m4 leaf.m4 file.c | gcc -x c -o progr -
+$ m4 root.m4 stem.m4 branch.m4 leaf.m4 file.c | gcc -x c -o progr -
 
 `' Výchozí znaky
 Konfliktní znak ` ze vstupního zdrojového kódu je skryt do makra `'LQ().
 Prázdný pár řídících znaků `' před makrem LQ() slouží jako oddělovač symbolů.
 Při průchodu zdrojového kódu makro procesorem se makro `'LQ() přepíše zpátky na původní znak ` a prázdný pár `' je odstraněn.
 
-~]$ sed 's/`/`'\''LQ()/g' any.src | m4 rootq.m4 leaf.m4 -
+$ sed 's/`/`'\''LQ()/g' any.src | m4 rootq.m4 leaf.m4 -
 
 Vyskytují-li se ve vstupním kódu komentáře # nebo dnl, je nutné je skrýt.
 Znaky `' vypnou původní význam komentářů a budou odebrány při průchodu makro procesorem.
 
 Komentáře M4 # a dnl jsou skryty mezi výchozí znaky: `#' `dnl'
 
-~]$ sed 's/`/`'\''LQ()/g;s/#\|\<dnl\>/`&'\''/g' any.src | m4 rootq.m4 leaf.m4 -
+$ sed 's/`/`'\''LQ()/g;s/#\|\<dnl\>/`&'\''/g' any.src | m4 rootq.m4 leaf.m4 -
 
-~]$ sed 's/`/`'\''LQ()/g;s/#/`#'\''/g;s/\<dnl\>/`dnl'\''/g' any.src | m4 …
+$ sed 's/`/`'\''LQ()/g;s/#/`#'\''/g;s/\<dnl\>/`dnl'\''/g' any.src | m4 …
 
 [] Hranaté závorky
 Použijeme-li pro řízení expanze neterminálů hranaté závorky, stejným způsobem je skryta levá [ hranatá závorka.
 Vše ostatní platí jako pro výchozí znaky `'.
 
-~]$ sed 's/\[/[]LB()/g' any.src | m4 rootb.m4 leaf.m4 - | …
+$ sed 's/\[/[]LB()/g' any.src | m4 rootb.m4 leaf.m4 - | …
 
 Komentáře M4 # a dnl jsou skryty mezi závorkami: [#] [dnl]
 
-~]$ sed 's/\[/[]LB()/g;s/#\|\<dnl\>/[&]/g' any.src | m4 rootb.m4 leaf.m4 - | …
+$ sed 's/\[/[]LB()/g;s/#\|\<dnl\>/[&]/g' any.src | m4 rootb.m4 leaf.m4 - | …
 
-~]$ sed 's/\[/[]LB()/g;s/#/[#]/g;s/\<dnl\>/[dnl]/g' any.src | m4 rootb.m4 …
+$ sed 's/\[/[]LB()/g;s/#/[#]/g;s/\<dnl\>/[dnl]/g' any.src | m4 rootb.m4 …
 
 ␂␆ Netisknutelné znaky
 Pro řízení expanze neterminálů lze použít netisknutelné znaky ␂ (0x02) a ␆ (0x06).
 Tyto znaky nemohou kolidovat s tisknutelnými znaky zdrojového kódu.
 
-~]$ m4 rootn.m4 leaf.m4 any.src | gcc …
+$ m4 rootn.m4 leaf.m4 any.src | gcc …
 
 Komentáře M4 # a dnl jsou skryty mezi netisknutelné znaky: ␂#␆ ␂dnl␆
 
-~]$ sed 's/#\|\<dnl\>/␂&␆/g' any.src | m4 rootn.m4 leaf.m4 - | gcc …
+$ sed 's/#\|\<dnl\>/␂&␆/g' any.src | m4 rootn.m4 leaf.m4 - | gcc …
 
-~]$ sed 's/#/␂#␆/g;s/\<dnl\>/␂dnl␆/g' any.src | m4 rootn.m4 leaf.m4 - | gcc …
+$ sed 's/#/␂#␆/g;s/\<dnl\>/␂dnl␆/g' any.src | m4 rootn.m4 leaf.m4 - | gcc …
 
 ⟦⟧ UTF-8 znaky
 Expanzi neterminálů může také řídit vhodně zvolený pár UTF-8 znaků.
 Běžný zdrojový kód takové znaky neobsahuje, proto nemusíme řešit kolizi levého ⟦ znaku.
 UTF-8 znaky nabízí podobné výhody jako netisknutelné znaky.
 
-~]$ m4 rootu.m4 leaf.m4 any.src | gcc …
+$ m4 rootu.m4 leaf.m4 any.src | gcc …
 
 Komentáře M4 # a dnl jsou skryty mezi UTF-8 znaky: ⟦#⟧ ⟦dnl⟧
 
-~]$ sed 's/#\|\<dnl\>/⟦&⟧/g' any.src | m4 rootu.m4 leaf.m4 - | gcc …
+$ sed 's/#\|\<dnl\>/⟦&⟧/g' any.src | m4 rootu.m4 leaf.m4 - | gcc …
 
-~]$ sed 's/#/⟦#⟧/g;s/\<dnl\>/⟦dnl⟧/g' any.src | m4 rootu.m4 leaf.m4 - | gcc …
+$ sed 's/#/⟦#⟧/g;s/\<dnl\>/⟦dnl⟧/g' any.src | m4 rootu.m4 leaf.m4 - | gcc …
 
 Vyzkoušejte: Příklady preprocesoru
 
@@ -305,7 +305,7 @@ Smíšený režim je kombinací předchozích režimů a je používán hlavně 
 Data nejsou oddělena od transformačních pravidel.
 Listový soubor leaf.m4 obsahuje definice těchto pravidel spolu se vstupními daty.
 
-~]$ m4 root.m4 leaf.m4
+$ m4 root.m4 leaf.m4
 
 Vyzkoušejte: M4: příklady
 
@@ -447,8 +447,8 @@ A Příklady generování kódu
 	A.13 [] INI: nespojitý index front
 	A.14 [] XML: smíšené zprávy
 	A.15 [] XML: oddělené zprávy
-	A.16 [] Bash ~]$ echo "řetězec"
-	A.17 [] Bash ~]$ echo 'řetězec'
+	A.16 [] Bash $ echo "řetězec"
+	A.17 [] Bash $ echo 'řetězec'
 
 🖹 Příklady v této příloze jsou složitější a jejich cílem je ukázat praktické použití jazyka M4.
 Podrobněji budou vysvětleny později.
@@ -482,7 +482,7 @@ Tento příklad nepoužívá výstupní fronty, pouze vypisuje CSV oddělené zn
   6 divert(-1)
   7 ])
 
-~]$ m4 root0b.m4 hello.csv.m4 messages_raw.mc > hello.csv
+$ m4 root0b.m4 hello.csv.m4 messages_raw.mc > hello.csv
 
 9156810 messages/hello.csv
   1 COMPLEX	!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~
@@ -510,7 +510,7 @@ COUNTER je malý automat.
  12 divert(-1)
  13 ])
 
-~]$ m4 root0b.m4 countb.m4 counter.csv.m4 messages_raw.mc > counter.csv
+$ m4 root0b.m4 countb.m4 counter.csv.m4 messages_raw.mc > counter.csv
 
 9156810 messages/counter.csv
   1 ERR_1	COMPLEX	!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~
@@ -523,7 +523,7 @@ Klíčové slovo jazyka M4 patsubst() je nevhodné pro tento úkol.
 Všechny speciální znaky vstupního souboru proto napřed skryjeme do vhodně pojmenovaných maker pomocí regulárních výrazů.
 
 Upravený vstupní kód
-0a4e91e messages/messages.mc
+309469e messages/messages.mc
   1 # 2018/05/15 Josef Kubin
   2 
   3 ERROR([COMPLEX],     [[]EX()[]DQ()[#]$%[]AMP()[]AP()()*+,-./:;[]LT()=[]GT()?@[]LB()[]BS()[]RB()^_[]BQ(){|}~])
@@ -617,7 +617,7 @@ b53eafe messages/array.c.m4
  16 };
  17 divert(-1)
 
-~]$ m4 root0b.m4 array.c.m4 code.m4 messages.mc > array.c
+$ m4 root0b.m4 array.c.m4 code.m4 messages.mc > array.c
 
 9156810 messages/array.c
   1 /*
@@ -650,9 +650,9 @@ Makro SARG1() vybere první položku, protože druhá položka obsahuje nežádo
  12 SARG1(esyscmd([date '+[[hello_%Y%m%d]],']))
  13 divert(-1)
 
-~]$ m4 root0b.m4 hello.ini.m4 code.m4 messages.mc > hello.ini
+$ m4 root0b.m4 hello.ini.m4 code.m4 messages.mc > hello.ini
 
-7900e9c messages/hello.ini
+5964776 messages/hello.ini
   1 ; DO NOT EDIT! This file is generated automatically!
   2 
   3 [hello_20201225]
@@ -692,7 +692,7 @@ b53eafe messages/messages.h.m4
  24 #endif /* __ERROR_H */
  25 divert(-1)
 
-~]$ m4 root0b.m4 countb.m4 messages.h.m4 messages.mc > messages.h
+$ m4 root0b.m4 countb.m4 messages.h.m4 messages.mc > messages.h
 
 b53eafe messages/messages.h
   1 /*
@@ -737,7 +737,7 @@ b53eafe messages/stringl.c.m4
  22 "divert(1)";
  23 divert(-1)
 
-~]$ m4 root0b.m4 stringl.c.m4 code.m4 messages.mc > stringl.c
+$ m4 root0b.m4 stringl.c.m4 code.m4 messages.mc > stringl.c
 
 9156810 messages/stringl.c
   1 /*
@@ -776,7 +776,7 @@ Tento příklad je podobný předchozímu, avšak každý řetězec je na novém
  23 "divert(1)";
  24 divert(-1)
 
-~]$ m4 root0b.m4 string.c.m4 code.m4 messages.mc > string.c
+$ m4 root0b.m4 string.c.m4 code.m4 messages.mc > string.c
 
 9156810 messages/string.c
   1 /*
@@ -829,9 +829,9 @@ b53eafe messages/messages.html.m4
  31 </html>
  32 divert(-1)
 
-~]$ m4 root0b.m4 messages.html.m4 markup.m4 messages.mc > messages.html
+$ m4 root0b.m4 messages.html.m4 markup.m4 messages.mc > messages.html
 
-9156810 messages/messages.html
+5964776 messages/messages.html
   1 <!-- DO NOT EDIT! This file is generated automatically! -->
   2 <!doctype html>
   3 <html lang="en">
@@ -879,7 +879,7 @@ b53eafe messages/insect.txt.m4
  14 define([QUERY_INSECT],   [🐜])
  15 define([WARNING_INSECT], [🐝])
 
-~]$ m4 root0b.m4 insect.txt.m4 messages.mc > insect.txt
+$ m4 root0b.m4 insect.txt.m4 messages.mc > insect.txt
 
 b53eafe messages/insect.txt
   1 🐛🐜🐛🐝🐛🐝
@@ -937,7 +937,7 @@ b53eafe messages/atm.json.m4
  31 }}
  32 divert(-1)
 
-~]$ m4 root0b.m4 atm.json.m4 code.m4 messages.mc > atm.json
+$ m4 root0b.m4 atm.json.m4 code.m4 messages.mc > atm.json
 
 9156810 messages/atm.json
   1 {"generating_automaton": {
@@ -1010,9 +1010,9 @@ b53eafe messages/qnames.json.m4
  51 }}
  52 divert(-1)
 
-~]$ m4 root0b.m4 qnames.json.m4 code.m4 messages.mc > qnames.json
+$ m4 root0b.m4 qnames.json.m4 code.m4 messages.mc > qnames.json
 
-9156810 messages/qnames.json
+5964776 messages/qnames.json
   1 {"queue_names": {
   2 	"_comment": "DO NOT EDIT! This file is generated automatically!",
   3 	"query": [
@@ -1100,9 +1100,9 @@ b53eafe messages/messages.json.m4
  37 }}
  38 divert(-1)
 
-~]$ m4 root0b.m4 countb.m4 queues.m4 messages.json.m4 code.m4 messages.mc > messages.json
+$ m4 root0b.m4 countb.m4 queues.m4 messages.json.m4 code.m4 messages.mc > messages.json
 
-9156810 messages/messages.json
+5964776 messages/messages.json
   1 {"messages": {
   2 	"_comment": "DO NOT EDIT! This file is generated automatically!",
   3 	"query": [
@@ -1159,9 +1159,9 @@ c145bef messages/messages.ini.m4
  32 ; DONTE()
  33 divert(-1)
 
-~]$ m4 root0b.m4 messages.ini.m4 countb.m4 queues.m4 code.m4 messages.mc > messages.ini
+$ m4 root0b.m4 messages.ini.m4 countb.m4 queues.m4 code.m4 messages.mc > messages.ini
 
-9156810 messages/messages.ini
+5964776 messages/messages.ini
   1 ; DO NOT EDIT! This file is generated automatically!
   2 
   3 [query]
@@ -1204,9 +1204,9 @@ b53eafe messages/mixed.xml.m4
  22 </messages>
  23 divert(-1)
 
-~]$ m4 root0b.m4 queues.m4 mixed.xml.m4 markup.m4 messages.mc > mixed.xml
+$ m4 root0b.m4 queues.m4 mixed.xml.m4 markup.m4 messages.mc > mixed.xml
 
-9156810 messages/mixed.xml
+5964776 messages/mixed.xml
   1 <!-- DO NOT EDIT! This file is generated automatically! -->
   2 <?xml version="1.0" encoding="utf-8"?>
   3 <messages>
@@ -1281,9 +1281,9 @@ b53eafe messages/messages.xml.m4
  39 </messages>
  40 divert(-1)
 
-~]$ m4 root0b.m4 queues.m4 messages.xml.m4 markup.m4 messages.mc > messages.xml
+$ m4 root0b.m4 queues.m4 messages.xml.m4 markup.m4 messages.mc > messages.xml
 
-9156810 messages/messages.xml
+5964776 messages/messages.xml
   1 <!-- DO NOT EDIT! This file is generated automatically! -->
   2 <?xml version="1.0" encoding="utf-8"?>
   3 <messages>
@@ -1319,7 +1319,7 @@ b53eafe messages/messages.xml.m4
  33 	</warning>
  34 </messages>
 
-A.16 [] Bash ~]$ echo "řetězec"
+A.16 [] Bash $ echo "řetězec"
 b53eafe messages/doubleq.sh.m4
   1 # A → β
   2 # β
@@ -1341,9 +1341,9 @@ b53eafe messages/doubleq.sh.m4
  18 
  19 divert(-1)
 
-~]$ m4 root0b.m4 doubleq.sh.m4 doubleq.m4 messages.mc > doubleq.sh
+$ m4 root0b.m4 doubleq.sh.m4 doubleq.m4 messages.mc > doubleq.sh
 
-9156810 messages/doubleq.sh
+5964776 messages/doubleq.sh
   1 #!/bin/bash
   2 #
   3 # DO NOT EDIT! This file is generated automatically!
@@ -1355,7 +1355,7 @@ b53eafe messages/doubleq.sh.m4
   9 echo "It's not a language fault"\!""
  10 echo "No other errors were found."
 
-A.17 [] Bash ~]$ echo 'řetězec'
+A.17 [] Bash $ echo 'řetězec'
 b53eafe messages/apost.sh.m4
   1 # A → β
   2 # β
@@ -1377,9 +1377,9 @@ b53eafe messages/apost.sh.m4
  18 
  19 divert(-1)
 
-~]$ m4 root0b.m4 apost.sh.m4 apost.m4 messages.mc > apost.sh
+$ m4 root0b.m4 apost.sh.m4 apost.m4 messages.mc > apost.sh
 
-9156810 messages/apost.sh
+5964776 messages/apost.sh
   1 #!/bin/bash
   2 #
   3 # DO NOT EDIT! This file is generated automatically!
@@ -1449,7 +1449,7 @@ b53eafe preproc/file.c
  30 	return 0;
  31 }
 
-~]$ m4 -DSYMBOL='Hello, world!' root0q.m4 file.c.m4 file.c > preproc.file.c
+$ m4 -DSYMBOL='Hello, world!' root0q.m4 file.c.m4 file.c > preproc.file.c
 
 b53eafe preproc/preproc.file.c
   1 /*
@@ -1522,7 +1522,7 @@ Komentáře se vypínají stejným klíčovým slovem changecom bez parametrů.
  12 /* DONTE() */
  13 changecom/* DONTE() */changecom(/*,*/)
 
-~]$ m4 -DSYMBOL='Hello, world!' root0q.m4 file.css.m4 file.css > preproc.file.css
+$ m4 -DSYMBOL='Hello, world!' root0q.m4 file.css.m4 file.css > preproc.file.css
 
 41542d1 preproc/preproc.file.css
   1 /* DO NOT EDIT! This file is generated automatically! */
@@ -1567,7 +1567,7 @@ b53eafe preproc/file.sh
   9 	echo $HELLO
  10 fi
 
-~]$ m4 -DSYMBOL='Hello, world!' root0n.m4 file.sh.m4 file.sh > preproc.file.sh
+$ m4 -DSYMBOL='Hello, world!' root0n.m4 file.sh.m4 file.sh > preproc.file.sh
 
 b53eafe preproc/preproc.file.sh
   1 #!/bin/bash
@@ -1604,7 +1604,7 @@ b53eafe hello_world/json.m4
   8 	]
   9 }}
 
-~]$ m4 -DSYMBOL='Hello, world!' root0b.m4 json.m4 > hello_world.json
+$ m4 -DSYMBOL='Hello, world!' root0b.m4 json.m4 > hello_world.json
 
 b53eafe hello_world/hello_world.json
   1 {"foo": {
@@ -1654,7 +1654,7 @@ b53eafe hello_world/sh.m4
  32 	echo '__COUNTUP__] SYMBOL LB()__COUNTDN__'
  33 fi
 
-~]$ m4 -DSYMBOL='Hello, world!' root0b.m4 countb.m4 sh.m4 > hello_world.sh
+$ m4 -DSYMBOL='Hello, world!' root0b.m4 countb.m4 sh.m4 > hello_world.sh
 
 b53eafe hello_world/hello_world.sh
   1 #!/bin/bash
@@ -1699,7 +1699,7 @@ ce5cd99 hello_world/h.m4
  13 
  14 [#]endif /* __[]HELLO[]_H */
 
-~]$ m4 -DSYMBOL='Hello, world!' root0b.m4 h.m4 > hello_world.h
+$ m4 -DSYMBOL='Hello, world!' root0b.m4 h.m4 > hello_world.h
 
 6b10c6c hello_world/hello_world.h
   1 /*
@@ -1727,7 +1727,7 @@ Taková makra explicitně vytváří vývojář skriptů, prohlédněte si koře
   7 
   8 BEGIN { print "DONTE[]() LB () LB() SYMBOL ]" }
 
-~]$ m4 -DSYMBOL='Hello, world!' root1b.m4 awk.m4 > hello_world.awk
+$ m4 -DSYMBOL='Hello, world!' root1b.m4 awk.m4 > hello_world.awk
 
 3a8a5dd hello_world/hello_world.awk
   1 #!/bin/awk -f
