@@ -3,7 +3,7 @@ Generování kódu v M4: základy
 Makro procesor M4 se používá ke generování libovolně složitého kódu z jednoduchého zdrojového kódu.
 Tento díl je zaměřen na vysvětlení potřebných, zdánlivě složitých pojmů teoretické informatiky.
 
-Obsah (English)			mc txt pub spell aktualizováno 27. listopadu 2020
+Obsah (English)			mc txt pub spell aktualizováno 25. prosince 2020
 1 Úvod
 
 1 Úvod

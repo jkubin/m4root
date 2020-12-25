@@ -3,7 +3,7 @@ Generování kódu v M4: úvod
 Makro procesor M4 se používá ke generování libovolně složitého kódu z jednoduchého zdrojového kódu.
 Úvodní díl seriálu obsahuje jeho historii, základní principy jazyka, příklady použití a nutné předpoklady pro jeho zvládnutí.
 
-Obsah (English)			mc txt pub spell aktualizováno 27. listopadu 2020
+Obsah (English)			mc txt pub spell aktualizováno 25. prosince 2020
 1 Úvod
 	1.1 Příklady pro čtenáře
 2 Historie makro jazyků
@@ -531,7 +531,7 @@ Upravený vstupní kód
   5 ERROR([SUCCESS],     [Too complex M4 code failed successfully.])
   6 WARNING([ADDICTIVE], [Programming in M4 is addictive[]EX()])
   7 ERROR([NOFAULT],     [It[]AP()s not a language fault[]EX()])
-  8 WARNING([NO_ERRORS], [No other errors detected.])
+  8 WARNING([NO_ERRORS], [No other errors were found.])
 
 Vytvoříme několik převodních souborů podle typu cílového kódu, makra pro hranaté závorky LB() a RB() jsou už definována v kořenovém souboru.
 
@@ -655,7 +655,7 @@ Makro SARG1() vybere první položku, protože druhá položka obsahuje nežádo
 7900e9c messages/hello.ini
   1 ; DO NOT EDIT! This file is generated automatically!
   2 
-  3 [hello_20200807]
+  3 [hello_20201225]
   4 COMPLEX="!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~"
   5 SUCCESS="Too complex M4 code failed successfully."
   6 NOFAULT="It's not a language fault!"
@@ -852,7 +852,7 @@ b53eafe messages/messages.html.m4
  18 	<p id="SUCCESS">Too complex M4 code failed successfully.</p>
  19 	<p id="ADDICTIVE">Programming in M4 is addictive!</p>
  20 	<p id="NOFAULT">It's not a language fault!</p>
- 21 	<p id="NO_ERRORS">No other errors detected.</p>
+ 21 	<p id="NO_ERRORS">No other errors were found.</p>
  22 </body>
  23 </html>
 
@@ -1025,7 +1025,7 @@ b53eafe messages/qnames.json.m4
  10 	],
  11 	"warning": [
  12 		{"ADDICTIVE": "Programming in M4 is addictive!"},
- 13 		{"NO_ERRORS": "No other errors detected."}
+ 13 		{"NO_ERRORS": "No other errors were found."}
  14 	]
  15 }}
 
@@ -1115,7 +1115,7 @@ b53eafe messages/messages.json.m4
  10 	],
  11 	"warning": [
  12 		{"ADDICTIVE": "Programming in M4 is addictive!"},
- 13 		{"NO_ERRORS": "No other errors detected."}
+ 13 		{"NO_ERRORS": "No other errors were found."}
  14 	]
  15 }}
 
@@ -1174,7 +1174,7 @@ c145bef messages/messages.ini.m4
  10 
  11 [warning]
  12 ADDICTIVE="Programming in M4 is addictive!"
- 13 NO_ERRORS="No other errors detected."
+ 13 NO_ERRORS="No other errors were found."
 
 A.14 [] XML: smíšené zprávy
 Příklad používá jednu výstupní frontu číslo 1 pro uzavírací značku </messages>.
@@ -1232,7 +1232,7 @@ b53eafe messages/mixed.xml.m4
  23 	</error>
  24 	<warning>
  25 		<name>NO_ERRORS</name>
- 26 		<value>No other errors detected.</value>
+ 26 		<value>No other errors were found.</value>
  27 	</warning>
  28 </messages>
 
@@ -1314,7 +1314,7 @@ b53eafe messages/messages.xml.m4
  28 		</item>
  29 		<item>
  30 			<name>NO_ERRORS</name>
- 31 			<value>No other errors detected.</value>
+ 31 			<value>No other errors were found.</value>
  32 		</item>
  33 	</warning>
  34 </messages>
@@ -1353,7 +1353,7 @@ b53eafe messages/doubleq.sh.m4
   7 echo "Too complex M4 code failed successfully."
   8 echo "Programming in M4 is addictive"\!""
   9 echo "It's not a language fault"\!""
- 10 echo "No other errors detected."
+ 10 echo "No other errors were found."
 
 A.17 [] Bash ~]$ echo 'řetězec'
 b53eafe messages/apost.sh.m4
@@ -1389,7 +1389,7 @@ b53eafe messages/apost.sh.m4
   7 echo 'Too complex M4 code failed successfully.'
   8 echo 'Programming in M4 is addictive!'
   9 echo 'It'\''s not a language fault!'
- 10 echo 'No other errors detected.'
+ 10 echo 'No other errors were found.'
 
 B Příklady preprocesoru
 🛈 Znaky {`', [], ␂␆, ⟦⟧} v názvu příkladu řídí expanzi neterminálů.
