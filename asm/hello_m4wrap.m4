@@ -1,4 +1,4 @@
-# creates final asm code
+# creates the final asm code
 
 m4wrap([
 	divert(0)dnl
