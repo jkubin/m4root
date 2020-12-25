@@ -3,7 +3,7 @@ Generating code in M4: introduction
 The M4 macro processor is used to generate arbitrarily complex code from simple source code.
 The introductory part of the series contains its history, the basic principles of language, examples of usage and prerequisites for its mastery.
 
-Content (Česky)			mc txt pub spell updated November 27, 2020
+Content (Česky)			mc txt pub spell updated December 25, 2020
 1 Introduction
 	1.1 Examples for readers
 2 History of macro languages
@@ -530,7 +530,7 @@ Modified input code
   5 ERROR([SUCCESS],     [Too complex M4 code failed successfully.])
   6 WARNING([ADDICTIVE], [Programming in M4 is addictive[]EX()])
   7 ERROR([NOFAULT],     [It[]AP()s not a language fault[]EX()])
-  8 WARNING([NO_ERRORS], [No other errors detected.])
+  8 WARNING([NO_ERRORS], [No other errors were found.])
 
 We create several conversion files according to the target code type, LB() and RB() macros for square brackets are already defined in the root file.
 
@@ -654,7 +654,7 @@ The SARG1() macro selects the first item because the second item contains an unw
 7900e9c messages/hello.ini
   1 ; DO NOT EDIT! This file is generated automatically!
   2 
-  3 [hello_20200807]
+  3 [hello_20201225]
   4 COMPLEX="!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~"
   5 SUCCESS="Too complex M4 code failed successfully."
   6 NOFAULT="It's not a language fault!"
@@ -851,7 +851,7 @@ b53eafe messages/messages.html.m4
  18 	<p id="SUCCESS">Too complex M4 code failed successfully.</p>
  19 	<p id="ADDICTIVE">Programming in M4 is addictive!</p>
  20 	<p id="NOFAULT">It's not a language fault!</p>
- 21 	<p id="NO_ERRORS">No other errors detected.</p>
+ 21 	<p id="NO_ERRORS">No other errors were found.</p>
  22 </body>
  23 </html>
 
@@ -1024,7 +1024,7 @@ b53eafe messages/qnames.json.m4
  10 	],
  11 	"warning": [
  12 		{"ADDICTIVE": "Programming in M4 is addictive!"},
- 13 		{"NO_ERRORS": "No other errors detected."}
+ 13 		{"NO_ERRORS": "No other errors were found."}
  14 	]
  15 }}
 
@@ -1114,7 +1114,7 @@ b53eafe messages/messages.json.m4
  10 	],
  11 	"warning": [
  12 		{"ADDICTIVE": "Programming in M4 is addictive!"},
- 13 		{"NO_ERRORS": "No other errors detected."}
+ 13 		{"NO_ERRORS": "No other errors were found."}
  14 	]
  15 }}
 
@@ -1173,7 +1173,7 @@ c145bef messages/messages.ini.m4
  10 
  11 [warning]
  12 ADDICTIVE="Programming in M4 is addictive!"
- 13 NO_ERRORS="No other errors detected."
+ 13 NO_ERRORS="No other errors were found."
 
 A.14 [] XML: mixed messages
 The example uses one output queue number 1 for the </messages> closing tag.
@@ -1231,7 +1231,7 @@ b53eafe messages/mixed.xml.m4
  23 	</error>
  24 	<warning>
  25 		<name>NO_ERRORS</name>
- 26 		<value>No other errors detected.</value>
+ 26 		<value>No other errors were found.</value>
  27 	</warning>
  28 </messages>
 
@@ -1313,7 +1313,7 @@ b53eafe messages/messages.xml.m4
  28 		</item>
  29 		<item>
  30 			<name>NO_ERRORS</name>
- 31 			<value>No other errors detected.</value>
+ 31 			<value>No other errors were found.</value>
  32 		</item>
  33 	</warning>
  34 </messages>
@@ -1352,7 +1352,7 @@ b53eafe messages/doubleq.sh.m4
   7 echo "Too complex M4 code failed successfully."
   8 echo "Programming in M4 is addictive"\!""
   9 echo "It's not a language fault"\!""
- 10 echo "No other errors detected."
+ 10 echo "No other errors were found."
 
 A.17 [] Bash ~]$ echo 'string'
 b53eafe messages/apost.sh.m4
@@ -1388,7 +1388,7 @@ b53eafe messages/apost.sh.m4
   7 echo 'Too complex M4 code failed successfully.'
   8 echo 'Programming in M4 is addictive!'
   9 echo 'It'\''s not a language fault!'
- 10 echo 'No other errors detected.'
+ 10 echo 'No other errors were found.'
 
 B Preprocessor examples
 🛈 Chars. {`', [], ␂␆, ⟦⟧} in the name controls the expansion of nonterminals.
