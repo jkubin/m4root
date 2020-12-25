@@ -19,7 +19,7 @@ SOURCE = \
 	fundamentals.mc \
 
 
-DOC_FILE   = brief_documentation.txt
+DOC_FILE   = documentation.txt
 DEBUG_FILE = debug.m4
 REFS_MONO  = refs_mono.m4
 JAVASCRIPT = js/hgl_packed.js js/info_packed.js js/select_packed.js
