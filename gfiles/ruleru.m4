@@ -4,7 +4,7 @@ dnl DO NOT EDIT! This file is generated automatically!
 dnl
 __HEADER(⟦Josef Kubin⟧, ⟦2019/11/16⟧, ⟦root⟧)
 ___DESCR(⟦generates a string to truncate the next string (manually) because machine truncation is hardly acceptable⟧)
-___POINT(⟦computer cannot truncate the string to remain readable⟧)
+___POINT(⟦the computer cannot truncate the string to keep it completely readable⟧)
 ___USAGE(⟦m4 rootb.m4 rulerb.m4 …⟧)
 
 # a Java example (the string is obviously too long and requires human attention)
