@@ -22,7 +22,7 @@ SOURCE = \
 DOC_FILE   = brief_documentation.txt
 DEBUG_FILE = debug.m4
 REFS_MONO  = refs_mono.m4
-JAVASCRIPT = js/hgl_packed.js js/info_packed.js
+JAVASCRIPT = js/hgl_packed.js js/info_packed.js js/select_packed.js
 VPATH      = gfiles js
 SUBDIRS    = gfiles hello_world preproc messages asm
 MONITORED  = \
@@ -236,4 +236,4 @@ $(CLSUBDIRS):
 #:help/he/hl/h	prints help for this Makefile and generated mk files
 .PHONY: help he hl h
 help he hl h:
-	@sed -n '/^#:/{s//\x1b[7mmake /;s/\t/\x1b[m /;p}' Makefile $(wildcard *.mk) | sort -u	# ]]	<--- square brackets because of M4
+	@sed -n '/^#:/{s//\x1b[7mmake /;s/\t/\x1b[m /;p}' Makefile $(wildcard *.mk) | sort	# ]]	<--- square brackets because of M4

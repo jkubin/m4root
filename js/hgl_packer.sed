@@ -8,38 +8,39 @@
 # fixes removed space
 s/\<counterReset.split('/& /
 
-s/\<all_keywords\>/a/g
-s/\<all_sources\>/b/g
-s/\<another_class\>/c/g
-s/\<colored_stripe\>/d/g
-s/\<colored_stripe_classname\>/e/g
-s/\<default_class\>/f/g
-s/\<hgl_item\>/g/g
-s/\<hgl_keyword\>/h/g
-s/\<hgl_range\>/k/g
-s/\<highlighting_keywords\>/l/g
-s/\<highlighting_lines\>/m/g
-s/\<highlighting_sequence\>/n/g
-s/\<highlighting_words\>/o/g
-s/\<key\>/p/g
-s/\<last_line\>/q/g
-s/\<lines_of_code\>/r/g
-s/\<lines_to_highlight\>/s/g
-s/\<namespace_prefix\>/t/g
-s/\<node\>/u/g
-s/\<parsed_json\>/v/g
-s/\<pre_node\>/w/g
-s/\<resulting_class\>/x/g
-s/\<selected_range\>/y/g
-s/\<selected_text\>/z/g
-s/\<source_indexes\>/_/g
-s/\<source_info\>/A/g
-s/\<source_node\>/B/g
-s/\<striped_background\>/C/g
-s/\<striped_background\>/D/g
-s/\<striped_background_classname\>/E/g
-s/\<value\>/F/g
-s/\<counter_reset\>/G/g
+s/\<all_commands\>/a/g
+s/\<all_keywords\>/b/g
+s/\<all_sources\>/c/g
+s/\<another_class\>/d/g
+s/\<colored_stripe\>/e/g
+s/\<colored_stripe_classname\>/f/g
+s/\<counter_reset\>/g/g
+s/\<default_class\>/h/g
+s/\<hgl_item\>/k/g
+s/\<hgl_keyword\>/l/g
+s/\<hgl_range\>/m/g
+s/\<highlighting_keywords\>/n/g
+s/\<highlighting_lines\>/o/g
+s/\<highlighting_sequence\>/p/g
+s/\<highlighting_words\>/q/g
+s/\<key\>/r/g
+s/\<last_line\>/s/g
+s/\<lines_of_code\>/t/g
+s/\<lines_to_highlight\>/u/g
+s/\<namespace_prefix\>/v/g
+s/\<node\>/w/g
+s/\<parsed_json\>/x/g
+s/\<pre_node\>/y/g
+s/\<resulting_class\>/z/g
+s/\<selected_range\>/_/g
+s/\<selected_text\>/A/g
+s/\<source_indexes\>/B/g
+s/\<source_info\>/C/g
+s/\<source_node\>/D/g
+s/\<striped_background\>/E/g
+s/\<striped_background\>/F/g
+s/\<striped_background_classname\>/G/g
+s/\<value\>/H/g
 
 # the letters below are for regexes above, letters {i, j} are reserved for loops
 

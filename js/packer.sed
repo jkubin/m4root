@@ -29,3 +29,4 @@ s/\(\<const\|\<else\|\<let\|\<var\)\([[:lower:]]\)/\1 \2/g
 # name of attributes and methods
 
 s/\<method_add_info\>/a/g
+s/\<method_select\>/b/g

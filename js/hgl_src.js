@@ -10,6 +10,7 @@
 init: function (
 	all_keywords,
 	all_sources,
+	all_commands,
 	namespace_prefix,
 	striped_background_classname,
 	colored_stripe_classname,
@@ -39,6 +40,12 @@ init: function (
 		striped_background;
 
 	/*
+	 * adds onclick event handler for selection of a command line
+	 */
+	for (source_node of all_commands)
+		source_node.lastChild.firstChild.onclick = this.method_select;
+
+	/*
 	 * adds shaded stripes behind the source code
 	 */
 	for (source_node of all_sources) {
@@ -60,7 +67,14 @@ init: function (
 		 * display additional source code information
 		 */
 		if (source_info && source_info.tagName == "CODE") {
-			source_info.firstChild.onclick = this.method_add_info;
+
+			if (source_info.childNodes.length == 2) {
+				source_info.firstChild.onclick = this.method_select;
+			} else {
+				source_info.firstChild.onclick = this.method_add_info;
+				source_info.childNodes[2].onclick = this.method_select;
+			}
+			// source_info.firstChild.onclick = this.method_add_info;
 			// source_info.firstChild.title = "git …";
 		}
 
