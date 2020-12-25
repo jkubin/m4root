@@ -221,10 +221,10 @@ the CODE([#]) character begins with a[]NB()one-line comment like in a[]NB()UNIX 
 ]])
 
 LISTITEM([[dnl _first_language_
-proměnné XCODE([[$]@]), XCODE([[$]*]), XCODE([[$][#]]), XCODE([[$]0]), XCODE([[$]1]), XCODE([[$]2]), … mají podobný význam jako v[]NB()shell-u
+proměnné XCODE([$[@]]), XCODE([$[*]]), XCODE([$[#]]), XCODE([$[0]]), XCODE([$[1]]), XCODE([$[2]]), … mají podobný význam jako v[]NB()shell-u
 ],
 [dnl _next_language_
-variables XCODE([[$]@]), XCODE([[$]*]), XCODE([[$][#]]), XCODE([[$]0]), XCODE([[$]1]), XCODE([[$]2]), … have similar meanings as in a[]NB()UNIX shell
+variables XCODE([$[@]]), XCODE([$[*]]), XCODE([$[#]]), XCODE([$[0]]), XCODE([$[1]]), XCODE([$[2]]), … have similar meanings as in a[]NB()UNIX shell
 ]])
 
 LISTITEM([[dnl _first_language_
