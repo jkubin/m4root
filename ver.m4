@@ -1,6 +1,6 @@
-__HEADER([Josef Kubin], [2019/12/22], [root_cz])
-___DESCR([the project is in constant development; to avoid frustrating innocent users a version number is used])
-__REASON([stops source.mc processing if the major version number is different])
+__HEADER(⟦Josef Kubin⟧, ⟦2019/12/22⟧, ⟦root_cz⟧)
+___DESCR(⟦the project is in constant development; to avoid frustrating innocent users a version number is used⟧)
+__REASON(⟦stops source.mc processing if the major version number is different⟧)
 
 # MAJOR change means an incompatible change
 # MINOR change means a backward compatible change

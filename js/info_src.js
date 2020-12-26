@@ -1,8 +1,8 @@
 /* vim:cc=81
  *
- * __HEADER([Josef Kubin], [2020/05/04], [m4root])
- * ___DESCR([copy additional file information to other element])
- * __REASON([data selected by mouse])
+ * __HEADER(⟦Josef Kubin⟧, ⟦2020/05/04⟧, ⟦m4root⟧)
+ * ___DESCR(⟦copy additional file information to other element⟧)
+ * __REASON(⟦data selected by mouse⟧)
  *
  * /!\ keep all variable names consistent with packer
  */

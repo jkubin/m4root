@@ -1,6 +1,6 @@
-__HEADER([Josef Kubin], [2020/03/08], [html])
-___DESCR([here the processed parts of JavaScript-s are composed into the final script])
-__REASON([code decomposition to simplify difficult things])
+__HEADER(⟦Josef Kubin⟧, ⟦2020/03/08⟧, ⟦html⟧)
+___DESCR(⟦here the processed parts of JavaScript-s are composed into the final script⟧)
+__REASON(⟦code decomposition to simplify difficult things⟧)
 
 #      _____________________      __________
 # --->/ ADD_JAVASCRIPT_TAGS \--->/ undefine \

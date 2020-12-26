@@ -1,7 +1,7 @@
-# __HEADER([Josef Kubin], [2019/10/26], [root_cz])
-# ___DESCR([maintains consistent files with square bracket files])
-# __REASON([one hand-written file to generate additional files])
-# ___USAGE([make h && make])
+# __HEADER(⟦Josef Kubin⟧, ⟦2019/10/26⟧, ⟦root_cz⟧)
+# ___DESCR(⟦maintains consistent files with square bracket files⟧)
+# __REASON(⟦one hand-written file to generate additional files⟧)
+# ___USAGE(⟦make h && make⟧)
 
 # stem for generated files
 FILES = root root0 root1 count ruler
@@ -54,4 +54,4 @@ clean cl:
 #:help/he/hl/h	print this text
 .PHONY: help he hl h
 help he hl h:
-	@sed -n '/^#:/{s//\x1b[7mmake /;s/\t/\x1b[m /;p}' Makefile | sort	# ]]	<--- square brackets because of M4
+	@sed -n '/^#:/{s//\x1b[7mmake /;s/\t/\x1b[m /;p}' Makefile | sort

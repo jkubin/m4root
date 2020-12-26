@@ -1,6 +1,6 @@
-__HEADER([Josef Kubin], [2020/05/19], [text])
-___DESCR([command line with a list of input files, the last file is an output file])
-__REASON([estimate the total number of words and characters])
+__HEADER(⟦Josef Kubin⟧, ⟦2020/05/19⟧, ⟦text⟧)
+___DESCR(⟦command line with a list of input files, the last file is an output file⟧)
+__REASON(⟦estimate the total number of words and characters⟧)
 
 # β
 pushdef([TEST_NUMBER_OF_ARGS], [

@@ -1,6 +1,6 @@
-__HEADER([Josef Kubin], [2020/05/16], [text])
-___DESCR([automaton for generating text references])
-__REASON([two nodes to generate references])
+__HEADER(⟦Josef Kubin⟧, ⟦2020/05/16⟧, ⟦text⟧)
+___DESCR(⟦automaton for generating text references⟧)
+__REASON(⟦two nodes to generate references⟧)
 
 # REF([name], [description], [URL])
 #      ___________      __________

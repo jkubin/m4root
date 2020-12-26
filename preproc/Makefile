@@ -1,7 +1,7 @@
-# __HEADER([Josef Kubin], [2019/11/18], [root_cz])
-# ___DESCR([generic examples how to use M4 as a preprocessor])
-# __REASON([M4 as a preprocessor])
-# ___USAGE([make h && make])
+# __HEADER(⟦Josef Kubin⟧, ⟦2019/11/18⟧, ⟦root_cz⟧)
+# ___DESCR(⟦generic examples how to use M4 as a preprocessor⟧)
+# __REASON(⟦M4 as a preprocessor⟧)
+# ___USAGE(⟦make h && make⟧)
 
 SYMBOL = Hello, world!
 
@@ -46,4 +46,4 @@ clean cl:
 #:help/he/hl/h	print this text
 .PHONY: help he hl h
 help he hl h:
-	@sed -n '/^#:/{s//\x1b[7mmake /;s/\t/\x1b[m /;p}' Makefile | sort	# ]]	<--- square brackets because of M4
+	@sed -n '/^#:/{s//\x1b[7mmake /;s/\t/\x1b[m /;p}' Makefile | sort

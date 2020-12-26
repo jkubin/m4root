@@ -1,6 +1,6 @@
-__HEADER([Josef Kubin], [2019/12/01], [root_cz])
-___DESCR([navigation logic for HTML page; table of content; all parts of the series])
-__REASON([common script for preview and publish])
+__HEADER(⟦Josef Kubin⟧, ⟦2019/12/01⟧, ⟦root_cz⟧)
+___DESCR(⟦navigation logic for HTML page; table of content; all parts of the series⟧)
+__REASON(⟦common script for preview and publish⟧)
 
 # if the REF was used it changes automaton state to the REF_NEXT node
 ifelse(defn([REF]), defn([REF_NEXT]), [

@@ -1,8 +1,8 @@
 # vim:ts=10:sw=10
 
-__HEADER([Josef Kubin], [2019/12/24])
-___DESCR([the resulting style sheet is embedded in the web page or can be extracted into a separated file])
-__REASON([here are the main CSS rules; a subset will be selected into the final style sheet])
+__HEADER(⟦Josef Kubin⟧, ⟦2019/12/24⟧)
+___DESCR(⟦the resulting style sheet is embedded in the web page or can be extracted into a separated file⟧)
+__REASON(⟦here are the main CSS rules; a subset will be selected into the final style sheet⟧)
 
 # [[prefix1], [prefix2], …], [class_name1, class_name2, …], [[suffix1], [suffix2], …], [… rule set …]
 # if the middle bracket set is sempty, M4 template unconditionally places the rule set in the style sheet

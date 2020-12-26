@@ -1,8 +1,8 @@
 # vim:ts=40:sw=40
 
-__HEADER([Josef Kubin], [2019/07/11], [root_cz])
-___DESCR([the file contains language-specific words])
-__REASON([multilingual targets])
+__HEADER(⟦Josef Kubin⟧, ⟦2019/07/11⟧, ⟦root_cz⟧)
+___DESCR(⟦the file contains language-specific words⟧)
+__REASON(⟦multilingual targets⟧)
 
 # name of the series
 define([SERIES_NAME],	[Generating code in M4])

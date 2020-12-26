@@ -1,6 +1,6 @@
-__HEADER([Josef Kubin], [2019/07/11], [root_cz])
-___DESCR([creates a preview of the html page for article development])
-__REASON([development and preview of html file])
+__HEADER(⟦Josef Kubin⟧, ⟦2019/07/11⟧, ⟦root_cz⟧)
+___DESCR(⟦creates a preview of the html page for article development⟧)
+__REASON(⟦development and preview of html file⟧)
 
 # A → β
 define([AUTHOR_SHORT_DESCRIPTION], LANGW([dnl _first_language_

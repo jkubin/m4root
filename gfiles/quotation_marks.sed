@@ -1,8 +1,8 @@
 # vim:mps+=`\:'
 #
-# __HEADER([Josef Kubin], [2019/09/22], [m4root])
-# ___DESCR([converts the root file for square brackets to the root file for original quotation marks])
-# __REASON([root file for original quotation marks])
+# __HEADER(⟦Josef Kubin⟧, ⟦2019/09/22⟧, ⟦m4root⟧)
+# ___DESCR(⟦converts the root file for square brackets to the root file for original quotation marks⟧)
+# __REASON(⟦root file for original quotation marks⟧)
 
 1{
 # set vim modeline; write LOUD alert for unsuspecting users
@@ -18,8 +18,8 @@ s/\[/`/g
 s/]/'/g
 
 # necessary changes for unpaired characters
-/^define(`LB', `ifelse.*$/{N;z;s/^/define(`LB', `[')/}
-/^define(`RB', `ifelse.*$/{N;z;s/^/define(`RB', `]')/}
+/^define(`LB', .ifelse.*$/{N;z;s/^/define(`LB', `[')/}
+/^define(`RB', .ifelse.*$/{N;z;s/^/define(`RB', `]')/}
 
 /^define(`LQ', .*$/s//define(`LQ', `ifelse(`$#', `0', ``$0'', `changequote([,])`dnl'\nchangequote`'')')/
 /^define(`RQ', .*$/s//define(`RQ', `ifelse(`$#', `0', ``$0'', `changequote([,])dnl`\n'changequote`'')')/

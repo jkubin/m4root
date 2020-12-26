@@ -1,6 +1,6 @@
-__HEADER([Josef Kubin], [2020/01/14], [html])
-___DESCR([solution for html entities which must be hidden])
-__REASON([html entities])
+__HEADER(⟦Josef Kubin⟧, ⟦2020/01/14⟧, ⟦html⟧)
+___DESCR(⟦solution for html entities which must be hidden⟧)
+__REASON(⟦html entities⟧)
 
 # nbsp
 # A → β

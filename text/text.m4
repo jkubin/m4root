@@ -1,8 +1,8 @@
 # vim:ts=16:sw=16
 
-__HEADER([Josef Kubin], [2020/05/11], [m4root])
-___DESCR([generates a plain text file from (multiple) source files])
-__REASON([the total number of words and characters that would be printed])
+__HEADER(⟦Josef Kubin⟧, ⟦2020/05/11⟧, ⟦m4root⟧)
+___DESCR(⟦generates a plain text file from (multiple) source files⟧)
+__REASON(⟦the total number of words and characters that would be printed⟧)
 
 ifdef([PRINT_HEADER], [
 

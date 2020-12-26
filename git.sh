@@ -1,7 +1,7 @@
 #!/bin/bash
-# __HEADER([Josef Kubin], [2020/03/08], [m4root])
-# ___DESCR([generates a simple associative file database for the resulting generated code])
-# __REASON([fast code generation using associative memory])
+# __HEADER(⟦Josef Kubin⟧, ⟦2020/03/08⟧, ⟦m4root⟧)
+# ___DESCR(⟦generates a simple associative file database for the resulting generated code⟧)
+# __REASON(⟦fast code generation using associative memory⟧)
 
 cat << EOF
 # DO NOT EDIT! This file is generated automatically!

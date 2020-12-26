@@ -1,6 +1,6 @@
-# __HEADER([Josef Kubin], [2020/03/22], [m4root])
-# ___DESCR([removes unnecessary data from a JavaScript code; replaces long_self_descriptive_funny_variables with single letters])
-# __REASON([common code to pack all JavaScript-s])
+# __HEADER(⟦Josef Kubin⟧, ⟦2020/03/22⟧, ⟦m4root⟧)
+# ___DESCR(⟦removes unnecessary data from a JavaScript code; replaces long_self_descriptive_funny_variables with single letters⟧)
+# __REASON(⟦common code to pack all JavaScript-s⟧)
 
 # uncomment the following "b" command to disable packer if something behaves strangely
 #b

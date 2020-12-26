@@ -1,8 +1,8 @@
 # vim:mps+=\:
 #
-# __HEADER([Josef Kubin], [2019/09/22], [m4root])
-# ___DESCR([converts the root file for square brackets to the root file for nonprintable characters])
-# __REASON([root file for nonprintable characters])
+# __HEADER(⟦Josef Kubin⟧, ⟦2019/09/22⟧, ⟦m4root⟧)
+# ___DESCR(⟦converts the root file for square brackets to the root file for nonprintable characters⟧)
+# __REASON(⟦root file for nonprintable characters⟧)
 #
 # non printable chars  and  can be easily typed from Vim
 # 	Ctrl-b	as _b_eginning

@@ -1,7 +1,7 @@
-# __HEADER([Josef Kubin], [2019/10/09], [m4root])
-# ___DESCR([this handwritten Makefile automatically generates additional rules to generate target files])
-# __REASON([learning M4 using the examples in this series])
-# ___USAGE([make h && make && make])
+# __HEADER(⟦Josef Kubin⟧, ⟦2019/10/09⟧, ⟦m4root⟧)
+# ___DESCR(⟦this handwritten Makefile automatically generates additional rules to generate target files⟧)
+# __REASON(⟦learning M4 using the examples in this series⟧)
+# ___USAGE(⟦make h && make && make⟧)
 
  # <--- this is the form-feed character for Vim shortcut in normal mode
  #      type: [[ to skip backward, type: ]] to skip forward
@@ -119,12 +119,12 @@ test tst t: trunc devel
 
 .PHONY: devel
 #$(info $(subst $(SPACE),$(COMMA),$(JAVASCRIPT)))
-#devel: rootb.m4 cfg.m4 queues.m4 style.m4 css.m4 inline.m4 test.m4
-#devel: rootb.m4 cfg.m4 queues.m4 style.m4 css.m4 js.m4 test.m4
-#devel: rootb.m4 cfg.m4 queues.m4 style.m4 css.m4 test.m4
+#devel: rootu.m4 cfg.m4 queues.m4 style.m4 css.m4 inline.m4 test.m4
+#devel: rootu.m4 cfg.m4 queues.m4 style.m4 css.m4 js.m4 test.m4
+#devel: rootu.m4 cfg.m4 queues.m4 style.m4 css.m4 test.m4
 #devel:
-#	m4 gfiles/rootb.m4 --define='. a b c'='[xyz], [LU()], [123]' test.m4
-devel: rootb.m4 cfg.m4 git.m4 text/queues.m4 text/cmd.m4 html/ent.m4 test.m4
+#	m4 gfiles/rootu.m4 --define='. a b c'='[xyz], [LU()], [123]' test.m4
+devel: rootu.m4 cfg.m4 git.m4 text/queues.m4 text/cmd.m4 html/ent.m4 test.m4
 	m4 $^
 
 #:new/n	removes the date at the top of the page (usage: $ make new art)
@@ -174,28 +174,28 @@ pkjs pjs js j: $(JAVASCRIPT)
 %_packed.js: packer.sed %_packer.sed %_src.js
 	sed -f $< -f $(word 2, $^) $(lastword $^) | head -c -1 > $@
 
-$(REFS_MONO): rootb.m4 cfg.m4 refs/mono.m4
+$(REFS_MONO): rootu.m4 cfg.m4 refs/mono.m4
 	m4 $^ $(SOURCE) > $@
 
-refs_%.m4: rootb.m4 cfg.m4 lang_%.m4 lang.m4 headings.m4 refs.m4
+refs_%.m4: rootu.m4 cfg.m4 lang_%.m4 lang.m4 headings.m4 refs.m4
 	m4 -DLANG_CODE='$*' -DFILE_LIST='$(FILE_LIST)' $^ $(SOURCE) | sed -f refs.sed > $@
 
-man_%.mk: rootb.m4 refs_%.m4 lang.m4 headings.m4 mk/man.m4
+man_%.mk: rootu.m4 refs_%.m4 lang.m4 headings.m4 mk/man.m4
 	m4 -DLANG_CODE='$*' -DFILE_LIST='$(FILE_LIST)' -DREFS_FILES='$(REFS_LANG) $(REFS_MONO)' $^ > $@
 
-tex_%.mk: rootb.m4 refs_%.m4 lang.m4 headings.m4 mk/tex.m4
+tex_%.mk: rootu.m4 refs_%.m4 lang.m4 headings.m4 mk/tex.m4
 	m4 -DLANG_CODE='$*' -DFILE_LIST='$(FILE_LIST)' -DREFS_FILES='$(REFS_LANG) $(REFS_MONO)' $^ > $@
 
-texi_%.mk: rootb.m4 refs_%.m4 lang.m4 headings.m4 mk/texi.m4
+texi_%.mk: rootu.m4 refs_%.m4 lang.m4 headings.m4 mk/texi.m4
 	m4 -DLANG_CODE='$*' -DFILE_LIST='$(FILE_LIST)' -DREFS_FILES='$(REFS_LANG) $(REFS_MONO)' $^ > $@
 
-text_%.mk: rootb.m4 refs_%.m4 lang.m4 headings.m4 mk/text.m4
+text_%.mk: rootu.m4 refs_%.m4 lang.m4 headings.m4 mk/text.m4
 	m4 -DLANG_CODE='$*' -DFILE_LIST='$(FILE_LIST)' -DREFS_FILES='$(REFS_LANG) $(REFS_MONO)' $^ > $@
 
-html_%.mk: rootb.m4 refs_%.m4 lang.m4 headings.m4 mk/html.m4
+html_%.mk: rootu.m4 refs_%.m4 lang.m4 headings.m4 mk/html.m4
 	m4 -DLANG_CODE='$*' -DFILE_LIST='$(FILE_LIST)' -DREFS_FILES='$(REFS_LANG) $(REFS_MONO)' -DJAVASCRIPT='$(JAVASCRIPT)' $^ > $@
 
-fhtml_%.mk: rootb.m4 refs_%.m4 lang.m4 headings.m4 mk/fhtml.m4
+fhtml_%.mk: rootu.m4 refs_%.m4 lang.m4 headings.m4 mk/fhtml.m4
 	m4 -DLANG_CODE='$*' -DFILE_LIST='$(FILE_LIST)' -DREFS_FILES='$(REFS_LANG) $(REFS_MONO)' -DJAVASCRIPT='$(JAVASCRIPT)' $^ > $@
 
 git.m4: $(shell git ls-tree -r --name-only HEAD $(MONITORED))
@@ -236,4 +236,4 @@ $(CLSUBDIRS):
 #:help/he/hl/h	prints help for this Makefile and generated mk files
 .PHONY: help he hl h
 help he hl h:
-	@sed -n '/^#:/{s//\x1b[7mmake /;s/\t/\x1b[m /;p}' Makefile $(wildcard *.mk) | sort	# ]]	<--- square brackets because of M4
+	@sed -n '/^#:/{s//\x1b[7mmake /;s/\t/\x1b[m /;p}' Makefile $(wildcard *.mk) | sort

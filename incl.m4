@@ -1,6 +1,6 @@
-__HEADER([Josef Kubin], [2019/12/10], [root_cz])
-___DESCR([repeated text patterns for ALL parts should be written here; modified files from the include keyword are invisible for make])
-__REASON([how to avoid include keyword; Note: this is M4 not C!])
+__HEADER(⟦Josef Kubin⟧, ⟦2019/12/10⟧, ⟦root_cz⟧)
+___DESCR(⟦repeated text patterns for ALL parts should be written here; modified files from the include keyword are invisible for make⟧)
+__REASON(⟦how to avoid include keyword; Note: this is M4 not C!⟧)
 
 # author name with image (associative definition)
 # A → β

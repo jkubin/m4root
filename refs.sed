@@ -1,6 +1,6 @@
-# __HEADER([Josef Kubin], [2020/03/30], [m4root])
-# ___DESCR([converts strings for anchors/files to a plain-text-string format])
-# __REASON([generate references at the lightning speed])
+# __HEADER(⟦Josef Kubin⟧, ⟦2020/03/30⟧, ⟦m4root⟧)
+# ___DESCR(⟦converts strings for anchors/files to a plain-text-string format⟧)
+# __REASON(⟦generate references at the lightning speed⟧)
 
 # process strings for file names
 /^file/{

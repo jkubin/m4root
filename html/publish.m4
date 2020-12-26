@@ -1,6 +1,6 @@
-__HEADER([Josef Kubin], [2019/12/12], [root_cz])
-___DESCR([creates the final file for Content Management System (copy and paste)])
-__REASON([template for Content Management System])
+__HEADER(⟦Josef Kubin⟧, ⟦2019/12/12⟧, ⟦root_cz⟧)
+___DESCR(⟦creates the final file for Content Management System (copy and paste)⟧)
+__REASON(⟦template for Content Management System⟧)
 
 # A → β
 define([IMG_SRC], [$2])

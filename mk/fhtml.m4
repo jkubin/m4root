@@ -1,8 +1,8 @@
 # vim:ft=m4
 
-__HEADER([Josef Kubin], [2020/01/05], [root_cz])
-___DESCR([the script generates experimental additional rules extending the handwritten Makefile to generate HTML files])
-__REASON([additional rules by configuration from command line; the rules utilise M4 frozen files to generate HTML files])
+__HEADER(⟦Josef Kubin⟧, ⟦2020/01/05⟧, ⟦root_cz⟧)
+___DESCR(⟦the script generates experimental additional rules extending the handwritten Makefile to generate HTML files⟧)
+__REASON(⟦additional rules by configuration from command line; the rules utilise M4 frozen files to generate HTML files⟧)
 
 # A → β
 define([MAKE_RULE], [

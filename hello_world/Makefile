@@ -1,7 +1,7 @@
-# __HEADER([Josef Kubin], [2019/08/24], [root_cz])
-# ___DESCR([examples generate several hello world source files])
-# __REASON([how to generate files for different computer languages])
-# ___USAGE([make h && make])
+# __HEADER(⟦Josef Kubin⟧, ⟦2019/08/24⟧, ⟦root_cz⟧)
+# ___DESCR(⟦examples generate several hello world source files⟧)
+# __REASON(⟦how to generate files for different computer languages⟧)
+# ___USAGE(⟦make h && make⟧)
 
 SYMBOL = Hello, world!
 #SYMBOL = Hello world [1]!
@@ -80,4 +80,4 @@ clean cl:
 #:help/he/hl/h	prints help for this Makefile
 .PHONY: help he hl h
 help he hl h:
-	@sed -n '/^#:/{s//\x1b[7mmake /;s/\t/\x1b[m /;p}' Makefile | sort	# ]]	<--- square brackets because of M4
+	@sed -n '/^#:/{s//\x1b[7mmake /;s/\t/\x1b[m /;p}' Makefile | sort

@@ -1,6 +1,6 @@
-# __HEADER([Josef Kubin], [2020/05/19], [m4root])
-# ___DESCR([the script modifies input source code for M4 processing])
-# __REASON([problematic characters must be hidden])
+# __HEADER(⟦Josef Kubin⟧, ⟦2020/05/19⟧, ⟦m4root⟧)
+# ___DESCR(⟦the script modifies input source code for M4 processing⟧)
+# __REASON(⟦problematic characters must be hidden⟧)
 
 # hide M4 problematic characters to https://en.wikipedia.org/wiki/Escape_sequences_in_C
 s/\[/\\x5b;/g
