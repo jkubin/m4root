@@ -3,44 +3,44 @@ ___DESCR(⟦⟧)
 __REASON(⟦⟧)
 
 # β
-define([COW], [🐄define([$0], defn([DOG]))])
-define([DOG], [🐕define([$0], defn([PIG]))])
-define([PIG], [🐖define([$0], defn([RAT]))])
-define([RAT], [🐀define([$0], defn([TUX]))])
-define([TUX], [🐧define([$0], defn([ANT]))])
-define([ANT], [🐜define([$0], defn([COW]))])
+define(⟦COW⟧, ⟦🐄define(⟦$0⟧, defn(⟦DOG⟧))⟧)
+define(⟦DOG⟧, ⟦🐕define(⟦$0⟧, defn(⟦PIG⟧))⟧)
+define(⟦PIG⟧, ⟦🐖define(⟦$0⟧, defn(⟦RAT⟧))⟧)
+define(⟦RAT⟧, ⟦🐀define(⟦$0⟧, defn(⟦TUX⟧))⟧)
+define(⟦TUX⟧, ⟦🐧define(⟦$0⟧, defn(⟦ANT⟧))⟧)
+define(⟦ANT⟧, ⟦🐜define(⟦$0⟧, defn(⟦COW⟧))⟧)
 
 # β
-define([APPLE], [🍏define([$0], defn([RAT]))])
-define([MELON], [🍉define([$0], defn([ANT]))])
-define([LEMON], [🍋define([$0], defn([COW]))])
-define([PEAR],  [🍐define([$0], defn([TUX]))])
-define([BANAN], [🍌define([$0], defn([TUX]))])
-define([PEACH], [🍑define([$0], defn([TUX]))])
+define(⟦APPLE⟧, ⟦🍏define(⟦$0⟧, defn(⟦RAT⟧))⟧)
+define(⟦MELON⟧, ⟦🍉define(⟦$0⟧, defn(⟦ANT⟧))⟧)
+define(⟦LEMON⟧, ⟦🍋define(⟦$0⟧, defn(⟦COW⟧))⟧)
+define(⟦PEAR⟧,  ⟦🍐define(⟦$0⟧, defn(⟦TUX⟧))⟧)
+define(⟦BANAN⟧, ⟦🍌define(⟦$0⟧, defn(⟦TUX⟧))⟧)
+define(⟦PEACH⟧, ⟦🍑define(⟦$0⟧, defn(⟦TUX⟧))⟧)
 
 # β
-define([TREE], [🌲define([$0], defn([TUX]))])
-define([PALM], [🌴define([$0], defn([TUX]))])
-define([ROSE], [🌹define([$0], defn([TUX]))])
-define([HERB], [🌿define([$0], defn([TUX]))])
-define([LEAF], [🍁define([$0], defn([TUX]))])
-define([BLOOM],[🌼define([$0], defn([TUX]))])
+define(⟦TREE⟧, ⟦🌲define(⟦$0⟧, defn(⟦TUX⟧))⟧)
+define(⟦PALM⟧, ⟦🌴define(⟦$0⟧, defn(⟦TUX⟧))⟧)
+define(⟦ROSE⟧, ⟦🌹define(⟦$0⟧, defn(⟦TUX⟧))⟧)
+define(⟦HERB⟧, ⟦🌿define(⟦$0⟧, defn(⟦TUX⟧))⟧)
+define(⟦LEAF⟧, ⟦🍁define(⟦$0⟧, defn(⟦TUX⟧))⟧)
+define(⟦BLOOM⟧,⟦🌼define(⟦$0⟧, defn(⟦TUX⟧))⟧)
 
-define([MOON], [🌛define([$0], defn([TUX]))])
-define([STAR], [🌟define([$0], defn([TUX]))])
-define([SUN],  [🌞define([$0], defn([TUX]))])
-define([RAINB],[🌈define([$0], defn([TUX]))])
-define([CLOUD],[⛅define([$0], defn([TUX]))])
+define(⟦MOON⟧, ⟦🌛define(⟦$0⟧, defn(⟦TUX⟧))⟧)
+define(⟦STAR⟧, ⟦🌟define(⟦$0⟧, defn(⟦TUX⟧))⟧)
+define(⟦SUN⟧,  ⟦🌞define(⟦$0⟧, defn(⟦TUX⟧))⟧)
+define(⟦RAINB⟧,⟦🌈define(⟦$0⟧, defn(⟦TUX⟧))⟧)
+define(⟦CLOUD⟧,⟦⛅define(⟦$0⟧, defn(⟦TUX⟧))⟧)
 
 MOON
 
-define([FOUR], [🍀define([$0], defn([TUX]))])
+define(⟦FOUR⟧, ⟦🍀define(⟦$0⟧, defn(⟦TUX⟧))⟧)
 
-ifelse([
+ifelse(⟦
 🔥 FIRE
 🌊 WATER
  RAIN
-define([RAIN], [⛆define([$0], defn([TUX]))])
+define(⟦RAIN⟧, ⟦⛆define(⟦$0⟧, defn(⟦TUX⟧))⟧)
  RAINBOW
 🌁 FOGGY
 🌫FOG
@@ -77,19 +77,19 @@ CLOUD
 🌿 HERB (U+1F33F)
 🍀 FOUR LEAF CLOVER (U+1F340)
 🍁 MAPLE LEAF (U+1F341)
-])dnl comment
+⟧)dnl comment
 
 # A → β
-define([SYMBOL], defn([PIG]))
+define(⟦SYMBOL⟧, defn(⟦PIG⟧))
 
 # A → β
-define([ERROR], [
+define(⟦ERROR⟧, ⟦
 
 	divert(0)dnl
 SYMBOL
 divert(-1)
-])
+⟧)
 
 # A → β
-define([QUERY], [
-])
+define(⟦QUERY⟧, ⟦
+⟧)

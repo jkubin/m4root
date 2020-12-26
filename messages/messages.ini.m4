@@ -5,28 +5,28 @@
 
 # A → β
 # β
-define([ERROR], [
+define(⟦ERROR⟧, ⟦
 
 	divert($0_QU)
-BRAC($0_NAME)
-[$1]="$2"
+[$0_NAME]
+⟦$1⟧="$2"
 divert(-1)
 
 	# transition to the next node
-	define([$0], defn([NEXT_ITEM]))
-])
+	define(⟦$0⟧, defn(⟦NEXT_ITEM⟧))
+⟧)
 
 # A → β
-define([QUERY],   defn([ERROR]))
-define([WARNING], defn([ERROR]))
+define(⟦QUERY⟧,   defn(⟦ERROR⟧))
+define(⟦WARNING⟧, defn(⟦ERROR⟧))
 
 # β
-define([NEXT_ITEM], [
+define(⟦NEXT_ITEM⟧, ⟦
 
 	divert($0_QU)dnl
-[$1]="$2"
+⟦$1⟧="$2"
 divert(-1)
-])
+⟧)
 
 divert(0)dnl
 ; DONTE()

@@ -1,8 +1,8 @@
 # 2018/05/15 Josef Kubin
 
-ERROR([COMPLEX],     [[]EX()[]DQ()[#]$%[]AMP()[]AP()()*+,-./:;[]LT()=[]GT()?@[]LB()[]BS()[]RB()^_[]BQ(){|}~])
-QUERY([READABLE],    [Is badly written M4 code readable []LB()N/y[]RB()?])
-ERROR([SUCCESS],     [Too complex M4 code failed successfully.])
-WARNING([ADDICTIVE], [Programming in M4 is addictive[]EX()])
-ERROR([NOFAULT],     [It[]AP()s not a language fault[]EX()])
-WARNING([NO_ERRORS], [No other errors were found.])
+ERROR(⟦COMPLEX⟧,     ⟦⟦⟧EX()⟦⟧DQ()⟦#⟧$%⟦⟧AMP()⟦⟧AP()()*+,-./:;⟦⟧LT()=⟦⟧GT()?@[⟦⟧BS()]^_⟦⟧BQ(){|}~⟧)
+QUERY(⟦READABLE⟧,    ⟦Is badly written M4 code readable [N/y]?⟧)
+ERROR(⟦SUCCESS⟧,     ⟦Too complex M4 code failed successfully.⟧)
+WARNING(⟦ADDICTIVE⟧, ⟦Programming in M4 is addictive⟦⟧EX()⟧)
+ERROR(⟦NOFAULT⟧,     ⟦It⟦⟧AP()s not a language fault⟦⟧EX()⟧)
+WARNING(⟦NO_ERRORS⟧, ⟦No other errors were found.⟧)

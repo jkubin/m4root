@@ -2,18 +2,18 @@
 
 # A → β
 # β
-define([ERROR], [
+define(⟦ERROR⟧, ⟦
 
 	divert(0)dnl
-		[<li>$0: <a href="#$1">$1</a></li>]
+		⟦<li>$0: <a href="#$1">$1</a></li>⟧
 divert(1)dnl
-	<p id="[$1]">$2</p>
+	<p id="⟦$1⟧">$2</p>
 divert(-1)
-])
+⟧)
 
 # A → β
-define([QUERY], defn([ERROR]))
-define([WARNING], defn([ERROR]))
+define(⟦QUERY⟧, defn(⟦ERROR⟧))
+define(⟦WARNING⟧, defn(⟦ERROR⟧))
 
 divert(0)dnl
 <!-- DONTE() -->

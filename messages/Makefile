@@ -52,10 +52,10 @@ $(DOUBLE_QUOTE): doubleq.m4 messages.mc Makefile
 
 $(NOTHING): messages.mc Makefile
 
-%: root0b.m4 countb.m4 queues.m4 %.m4
+%: root0u.m4 countu.m4 queues.m4 %.m4
 	m4 $(filter-out Makefile, $^) > $@
 
-%.csv: root0b.m4 countb.m4 %.csv.m4 messages_raw.mc Makefile
+%.csv: root0u.m4 countu.m4 %.csv.m4 messages_raw.mc Makefile
 	m4 $(filter-out Makefile, $^) > $@
 
 

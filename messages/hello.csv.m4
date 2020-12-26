@@ -1,7 +1,7 @@
 # A → β
-define([ERROR], [
+define(⟦ERROR⟧, ⟦
 
 	divert(0)dnl
-[$1	$2]
+⟦$1	$2⟧
 divert(-1)
-])
+⟧)

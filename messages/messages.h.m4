@@ -1,16 +1,16 @@
 # A → β
-define([COUNTER], defn([COUNT_UP]))
+define(⟦COUNTER⟧, defn(⟦COUNT_UP⟧))
 
 # init counter
 COUNTER(0)
 
 # A → β
-define([ERROR], [
+define(⟦ERROR⟧, ⟦
 
 	divert(0)dnl
-[#define $1		0x]eval(COUNTER, 16, 2)
+⟦#define $1		0x⟧eval(COUNTER, 16, 2)
 divert(-1)
-])
+⟧)
 
 divert(0)dnl
 /*

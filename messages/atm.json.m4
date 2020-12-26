@@ -3,26 +3,26 @@
 #     \_______/    \___________/<--'
 
 # A → β
-define([ERROR], [
+define(⟦ERROR⟧, ⟦
 
 	# transition to the next node
-	define([$0], defn([NEXT_ITEM]))
+	define(⟦$0⟧, defn(⟦NEXT_ITEM⟧))
 
 	divert(0),
-	"error": LB()
-		{"[$1]": "$2"}dnl
+	"error": [
+		{"⟦$1⟧": "$2"}dnl
 divert(1)
-	RB()
+	]
 divert(-1)
-])
+⟧)
 
 # β
-define([NEXT_ITEM], [
+define(⟦NEXT_ITEM⟧, ⟦
 
 	divert(0),
-		{"[$1]": "$2"}dnl
+		{"⟦$1⟧": "$2"}dnl
 divert(-1)
-])
+⟧)
 
 divert(0)dnl
 {"generating_automaton": {
