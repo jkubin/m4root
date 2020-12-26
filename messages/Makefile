@@ -53,9 +53,9 @@ $(APOSTROPHE): apost.m4 messages.mc Makefile
 
 $(DOUBLE_QUOTE): doubleq.m4 messages.mc Makefile
 
-$(NOTHING): unchanged.m4 messages.mc Makefile
-
 $(HEREDOC): heredoc.m4 messages.mc Makefile
+
+$(NOTHING): unchanged.m4 messages.mc Makefile
 
 %: root0u.m4 countu.m4 queues.m4 %.m4
 	m4 $(filter-out Makefile, $^) > $@
