@@ -3,7 +3,7 @@
 define(⟦ERROR⟧, ⟦
 
 	divert(0)dnl
-$2
+⟦$2⟧
 divert(-1)
 ⟧)
 
