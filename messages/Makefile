@@ -30,7 +30,10 @@ insect.txt \
 messages.h \
 summary.txt \
 
-TARGETS = $(MARKUP_LANG)$(SOURCE_CODE)$(NOTHING)$(APOSTROPHE)$(DOUBLE_QUOTE)
+HEREDOC = \
+heredoc.sh \
+
+TARGETS = $(MARKUP_LANG)$(SOURCE_CODE)$(NOTHING)$(APOSTROPHE)$(DOUBLE_QUOTE)$(HEREDOC)
 
 VPATH = ../gfiles/
 
@@ -50,7 +53,9 @@ $(APOSTROPHE): apost.m4 messages.mc Makefile
 
 $(DOUBLE_QUOTE): doubleq.m4 messages.mc Makefile
 
-$(NOTHING): messages.mc Makefile
+$(NOTHING): unchanged.m4 messages.mc Makefile
+
+$(HEREDOC): heredoc.m4 messages.mc Makefile
 
 %: root0u.m4 countu.m4 queues.m4 %.m4
 	m4 $(filter-out Makefile, $^) > $@
