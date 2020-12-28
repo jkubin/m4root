@@ -251,9 +251,13 @@ define(⟦CHAPTER_FIRST⟧, ⟦
 
 	divert(START_OF_NAVIGATION)dnl generates table of content
 defn(⟦WORD_CONTENT⟧)dnl
-ifelse(defn(OTHER_LANG_CODE⟦⟧_OTHER_LANG), ⟦⟧, ⟦⟧, ⟦ (ARG1(OTHER_LANG_CODE)_OTHER_LANG)⟧)dnl
-			mc txt pub spell dnl
-ifdef(⟦NEW_ARTICLE⟧, ⟦⟧, ⟦WORD_UPDATED SARG1(esyscmd(defn(⟦DATE_COMMAND⟧)))⟧)
+ifelse(defn(OTHER_LANG_CODE⟦⟧_OTHER_LANG), ⟦⟧, ⟦⟧, ⟦ (ARG1(OTHER_LANG_CODE)_OTHER_LANG)⟧)	mc dnl
+esyscmd(⟦test -f ./⟧defn(⟦ARTICLE_PATH⟧)⟦/spell.txt⟧)ifelse(sysval, ⟦0⟧,     ⟦spl ⟧)dnl
+esyscmd(⟦test -f ./⟧defn(⟦ARTICLE_PATH⟧)⟦.txt⟧)ifelse(sysval, ⟦0⟧,           ⟦txt ⟧)dnl
+esyscmd(⟦test -f ./⟧defn(⟦ARTICLE_PATH⟧)⟦/publish.txt⟧)ifelse(sysval, ⟦0⟧,   ⟦pub ⟧)dnl
+esyscmd(⟦test -f ./⟧defn(⟦ARTICLE_PATH⟧)⟦/index.html⟧)ifelse(sysval, ⟦0⟧,    ⟦dev ⟧)dnl
+esyscmd(⟦test -f ./⟧defn(⟦ARTICLE_PATH⟧)⟦/preview.html⟧)ifelse(sysval, ⟦0⟧,  ⟦pre ⟧)dnl
+ifdef(⟦NEW_ARTICLE⟧, ⟦⟧, ⟦ WORD_UPDATED SARG1(esyscmd(defn(⟦DATE_COMMAND⟧)))⟧)
 divert(END_OF_NAVIGATION)
 divert(-1)
 
