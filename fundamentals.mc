@@ -1,3 +1,5 @@
+# vim:mps+=⟦\:⟧
+
 __HEADER(⟦Josef Kubin⟧, ⟦2020/02/09⟧, ⟦m4root⟧)
 ___DESCR(⟦⟧)
 
