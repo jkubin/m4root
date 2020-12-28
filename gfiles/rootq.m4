@@ -48,7 +48,6 @@ define(`DONTE', `ifelse(`$#', `0', ``$0'',
 define(`FST', `ifelse(`$#', `0', ``$0'', `$1')')
 define(`SND', `ifelse(`$#', `0', ``$0'', `$2')')
 define(`TRD', `ifelse(`$#', `0', ``$0'', `$3')')
-define(`FTH', `ifelse(`$#', `0', ``$0'', `$4')')
 
 # expands n-th argument (use Vim shortcuts Ctrl-a or Ctrl-x to change ARGn)
 define(`ARG1',	`$1')
@@ -82,7 +81,7 @@ define(`EXPAND_ARG1_WITHOUT_TRAILING_LF', `patsubst(`$1', `\s*')')
 define(`NAR', `$#')
 
 # adds another universal pair of symbols that protects unwanted expansion
-# (`payr' is not a word from the dictionary)
+# (`paYr' is not a word from the dictionary)
 define(`PAYR', ``$@'')
 
 # adds another layer of paired symbols
@@ -110,19 +109,19 @@ define(`RU', `⟧')
 
 # expands the last argument
 # A(`$1', `$2', …, `$n') → $$# → $n → β
-define(`EXPAND_LAST', `define(`#', `$$#')indir(`#', $@)')
+define(`EXPAND_LAST_ARG', `define(`#', `$$#')indir(`#', $@)')
 
 # selects the last argument
 # A(`$1', `$2', …, `$n') → $$# → `$n'
-define(`SELECT_LAST', `define(`#', ``$$#'')indir(`#', $@)')
+define(`SELECT_LAST_ARG', `define(`#', ``$$#'')indir(`#', $@)')
 
 # expands the last but one (there must be at least two arguments)
 # A(`$1', `$2', …, `$n') → $decr($#) → $(n-1) → β
-define(`EXPAND_LASTB1', `define(`#', $decr($#))indir(`#', $@)')
+define(`EXPAND_LAST_BUT_ONE', `define(`#', $decr($#))indir(`#', $@)')
 
 # selects the last but one (there must be at least two arguments)
 # A(`$1', `$2', …, `$n') → $decr($#) → `$(n-1)'
-define(`SELECT_LASTB1', `define(`#', BRAC($decr($#)))indir(`#', $@)')
+define(`SELECT_LAST_BUT_ONE', `define(`#', PAYR($decr($#)))indir(`#', $@)')
 
 # prints an informative message to stderr
 define(`ROOT_INFO', `errprint(__file__:__line__`: info: $1
