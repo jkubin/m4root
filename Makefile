@@ -119,12 +119,12 @@ test tst t: trunc devel
 
 .PHONY: devel
 #$(info $(subst $(SPACE),$(COMMA),$(JAVASCRIPT)))
-#devel: rootu.m4 cfg.m4 queues.m4 style.m4 css.m4 inline.m4 test.m4
-#devel: rootu.m4 cfg.m4 queues.m4 style.m4 css.m4 js.m4 test.m4
-#devel: rootu.m4 cfg.m4 queues.m4 style.m4 css.m4 test.m4
+#devel: rootu.m4 config.m4 queues.m4 style.m4 css.m4 inline.m4 test.m4
+#devel: rootu.m4 config.m4 queues.m4 style.m4 css.m4 js.m4 test.m4
+#devel: rootu.m4 config.m4 queues.m4 style.m4 css.m4 test.m4
 #devel:
 #	m4 gfiles/rootu.m4 --define='. a b c'='[xyz], [LU()], [123]' test.m4
-devel: rootu.m4 cfg.m4 git.m4 text/queues.m4 text/cmd.m4 html/ent.m4 test.m4
+devel: rootu.m4 config.m4 git.m4 text/queues.m4 text/cmd.m4 html/ent.m4 test.m4
 	m4 $^
 
 #:new/n	removes the date at the top of the page (usage: $ make new art)
@@ -174,10 +174,10 @@ pkjs pjs js j: $(JAVASCRIPT)
 %_packed.js: packer.sed %_packer.sed %_src.js
 	sed -f $< -f $(word 2, $^) $(lastword $^) | head -c -1 > $@
 
-$(REFS_MONO): rootu.m4 cfg.m4 refs/mono.m4
+$(REFS_MONO): rootu.m4 config.m4 refs/mono.m4
 	m4 $^ $(SOURCE) > $@
 
-refs_%.m4: rootu.m4 cfg.m4 lang_%.m4 lang.m4 headings.m4 refs.m4
+refs_%.m4: rootu.m4 config.m4 lang_%.m4 lang.m4 headings.m4 refs.m4
 	m4 -DLANG_CODE='$*' -DFILE_LIST='$(FILE_LIST)' $^ $(SOURCE) | sed -f refs.sed > $@
 
 man_%.mk: rootu.m4 refs_%.m4 lang.m4 headings.m4 mk/man.m4
