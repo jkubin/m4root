@@ -81,14 +81,14 @@ pushdef(⟦SET_ANCHOR⟧, ⟦
 # β
 pushdef(⟦HTML_MONOLINGUAL⟧, ⟦
 	divert(CURRQU)dnl
-<defn(⟦##$0>⟧)⟧defn(⟦HTML_MONO_GLOBAL_ATTRIBUTES⟧)⟦>EXPAND_ARG1_WITHOUT_TRAILING_LF(⟧defn(⟦EXPAND_LAST⟧)⟦)</defn(⟦##$0>⟧)>
+<defn(⟦##$0>⟧)⟧defn(⟦HTML_MONO_GLOBAL_ATTRIBUTES⟧)⟦>EXPAND_ARG1_WITHOUT_TRAILING_LF(⟧defn(⟦EXPAND_LAST_ARG⟧)⟦)</defn(⟦##$0>⟧)>
 divert(-1)
 ⟧)
 
 # β
 pushdef(⟦HTML_MULTILINGUAL⟧, ⟦
 	divert(CURRQU)dnl
-<defn(⟦##$0>⟧)⟧defn(⟦HTML_GLOBAL_ATTRIBUTES⟧)⟦>EXPAND_LANG_WITHOUT_TRAILING_LF(⟧defn(⟦EXPAND_LAST⟧)⟦)</defn(⟦##$0>⟧)>
+<defn(⟦##$0>⟧)⟧defn(⟦HTML_GLOBAL_ATTRIBUTES⟧)⟦>EXPAND_LANG_WITHOUT_TRAILING_LF(⟧defn(⟦EXPAND_LAST_ARG⟧)⟦)</defn(⟦##$0>⟧)>
 divert(-1)
 ⟧)
 
@@ -96,7 +96,7 @@ divert(-1)
 define(⟦PART⟧, defn(⟦PART_INIT⟧)⟦
 
 	# set value (used in multiple places)
-	define(⟦PART_val⟧, EXPAND_LANG(⟧defn(⟦EXPAND_LAST⟧)⟦))
+	define(⟦PART_val⟧, EXPAND_LANG(⟧defn(⟦EXPAND_LAST_ARG⟧)⟦))
 ⟧)
 
 # β
@@ -347,28 +347,28 @@ define(⟦IMAGEDATA⟧, ⟦
 
 	divert(CURRQU)dnl
 <img src="IMG_SRC($6)" alt="⟦⟧NB()" width="SARG1(IMAGE_DIM)" height="SARG2(IMAGE_DIM)"⟧defn(⟦HTML_MONO_GLOBAL_ATTRIBUTES⟧)⟦>
-<p><em>WORD_IMAGE <a href="⟦#⟧defn(__file__.mono.⟦$1⟧)" title="⚓">IMAGE_COUNTER</a>: EXPAND_LANG_WITHOUT_TRAILING_LF(⟧defn(⟦EXPAND_LAST⟧)⟦)</em></p>
+<p><em>WORD_IMAGE <a href="⟦#⟧defn(__file__.mono.⟦$1⟧)" title="⚓">IMAGE_COUNTER</a>: EXPAND_LANG_WITHOUT_TRAILING_LF(⟧defn(⟦EXPAND_LAST_ARG⟧)⟦)</em></p>
 divert(-1)
 ⟧)
 
 # A → β
 define(⟦PLAIN_TEXT_MONO⟧, ⟦
 	divert(CURRQU)dnl
-EXPAND_ARG1_WITHOUT_TRAILING_LF(⟧defn(⟦EXPAND_LAST⟧)⟦)⟦⟧dnl
+EXPAND_ARG1_WITHOUT_TRAILING_LF(⟧defn(⟦EXPAND_LAST_ARG⟧)⟦)⟦⟧dnl
 divert(-1)
 ⟧)
 
 # A → β
 define(⟦PLAIN_TEXT⟧, ⟦
 	divert(CURRQU)dnl
-EXPAND_LANG_WITHOUT_TRAILING_LF(⟧defn(⟦EXPAND_LAST⟧)⟦)⟦⟧dnl
+EXPAND_LANG_WITHOUT_TRAILING_LF(⟧defn(⟦EXPAND_LAST_ARG⟧)⟦)⟦⟧dnl
 divert(-1)
 ⟧)
 
 # A → β
 define(⟦COMMENT_MONO⟧, ⟦
 	divert(CURRQU)dnl
-<!-- EXPAND_ARG1_WITHOUT_TRAILING_LF(⟧defn(⟦EXPAND_LAST⟧)⟦) -->
+<!-- EXPAND_ARG1_WITHOUT_TRAILING_LF(⟧defn(⟦EXPAND_LAST_ARG⟧)⟦) -->
 divert(-1)
 ⟧)
 
@@ -377,7 +377,7 @@ define(⟦NOTE_WRAP⟧, ⟦
 	divert(CURRQU)dnl
 <div⟧defn(⟦HTML_NOTE_ATTRIBUTES⟧)⟦>dnl
 divert(-1)
-	⟧defn(⟦EXPAND_LAST⟧)⟦
+	⟧defn(⟦EXPAND_LAST_ARG⟧)⟦
 
 	divert(CURRQU)dnl
 </div>
@@ -387,42 +387,42 @@ divert(-1)
 # A → β
 define(⟦NOTE_MONO⟧, ⟦
 	divert(CURRQU)dnl
-<div⟧defn(⟦HTML_NOTE_ATTRIBUTES⟧)⟦>EXPAND_ARG1_WITHOUT_TRAILING_LF(⟧defn(⟦EXPAND_LAST⟧)⟦)</div>
+<div⟧defn(⟦HTML_NOTE_ATTRIBUTES⟧)⟦>EXPAND_ARG1_WITHOUT_TRAILING_LF(⟧defn(⟦EXPAND_LAST_ARG⟧)⟦)</div>
 divert(-1)
 ⟧)
 
 # A → β
 define(⟦NOTE⟧, ⟦
 	divert(CURRQU)dnl
-<div⟧defn(⟦HTML_NOTE_ATTRIBUTES⟧)⟦>EXPAND_LANG_WITHOUT_TRAILING_LF(⟧defn(⟦EXPAND_LAST⟧)⟦)</div>
+<div⟧defn(⟦HTML_NOTE_ATTRIBUTES⟧)⟦>EXPAND_LANG_WITHOUT_TRAILING_LF(⟧defn(⟦EXPAND_LAST_ARG⟧)⟦)</div>
 divert(-1)
 ⟧)
 
 # A → β
 define(⟦WARN⟧, ⟦
 	divert(CURRQU)dnl
-<div⟧defn(⟦HTML_WARN_ATTRIBUTES⟧)⟦>EXPAND_LANG_WITHOUT_TRAILING_LF(⟧defn(⟦EXPAND_LAST⟧)⟦)</div>
+<div⟧defn(⟦HTML_WARN_ATTRIBUTES⟧)⟦>EXPAND_LANG_WITHOUT_TRAILING_LF(⟧defn(⟦EXPAND_LAST_ARG⟧)⟦)</div>
 divert(-1)
 ⟧)
 
 # A → β
 define(⟦EXCL⟧, ⟦
 	divert(CURRQU)dnl
-<div⟧defn(⟦HTML_EXCL_ATTRIBUTES⟧)⟦>EXPAND_LANG_WITHOUT_TRAILING_LF(⟧defn(⟦EXPAND_LAST⟧)⟦)</div>
+<div⟧defn(⟦HTML_EXCL_ATTRIBUTES⟧)⟦>EXPAND_LANG_WITHOUT_TRAILING_LF(⟧defn(⟦EXPAND_LAST_ARG⟧)⟦)</div>
 divert(-1)
 ⟧)
 
 # A → β
 define(⟦INFO⟧, ⟦
 	divert(CURRQU)dnl
-<div⟧defn(⟦HTML_INFO_ATTRIBUTES⟧)⟦>EXPAND_LANG_WITHOUT_TRAILING_LF(⟧defn(⟦EXPAND_LAST⟧)⟦)</div>
+<div⟧defn(⟦HTML_INFO_ATTRIBUTES⟧)⟦>EXPAND_LANG_WITHOUT_TRAILING_LF(⟧defn(⟦EXPAND_LAST_ARG⟧)⟦)</div>
 divert(-1)
 ⟧)
 
 # A → β
 define(⟦TILE_BOX⟧, ⟦
 	divert(CURRQU)dnl
-<div⟧defn(⟦ID_1⟧, ⟦TITLE_2⟧, ⟦CLASS_3_TILE⟧, ⟦STYLE_4⟧)⟦>EXPAND_LANG_WITHOUT_TRAILING_LF(⟧defn(⟦EXPAND_LAST⟧)⟦)</div>
+<div⟧defn(⟦ID_1⟧, ⟦TITLE_2⟧, ⟦CLASS_3_TILE⟧, ⟦STYLE_4⟧)⟦>EXPAND_LANG_WITHOUT_TRAILING_LF(⟧defn(⟦EXPAND_LAST_ARG⟧)⟦)</div>
 divert(-1)
 ⟧)
 
@@ -476,7 +476,7 @@ divert(-1)
 
 # A → β
 # β
-define(⟦DIV_WRAP⟧, defn(⟦HTML_UNPAIRED_TAG⟧, ⟦EXPAND_LAST⟧)⟦
+define(⟦DIV_WRAP⟧, defn(⟦HTML_UNPAIRED_TAG⟧, ⟦EXPAND_LAST_ARG⟧)⟦
 
 	divert(CURRQU)dnl
 </defn(⟦##$0>⟧)>

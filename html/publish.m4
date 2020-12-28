@@ -42,7 +42,7 @@ PARTIMAGE
 
 # shortcut for perex: "+yip
 
-EXPAND_LANG_WITHOUT_TRAILING_LF(⟧defn(⟦EXPAND_LAST⟧)⟦)
+EXPAND_LANG_WITHOUT_TRAILING_LF(⟧defn(⟦EXPAND_LAST_ARG⟧)⟦)
 
 # shortcut for article: "+yG
 

@@ -66,7 +66,7 @@ pushdef(⟦VAR_ANYTHING_6⟧,	⟦ifelse(⟦$#⟧, ⟦6⟧, ⟦⟧, ⟦$6⟧, ⟦
 pushdef(⟦VAR_ANYTHING_7⟧,	⟦ifelse(⟦$#⟧, ⟦7⟧, ⟦⟧, ⟦$7⟧, ⟦⟧, ⟦⟧, ⟦ ⟦$7⟧⟧)⟧)
 
 # this is an example, how to solve the problem of excessive commas (how not to fall into a coma :-)
-#define(⟦ULINK_TWO⟧,	⟦ULINK(⟦$1⟧, ifelse(⟦$#⟧, ⟦2⟧, ⟦⟧, ⟦⟦$2⟧⟧),,,, ifelse(⟦$#⟧, ⟦3⟧, ⟦⟧, ⟦⟦$3⟧⟧), ⟧defn(⟦SELECT_LAST⟧)⟦)⟧)
+#define(⟦ULINK_TWO⟧,	⟦ULINK(⟦$1⟧, ifelse(⟦$#⟧, ⟦2⟧, ⟦⟧, ⟦⟦$2⟧⟧),,,, ifelse(⟦$#⟧, ⟦3⟧, ⟦⟧, ⟦⟦$3⟧⟧), ⟧defn(⟦SELECT_LAST_ARG⟧)⟦)⟧)
 # how to use ULINK_TWO(…), an example how to reduce the amount of commas
 #
 # ULINK_TWO(⟦URL⟧)	---> <a href="URL">URL</a>
@@ -111,7 +111,7 @@ MAKE_INLINE_ELEMENT(⟦UL⟧,	⟦ul⟧)
 MAKE_INLINE_ELEMENT(⟦UNDERLINE⟧,	⟦u⟧)
 MAKE_INLINE_ELEMENT(⟦VARIABLE⟧,	⟦var⟧)
 MAKE_INLINE_ELEMENT_SPECIAL(⟦CODE⟧,	⟦<code⟧defn(⟦HTML_GLOBAL_ATTRIBUTES⟧)⟦>⟦$1⟧</code>⟧)
-MAKE_INLINE_ELEMENT_SPECIAL(⟦ULINK⟧,	⟦<a href="⟧defn(⟦SELECT_LAST⟧)"defn(⟦VAR_TITLE_2⟧, ⟦VAR_CLASS_3⟧, ⟦VAR_STYLE_4⟧, ⟦VAR_ID_5⟧, ⟦VAR_REL_6⟧, ⟦VAR_ANYTHING_7⟧)⟦>$1</a>⟧)
+MAKE_INLINE_ELEMENT_SPECIAL(⟦ULINK⟧,	⟦<a href="⟧defn(⟦SELECT_LAST_ARG⟧)"defn(⟦VAR_TITLE_2⟧, ⟦VAR_CLASS_3⟧, ⟦VAR_STYLE_4⟧, ⟦VAR_ID_5⟧, ⟦VAR_REL_6⟧, ⟦VAR_ANYTHING_7⟧)⟦>$1</a>⟧)
 
 # keyword to highlight line(s) in source code
 # how to use:
@@ -144,7 +144,7 @@ divert(CURRQU)dnl
 # β
 pushdef(⟦BETA3⟧, ⟦defn(⟦DATA_SET⟧)>$1</$0_TAG>popdef(⟦CURRQU⟧, ⟦DATA_SET_KEY⟧, ⟦DATA_SET⟧)⟧)
 pushdef(⟦BETA4⟧, ⟦defn(⟦DATA_SET⟧)>⟦$1⟧</$0_TAG>popdef(⟦CURRQU⟧, ⟦DATA_SET_KEY⟧, ⟦DATA_SET⟧)⟧)
-pushdef(⟦SUPER_BETA⟧, defn(⟦BETA1⟧, ⟦EXPAND_LAST⟧, ⟦BETA2⟧, ⟦VAR_TITLE_2⟧, ⟦VAR_CLASS_3_HGL⟧, ⟦VAR_STYLE_4⟧, ⟦VAR_ID_5⟧, ⟦VAR_ANYTHING_6⟧))
+pushdef(⟦SUPER_BETA⟧, defn(⟦BETA1⟧, ⟦EXPAND_LAST_ARG⟧, ⟦BETA2⟧, ⟦VAR_TITLE_2⟧, ⟦VAR_CLASS_3_HGL⟧, ⟦VAR_STYLE_4⟧, ⟦VAR_ID_5⟧, ⟦VAR_ANYTHING_6⟧))
 
 # A → β
 define(⟦HCODE⟧, defn(⟦SUPER_BETA⟧, ⟦BETA4⟧))

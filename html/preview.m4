@@ -95,7 +95,7 @@ divert(HEADER_END_START_BODY)dnl
 </span>
 <div class="design-article__text">
 <div class="design-article__perex">
-<div class="design-article__perex-content">EXPAND_LANG_WITHOUT_TRAILING_LF(⟧defn(⟦EXPAND_LAST⟧)⟦)</div>
+<div class="design-article__perex-content">EXPAND_LANG_WITHOUT_TRAILING_LF(⟧defn(⟦EXPAND_LAST_ARG⟧)⟦)</div>
 </div>
 </div>
 </div>
