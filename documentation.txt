@@ -1,6 +1,6 @@
 # vim:wrap:spell:spelllang=en
 # DO NOT EDIT! This file is generated automatically!
-# generated: 20201228-04:23:41
+# generated: 20201228-05:05:42
 # total number of files: 90
 #
 # To update, run:
@@ -570,61 +570,61 @@ Note: m4root
 Description: (this is a generated file) associative memory for linking files
 Reason: simple hash database for files
 ---
-File 79: cfg.m4
-Author: Josef Kubin
-Started: 2019/12/09
-Note: root_cz
-Description: configuration file for all generated files
-Reason: one file to configure all generated files
----
-File 80: refs_en.m4
+File 79: refs_en.m4
 Author: Josef Kubin
 Started: 2019/12/11
 Note: root_cz
 Description: (this is a generated file) associative memory to linking references, contains captions and ID
 Reason: simple hash database for linking references
 ---
-File 81: mk/fhtml.m4
+File 80: mk/fhtml.m4
 Author: Josef Kubin
 Started: 2020/01/05
 Note: root_cz
 Description: the script generates experimental additional rules extending the handwritten Makefile to generate HTML files
 Reason: additional rules by configuration from command line; the rules utilise M4 frozen files to generate HTML files
 ---
-File 82: mk/text.m4
+File 81: mk/text.m4
 Author: Josef Kubin
 Started: 2020/05/19
 Note: mk
 Description: generates additional rules extending the handwritten Makefile to generate txt files
 Reason: additional rules to generate txt files
 ---
-File 83: mk/html.m4
+File 82: mk/html.m4
 Author: Josef Kubin
 Started: 2019/09/01
 Note: root_cz
 Description: the script generates additional rules extending the handwritten Makefile to generate HTML files
 Reason: additional rules by configuration from command line to generate HTML files
 ---
-File 84: mk/texi.m4
+File 83: mk/texi.m4
 Author: Josef Kubin
 Started: 2020/05/19
 Note: mk
 Description: the script generates additional rules extending the handwritten Makefile to generate texi files
 Reason: additional rules by configuration from command line to generate texi files
 ---
-File 85: mk/man.m4
+File 84: mk/man.m4
 Author: Josef Kubin
 Started: 2020/05/19
 Note: mk
 Description: the script generates additional rules extending the handwritten Makefile to generate man files
 Reason: additional rules by configuration from command line to generate man files
 ---
-File 86: mk/xml.m4
+File 85: mk/xml.m4
 Author: Josef Kubin
 Started: 2020/01/11
 Note: mk
 Description: the script creates rules for Makefile to generate XML files
 Reason: generated XML files
+---
+File 86: config.m4
+Author: Josef Kubin
+Started: 2019/12/09
+Note: root_cz
+Description: configuration file for all generated files
+Reason: one file to configure all generated files
 ---
 File 87: Makefile
 Author: Josef Kubin
