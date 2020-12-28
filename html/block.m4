@@ -151,7 +151,7 @@ esyscmd(⟦test -f ./⟧defn(⟦ARTICLE_PATH⟧)⟦/spell.txt⟧)ifelse(sysval, 
 esyscmd(⟦test -f ./⟧defn(⟦ARTICLE_PATH⟧)⟦.txt⟧)ifelse(sysval, ⟦0⟧,           ⟦<a href="SRC_FILE_PATH(defn(⟦ARTICLE_PATH⟧)⟦.txt⟧)" title="defn(⟦WORD_ARTICLE_TEXT⟧)">txt</a>⟧)dnl
 esyscmd(⟦test -f ./⟧defn(⟦ARTICLE_PATH⟧)⟦/publish.txt⟧)ifelse(sysval, ⟦0⟧,   ⟦<a href="SRC_FILE_PATH(defn(⟦ARTICLE_PATH⟧)⟦/publish.txt⟧)" title="defn(⟦WORD_PUBLISH_TEXT⟧)">pub</a>⟧)dnl
 <br>dnl … unfinished …
-esyscmd(⟦test -f ./⟧defn(⟦ARTICLE_PATH⟧)⟦/index.html⟧)ifelse(sysval, ⟦0⟧,    ⟦<a href="SRC_FILE_PATH(defn(⟦ARTICLE_PATH⟧)⟦/index.html⟧)" title="defn(⟦WORD_ARTICLE_DEVELOPMENT⟧)">dev</a>⟧)dnl
+esyscmd(⟦test -f ./⟧defn(⟦ARTICLE_PATH⟧)⟦/index.html⟧)ifelse(sysval, ⟦0⟧,    ⟦<a href="SRC_FILE_PATH(defn(⟦ARTICLE_PATH⟧)⟦/index.html⟧)" title="defn(⟦WORD_ARTICLE_DEVELOPMENT⟧)">dvl</a>⟧)dnl
 esyscmd(⟦test -f ./⟧defn(⟦ARTICLE_PATH⟧)⟦/preview.html⟧)ifelse(sysval, ⟦0⟧,  ⟦<a href="SRC_FILE_PATH(defn(⟦ARTICLE_PATH⟧)⟦/preview.html⟧)" title="defn(⟦WORD_ARTICLE_PREVIEW⟧)">pre</a>⟧)dnl
 dnl esyscmd(⟦test -f ./⟧defn(⟦ARTICLE_PATH⟧)⟦.md⟧)ifelse(sysval, ⟦0⟧,            ⟦<a href="SRC_FILE_PATH(defn(⟦ARTICLE_PATH⟧)⟦.md⟧)" title="defn(⟦WORD_ARTICLE_MARKDOWN⟧)">md</a>⟧)dnl
 ⟦⟧NB()dnl
