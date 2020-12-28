@@ -1,6 +1,6 @@
 # vim:mps+=⟦\:⟧
 
-__HEADER(⟦Josef Kubin⟧, ⟦2020/02/09⟧, ⟦m4root⟧)
+__HEADER(⟦Josef Kubin⟧, ⟦2020/02/09⟧)
 ___DESCR(⟦⟧)
 
 VERSION_TEMPLATE(1, 0, 0)

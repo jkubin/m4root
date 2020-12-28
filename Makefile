@@ -1,4 +1,4 @@
-# __HEADER(⟦Josef Kubin⟧, ⟦2019/10/09⟧, ⟦m4root⟧)
+# __HEADER(⟦Josef Kubin⟧, ⟦2019/10/09⟧)
 # ___DESCR(⟦this handwritten Makefile automatically generates additional rules to generate target files⟧)
 # __REASON(⟦learning M4 using the examples in this series⟧)
 # ___USAGE(⟦make h && make && make⟧)

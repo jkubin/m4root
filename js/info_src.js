@@ -1,6 +1,6 @@
 /* vim:cc=81
  *
- * __HEADER(⟦Josef Kubin⟧, ⟦2020/05/04⟧, ⟦m4root⟧)
+ * __HEADER(⟦Josef Kubin⟧, ⟦2020/05/04⟧)
  * ___DESCR(⟦copy additional file information to other element⟧)
  * __REASON(⟦data selected by mouse⟧)
  *

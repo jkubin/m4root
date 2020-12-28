@@ -1,4 +1,4 @@
-__HEADER(⟦Your Name⟧, ⟦skeletonVIM_CREATION_DATE⟧, ⟦skeletonVIM_DIRECTORY⟧)
+__HEADER(⟦Your Name⟧, ⟦skeletonVIM_CREATION_DATE⟧)
 __THANKS(⟦⟧)
 ___DESCR(⟦⟧)
 __REASON(⟦⟧)

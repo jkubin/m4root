@@ -1,6 +1,6 @@
 # vim:ts=40:sw=40
 
-__HEADER(⟦Josef Kubin⟧, ⟦2019/07/11⟧, ⟦root_cz⟧)
+__HEADER(⟦Josef Kubin⟧, ⟦2019/07/11⟧)
 ___DESCR(⟦definitions of indexes for output queues⟧)
 __REASON(⟦each target generation file format has a specific list of queues⟧)
 

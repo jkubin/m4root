@@ -1,6 +1,6 @@
 # vim:mps+=⟦\:⟧
 #
-# __HEADER(⟦Josef Kubin⟧, ⟦2019/09/22⟧, ⟦m4root⟧)
+# __HEADER(⟦Josef Kubin⟧, ⟦2019/09/22⟧)
 # ___DESCR(⟦converts the root file for square brackets to the root file for UTF-8 characters⟧)
 # __REASON(⟦root file for UTF-8 characters⟧)
 

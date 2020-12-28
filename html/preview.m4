@@ -1,4 +1,4 @@
-__HEADER(⟦Josef Kubin⟧, ⟦2019/07/11⟧, ⟦root_cz⟧)
+__HEADER(⟦Josef Kubin⟧, ⟦2019/07/11⟧)
 ___DESCR(⟦creates a preview of the html page for article development⟧)
 __REASON(⟦development and preview of html file⟧)
 

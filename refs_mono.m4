@@ -1,6 +1,6 @@
 # DO NOT EDIT! This file is generated automatically!
 
-__HEADER(⟦Josef Kubin⟧, ⟦2020/04/01⟧, ⟦m4root⟧)
+__HEADER(⟦Josef Kubin⟧, ⟦2020/04/01⟧)
 ___DESCR(⟦(this is a generated file) associative memory for linking files⟧)
 __REASON(⟦simple hash database for files⟧)
 

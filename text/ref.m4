@@ -1,4 +1,4 @@
-__HEADER(⟦Josef Kubin⟧, ⟦2020/05/16⟧, ⟦text⟧)
+__HEADER(⟦Josef Kubin⟧, ⟦2020/05/16⟧)
 ___DESCR(⟦automaton for generating text references⟧)
 __REASON(⟦two nodes to generate references⟧)
 

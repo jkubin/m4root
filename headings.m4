@@ -1,4 +1,4 @@
-__HEADER(⟦Josef Kubin⟧, ⟦2019/12/31⟧, ⟦root_cz⟧)
+__HEADER(⟦Josef Kubin⟧, ⟦2019/12/31⟧)
 ___DESCR(⟦sets heading item in desired language⟧)
 __REASON(⟦{mono,multi}lingual headings⟧)
 

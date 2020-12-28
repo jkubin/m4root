@@ -1,6 +1,6 @@
 # vim:ft=m4
 
-__HEADER(⟦Josef Kubin⟧, ⟦2019/09/01⟧, ⟦root_cz⟧)
+__HEADER(⟦Josef Kubin⟧, ⟦2019/09/01⟧)
 ___DESCR(⟦the script generates additional rules extending the handwritten Makefile to generate HTML files⟧)
 __REASON(⟦additional rules by configuration from command line to generate HTML files⟧)
 

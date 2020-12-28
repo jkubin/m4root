@@ -1,4 +1,4 @@
-__HEADER(⟦Josef Kubin⟧, ⟦2020/05/31⟧, ⟦m4root⟧)
+__HEADER(⟦Josef Kubin⟧, ⟦2020/05/31⟧)
 ___DESCR(⟦initialization code of each target⟧)
 __REASON(⟦reduces duplicate code⟧)
 

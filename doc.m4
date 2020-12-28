@@ -1,7 +1,7 @@
 dnl vim:ts=32:sw=32
 divert(-1)changequote(⟦,⟧)
 
-__HEADER(⟦Josef Kubin⟧, ⟦2020/01/20⟧, ⟦m4root⟧)
+__HEADER(⟦Josef Kubin⟧, ⟦2020/01/20⟧)
 ___DESCR(⟦extracts headers from source files and creates brief documentation⟧)
 __REASON(⟦a solution for cryptic short filenames⟧)
 ___USAGE(⟦m4 doc.m4 file1.m4 file2.sed file3.abc …⟧)
