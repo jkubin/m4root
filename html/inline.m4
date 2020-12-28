@@ -279,7 +279,7 @@ define(⟦REF_FIRST⟧, ⟦pushdef(⟦CURRQU⟧, divnum)divert(-1)
 	# create new entry for all references under the article
 	divert(ARTICLE_REFERENCES)dnl
 <ol class="ADD_CLASS(⟦refs⟧)">
-<li>ifelse(defn(⟦CURRQU⟧), ⟦-1⟧, ⟦⟧, ⟦<a href="⟦#⟧REF_IDENTIFIER" title="WORD_SOURCE"></a>⟧)<b>$1</b>ifelse(⟦$2⟧, ⟦⟧, ⟦⟧, ⟦, $2⟧)
+<li>ifelse(defn(⟦CURRQU⟧), ⟦-1⟧, ⟦⟧, ⟦<a href="⟦#⟧REF_IDENTIFIER" title="WORD_SOURCE"></a>⟧)<b>$1</b>ifelse(⟦$2⟧, ⟦⟧, ⟦⟧, ⟦, $2⟧),
 <a href="⟦$3⟧">⟦$3⟧</a></li>
 divert(END_OF_REFERENCES)dnl
 </ol>
@@ -302,7 +302,7 @@ define(⟦REF_NEXT⟧, ⟦pushdef(⟦CURRQU⟧, divnum)divert(-1)
 		define(⟦{$1|$2|$3}⟧, REF_VALUE)
 
 		divert(ARTICLE_REFERENCES)dnl
-<li>ifelse(defn(⟦CURRQU⟧), ⟦-1⟧, ⟦⟧, ⟦<a href="⟦#⟧REF_IDENTIFIER" title="WORD_SOURCE"></a>⟧)<b>$1</b>ifelse(⟦$2⟧, ⟦⟧, ⟦⟧, ⟦, $2⟧)
+<li>ifelse(defn(⟦CURRQU⟧), ⟦-1⟧, ⟦⟧, ⟦<a href="⟦#⟧REF_IDENTIFIER" title="WORD_SOURCE"></a>⟧)<b>$1</b>ifelse(⟦$2⟧, ⟦⟧, ⟦⟧, ⟦, $2⟧),
 <a href="⟦$3⟧">⟦$3⟧</a></li>
 divert(CURRQU)popdef(⟦CURRQU⟧)dnl
 <a href="⟦$3⟧" title="$1" id="REF_IDENTIFIER">[REF_VALUE]</a>dnl
