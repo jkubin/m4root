@@ -2,7 +2,7 @@
 #
 # DO NOT EDIT! This file is generated automatically!
 #
-# __SOURCE(⟦intro.mc⟧, ⟦20201228-04:50:04⟧, ⟦bc6c8bc⟧, ⟦372dd4e⟧)
+# __SOURCE(⟦intro.mc⟧, ⟦20201228-06:19:57⟧, ⟦bc6c8bc⟧, ⟦eb627f7⟧)
 
 8
 Generating code in M4: introduction
