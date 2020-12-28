@@ -3,7 +3,7 @@ Generování kódu v M4: úvod
 Makro procesor M4 se používá ke generování libovolně složitého kódu z jednoduchého zdrojového kódu.
 Úvodní díl seriálu obsahuje jeho historii, základní principy jazyka, příklady použití a nutné předpoklady pro jeho zvládnutí.
 
-Obsah (English)			mc txt pub spell aktualizováno 25. prosince 2020
+Obsah (English)			mc txt pub spell aktualizováno 28. prosince 2020
 1 Úvod
 	1.1 Příklady pro čtenáře
 2 Historie makro jazyků
@@ -122,9 +122,9 @@ Všimněte si téměř dokonalé symbiózy s jazykem C
 • argumenty maker oddělují čárky stejně jako argumenty funkcí jazyka C
 	• je-li definováno makro FUNC(char c, int i), jeho proměnné jsou:
 $# → 2, $0 → FUNC, $1 → char c, $2 → int i
-• levý řídící znak ` pro neterminály není součástí syntaxe rodiny jazyků C
+• levý řídící znak ` není součástí syntaxe rodiny jazyků C
 • pravý řídící znak ' nevadí, není-li součástí makra
-	• oba řídící znaky lze skrýt do uživatelsky definovaných maker LQ(), RQ()
+	• oba řídící znaky lze skrýt do uživatelských maker LQ(), RQ()
 • makra se píší VELKYMI_PISMENY, stejně jako neterminální symboly
 	• tím je vymezen jejich jmenný prostor
 
@@ -430,87 +430,87 @@ https://is.muni.cz/publication/173173
 A Příklady generování kódu
 🛈 Znaky {`', [], ␂␆, ⟦⟧} v názvu příkladu řídí expanzi neterminálů.
 
-	A.1 [] Vstupní zdrojový kód
-	A.2 [] CSV: nejjednodušší příklad
-	A.3 [] CSV: počítadlo
+	A.1 ⟦⟧ Vstupní zdrojový kód
+	A.2 ⟦⟧ CSV: nejjednodušší příklad
+	A.3 ⟦⟧ CSV: počítadlo
 	A.4 💡 Úpravy speciálních znaků
-	A.5 [] C: výstupní fronta
-	A.6 [] INI: externí příkaz
-	A.7 [] .h: hex počítadlo
-	A.8 [] C: malý automat
-	A.9 [] C: malý automat 2
-	A.10 [] HTML: výstupní fronty
-	A.11 [] Větvení gramatikou
-	A.12 [] JSON: generující automat
-		A.12.1 [] JSON: pojmenované fronty
-		A.12.2 [] JSON: generované indexy front
-	A.13 [] INI: nespojitý index front
-	A.14 [] XML: smíšené zprávy
-	A.15 [] XML: oddělené zprávy
-	A.16 [] Bash $ echo "řetězec"
-	A.17 [] Bash $ echo 'řetězec'
+	A.5 ⟦⟧ C: výstupní fronta
+	A.6 ⟦⟧ INI: externí příkaz
+	A.7 ⟦⟧ .h: hex počítadlo
+	A.8 ⟦⟧ C: malý automat
+	A.9 ⟦⟧ C: malý automat 2
+	A.10 ⟦⟧ HTML: výstupní fronty
+	A.11 ⟦⟧ Větvení gramatikou
+	A.12 ⟦⟧ JSON: generující automat
+		A.12.1 ⟦⟧ JSON: pojmenované fronty
+		A.12.2 ⟦⟧ JSON: generované indexy front
+	A.13 ⟦⟧ INI: nespojitý index front
+	A.14 ⟦⟧ XML: smíšené zprávy
+	A.15 ⟦⟧ XML: oddělené zprávy
+	A.16 ⟦⟧ Bash $ echo "řetězec"
+	A.17 ⟦⟧ Bash $ echo 'řetězec'
 
 🖹 Příklady v této příloze jsou složitější a jejich cílem je ukázat praktické použití jazyka M4.
 Podrobněji budou vysvětleny později.
 
-A.1 [] Vstupní zdrojový kód
+A.1 ⟦⟧ Vstupní zdrojový kód
 Vstupní zdrojový kód je podobný CSV, který se převede na libovolně složitý cílový kód jiného jazyka pomocí CFG, automatů a výstupních front.
 Zásobníky v příkladech nejsou použity.
 Vstupní zdrojový kód obsahuje speciální znaky, které je nutné skrýt:
 
-2599236 messages/messages_raw.mc
+d2707ad messages/messages_raw.mc
   1 # 2018/05/15 Josef Kubin
   2 
-  3 ERROR([COMPLEX],     [!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~])
-  4 QUERY([READABLE],    [Is badly written M4 code readable [N/y]?])
-  5 ERROR([SUCCESS],     [Too complex M4 code failed successfully.])
-  6 WARNING([ADDICTIVE], [Programming in M4 is addictive!])
-  7 ERROR([NOFAULT],     [It's not a language fault!])
-  8 WARNING([NO_ERRORS], [No other errors detected.])
+  3 ERROR(⟦COMPLEX⟧,     ⟦!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~⟧)
+  4 QUERY(⟦READABLE⟧,    ⟦Is badly written M4 code readable [N/y]?⟧)
+  5 ERROR(⟦SUCCESS⟧,     ⟦Too complex M4 code failed successfully.⟧)
+  6 WARNING(⟦ADDICTIVE⟧, ⟦Programming in M4 is addictive!⟧)
+  7 ERROR(⟦NOFAULT⟧,     ⟦It's not a language fault!⟧)
+  8 WARNING(⟦NO_ERRORS⟧, ⟦No other errors detected.⟧)
 
 🖹 Vstupní soubor může také obsahovat poznámky, které nemusí být skryté v komentářích #, dnl, ifelse([…]) nebo [… někde uvnitř závorek …].
 
-A.2 [] CSV: nejjednodušší příklad
+A.2 ⟦⟧ CSV: nejjednodušší příklad
 Tento příklad nepoužívá výstupní fronty, pouze vypisuje CSV oddělené znakem TAB na standardní výstup.
 
-5ad6e1b messages/hello.csv.m4
+24fd4f3 messages/hello.csv.m4
   1 # A → β
-  2 define([ERROR], [
+  2 define(⟦ERROR⟧, ⟦
   3 
   4 	divert(0)dnl
-  5 [$1	$2]
+  5 ⟦$1	$2⟧
   6 divert(-1)
-  7 ])
+  7 ⟧)
 
-$ m4 root0b.m4 hello.csv.m4 messages_raw.mc > hello.csv
+$ m4 root0u.m4 hello.csv.m4 messages_raw.mc > hello.csv
 
 9156810 messages/hello.csv
   1 COMPLEX	!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~
   2 SUCCESS	Too complex M4 code failed successfully.
   3 NOFAULT	It's not a language fault!
 
-A.3 [] CSV: počítadlo
+A.3 ⟦⟧ CSV: počítadlo
 Příklad používá makro COUNT_UP ze souboru countb.m4, jehož β se zkopíruje do pravé strany makra COUNTER.
 Během první expanze COUNTER proběhne inicializace jeho startovací hodnoty.
 Další expanze vrátí číselný terminální symbol a proběhne zvýšení vnitřního pomocného (globálního) symbolu o jedničku.
 COUNTER je malý automat.
 
-5ad6e1b messages/counter.csv.m4
+24fd4f3 messages/counter.csv.m4
   1 # A → β
-  2 define([COUNTER], defn([COUNT_UP]))
+  2 define(⟦COUNTER⟧, defn(⟦COUNT_UP⟧))
   3 
   4 # init counter
   5 COUNTER(1)
   6 
   7 # A → β
-  8 define([ERROR], [
+  8 define(⟦ERROR⟧, ⟦
   9 
  10 	divert(0)dnl
- 11 ERR_[]COUNTER	[$1	$2]
+ 11 ERR_⟦⟧COUNTER	⟦$1	$2⟧
  12 divert(-1)
- 13 ])
+ 13 ⟧)
 
-$ m4 root0b.m4 countb.m4 counter.csv.m4 messages_raw.mc > counter.csv
+$ m4 root0u.m4 countb.m4 counter.csv.m4 messages_raw.mc > counter.csv
 
 9156810 messages/counter.csv
   1 ERR_1	COMPLEX	!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~
@@ -523,101 +523,104 @@ Klíčové slovo jazyka M4 patsubst() je nevhodné pro tento úkol.
 Všechny speciální znaky vstupního souboru proto napřed skryjeme do vhodně pojmenovaných maker pomocí regulárních výrazů.
 
 Upravený vstupní kód
-309469e messages/messages.mc
+d2707ad messages/messages.mc
   1 # 2018/05/15 Josef Kubin
   2 
-  3 ERROR([COMPLEX],     [[]EX()[]DQ()[#]$%[]AMP()[]AP()()*+,-./:;[]LT()=[]GT()?@[]LB()[]BS()[]RB()^_[]BQ(){|}~])
-  4 QUERY([READABLE],    [Is badly written M4 code readable []LB()N/y[]RB()?])
-  5 ERROR([SUCCESS],     [Too complex M4 code failed successfully.])
-  6 WARNING([ADDICTIVE], [Programming in M4 is addictive[]EX()])
-  7 ERROR([NOFAULT],     [It[]AP()s not a language fault[]EX()])
-  8 WARNING([NO_ERRORS], [No other errors were found.])
+  3 ERROR(⟦COMPLEX⟧,     ⟦⟦⟧EX()⟦⟧DQ()⟦#⟧⟦⟧DO()%⟦⟧AMP()⟦⟧AP()()*+,-./:;⟦⟧LT()=⟦⟧GT()?@[⟦⟧BS()]^_⟦⟧BQ(){|}~⟧)
+  4 QUERY(⟦READABLE⟧,    ⟦Is badly written M4 code readable [N/y]?⟧)
+  5 ERROR(⟦SUCCESS⟧,     ⟦Too complex M4 code failed successfully.⟧)
+  6 WARNING(⟦ADDICTIVE⟧, ⟦Programming in M4 is addictive⟦⟧EX()⟧)
+  7 ERROR(⟦NOFAULT⟧,     ⟦It⟦⟧AP()s not a language fault⟦⟧EX()⟧)
+  8 WARNING(⟦NO_ERRORS⟧, ⟦No other errors were found.⟧)
 
-Vytvoříme několik převodních souborů podle typu cílového kódu, makra pro hranaté závorky LB() a RB() jsou už definována v kořenovém souboru.
-
-[] Převodní soubor pro XML, XSLT, HTML
-b53eafe messages/markup.m4
+⟦⟧ Převodní soubor pro XML, XSLT, HTML
+d2707ad messages/markup.m4
   1 # A → β
-  2 define([AMP], [&amp;])
-  3 define([AP], ['])
-  4 define([BQ], [`])
-  5 define([BS], [\])
-  6 define([DQ], ["])
-  7 define([EX], [!])
-  8 define([GT], [&gt;])
-  9 define([LT], [&lt;])
+  2 define(⟦AMP⟧, ⟦&amp;⟧)
+  3 define(⟦AP⟧, ⟦'⟧)
+  4 define(⟦BQ⟧, ⟦`⟧)
+  5 define(⟦BS⟧, ⟦\⟧)
+  6 define(⟦DO⟧, ⟦$⟧)
+  7 define(⟦DQ⟧, ⟦"⟧)
+  8 define(⟦EX⟧, ⟦!⟧)
+  9 define(⟦GT⟧, ⟦&gt;⟧)
+ 10 define(⟦LT⟧, ⟦&lt;⟧)
 
-[] Převodní soubor pro C, JSON, INI: "řetězec"
-b53eafe messages/code.m4
+⟦⟧ Převodní soubor pro C, JSON, INI: "řetězec"
+d2707ad messages/code.m4
   1 # A → β
-  2 define([AMP], [&])
-  3 define([AP], ['])
-  4 define([BQ], [`])
-  5 define([BS], [\\])
-  6 define([DQ], [\"])
-  7 define([EX], [!])
-  8 define([GT], [>])
-  9 define([LT], [<])
+  2 define(⟦AMP⟧, ⟦&⟧)
+  3 define(⟦AP⟧, ⟦'⟧)
+  4 define(⟦BQ⟧, ⟦`⟧)
+  5 define(⟦BS⟧, ⟦\\⟧)
+  6 define(⟦DO⟧, ⟦$⟧)
+  7 define(⟦DQ⟧, ⟦\"⟧)
+  8 define(⟦EX⟧, ⟦!⟧)
+  9 define(⟦GT⟧, ⟦>⟧)
+ 10 define(⟦LT⟧, ⟦<⟧)
 
-[] Převodní soubor pro Bash: "řetězec"
-b53eafe messages/doubleq.m4
+⟦⟧ Převodní soubor pro Bash: "řetězec"
+d2707ad messages/doubleq.m4
   1 # A → β
-  2 define([AMP], [&])
-  3 define([AP], ['])
-  4 define([BQ], [\`])
-  5 define([BS], [\\])
-  6 define([DQ], [\"])
-  7 define([EX], ["\!"])
-  8 define([GT], [>])
-  9 define([LT], [<])
+  2 define(⟦AMP⟧, ⟦&⟧)
+  3 define(⟦AP⟧, ⟦'⟧)
+  4 define(⟦BQ⟧, ⟦\`⟧)
+  5 define(⟦BS⟧, ⟦\\⟧)
+  6 define(⟦DO⟧, ⟦$⟧)
+  7 define(⟦DQ⟧, ⟦\"⟧)
+  8 define(⟦EX⟧, ⟦"\!"⟧)
+  9 define(⟦GT⟧, ⟦>⟧)
+ 10 define(⟦LT⟧, ⟦<⟧)
 
-[] Převodní soubor pro Bash: 'řetězec'
-b53eafe messages/apost.m4
+⟦⟧ Převodní soubor pro Bash: 'řetězec'
+d2707ad messages/apost.m4
   1 # A → β
-  2 define([AMP], [&])
-  3 define([AP], ['\''])
-  4 define([BQ], [`])
-  5 define([BS], [\])
-  6 define([DQ], ["])
-  7 define([EX], [!])
-  8 define([GT], [>])
-  9 define([LT], [<])
+  2 define(⟦AMP⟧, ⟦&⟧)
+  3 define(⟦AP⟧, ⟦'\''⟧)
+  4 define(⟦BQ⟧, ⟦`⟧)
+  5 define(⟦BS⟧, ⟦\⟧)
+  6 define(⟦DO⟧, ⟦$⟧)
+  7 define(⟦DQ⟧, ⟦"⟧)
+  8 define(⟦EX⟧, ⟦!⟧)
+  9 define(⟦GT⟧, ⟦>⟧)
+ 10 define(⟦LT⟧, ⟦<⟧)
 
-[] Převodní soubor pro CSV, M4 (vrátí všechny znaky zpátky)
-f175bef messages/unchanged.m4
+⟦⟧ Převodní soubor pro CSV, M4 (vrátí všechny znaky zpátky)
+d2707ad messages/unchanged.m4
   1 # A → β
-  2 define([AMP], [&])
-  3 define([AP], ['])
-  4 define([BQ], [`])
-  5 define([BS], [\])
-  6 define([DQ], ["])
-  7 define([EX], [!])
-  8 define([GT], [>])
-  9 define([LT], [<])
+  2 define(⟦AMP⟧, ⟦&⟧)
+  3 define(⟦AP⟧, ⟦'⟧)
+  4 define(⟦BQ⟧, ⟦`⟧)
+  5 define(⟦BS⟧, ⟦\⟧)
+  6 define(⟦DO⟧, ⟦$⟧)
+  7 define(⟦DQ⟧, ⟦"⟧)
+  8 define(⟦EX⟧, ⟦!⟧)
+  9 define(⟦GT⟧, ⟦>⟧)
+ 10 define(⟦LT⟧, ⟦<⟧)
 
-A.5 [] C: výstupní fronta
+A.5 ⟦⟧ C: výstupní fronta
 Příklad používá jednu výstupní frontu na znaky }; pro uzavření pole na konci skriptu.
 
-b53eafe messages/array.c.m4
+24fd4f3 messages/array.c.m4
   1 # A → β
-  2 define([ERROR], [
+  2 define(⟦ERROR⟧, ⟦
   3 
   4 	divert(0)dnl
   5 	"$2",
   6 divert(-1)
-  7 ])
+  7 ⟧)
   8 
   9 divert(0)dnl
  10 /*
  11  * DONTE()
  12  */
  13 
- 14 char *error[[]] = {
+ 14 char *error[] = {
  15 divert(1)dnl
  16 };
  17 divert(-1)
 
-$ m4 root0b.m4 array.c.m4 code.m4 messages.mc > array.c
+$ m4 root0u.m4 array.c.m4 code.m4 messages.mc > array.c
 
 9156810 messages/array.c
   1 /*
@@ -630,55 +633,55 @@ $ m4 root0b.m4 array.c.m4 code.m4 messages.mc > array.c
   8 	"It's not a language fault!",
   9 };
 
-A.6 [] INI: externí příkaz
+A.6 ⟦⟧ INI: externí příkaz
 Příklad spustí externí příkaz date a jeho výstup umístí do hranatých závorek.
 Výstupem externího příkazu jsou dvě položky oddělené čárkou.
 Makro SARG1() vybere první položku, protože druhá položka obsahuje nežádoucí znak nového řádku LF (0x0a).
 
-5889f4e messages/hello.ini.m4
+24fd4f3 messages/hello.ini.m4
   1 # A → β
-  2 define([ERROR], [
+  2 define(⟦ERROR⟧, ⟦
   3 
   4 	divert(0)dnl
-  5 [$1]="$2"
+  5 ⟦$1⟧="$2"
   6 divert(-1)
-  7 ])
+  7 ⟧)
   8 
   9 divert(0)dnl
  10 ; DONTE()
  11 
- 12 SARG1(esyscmd([date '+[[hello_%Y%m%d]],']))
+ 12 SARG1(esyscmd(⟦date '+⟦[hello_%Y%m%d]⟧,'⟧))
  13 divert(-1)
 
-$ m4 root0b.m4 hello.ini.m4 code.m4 messages.mc > hello.ini
+$ m4 root0u.m4 hello.ini.m4 code.m4 messages.mc > hello.ini
 
-5964776 messages/hello.ini
+24fd4f3 messages/hello.ini
   1 ; DO NOT EDIT! This file is generated automatically!
   2 
-  3 [hello_20201225]
+  3 [hello_20201226]
   4 COMPLEX="!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~"
   5 SUCCESS="Too complex M4 code failed successfully."
   6 NOFAULT="It's not a language fault!"
 
-A.7 [] .h: hex počítadlo
+A.7 ⟦⟧ .h: hex počítadlo
 Příklad používá makro COUNTER pro číslování výsledných CPP maker a jednu výstupní frontu.
 Fronta číslo 1 obsahuje direktivu preprocesoru #endif pro zakončení hlavičkového souboru.
 Převod dekadické hodnoty počítadla na dvoumístné hex-a číslo provádí klíčové slovo eval().
 
-b53eafe messages/messages.h.m4
+24fd4f3 messages/messages.h.m4
   1 # A → β
-  2 define([COUNTER], defn([COUNT_UP]))
+  2 define(⟦COUNTER⟧, defn(⟦COUNT_UP⟧))
   3 
   4 # init counter
   5 COUNTER(0)
   6 
   7 # A → β
-  8 define([ERROR], [
+  8 define(⟦ERROR⟧, ⟦
   9 
  10 	divert(0)dnl
- 11 [#define $1		0x]eval(COUNTER, 16, 2)
+ 11 ⟦#define $1		0x⟧eval(COUNTER, 16, 2)
  12 divert(-1)
- 13 ])
+ 13 ⟧)
  14 
  15 divert(0)dnl
  16 /*
@@ -692,7 +695,7 @@ b53eafe messages/messages.h.m4
  24 #endif /* __ERROR_H */
  25 divert(-1)
 
-$ m4 root0b.m4 countb.m4 messages.h.m4 messages.mc > messages.h
+$ m4 root0u.m4 countb.m4 messages.h.m4 messages.mc > messages.h
 
 b53eafe messages/messages.h
   1 /*
@@ -708,36 +711,36 @@ b53eafe messages/messages.h
  11 
  12 #endif /* __ERROR_H */
 
-A.8 [] C: malý automat
+A.8 ⟦⟧ C: malý automat
 Příklad používá malý automat NEW_LINE pro generování znaku nového řádku \n a jednu výstupní frontu číslo 1 do které se vloží znaky "; pro uzavření výsledného řetězce.
 Poprvé se NEW_LINE přepíše na ε, podruhé a dále se přepíše na \n.
 
-b53eafe messages/stringl.c.m4
+24fd4f3 messages/stringl.c.m4
   1 #     NEW_LINE automaton
   2 #      ___      ____
   3 # --->/ ε \--->/ \n \---.
   4 #     \___/    \____/<--'
   5 
   6 # A → β
-  7 define([NEW_LINE], [define([$0], [\n])])
+  7 define(⟦NEW_LINE⟧, ⟦define(⟦$0⟧, ⟦\n⟧)⟧)
   8 
   9 # A → β
- 10 define([ERROR], [
+ 10 define(⟦ERROR⟧, ⟦
  11 
- 12 	divert(0)NEW_LINE[]$2[]dnl
+ 12 	divert(0)NEW_LINE⟦⟧$2⟦⟧dnl
  13 divert(-1)
- 14 ])
+ 14 ⟧)
  15 
  16 divert(0)dnl
  17 /*
  18  * DONTE()
  19  */
  20 
- 21 char error[[]] =
+ 21 char error[] =
  22 "divert(1)";
  23 divert(-1)
 
-$ m4 root0b.m4 stringl.c.m4 code.m4 messages.mc > stringl.c
+$ m4 root0u.m4 stringl.c.m4 code.m4 messages.mc > stringl.c
 
 9156810 messages/stringl.c
   1 /*
@@ -747,36 +750,36 @@ $ m4 root0b.m4 stringl.c.m4 code.m4 messages.mc > stringl.c
   5 char error[] =
   6 "!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~\nToo complex M4 code failed successfully.\nIt's not a language fault!";
 
-A.9 [] C: malý automat 2
+A.9 ⟦⟧ C: malý automat 2
 Tento příklad je podobný předchozímu, avšak každý řetězec je na novém řádku.
 
-18148df messages/string.c.m4
+24fd4f3 messages/string.c.m4
   1 #      NEW_LINE automaton
   2 #      ___      _________
   3 # --->/ ε \--->/ \n"\xa" \---.
   4 #     \___/    \_________/<--'
   5 
   6 # A → β
-  7 define([NEW_LINE], [define([$0], [\n"
-  8 "])])
+  7 define(⟦NEW_LINE⟧, ⟦define(⟦$0⟧, ⟦\n"
+  8 "⟧)⟧)
   9 
  10 # A → β
- 11 define([ERROR], [
+ 11 define(⟦ERROR⟧, ⟦
  12 
- 13 	divert(0)NEW_LINE[]$2[]dnl
+ 13 	divert(0)NEW_LINE⟦⟧$2⟦⟧dnl
  14 divert(-1)
- 15 ])
+ 15 ⟧)
  16 
  17 divert(0)dnl
  18 /*
  19  * DONTE()
  20  */
  21 
- 22 char error[[]] =
+ 22 char error[] =
  23 "divert(1)";
  24 divert(-1)
 
-$ m4 root0b.m4 string.c.m4 code.m4 messages.mc > string.c
+$ m4 root0u.m4 string.c.m4 code.m4 messages.mc > string.c
 
 9156810 messages/string.c
   1 /*
@@ -788,30 +791,30 @@ $ m4 root0b.m4 string.c.m4 code.m4 messages.mc > string.c
   7 "Too complex M4 code failed successfully.\n"
   8 "It's not a language fault!";
 
-A.10 [] HTML: výstupní fronty
+A.10 ⟦⟧ HTML: výstupní fronty
 Příklad používá dvě výstupní fronty.
 Fronta číslo 1 obsahuje odstavce,
 fronta číslo 2 uzavírací značky HTML stránky.
 Navigační odkazy nemusí být nikde uloženy, jdou přímo na výstup.
 Zprávy typu QUERY a WARNING jsou zpracovány stejně jako zprávy typu ERROR.
 
-b53eafe messages/messages.html.m4
+24fd4f3 messages/messages.html.m4
   1 # vim:ft=m4
   2 
   3 # A → β
   4 # β
-  5 define([ERROR], [
+  5 define(⟦ERROR⟧, ⟦
   6 
   7 	divert(0)dnl
-  8 		[<li>$0: <a href="#$1">$1</a></li>]
+  8 		⟦<li>$0: <a href="#$1">$1</a></li>⟧
   9 divert(1)dnl
- 10 	<p id="[$1]">$2</p>
+ 10 	<p id="⟦$1⟧">$2</p>
  11 divert(-1)
- 12 ])
+ 12 ⟧)
  13 
  14 # A → β
- 15 define([QUERY], defn([ERROR]))
- 16 define([WARNING], defn([ERROR]))
+ 15 define(⟦QUERY⟧, defn(⟦ERROR⟧))
+ 16 define(⟦WARNING⟧, defn(⟦ERROR⟧))
  17 
  18 divert(0)dnl
  19 <!-- DONTE() -->
@@ -829,7 +832,7 @@ b53eafe messages/messages.html.m4
  31 </html>
  32 divert(-1)
 
-$ m4 root0b.m4 messages.html.m4 markup.m4 messages.mc > messages.html
+$ m4 root0u.m4 messages.html.m4 markup.m4 messages.mc > messages.html
 
 5964776 messages/messages.html
   1 <!-- DO NOT EDIT! This file is generated automatically! -->
@@ -856,30 +859,30 @@ $ m4 root0b.m4 messages.html.m4 markup.m4 messages.mc > messages.html
  22 </body>
  23 </html>
 
-A.11 [] Větvení gramatikou
+A.11 ⟦⟧ Větvení gramatikou
 Příklad ukazuje větvení gramatikou, argumenty maker se ignorují.
 Vstupní neterminály se přepisují na terminály ERROR → 🐛,
 QUERY → 🐜,
 WARNING → 🐝.
 
-b53eafe messages/insect.txt.m4
+24fd4f3 messages/insect.txt.m4
   1 # A → β
   2 # β
-  3 define([ERROR], [
+  3 define(⟦ERROR⟧, ⟦
   4 
   5 	divert(0)dnl
-  6 $0_INSECT[]dnl
+  6 $0_INSECT⟦⟧dnl
   7 divert(-1)
-  8 ])
+  8 ⟧)
   9 
  10 # A → β
- 11 define([QUERY],   defn([ERROR]))
- 12 define([WARNING], defn([ERROR]))
- 13 define([ERROR_INSECT],   [🐛])
- 14 define([QUERY_INSECT],   [🐜])
- 15 define([WARNING_INSECT], [🐝])
+ 11 define(⟦QUERY⟧,   defn(⟦ERROR⟧))
+ 12 define(⟦WARNING⟧, defn(⟦ERROR⟧))
+ 13 define(⟦ERROR_INSECT⟧,   ⟦🐛⟧)
+ 14 define(⟦QUERY_INSECT⟧,   ⟦🐜⟧)
+ 15 define(⟦WARNING_INSECT⟧, ⟦🐝⟧)
 
-$ m4 root0b.m4 insect.txt.m4 messages.mc > insect.txt
+$ m4 root0u.m4 insect.txt.m4 messages.mc > insect.txt
 
 b53eafe messages/insect.txt
   1 🐛🐜🐛🐝🐛🐝
@@ -896,39 +899,39 @@ $0_END → QUERY_END → 1
 $0_NAME → QUERY_NAME → query
 …
 
-A.12 [] JSON: generující automat
+A.12 ⟦⟧ JSON: generující automat
 Příklad používá dvě výstupní fronty a jeden generující automat.
-První chybová zpráva ERROR([…]) ve stavu ERROR vygeneruje záhlaví se závorkami a vypíše na výstup první záznam.
+První chybová zpráva ERROR(⟦…⟧) ve stavu ERROR vygeneruje záhlaví se závorkami a vypíše na výstup první záznam.
 Automat přejde do stavu NEXT_ITEM což je β pravidlo.
 Následující chybové zprávy ve stavu NEXT_ITEM pouze vypisují na výstup jednotlivé záznamy.
 Na závěr výstupní fronty číslo 1 a 2 vypíšou znaky ] a }} čímž zakončí výsledný JSON.
 
-b53eafe messages/atm.json.m4
+24fd4f3 messages/atm.json.m4
   1 #      _______      ___________
   2 # --->/ ERROR \--->/ NEXT_ITEM \---.
   3 #     \_______/    \___________/<--'
   4 
   5 # A → β
-  6 define([ERROR], [
+  6 define(⟦ERROR⟧, ⟦
   7 
   8 	# transition to the next node
-  9 	define([$0], defn([NEXT_ITEM]))
+  9 	define(⟦$0⟧, defn(⟦NEXT_ITEM⟧))
  10 
  11 	divert(0),
- 12 	"error": LB()
- 13 		{"[$1]": "$2"}dnl
+ 12 	"error": [
+ 13 		{"⟦$1⟧": "$2"}dnl
  14 divert(1)
- 15 	RB()
+ 15 	]
  16 divert(-1)
- 17 ])
+ 17 ⟧)
  18 
  19 # β
- 20 define([NEXT_ITEM], [
+ 20 define(⟦NEXT_ITEM⟧, ⟦
  21 
  22 	divert(0),
- 23 		{"[$1]": "$2"}dnl
+ 23 		{"⟦$1⟧": "$2"}dnl
  24 divert(-1)
- 25 ])
+ 25 ⟧)
  26 
  27 divert(0)dnl
  28 {"generating_automaton": {
@@ -937,7 +940,7 @@ b53eafe messages/atm.json.m4
  31 }}
  32 divert(-1)
 
-$ m4 root0b.m4 atm.json.m4 code.m4 messages.mc > atm.json
+$ m4 root0u.m4 atm.json.m4 code.m4 messages.mc > atm.json
 
 9156810 messages/atm.json
   1 {"generating_automaton": {
@@ -949,27 +952,27 @@ $ m4 root0b.m4 atm.json.m4 code.m4 messages.mc > atm.json
   7 	]
   8 }}
 
-A.12.1 [] JSON: pojmenované fronty
+A.12.1 ⟦⟧ JSON: pojmenované fronty
 Příklad zpracovává další zprávy typu QUERY a WARNING.
 Používá tři automaty a šest výstupních front.
 Generujeme-li složitější zdrojový kód, brzy narazíme na problém udržení konzistence indexů pro výstupní fronty.
 Abychom se vyhnuli zmatku, pojmenujeme si fronty a místo čísel používáme jména.
 Abychom nemuseli definovat podobná pravidla, zkopírujeme si pravou stranu ERROR (je to také β pravidlo) do pravé strany pravidel QUERY a WARNING.
 
-b53eafe messages/qnames.json.m4
+24fd4f3 messages/qnames.json.m4
   1 # DO NOT WRITE INDEXES MANUALLY, use counter!
-  2 define([QUERY_QU],     0)
-  3 define([QUERY_END],    1)
-  4 define([ERROR_QU],     2)
-  5 define([ERROR_END],    3)
-  6 define([WARNING_QU],   4)
-  7 define([WARNING_END],  5)
-  8 define([LAST_QUEUE],   6)
+  2 define(⟦QUERY_QU⟧,     0)
+  3 define(⟦QUERY_END⟧,    1)
+  4 define(⟦ERROR_QU⟧,     2)
+  5 define(⟦ERROR_END⟧,    3)
+  6 define(⟦WARNING_QU⟧,   4)
+  7 define(⟦WARNING_END⟧,  5)
+  8 define(⟦LAST_QUEUE⟧,   6)
   9 
  10 # names of message types
- 11 define([WARNING_NAME], [warning])
- 12 define([ERROR_NAME],   [error])
- 13 define([QUERY_NAME],   [query])
+ 11 define(⟦WARNING_NAME⟧, ⟦warning⟧)
+ 12 define(⟦ERROR_NAME⟧,   ⟦error⟧)
+ 13 define(⟦QUERY_NAME⟧,   ⟦query⟧)
  14 
  15 #      _________      ___________
  16 # --->/  ERROR  \--->/ NEXT_ITEM \---.
@@ -978,30 +981,30 @@ b53eafe messages/qnames.json.m4
  19 
  20 # A → β
  21 # β
- 22 define([ERROR], [
+ 22 define(⟦ERROR⟧, ⟦
  23 
  24 	# transition to the next node
- 25 	define([$0], defn([NEXT_ITEM]))
+ 25 	define(⟦$0⟧, defn(⟦NEXT_ITEM⟧))
  26 
  27 	divert($0_QU),
- 28 	"$0_NAME": LB()
- 29 		{"[$1]": "$2"}dnl
+ 28 	"$0_NAME": [
+ 29 		{"⟦$1⟧": "$2"}dnl
  30 divert($0_END)
- 31 	RB()dnl
+ 31 	]dnl
  32 divert(-1)
- 33 ])
+ 33 ⟧)
  34 
  35 # β
- 36 define([NEXT_ITEM], [
+ 36 define(⟦NEXT_ITEM⟧, ⟦
  37 
  38 	divert($0_QU),
- 39 		{"[$1]": "$2"}dnl
+ 39 		{"⟦$1⟧": "$2"}dnl
  40 divert(-1)
- 41 ])
+ 41 ⟧)
  42 
  43 # A → β
- 44 define([QUERY],        defn([ERROR]))
- 45 define([WARNING],      defn([ERROR]))
+ 44 define(⟦QUERY⟧,        defn(⟦ERROR⟧))
+ 45 define(⟦WARNING⟧,      defn(⟦ERROR⟧))
  46 
  47 divert(0)dnl
  48 {"queue_names": {
@@ -1010,7 +1013,7 @@ b53eafe messages/qnames.json.m4
  51 }}
  52 divert(-1)
 
-$ m4 root0b.m4 qnames.json.m4 code.m4 messages.mc > qnames.json
+$ m4 root0u.m4 qnames.json.m4 code.m4 messages.mc > qnames.json
 
 5964776 messages/qnames.json
   1 {"queue_names": {
@@ -1029,38 +1032,38 @@ $ m4 root0b.m4 qnames.json.m4 code.m4 messages.mc > qnames.json
  14 	]
  15 }}
 
-A.12.2 [] JSON: generované indexy front
+A.12.2 ⟦⟧ JSON: generované indexy front
 Během vývoje se často mění pořadí a počet výstupních front, což také vyžaduje častou změnu jejich indexů.
 Indexy je proto vhodné generovat.
 Můžeme pak používat prakticky neomezený počet front.
 Následující příklad ukazuje, jak se tyto indexy generují.
 
-9cfdf77 messages/queues.m4
+24fd4f3 messages/queues.m4
   1 # defines a counter for output queues
   2 # A → β
-  3 define([QUEUE_INDEX], defn([COUNT_UP]))
+  3 define(⟦QUEUE_INDEX⟧, defn(⟦COUNT_UP⟧))
   4 
   5 # index of the first output queue (0 is stdout)
   6 QUEUE_INDEX(0)
   7 
   8 # symbolic names for indices of output queues
   9 # A → β
- 10 define([QUERY_QU],     QUEUE_INDEX)
- 11 define([QUERY_END],    QUEUE_INDEX)
- 12 define([ERROR_QU],     QUEUE_INDEX)
- 13 define([ERROR_END],    QUEUE_INDEX)
- 14 define([WARNING_QU],   QUEUE_INDEX)
- 15 define([WARNING_END],  QUEUE_INDEX)
+ 10 define(⟦QUERY_QU⟧,     QUEUE_INDEX)
+ 11 define(⟦QUERY_END⟧,    QUEUE_INDEX)
+ 12 define(⟦ERROR_QU⟧,     QUEUE_INDEX)
+ 13 define(⟦ERROR_END⟧,    QUEUE_INDEX)
+ 14 define(⟦WARNING_QU⟧,   QUEUE_INDEX)
+ 15 define(⟦WARNING_END⟧,  QUEUE_INDEX)
  16 # Keep it last!
- 17 define([LAST_QUEUE],   QUEUE_INDEX)
+ 17 define(⟦LAST_QUEUE⟧,   QUEUE_INDEX)
  18 
  19 # names of message types
  20 # A → β
- 21 define([WARNING_NAME], [warning])
- 22 define([ERROR_NAME],   [error])
- 23 define([QUERY_NAME],   [query])
+ 21 define(⟦WARNING_NAME⟧, ⟦warning⟧)
+ 22 define(⟦ERROR_NAME⟧,   ⟦error⟧)
+ 23 define(⟦QUERY_NAME⟧,   ⟦query⟧)
 
-b53eafe messages/messages.json.m4
+24fd4f3 messages/messages.json.m4
   1 #      _________      ___________
   2 # --->/  ERROR  \--->/ NEXT_ITEM \---.
   3 #     |  QUERY  |    \___________/<--'
@@ -1068,30 +1071,30 @@ b53eafe messages/messages.json.m4
   5 
   6 # A → β
   7 # β
-  8 define([ERROR], [
+  8 define(⟦ERROR⟧, ⟦
   9 
  10 	# transition to the next node
- 11 	define([$0], defn([NEXT_ITEM]))
+ 11 	define(⟦$0⟧, defn(⟦NEXT_ITEM⟧))
  12 
  13 	divert($0_QU),
- 14 	"$0_NAME": LB()
- 15 		{"[$1]": "$2"}dnl
+ 14 	"$0_NAME": [
+ 15 		{"⟦$1⟧": "$2"}dnl
  16 divert($0_END)
- 17 	RB()dnl
+ 17 	]dnl
  18 divert(-1)
- 19 ])
+ 19 ⟧)
  20 
  21 # β
- 22 define([NEXT_ITEM], [
+ 22 define(⟦NEXT_ITEM⟧, ⟦
  23 
  24 	divert($0_QU),
- 25 		{"[$1]": "$2"}dnl
+ 25 		{"⟦$1⟧": "$2"}dnl
  26 divert(-1)
- 27 ])
+ 27 ⟧)
  28 
  29 # A → β
- 30 define([QUERY],   defn([ERROR]))
- 31 define([WARNING], defn([ERROR]))
+ 30 define(⟦QUERY⟧,   defn(⟦ERROR⟧))
+ 31 define(⟦WARNING⟧, defn(⟦ERROR⟧))
  32 
  33 divert(0)dnl
  34 {"messages": {
@@ -1100,7 +1103,7 @@ b53eafe messages/messages.json.m4
  37 }}
  38 divert(-1)
 
-$ m4 root0b.m4 countb.m4 queues.m4 messages.json.m4 code.m4 messages.mc > messages.json
+$ m4 root0u.m4 countb.m4 queues.m4 messages.json.m4 code.m4 messages.mc > messages.json
 
 5964776 messages/messages.json
   1 {"messages": {
@@ -1119,12 +1122,12 @@ $ m4 root0b.m4 countb.m4 queues.m4 messages.json.m4 code.m4 messages.mc > messag
  14 	]
  15 }}
 
-A.13 [] INI: nespojitý index front
+A.13 ⟦⟧ INI: nespojitý index front
 Příklad používá tři automaty a dvě výstupní fronty číslo 2 a 4 definované v odděleném souboru.
 Názvy INI sekcí jsou generovány řetězením symbolů (viz. větvení).
 Příklad používá stejný soubor pro výstupní fronty jako příklad pro generování JSON.
 
-c145bef messages/messages.ini.m4
+24fd4f3 messages/messages.ini.m4
   1 #      _________      ___________
   2 # --->/  ERROR  \--->/ NEXT_ITEM \---.
   3 #     |  QUERY  |    \___________/<--'
@@ -1132,34 +1135,34 @@ c145bef messages/messages.ini.m4
   5 
   6 # A → β
   7 # β
-  8 define([ERROR], [
+  8 define(⟦ERROR⟧, ⟦
   9 
  10 	divert($0_QU)
- 11 BRAC($0_NAME)
- 12 [$1]="$2"
+ 11 [$0_NAME]
+ 12 ⟦$1⟧="$2"
  13 divert(-1)
  14 
  15 	# transition to the next node
- 16 	define([$0], defn([NEXT_ITEM]))
- 17 ])
+ 16 	define(⟦$0⟧, defn(⟦NEXT_ITEM⟧))
+ 17 ⟧)
  18 
  19 # A → β
- 20 define([QUERY],   defn([ERROR]))
- 21 define([WARNING], defn([ERROR]))
+ 20 define(⟦QUERY⟧,   defn(⟦ERROR⟧))
+ 21 define(⟦WARNING⟧, defn(⟦ERROR⟧))
  22 
  23 # β
- 24 define([NEXT_ITEM], [
+ 24 define(⟦NEXT_ITEM⟧, ⟦
  25 
  26 	divert($0_QU)dnl
- 27 [$1]="$2"
+ 27 ⟦$1⟧="$2"
  28 divert(-1)
- 29 ])
+ 29 ⟧)
  30 
  31 divert(0)dnl
  32 ; DONTE()
  33 divert(-1)
 
-$ m4 root0b.m4 messages.ini.m4 countb.m4 queues.m4 code.m4 messages.mc > messages.ini
+$ m4 root0u.m4 messages.ini.m4 countb.m4 queues.m4 code.m4 messages.mc > messages.ini
 
 5964776 messages/messages.ini
   1 ; DO NOT EDIT! This file is generated automatically!
@@ -1176,25 +1179,25 @@ $ m4 root0b.m4 messages.ini.m4 countb.m4 queues.m4 code.m4 messages.mc > message
  12 ADDICTIVE="Programming in M4 is addictive!"
  13 NO_ERRORS="No other errors were found."
 
-A.14 [] XML: smíšené zprávy
+A.14 ⟦⟧ XML: smíšené zprávy
 Příklad používá jednu výstupní frontu číslo 1 pro uzavírací značku </messages>.
 
-b53eafe messages/mixed.xml.m4
+24fd4f3 messages/mixed.xml.m4
   1 # A → β
   2 # β
-  3 define([ERROR], [
+  3 define(⟦ERROR⟧, ⟦
   4 
   5 	divert(0)dnl
   6 	<$0_NAME>
-  7 		<name>[$1]</name>
+  7 		<name>⟦$1⟧</name>
   8 		<value>$2</value>
   9 	</$0_NAME>
  10 divert(-1)
- 11 ])
+ 11 ⟧)
  12 
  13 # A → β
- 14 define([QUERY], defn([ERROR]))
- 15 define([WARNING], defn([ERROR]))
+ 14 define(⟦QUERY⟧, defn(⟦ERROR⟧))
+ 15 define(⟦WARNING⟧, defn(⟦ERROR⟧))
  16 
  17 divert(0)dnl
  18 <!-- DONTE() -->
@@ -1204,7 +1207,7 @@ b53eafe messages/mixed.xml.m4
  22 </messages>
  23 divert(-1)
 
-$ m4 root0b.m4 queues.m4 mixed.xml.m4 markup.m4 messages.mc > mixed.xml
+$ m4 root0u.m4 queues.m4 mixed.xml.m4 markup.m4 messages.mc > mixed.xml
 
 5964776 messages/mixed.xml
   1 <!-- DO NOT EDIT! This file is generated automatically! -->
@@ -1236,42 +1239,42 @@ $ m4 root0b.m4 queues.m4 mixed.xml.m4 markup.m4 messages.mc > mixed.xml
  27 	</warning>
  28 </messages>
 
-A.15 [] XML: oddělené zprávy
+A.15 ⟦⟧ XML: oddělené zprávy
 Příklad seskupuje zprávy podle jejich typu pomocí výstupních front.
 
-b53eafe messages/messages.xml.m4
+24fd4f3 messages/messages.xml.m4
   1 # A → β
   2 # β
-  3 define([ERROR], [
+  3 define(⟦ERROR⟧, ⟦
   4 
   5 	# transition to the next node
-  6 	define([$0], defn([NEXT_ITEM]))
+  6 	define(⟦$0⟧, defn(⟦NEXT_ITEM⟧))
   7 
   8 	divert($0_QU)dnl
   9 	<$0_NAME>
  10 		<item>
- 11 			<name>[$1]</name>
+ 11 			<name>⟦$1⟧</name>
  12 			<value>$2</value>
  13 		</item>
  14 divert($0_END)dnl
  15 	</$0_NAME>
  16 divert(-1)
- 17 ])
+ 17 ⟧)
  18 
  19 # β
- 20 define([NEXT_ITEM], [
+ 20 define(⟦NEXT_ITEM⟧, ⟦
  21 
  22 	divert($0_QU)dnl
  23 		<item>
- 24 			<name>[$1]</name>
+ 24 			<name>⟦$1⟧</name>
  25 			<value>$2</value>
  26 		</item>
  27 divert(-1)
- 28 ])
+ 28 ⟧)
  29 
  30 # A → β
- 31 define([QUERY],        defn([ERROR]))
- 32 define([WARNING],      defn([ERROR]))
+ 31 define(⟦QUERY⟧,        defn(⟦ERROR⟧))
+ 32 define(⟦WARNING⟧,      defn(⟦ERROR⟧))
  33 
  34 divert(0)dnl
  35 <!-- DONTE() -->
@@ -1281,7 +1284,7 @@ b53eafe messages/messages.xml.m4
  39 </messages>
  40 divert(-1)
 
-$ m4 root0b.m4 queues.m4 messages.xml.m4 markup.m4 messages.mc > messages.xml
+$ m4 root0u.m4 queues.m4 messages.xml.m4 markup.m4 messages.mc > messages.xml
 
 5964776 messages/messages.xml
   1 <!-- DO NOT EDIT! This file is generated automatically! -->
@@ -1319,31 +1322,31 @@ $ m4 root0b.m4 queues.m4 messages.xml.m4 markup.m4 messages.mc > messages.xml
  33 	</warning>
  34 </messages>
 
-A.16 [] Bash $ echo "řetězec"
-b53eafe messages/doubleq.sh.m4
+A.16 ⟦⟧ Bash $ echo "řetězec"
+24fd4f3 messages/doubleq.sh.m4
   1 # A → β
   2 # β
-  3 define([ERROR], [
+  3 define(⟦ERROR⟧, ⟦
   4 
   5 	divert(0)dnl
   6 echo "$2"
   7 divert(-1)
-  8 ])
+  8 ⟧)
   9 
  10 # A → β
- 11 define([QUERY], defn([ERROR]))
- 12 define([WARNING], defn([ERROR]))
+ 11 define(⟦QUERY⟧, defn(⟦ERROR⟧))
+ 12 define(⟦WARNING⟧, defn(⟦ERROR⟧))
  13 
  14 divert(0)dnl
  15 #!/bin/bash
  16 #
- 17 [#] DONTE()
+ 17 ⟦#⟧ DONTE()
  18 
  19 divert(-1)
 
-$ m4 root0b.m4 doubleq.sh.m4 doubleq.m4 messages.mc > doubleq.sh
+$ m4 root0u.m4 doubleq.sh.m4 doubleq.m4 messages.mc > doubleq.sh
 
-5964776 messages/doubleq.sh
+d2707ad messages/doubleq.sh
   1 #!/bin/bash
   2 #
   3 # DO NOT EDIT! This file is generated automatically!
@@ -1355,29 +1358,29 @@ $ m4 root0b.m4 doubleq.sh.m4 doubleq.m4 messages.mc > doubleq.sh
   9 echo "It's not a language fault"\!""
  10 echo "No other errors were found."
 
-A.17 [] Bash $ echo 'řetězec'
-b53eafe messages/apost.sh.m4
+A.17 ⟦⟧ Bash $ echo 'řetězec'
+24fd4f3 messages/apost.sh.m4
   1 # A → β
   2 # β
-  3 define([ERROR], [
+  3 define(⟦ERROR⟧, ⟦
   4 
   5 	divert(0)dnl
   6 echo '$2'
   7 divert(-1)
-  8 ])
+  8 ⟧)
   9 
  10 # A → β
- 11 define([QUERY], defn([ERROR]))
- 12 define([WARNING], defn([ERROR]))
+ 11 define(⟦QUERY⟧, defn(⟦ERROR⟧))
+ 12 define(⟦WARNING⟧, defn(⟦ERROR⟧))
  13 
  14 divert(0)dnl
  15 #!/bin/bash
  16 #
- 17 [#] DONTE()
+ 17 ⟦#⟧ DONTE()
  18 
  19 divert(-1)
 
-$ m4 root0b.m4 apost.sh.m4 apost.m4 messages.mc > apost.sh
+$ m4 root0u.m4 apost.sh.m4 apost.m4 messages.mc > apost.sh
 
 5964776 messages/apost.sh
   1 #!/bin/bash
@@ -1654,7 +1657,7 @@ b53eafe hello_world/sh.m4
  32 	echo '__COUNTUP__] SYMBOL LB()__COUNTDN__'
  33 fi
 
-$ m4 -DSYMBOL='Hello, world!' root0b.m4 countb.m4 sh.m4 > hello_world.sh
+$ m4 -DSYMBOL='Hello, world!' root0u.m4 countb.m4 sh.m4 > hello_world.sh
 
 b53eafe hello_world/hello_world.sh
   1 #!/bin/bash
@@ -1756,7 +1759,7 @@ D.2 👎 Proč se vyhnout M4
 • univerzální jazyk nízké úrovně (podobně jako jazyk C)
 	• což výměnou poskytuje ohromnou flexibilitu jako UNIX
 • téměř neexistující komunita vývojářů (podzim 2019)
-	• M4 je téměř zapomenutý jazyk, málo existujících projektů
+	• M4 je zapomenutý jazyk, málo existujících projektů
 • neobvyklé programovací paradigma vyžadující splnění několika předpokladů
 	• právě proto lze M4 považovat za náročný jazyk
 • produktivita značně závisí na zkušenostech (možný problém s termíny)
