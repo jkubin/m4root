@@ -47,12 +47,12 @@ all-text-cs atcs: $(TEXT_cs) $(GZIPPED_TEXT_cs) $(XZIPPED_TEXT_cs)
 clean-text-cs cltcs ctcs:
 	$(RM) $(TEXT_cs) $(GZIPPED_TEXT_cs) $(XZIPPED_TEXT_cs)
 
-all_cs.txt: rootb.m4 cfg.m4 lang.m4 headings.m4 ver.m4 lang_cs.m4 git.m4 refs_cs.m4 refs_en.m4 refs_mono.m4 incl.m4 text/file.m4 text/cmd.m4 text/queues.m4 text/ref.m4 text/link.m4 text/text.m4 intro.mc fundamentals.mc
+all_cs.txt: rootu.m4 cfg.m4 lang.m4 headings.m4 ver.m4 lang_cs.m4 git.m4 refs_cs.m4 refs_en.m4 refs_mono.m4 incl.m4 text/file.m4 text/cmd.m4 text/queues.m4 text/ref.m4 text/link.m4 text/text.m4 intro.mc fundamentals.mc
 	m4 -DLANG_CODE='cs' -DFILE_LIST='intro.mc,fundamentals.mc' -DPRINT_HEADER -DLINE_NUMBERS $(FLAGS) $^ | sed -f text/esc_to_txt.sed > $@
 
-generovani-kodu-v-m4-uvod.txt: rootb.m4 cfg.m4 lang.m4 headings.m4 ver.m4 lang_cs.m4 git.m4 refs_cs.m4 refs_en.m4 refs_mono.m4 incl.m4 init.m4 text/file.m4 text/cmd.m4 text/queues.m4 text/ref.m4 text/link.m4 text/text.m4 intro.mc
+generovani-kodu-v-m4-uvod.txt: rootu.m4 cfg.m4 lang.m4 headings.m4 ver.m4 lang_cs.m4 git.m4 refs_cs.m4 refs_en.m4 refs_mono.m4 incl.m4 init.m4 text/file.m4 text/cmd.m4 text/queues.m4 text/ref.m4 text/link.m4 text/text.m4 intro.mc
 	m4 -DLANG_CODE='cs' -DFILE_LIST='intro.mc,fundamentals.mc' -DLINE_NUMBERS $(FLAGS) $^ | sed -f text/esc_to_txt.sed > $@
 
-generovani-kodu-v-m4-zaklady.txt: rootb.m4 cfg.m4 lang.m4 headings.m4 ver.m4 lang_cs.m4 git.m4 refs_cs.m4 refs_en.m4 refs_mono.m4 incl.m4 init.m4 text/file.m4 text/cmd.m4 text/queues.m4 text/ref.m4 text/link.m4 text/text.m4 fundamentals.mc
+generovani-kodu-v-m4-zaklady.txt: rootu.m4 cfg.m4 lang.m4 headings.m4 ver.m4 lang_cs.m4 git.m4 refs_cs.m4 refs_en.m4 refs_mono.m4 incl.m4 init.m4 text/file.m4 text/cmd.m4 text/queues.m4 text/ref.m4 text/link.m4 text/text.m4 fundamentals.mc
 	m4 -DLANG_CODE='cs' -DFILE_LIST='intro.mc,fundamentals.mc' -DLINE_NUMBERS $(FLAGS) $^ | sed -f text/esc_to_txt.sed > $@
 
