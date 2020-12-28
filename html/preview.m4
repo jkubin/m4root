@@ -3,49 +3,25 @@ ___DESCR(⟦creates a preview of the html page for article development⟧)
 __REASON(⟦development and preview of html file⟧)
 
 # A → β
-define(⟦AUTHOR_SHORT_DESCRIPTION⟧, LANGW(⟦dnl _first_language_
-PERSON(⟦AUTHOR_NAME⟧) vystudoval Fakultu⟦⟧NB()informatiky Masarykovy univerzity v Brně, zabýval se teoretickou informatikou a⟦⟧NB()programováním hardware.
-Pracuje ve společnosti Red⟦⟧NB()Hat v⟦⟧NB()ABBREV(⟦GSS⟧, ⟦Global Support Services⟧).
-⟧,
-⟦dnl _next_language_
-PERSON(⟦AUTHOR_NAME⟧) graduated from the Faculty of Informatics, Masaryk University, where he studied theoretical computer science and hardware programming.
-Works at Red⟦⟧NB()Hat in⟦⟧NB()ABBREV(⟦GSS⟧, ⟦Global Support Services⟧).
-⟧))
+define(⟦PARTIMAGE⟧, ⟦
 
-# expand the selected language
-XLANG(⟦
-
-	# _first_language_
-	define(⟦AUTHOR_OF_THE_ARTICLE⟧,		⟦Autor článku⟧)
-	define(⟦AUTHOR_WORD⟧,			⟦Autor⟧)
-	define(⟦AUTHOR_PROFILE⟧,		⟦Profil autora⟧)
-	define(⟦WORD_STICKERS⟧,			⟦Nálepky⟧)
-
-⟧, ⟦
-
-	# _next_language_
-	define(⟦AUTHOR_OF_THE_ARTICLE⟧,		⟦Author of the article⟧)
-	define(⟦AUTHOR_WORD⟧,			⟦Author⟧)
-	define(⟦AUTHOR_PROFILE⟧,		⟦Author's profile⟧)
-	define(⟦WORD_STICKERS⟧,			⟦Stickers⟧)
-
-⟧)
-
-#      ___________      ______
-# --->/ PARTIMAGE \--->/ path \
-#     \___________/    \______/
-#
-# A → β
-define(⟦PARTIMAGE⟧, defn(⟦TEST_ATM⟧)⟦
-
-	# transition to the next node (redefine itself to image path)
-	define(⟦$0⟧, ⟦../$1⟧)
+	divert(BEGIN_OF_PARTIMAGE)dnl
+<div class="design-list--articles--article-detail  design-list--articles--opener design-list--articles design-list list-reset">
+<div class="design-list__item">
+<div class="design-article--opener--simple design-article--opener design-article--with-image design-article design-tile">
+<span class=" element-print-hidden  design-article__image-outer">
+<img class="design-image--responsive design-image design-article__image" src="⟦../$1⟧" width="670" height="377" alt=" ">
+<span class="design-article__image-author">AUTHOR_WORD: AUTHOR_NAME_SHORT</span>
+</span>
+divert(END_OF_PARTIMAGE)dnl
+</div>
+</div>
+</div>
+divert(-1)
 ⟧)
 
 # A → β
 define(⟦SRC_FILE_PATH⟧, ⟦⟦../$1⟧⟧)
-#define(⟦SRC_REPO_NAME⟧, defn(⟦WORD_SRC⟧)⟦localhost
-#⟧)
 
 # set local image
 # A → β
@@ -55,19 +31,15 @@ define(⟦IMG_SRC⟧, ⟦../$1⟧)
 # A → ε
 define(⟦OTHER_LANGUAGE⟧)
 
+# creates the resulting skeleton
 # A → β
 define(⟦PART⟧, defn(⟦PART⟧)⟦
 
-	# transition to next node (error if the next node)
+	# displays an error if this macro occurs multiple times
 	define(⟦$0⟧, ⟦
 
 		ROOT_ERROR(⟦only one source file is allowed⟧)
 	⟧)
-⟧)
-
-# creates the resulting skeleton
-# A → β
-define(⟦PARTINTRO⟧, ⟦
 
 	divert(0)dnl
 <!-- DONTE() -->
@@ -86,25 +58,11 @@ divert(HEADER_END_START_BODY)dnl
 <div class="layout-columns__item--main layout-columns__item">
 <div class="design-tile--version-1 design-tile">
 <h1 class="detail__heading design-heading--level-1 design-heading">PART_val</h1>
-<div class="design-list--articles--article-detail  design-list--articles--opener design-list--articles design-list list-reset">
-<div class="design-list__item">
-<div class="design-article--opener--simple design-article--opener design-article--with-image design-article design-tile">
-<span class=" element-print-hidden  design-article__image-outer">
-<img class="design-image--responsive design-image design-article__image" src="PARTIMAGE" width="670" height="377" alt=" ">
-<span class="design-article__image-author">AUTHOR_WORD: AUTHOR_NAME_SHORT</span>
-</span>
-<div class="design-article__text">
-<div class="design-article__perex">
-<div class="design-article__perex-content">EXPAND_LANG_WITHOUT_TRAILING_LF(⟧defn(⟦EXPAND_LAST_ARG⟧)⟦)</div>
-</div>
-</div>
-</div>
-</div>
-</div>
+divert(BEGIN_OF_ARTICLE)dnl
 <div class="detail__article ">
 <div class=" layout-article-content">
 <div class="element-margin-top-half php-urs urs">
-divert(END_OF_ARTICLE)dnl
+divert(END_OF_DOCUMENT)dnl
 </div>
 </div>
 </div>
@@ -152,5 +110,19 @@ divert(END_OF_ARTICLE)dnl
 </div>
 </body>
 </html>
+divert(-1)
+⟧)
+
+# A → β
+define(⟦PARTINTRO⟧, ⟦
+
+	divert(PARTINTRO_BLOCK)dnl
+<div class="design-article__text">
+<div class="design-article__perex">
+<div class="design-article__perex-content">dnl
+EXPAND_LANG_WITHOUT_TRAILING_LF(⟧defn(⟦EXPAND_LAST_ARG⟧)⟦)dnl
+</div>
+</div>
+</div>
 divert(-1)
 ⟧)
