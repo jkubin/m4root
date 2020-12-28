@@ -1388,12 +1388,12 @@ dnl _next_language_
 ⟧)
 
 PARA(⟦⟦dnl _first_language_
-Příklad používá HEXPLAIN(⟦malý automat⟧, ⟦⟦⟦1-4⟧, ⟦messages/stringl.c.m4⟧⟧⟧) HCODE(⟦NEW_LINE⟧, ⟦⟦⟦7⟧, ⟦messages/stringl.c.m4⟧⟧⟧) pro generování znaku nového řádku HCODE(⟦\n⟧, ⟦⟦⟦A⟧, ⟦messages/stringl.c.m4⟧⟧, ⟦⟦A⟧, ⟦messages/stringl.c⟧⟧⟧) a⟦⟧NB()jednu výstupní frontu číslo HCODE(⟦1⟧, ⟦⟦⟦22⟧, ⟦messages/stringl.c.m4⟧⟧⟧) do které se vloží znaky HCODE(⟦";⟧, ⟦⟦⟦B⟧, ⟦messages/stringl.c.m4⟧⟧⟧) pro uzavření výsledného řetězce.
-Poprvé se HCODE(⟦NEW_LINE⟧, ⟦⟦⟦C⟧, ⟦messages/stringl.c.m4⟧⟧⟧) přepíše na ABBREV(⟦HCODE(⟦ε⟧, ⟦⟦⟦D⟧, ⟦messages/stringl.c.m4⟧⟧⟧)⟧, ⟦epsilon – prázdný symbol⟧), podruhé a dále se přepíše na HCODE(⟦\n⟧, ⟦⟦⟦A⟧, ⟦messages/stringl.c.m4⟧⟧, ⟦⟦A⟧, ⟦messages/stringl.c⟧⟧⟧).
+Příklad používá HEXPLAIN(⟦malý automat⟧, ⟦⟦⟦1-4⟧, ⟦messages/stringl.c.m4⟧⟧⟧) HCODE(⟦NEW_LINE⟧, ⟦⟦⟦7⟧, ⟦messages/stringl.c.m4⟧⟧⟧) pro generování znaku nového řádku HXCODE(⟦LF()⟧, ⟦⟦⟦A⟧, ⟦messages/stringl.c.m4⟧⟧, ⟦⟦A⟧, ⟦messages/stringl.c⟧⟧⟧) a⟦⟧NB()jednu výstupní frontu číslo HCODE(⟦1⟧, ⟦⟦⟦22⟧, ⟦messages/stringl.c.m4⟧⟧⟧) do které se vloží znaky HXCODE(⟦DQT();⟧, ⟦⟦⟦B⟧, ⟦messages/stringl.c.m4⟧⟧⟧) pro uzavření výsledného řetězce.
+Poprvé se HCODE(⟦NEW_LINE⟧, ⟦⟦⟦C⟧, ⟦messages/stringl.c.m4⟧⟧⟧) přepíše na ABBREV(⟦HCODE(⟦ε⟧, ⟦⟦⟦D⟧, ⟦messages/stringl.c.m4⟧⟧⟧)⟧, ⟦epsilon – prázdný symbol⟧), podruhé a dále se přepíše na HXCODE(⟦LF()⟧, ⟦⟦⟦A⟧, ⟦messages/stringl.c.m4⟧⟧, ⟦⟦A⟧, ⟦messages/stringl.c⟧⟧⟧).
 ⟧,
 ⟦dnl _next_language_
-The example uses HEXPLAIN(⟦a⟦⟧NB()small automaton⟧, ⟦⟦⟦1-4⟧, ⟦messages/stringl.c.m4⟧⟧⟧) HCODE(⟦NEW_LINE⟧, ⟦⟦⟦7⟧, ⟦messages/stringl.c.m4⟧⟧⟧) to generate a⟦⟧NB()newline HCODE(⟦\n⟧, ⟦⟦⟦A⟧, ⟦messages/stringl.c.m4⟧⟧, ⟦⟦A⟧, ⟦messages/stringl.c⟧⟧⟧) character and one output queue number HCODE(⟦1⟧, ⟦⟦⟦22⟧, ⟦messages/stringl.c.m4⟧⟧⟧) containing HCODE(⟦";⟧, ⟦⟦⟦B⟧, ⟦messages/stringl.c.m4⟧⟧⟧) characters to terminate resulting string.
-Run the first time HCODE(⟦NEW_LINE⟧, ⟦⟦⟦C⟧, ⟦messages/stringl.c.m4⟧⟧⟧), is rewritten to ABBREV(⟦HCODE(⟦ε⟧, ⟦⟦⟦D⟧, ⟦messages/stringl.c.m4⟧⟧⟧)⟧, ⟦epsilon – empty symbol⟧), in all following ones, it is rewritten to HCODE(⟦\n⟧, ⟦⟦⟦A⟧, ⟦messages/stringl.c.m4⟧⟧, ⟦⟦A⟧, ⟦messages/stringl.c⟧⟧⟧).
+The example uses HEXPLAIN(⟦a⟦⟧NB()small automaton⟧, ⟦⟦⟦1-4⟧, ⟦messages/stringl.c.m4⟧⟧⟧) HCODE(⟦NEW_LINE⟧, ⟦⟦⟦7⟧, ⟦messages/stringl.c.m4⟧⟧⟧) to generate a⟦⟧NB()newline HXCODE(⟦LF()⟧, ⟦⟦⟦A⟧, ⟦messages/stringl.c.m4⟧⟧, ⟦⟦A⟧, ⟦messages/stringl.c⟧⟧⟧) character and one output queue number HCODE(⟦1⟧, ⟦⟦⟦22⟧, ⟦messages/stringl.c.m4⟧⟧⟧) containing HXCODE(⟦DQT()⟧, ⟦⟦⟦B⟧, ⟦messages/stringl.c.m4⟧⟧⟧) characters to terminate resulting string.
+Run the first time HCODE(⟦NEW_LINE⟧, ⟦⟦⟦C⟧, ⟦messages/stringl.c.m4⟧⟧⟧), is rewritten to ABBREV(⟦HCODE(⟦ε⟧, ⟦⟦⟦D⟧, ⟦messages/stringl.c.m4⟧⟧⟧)⟧, ⟦epsilon – empty symbol⟧), in all following ones, it is rewritten to HXCODE(⟦LF()⟧, ⟦⟦⟦A⟧, ⟦messages/stringl.c.m4⟧⟧, ⟦⟦A⟧, ⟦messages/stringl.c⟧⟧⟧).
 ⟧⟧)
 
 TEXTDATA(⟦messages/stringl.c.m4⟧,, ⟦
