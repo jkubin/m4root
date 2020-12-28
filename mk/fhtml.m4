@@ -108,6 +108,6 @@ $(FOLDER_NAMES):
 
 git_⟦⟧LANG_CODE.m4: $(SPCHECK_FILES) $(PREVIEW_FILES) $(ARTICLE_FILES)
 
-FROZEN_FILE: JAVASCRIPT rootu.m4 queues.m4 cfg.m4 ent.m4 init.m4 inline.m4 headings.m4 block.m4 ver.m4 style.m4 lang_⟦⟧LANG_CODE.m4 css.m4 js.m4 git.m4 REFS_FILES lang.m4 incl.m4 file.m4 cmd.m4
+FROZEN_FILE: JAVASCRIPT rootu.m4 queues.m4 config.m4 ent.m4 init.m4 inline.m4 headings.m4 block.m4 ver.m4 style.m4 lang_⟦⟧LANG_CODE.m4 css.m4 js.m4 git.m4 REFS_FILES lang.m4 incl.m4 file.m4 cmd.m4
 	m4 -F $@ -DLANG_CODE='LANG_CODE' -DFILE_LIST='FILE_LIST' $(filter-out JAVASCRIPT, $^)
 

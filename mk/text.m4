@@ -18,7 +18,7 @@ define(⟦MAKE_RULE⟧, ⟦
 		divert(1)dnl
 defn(⟦FILE_STEM⟧) \
 divert(3)dnl
-FILE_STEM.txt: rootu.m4 cfg.m4 lang.m4 headings.m4 ver.m4 lang_⟦⟧LANG_CODE.m4 git.m4 REFS_FILES incl.m4 init.m4 text/file.m4 text/cmd.m4 text/queues.m4 text/ref.m4 text/link.m4 text/text.m4 $1
+FILE_STEM.txt: rootu.m4 config.m4 lang.m4 headings.m4 ver.m4 lang_⟦⟧LANG_CODE.m4 git.m4 REFS_FILES incl.m4 init.m4 text/file.m4 text/cmd.m4 text/queues.m4 text/ref.m4 text/link.m4 text/text.m4 $1
 	m4 -DLANG_CODE='LANG_CODE' -DFILE_LIST='FILE_LIST' -DLINE_NUMBERS $(FLAGS) $^ | sed -f text/esc_to_txt.sed > $⟦@⟧
 
 divert(-1)

@@ -20,14 +20,14 @@ define(⟦MAKE_RULE⟧, ⟦
 		divert(1)dnl
 defn(⟦TARGET_FOLDER⟧) \
 divert(3)dnl
-TARGET_FOLDER/%.html: JAVASCRIPT rootu.m4 html/queues.m4 html/ent.m4 cfg.m4 init.m4 html/inline.m4 headings.m4 html/block.m4 ver.m4 html/style.m4 lang_⟦⟧LANG_CODE.m4 html/css.m4 js.m4 git.m4 REFS_FILES lang.m4 incl.m4 html/file.m4 html/cmd.m4 html/%.m4 $1 html/nav.m4
+TARGET_FOLDER/%.html: JAVASCRIPT rootu.m4 html/queues.m4 html/ent.m4 config.m4 init.m4 html/inline.m4 headings.m4 html/block.m4 ver.m4 html/style.m4 lang_⟦⟧LANG_CODE.m4 html/css.m4 js.m4 git.m4 REFS_FILES lang.m4 incl.m4 html/file.m4 html/cmd.m4 html/%.m4 $1 html/nav.m4
 	m4 -DLANG_CODE='LANG_CODE' -DARTICLE_PATH='TARGET_FOLDER' -DFILE_LIST='FILE_LIST' -DOUTPUT_FILE='$⟦*⟧.html' $(FLAGS) $(filter-out JAVASCRIPT, $^) | sed -f html/esc_to_ent.sed > $⟦@⟧
 	tidy -qe --drop-empty-elements no $⟦@⟧
 
-TARGET_FOLDER/spell.txt: rootu.m4 cfg.m4 lang.m4 headings.m4 ver.m4 lang_⟦⟧LANG_CODE.m4 REFS_FILES incl.m4 spell.m4 $1
+TARGET_FOLDER/spell.txt: rootu.m4 config.m4 lang.m4 headings.m4 ver.m4 lang_⟦⟧LANG_CODE.m4 REFS_FILES incl.m4 spell.m4 $1
 	m4 -DLANG_CODE='LANG_CODE' $(FLAGS) $^ > $⟦@⟧
 
-TARGET_FOLDER/publish.txt: JAVASCRIPT rootu.m4 html/queues.m4 html/ent.m4 cfg.m4 init.m4 html/inline.m4 headings.m4 html/block.m4 ver.m4 html/style.m4 lang_⟦⟧LANG_CODE.m4 html/css.m4 js.m4 git.m4 git_mc.m4 git_⟦⟧LANG_CODE.m4 REFS_FILES lang.m4 incl.m4 html/file.m4 html/cmd.m4 html/publish.m4 $1 html/nav.m4
+TARGET_FOLDER/publish.txt: JAVASCRIPT rootu.m4 html/queues.m4 html/ent.m4 config.m4 init.m4 html/inline.m4 headings.m4 html/block.m4 ver.m4 html/style.m4 lang_⟦⟧LANG_CODE.m4 html/css.m4 js.m4 git.m4 git_mc.m4 git_⟦⟧LANG_CODE.m4 REFS_FILES lang.m4 incl.m4 html/file.m4 html/cmd.m4 html/publish.m4 $1 html/nav.m4
 	m4 -DLANG_CODE='LANG_CODE' -DARTICLE_PATH='TARGET_FOLDER' --define='./$⟦@⟧'='⟦⟦master⟧⟧' -DFILE_LIST='FILE_LIST' $(FLAGS) $(filter-out JAVASCRIPT, $^) | sed -f html/publish.sed -f html/esc_to_ent.sed > $⟦@⟧
 	git add $⟦@⟧
 	git ci -m 'generated file'
