@@ -32,7 +32,7 @@ The introductory part of the series contains its history, the basic principles o
 <div class="detail__article ">
 <div class=" layout-article-content">
 <div class="element-margin-top-half php-urs urs">
-<div id="m4--toc"><h2>Content (<a href="../generovani-kodu-v-m4-uvod/index.html#m4--toc" title="Generování kódu v M4: úvod">Česky</a>)</h2><div><div class="m4-dwnl"><a href="../intro.mc" style="font-weight:bold" title="article source code">mc</a><a href="../generating-code-in-m4-introduction/spell.txt" title="generated text for spell checking and jargon (designed for Vim)">spl</a><a href="../generating-code-in-m4-introduction.txt" title="generated text for estimating the number of characters">txt</a><a href="../generating-code-in-m4-introduction/publish.txt" title="generated text that you are currently reading and that has been entered into the content management system (CMS)">pub</a><br><a href="../generating-code-in-m4-introduction/index.html" title="generated html page for off-line development">dev</a><a href="../generating-code-in-m4-introduction/preview.html" title="generated html page for off-line preview">pre</a>&nbsp;</div><div class="m4-updt">updated<br>December 28, 2020</div></div></div>
+<div id="m4--toc"><h2>Content (<a href="../generovani-kodu-v-m4-uvod/index.html#m4--toc" title="Generování kódu v M4: úvod">Česky</a>)</h2><div><div class="m4-dwnl"><a href="../intro.mc" style="font-weight:bold" title="article source code">mc</a><a href="../generating-code-in-m4-introduction/spell.txt" title="generated text for spell checking and jargon (designed for Vim)">spl</a><br><a href="../generating-code-in-m4-introduction/index.html" title="generated html page for off-line development">dvl</a><a href="../generating-code-in-m4-introduction/preview.html" title="generated html page for off-line preview">pre</a>&nbsp;</div><div class="m4-updt">updated<br>December 28, 2020</div></div></div>
 <noscript><div title="for information" class="rs-tip-major m4-info">Enabling JavaScript enhances the clarity of the source code samples.</div></noscript>
 <p id="m4-introduction-toc"><a href="#m4-introduction"><b>1</b>Introduction</a></p>
 <p id="m4-examples-for-readers-toc" class="m4-l2"><a href="#m4-examples-for-readers"><b>1.1</b>Examples for readers</a></p>
@@ -674,16 +674,16 @@ sha1sum: 3c925dc
 size: 535 B">messages.mc</a> > <a href="../messages/hello.ini" title="messages/hello.ini
 date: 20201226-21:52:28
 git rev: 24fd4f3
-sha1sum: 018bcc4
+sha1sum: 70a6d34
 size: 204 B">hello.ini</a></pre><code><span class="m4-cb" title="select text"></span><a href="#m4-messages_hello-ini-command" title="⚓"></a></code></div>
 <div id="m4-messages_hello-ini" class="m4-src"><pre>; DO NOT EDIT! This file is generated automatically!
 
-[hello_20201226]
+[hello_20201228]
 COMPLEX="!\"#$%&amp;'()*+,-./:;&lt;=>?@[\\]^_`{|}~"
 SUCCESS="Too complex M4 code failed successfully."
 NOFAULT="It's not a language fault!"</pre><code><span class="m4-sha">24fd4f3</span><a href="../messages/hello.ini" title="messages/hello.ini
 date: 20201226-21:52:28
-sha1sum: 018bcc4
+sha1sum: 70a6d34
 size: 204 B">hello.ini</a><span class="m4-cb" title="select text"></span><a href="#m4-messages_hello-ini" title="⚓"></a></code></div>
 <h3 id="m4-h-hex-counter" class="m4-ch"><a href="#m4-h-hex-counter-toc" title="Content"></a><a href="#m4-h-hex-counter" title="⚓">A.7</a><code>⟦⟧</code> .h: hex counter<a href="#m4--toc" title="Top"></a></h3>
 <p>The example uses the <code class="m4-hgl" data-23="A,2">COUNTER</code> macro to number the resulting <abbr title="C preprocessor">CPP</abbr> <span class="m4-hgl" data-23="11" data-24="8-10">macros</span> and one output queue.
@@ -754,7 +754,7 @@ date: 20200106-16:21:10
 sha1sum: 50550b3
 size: 189 B">messages.h</a><span class="m4-cb" title="select text"></span><a href="#m4-messages_messages-h" title="⚓"></a></code></div>
 <h3 id="m4-c-small-automaton" class="m4-ch"><a href="#m4-c-small-automaton-toc" title="Content"></a><a href="#m4-c-small-automaton" title="⚓">A.8</a><code>⟦⟧</code> C: small automaton<a href="#m4--toc" title="Top"></a></h3>
-<p>The example uses <span class="m4-hgl" data-25="1-4">a&nbsp;small automaton</span> <code class="m4-hgl" data-25="7">NEW_LINE</code> to generate a&nbsp;newline <code class="m4-hgl" data-25="A" data-26="A">\n</code> character and one output queue number <code class="m4-hgl" data-25="22">1</code> containing <code class="m4-hgl" data-25="B">";</code> characters to terminate resulting string.
+<p>The example uses <span class="m4-hgl" data-25="1-4">a&nbsp;small automaton</span> <code class="m4-hgl" data-25="7">NEW_LINE</code> to generate a&nbsp;newline <code class="m4-hgl" data-25="A" data-26="A">\n</code> character and one output queue number <code class="m4-hgl" data-25="22">1</code> containing <code class="m4-hgl" data-25="B">"</code> characters to terminate resulting string.
 Run the first time <code class="m4-hgl" data-25="C">NEW_LINE</code>, is rewritten to <abbr title="epsilon – empty symbol"><code class="m4-hgl" data-25="D">ε</code></abbr>, in all following ones, it is rewritten to <code class="m4-hgl" data-25="A" data-26="A">\n</code>.</p>
 <div id="m4-messages_stringl-c-m4" class="m4-src"><pre>#     NEW_LINE automaton
 #      ___      ____
@@ -2122,10 +2122,10 @@ date: 20200106-23:32:45
 sha1sum: b9ab8e3
 size: 112 B">awk.m4</a><span class="m4-cb" title="select text"></span><a href="#m4-hello_world_awk-m4" title="⚓"></a></code></div>
 <div id="m4-hello_world_hello_world-awk-command" class="m4-cmd m4-usc"><pre title="command">m4 -DSYMBOL='Hello, world!' <a href="../gfiles/root1b.m4" title="gfiles/root1b.m4
-date: 20201228-04:13:12
-git rev: bf5a19d
-sha1sum: 48d098e
-size: 1936 B">root1b.m4</a> <a href="../hello_world/awk.m4" title="hello_world/awk.m4
+date: 20201228-16:20:39
+git rev: 479f92c
+sha1sum: f0b5998
+size: 1922 B">root1b.m4</a> <a href="../hello_world/awk.m4" title="hello_world/awk.m4
 date: 20200106-23:32:45
 git rev: 3a8a5dd
 sha1sum: b9ab8e3
