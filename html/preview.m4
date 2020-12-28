@@ -3,71 +3,71 @@ ___DESCR(⟦creates a preview of the html page for article development⟧)
 __REASON(⟦development and preview of html file⟧)
 
 # A → β
-define([AUTHOR_SHORT_DESCRIPTION], LANGW([dnl _first_language_
-PERSON([AUTHOR_NAME]) vystudoval Fakultu[]NB()informatiky Masarykovy univerzity v Brně, zabýval se teoretickou informatikou a[]NB()programováním hardware.
-Pracuje ve společnosti Red[]NB()Hat v[]NB()ABBREV([GSS], [Global Support Services]).
-],
-[dnl _next_language_
-PERSON([AUTHOR_NAME]) graduated from the Faculty of Informatics, Masaryk University, where he studied theoretical computer science and hardware programming.
-Works at Red[]NB()Hat in[]NB()ABBREV([GSS], [Global Support Services]).
-]))
+define(⟦AUTHOR_SHORT_DESCRIPTION⟧, LANGW(⟦dnl _first_language_
+PERSON(⟦AUTHOR_NAME⟧) vystudoval Fakultu⟦⟧NB()informatiky Masarykovy univerzity v Brně, zabýval se teoretickou informatikou a⟦⟧NB()programováním hardware.
+Pracuje ve společnosti Red⟦⟧NB()Hat v⟦⟧NB()ABBREV(⟦GSS⟧, ⟦Global Support Services⟧).
+⟧,
+⟦dnl _next_language_
+PERSON(⟦AUTHOR_NAME⟧) graduated from the Faculty of Informatics, Masaryk University, where he studied theoretical computer science and hardware programming.
+Works at Red⟦⟧NB()Hat in⟦⟧NB()ABBREV(⟦GSS⟧, ⟦Global Support Services⟧).
+⟧))
 
 # expand the selected language
-XLANG([
+XLANG(⟦
 
 	# _first_language_
-	define([AUTHOR_OF_THE_ARTICLE],		[Autor článku])
-	define([AUTHOR_WORD],			[Autor])
-	define([AUTHOR_PROFILE],		[Profil autora])
-	define([WORD_STICKERS],			[Nálepky])
+	define(⟦AUTHOR_OF_THE_ARTICLE⟧,		⟦Autor článku⟧)
+	define(⟦AUTHOR_WORD⟧,			⟦Autor⟧)
+	define(⟦AUTHOR_PROFILE⟧,		⟦Profil autora⟧)
+	define(⟦WORD_STICKERS⟧,			⟦Nálepky⟧)
 
-], [
+⟧, ⟦
 
 	# _next_language_
-	define([AUTHOR_OF_THE_ARTICLE],		[Author of the article])
-	define([AUTHOR_WORD],			[Author])
-	define([AUTHOR_PROFILE],		[Author's profile])
-	define([WORD_STICKERS],			[Stickers])
+	define(⟦AUTHOR_OF_THE_ARTICLE⟧,		⟦Author of the article⟧)
+	define(⟦AUTHOR_WORD⟧,			⟦Author⟧)
+	define(⟦AUTHOR_PROFILE⟧,		⟦Author's profile⟧)
+	define(⟦WORD_STICKERS⟧,			⟦Stickers⟧)
 
-])
+⟧)
 
 #      ___________      ______
 # --->/ PARTIMAGE \--->/ path \
 #     \___________/    \______/
 #
 # A → β
-define([PARTIMAGE], defn([TEST_ATM])[
+define(⟦PARTIMAGE⟧, defn(⟦TEST_ATM⟧)⟦
 
 	# transition to the next node (redefine itself to image path)
-	define([$0], [../$1])
-])
+	define(⟦$0⟧, ⟦../$1⟧)
+⟧)
 
 # A → β
-define([SRC_FILE_PATH], [[../$1]])
-#define([SRC_REPO_NAME], defn([WORD_SRC])[localhost
-#])
+define(⟦SRC_FILE_PATH⟧, ⟦⟦../$1⟧⟧)
+#define(⟦SRC_REPO_NAME⟧, defn(⟦WORD_SRC⟧)⟦localhost
+#⟧)
 
 # set local image
 # A → β
-define([IMG_SRC], [../$1])
+define(⟦IMG_SRC⟧, ⟦../$1⟧)
 
 # relative path to other language directory during development
 # A → ε
-define([OTHER_LANGUAGE])
+define(⟦OTHER_LANGUAGE⟧)
 
 # A → β
-define([PART], defn([PART])[
+define(⟦PART⟧, defn(⟦PART⟧)⟦
 
 	# transition to next node (error if the next node)
-	define([$0], [
+	define(⟦$0⟧, ⟦
 
-		ROOT_ERROR([only one source file is allowed])
-	])
-])
+		ROOT_ERROR(⟦only one source file is allowed⟧)
+	⟧)
+⟧)
 
-# all parts of the data are available, so the resulting skeleton is created
+# creates the resulting skeleton
 # A → β
-define([PARTINTRO], [
+define(⟦PARTINTRO⟧, ⟦
 
 	divert(0)dnl
 <!-- DONTE() -->
@@ -95,7 +95,7 @@ divert(HEADER_END_START_BODY)dnl
 </span>
 <div class="design-article__text">
 <div class="design-article__perex">
-<div class="design-article__perex-content">EXPAND_LANG_WITHOUT_TRAILING_LF(]defn([EXPAND_LAST])[)</div>
+<div class="design-article__perex-content">EXPAND_LANG_WITHOUT_TRAILING_LF(⟧defn(⟦EXPAND_LAST⟧)⟦)</div>
 </div>
 </div>
 </div>
@@ -115,8 +115,8 @@ divert(END_OF_ARTICLE)dnl
 <div class="design-box__content">
 <div class="author">
 <div class="author__pic avatar-round">
-<a class="avatar__wrap" href="[#]" title="AUTHOR_PROFILE">
-<img class="avatar__img" src="../img/defn(defn([AUTHOR_NAME]))" width="70" height="70" alt="AUTHOR_NAME">
+<a class="avatar__wrap" href="⟦#⟧" title="AUTHOR_PROFILE">
+<img class="avatar__img" src="../img/defn(defn(⟦AUTHOR_NAME⟧))" width="70" height="70" alt="AUTHOR_NAME">
 </a>
 </div>
 <div class="author__info">
@@ -153,4 +153,4 @@ divert(END_OF_ARTICLE)dnl
 </body>
 </html>
 divert(-1)
-])
+⟧)

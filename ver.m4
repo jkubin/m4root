@@ -7,24 +7,24 @@ __REASON(⟦stops source.mc processing if the major version number is different�
 # PATCH change means a backward compatible bug fixes
 
 # A → β
-define([__TPLVER], [
+define(⟦__TPLVER⟧, ⟦
 
-	ifdef([VERSION_MAJOR_$1], [
+	ifdef(⟦VERSION_MAJOR_$1⟧, ⟦
 
 		# prints nothing or a warning
 		VERSION_MAJOR_$1
-	], [
-		ROOT_ERROR([your ‘]__file__[’ is too different to process])
-	])
+	⟧, ⟦
+		ROOT_ERROR(⟦your ‘⟧__file__⟦’ is too different to process⟧)
+	⟧)
 
 	# prints nothing or an informative message
 	VERSION_MINOR_$2
 
 	# the patch number is not tested
-])
+⟧)
 
 # A → β
-define([VERSION_MAJOR_1], [
+define(⟦VERSION_MAJOR_1⟧, ⟦
 
-	# ROOT_INFO([template is under development])
-])
+	# ROOT_INFO(⟦template is under development⟧)
+⟧)

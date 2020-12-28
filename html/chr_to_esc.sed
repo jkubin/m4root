@@ -6,8 +6,8 @@
 s/&/\\x26;/g
 s/</\\x3c;/g
 #s/>/\\x3e;/g	no need hide for HTML5
-s/\[/\\x5b;/g
-s/]/\\x5d;/g
+s/⟦/\\u27e6;/g
+s/⟧/\\u27e7;/g
 
 # replace non-printable characters with UTF-8 printable characters
 y/\x00\x01\x02\x03\x04\x05\x06\x0c\x0d/␀␁␂␃␄␅␆␌␍/

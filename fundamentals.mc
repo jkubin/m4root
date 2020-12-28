@@ -4,32 +4,32 @@ ___DESCR(⟦⟧)
 VERSION_TEMPLATE(1, 0, 0)
 
 
-PART([dnl czech
-[SERIES_NAME: základy],
+PART(⟦dnl czech
+⟦SERIES_NAME: základy⟧,
 dnl english: _next_language_
-[SERIES_NAME: fundamentals],
-])
+⟦SERIES_NAME: fundamentals⟧,
+⟧)
 
-PARTIMAGE([img/m4tux.png], [https://i.iinfo.cz/images/154/m4tux-1-prev.png])
+PARTIMAGE(⟦img/m4tux.png⟧, ⟦https://i.iinfo.cz/images/154/m4tux-1-prev.png⟧)
 
 
-PARTINTRO([defn([PARTINTRO_CS])[dnl czech
+PARTINTRO(⟦defn(⟦PARTINTRO_CS⟧)⟦dnl czech
 Tento díl je zaměřen na vysvětlení potřebných, zdánlivě složitých pojmů teoretické informatiky.
-],
-defn([PARTINTRO_EN])[dnl english: _next_language_
+⟧,
+defn(⟦PARTINTRO_EN⟧)⟦dnl english: _next_language_
 This part is focused on explanation of necessary, seemingly complex concepts of theoretical computer science.
-]])
+⟧⟧)
 
 
-CHAPTER([dnl czech
-[Úvod],
+CHAPTER(⟦dnl czech
+⟦Úvod⟧,
 dnl english: _next_language_
-[Introduction],
-])
+⟦Introduction⟧,
+⟧)
 
-PARA([[dnl czech
+PARA(⟦⟦dnl czech
 %%%
-],
-[dnl english: _next_language_
+⟧,
+⟦dnl english: _next_language_
 %%%
-]])
+⟧⟧)

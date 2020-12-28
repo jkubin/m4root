@@ -3,8 +3,8 @@
 # __REASON(⟦problematic characters must be hidden⟧)
 
 # hide M4 problematic characters to https://en.wikipedia.org/wiki/Escape_sequences_in_C
-gsub(/\[/, "\\x5b;")
-gsub(/]/, "\\x5d;")
+gsub(/⟦/, "\\u27e6;")
+gsub(/⟧/, "\\u27e7;")
 
 # replace non-printable characters with UTF-8 printable characters
 gsub(/\x00/, "␀")

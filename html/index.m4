@@ -4,30 +4,30 @@ __REASON(⟦development and preview of html file before publishing⟧)
 
 # set local image
 # A → β
-define([IMG_SRC], [../$1])
+define(⟦IMG_SRC⟧, ⟦../$1⟧)
 
 # relative path to other language html page
 # A → ε
-define([OTHER_LANGUAGE])
+define(⟦OTHER_LANGUAGE⟧)
 
 # path for files
 # A → β
-define([SRC_FILE_PATH], [[../$1]])
+define(⟦SRC_FILE_PATH⟧, ⟦⟦../$1⟧⟧)
 
 # name of repository
 # A → β
-#define([SRC_REPO_NAME], defn([WORD_SRC])[localhost
-#])
+#define(⟦SRC_REPO_NAME⟧, defn(⟦WORD_SRC⟧)⟦localhost
+#⟧)
 
-# all parts of the data are available, so the resulting skeleton is created
+# creates the resulting skeleton
 # A → β
-define([PART], defn([PART])[
+define(⟦PART⟧, defn(⟦PART⟧)⟦
 
 	# transition to next node (error if the next node)
-	define([$0], [
+	define(⟦$0⟧, ⟦
 
-		ROOT_ERROR([only one source file is allowed])
-	])
+		ROOT_ERROR(⟦only one source file is allowed⟧)
+	⟧)
 
 	divert(0)dnl
 <!-- vim:wrap
@@ -65,4 +65,4 @@ divert(END_OF_ARTICLE)dnl
 </body>
 </html>
 divert(-1)
-])
+⟧)
