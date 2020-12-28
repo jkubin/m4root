@@ -14,7 +14,7 @@ pushdef(⟦TITLE_ATTR⟧, ⟦
 
 		divert(0)dnl
 __line__
-⟦⟦$2⟧⟧
+⟦[$2]⟧
 
 divert(-1)
 	⟧)
