@@ -4,16 +4,16 @@ dnl DO NOT EDIT! This file is generated automatically!
 dnl
 divert(-1)changequote(,)
 
-__HEADER(Josef Kubin, 2020/02/18, gfiles)
-___DESCR(minimal root script for simple projects)
-__REASON(root script as small as possible)
-___USAGE(m4 mroot.m4 stem.m4 branch.m4 sub_branch.m4 leaf.m4 data.mc > output.file)
+__HEADER(⟦Josef Kubin⟧, ⟦2020/02/18⟧, ⟦gfiles⟧)
+___DESCR(⟦minimal root script for simple projects⟧)
+__REASON(⟦root script as small as possible⟧)
+___USAGE(⟦m4 root.m4 stem.m4 branch.m4 sub_branch.m4 leaf.m4 data.mc > output.file⟧)
 
-# adds LOUD alert for unsuspecting users
+# LOUD alert for unsuspecting users
 define(DONTE, ifelse($#, 0, $0,
 DO NOT EDIT! This file is generated automatically!))
 
-# adds number of arguments (used for loops)
+# number of arguments (loops)
 define(NAR, $#)
 
 # expands n-th argument if the macro has parentheses
@@ -33,7 +33,7 @@ define(SARG2,	$2)
 define(SARG3,	$3)
 
 # adds another universal pair of symbols that protects unwanted expansion
-# (`payr' is not a word from the dictionary)
+# (`paYr' is not a word from the dictionary)
 define(PAYR, $@)
 
 # adds another layer of paired symbols
