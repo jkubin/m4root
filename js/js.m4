@@ -12,9 +12,7 @@ define(⟦ADD_JAVASCRIPT_TAGS⟧, ⟦
 	undefine(⟦ADD_JAVASCRIPT_TAGS⟧)
 
 	divert(JAVASCRIPT_DISABLED)dnl
-<noscript><div title="defn(⟦WORD_INFORMATION⟧)" class="rs-tip-major ADD_CLASS(⟦info⟧)">LANG(dnl
-⟦Srozumitelnost ukázek zdrojového kódu zvyšuje povolený JavaScript⟧,
-⟦Enabling JavaScript enhances the clarity of the source code samples⟧).</div></noscript>
+<noscript><div title="defn(⟦WORD_INFORMATION⟧)" class="rs-tip-major ADD_CLASS(⟦info⟧)">defn(⟦NOSCRIPT_MESSAGE⟧)</div></noscript>
 divert(JAVASCRIPT_CODE)dnl
 <script>dnl
 divert(JAVASCRIPT_CODE_END)dnl
