@@ -13,9 +13,9 @@ Makro procesor M4 se používá ke generování libovolně složitého kódu z&n
 
 # shortcut for article: "+yG
 
-<!-- "Generování kódu v M4: úvod" __SOURCE([intro.mc], [20201225-18:40:41], [7089b56], [6b010e6]) -->
-<style>.m4-ev{background:#f5f5f5}.urs p[id$="-toc"]>a>b{font-weight:normal;margin-right:.6em}.urs a[id^="m4-ref"]{font-size:.65em;vertical-align:super}.m4-A .m4-a,.m4-B .m4-b,.m4-C .m4-c,.m4-D .m4-d,.m4-E .m4-e,.m4-F .m4-f,.m4-G .m4-g,.m4-dh{background:lawngreen}.m4-R .m4-r{background:gold}.m4-S .m4-s{font-weight:bold}.m4-X .m4-x{visibility:hidden}.urs q{font-style:initial}.urs q::before{content:"\201e"}.urs q::after{content:"\201c"}#m4--toc{position:relative}#m4--toc>div{position:absolute;right:0;top:0}#m4--toc>div>div{display:inline-block}.m4-dwnl a{margin-left:.4em}.m4-updt{color:#666;text-align:right;margin-left:.6em}.m4-ch,.m4-bh,.m4-cmd{position:relative}.m4-bh>a:first-child::before,.m4-ch>a:first-child::before{font-size:.9em;font-weight:normal;position:absolute;right:100%;width:1.3em}.m4-ch>a:first-child::before{content:"\2630"}.m4-ch>a:first-child+a{margin-right:.4em}.m4-ch>a:last-child::before,.m4-bh>a:last-child::before{content:"\1f845";font-size:.65em;margin-left:.3em;position:absolute}.m4-ch>a:first-child,.m4-ch>a:last-child,.m4-bh>a:first-child,.m4-bh>a:last-child{opacity:0}.m4-ch:hover>a:first-child,.m4-ch:hover>a:last-child,.m4-bh:hover>a:first-child,.m4-bh:hover>a:last-child{opacity:1}.m4-xp{border-bottom:1px dotted #000;cursor:help}.m4-xp:active::after{content:" (" attr(title) ")"}.m4-note::before{content:"\1f5b9";margin-right:.2em;font-size:1.5em}.urs .m4-note,.urs .m4-info,.urs .m4-excl,.urs .m4-warn{padding-top:.2em;padding-bottom:.4em}.m4-note ul{margin-bottom:0;margin-left:1em}ol.m4-refs a:first-child::before{content:"\2191"}ol.m4-refs a:first-child{margin-right:.3em;text-decoration:none}.m4-l2{padding-left:1em}.m4-bh>a:first-child::before{content:"\1f517"}.m4-info::before{content:"\1f6c8";margin-right:.2em;font-size:1.5em}.m4-src{counter-reset:m4-nl}.m4-src>code>.m4-cb+a::before,.m4-cmd>code>.m4-cb+a::before{content:"\1f517"}.m4-src>code>.m4-cb+a,.m4-cmd>code>.m4-cb+a{font-weight:normal}.m4-src>code,.m4-cmd>code{border-radius:0 4px;border:1px solid #ddd;font-size:.7em;font-weight:bold;padding:2px 4px;position:absolute;right:0;text-align:right;top:0}.m4-src>code a,.m4-cmd>code a{margin-left:.6em}.m4-src>code>div{background:#eee;font-weight:initial;padding:0 2px;text-align:left}.m4-src>code>.m4-sha+a{color:inherit;margin:0 .6em}.m4-src>pre.m4-re{left:0;overflow:visible;padding-left:0;padding-right:0;position:absolute;top:0}.m4-src>pre+pre{background:none}.m4-src,.m4-src>pre,.m4-src>pre.m4-re>div{position:relative}.m4-src>pre.m4-re>div::before{content:counter(m4-nl);counter-increment:m4-nl;left:-3em;position:absolute;text-align:right;top:0;width:2.5em}.m4-src>pre.m4-re>div::after{content:" "}.m4-cb{cursor:pointer}.m4-cb::before{content:"\1f4cb"}.m4-hgl{border-bottom:1px dashed #000;cursor:help}.m4-cmd>pre{font-weight:bold;padding-right:0;white-space:normal;word-break:normal}.m4-cmd>code{visibility:hidden}.m4-cmd:hover>code{visibility:visible}.m4-cmd>pre a{color:inherit}.m4-root>pre::before{content:"# ";font-weight:normal}.m4-usc>pre::before{content:"$ ";font-weight:normal}.m4-sha{cursor:pointer;text-decoration:#f04c23 underline dashed}.m4-l3{padding-left:2em}</style>
-<div id="m4--toc"><h2>Obsah (<a href="../../texty/generating-code-in-m4-introduction/#m4--toc" title="Generating code in M4: introduction">English</a>)</h2><div><div class="m4-dwnl"><a href="https://raw.githubusercontent.com/jkubin/m4root/7089b561ff0ab116818e4c62c5b048059462c0d1/intro.mc" style="font-weight:bold" title="zdrojový kód článku">mc</a><a href="https://raw.githubusercontent.com/jkubin/m4root/6b010e6c7d7496b7216d2183d6c456b703743f92/generovani-kodu-v-m4-uvod/spell.txt" title="vygenerovaný text pro kontrolu překlepů a žargonu (určeno pro Vim)">spell</a><a href="https://raw.githubusercontent.com/jkubin/m4root/83e94ed9bf38b70361a6febc02cc87ef0bbc623c/generovani-kodu-v-m4-uvod.txt" title="vygenerovaný text pro odhad počtu znaků">txt</a><a href="https://raw.githubusercontent.com/jkubin/m4root/master/generovani-kodu-v-m4-uvod/publish.txt" title="vygenerovaný text, který právě čtete a který byl vložen do redakčního systému (CMS)">pub</a><br><a href="https://raw.githubusercontent.com/jkubin/m4root/83e94ed9bf38b70361a6febc02cc87ef0bbc623c/generovani-kodu-v-m4-uvod/index.html" title="vygenerovaná html stránka pro off-line vývoj">devel</a><a href="https://raw.githubusercontent.com/jkubin/m4root/83e94ed9bf38b70361a6febc02cc87ef0bbc623c/generovani-kodu-v-m4-uvod/preview.html" title="vygenerovaná html stránka pro off-line náhled">preview</a>&nbsp;</div><div class="m4-updt">aktualizováno<br>25. prosince 2020</div></div></div>
+<!-- "Generování kódu v M4: úvod" __SOURCE(⟦intro.mc⟧, ⟦20201228-04:23:26⟧, ⟦bc6c8bc⟧, ⟦9128717⟧) -->
+<style>.m4-ev{background:#f5f5f5}.urs p[id$="-toc"]>a>b{font-weight:normal;margin-right:.6em}.urs a[id^="m4-ref"]{font-size:.65em;vertical-align:super}.m4-A .m4-a,.m4-B .m4-b,.m4-C .m4-c,.m4-D .m4-d,.m4-E .m4-e,.m4-F .m4-f,.m4-G .m4-g,.m4-dh{background:lawngreen}.m4-R .m4-r{background:gold}.m4-S .m4-s{font-weight:bold}.m4-X .m4-x{visibility:hidden}.urs q{font-style:initial}.urs q::before{content:"\201e"}.urs q::after{content:"\201c"}#m4--toc{position:relative}#m4--toc>div{position:absolute;right:0;top:0}#m4--toc>div>div{display:inline-block}.m4-dwnl a{margin-left:.4em}.m4-updt{color:#666;text-align:right;margin-left:.6em}.m4-ch,.m4-bh,.m4-cmd{position:relative}.m4-bh>a:first-child::before,.m4-ch>a:first-child::before{font-size:.9em;font-weight:normal;position:absolute;right:100%;width:1.3em}.m4-ch>a:first-child::before{content:"\2630"}.m4-ch>a:first-child+a{margin-right:.4em}.m4-ch>a:last-child::before,.m4-bh>a:last-child::before{content:"\1f845";font-size:.65em;margin-left:.3em;position:absolute}.m4-ch>a:first-child,.m4-ch>a:last-child,.m4-bh>a:first-child,.m4-bh>a:last-child{opacity:0}.m4-ch:hover>a:first-child,.m4-ch:hover>a:last-child,.m4-bh:hover>a:first-child,.m4-bh:hover>a:last-child{opacity:1}.m4-xp{border-bottom:1px dotted #000;cursor:help}.m4-xp:active::after{content:" (" attr(title) ")"}.m4-note::before{content:"\1f5b9";margin-right:.2em;font-size:1.5em}.urs .m4-note,.urs .m4-info,.urs .m4-excl,.urs .m4-warn{padding-top:.2em;padding-bottom:.4em}.m4-note ul{margin-bottom:0;margin-left:1em}ol.m4-refs a:first-child::before{content:"\2191"}ol.m4-refs a:first-child{margin-right:.3em;text-decoration:none}.m4-l2{padding-left:1em}.m4-bh>a:first-child::before{content:"\1f517"}.m4-info::before{content:"\1f6c8";margin-right:.2em;font-size:1.5em}.m4-src{counter-reset:m4-nl}.m4-src>code>.m4-cb+a::before,.m4-cmd>code>.m4-cb+a::before{content:"\1f517"}.m4-src>code>.m4-cb+a,.m4-cmd>code>.m4-cb+a{font-weight:normal}.m4-src>code,.m4-cmd>code{border-radius:0 4px;border:1px solid #ddd;font-size:.7em;font-weight:bold;padding:2px 4px;position:absolute;right:0;text-align:right;top:0}.m4-src>code a,.m4-cmd>code a{margin-left:.6em}.m4-src>code>div{background:#eee;font-weight:initial;padding:0 2px;text-align:left}.m4-src>code>.m4-sha+a{background:#eee;color:inherit;margin:0 .6em}.m4-src>pre.m4-re{left:0;overflow:visible;padding-left:0;padding-right:0;position:absolute;top:0}.m4-src>pre+pre{background:none}.m4-src,.m4-src>pre,.m4-src>pre.m4-re>div{position:relative}.m4-src>pre.m4-re>div::before{content:counter(m4-nl);counter-increment:m4-nl;left:-3em;position:absolute;text-align:right;top:0;width:2.5em}.m4-src>pre.m4-re>div::after{content:" "}.m4-cb{cursor:pointer}.m4-cb::before{content:"\1f4cb"}.m4-hgl{border-bottom:1px dashed #000;cursor:help}.m4-cmd>pre{font-weight:bold;padding-right:0;white-space:normal;word-break:normal}.m4-cmd>code{visibility:hidden}.m4-cmd:hover>code{visibility:visible}.m4-cmd>pre a{color:inherit}.m4-root>pre::before{content:"# ";font-weight:normal}.m4-usc>pre::before{content:"$ ";font-weight:normal}.m4-sha{background:#eee;cursor:pointer;text-decoration:#f04c23 underline dashed}.m4-l3{padding-left:2em}</style>
+<div id="m4--toc"><h2>Obsah (<a href="../../texty/generating-code-in-m4-introduction/#m4--toc" title="Generating code in M4: introduction">English</a>)</h2><div><div class="m4-dwnl"><a href="https://raw.githubusercontent.com/jkubin/m4root/bc6c8bc08f4786b00cd96f808cdacc85a92a07fd/intro.mc" style="font-weight:bold" title="zdrojový kód článku">mc</a><a href="https://raw.githubusercontent.com/jkubin/m4root/91287177d028f1da25fe211f3fefbeb91898959a/generovani-kodu-v-m4-uvod/spell.txt" title="vygenerovaný text pro kontrolu překlepů a žargonu (určeno pro Vim)">spell</a><a href="https://raw.githubusercontent.com/jkubin/m4root/91287177d028f1da25fe211f3fefbeb91898959a/generovani-kodu-v-m4-uvod.txt" title="vygenerovaný text pro odhad počtu znaků">txt</a><a href="https://raw.githubusercontent.com/jkubin/m4root/master/generovani-kodu-v-m4-uvod/publish.txt" title="vygenerovaný text, který právě čtete a který byl vložen do redakčního systému (CMS)">pub</a><br><a href="https://raw.githubusercontent.com/jkubin/m4root/91287177d028f1da25fe211f3fefbeb91898959a/generovani-kodu-v-m4-uvod/index.html" title="vygenerovaná html stránka pro off-line vývoj">devel</a><a href="https://raw.githubusercontent.com/jkubin/m4root/91287177d028f1da25fe211f3fefbeb91898959a/generovani-kodu-v-m4-uvod/preview.html" title="vygenerovaná html stránka pro off-line náhled">preview</a>&nbsp;</div><div class="m4-updt">aktualizováno<br>28. prosince 2020</div></div></div>
 <noscript><div title="pro informaci" class="rs-tip-major m4-info">Srozumitelnost ukázek zdrojového kódu zvyšuje povolený JavaScript.</div></noscript>
 <p id="m4-uvod-toc"><a href="#m4-uvod"><b>1</b>Úvod</a></p>
 <p id="m4-priklady-pro-ctenare-toc" class="m4-l2"><a href="#m4-priklady-pro-ctenare"><b>1.1</b>Příklady pro čtenáře</a></p>
@@ -123,9 +123,9 @@ Makro procesor zdrojový kód překládá zpátky do FORTRAN-u, poté kompiláto
 <li>argumenty maker oddělují čárky stejně jako argumenty funkcí jazyka&nbsp;C
 <ul><li>je-li definováno makro <code>FUNC(char c, int i)</code>, jeho proměnné jsou:
 <code>$# → 2</code>, <code>$0 → FUNC</code>, <code>$1 → char c</code>, <code>$2 → int i</code></li></ul></li>
-<li><b>levý</b> <a href="#m4-rizeni-expanze-neterminalu" title="Řízení expanze neterminálů">řídící znak</a> <code>`</code> pro neterminály není součástí syntaxe rodiny jazyků&nbsp;C</li>
+<li><b>levý</b> <a href="#m4-rizeni-expanze-neterminalu" title="Řízení expanze neterminálů">řídící znak</a> <code>`</code> není součástí syntaxe rodiny jazyků&nbsp;C</li>
 <li><b>pravý</b> řídící znak <code>'</code> nevadí, není-li součástí makra
-<ul><li>oba řídící znaky lze skrýt do uživatelsky definovaných maker <code>LQ()</code>, <code>RQ()</code></li></ul></li>
+<ul><li>oba řídící znaky lze skrýt do uživatelských maker <code>LQ()</code>, <code>RQ()</code></li></ul></li>
 <li>makra se píší <code>VELKYMI_PISMENY</code>, stejně jako <a href="https://cs.wikipedia.org/wiki/Termin%C3%A1ln%C3%AD_a_netermin%C3%A1ln%C3%AD_symbol" title="Wikipedie">neterminální symboly</a>
 <ul><li>tím je vymezen jejich jmenný prostor</li></ul></li>
 </ul>
@@ -188,13 +188,13 @@ Dvojice řídících znaků se nastavuje na začátku kořenového souboru.</p>
 Používají přepisovací pravidla gramatiky jako uzly a&nbsp;mění své stavy podle vstupních symbolů.
 Aktuálně používané přepisovací pravidlo produkuje do výstupní fronty (nebo do několika výstupních front)
 specifický kód, dokud automat nepřejde do jiného uzlu s&nbsp;jiným přepisovacím pravidlem.
-Příklady <a href="#m4-json-generujici-automat" title="[] JSON: generující automat">generujících automatů</a> jsou ukázány v&nbsp;příloze.</p>
+Příklady <a href="#m4-json-generujici-automat" title="⟦⟧ JSON: generující automat">generujících automatů</a> jsou ukázány v&nbsp;příloze.</p>
 <h3 id="m4-vystupni-fronty" class="m4-ch"><a href="#m4-vystupni-fronty-toc" title="Obsah"></a><a href="#m4-vystupni-fronty" title="⚓">3.3</a>Výstupní fronty<a href="#m4--toc" title="Nahoru"></a></h3>
 <p>Výstupní fronty jsou dočasné úložiště pro části výsledného kódu.
 Tyto části výsledného kódu jsou produkovány přepisovacími pravidly gramatiky, které přepisují vstupní symboly.
 Klíčové slovo <code>divert(ℤ)</code> nastavuje aktuální výstupní frontu.
 Na závěr jsou všechny neprázdné fronty vypsány ve vzestupném pořadí na standardní výstup a&nbsp;složí výsledný kód z&nbsp;částí kódu.
-<a href="#m4-html-vystupni-fronty" title="[] HTML: výstupní fronty">Výstupní fronty</a> jsou ukázány v&nbsp;příloze.</p>
+<a href="#m4-html-vystupni-fronty" title="⟦⟧ HTML: výstupní fronty">Výstupní fronty</a> jsou ukázány v&nbsp;příloze.</p>
 <div title="pro informaci" class="rs-tip-major m4-info"><b>Zásobníky</b> si ukážeme později.</div>
 <h2 id="m4-hlavni-pouziti-m4" class="m4-ch"><a href="#m4-hlavni-pouziti-m4-toc" title="Obsah"></a><a href="#m4-hlavni-pouziti-m4" title="⚓">4</a>Hlavní použití M4<a href="#m4--toc" title="Nahoru"></a></h2>
 <p>M4 se používá ke generování zdrojového kódu libovolného programovacího jazyka nebo jako preprocesor jakéhokoliv zdrojového kódu.</p>
@@ -229,30 +229,30 @@ Při průchodu zdrojového kódu makro procesorem se makro <code>`'LQ()</code> p
 <p>Vyskytují-li se ve vstupním kódu komentáře <code>#</code> nebo <code>dnl</code>, je nutné je skrýt.
 Znaky <code>`'</code> <a href="#m4-h-zavorky-h-dnl" title="[] .h: závorky [], [,], [#], [dnl]">vypnou</a> původní význam komentářů a budou odebrány při průchodu makro procesorem.<br>
 Komentáře M4 <code>#</code> a <code>dnl</code> jsou skryty mezi výchozí znaky: <code>`#'</code> <code>`dnl'</code></p>
-<div id="m4-anch-14" title="M4 jako preprocesor s řídícími znaky: `'" class="m4-cmd m4-usc"><pre>sed 's/`/`'\''LQ()/g;s/#\|\&lt;dnl\&gt;/`&amp;'\''/g' any.src | m4 rootq.m4 leaf.m4 -</pre><code><span class="m4-cb" title="vybrat text"></span><a href="#m4-anch-14" title="⚓"></a></code></div>
-<div id="m4-anch-15" title="M4 jako preprocesor s řídícími znaky jinak: `'" class="m4-cmd m4-usc"><pre>sed 's/`/`'\''LQ()/g;s/#/`#'\''/g;s/\&lt;dnl\&gt;/`dnl'\''/g' any.src | m4 …</pre><code><span class="m4-cb" title="vybrat text"></span><a href="#m4-anch-15" title="⚓"></a></code></div>
+<div id="m4-anch-14" title="M4 jako preprocesor s řídícími znaky: `'" class="m4-cmd m4-usc"><pre>sed 's/`/`'\''LQ()/g;s/#\|\&lt;dnl\>/`&amp;'\''/g' any.src | m4 rootq.m4 leaf.m4 -</pre><code><span class="m4-cb" title="vybrat text"></span><a href="#m4-anch-14" title="⚓"></a></code></div>
+<div id="m4-anch-15" title="M4 jako preprocesor s řídícími znaky jinak: `'" class="m4-cmd m4-usc"><pre>sed 's/`/`'\''LQ()/g;s/#/`#'\''/g;s/\&lt;dnl\>/`dnl'\''/g' any.src | m4 …</pre><code><span class="m4-cb" title="vybrat text"></span><a href="#m4-anch-15" title="⚓"></a></code></div>
 <h4 id="m4-hranate-zavorky" class="m4-bh"><a href="#m4-hranate-zavorky" title="⚓"></a><code>[]</code> Hranaté závorky<a href="#m4--toc" title="Nahoru"></a></h4>
 <p>Použijeme-li pro <a href="#m4-rizeni-expanze-neterminalu" title="Řízení expanze neterminálů">řízení expanze neterminálů</a> hranaté závorky, stejným způsobem je skryta levá <code>[</code> hranatá závorka.
 Vše ostatní platí jako pro výchozí znaky <code>`'</code>.</p>
 <div id="m4-anch-16" title="M4 jako preprocesor s řídícími znaky: []" class="m4-cmd m4-usc"><pre>sed 's/\[/[]LB()/g' any.src | m4 rootb.m4 leaf.m4 - | …</pre><code><span class="m4-cb" title="vybrat text"></span><a href="#m4-anch-16" title="⚓"></a></code></div>
 <p>Komentáře M4 <code>#</code> a <code>dnl</code> jsou skryty mezi závorkami: <code>[#]</code> <code>[dnl]</code></p>
-<div id="m4-anch-17" title="M4 jako preprocesor s řídícími znaky: []" class="m4-cmd m4-usc"><pre>sed 's/\[/[]LB()/g;s/#\|\&lt;dnl\&gt;/[&amp;]/g' any.src | m4 rootb.m4 leaf.m4 - | …</pre><code><span class="m4-cb" title="vybrat text"></span><a href="#m4-anch-17" title="⚓"></a></code></div>
-<div id="m4-anch-18" title="M4 jako preprocesor s řídícími znaky jinak: []" class="m4-cmd m4-usc"><pre>sed 's/\[/[]LB()/g;s/#/[#]/g;s/\&lt;dnl\&gt;/[dnl]/g' any.src | m4 rootb.m4 …</pre><code><span class="m4-cb" title="vybrat text"></span><a href="#m4-anch-18" title="⚓"></a></code></div>
+<div id="m4-anch-17" title="M4 jako preprocesor s řídícími znaky: []" class="m4-cmd m4-usc"><pre>sed 's/\[/[]LB()/g;s/#\|\&lt;dnl\>/[&amp;]/g' any.src | m4 rootb.m4 leaf.m4 - | …</pre><code><span class="m4-cb" title="vybrat text"></span><a href="#m4-anch-17" title="⚓"></a></code></div>
+<div id="m4-anch-18" title="M4 jako preprocesor s řídícími znaky jinak: []" class="m4-cmd m4-usc"><pre>sed 's/\[/[]LB()/g;s/#/[#]/g;s/\&lt;dnl\>/[dnl]/g' any.src | m4 rootb.m4 …</pre><code><span class="m4-cb" title="vybrat text"></span><a href="#m4-anch-18" title="⚓"></a></code></div>
 <h4 id="m4-netisknutelne-znaky" class="m4-bh"><a href="#m4-netisknutelne-znaky" title="⚓"></a><code>␂␆</code> Netisknutelné znaky<a href="#m4--toc" title="Nahoru"></a></h4>
 <p>Pro řízení expanze neterminálů lze použít netisknutelné znaky <b><code>␂</code></b> (<samp>0x02</samp>) a&nbsp;<b><code>␆</code></b> (<samp>0x06</samp>).
 Tyto znaky nemohou kolidovat s&nbsp;tisknutelnými znaky zdrojového kódu.</p>
 <div id="m4-anch-19" title="M4 jako preprocesor s řídícími znaky: ␂␆" class="m4-cmd m4-usc"><pre>m4 rootn.m4 leaf.m4 any.src | gcc …</pre><code><span class="m4-cb" title="vybrat text"></span><a href="#m4-anch-19" title="⚓"></a></code></div>
 <p>Komentáře M4 <code>#</code> a <code>dnl</code> jsou skryty mezi netisknutelné znaky: <code>␂#␆</code> <code>␂dnl␆</code></p>
-<div id="m4-anch-20" title="M4 jako preprocesor s řídícími znaky: ␂␆" class="m4-cmd m4-usc"><pre>sed 's/#\|\&lt;dnl\&gt;/␂&amp;␆/g' any.src | m4 rootn.m4 leaf.m4 - | gcc …</pre><code><span class="m4-cb" title="vybrat text"></span><a href="#m4-anch-20" title="⚓"></a></code></div>
-<div id="m4-anch-21" title="M4 jako preprocesor s řídícími znaky jinak: ␂␆" class="m4-cmd m4-usc"><pre>sed 's/#/␂#␆/g;s/\&lt;dnl\&gt;/␂dnl␆/g' any.src | m4 rootn.m4 leaf.m4 - | gcc …</pre><code><span class="m4-cb" title="vybrat text"></span><a href="#m4-anch-21" title="⚓"></a></code></div>
+<div id="m4-anch-20" title="M4 jako preprocesor s řídícími znaky: ␂␆" class="m4-cmd m4-usc"><pre>sed 's/#\|\&lt;dnl\>/␂&amp;␆/g' any.src | m4 rootn.m4 leaf.m4 - | gcc …</pre><code><span class="m4-cb" title="vybrat text"></span><a href="#m4-anch-20" title="⚓"></a></code></div>
+<div id="m4-anch-21" title="M4 jako preprocesor s řídícími znaky jinak: ␂␆" class="m4-cmd m4-usc"><pre>sed 's/#/␂#␆/g;s/\&lt;dnl\>/␂dnl␆/g' any.src | m4 rootn.m4 leaf.m4 - | gcc …</pre><code><span class="m4-cb" title="vybrat text"></span><a href="#m4-anch-21" title="⚓"></a></code></div>
 <h4 id="m4-utf-8-znaky" class="m4-bh"><a href="#m4-utf-8-znaky" title="⚓"></a><code>⟦⟧</code> UTF-8 znaky<a href="#m4--toc" title="Nahoru"></a></h4>
 <p>Expanzi neterminálů může také řídit vhodně zvolený pár UTF-8 znaků.
 Běžný zdrojový kód takové znaky neobsahuje, proto nemusíme řešit kolizi levého <code>⟦</code> znaku.
 UTF-8 znaky nabízí podobné výhody jako netisknutelné znaky.</p>
 <div id="m4-anch-22" title="M4 jako preprocesor s řídícími znaky: ⟦⟧" class="m4-cmd m4-usc"><pre>m4 rootu.m4 leaf.m4 any.src | gcc …</pre><code><span class="m4-cb" title="vybrat text"></span><a href="#m4-anch-22" title="⚓"></a></code></div>
 <p>Komentáře M4 <code>#</code> a <code>dnl</code> jsou skryty mezi UTF-8 znaky: <code>⟦#⟧</code> <code>⟦dnl⟧</code></p>
-<div id="m4-anch-23" title="M4 jako preprocesor s řídícími znaky: ⟦⟧" class="m4-cmd m4-usc"><pre>sed 's/#\|\&lt;dnl\&gt;/⟦&amp;⟧/g' any.src | m4 rootu.m4 leaf.m4 - | gcc …</pre><code><span class="m4-cb" title="vybrat text"></span><a href="#m4-anch-23" title="⚓"></a></code></div>
-<div id="m4-anch-24" title="M4 jako preprocesor s řídícími znaky jinak: ⟦⟧" class="m4-cmd m4-usc"><pre>sed 's/#/⟦#⟧/g;s/\&lt;dnl\&gt;/⟦dnl⟧/g' any.src | m4 rootu.m4 leaf.m4 - | gcc …</pre><code><span class="m4-cb" title="vybrat text"></span><a href="#m4-anch-24" title="⚓"></a></code></div>
+<div id="m4-anch-23" title="M4 jako preprocesor s řídícími znaky: ⟦⟧" class="m4-cmd m4-usc"><pre>sed 's/#\|\&lt;dnl\>/⟦&amp;⟧/g' any.src | m4 rootu.m4 leaf.m4 - | gcc …</pre><code><span class="m4-cb" title="vybrat text"></span><a href="#m4-anch-23" title="⚓"></a></code></div>
+<div id="m4-anch-24" title="M4 jako preprocesor s řídícími znaky jinak: ⟦⟧" class="m4-cmd m4-usc"><pre>sed 's/#/⟦#⟧/g;s/\&lt;dnl\>/⟦dnl⟧/g' any.src | m4 rootu.m4 leaf.m4 - | gcc …</pre><code><span class="m4-cb" title="vybrat text"></span><a href="#m4-anch-24" title="⚓"></a></code></div>
 <p>Vyzkoušejte: <a href="#m4-priklady-preprocesoru" title="Příklady preprocesoru">Příklady preprocesoru</a></p>
 <h4 id="m4-smiseny-rezim" class="m4-bh"><a href="#m4-smiseny-rezim" title="⚓"></a>Smíšený režim<a href="#m4--toc" title="Nahoru"></a></h4>
 <p>Smíšený režim je kombinací předchozích režimů a&nbsp;je používán hlavně na pokusy.
@@ -268,7 +268,7 @@ Každý řetězec je buď terminální nebo neterminální symbol včetně všec
 <div title="poznámka" class="rs-tip-major m4-note">M4 záměrně nemá klíčová slova pro <b>cykly</b> (<code>for</code>/<code>while</code>), protože jeho základ je zcela jiný, než jaký mají procedurální nebo funkcionální jazyky.<hr>
 <ul>
 <li><b>cykly</b> jsou pouze levorekurzivní nebo pravorekurzivní</li>
-<li><b>větví</b> se <a href="#m4-vetveni-gramatikou" title="[] Větvení gramatikou">řetězením symbolů</a> nebo klíčovými slovy <code>ifelse()</code>, <code>ifdef()</code></li>
+<li><b>větví</b> se <a href="#m4-vetveni-gramatikou" title="⟦⟧ Větvení gramatikou">řetězením symbolů</a> nebo klíčovými slovy <code>ifelse()</code>, <code>ifdef()</code></li>
 </ul>
 </div>
 <h3 id="m4-zaklady-gramatik" class="m4-ch"><a href="#m4-zaklady-gramatik-toc" title="Obsah"></a><a href="#m4-zaklady-gramatik" title="⚓">5.1</a>Základy gramatik<a href="#m4--toc" title="Nahoru"></a></h3>
@@ -290,7 +290,7 @@ krátce <abbr title="Context-Free Grammar – bezkontextová gramatika">CFG</abb
 Jak již bylo dříve zmíněno, přepisovací pravidla CFG pracují stejně jako přepisovací pravidla jazyka M4.
 Některý z&nbsp;následujících dílů seriálu se podrobněji zaměří na formální gramatiky.</p>
 <h3 id="m4-zaklady-automatu" class="m4-ch"><a href="#m4-zaklady-automatu-toc" title="Obsah"></a><a href="#m4-zaklady-automatu" title="⚓">5.2</a>Základy automatů<a href="#m4--toc" title="Nahoru"></a></h3>
-<p>Schopnost používat převážně dvoustavové automaty je zásadní věc pro psaní jednoduchých M4 skriptů, protože převážná většina skriptů používá <a href="#m4-c-maly-automat" title="[] C: malý automat">malé automaty</a>.</p>
+<p>Schopnost používat převážně dvoustavové automaty je zásadní věc pro psaní jednoduchých M4 skriptů, protože převážná většina skriptů používá <a href="#m4-c-maly-automat" title="⟦⟧ C: malý automat">malé automaty</a>.</p>
 <h4 id="m4-testovaci-automat" class="m4-bh"><a href="#m4-testovaci-automat" title="⚓"></a>Testovací automat<a href="#m4--toc" title="Nahoru"></a></h4>
 <p>Pořadí vstupních symbolů nebo jejich kontext lze otestovat automatem.
 Splňují-li vstupní symboly požadované vlastnosti, automat skončí v&nbsp;uzlu s&nbsp;dvojitým kroužkem, kterým se označuje akceptující stav.</p>
@@ -306,7 +306,7 @@ Automat je shodný s&nbsp;regulárním výrazem <code>(1*01*01*)*1*</code>.</em>
 #                0</pre><code><span class="m4-cb" title="vybrat text"></span><a href="#m4-anch-27" title="⚓"></a></code></div>
 <h4 id="m4-generujici-automat" class="m4-bh"><a href="#m4-generujici-automat" title="⚓"></a>Generující automat<a href="#m4--toc" title="Nahoru"></a></h4>
 <p>Vstupní symboly mění uzly automatu, čímž zároveň mění přepisovací pravidla pro generování kódu.
-Příklad <a href="#m4-json-generujici-automat" title="[] JSON: generující automat">generujícího automatu</a> naleznete v&nbsp;příloze:</p>
+Příklad <a href="#m4-json-generujici-automat" title="⟦⟧ JSON: generující automat">generujícího automatu</a> naleznete v&nbsp;příloze:</p>
 <div id="m4-anch-28" title="ASCII art generujícího automatu" class="m4-src"><pre>#      _______      ___________
 # --->/ ERROR \--->/ NEXT_ITEM \---.
 #     \_______/    \___________/&lt;--'</pre><code><span class="m4-cb" title="vybrat text"></span><a href="#m4-anch-28" title="⚓"></a></code></div>
@@ -359,68 +359,68 @@ Tímto způsobem je možné postupně získat praxi.</p>
 <!-- appendix content -->
 <h2 id="m4-priklady-generovani-kodu" class="m4-ch"><a href="#m4-priklady-generovani-kodu-toc" title="Obsah"></a><a href="#m4-priklady-generovani-kodu" title="⚓">A</a>Příklady generování kódu<a href="#m4--toc" title="Nahoru"></a></h2>
 <div title="pro informaci" class="rs-tip-major m4-info">Znaky {<code title="uvozovky" class="m4-xp">`'</code>, <code title="hranaté závorky" class="m4-xp">[]</code>, <code title="netisknutelné znaky" class="m4-xp">␂␆</code>, <code title="UTF-8 znaky" class="m4-xp">⟦⟧</code>} v&nbsp;názvu příkladu <a href="../generovani-kodu-v-m4-uvod/#m4-rizeni-expanze-neterminalu" title="Řízení expanze neterminálů">řídí expanzi neterminálů</a>.</div>
-<p id="m4-vstupni-zdrojovy-kod-toc" class="m4-l2"><a href="#m4-vstupni-zdrojovy-kod"><b>A.1</b><code>[]</code> Vstupní zdrojový kód</a></p>
-<p id="m4-csv-nejjednodussi-priklad-toc" class="m4-l2"><a href="#m4-csv-nejjednodussi-priklad"><b>A.2</b><code>[]</code> CSV: nejjednodušší příklad</a></p>
-<p id="m4-csv-pocitadlo-toc" class="m4-l2"><a href="#m4-csv-pocitadlo"><b>A.3</b><code>[]</code> CSV: počítadlo</a></p>
+<p id="m4-vstupni-zdrojovy-kod-toc" class="m4-l2"><a href="#m4-vstupni-zdrojovy-kod"><b>A.1</b><code>⟦⟧</code> Vstupní zdrojový kód</a></p>
+<p id="m4-csv-nejjednodussi-priklad-toc" class="m4-l2"><a href="#m4-csv-nejjednodussi-priklad"><b>A.2</b><code>⟦⟧</code> CSV: nejjednodušší příklad</a></p>
+<p id="m4-csv-pocitadlo-toc" class="m4-l2"><a href="#m4-csv-pocitadlo"><b>A.3</b><code>⟦⟧</code> CSV: počítadlo</a></p>
 <p id="m4-upravy-specialnich-znaku-toc" class="m4-l2"><a href="#m4-upravy-specialnich-znaku"><b>A.4</b><code title="jak se to dělá" style="cursor:help">&#x1f4a1;</code> Úpravy speciálních znaků</a></p>
-<p id="m4-c-vystupni-fronta-toc" class="m4-l2"><a href="#m4-c-vystupni-fronta"><b>A.5</b><code>[]</code> C: výstupní fronta</a></p>
-<p id="m4-ini-externi-prikaz-toc" class="m4-l2"><a href="#m4-ini-externi-prikaz"><b>A.6</b><code>[]</code> INI: externí příkaz</a></p>
-<p id="m4-h-hex-pocitadlo-toc" class="m4-l2"><a href="#m4-h-hex-pocitadlo"><b>A.7</b><code>[]</code> .h: hex počítadlo</a></p>
-<p id="m4-c-maly-automat-toc" class="m4-l2"><a href="#m4-c-maly-automat"><b>A.8</b><code>[]</code> C: malý automat</a></p>
-<p id="m4-c-maly-automat-2-toc" class="m4-l2"><a href="#m4-c-maly-automat-2"><b>A.9</b><code>[]</code> C: malý automat 2</a></p>
-<p id="m4-html-vystupni-fronty-toc" class="m4-l2"><a href="#m4-html-vystupni-fronty"><b>A.10</b><code>[]</code> HTML: výstupní fronty</a></p>
-<p id="m4-vetveni-gramatikou-toc" class="m4-l2"><a href="#m4-vetveni-gramatikou"><b>A.11</b><code>[]</code> Větvení gramatikou</a></p>
-<p id="m4-json-generujici-automat-toc" class="m4-l2"><a href="#m4-json-generujici-automat"><b>A.12</b><code>[]</code> JSON: generující automat</a></p>
-<p id="m4-json-pojmenovane-fronty-toc" class="m4-l3"><a href="#m4-json-pojmenovane-fronty"><b>A.12.1</b><code>[]</code> JSON: pojmenované fronty</a></p>
-<p id="m4-json-generovane-indexy-front-toc" class="m4-l3"><a href="#m4-json-generovane-indexy-front"><b>A.12.2</b><code>[]</code> JSON: generované indexy front</a></p>
-<p id="m4-ini-nespojity-index-front-toc" class="m4-l2"><a href="#m4-ini-nespojity-index-front"><b>A.13</b><code>[]</code> INI: nespojitý index front</a></p>
-<p id="m4-xml-smisene-zpravy-toc" class="m4-l2"><a href="#m4-xml-smisene-zpravy"><b>A.14</b><code>[]</code> XML: smíšené zprávy</a></p>
-<p id="m4-xml-oddelene-zpravy-toc" class="m4-l2"><a href="#m4-xml-oddelene-zpravy"><b>A.15</b><code>[]</code> XML: oddělené zprávy</a></p>
-<p id="m4-bash-echo-dretezecd-toc" class="m4-l2"><a href="#m4-bash-echo-dretezecd"><b>A.16</b><code>[]</code> Bash <code>$ echo &quot;řetězec&quot;</code></a></p>
-<p id="m4-bash-echo-aretezeca-toc" class="m4-l2"><a href="#m4-bash-echo-aretezeca"><b>A.17</b><code>[]</code> Bash <code>$ echo 'řetězec'</code></a></p>
+<p id="m4-c-vystupni-fronta-toc" class="m4-l2"><a href="#m4-c-vystupni-fronta"><b>A.5</b><code>⟦⟧</code> C: výstupní fronta</a></p>
+<p id="m4-ini-externi-prikaz-toc" class="m4-l2"><a href="#m4-ini-externi-prikaz"><b>A.6</b><code>⟦⟧</code> INI: externí příkaz</a></p>
+<p id="m4-h-hex-pocitadlo-toc" class="m4-l2"><a href="#m4-h-hex-pocitadlo"><b>A.7</b><code>⟦⟧</code> .h: hex počítadlo</a></p>
+<p id="m4-c-maly-automat-toc" class="m4-l2"><a href="#m4-c-maly-automat"><b>A.8</b><code>⟦⟧</code> C: malý automat</a></p>
+<p id="m4-c-maly-automat-2-toc" class="m4-l2"><a href="#m4-c-maly-automat-2"><b>A.9</b><code>⟦⟧</code> C: malý automat 2</a></p>
+<p id="m4-html-vystupni-fronty-toc" class="m4-l2"><a href="#m4-html-vystupni-fronty"><b>A.10</b><code>⟦⟧</code> HTML: výstupní fronty</a></p>
+<p id="m4-vetveni-gramatikou-toc" class="m4-l2"><a href="#m4-vetveni-gramatikou"><b>A.11</b><code>⟦⟧</code> Větvení gramatikou</a></p>
+<p id="m4-json-generujici-automat-toc" class="m4-l2"><a href="#m4-json-generujici-automat"><b>A.12</b><code>⟦⟧</code> JSON: generující automat</a></p>
+<p id="m4-json-pojmenovane-fronty-toc" class="m4-l3"><a href="#m4-json-pojmenovane-fronty"><b>A.12.1</b><code>⟦⟧</code> JSON: pojmenované fronty</a></p>
+<p id="m4-json-generovane-indexy-front-toc" class="m4-l3"><a href="#m4-json-generovane-indexy-front"><b>A.12.2</b><code>⟦⟧</code> JSON: generované indexy front</a></p>
+<p id="m4-ini-nespojity-index-front-toc" class="m4-l2"><a href="#m4-ini-nespojity-index-front"><b>A.13</b><code>⟦⟧</code> INI: nespojitý index front</a></p>
+<p id="m4-xml-smisene-zpravy-toc" class="m4-l2"><a href="#m4-xml-smisene-zpravy"><b>A.14</b><code>⟦⟧</code> XML: smíšené zprávy</a></p>
+<p id="m4-xml-oddelene-zpravy-toc" class="m4-l2"><a href="#m4-xml-oddelene-zpravy"><b>A.15</b><code>⟦⟧</code> XML: oddělené zprávy</a></p>
+<p id="m4-bash-echo-dretezecd-toc" class="m4-l2"><a href="#m4-bash-echo-dretezecd"><b>A.16</b><code>⟦⟧</code> Bash <code>$ echo &quot;řetězec&quot;</code></a></p>
+<p id="m4-bash-echo-aretezeca-toc" class="m4-l2"><a href="#m4-bash-echo-aretezeca"><b>A.17</b><code>⟦⟧</code> Bash <code>$ echo 'řetězec'</code></a></p>
 <div title="poznámka" class="rs-tip-major m4-note">Příklady v&nbsp;této příloze jsou složitější a&nbsp;jejich cílem je ukázat praktické použití jazyka M4.
 Podrobněji budou vysvětleny později.</div>
-<h3 id="m4-vstupni-zdrojovy-kod" class="m4-ch"><a href="#m4-vstupni-zdrojovy-kod-toc" title="Obsah"></a><a href="#m4-vstupni-zdrojovy-kod" title="⚓">A.1</a><code>[]</code> Vstupní zdrojový kód<a href="#m4--toc" title="Nahoru"></a></h3>
+<h3 id="m4-vstupni-zdrojovy-kod" class="m4-ch"><a href="#m4-vstupni-zdrojovy-kod-toc" title="Obsah"></a><a href="#m4-vstupni-zdrojovy-kod" title="⚓">A.1</a><code>⟦⟧</code> Vstupní zdrojový kód<a href="#m4--toc" title="Nahoru"></a></h3>
 <p>Vstupní zdrojový kód je podobný <abbr title="Comma Separated Values">CSV</abbr>, který se převede na libovolně složitý cílový kód jiného jazyka pomocí <abbr title="Context-Free Grammar – bezkontextová gramatika">CFG</abbr>, automatů a&nbsp;výstupních front.
 Zásobníky v&nbsp;příkladech nejsou použity.
 Vstupní zdrojový kód obsahuje speciální znaky, které je nutné skrýt:</p>
 <div id="m4-messages_messages_raw-mc" class="m4-src"><pre># 2018/05/15 Josef Kubin
 
-<span class="m4-r">ERROR</span>([COMPLEX],     [!"#$%&amp;'()*+,-./:;&lt;=>?@[\]^_`{|}~])
-QUERY([READABLE],    [Is badly written M4 code readable [N/y]?])
-<span class="m4-r">ERROR</span>([SUCCESS],     [Too complex M4 code failed successfully.])
-WARNING([ADDICTIVE], [Programming in M4 is addictive!])
-<span class="m4-r">ERROR</span>([NOFAULT],     [It's not a language fault!])
-WARNING([NO_ERRORS], [No other errors detected.])</pre><code><span class="m4-sha">2599236</span><a href="https://raw.githubusercontent.com/jkubin/m4root/2599236b4bed12e54d3d0b10a78f237e6cfd24e9/messages/messages_raw.mc" title="messages/messages_raw.mc
-date: 20200517-17:56:55
-sha1sum: ca0fa15
-size: 370 B">messages_raw.mc</a><span class="m4-cb" title="vybrat text"></span><a href="#m4-messages_messages_raw-mc" title="⚓"></a></code></div>
+<span class="m4-r">ERROR</span>(⟦COMPLEX⟧,     ⟦!"#$%&amp;'()*+,-./:;&lt;=>?@[\]^_`{|}~⟧)
+QUERY(⟦READABLE⟧,    ⟦Is badly written M4 code readable [N/y]?⟧)
+<span class="m4-r">ERROR</span>(⟦SUCCESS⟧,     ⟦Too complex M4 code failed successfully.⟧)
+WARNING(⟦ADDICTIVE⟧, ⟦Programming in M4 is addictive!⟧)
+<span class="m4-r">ERROR</span>(⟦NOFAULT⟧,     ⟦It's not a language fault!⟧)
+WARNING(⟦NO_ERRORS⟧, ⟦No other errors detected.⟧)</pre><code><span class="m4-sha">d2707ad</span><a href="https://raw.githubusercontent.com/jkubin/m4root/d2707ad62aa69a66715389b9bf732ad99573a88d/messages/messages_raw.mc" title="messages/messages_raw.mc
+date: 20201226-22:38:15
+sha1sum: 38b95db
+size: 418 B">messages_raw.mc</a><span class="m4-cb" title="vybrat text"></span><a href="#m4-messages_messages_raw-mc" title="⚓"></a></code></div>
 <div title="poznámka" class="rs-tip-major m4-note">Vstupní soubor může také obsahovat poznámky, které nemusí být skryté v&nbsp;komentářích <code>#</code>, <code>dnl</code>, <code>ifelse([…])</code> nebo <code>[… někde uvnitř závorek …]</code>.</div>
-<h3 id="m4-csv-nejjednodussi-priklad" class="m4-ch"><a href="#m4-csv-nejjednodussi-priklad-toc" title="Obsah"></a><a href="#m4-csv-nejjednodussi-priklad" title="⚓">A.2</a><code>[]</code> CSV: nejjednodušší příklad<a href="#m4--toc" title="Nahoru"></a></h3>
+<h3 id="m4-csv-nejjednodussi-priklad" class="m4-ch"><a href="#m4-csv-nejjednodussi-priklad-toc" title="Obsah"></a><a href="#m4-csv-nejjednodussi-priklad" title="⚓">A.2</a><code>⟦⟧</code> CSV: nejjednodušší příklad<a href="#m4--toc" title="Nahoru"></a></h3>
 <p>Tento příklad nepoužívá výstupní fronty, <span class="m4-hgl" data-9="R,5" data-10="1-3" data-8="R,3,5,7">pouze vypisuje</span> <abbr title="Comma Separated Values">CSV</abbr> oddělené znakem <code>TAB</code> na <span class="m4-hgl" data-9="4">standardní výstup</span>.</p>
 <div id="m4-messages_hello-csv-m4" class="m4-src"><pre># A → β
-define([<span class="m4-r">ERROR</span>], [
+define(⟦<span class="m4-r">ERROR</span>⟧, ⟦
 
 	divert(0)dnl
-[$1	$2]
+⟦$1	$2⟧
 divert(-1)
-])</pre><code><span class="m4-sha">5ad6e1b</span><a href="https://raw.githubusercontent.com/jkubin/m4root/5ad6e1bde9d9198449939969e62ebf6888f95a32/messages/hello.csv.m4" title="messages/hello.csv.m4
-date: 20200517-17:54:17
-sha1sum: 475eaa0
-size: 66 B">hello.csv.m4</a><span class="m4-cb" title="vybrat text"></span><a href="#m4-messages_hello-csv-m4" title="⚓"></a></code></div>
-<div id="m4-messages_hello-csv-command" class="m4-cmd m4-usc"><pre title="příkaz">m4 <a href="https://raw.githubusercontent.com/jkubin/m4root/b743040454a6ac8bc0493849a026cf385e73fe65/gfiles/root0b.m4" title="gfiles/root0b.m4
-date: 20200807-17:46:45
-git rev: b743040
-sha1sum: 90624d8
-size: 1200 B">root0b.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/5ad6e1bde9d9198449939969e62ebf6888f95a32/messages/hello.csv.m4" title="messages/hello.csv.m4
-date: 20200517-17:54:17
-git rev: 5ad6e1b
-sha1sum: 475eaa0
-size: 66 B">hello.csv.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/2599236b4bed12e54d3d0b10a78f237e6cfd24e9/messages/messages_raw.mc" title="messages/messages_raw.mc
-date: 20200517-17:56:55
-git rev: 2599236
-sha1sum: ca0fa15
-size: 370 B">messages_raw.mc</a> > <a href="https://raw.githubusercontent.com/jkubin/m4root/91568108231a0a6510905d67a6b33dfd0d6ecd39/messages/hello.csv" title="messages/hello.csv
+⟧)</pre><code><span class="m4-sha">24fd4f3</span><a href="https://raw.githubusercontent.com/jkubin/m4root/24fd4f31afda7ced456da6ab60904553760075a5/messages/hello.csv.m4" title="messages/hello.csv.m4
+date: 20201226-21:52:28
+sha1sum: 020529d
+size: 78 B">hello.csv.m4</a><span class="m4-cb" title="vybrat text"></span><a href="#m4-messages_hello-csv-m4" title="⚓"></a></code></div>
+<div id="m4-messages_hello-csv-command" class="m4-cmd m4-usc"><pre title="příkaz">m4 <a href="https://raw.githubusercontent.com/jkubin/m4root/299505d34841516250138ca82e1fa3dfbf197b38/gfiles/root0u.m4" title="gfiles/root0u.m4
+date: 20200807-19:39:39
+git rev: 299505d
+sha1sum: add7617
+size: 1465 B">root0u.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/24fd4f31afda7ced456da6ab60904553760075a5/messages/hello.csv.m4" title="messages/hello.csv.m4
+date: 20201226-21:52:28
+git rev: 24fd4f3
+sha1sum: 020529d
+size: 78 B">hello.csv.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/d2707ad62aa69a66715389b9bf732ad99573a88d/messages/messages_raw.mc" title="messages/messages_raw.mc
+date: 20201226-22:38:15
+git rev: d2707ad
+sha1sum: 38b95db
+size: 418 B">messages_raw.mc</a> > <a href="https://raw.githubusercontent.com/jkubin/m4root/91568108231a0a6510905d67a6b33dfd0d6ecd39/messages/hello.csv" title="messages/hello.csv
 date: 20200331-19:30:06
 git rev: 9156810
 sha1sum: 5546563
@@ -431,44 +431,44 @@ NOFAULT	It's not a language fault!</pre><code><span class="m4-sha">9156810</span
 date: 20200331-19:30:06
 sha1sum: 5546563
 size: 125 B">hello.csv</a><span class="m4-cb" title="vybrat text"></span><a href="#m4-messages_hello-csv" title="⚓"></a></code></div>
-<h3 id="m4-csv-pocitadlo" class="m4-ch"><a href="#m4-csv-pocitadlo-toc" title="Obsah"></a><a href="#m4-csv-pocitadlo" title="⚓">A.3</a><code>[]</code> CSV: počítadlo<a href="#m4--toc" title="Nahoru"></a></h3>
+<h3 id="m4-csv-pocitadlo" class="m4-ch"><a href="#m4-csv-pocitadlo-toc" title="Obsah"></a><a href="#m4-csv-pocitadlo" title="⚓">A.3</a><code>⟦⟧</code> CSV: počítadlo<a href="#m4--toc" title="Nahoru"></a></h3>
 <p>Příklad používá makro <code class="m4-hgl" data-11="A">COUNT_UP</code> ze souboru <code>countb.m4</code>, jehož <abbr title="pravá strana přepisovacího pravidla"><code>β</code></abbr> se zkopíruje do pravé strany makra <code class="m4-hgl" data-11="2">COUNTER</code>.
 Během první expanze <code class="m4-hgl" data-11="5">COUNTER</code> proběhne inicializace jeho startovací hodnoty.
 <span class="m4-hgl" data-11="B">Další expanze</span> vrátí číselný terminální symbol a&nbsp;proběhne zvýšení vnitřního pomocného (globálního) symbolu o&nbsp;jedničku.
 <code>COUNTER</code> je malý automat.</p>
 <div id="m4-messages_counter-csv-m4" class="m4-src"><pre># A → β
-define([COUNTER], defn([<span class="m4-a">COUNT_UP</span>]))
+define(⟦COUNTER⟧, defn(⟦<span class="m4-a">COUNT_UP</span>⟧))
 
 # init counter
 COUNTER(1)
 
 # A → β
-define([ERROR], [
+define(⟦ERROR⟧, ⟦
 
 	divert(0)dnl
-ERR_[]<span class="m4-b">COUNTER</span>	[$1	$2]
+ERR_⟦⟧<span class="m4-b">COUNTER</span>	⟦$1	$2⟧
 divert(-1)
-])</pre><code><span class="m4-sha">5ad6e1b</span><a href="https://raw.githubusercontent.com/jkubin/m4root/5ad6e1bde9d9198449939969e62ebf6888f95a32/messages/counter.csv.m4" title="messages/counter.csv.m4
-date: 20200517-17:54:17
-sha1sum: bd890d3
-size: 155 B">counter.csv.m4</a><span class="m4-cb" title="vybrat text"></span><a href="#m4-messages_counter-csv-m4" title="⚓"></a></code></div>
-<div id="m4-messages_counter-csv-command" class="m4-cmd m4-usc"><pre title="příkaz">m4 <a href="https://raw.githubusercontent.com/jkubin/m4root/b743040454a6ac8bc0493849a026cf385e73fe65/gfiles/root0b.m4" title="gfiles/root0b.m4
-date: 20200807-17:46:45
-git rev: b743040
-sha1sum: 90624d8
-size: 1200 B">root0b.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/17cb82f06ccca2e7775b95b3513ab56ee94c0457/gfiles/countb.m4" title="gfiles/countb.m4
+⟧)</pre><code><span class="m4-sha">24fd4f3</span><a href="https://raw.githubusercontent.com/jkubin/m4root/24fd4f31afda7ced456da6ab60904553760075a5/messages/counter.csv.m4" title="messages/counter.csv.m4
+date: 20201226-21:52:28
+sha1sum: 63e2693
+size: 179 B">counter.csv.m4</a><span class="m4-cb" title="vybrat text"></span><a href="#m4-messages_counter-csv-m4" title="⚓"></a></code></div>
+<div id="m4-messages_counter-csv-command" class="m4-cmd m4-usc"><pre title="příkaz">m4 <a href="https://raw.githubusercontent.com/jkubin/m4root/299505d34841516250138ca82e1fa3dfbf197b38/gfiles/root0u.m4" title="gfiles/root0u.m4
+date: 20200807-19:39:39
+git rev: 299505d
+sha1sum: add7617
+size: 1465 B">root0u.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/17cb82f06ccca2e7775b95b3513ab56ee94c0457/gfiles/countb.m4" title="gfiles/countb.m4
 date: 20200429-07:34:47
 git rev: 17cb82f
 sha1sum: 2d647fa
-size: 766 B">countb.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/5ad6e1bde9d9198449939969e62ebf6888f95a32/messages/counter.csv.m4" title="messages/counter.csv.m4
-date: 20200517-17:54:17
-git rev: 5ad6e1b
-sha1sum: bd890d3
-size: 155 B">counter.csv.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/2599236b4bed12e54d3d0b10a78f237e6cfd24e9/messages/messages_raw.mc" title="messages/messages_raw.mc
-date: 20200517-17:56:55
-git rev: 2599236
-sha1sum: ca0fa15
-size: 370 B">messages_raw.mc</a> > <a href="https://raw.githubusercontent.com/jkubin/m4root/91568108231a0a6510905d67a6b33dfd0d6ecd39/messages/counter.csv" title="messages/counter.csv
+size: 766 B">countb.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/24fd4f31afda7ced456da6ab60904553760075a5/messages/counter.csv.m4" title="messages/counter.csv.m4
+date: 20201226-21:52:28
+git rev: 24fd4f3
+sha1sum: 63e2693
+size: 179 B">counter.csv.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/d2707ad62aa69a66715389b9bf732ad99573a88d/messages/messages_raw.mc" title="messages/messages_raw.mc
+date: 20201226-22:38:15
+git rev: d2707ad
+sha1sum: 38b95db
+size: 418 B">messages_raw.mc</a> > <a href="https://raw.githubusercontent.com/jkubin/m4root/91568108231a0a6510905d67a6b33dfd0d6ecd39/messages/counter.csv" title="messages/counter.csv
 date: 20200331-19:30:06
 git rev: 9156810
 sha1sum: ff8c9b8
@@ -486,120 +486,124 @@ Všechny speciální znaky vstupního souboru proto napřed skryjeme do <span cl
 <h4 id="m4-upraveny-vstupni-kod" class="m4-bh"><a href="#m4-upraveny-vstupni-kod" title="⚓"></a>Upravený vstupní kód<a href="#m4--toc" title="Nahoru"></a></h4>
 <div id="m4-messages_messages-mc" class="m4-src"><pre title="všechny speciální znaky jsou skryty do maker"># 2018/05/15 Josef Kubin
 
-ERROR([COMPLEX],     [[]<span class="m4-a">EX()</span>[]<span class="m4-a">DQ()</span>[#]$%[]<span class="m4-a">AMP()</span>[]<span class="m4-a">AP()</span>()*+,-./:;[]<span class="m4-a">LT()</span>=[]<span class="m4-a">GT()</span>?@[]<span class="m4-a">LB()</span>[]<span class="m4-a">BS()</span>[]<span class="m4-a">RB()</span>^_[]<span class="m4-a">BQ()</span>{|}~])
-QUERY([READABLE],    [Is badly written M4 code readable []<span class="m4-a">LB()</span>N/y[]<span class="m4-a">RB()</span>?])
-ERROR([SUCCESS],     [Too complex M4 code failed successfully.])
-WARNING([ADDICTIVE], [Programming in M4 is addictive[]<span class="m4-a">EX()</span>])
-ERROR([NOFAULT],     [It[]<span class="m4-a">AP()</span>s not a language fault[]<span class="m4-a">EX()</span>])
-WARNING([NO_ERRORS], [No other errors were found.])</pre><code><span class="m4-sha">309469e</span><a href="https://raw.githubusercontent.com/jkubin/m4root/309469e3b797150f3f2e31f8d550cb793ceceeca/messages/messages.mc" title="messages/messages.mc
-date: 20201225-10:43:00
-sha1sum: 518222c
-size: 450 B">messages.mc</a><span class="m4-cb" title="vybrat text"></span><a href="#m4-messages_messages-mc" title="⚓"></a></code></div>
-<p>Vytvoříme několik převodních souborů podle typu cílového kódu, makra pro hranaté závorky <code>LB()</code> a <code>RB()</code> jsou už definována v&nbsp;kořenovém souboru.</p>
-<h4 id="m4-prevodni-soubor-pro-xml-xslt" class="m4-bh"><a href="#m4-prevodni-soubor-pro-xml-xslt" title="⚓"></a><code>[]</code> Převodní soubor pro XML, XSLT, HTML<a href="#m4--toc" title="Nahoru"></a></h4>
+ERROR(⟦COMPLEX⟧,     ⟦⟦⟧<span class="m4-a">EX()</span>⟦⟧<span class="m4-a">DQ()</span>⟦#⟧⟦⟧<span class="m4-a">DO()</span>%⟦⟧<span class="m4-a">AMP()</span>⟦⟧<span class="m4-a">AP()</span>()*+,-./:;⟦⟧<span class="m4-a">LT()</span>=⟦⟧<span class="m4-a">GT()</span>?@[⟦⟧<span class="m4-a">BS()</span>]^_⟦⟧<span class="m4-a">BQ()</span>{|}~⟧)
+QUERY(⟦READABLE⟧,    ⟦Is badly written M4 code readable [N/y]?⟧)
+ERROR(⟦SUCCESS⟧,     ⟦Too complex M4 code failed successfully.⟧)
+WARNING(⟦ADDICTIVE⟧, ⟦Programming in M4 is addictive⟦⟧<span class="m4-a">EX()</span>⟧)
+ERROR(⟦NOFAULT⟧,     ⟦It⟦⟧<span class="m4-a">AP()</span>s not a language fault⟦⟧<span class="m4-a">EX()</span>⟧)
+WARNING(⟦NO_ERRORS⟧, ⟦No other errors were found.⟧)</pre><code><span class="m4-sha">d2707ad</span><a href="https://raw.githubusercontent.com/jkubin/m4root/d2707ad62aa69a66715389b9bf732ad99573a88d/messages/messages.mc" title="messages/messages.mc
+date: 20201226-22:38:15
+sha1sum: 3c925dc
+size: 535 B">messages.mc</a><span class="m4-cb" title="vybrat text"></span><a href="#m4-messages_messages-mc" title="⚓"></a></code></div>
+<h4 id="m4-prevodni-soubor-pro-xml-xslt" class="m4-bh"><a href="#m4-prevodni-soubor-pro-xml-xslt" title="⚓"></a><code>⟦⟧</code> Převodní soubor pro XML, XSLT, HTML<a href="#m4--toc" title="Nahoru"></a></h4>
 <div id="m4-messages_markup-m4" class="m4-src"><pre title="převodní soubor pro značkovací jazyky"># A → β
-define([AMP], [&amp;amp;])
-define([AP], ['])
-define([BQ], [`])
-define([BS], [\])
-define([DQ], ["])
-define([EX], [!])
-define([GT], [&amp;gt;])
-define([LT], [&amp;lt;])</pre><code><span class="m4-sha">b53eafe</span><a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/messages/markup.m4" title="messages/markup.m4
-date: 20200106-16:21:10
-sha1sum: 9b187a9
-size: 166 B">markup.m4</a><span class="m4-cb" title="vybrat text"></span><a href="#m4-messages_markup-m4" title="⚓"></a></code></div>
-<h4 id="m4-prevodni-soubor-pro-c-json-in" class="m4-bh"><a href="#m4-prevodni-soubor-pro-c-json-in" title="⚓"></a><code>[]</code> Převodní soubor pro C, JSON, INI: <code>&quot;řetězec&quot;</code><a href="#m4--toc" title="Nahoru"></a></h4>
+define(⟦AMP⟧, ⟦&amp;amp;⟧)
+define(⟦AP⟧, ⟦'⟧)
+define(⟦BQ⟧, ⟦`⟧)
+define(⟦BS⟧, ⟦\⟧)
+define(⟦DO⟧, ⟦$⟧)
+define(⟦DQ⟧, ⟦"⟧)
+define(⟦EX⟧, ⟦!⟧)
+define(⟦GT⟧, ⟦&amp;gt;⟧)
+define(⟦LT⟧, ⟦&amp;lt;⟧)</pre><code><span class="m4-sha">d2707ad</span><a href="https://raw.githubusercontent.com/jkubin/m4root/d2707ad62aa69a66715389b9bf732ad99573a88d/messages/markup.m4" title="messages/markup.m4
+date: 20201226-22:38:15
+sha1sum: 98612ec
+size: 256 B">markup.m4</a><span class="m4-cb" title="vybrat text"></span><a href="#m4-messages_markup-m4" title="⚓"></a></code></div>
+<h4 id="m4-prevodni-soubor-pro-c-json-in" class="m4-bh"><a href="#m4-prevodni-soubor-pro-c-json-in" title="⚓"></a><code>⟦⟧</code> Převodní soubor pro C, JSON, INI: <code>&quot;řetězec&quot;</code><a href="#m4--toc" title="Nahoru"></a></h4>
 <div id="m4-messages_code-m4" class="m4-src"><pre title="převodní soubor pro zdrojový kód"># A → β
-define([AMP], [&amp;])
-define([AP], ['])
-define([BQ], [`])
-define([BS], [\\])
-define([DQ], [\"])
-define([EX], [!])
-define([GT], [>])
-define([LT], [&lt;])</pre><code><span class="m4-sha">b53eafe</span><a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/messages/code.m4" title="messages/code.m4
-date: 20200106-16:21:10
-sha1sum: c853073
-size: 158 B">code.m4</a><span class="m4-cb" title="vybrat text"></span><a href="#m4-messages_code-m4" title="⚓"></a></code></div>
-<h4 id="m4-prevodni-soubor-pro-bash-dret" class="m4-bh"><a href="#m4-prevodni-soubor-pro-bash-dret" title="⚓"></a><code>[]</code> Převodní soubor pro Bash: <code>&quot;řetězec&quot;</code><a href="#m4--toc" title="Nahoru"></a></h4>
+define(⟦AMP⟧, ⟦&amp;⟧)
+define(⟦AP⟧, ⟦'⟧)
+define(⟦BQ⟧, ⟦`⟧)
+define(⟦BS⟧, ⟦\\⟧)
+define(⟦DO⟧, ⟦$⟧)
+define(⟦DQ⟧, ⟦\"⟧)
+define(⟦EX⟧, ⟦!⟧)
+define(⟦GT⟧, ⟦>⟧)
+define(⟦LT⟧, ⟦&lt;⟧)</pre><code><span class="m4-sha">d2707ad</span><a href="https://raw.githubusercontent.com/jkubin/m4root/d2707ad62aa69a66715389b9bf732ad99573a88d/messages/code.m4" title="messages/code.m4
+date: 20201226-22:38:15
+sha1sum: d709e07
+size: 248 B">code.m4</a><span class="m4-cb" title="vybrat text"></span><a href="#m4-messages_code-m4" title="⚓"></a></code></div>
+<h4 id="m4-prevodni-soubor-pro-bash-dret" class="m4-bh"><a href="#m4-prevodni-soubor-pro-bash-dret" title="⚓"></a><code>⟦⟧</code> Převodní soubor pro Bash: <code>&quot;řetězec&quot;</code><a href="#m4--toc" title="Nahoru"></a></h4>
 <div id="m4-messages_doubleq-m4" class="m4-src"><pre title="převodní soubor pro Bash &quot;řetězce v uvozovkách&quot;"># A → β
-define([AMP], [&amp;])
-define([AP], ['])
-define([BQ], [\`])
-define([BS], [\\])
-define([DQ], [\"])
-define([EX], ["\!"])
-define([GT], [>])
-define([LT], [&lt;])</pre><code><span class="m4-sha">b53eafe</span><a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/messages/doubleq.m4" title="messages/doubleq.m4
-date: 20200106-16:21:10
-sha1sum: 2fdd370
-size: 162 B">doubleq.m4</a><span class="m4-cb" title="vybrat text"></span><a href="#m4-messages_doubleq-m4" title="⚓"></a></code></div>
-<h4 id="m4-prevodni-soubor-pro-bash-aret" class="m4-bh"><a href="#m4-prevodni-soubor-pro-bash-aret" title="⚓"></a><code>[]</code> Převodní soubor pro Bash: <code>&apos;řetězec&apos;</code><a href="#m4--toc" title="Nahoru"></a></h4>
+define(⟦AMP⟧, ⟦&amp;⟧)
+define(⟦AP⟧, ⟦'⟧)
+define(⟦BQ⟧, ⟦\`⟧)
+define(⟦BS⟧, ⟦\\⟧)
+define(⟦DO⟧, ⟦$⟧)
+define(⟦DQ⟧, ⟦\"⟧)
+define(⟦EX⟧, ⟦"\!"⟧)
+define(⟦GT⟧, ⟦>⟧)
+define(⟦LT⟧, ⟦&lt;⟧)</pre><code><span class="m4-sha">d2707ad</span><a href="https://raw.githubusercontent.com/jkubin/m4root/d2707ad62aa69a66715389b9bf732ad99573a88d/messages/doubleq.m4" title="messages/doubleq.m4
+date: 20201226-22:38:15
+sha1sum: c94b763
+size: 252 B">doubleq.m4</a><span class="m4-cb" title="vybrat text"></span><a href="#m4-messages_doubleq-m4" title="⚓"></a></code></div>
+<h4 id="m4-prevodni-soubor-pro-bash-aret" class="m4-bh"><a href="#m4-prevodni-soubor-pro-bash-aret" title="⚓"></a><code>⟦⟧</code> Převodní soubor pro Bash: <code>&apos;řetězec&apos;</code><a href="#m4--toc" title="Nahoru"></a></h4>
 <div id="m4-messages_apost-m4" class="m4-src"><pre title="převodní soubor pro Bash 'řetězce v apostrofech'"># A → β
-define([AMP], [&amp;])
-define([AP], ['\''])
-define([BQ], [`])
-define([BS], [\])
-define([DQ], ["])
-define([EX], [!])
-define([GT], [>])
-define([LT], [&lt;])</pre><code><span class="m4-sha">b53eafe</span><a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/messages/apost.m4" title="messages/apost.m4
-date: 20200106-16:21:10
-sha1sum: fff97cc
-size: 159 B">apost.m4</a><span class="m4-cb" title="vybrat text"></span><a href="#m4-messages_apost-m4" title="⚓"></a></code></div>
-<h4 id="m4-prevodni-soubor-pro-csv-m4-vr" class="m4-bh"><a href="#m4-prevodni-soubor-pro-csv-m4-vr" title="⚓"></a><code>[]</code> Převodní soubor pro CSV, M4 (vrátí všechny znaky zpátky)<a href="#m4--toc" title="Nahoru"></a></h4>
+define(⟦AMP⟧, ⟦&amp;⟧)
+define(⟦AP⟧, ⟦'\''⟧)
+define(⟦BQ⟧, ⟦`⟧)
+define(⟦BS⟧, ⟦\⟧)
+define(⟦DO⟧, ⟦$⟧)
+define(⟦DQ⟧, ⟦"⟧)
+define(⟦EX⟧, ⟦!⟧)
+define(⟦GT⟧, ⟦>⟧)
+define(⟦LT⟧, ⟦&lt;⟧)</pre><code><span class="m4-sha">d2707ad</span><a href="https://raw.githubusercontent.com/jkubin/m4root/d2707ad62aa69a66715389b9bf732ad99573a88d/messages/apost.m4" title="messages/apost.m4
+date: 20201226-22:38:15
+sha1sum: e7eec73
+size: 249 B">apost.m4</a><span class="m4-cb" title="vybrat text"></span><a href="#m4-messages_apost-m4" title="⚓"></a></code></div>
+<h4 id="m4-prevodni-soubor-pro-csv-m4-vr" class="m4-bh"><a href="#m4-prevodni-soubor-pro-csv-m4-vr" title="⚓"></a><code>⟦⟧</code> Převodní soubor pro CSV, M4 (vrátí všechny znaky zpátky)<a href="#m4--toc" title="Nahoru"></a></h4>
 <div id="m4-messages_unchanged-m4" class="m4-src"><pre title="převodní soubor vrátí všechny speciální znaky zpátky"># A → β
-define([AMP], [&amp;])
-define([AP], ['])
-define([BQ], [`])
-define([BS], [\])
-define([DQ], ["])
-define([EX], [!])
-define([GT], [>])
-define([LT], [&lt;])</pre><code><span class="m4-sha">f175bef</span><a href="https://raw.githubusercontent.com/jkubin/m4root/f175beff15b9090b034f064ff72ac7525813eb90/messages/unchanged.m4" title="messages/unchanged.m4
-date: 20200110-04:42:49
-sha1sum: b82e5c2
-size: 156 B">unchanged.m4</a><span class="m4-cb" title="vybrat text"></span><a href="#m4-messages_unchanged-m4" title="⚓"></a></code></div>
-<h3 id="m4-c-vystupni-fronta" class="m4-ch"><a href="#m4-c-vystupni-fronta-toc" title="Obsah"></a><a href="#m4-c-vystupni-fronta" title="⚓">A.5</a><code>[]</code> C: výstupní fronta<a href="#m4--toc" title="Nahoru"></a></h3>
+define(⟦AMP⟧, ⟦&amp;⟧)
+define(⟦AP⟧, ⟦'⟧)
+define(⟦BQ⟧, ⟦`⟧)
+define(⟦BS⟧, ⟦\⟧)
+define(⟦DO⟧, ⟦$⟧)
+define(⟦DQ⟧, ⟦"⟧)
+define(⟦EX⟧, ⟦!⟧)
+define(⟦GT⟧, ⟦>⟧)
+define(⟦LT⟧, ⟦&lt;⟧)</pre><code><span class="m4-sha">d2707ad</span><a href="https://raw.githubusercontent.com/jkubin/m4root/d2707ad62aa69a66715389b9bf732ad99573a88d/messages/unchanged.m4" title="messages/unchanged.m4
+date: 20201226-22:38:15
+sha1sum: d2fb4b9
+size: 246 B">unchanged.m4</a><span class="m4-cb" title="vybrat text"></span><a href="#m4-messages_unchanged-m4" title="⚓"></a></code></div>
+<h3 id="m4-c-vystupni-fronta" class="m4-ch"><a href="#m4-c-vystupni-fronta-toc" title="Obsah"></a><a href="#m4-c-vystupni-fronta" title="⚓">A.5</a><code>⟦⟧</code> C: výstupní fronta<a href="#m4--toc" title="Nahoru"></a></h3>
 <p>Příklad používá jednu <span class="m4-hgl" data-19="15">výstupní frontu</span> na znaky <code class="m4-hgl" data-19="16" data-20="9">};</code> pro uzavření <span class="m4-hgl" data-20="6-8" data-19="5">pole</span> na konci skriptu.</p>
 <div id="m4-messages_array-c-m4" class="m4-src"><pre># A → β
-define([ERROR], [
+define(⟦ERROR⟧, ⟦
 
 	divert(0)dnl
 	"$2",
 divert(-1)
-])
+⟧)
 
 divert(0)dnl
 /*
  * DONTE()
  */
 
-char *error[[]] = {
+char *error[] = {
 divert(1)dnl
 };
-divert(-1)</pre><code><span class="m4-sha">b53eafe</span><a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/messages/array.c.m4" title="messages/array.c.m4
-date: 20200106-16:21:10
-sha1sum: 8e0afac
-size: 145 B">array.c.m4</a><span class="m4-cb" title="vybrat text"></span><a href="#m4-messages_array-c-m4" title="⚓"></a></code></div>
-<div id="m4-messages_array-c-command" class="m4-cmd m4-usc"><pre title="příkaz">m4 <a href="https://raw.githubusercontent.com/jkubin/m4root/b743040454a6ac8bc0493849a026cf385e73fe65/gfiles/root0b.m4" title="gfiles/root0b.m4
-date: 20200807-17:46:45
-git rev: b743040
-sha1sum: 90624d8
-size: 1200 B">root0b.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/messages/array.c.m4" title="messages/array.c.m4
-date: 20200106-16:21:10
-git rev: b53eafe
-sha1sum: 8e0afac
-size: 145 B">array.c.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/messages/code.m4" title="messages/code.m4
-date: 20200106-16:21:10
-git rev: b53eafe
-sha1sum: c853073
-size: 158 B">code.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/309469e3b797150f3f2e31f8d550cb793ceceeca/messages/messages.mc" title="messages/messages.mc
-date: 20201225-10:43:00
-git rev: 309469e
-sha1sum: 518222c
-size: 450 B">messages.mc</a> > <a href="https://raw.githubusercontent.com/jkubin/m4root/91568108231a0a6510905d67a6b33dfd0d6ecd39/messages/array.c" title="messages/array.c
+divert(-1)</pre><code><span class="m4-sha">24fd4f3</span><a href="https://raw.githubusercontent.com/jkubin/m4root/24fd4f31afda7ced456da6ab60904553760075a5/messages/array.c.m4" title="messages/array.c.m4
+date: 20201226-21:52:28
+sha1sum: 8c6c428
+size: 151 B">array.c.m4</a><span class="m4-cb" title="vybrat text"></span><a href="#m4-messages_array-c-m4" title="⚓"></a></code></div>
+<div id="m4-messages_array-c-command" class="m4-cmd m4-usc"><pre title="příkaz">m4 <a href="https://raw.githubusercontent.com/jkubin/m4root/299505d34841516250138ca82e1fa3dfbf197b38/gfiles/root0u.m4" title="gfiles/root0u.m4
+date: 20200807-19:39:39
+git rev: 299505d
+sha1sum: add7617
+size: 1465 B">root0u.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/24fd4f31afda7ced456da6ab60904553760075a5/messages/array.c.m4" title="messages/array.c.m4
+date: 20201226-21:52:28
+git rev: 24fd4f3
+sha1sum: 8c6c428
+size: 151 B">array.c.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/d2707ad62aa69a66715389b9bf732ad99573a88d/messages/code.m4" title="messages/code.m4
+date: 20201226-22:38:15
+git rev: d2707ad
+sha1sum: d709e07
+size: 248 B">code.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/d2707ad62aa69a66715389b9bf732ad99573a88d/messages/messages.mc" title="messages/messages.mc
+date: 20201226-22:38:15
+git rev: d2707ad
+sha1sum: 3c925dc
+size: 535 B">messages.mc</a> > <a href="https://raw.githubusercontent.com/jkubin/m4root/91568108231a0a6510905d67a6b33dfd0d6ecd39/messages/array.c" title="messages/array.c
 date: 20200331-19:30:06
 git rev: 9156810
 sha1sum: 9651d22
@@ -616,73 +620,73 @@ char *error[] = {
 date: 20200331-19:30:06
 sha1sum: 9651d22
 size: 198 B">array.c</a><span class="m4-cb" title="vybrat text"></span><a href="#m4-messages_array-c" title="⚓"></a></code></div>
-<h3 id="m4-ini-externi-prikaz" class="m4-ch"><a href="#m4-ini-externi-prikaz-toc" title="Obsah"></a><a href="#m4-ini-externi-prikaz" title="⚓">A.6</a><code>[]</code> INI: externí příkaz<a href="#m4--toc" title="Nahoru"></a></h3>
+<h3 id="m4-ini-externi-prikaz" class="m4-ch"><a href="#m4-ini-externi-prikaz-toc" title="Obsah"></a><a href="#m4-ini-externi-prikaz" title="⚓">A.6</a><code>⟦⟧</code> INI: externí příkaz<a href="#m4--toc" title="Nahoru"></a></h3>
 <p>Příklad spustí externí příkaz <code class="m4-hgl" data-21="D" data-22="3">date</code> a&nbsp;jeho výstup umístí do hranatých závorek.
 Výstupem externího příkazu jsou <span class="m4-hgl" data-21="A">dvě položky oddělené čárkou</span>.
 Makro <code class="m4-hgl" data-21="C">SARG1()</code> <span class="m4-hgl" data-21="B">vybere první položku</span>, protože druhá položka obsahuje nežádoucí znak nového řádku <code>LF</code> (<samp>0x0a</samp>).</p>
 <div id="m4-messages_hello-ini-m4" class="m4-src"><pre># A → β
-define([ERROR], [
+define(⟦ERROR⟧, ⟦
 
 	divert(0)dnl
-[$1]="$2"
+⟦$1⟧="$2"
 divert(-1)
-])
+⟧)
 
 divert(0)dnl
 ; DONTE()
 
-<span class="m4-c">SARG1</span>(esyscmd([<span class="m4-d">date '+<span class="m4-b">[[hello_%Y%m%d]]</span><span class="m4-a">,</span>'</span>]))
-divert(-1)</pre><code><span class="m4-sha">5889f4e</span><a href="https://raw.githubusercontent.com/jkubin/m4root/5889f4ed118e3a5f76c01a6a24416ef9b2edbd68/messages/hello.ini.m4" title="messages/hello.ini.m4
-date: 20200517-17:56:13
-sha1sum: 8489f0e
-size: 148 B">hello.ini.m4</a><span class="m4-cb" title="vybrat text"></span><a href="#m4-messages_hello-ini-m4" title="⚓"></a></code></div>
-<div id="m4-messages_hello-ini-command" class="m4-cmd m4-usc"><pre title="příkaz">m4 <a href="https://raw.githubusercontent.com/jkubin/m4root/b743040454a6ac8bc0493849a026cf385e73fe65/gfiles/root0b.m4" title="gfiles/root0b.m4
-date: 20200807-17:46:45
-git rev: b743040
-sha1sum: 90624d8
-size: 1200 B">root0b.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/5889f4ed118e3a5f76c01a6a24416ef9b2edbd68/messages/hello.ini.m4" title="messages/hello.ini.m4
-date: 20200517-17:56:13
-git rev: 5889f4e
-sha1sum: 8489f0e
-size: 148 B">hello.ini.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/messages/code.m4" title="messages/code.m4
-date: 20200106-16:21:10
-git rev: b53eafe
-sha1sum: c853073
-size: 158 B">code.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/309469e3b797150f3f2e31f8d550cb793ceceeca/messages/messages.mc" title="messages/messages.mc
-date: 20201225-10:43:00
-git rev: 309469e
-sha1sum: 518222c
-size: 450 B">messages.mc</a> > <a href="https://raw.githubusercontent.com/jkubin/m4root/596477641924afb389bd55c019cfe7debcc9e9d5/messages/hello.ini" title="messages/hello.ini
-date: 20201225-10:46:17
-git rev: 5964776
-sha1sum: ef26e8c
+<span class="m4-c">SARG1</span>(esyscmd(⟦<span class="m4-d">date '+<span class="m4-b">⟦[hello_%Y%m%d]⟧</span><span class="m4-a">,</span>'</span>⟧))
+divert(-1)</pre><code><span class="m4-sha">24fd4f3</span><a href="https://raw.githubusercontent.com/jkubin/m4root/24fd4f31afda7ced456da6ab60904553760075a5/messages/hello.ini.m4" title="messages/hello.ini.m4
+date: 20201226-21:52:28
+sha1sum: a7f4062
+size: 168 B">hello.ini.m4</a><span class="m4-cb" title="vybrat text"></span><a href="#m4-messages_hello-ini-m4" title="⚓"></a></code></div>
+<div id="m4-messages_hello-ini-command" class="m4-cmd m4-usc"><pre title="příkaz">m4 <a href="https://raw.githubusercontent.com/jkubin/m4root/299505d34841516250138ca82e1fa3dfbf197b38/gfiles/root0u.m4" title="gfiles/root0u.m4
+date: 20200807-19:39:39
+git rev: 299505d
+sha1sum: add7617
+size: 1465 B">root0u.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/24fd4f31afda7ced456da6ab60904553760075a5/messages/hello.ini.m4" title="messages/hello.ini.m4
+date: 20201226-21:52:28
+git rev: 24fd4f3
+sha1sum: a7f4062
+size: 168 B">hello.ini.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/d2707ad62aa69a66715389b9bf732ad99573a88d/messages/code.m4" title="messages/code.m4
+date: 20201226-22:38:15
+git rev: d2707ad
+sha1sum: d709e07
+size: 248 B">code.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/d2707ad62aa69a66715389b9bf732ad99573a88d/messages/messages.mc" title="messages/messages.mc
+date: 20201226-22:38:15
+git rev: d2707ad
+sha1sum: 3c925dc
+size: 535 B">messages.mc</a> > <a href="https://raw.githubusercontent.com/jkubin/m4root/24fd4f31afda7ced456da6ab60904553760075a5/messages/hello.ini" title="messages/hello.ini
+date: 20201226-21:52:28
+git rev: 24fd4f3
+sha1sum: 018bcc4
 size: 204 B">hello.ini</a></pre><code><span class="m4-cb" title="vybrat text"></span><a href="#m4-messages_hello-ini-command" title="⚓"></a></code></div>
 <div id="m4-messages_hello-ini" class="m4-src"><pre>; DO NOT EDIT! This file is generated automatically!
 
-[hello_20201225]
+[hello_20201226]
 COMPLEX="!\"#$%&amp;'()*+,-./:;&lt;=>?@[\\]^_`{|}~"
 SUCCESS="Too complex M4 code failed successfully."
-NOFAULT="It's not a language fault!"</pre><code><span class="m4-sha">5964776</span><a href="https://raw.githubusercontent.com/jkubin/m4root/596477641924afb389bd55c019cfe7debcc9e9d5/messages/hello.ini" title="messages/hello.ini
-date: 20201225-10:46:17
-sha1sum: ef26e8c
+NOFAULT="It's not a language fault!"</pre><code><span class="m4-sha">24fd4f3</span><a href="https://raw.githubusercontent.com/jkubin/m4root/24fd4f31afda7ced456da6ab60904553760075a5/messages/hello.ini" title="messages/hello.ini
+date: 20201226-21:52:28
+sha1sum: 018bcc4
 size: 204 B">hello.ini</a><span class="m4-cb" title="vybrat text"></span><a href="#m4-messages_hello-ini" title="⚓"></a></code></div>
-<h3 id="m4-h-hex-pocitadlo" class="m4-ch"><a href="#m4-h-hex-pocitadlo-toc" title="Obsah"></a><a href="#m4-h-hex-pocitadlo" title="⚓">A.7</a><code>[]</code> .h: hex počítadlo<a href="#m4--toc" title="Nahoru"></a></h3>
+<h3 id="m4-h-hex-pocitadlo" class="m4-ch"><a href="#m4-h-hex-pocitadlo-toc" title="Obsah"></a><a href="#m4-h-hex-pocitadlo" title="⚓">A.7</a><code>⟦⟧</code> .h: hex počítadlo<a href="#m4--toc" title="Nahoru"></a></h3>
 <p>Příklad používá makro <code class="m4-hgl" data-23="A,2">COUNTER</code> pro číslování výsledných <abbr title="Preprocesor jazyka C">CPP</abbr> <span class="m4-hgl" data-23="11" data-24="8-10">maker</span> a&nbsp;jednu výstupní frontu.
 Fronta číslo <code class="m4-hgl" data-23="23">1</code> obsahuje direktivu preprocesoru <code class="m4-hgl" data-23="24" data-24="12">#endif</code> pro zakončení hlavičkového souboru.
 Převod dekadické hodnoty počítadla na <span class="m4-hgl" data-23="B">dvoumístné hex-a číslo</span> provádí klíčové slovo <code class="m4-hgl" data-23="C">eval()</code>.</p>
 <div id="m4-messages_messages-h-m4" class="m4-src"><pre># A → β
-define([<span class="m4-a">COUNTER</span>], defn([COUNT_UP]))
+define(⟦<span class="m4-a">COUNTER</span>⟧, defn(⟦COUNT_UP⟧))
 
 # init counter
 <span class="m4-a">COUNTER(0)</span>
 
 # A → β
-define([ERROR], [
+define(⟦ERROR⟧, ⟦
 
 	divert(0)dnl
-[#define $1		0x]<span class="m4-c">eval</span>(<span class="m4-a">COUNTER</span>, <span class="m4-b">16, 2</span>)
+⟦#define $1		0x⟧<span class="m4-c">eval</span>(<span class="m4-a">COUNTER</span>, <span class="m4-b">16, 2</span>)
 divert(-1)
-])
+⟧)
 
 divert(0)dnl
 /*
@@ -694,27 +698,27 @@ divert(0)dnl
 
 divert(1)
 #endif /* __ERROR_H */
-divert(-1)</pre><code><span class="m4-sha">b53eafe</span><a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/messages/messages.h.m4" title="messages/messages.h.m4
-date: 20200106-16:21:10
-sha1sum: dfbb628
-size: 284 B">messages.h.m4</a><span class="m4-cb" title="vybrat text"></span><a href="#m4-messages_messages-h-m4" title="⚓"></a></code></div>
-<div id="m4-messages_messages-h-command" class="m4-cmd m4-usc"><pre title="příkaz">m4 <a href="https://raw.githubusercontent.com/jkubin/m4root/b743040454a6ac8bc0493849a026cf385e73fe65/gfiles/root0b.m4" title="gfiles/root0b.m4
-date: 20200807-17:46:45
-git rev: b743040
-sha1sum: 90624d8
-size: 1200 B">root0b.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/17cb82f06ccca2e7775b95b3513ab56ee94c0457/gfiles/countb.m4" title="gfiles/countb.m4
+divert(-1)</pre><code><span class="m4-sha">24fd4f3</span><a href="https://raw.githubusercontent.com/jkubin/m4root/24fd4f31afda7ced456da6ab60904553760075a5/messages/messages.h.m4" title="messages/messages.h.m4
+date: 20201226-21:52:28
+sha1sum: cc44faa
+size: 304 B">messages.h.m4</a><span class="m4-cb" title="vybrat text"></span><a href="#m4-messages_messages-h-m4" title="⚓"></a></code></div>
+<div id="m4-messages_messages-h-command" class="m4-cmd m4-usc"><pre title="příkaz">m4 <a href="https://raw.githubusercontent.com/jkubin/m4root/299505d34841516250138ca82e1fa3dfbf197b38/gfiles/root0u.m4" title="gfiles/root0u.m4
+date: 20200807-19:39:39
+git rev: 299505d
+sha1sum: add7617
+size: 1465 B">root0u.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/17cb82f06ccca2e7775b95b3513ab56ee94c0457/gfiles/countb.m4" title="gfiles/countb.m4
 date: 20200429-07:34:47
 git rev: 17cb82f
 sha1sum: 2d647fa
-size: 766 B">countb.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/messages/messages.h.m4" title="messages/messages.h.m4
-date: 20200106-16:21:10
-git rev: b53eafe
-sha1sum: dfbb628
-size: 284 B">messages.h.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/309469e3b797150f3f2e31f8d550cb793ceceeca/messages/messages.mc" title="messages/messages.mc
-date: 20201225-10:43:00
-git rev: 309469e
-sha1sum: 518222c
-size: 450 B">messages.mc</a> > <a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/messages/messages.h" title="messages/messages.h
+size: 766 B">countb.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/24fd4f31afda7ced456da6ab60904553760075a5/messages/messages.h.m4" title="messages/messages.h.m4
+date: 20201226-21:52:28
+git rev: 24fd4f3
+sha1sum: cc44faa
+size: 304 B">messages.h.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/d2707ad62aa69a66715389b9bf732ad99573a88d/messages/messages.mc" title="messages/messages.mc
+date: 20201226-22:38:15
+git rev: d2707ad
+sha1sum: 3c925dc
+size: 535 B">messages.mc</a> > <a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/messages/messages.h" title="messages/messages.h
 date: 20200106-16:21:10
 git rev: b53eafe
 sha1sum: 50550b3
@@ -734,7 +738,7 @@ size: 189 B">messages.h</a></pre><code><span class="m4-cb" title="vybrat text"><
 date: 20200106-16:21:10
 sha1sum: 50550b3
 size: 189 B">messages.h</a><span class="m4-cb" title="vybrat text"></span><a href="#m4-messages_messages-h" title="⚓"></a></code></div>
-<h3 id="m4-c-maly-automat" class="m4-ch"><a href="#m4-c-maly-automat-toc" title="Obsah"></a><a href="#m4-c-maly-automat" title="⚓">A.8</a><code>[]</code> C: malý automat<a href="#m4--toc" title="Nahoru"></a></h3>
+<h3 id="m4-c-maly-automat" class="m4-ch"><a href="#m4-c-maly-automat-toc" title="Obsah"></a><a href="#m4-c-maly-automat" title="⚓">A.8</a><code>⟦⟧</code> C: malý automat<a href="#m4--toc" title="Nahoru"></a></h3>
 <p>Příklad používá <span class="m4-hgl" data-25="1-4">malý automat</span> <code class="m4-hgl" data-25="7">NEW_LINE</code> pro generování znaku nového řádku <code class="m4-hgl" data-25="A" data-26="A">\n</code> a&nbsp;jednu výstupní frontu číslo <code class="m4-hgl" data-25="22">1</code> do které se vloží znaky <code class="m4-hgl" data-25="B">";</code> pro uzavření výsledného řetězce.
 Poprvé se <code class="m4-hgl" data-25="C">NEW_LINE</code> přepíše na <abbr title="epsilon – prázdný symbol"><code class="m4-hgl" data-25="D">ε</code></abbr>, podruhé a dále se přepíše na <code class="m4-hgl" data-25="A" data-26="A">\n</code>.</p>
 <div id="m4-messages_stringl-c-m4" class="m4-src"><pre>#     NEW_LINE automaton
@@ -743,43 +747,43 @@ Poprvé se <code class="m4-hgl" data-25="C">NEW_LINE</code> přepíše na <abbr 
 #     \___/    \____/&lt;--'
 
 # A → β
-define([NEW_LINE], [define([$0], [<span class="m4-a">\n</span>])])
+define(⟦NEW_LINE⟧, ⟦define(⟦$0⟧, ⟦<span class="m4-a">\n</span>⟧)⟧)
 
 # A → β
-define([ERROR], [
+define(⟦ERROR⟧, ⟦
 
-	divert(0)<span class="m4-c">NEW_LINE</span>[]$2[]dnl
+	divert(0)<span class="m4-c">NEW_LINE</span>⟦⟧$2⟦⟧dnl
 divert(-1)
-])
+⟧)
 
 divert(0)dnl
 /*
  * DONTE()
  */
 
-char error[[]] =
+char error[] =
 "divert(1)<span class="m4-b">";</span>
-divert(-1)</pre><code><span class="m4-sha">b53eafe</span><a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/messages/stringl.c.m4" title="messages/stringl.c.m4
-date: 20200106-16:21:10
-sha1sum: a143c98
-size: 299 B">stringl.c.m4</a><span class="m4-cb" title="vybrat text"></span><a href="#m4-messages_stringl-c-m4" title="⚓"></a></code></div>
-<div id="m4-messages_stringl-c-command" class="m4-cmd m4-usc"><pre title="příkaz">m4 <a href="https://raw.githubusercontent.com/jkubin/m4root/b743040454a6ac8bc0493849a026cf385e73fe65/gfiles/root0b.m4" title="gfiles/root0b.m4
-date: 20200807-17:46:45
-git rev: b743040
-sha1sum: 90624d8
-size: 1200 B">root0b.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/messages/stringl.c.m4" title="messages/stringl.c.m4
-date: 20200106-16:21:10
-git rev: b53eafe
-sha1sum: a143c98
-size: 299 B">stringl.c.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/messages/code.m4" title="messages/code.m4
-date: 20200106-16:21:10
-git rev: b53eafe
-sha1sum: c853073
-size: 158 B">code.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/309469e3b797150f3f2e31f8d550cb793ceceeca/messages/messages.mc" title="messages/messages.mc
-date: 20201225-10:43:00
-git rev: 309469e
-sha1sum: 518222c
-size: 450 B">messages.mc</a> > <a href="https://raw.githubusercontent.com/jkubin/m4root/91568108231a0a6510905d67a6b33dfd0d6ecd39/messages/stringl.c" title="messages/stringl.c
+divert(-1)</pre><code><span class="m4-sha">24fd4f3</span><a href="https://raw.githubusercontent.com/jkubin/m4root/24fd4f31afda7ced456da6ab60904553760075a5/messages/stringl.c.m4" title="messages/stringl.c.m4
+date: 20201226-21:52:28
+sha1sum: daf85ec
+size: 329 B">stringl.c.m4</a><span class="m4-cb" title="vybrat text"></span><a href="#m4-messages_stringl-c-m4" title="⚓"></a></code></div>
+<div id="m4-messages_stringl-c-command" class="m4-cmd m4-usc"><pre title="příkaz">m4 <a href="https://raw.githubusercontent.com/jkubin/m4root/299505d34841516250138ca82e1fa3dfbf197b38/gfiles/root0u.m4" title="gfiles/root0u.m4
+date: 20200807-19:39:39
+git rev: 299505d
+sha1sum: add7617
+size: 1465 B">root0u.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/24fd4f31afda7ced456da6ab60904553760075a5/messages/stringl.c.m4" title="messages/stringl.c.m4
+date: 20201226-21:52:28
+git rev: 24fd4f3
+sha1sum: daf85ec
+size: 329 B">stringl.c.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/d2707ad62aa69a66715389b9bf732ad99573a88d/messages/code.m4" title="messages/code.m4
+date: 20201226-22:38:15
+git rev: d2707ad
+sha1sum: d709e07
+size: 248 B">code.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/d2707ad62aa69a66715389b9bf732ad99573a88d/messages/messages.mc" title="messages/messages.mc
+date: 20201226-22:38:15
+git rev: d2707ad
+sha1sum: 3c925dc
+size: 535 B">messages.mc</a> > <a href="https://raw.githubusercontent.com/jkubin/m4root/91568108231a0a6510905d67a6b33dfd0d6ecd39/messages/stringl.c" title="messages/stringl.c
 date: 20200331-19:30:06
 git rev: 9156810
 sha1sum: dc45b92
@@ -793,7 +797,7 @@ char error[] =
 date: 20200331-19:30:06
 sha1sum: dc45b92
 size: 185 B">stringl.c</a><span class="m4-cb" title="vybrat text"></span><a href="#m4-messages_stringl-c" title="⚓"></a></code></div>
-<h3 id="m4-c-maly-automat-2" class="m4-ch"><a href="#m4-c-maly-automat-2-toc" title="Obsah"></a><a href="#m4-c-maly-automat-2" title="⚓">A.9</a><code>[]</code> C: malý automat 2<a href="#m4--toc" title="Nahoru"></a></h3>
+<h3 id="m4-c-maly-automat-2" class="m4-ch"><a href="#m4-c-maly-automat-2-toc" title="Obsah"></a><a href="#m4-c-maly-automat-2" title="⚓">A.9</a><code>⟦⟧</code> C: malý automat 2<a href="#m4--toc" title="Nahoru"></a></h3>
 <p>Tento příklad je podobný předchozímu, avšak každý řetězec <span class="m4-hgl" data-27="A" data-28="A">je na novém řádku</span>.</p>
 <div id="m4-messages_string-c-m4" class="m4-src"><pre>#      NEW_LINE automaton
 #      ___      _________
@@ -801,44 +805,44 @@ size: 185 B">stringl.c</a><span class="m4-cb" title="vybrat text"></span><a href
 #     \___/    \_________/&lt;--'
 
 # A → β
-define([NEW_LINE], [define([$0], [<span class="m4-a">\n"
-"</span>])])
+define(⟦NEW_LINE⟧, ⟦define(⟦$0⟧, ⟦<span class="m4-a">\n"
+"</span>⟧)⟧)
 
 # A → β
-define([ERROR], [
+define(⟦ERROR⟧, ⟦
 
-	divert(0)NEW_LINE[]$2[]dnl
+	divert(0)NEW_LINE⟦⟧$2⟦⟧dnl
 divert(-1)
-])
+⟧)
 
 divert(0)dnl
 /*
  * DONTE()
  */
 
-char error[[]] =
+char error[] =
 "divert(1)";
-divert(-1)</pre><code><span class="m4-sha">18148df</span><a href="https://raw.githubusercontent.com/jkubin/m4root/18148df8651676a16fc6293a3d1226678331163e/messages/string.c.m4" title="messages/string.c.m4
-date: 20200413-00:29:23
-sha1sum: e3746d8
-size: 318 B">string.c.m4</a><span class="m4-cb" title="vybrat text"></span><a href="#m4-messages_string-c-m4" title="⚓"></a></code></div>
-<div id="m4-messages_string-c-command" class="m4-cmd m4-usc"><pre title="příkaz">m4 <a href="https://raw.githubusercontent.com/jkubin/m4root/b743040454a6ac8bc0493849a026cf385e73fe65/gfiles/root0b.m4" title="gfiles/root0b.m4
-date: 20200807-17:46:45
-git rev: b743040
-sha1sum: 90624d8
-size: 1200 B">root0b.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/18148df8651676a16fc6293a3d1226678331163e/messages/string.c.m4" title="messages/string.c.m4
-date: 20200413-00:29:23
-git rev: 18148df
-sha1sum: e3746d8
-size: 318 B">string.c.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/messages/code.m4" title="messages/code.m4
-date: 20200106-16:21:10
-git rev: b53eafe
-sha1sum: c853073
-size: 158 B">code.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/309469e3b797150f3f2e31f8d550cb793ceceeca/messages/messages.mc" title="messages/messages.mc
-date: 20201225-10:43:00
-git rev: 309469e
-sha1sum: 518222c
-size: 450 B">messages.mc</a> > <a href="https://raw.githubusercontent.com/jkubin/m4root/91568108231a0a6510905d67a6b33dfd0d6ecd39/messages/string.c" title="messages/string.c
+divert(-1)</pre><code><span class="m4-sha">24fd4f3</span><a href="https://raw.githubusercontent.com/jkubin/m4root/24fd4f31afda7ced456da6ab60904553760075a5/messages/string.c.m4" title="messages/string.c.m4
+date: 20201226-21:52:28
+sha1sum: 4b4d1b8
+size: 348 B">string.c.m4</a><span class="m4-cb" title="vybrat text"></span><a href="#m4-messages_string-c-m4" title="⚓"></a></code></div>
+<div id="m4-messages_string-c-command" class="m4-cmd m4-usc"><pre title="příkaz">m4 <a href="https://raw.githubusercontent.com/jkubin/m4root/299505d34841516250138ca82e1fa3dfbf197b38/gfiles/root0u.m4" title="gfiles/root0u.m4
+date: 20200807-19:39:39
+git rev: 299505d
+sha1sum: add7617
+size: 1465 B">root0u.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/24fd4f31afda7ced456da6ab60904553760075a5/messages/string.c.m4" title="messages/string.c.m4
+date: 20201226-21:52:28
+git rev: 24fd4f3
+sha1sum: 4b4d1b8
+size: 348 B">string.c.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/d2707ad62aa69a66715389b9bf732ad99573a88d/messages/code.m4" title="messages/code.m4
+date: 20201226-22:38:15
+git rev: d2707ad
+sha1sum: d709e07
+size: 248 B">code.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/d2707ad62aa69a66715389b9bf732ad99573a88d/messages/messages.mc" title="messages/messages.mc
+date: 20201226-22:38:15
+git rev: d2707ad
+sha1sum: 3c925dc
+size: 535 B">messages.mc</a> > <a href="https://raw.githubusercontent.com/jkubin/m4root/91568108231a0a6510905d67a6b33dfd0d6ecd39/messages/string.c" title="messages/string.c
 date: 20200331-19:30:06
 git rev: 9156810
 sha1sum: 76ca62e
@@ -854,7 +858,7 @@ char error[] =
 date: 20200331-19:30:06
 sha1sum: 76ca62e
 size: 191 B">string.c</a><span class="m4-cb" title="vybrat text"></span><a href="#m4-messages_string-c" title="⚓"></a></code></div>
-<h3 id="m4-html-vystupni-fronty" class="m4-ch"><a href="#m4-html-vystupni-fronty-toc" title="Obsah"></a><a href="#m4-html-vystupni-fronty" title="⚓">A.10</a><code>[]</code> HTML: výstupní fronty<a href="#m4--toc" title="Nahoru"></a></h3>
+<h3 id="m4-html-vystupni-fronty" class="m4-ch"><a href="#m4-html-vystupni-fronty-toc" title="Obsah"></a><a href="#m4-html-vystupni-fronty" title="⚓">A.10</a><code>⟦⟧</code> HTML: výstupní fronty<a href="#m4--toc" title="Nahoru"></a></h3>
 <p>Příklad používá <span class="m4-hgl" data-29="9,27,29">dvě výstupní fronty</span>.
 Fronta číslo <code class="m4-hgl" data-29="9,27">1</code> obsahuje <span class="m4-hgl" data-29="10" data-30="16-21">odstavce</span>,
 fronta číslo <code class="m4-hgl" data-29="29">2</code> <span class="m4-hgl" data-29="30-31" data-30="22-23">uzavírací značky HTML</span> stránky.
@@ -864,18 +868,18 @@ Zprávy typu <code class="m4-hgl" data-29="15">QUERY</code> a&nbsp;<code class="
 
 # A → β
 # β
-define([ERROR], [
+define(⟦ERROR⟧, ⟦
 
 	divert(0)dnl
-		[&lt;li>$0: &lt;a href="#$1">$1&lt;/a>&lt;/li>]
+		⟦&lt;li>$0: &lt;a href="#$1">$1&lt;/a>&lt;/li>⟧
 divert(1)dnl
-	&lt;p id="[$1]">$2&lt;/p>
+	&lt;p id="⟦$1⟧">$2&lt;/p>
 divert(-1)
-])
+⟧)
 
 # A → β
-define([QUERY], defn([ERROR]))
-define([WARNING], defn([ERROR]))
+define(⟦QUERY⟧, defn(⟦ERROR⟧))
+define(⟦WARNING⟧, defn(⟦ERROR⟧))
 
 divert(0)dnl
 &lt;!-- DONTE() -->
@@ -891,27 +895,27 @@ divert(1)dnl
 divert(2)dnl
 &lt;/body>
 &lt;/html>
-divert(-1)</pre><code><span class="m4-sha">b53eafe</span><a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/messages/messages.html.m4" title="messages/messages.html.m4
-date: 20200106-16:21:10
-sha1sum: e06bb32
-size: 436 B">messages.html.m4</a><span class="m4-cb" title="vybrat text"></span><a href="#m4-messages_messages-html-m4" title="⚓"></a></code></div>
-<div id="m4-messages_messages-html-command" class="m4-cmd m4-usc"><pre title="příkaz">m4 <a href="https://raw.githubusercontent.com/jkubin/m4root/b743040454a6ac8bc0493849a026cf385e73fe65/gfiles/root0b.m4" title="gfiles/root0b.m4
-date: 20200807-17:46:45
-git rev: b743040
-sha1sum: 90624d8
-size: 1200 B">root0b.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/messages/messages.html.m4" title="messages/messages.html.m4
-date: 20200106-16:21:10
-git rev: b53eafe
-sha1sum: e06bb32
-size: 436 B">messages.html.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/messages/markup.m4" title="messages/markup.m4
-date: 20200106-16:21:10
-git rev: b53eafe
-sha1sum: 9b187a9
-size: 166 B">markup.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/309469e3b797150f3f2e31f8d550cb793ceceeca/messages/messages.mc" title="messages/messages.mc
-date: 20201225-10:43:00
-git rev: 309469e
-sha1sum: 518222c
-size: 450 B">messages.mc</a> > <a href="https://raw.githubusercontent.com/jkubin/m4root/596477641924afb389bd55c019cfe7debcc9e9d5/messages/messages.html" title="messages/messages.html
+divert(-1)</pre><code><span class="m4-sha">24fd4f3</span><a href="https://raw.githubusercontent.com/jkubin/m4root/24fd4f31afda7ced456da6ab60904553760075a5/messages/messages.html.m4" title="messages/messages.html.m4
+date: 20201226-21:52:28
+sha1sum: 3911284
+size: 468 B">messages.html.m4</a><span class="m4-cb" title="vybrat text"></span><a href="#m4-messages_messages-html-m4" title="⚓"></a></code></div>
+<div id="m4-messages_messages-html-command" class="m4-cmd m4-usc"><pre title="příkaz">m4 <a href="https://raw.githubusercontent.com/jkubin/m4root/299505d34841516250138ca82e1fa3dfbf197b38/gfiles/root0u.m4" title="gfiles/root0u.m4
+date: 20200807-19:39:39
+git rev: 299505d
+sha1sum: add7617
+size: 1465 B">root0u.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/24fd4f31afda7ced456da6ab60904553760075a5/messages/messages.html.m4" title="messages/messages.html.m4
+date: 20201226-21:52:28
+git rev: 24fd4f3
+sha1sum: 3911284
+size: 468 B">messages.html.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/d2707ad62aa69a66715389b9bf732ad99573a88d/messages/markup.m4" title="messages/markup.m4
+date: 20201226-22:38:15
+git rev: d2707ad
+sha1sum: 98612ec
+size: 256 B">markup.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/d2707ad62aa69a66715389b9bf732ad99573a88d/messages/messages.mc" title="messages/messages.mc
+date: 20201226-22:38:15
+git rev: d2707ad
+sha1sum: 3c925dc
+size: 535 B">messages.mc</a> > <a href="https://raw.githubusercontent.com/jkubin/m4root/596477641924afb389bd55c019cfe7debcc9e9d5/messages/messages.html" title="messages/messages.html
 date: 20201225-10:46:17
 git rev: 5964776
 sha1sum: 9386e38
@@ -942,42 +946,42 @@ size: 863 B">messages.html</a></pre><code><span class="m4-cb" title="vybrat text
 date: 20201225-10:46:17
 sha1sum: 9386e38
 size: 863 B">messages.html</a><span class="m4-cb" title="vybrat text"></span><a href="#m4-messages_messages-html" title="⚓"></a></code></div>
-<h3 id="m4-vetveni-gramatikou" class="m4-ch"><a href="#m4-vetveni-gramatikou-toc" title="Obsah"></a><a href="#m4-vetveni-gramatikou" title="⚓">A.11</a><code>[]</code> Větvení gramatikou<a href="#m4--toc" title="Nahoru"></a></h3>
+<h3 id="m4-vetveni-gramatikou" class="m4-ch"><a href="#m4-vetveni-gramatikou-toc" title="Obsah"></a><a href="#m4-vetveni-gramatikou" title="⚓">A.11</a><code>⟦⟧</code> Větvení gramatikou<a href="#m4--toc" title="Nahoru"></a></h3>
 <p>Příklad ukazuje <a href="#m4-vetveni-gramatikou-zakladni-p" title="Větvení gramatikou – základní princip">větvení gramatikou</a>, argumenty maker se ignorují.
 Vstupní neterminály se přepisují na terminály <code title="&#x1f41b;" class="m4-hgl" data-31="6,13" data-32="A">ERROR → &#x1f41b;</code>,
 <code title="&#x1f41c;" class="m4-hgl" data-31="6,14" data-32="B">QUERY → &#x1f41c;</code>,
 <code title="&#x1f41d;" class="m4-hgl" data-31="6,15" data-32="C">WARNING → &#x1f41d;</code>.</p>
 <div id="m4-messages_insect-txt-m4" class="m4-src"><pre># A → β
 # β
-define([ERROR], [
+define(⟦ERROR⟧, ⟦
 
 	divert(0)dnl
-$0_INSECT[]dnl
+$0_INSECT⟦⟧dnl
 divert(-1)
-])
+⟧)
 
 # A → β
-define([QUERY],   defn([ERROR]))
-define([WARNING], defn([ERROR]))
-define([ERROR_INSECT],   [&#x1f41b;])
-define([QUERY_INSECT],   [&#x1f41c;])
-define([WARNING_INSECT], [&#x1f41d;])</pre><code><span class="m4-sha">b53eafe</span><a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/messages/insect.txt.m4" title="messages/insect.txt.m4
-date: 20200106-16:21:10
-sha1sum: 9d9113b
-size: 255 B">insect.txt.m4</a><span class="m4-cb" title="vybrat text"></span><a href="#m4-messages_insect-txt-m4" title="⚓"></a></code></div>
-<div id="m4-messages_insect-txt-command" class="m4-cmd m4-usc"><pre title="příkaz">m4 <a href="https://raw.githubusercontent.com/jkubin/m4root/b743040454a6ac8bc0493849a026cf385e73fe65/gfiles/root0b.m4" title="gfiles/root0b.m4
-date: 20200807-17:46:45
-git rev: b743040
-sha1sum: 90624d8
-size: 1200 B">root0b.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/messages/insect.txt.m4" title="messages/insect.txt.m4
-date: 20200106-16:21:10
-git rev: b53eafe
-sha1sum: 9d9113b
-size: 255 B">insect.txt.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/309469e3b797150f3f2e31f8d550cb793ceceeca/messages/messages.mc" title="messages/messages.mc
-date: 20201225-10:43:00
-git rev: 309469e
-sha1sum: 518222c
-size: 450 B">messages.mc</a> > <a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/messages/insect.txt" title="messages/insect.txt
+define(⟦QUERY⟧,   defn(⟦ERROR⟧))
+define(⟦WARNING⟧, defn(⟦ERROR⟧))
+define(⟦ERROR_INSECT⟧,   ⟦&#x1f41b;⟧)
+define(⟦QUERY_INSECT⟧,   ⟦&#x1f41c;⟧)
+define(⟦WARNING_INSECT⟧, ⟦&#x1f41d;⟧)</pre><code><span class="m4-sha">24fd4f3</span><a href="https://raw.githubusercontent.com/jkubin/m4root/24fd4f31afda7ced456da6ab60904553760075a5/messages/insect.txt.m4" title="messages/insect.txt.m4
+date: 20201226-21:52:28
+sha1sum: ce656e5
+size: 307 B">insect.txt.m4</a><span class="m4-cb" title="vybrat text"></span><a href="#m4-messages_insect-txt-m4" title="⚓"></a></code></div>
+<div id="m4-messages_insect-txt-command" class="m4-cmd m4-usc"><pre title="příkaz">m4 <a href="https://raw.githubusercontent.com/jkubin/m4root/299505d34841516250138ca82e1fa3dfbf197b38/gfiles/root0u.m4" title="gfiles/root0u.m4
+date: 20200807-19:39:39
+git rev: 299505d
+sha1sum: add7617
+size: 1465 B">root0u.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/24fd4f31afda7ced456da6ab60904553760075a5/messages/insect.txt.m4" title="messages/insect.txt.m4
+date: 20201226-21:52:28
+git rev: 24fd4f3
+sha1sum: ce656e5
+size: 307 B">insect.txt.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/d2707ad62aa69a66715389b9bf732ad99573a88d/messages/messages.mc" title="messages/messages.mc
+date: 20201226-22:38:15
+git rev: d2707ad
+sha1sum: 3c925dc
+size: 535 B">messages.mc</a> > <a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/messages/insect.txt" title="messages/insect.txt
 date: 20200106-16:21:10
 git rev: b53eafe
 sha1sum: a08c5e8
@@ -996,9 +1000,9 @@ size: 24 B">insect.txt</a><span class="m4-cb" title="vybrat text"></span><a href
 <span class="m4-a">$0</span>_END → <span class="m4-b">QUERY</span><span class="m4-c">_END</span> → <span class="m4-d">1</span>
 <span class="m4-a">$0</span>_NAME → <span class="m4-b">QUERY</span><span class="m4-c">_NAME</span> → <span class="m4-d">query</span>
 …</pre><code><span class="m4-cb" title="vybrat text"></span><a href="#m4-nonterminals-for-branches" title="⚓"></a></code></div>
-<h3 id="m4-json-generujici-automat" class="m4-ch"><a href="#m4-json-generujici-automat-toc" title="Obsah"></a><a href="#m4-json-generujici-automat" title="⚓">A.12</a><code>[]</code> JSON: generující automat<a href="#m4--toc" title="Nahoru"></a></h3>
+<h3 id="m4-json-generujici-automat" class="m4-ch"><a href="#m4-json-generujici-automat-toc" title="Obsah"></a><a href="#m4-json-generujici-automat" title="⚓">A.12</a><code>⟦⟧</code> JSON: generující automat<a href="#m4--toc" title="Nahoru"></a></h3>
 <p>Příklad používá <span class="m4-hgl" data-34="14,30">dvě výstupní fronty</span> a&nbsp;jeden <span class="m4-hgl" data-34="1-3">generující automat</span>.
-První chybová zpráva <code>ERROR([…])</code> ve stavu <code class="m4-hgl" data-34="6-17">ERROR</code> vygeneruje <span class="m4-hgl" data-34="12,15" data-35="3,7">záhlaví se závorkami</span> a&nbsp;vypíše <span class="m4-hgl" data-34="11">na výstup</span> <span class="m4-hgl" data-34="13" data-35="4">první záznam</span>.
+První chybová zpráva <code>ERROR(⟦…⟧)</code> ve stavu <code class="m4-hgl" data-34="6-17">ERROR</code> vygeneruje <span class="m4-hgl" data-34="12,15" data-35="3,7">záhlaví se závorkami</span> a&nbsp;vypíše <span class="m4-hgl" data-34="11">na výstup</span> <span class="m4-hgl" data-34="13" data-35="4">první záznam</span>.
 <span class="m4-hgl" data-34="8,9">Automat přejde</span> do stavu <code class="m4-hgl" data-34="20-25">NEXT_ITEM</code> což je <abbr title="takové pravidlo se používá jako pravá strana jiného přepisovacího pravidla"><code class="m4-hgl" data-34="19">β</code> pravidlo</abbr>.
 Následující chybové zprávy ve stavu <code class="m4-hgl" data-34="20-25">NEXT_ITEM</code> pouze <span class="m4-hgl" data-34="22">vypisují na výstup</span> <span class="m4-hgl" data-34="23" data-35="5,6">jednotlivé záznamy</span>.
 Na závěr výstupní fronty číslo <code class="m4-hgl" data-34="14">1</code> a&nbsp;<code class="m4-hgl" data-34="30">2</code> vypíšou znaky <code class="m4-hgl" data-34="15" data-35="7">]</code> a&nbsp;<code class="m4-hgl" data-34="31" data-35="8">}}</code> čímž zakončí výsledný JSON.</p>
@@ -1007,53 +1011,53 @@ Na závěr výstupní fronty číslo <code class="m4-hgl" data-34="14">1</code> 
 #     \_______/    \___________/&lt;--'
 
 # A → β
-define([ERROR], [
+define(⟦ERROR⟧, ⟦
 
 	# transition to the next node
-	define([$0], defn([NEXT_ITEM]))
+	define(⟦$0⟧, defn(⟦NEXT_ITEM⟧))
 
 	divert(0),
-	"error": LB()
-		{"[$1]": "$2"}dnl
+	"error": [
+		{"⟦$1⟧": "$2"}dnl
 divert(1)
-	RB()
+	]
 divert(-1)
-])
+⟧)
 
 # β
-define([NEXT_ITEM], [
+define(⟦NEXT_ITEM⟧, ⟦
 
 	divert(0),
-		{"[$1]": "$2"}dnl
+		{"⟦$1⟧": "$2"}dnl
 divert(-1)
-])
+⟧)
 
 divert(0)dnl
 {"generating_automaton": {
 	"_comment": "DONTE()"dnl
 divert(2)dnl
 }}
-divert(-1)</pre><code><span class="m4-sha">b53eafe</span><a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/messages/atm.json.m4" title="messages/atm.json.m4
-date: 20200106-16:21:10
-sha1sum: 1bf8d7f
-size: 448 B">atm.json.m4</a><span class="m4-cb" title="vybrat text"></span><a href="#m4-messages_atm-json-m4" title="⚓"></a></code></div>
-<div id="m4-messages_atm-json-command" class="m4-cmd m4-usc"><pre title="příkaz">m4 <a href="https://raw.githubusercontent.com/jkubin/m4root/b743040454a6ac8bc0493849a026cf385e73fe65/gfiles/root0b.m4" title="gfiles/root0b.m4
-date: 20200807-17:46:45
-git rev: b743040
-sha1sum: 90624d8
-size: 1200 B">root0b.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/messages/atm.json.m4" title="messages/atm.json.m4
-date: 20200106-16:21:10
-git rev: b53eafe
-sha1sum: 1bf8d7f
-size: 448 B">atm.json.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/messages/code.m4" title="messages/code.m4
-date: 20200106-16:21:10
-git rev: b53eafe
-sha1sum: c853073
-size: 158 B">code.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/309469e3b797150f3f2e31f8d550cb793ceceeca/messages/messages.mc" title="messages/messages.mc
-date: 20201225-10:43:00
-git rev: 309469e
-sha1sum: 518222c
-size: 450 B">messages.mc</a> > <a href="https://raw.githubusercontent.com/jkubin/m4root/91568108231a0a6510905d67a6b33dfd0d6ecd39/messages/atm.json" title="messages/atm.json
+divert(-1)</pre><code><span class="m4-sha">24fd4f3</span><a href="https://raw.githubusercontent.com/jkubin/m4root/24fd4f31afda7ced456da6ab60904553760075a5/messages/atm.json.m4" title="messages/atm.json.m4
+date: 20201226-21:52:28
+sha1sum: f09f617
+size: 474 B">atm.json.m4</a><span class="m4-cb" title="vybrat text"></span><a href="#m4-messages_atm-json-m4" title="⚓"></a></code></div>
+<div id="m4-messages_atm-json-command" class="m4-cmd m4-usc"><pre title="příkaz">m4 <a href="https://raw.githubusercontent.com/jkubin/m4root/299505d34841516250138ca82e1fa3dfbf197b38/gfiles/root0u.m4" title="gfiles/root0u.m4
+date: 20200807-19:39:39
+git rev: 299505d
+sha1sum: add7617
+size: 1465 B">root0u.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/24fd4f31afda7ced456da6ab60904553760075a5/messages/atm.json.m4" title="messages/atm.json.m4
+date: 20201226-21:52:28
+git rev: 24fd4f3
+sha1sum: f09f617
+size: 474 B">atm.json.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/d2707ad62aa69a66715389b9bf732ad99573a88d/messages/code.m4" title="messages/code.m4
+date: 20201226-22:38:15
+git rev: d2707ad
+sha1sum: d709e07
+size: 248 B">code.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/d2707ad62aa69a66715389b9bf732ad99573a88d/messages/messages.mc" title="messages/messages.mc
+date: 20201226-22:38:15
+git rev: d2707ad
+sha1sum: 3c925dc
+size: 535 B">messages.mc</a> > <a href="https://raw.githubusercontent.com/jkubin/m4root/91568108231a0a6510905d67a6b33dfd0d6ecd39/messages/atm.json" title="messages/atm.json
 date: 20200331-19:30:06
 git rev: 9156810
 sha1sum: ade7739
@@ -1069,25 +1073,25 @@ size: 268 B">atm.json</a></pre><code><span class="m4-cb" title="vybrat text"></s
 date: 20200331-19:30:06
 sha1sum: ade7739
 size: 268 B">atm.json</a><span class="m4-cb" title="vybrat text"></span><a href="#m4-messages_atm-json" title="⚓"></a></code></div>
-<h4 id="m4-json-pojmenovane-fronty" class="m4-ch"><a href="#m4-json-pojmenovane-fronty-toc" title="Obsah"></a><a href="#m4-json-pojmenovane-fronty" title="⚓">A.12.1</a><code>[]</code> JSON: pojmenované fronty<a href="#m4--toc" title="Nahoru"></a></h4>
+<h4 id="m4-json-pojmenovane-fronty" class="m4-ch"><a href="#m4-json-pojmenovane-fronty-toc" title="Obsah"></a><a href="#m4-json-pojmenovane-fronty" title="⚓">A.12.1</a><code>⟦⟧</code> JSON: pojmenované fronty<a href="#m4--toc" title="Nahoru"></a></h4>
 <p>Příklad zpracovává další zprávy typu <code>QUERY</code> a&nbsp;<code>WARNING</code>.
 Používá tři automaty a&nbsp;šest výstupních front.
 Generujeme-li složitější zdrojový kód, brzy narazíme na problém udržení konzistence indexů pro výstupní fronty.
 Abychom se vyhnuli zmatku, pojmenujeme si fronty a&nbsp;místo čísel používáme jména.
 Abychom nemuseli definovat podobná pravidla, zkopírujeme si pravou stranu <code>ERROR</code> (je to také <abbr title="takové pravidlo se používá jako pravá strana jiného přepisovacího pravidla"><code class="m4-hgl" data-36="21">β</code> pravidlo</abbr>) do pravé strany pravidel <code>QUERY</code> a&nbsp;<code>WARNING</code>.</p>
 <div id="m4-messages_qnames-json-m4" class="m4-src"><pre># DO NOT WRITE INDEXES MANUALLY, use counter!
-define([QUERY_QU],     0)
-define([QUERY_END],    1)
-define([ERROR_QU],     2)
-define([ERROR_END],    3)
-define([WARNING_QU],   4)
-define([WARNING_END],  5)
-define([LAST_QUEUE],   6)
+define(⟦QUERY_QU⟧,     0)
+define(⟦QUERY_END⟧,    1)
+define(⟦ERROR_QU⟧,     2)
+define(⟦ERROR_END⟧,    3)
+define(⟦WARNING_QU⟧,   4)
+define(⟦WARNING_END⟧,  5)
+define(⟦LAST_QUEUE⟧,   6)
 
 # names of message types
-define([WARNING_NAME], [warning])
-define([ERROR_NAME],   [error])
-define([QUERY_NAME],   [query])
+define(⟦WARNING_NAME⟧, ⟦warning⟧)
+define(⟦ERROR_NAME⟧,   ⟦error⟧)
+define(⟦QUERY_NAME⟧,   ⟦query⟧)
 
 #      _________      ___________
 # --->/  ERROR  \--->/ NEXT_ITEM \---.
@@ -1096,57 +1100,57 @@ define([QUERY_NAME],   [query])
 
 # A → β
 # β
-define([ERROR], [
+define(⟦ERROR⟧, ⟦
 
 	# transition to the next node
-	define([$0], defn([NEXT_ITEM]))
+	define(⟦$0⟧, defn(⟦NEXT_ITEM⟧))
 
 	divert($0_QU),
-	"$0_NAME": LB()
-		{"[$1]": "$2"}dnl
+	"$0_NAME": [
+		{"⟦$1⟧": "$2"}dnl
 divert($0_END)
-	RB()dnl
+	]dnl
 divert(-1)
-])
+⟧)
 
 # β
-define([NEXT_ITEM], [
+define(⟦NEXT_ITEM⟧, ⟦
 
 	divert($0_QU),
-		{"[$1]": "$2"}dnl
+		{"⟦$1⟧": "$2"}dnl
 divert(-1)
-])
+⟧)
 
 # A → β
-define([QUERY],        defn([ERROR]))
-define([WARNING],      defn([ERROR]))
+define(⟦QUERY⟧,        defn(⟦ERROR⟧))
+define(⟦WARNING⟧,      defn(⟦ERROR⟧))
 
 divert(0)dnl
 {"queue_names": {
 	"_comment": "DONTE()"dnl
 divert(LAST_QUEUE)
 }}
-divert(-1)</pre><code><span class="m4-sha">b53eafe</span><a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/messages/qnames.json.m4" title="messages/qnames.json.m4
-date: 20200106-16:21:10
-sha1sum: a621984
-size: 933 B">qnames.json.m4</a><span class="m4-cb" title="vybrat text"></span><a href="#m4-messages_qnames-json-m4" title="⚓"></a></code></div>
-<div id="m4-messages_qnames-json-command" class="m4-cmd m4-usc"><pre title="příkaz">m4 <a href="https://raw.githubusercontent.com/jkubin/m4root/b743040454a6ac8bc0493849a026cf385e73fe65/gfiles/root0b.m4" title="gfiles/root0b.m4
-date: 20200807-17:46:45
-git rev: b743040
-sha1sum: 90624d8
-size: 1200 B">root0b.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/messages/qnames.json.m4" title="messages/qnames.json.m4
-date: 20200106-16:21:10
-git rev: b53eafe
-sha1sum: a621984
-size: 933 B">qnames.json.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/messages/code.m4" title="messages/code.m4
-date: 20200106-16:21:10
-git rev: b53eafe
-sha1sum: c853073
-size: 158 B">code.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/309469e3b797150f3f2e31f8d550cb793ceceeca/messages/messages.mc" title="messages/messages.mc
-date: 20201225-10:43:00
-git rev: 309469e
-sha1sum: 518222c
-size: 450 B">messages.mc</a> > <a href="https://raw.githubusercontent.com/jkubin/m4root/596477641924afb389bd55c019cfe7debcc9e9d5/messages/qnames.json" title="messages/qnames.json
+divert(-1)</pre><code><span class="m4-sha">24fd4f3</span><a href="https://raw.githubusercontent.com/jkubin/m4root/24fd4f31afda7ced456da6ab60904553760075a5/messages/qnames.json.m4" title="messages/qnames.json.m4
+date: 20201226-21:52:28
+sha1sum: 1e3b868
+size: 1027 B">qnames.json.m4</a><span class="m4-cb" title="vybrat text"></span><a href="#m4-messages_qnames-json-m4" title="⚓"></a></code></div>
+<div id="m4-messages_qnames-json-command" class="m4-cmd m4-usc"><pre title="příkaz">m4 <a href="https://raw.githubusercontent.com/jkubin/m4root/299505d34841516250138ca82e1fa3dfbf197b38/gfiles/root0u.m4" title="gfiles/root0u.m4
+date: 20200807-19:39:39
+git rev: 299505d
+sha1sum: add7617
+size: 1465 B">root0u.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/24fd4f31afda7ced456da6ab60904553760075a5/messages/qnames.json.m4" title="messages/qnames.json.m4
+date: 20201226-21:52:28
+git rev: 24fd4f3
+sha1sum: 1e3b868
+size: 1027 B">qnames.json.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/d2707ad62aa69a66715389b9bf732ad99573a88d/messages/code.m4" title="messages/code.m4
+date: 20201226-22:38:15
+git rev: d2707ad
+sha1sum: d709e07
+size: 248 B">code.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/d2707ad62aa69a66715389b9bf732ad99573a88d/messages/messages.mc" title="messages/messages.mc
+date: 20201226-22:38:15
+git rev: d2707ad
+sha1sum: 3c925dc
+size: 535 B">messages.mc</a> > <a href="https://raw.githubusercontent.com/jkubin/m4root/596477641924afb389bd55c019cfe7debcc9e9d5/messages/qnames.json" title="messages/qnames.json
 date: 20201225-10:46:17
 git rev: 5964776
 sha1sum: 80a9ae8
@@ -1169,37 +1173,37 @@ size: 451 B">qnames.json</a></pre><code><span class="m4-cb" title="vybrat text">
 date: 20201225-10:46:17
 sha1sum: 80a9ae8
 size: 451 B">qnames.json</a><span class="m4-cb" title="vybrat text"></span><a href="#m4-messages_qnames-json" title="⚓"></a></code></div>
-<h4 id="m4-json-generovane-indexy-front" class="m4-ch"><a href="#m4-json-generovane-indexy-front-toc" title="Obsah"></a><a href="#m4-json-generovane-indexy-front" title="⚓">A.12.2</a><code>[]</code> JSON: generované indexy front<a href="#m4--toc" title="Nahoru"></a></h4>
+<h4 id="m4-json-generovane-indexy-front" class="m4-ch"><a href="#m4-json-generovane-indexy-front-toc" title="Obsah"></a><a href="#m4-json-generovane-indexy-front" title="⚓">A.12.2</a><code>⟦⟧</code> JSON: generované indexy front<a href="#m4--toc" title="Nahoru"></a></h4>
 <p>Během vývoje se často mění pořadí a&nbsp;počet výstupních front, což také vyžaduje častou změnu jejich indexů.
 <span class="m4-hgl" data-38="A">Indexy je proto vhodné generovat</span>.
 Můžeme pak používat prakticky neomezený počet front.
 Následující příklad ukazuje, jak se tyto indexy generují.</p>
 <div id="m4-messages_queues-m4" class="m4-src"><pre># defines a counter for output queues
 # A → β
-define([QUEUE_INDEX], defn([COUNT_UP]))
+define(⟦QUEUE_INDEX⟧, defn(⟦COUNT_UP⟧))
 
 # index of the first output queue (0 is stdout)
 QUEUE_INDEX(0)
 
 # symbolic names for indices of output queues
 # A → β
-define([QUERY_QU],     <span class="m4-a">QUEUE_INDEX</span>)
-define([QUERY_END],    <span class="m4-a">QUEUE_INDEX</span>)
-define([ERROR_QU],     <span class="m4-a">QUEUE_INDEX</span>)
-define([ERROR_END],    <span class="m4-a">QUEUE_INDEX</span>)
-define([WARNING_QU],   <span class="m4-a">QUEUE_INDEX</span>)
-define([WARNING_END],  <span class="m4-a">QUEUE_INDEX</span>)
+define(⟦QUERY_QU⟧,     <span class="m4-a">QUEUE_INDEX</span>)
+define(⟦QUERY_END⟧,    <span class="m4-a">QUEUE_INDEX</span>)
+define(⟦ERROR_QU⟧,     <span class="m4-a">QUEUE_INDEX</span>)
+define(⟦ERROR_END⟧,    <span class="m4-a">QUEUE_INDEX</span>)
+define(⟦WARNING_QU⟧,   <span class="m4-a">QUEUE_INDEX</span>)
+define(⟦WARNING_END⟧,  <span class="m4-a">QUEUE_INDEX</span>)
 # Keep it last!
-define([LAST_QUEUE],   <span class="m4-a">QUEUE_INDEX</span>)
+define(⟦LAST_QUEUE⟧,   <span class="m4-a">QUEUE_INDEX</span>)
 
 # names of message types
 # A → β
-define([WARNING_NAME], [warning])
-define([ERROR_NAME],   [error])
-define([QUERY_NAME],   [query])</pre><code><span class="m4-sha">9cfdf77</span><a href="https://raw.githubusercontent.com/jkubin/m4root/9cfdf7742f2f032a8b8a96a84b44031a31dab211/messages/queues.m4" title="messages/queues.m4
-date: 20200517-17:50:57
-sha1sum: dbe6e65
-size: 614 B">queues.m4</a><span class="m4-cb" title="vybrat text"></span><a href="#m4-messages_queues-m4" title="⚓"></a></code></div>
+define(⟦WARNING_NAME⟧, ⟦warning⟧)
+define(⟦ERROR_NAME⟧,   ⟦error⟧)
+define(⟦QUERY_NAME⟧,   ⟦query⟧)</pre><code><span class="m4-sha">24fd4f3</span><a href="https://raw.githubusercontent.com/jkubin/m4root/24fd4f31afda7ced456da6ab60904553760075a5/messages/queues.m4" title="messages/queues.m4
+date: 20201226-21:52:28
+sha1sum: 79f498c
+size: 674 B">queues.m4</a><span class="m4-cb" title="vybrat text"></span><a href="#m4-messages_queues-m4" title="⚓"></a></code></div>
 <div id="m4-messages_messages-json-m4" class="m4-src"><pre>#      _________      ___________
 # --->/  ERROR  \--->/ NEXT_ITEM \---.
 #     |  QUERY  |    \___________/&lt;--'
@@ -1207,65 +1211,65 @@ size: 614 B">queues.m4</a><span class="m4-cb" title="vybrat text"></span><a href
 
 # A → β
 # β
-define([ERROR], [
+define(⟦ERROR⟧, ⟦
 
 	# transition to the next node
-	define([$0], defn([NEXT_ITEM]))
+	define(⟦$0⟧, defn(⟦NEXT_ITEM⟧))
 
 	divert($0_QU),
-	"$0_NAME": LB()
-		{"[$1]": "$2"}dnl
+	"$0_NAME": [
+		{"⟦$1⟧": "$2"}dnl
 divert($0_END)
-	RB()dnl
+	]dnl
 divert(-1)
-])
+⟧)
 
 # β
-define([NEXT_ITEM], [
+define(⟦NEXT_ITEM⟧, ⟦
 
 	divert($0_QU),
-		{"[$1]": "$2"}dnl
+		{"⟦$1⟧": "$2"}dnl
 divert(-1)
-])
+⟧)
 
 # A → β
-define([QUERY],   defn([ERROR]))
-define([WARNING], defn([ERROR]))
+define(⟦QUERY⟧,   defn(⟦ERROR⟧))
+define(⟦WARNING⟧, defn(⟦ERROR⟧))
 
 divert(0)dnl
 {"messages": {
 	"_comment": "DONTE()"dnl
 divert(LAST_QUEUE)
 }}
-divert(-1)</pre><code><span class="m4-sha">b53eafe</span><a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/messages/messages.json.m4" title="messages/messages.json.m4
-date: 20200106-16:21:10
-sha1sum: 14e6157
-size: 567 B">messages.json.m4</a><span class="m4-cb" title="vybrat text"></span><a href="#m4-messages_messages-json-m4" title="⚓"></a></code></div>
-<div id="m4-messages_messages-json-command" class="m4-cmd m4-usc"><pre title="příkaz">m4 <a href="https://raw.githubusercontent.com/jkubin/m4root/b743040454a6ac8bc0493849a026cf385e73fe65/gfiles/root0b.m4" title="gfiles/root0b.m4
-date: 20200807-17:46:45
-git rev: b743040
-sha1sum: 90624d8
-size: 1200 B">root0b.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/17cb82f06ccca2e7775b95b3513ab56ee94c0457/gfiles/countb.m4" title="gfiles/countb.m4
+divert(-1)</pre><code><span class="m4-sha">24fd4f3</span><a href="https://raw.githubusercontent.com/jkubin/m4root/24fd4f31afda7ced456da6ab60904553760075a5/messages/messages.json.m4" title="messages/messages.json.m4
+date: 20201226-21:52:28
+sha1sum: f74c194
+size: 609 B">messages.json.m4</a><span class="m4-cb" title="vybrat text"></span><a href="#m4-messages_messages-json-m4" title="⚓"></a></code></div>
+<div id="m4-messages_messages-json-command" class="m4-cmd m4-usc"><pre title="příkaz">m4 <a href="https://raw.githubusercontent.com/jkubin/m4root/299505d34841516250138ca82e1fa3dfbf197b38/gfiles/root0u.m4" title="gfiles/root0u.m4
+date: 20200807-19:39:39
+git rev: 299505d
+sha1sum: add7617
+size: 1465 B">root0u.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/17cb82f06ccca2e7775b95b3513ab56ee94c0457/gfiles/countb.m4" title="gfiles/countb.m4
 date: 20200429-07:34:47
 git rev: 17cb82f
 sha1sum: 2d647fa
-size: 766 B">countb.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/9cfdf7742f2f032a8b8a96a84b44031a31dab211/messages/queues.m4" title="messages/queues.m4
-date: 20200517-17:50:57
-git rev: 9cfdf77
-sha1sum: dbe6e65
-size: 614 B">queues.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/messages/messages.json.m4" title="messages/messages.json.m4
-date: 20200106-16:21:10
-git rev: b53eafe
-sha1sum: 14e6157
-size: 567 B">messages.json.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/messages/code.m4" title="messages/code.m4
-date: 20200106-16:21:10
-git rev: b53eafe
-sha1sum: c853073
-size: 158 B">code.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/309469e3b797150f3f2e31f8d550cb793ceceeca/messages/messages.mc" title="messages/messages.mc
-date: 20201225-10:43:00
-git rev: 309469e
-sha1sum: 518222c
-size: 450 B">messages.mc</a> > <a href="https://raw.githubusercontent.com/jkubin/m4root/596477641924afb389bd55c019cfe7debcc9e9d5/messages/messages.json" title="messages/messages.json
+size: 766 B">countb.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/24fd4f31afda7ced456da6ab60904553760075a5/messages/queues.m4" title="messages/queues.m4
+date: 20201226-21:52:28
+git rev: 24fd4f3
+sha1sum: 79f498c
+size: 674 B">queues.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/24fd4f31afda7ced456da6ab60904553760075a5/messages/messages.json.m4" title="messages/messages.json.m4
+date: 20201226-21:52:28
+git rev: 24fd4f3
+sha1sum: f74c194
+size: 609 B">messages.json.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/d2707ad62aa69a66715389b9bf732ad99573a88d/messages/code.m4" title="messages/code.m4
+date: 20201226-22:38:15
+git rev: d2707ad
+sha1sum: d709e07
+size: 248 B">code.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/d2707ad62aa69a66715389b9bf732ad99573a88d/messages/messages.mc" title="messages/messages.mc
+date: 20201226-22:38:15
+git rev: d2707ad
+sha1sum: 3c925dc
+size: 535 B">messages.mc</a> > <a href="https://raw.githubusercontent.com/jkubin/m4root/596477641924afb389bd55c019cfe7debcc9e9d5/messages/messages.json" title="messages/messages.json
 date: 20201225-10:46:17
 git rev: 5964776
 sha1sum: 4d4a7c0
@@ -1288,10 +1292,10 @@ size: 448 B">messages.json</a></pre><code><span class="m4-cb" title="vybrat text
 date: 20201225-10:46:17
 sha1sum: 4d4a7c0
 size: 448 B">messages.json</a><span class="m4-cb" title="vybrat text"></span><a href="#m4-messages_messages-json" title="⚓"></a></code></div>
-<h3 id="m4-ini-nespojity-index-front" class="m4-ch"><a href="#m4-ini-nespojity-index-front-toc" title="Obsah"></a><a href="#m4-ini-nespojity-index-front" title="⚓">A.13</a><code>[]</code> INI: nespojitý index front<a href="#m4--toc" title="Nahoru"></a></h3>
+<h3 id="m4-ini-nespojity-index-front" class="m4-ch"><a href="#m4-ini-nespojity-index-front-toc" title="Obsah"></a><a href="#m4-ini-nespojity-index-front" title="⚓">A.13</a><code>⟦⟧</code> INI: nespojitý index front<a href="#m4--toc" title="Nahoru"></a></h3>
 <p>Příklad používá <span class="m4-hgl" data-41="1-4">tři automaty</span> a&nbsp;dvě výstupní fronty číslo <code class="m4-hgl" data-41="10,26">2</code> a&nbsp;<code class="m4-hgl" data-41="10,26">4</code> definované v&nbsp;odděleném souboru.
 <span class="m4-hgl" data-41="11" data-42="3,6,11">Názvy INI sekcí</span> jsou generovány <span class="m4-hgl" data-41="A,R">řetězením symbolů</span> (viz. <a href="#m4-vetveni-gramatikou-zakladni-p" title="Větvení gramatikou – základní princip">větvení</a>).
-Příklad používá stejný soubor pro výstupní fronty jako <a href="#m4-json-generovane-indexy-front" title="[] JSON: generované indexy front">příklad</a> pro generování JSON.</p>
+Příklad používá stejný soubor pro výstupní fronty jako <a href="#m4-json-generovane-indexy-front" title="⟦⟧ JSON: generované indexy front">příklad</a> pro generování JSON.</p>
 <div id="m4-messages_messages-ini-m4" class="m4-src"><pre>#      _________      ___________
 # --->/  ERROR  \--->/ NEXT_ITEM \---.
 #     |  QUERY  |    \___________/&lt;--'
@@ -1299,60 +1303,60 @@ Příklad používá stejný soubor pro výstupní fronty jako <a href="#m4-json
 
 # A → β
 # β
-define([ERROR], [
+define(⟦ERROR⟧, ⟦
 
 	divert($0_QU)
-BRAC(<span class="m4-r">$0</span><span class="m4-a">_NAME</span>)
-[$1]="$2"
+[<span class="m4-r">$0</span><span class="m4-a">_NAME</span>]
+⟦$1⟧="$2"
 divert(-1)
 
 	# transition to the next node
-	define([$0], defn([NEXT_ITEM]))
-])
+	define(⟦$0⟧, defn(⟦NEXT_ITEM⟧))
+⟧)
 
 # A → β
-define([QUERY],   defn([ERROR]))
-define([WARNING], defn([ERROR]))
+define(⟦QUERY⟧,   defn(⟦ERROR⟧))
+define(⟦WARNING⟧, defn(⟦ERROR⟧))
 
 # β
-define([NEXT_ITEM], [
+define(⟦NEXT_ITEM⟧, ⟦
 
 	divert($0_QU)dnl
-[$1]="$2"
+⟦$1⟧="$2"
 divert(-1)
-])
+⟧)
 
 divert(0)dnl
 ; DONTE()
-divert(-1)</pre><code><span class="m4-sha">c145bef</span><a href="https://raw.githubusercontent.com/jkubin/m4root/c145bef4ecbbcf7b40cd7d57d24febc403139d76/messages/messages.ini.m4" title="messages/messages.ini.m4
-date: 20200117-01:43:51
-sha1sum: 0358eeb
-size: 468 B">messages.ini.m4</a><span class="m4-cb" title="vybrat text"></span><a href="#m4-messages_messages-ini-m4" title="⚓"></a></code></div>
-<div id="m4-messages_messages-ini-command" class="m4-cmd m4-usc"><pre title="příkaz">m4 <a href="https://raw.githubusercontent.com/jkubin/m4root/b743040454a6ac8bc0493849a026cf385e73fe65/gfiles/root0b.m4" title="gfiles/root0b.m4
-date: 20200807-17:46:45
-git rev: b743040
-sha1sum: 90624d8
-size: 1200 B">root0b.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/c145bef4ecbbcf7b40cd7d57d24febc403139d76/messages/messages.ini.m4" title="messages/messages.ini.m4
-date: 20200117-01:43:51
-git rev: c145bef
-sha1sum: 0358eeb
-size: 468 B">messages.ini.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/17cb82f06ccca2e7775b95b3513ab56ee94c0457/gfiles/countb.m4" title="gfiles/countb.m4
+divert(-1)</pre><code><span class="m4-sha">24fd4f3</span><a href="https://raw.githubusercontent.com/jkubin/m4root/24fd4f31afda7ced456da6ab60904553760075a5/messages/messages.ini.m4" title="messages/messages.ini.m4
+date: 20201226-21:52:28
+sha1sum: fb8782f
+size: 512 B">messages.ini.m4</a><span class="m4-cb" title="vybrat text"></span><a href="#m4-messages_messages-ini-m4" title="⚓"></a></code></div>
+<div id="m4-messages_messages-ini-command" class="m4-cmd m4-usc"><pre title="příkaz">m4 <a href="https://raw.githubusercontent.com/jkubin/m4root/299505d34841516250138ca82e1fa3dfbf197b38/gfiles/root0u.m4" title="gfiles/root0u.m4
+date: 20200807-19:39:39
+git rev: 299505d
+sha1sum: add7617
+size: 1465 B">root0u.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/24fd4f31afda7ced456da6ab60904553760075a5/messages/messages.ini.m4" title="messages/messages.ini.m4
+date: 20201226-21:52:28
+git rev: 24fd4f3
+sha1sum: fb8782f
+size: 512 B">messages.ini.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/17cb82f06ccca2e7775b95b3513ab56ee94c0457/gfiles/countb.m4" title="gfiles/countb.m4
 date: 20200429-07:34:47
 git rev: 17cb82f
 sha1sum: 2d647fa
-size: 766 B">countb.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/9cfdf7742f2f032a8b8a96a84b44031a31dab211/messages/queues.m4" title="messages/queues.m4
-date: 20200517-17:50:57
-git rev: 9cfdf77
-sha1sum: dbe6e65
-size: 614 B">queues.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/messages/code.m4" title="messages/code.m4
-date: 20200106-16:21:10
-git rev: b53eafe
-sha1sum: c853073
-size: 158 B">code.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/309469e3b797150f3f2e31f8d550cb793ceceeca/messages/messages.mc" title="messages/messages.mc
-date: 20201225-10:43:00
-git rev: 309469e
-sha1sum: 518222c
-size: 450 B">messages.mc</a> > <a href="https://raw.githubusercontent.com/jkubin/m4root/596477641924afb389bd55c019cfe7debcc9e9d5/messages/messages.ini" title="messages/messages.ini
+size: 766 B">countb.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/24fd4f31afda7ced456da6ab60904553760075a5/messages/queues.m4" title="messages/queues.m4
+date: 20201226-21:52:28
+git rev: 24fd4f3
+sha1sum: 79f498c
+size: 674 B">queues.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/d2707ad62aa69a66715389b9bf732ad99573a88d/messages/code.m4" title="messages/code.m4
+date: 20201226-22:38:15
+git rev: d2707ad
+sha1sum: d709e07
+size: 248 B">code.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/d2707ad62aa69a66715389b9bf732ad99573a88d/messages/messages.mc" title="messages/messages.mc
+date: 20201226-22:38:15
+git rev: d2707ad
+sha1sum: 3c925dc
+size: 535 B">messages.mc</a> > <a href="https://raw.githubusercontent.com/jkubin/m4root/596477641924afb389bd55c019cfe7debcc9e9d5/messages/messages.ini" title="messages/messages.ini
 date: 20201225-10:46:17
 git rev: 5964776
 sha1sum: 8909110
@@ -1373,23 +1377,23 @@ NO_ERRORS="No other errors were found."</pre><code><span class="m4-sha">5964776<
 date: 20201225-10:46:17
 sha1sum: 8909110
 size: 351 B">messages.ini</a><span class="m4-cb" title="vybrat text"></span><a href="#m4-messages_messages-ini" title="⚓"></a></code></div>
-<h3 id="m4-xml-smisene-zpravy" class="m4-ch"><a href="#m4-xml-smisene-zpravy-toc" title="Obsah"></a><a href="#m4-xml-smisene-zpravy" title="⚓">A.14</a><code>[]</code> XML: smíšené zprávy<a href="#m4--toc" title="Nahoru"></a></h3>
+<h3 id="m4-xml-smisene-zpravy" class="m4-ch"><a href="#m4-xml-smisene-zpravy-toc" title="Obsah"></a><a href="#m4-xml-smisene-zpravy" title="⚓">A.14</a><code>⟦⟧</code> XML: smíšené zprávy<a href="#m4--toc" title="Nahoru"></a></h3>
 <p>Příklad používá jednu výstupní frontu číslo <code class="m4-hgl" data-43="21">1</code> pro uzavírací značku <code class="m4-hgl" data-43="22" data-44="28">&lt;/messages&gt;</code>.</p>
 <div id="m4-messages_mixed-xml-m4" class="m4-src"><pre># A → β
 # β
-define([ERROR], [
+define(⟦ERROR⟧, ⟦
 
 	divert(0)dnl
 	&lt;$0_NAME>
-		&lt;name>[$1]&lt;/name>
+		&lt;name>⟦$1⟧&lt;/name>
 		&lt;value>$2&lt;/value>
 	&lt;/$0_NAME>
 divert(-1)
-])
+⟧)
 
 # A → β
-define([QUERY], defn([ERROR]))
-define([WARNING], defn([ERROR]))
+define(⟦QUERY⟧, defn(⟦ERROR⟧))
+define(⟦WARNING⟧, defn(⟦ERROR⟧))
 
 divert(0)dnl
 &lt;!-- DONTE() -->
@@ -1397,31 +1401,31 @@ divert(0)dnl
 &lt;messages>
 divert(1)dnl
 &lt;/messages>
-divert(-1)</pre><code><span class="m4-sha">b53eafe</span><a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/messages/mixed.xml.m4" title="messages/mixed.xml.m4
-date: 20200106-16:21:10
-sha1sum: 5964a8e
-size: 319 B">mixed.xml.m4</a><span class="m4-cb" title="vybrat text"></span><a href="#m4-messages_mixed-xml-m4" title="⚓"></a></code></div>
-<div id="m4-messages_mixed-xml-command" class="m4-cmd m4-usc"><pre title="příkaz">m4 <a href="https://raw.githubusercontent.com/jkubin/m4root/b743040454a6ac8bc0493849a026cf385e73fe65/gfiles/root0b.m4" title="gfiles/root0b.m4
-date: 20200807-17:46:45
-git rev: b743040
-sha1sum: 90624d8
-size: 1200 B">root0b.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/9cfdf7742f2f032a8b8a96a84b44031a31dab211/messages/queues.m4" title="messages/queues.m4
-date: 20200517-17:50:57
-git rev: 9cfdf77
-sha1sum: dbe6e65
-size: 614 B">queues.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/messages/mixed.xml.m4" title="messages/mixed.xml.m4
-date: 20200106-16:21:10
-git rev: b53eafe
-sha1sum: 5964a8e
-size: 319 B">mixed.xml.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/messages/markup.m4" title="messages/markup.m4
-date: 20200106-16:21:10
-git rev: b53eafe
-sha1sum: 9b187a9
-size: 166 B">markup.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/309469e3b797150f3f2e31f8d550cb793ceceeca/messages/messages.mc" title="messages/messages.mc
-date: 20201225-10:43:00
-git rev: 309469e
-sha1sum: 518222c
-size: 450 B">messages.mc</a> > <a href="https://raw.githubusercontent.com/jkubin/m4root/596477641924afb389bd55c019cfe7debcc9e9d5/messages/mixed.xml" title="messages/mixed.xml
+divert(-1)</pre><code><span class="m4-sha">24fd4f3</span><a href="https://raw.githubusercontent.com/jkubin/m4root/24fd4f31afda7ced456da6ab60904553760075a5/messages/mixed.xml.m4" title="messages/mixed.xml.m4
+date: 20201226-21:52:28
+sha1sum: d43ef91
+size: 347 B">mixed.xml.m4</a><span class="m4-cb" title="vybrat text"></span><a href="#m4-messages_mixed-xml-m4" title="⚓"></a></code></div>
+<div id="m4-messages_mixed-xml-command" class="m4-cmd m4-usc"><pre title="příkaz">m4 <a href="https://raw.githubusercontent.com/jkubin/m4root/299505d34841516250138ca82e1fa3dfbf197b38/gfiles/root0u.m4" title="gfiles/root0u.m4
+date: 20200807-19:39:39
+git rev: 299505d
+sha1sum: add7617
+size: 1465 B">root0u.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/24fd4f31afda7ced456da6ab60904553760075a5/messages/queues.m4" title="messages/queues.m4
+date: 20201226-21:52:28
+git rev: 24fd4f3
+sha1sum: 79f498c
+size: 674 B">queues.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/24fd4f31afda7ced456da6ab60904553760075a5/messages/mixed.xml.m4" title="messages/mixed.xml.m4
+date: 20201226-21:52:28
+git rev: 24fd4f3
+sha1sum: d43ef91
+size: 347 B">mixed.xml.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/d2707ad62aa69a66715389b9bf732ad99573a88d/messages/markup.m4" title="messages/markup.m4
+date: 20201226-22:38:15
+git rev: d2707ad
+sha1sum: 98612ec
+size: 256 B">markup.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/d2707ad62aa69a66715389b9bf732ad99573a88d/messages/messages.mc" title="messages/messages.mc
+date: 20201226-22:38:15
+git rev: d2707ad
+sha1sum: 3c925dc
+size: 535 B">messages.mc</a> > <a href="https://raw.githubusercontent.com/jkubin/m4root/596477641924afb389bd55c019cfe7debcc9e9d5/messages/mixed.xml" title="messages/mixed.xml
 date: 20201225-10:46:17
 git rev: 5964776
 sha1sum: d5aca10
@@ -1457,40 +1461,40 @@ size: 701 B">mixed.xml</a></pre><code><span class="m4-cb" title="vybrat text"></
 date: 20201225-10:46:17
 sha1sum: d5aca10
 size: 701 B">mixed.xml</a><span class="m4-cb" title="vybrat text"></span><a href="#m4-messages_mixed-xml" title="⚓"></a></code></div>
-<h3 id="m4-xml-oddelene-zpravy" class="m4-ch"><a href="#m4-xml-oddelene-zpravy-toc" title="Obsah"></a><a href="#m4-xml-oddelene-zpravy" title="⚓">A.15</a><code>[]</code> XML: oddělené zprávy<a href="#m4--toc" title="Nahoru"></a></h3>
+<h3 id="m4-xml-oddelene-zpravy" class="m4-ch"><a href="#m4-xml-oddelene-zpravy-toc" title="Obsah"></a><a href="#m4-xml-oddelene-zpravy" title="⚓">A.15</a><code>⟦⟧</code> XML: oddělené zprávy<a href="#m4--toc" title="Nahoru"></a></h3>
 <p>Příklad seskupuje zprávy podle jejich typu pomocí výstupních front.</p>
 <div id="m4-messages_messages-xml-m4" class="m4-src"><pre># A → β
 # β
-define([ERROR], [
+define(⟦ERROR⟧, ⟦
 
 	# transition to the next node
-	define([$0], defn([NEXT_ITEM]))
+	define(⟦$0⟧, defn(⟦NEXT_ITEM⟧))
 
 	divert($0_QU)dnl
 	&lt;$0_NAME>
 		&lt;item>
-			&lt;name>[$1]&lt;/name>
+			&lt;name>⟦$1⟧&lt;/name>
 			&lt;value>$2&lt;/value>
 		&lt;/item>
 divert($0_END)dnl
 	&lt;/$0_NAME>
 divert(-1)
-])
+⟧)
 
 # β
-define([NEXT_ITEM], [
+define(⟦NEXT_ITEM⟧, ⟦
 
 	divert($0_QU)dnl
 		&lt;item>
-			&lt;name>[$1]&lt;/name>
+			&lt;name>⟦$1⟧&lt;/name>
 			&lt;value>$2&lt;/value>
 		&lt;/item>
 divert(-1)
-])
+⟧)
 
 # A → β
-define([QUERY],        defn([ERROR]))
-define([WARNING],      defn([ERROR]))
+define(⟦QUERY⟧,        defn(⟦ERROR⟧))
+define(⟦WARNING⟧,      defn(⟦ERROR⟧))
 
 divert(0)dnl
 &lt;!-- DONTE() -->
@@ -1498,31 +1502,31 @@ divert(0)dnl
 &lt;messages>
 divert(LAST_QUEUE)dnl
 &lt;/messages>
-divert(-1)</pre><code><span class="m4-sha">b53eafe</span><a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/messages/messages.xml.m4" title="messages/messages.xml.m4
-date: 20200106-16:21:10
-sha1sum: 4d214fd
-size: 570 B">messages.xml.m4</a><span class="m4-cb" title="vybrat text"></span><a href="#m4-messages_messages-xml-m4" title="⚓"></a></code></div>
-<div id="m4-messages_messages-xml-command" class="m4-cmd m4-usc"><pre title="příkaz">m4 <a href="https://raw.githubusercontent.com/jkubin/m4root/b743040454a6ac8bc0493849a026cf385e73fe65/gfiles/root0b.m4" title="gfiles/root0b.m4
-date: 20200807-17:46:45
-git rev: b743040
-sha1sum: 90624d8
-size: 1200 B">root0b.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/9cfdf7742f2f032a8b8a96a84b44031a31dab211/messages/queues.m4" title="messages/queues.m4
-date: 20200517-17:50:57
-git rev: 9cfdf77
-sha1sum: dbe6e65
-size: 614 B">queues.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/messages/messages.xml.m4" title="messages/messages.xml.m4
-date: 20200106-16:21:10
-git rev: b53eafe
-sha1sum: 4d214fd
-size: 570 B">messages.xml.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/messages/markup.m4" title="messages/markup.m4
-date: 20200106-16:21:10
-git rev: b53eafe
-sha1sum: 9b187a9
-size: 166 B">markup.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/309469e3b797150f3f2e31f8d550cb793ceceeca/messages/messages.mc" title="messages/messages.mc
-date: 20201225-10:43:00
-git rev: 309469e
-sha1sum: 518222c
-size: 450 B">messages.mc</a> > <a href="https://raw.githubusercontent.com/jkubin/m4root/596477641924afb389bd55c019cfe7debcc9e9d5/messages/messages.xml" title="messages/messages.xml
+divert(-1)</pre><code><span class="m4-sha">24fd4f3</span><a href="https://raw.githubusercontent.com/jkubin/m4root/24fd4f31afda7ced456da6ab60904553760075a5/messages/messages.xml.m4" title="messages/messages.xml.m4
+date: 20201226-21:52:28
+sha1sum: bea84ce
+size: 618 B">messages.xml.m4</a><span class="m4-cb" title="vybrat text"></span><a href="#m4-messages_messages-xml-m4" title="⚓"></a></code></div>
+<div id="m4-messages_messages-xml-command" class="m4-cmd m4-usc"><pre title="příkaz">m4 <a href="https://raw.githubusercontent.com/jkubin/m4root/299505d34841516250138ca82e1fa3dfbf197b38/gfiles/root0u.m4" title="gfiles/root0u.m4
+date: 20200807-19:39:39
+git rev: 299505d
+sha1sum: add7617
+size: 1465 B">root0u.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/24fd4f31afda7ced456da6ab60904553760075a5/messages/queues.m4" title="messages/queues.m4
+date: 20201226-21:52:28
+git rev: 24fd4f3
+sha1sum: 79f498c
+size: 674 B">queues.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/24fd4f31afda7ced456da6ab60904553760075a5/messages/messages.xml.m4" title="messages/messages.xml.m4
+date: 20201226-21:52:28
+git rev: 24fd4f3
+sha1sum: bea84ce
+size: 618 B">messages.xml.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/d2707ad62aa69a66715389b9bf732ad99573a88d/messages/markup.m4" title="messages/markup.m4
+date: 20201226-22:38:15
+git rev: d2707ad
+sha1sum: 98612ec
+size: 256 B">markup.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/d2707ad62aa69a66715389b9bf732ad99573a88d/messages/messages.mc" title="messages/messages.mc
+date: 20201226-22:38:15
+git rev: d2707ad
+sha1sum: 3c925dc
+size: 535 B">messages.mc</a> > <a href="https://raw.githubusercontent.com/jkubin/m4root/596477641924afb389bd55c019cfe7debcc9e9d5/messages/messages.xml" title="messages/messages.xml
 date: 20201225-10:46:17
 git rev: 5964776
 sha1sum: 940dbc7
@@ -1564,48 +1568,48 @@ size: 766 B">messages.xml</a></pre><code><span class="m4-cb" title="vybrat text"
 date: 20201225-10:46:17
 sha1sum: 940dbc7
 size: 766 B">messages.xml</a><span class="m4-cb" title="vybrat text"></span><a href="#m4-messages_messages-xml" title="⚓"></a></code></div>
-<h3 id="m4-bash-echo-dretezecd" class="m4-ch"><a href="#m4-bash-echo-dretezecd-toc" title="Obsah"></a><a href="#m4-bash-echo-dretezecd" title="⚓">A.16</a><code>[]</code> Bash <code>$ echo &quot;řetězec&quot;</code><a href="#m4--toc" title="Nahoru"></a></h3>
+<h3 id="m4-bash-echo-dretezecd" class="m4-ch"><a href="#m4-bash-echo-dretezecd-toc" title="Obsah"></a><a href="#m4-bash-echo-dretezecd" title="⚓">A.16</a><code>⟦⟧</code> Bash <code>$ echo &quot;řetězec&quot;</code><a href="#m4--toc" title="Nahoru"></a></h3>
 <div id="m4-messages_doubleq-sh-m4" class="m4-src"><pre># A → β
 # β
-define([ERROR], [
+define(⟦ERROR⟧, ⟦
 
 	divert(0)dnl
 echo "$2"
 divert(-1)
-])
+⟧)
 
 # A → β
-define([QUERY], defn([ERROR]))
-define([WARNING], defn([ERROR]))
+define(⟦QUERY⟧, defn(⟦ERROR⟧))
+define(⟦WARNING⟧, defn(⟦ERROR⟧))
 
 divert(0)dnl
 #!/bin/bash
 #
-[#] DONTE()
+⟦#⟧ DONTE()
 
-divert(-1)</pre><code><span class="m4-sha">b53eafe</span><a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/messages/doubleq.sh.m4" title="messages/doubleq.sh.m4
-date: 20200106-16:21:10
-sha1sum: 137fc34
-size: 201 B">doubleq.sh.m4</a><span class="m4-cb" title="vybrat text"></span><a href="#m4-messages_doubleq-sh-m4" title="⚓"></a></code></div>
-<div id="m4-messages_doubleq-sh-command" class="m4-cmd m4-usc"><pre title="příkaz">m4 <a href="https://raw.githubusercontent.com/jkubin/m4root/b743040454a6ac8bc0493849a026cf385e73fe65/gfiles/root0b.m4" title="gfiles/root0b.m4
-date: 20200807-17:46:45
-git rev: b743040
-sha1sum: 90624d8
-size: 1200 B">root0b.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/messages/doubleq.sh.m4" title="messages/doubleq.sh.m4
-date: 20200106-16:21:10
-git rev: b53eafe
-sha1sum: 137fc34
-size: 201 B">doubleq.sh.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/messages/doubleq.m4" title="messages/doubleq.m4
-date: 20200106-16:21:10
-git rev: b53eafe
-sha1sum: 2fdd370
-size: 162 B">doubleq.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/309469e3b797150f3f2e31f8d550cb793ceceeca/messages/messages.mc" title="messages/messages.mc
-date: 20201225-10:43:00
-git rev: 309469e
-sha1sum: 518222c
-size: 450 B">messages.mc</a> > <a href="https://raw.githubusercontent.com/jkubin/m4root/596477641924afb389bd55c019cfe7debcc9e9d5/messages/doubleq.sh" title="messages/doubleq.sh
-date: 20201225-10:46:17
-git rev: 5964776
+divert(-1)</pre><code><span class="m4-sha">24fd4f3</span><a href="https://raw.githubusercontent.com/jkubin/m4root/24fd4f31afda7ced456da6ab60904553760075a5/messages/doubleq.sh.m4" title="messages/doubleq.sh.m4
+date: 20201226-21:52:28
+sha1sum: 8de61d2
+size: 229 B">doubleq.sh.m4</a><span class="m4-cb" title="vybrat text"></span><a href="#m4-messages_doubleq-sh-m4" title="⚓"></a></code></div>
+<div id="m4-messages_doubleq-sh-command" class="m4-cmd m4-usc"><pre title="příkaz">m4 <a href="https://raw.githubusercontent.com/jkubin/m4root/299505d34841516250138ca82e1fa3dfbf197b38/gfiles/root0u.m4" title="gfiles/root0u.m4
+date: 20200807-19:39:39
+git rev: 299505d
+sha1sum: add7617
+size: 1465 B">root0u.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/24fd4f31afda7ced456da6ab60904553760075a5/messages/doubleq.sh.m4" title="messages/doubleq.sh.m4
+date: 20201226-21:52:28
+git rev: 24fd4f3
+sha1sum: 8de61d2
+size: 229 B">doubleq.sh.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/d2707ad62aa69a66715389b9bf732ad99573a88d/messages/doubleq.m4" title="messages/doubleq.m4
+date: 20201226-22:38:15
+git rev: d2707ad
+sha1sum: c94b763
+size: 252 B">doubleq.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/d2707ad62aa69a66715389b9bf732ad99573a88d/messages/messages.mc" title="messages/messages.mc
+date: 20201226-22:38:15
+git rev: d2707ad
+sha1sum: 3c925dc
+size: 535 B">messages.mc</a> > <a href="https://raw.githubusercontent.com/jkubin/m4root/d2707ad62aa69a66715389b9bf732ad99573a88d/messages/doubleq.sh" title="messages/doubleq.sh
+date: 20201226-22:38:15
+git rev: d2707ad
 sha1sum: 747c4db
 size: 324 B">doubleq.sh</a></pre><code><span class="m4-cb" title="vybrat text"></span><a href="#m4-messages_doubleq-sh-command" title="⚓"></a></code></div>
 <div id="m4-messages_doubleq-sh" class="m4-src"><pre>#!/bin/bash
@@ -1617,50 +1621,50 @@ echo "Is badly written M4 code readable [N/y]?"
 echo "Too complex M4 code failed successfully."
 echo "Programming in M4 is addictive"\!""
 echo "It's not a language fault"\!""
-echo "No other errors were found."</pre><code><span class="m4-sha">5964776</span><a href="https://raw.githubusercontent.com/jkubin/m4root/596477641924afb389bd55c019cfe7debcc9e9d5/messages/doubleq.sh" title="messages/doubleq.sh
-date: 20201225-10:46:17
+echo "No other errors were found."</pre><code><span class="m4-sha">d2707ad</span><a href="https://raw.githubusercontent.com/jkubin/m4root/d2707ad62aa69a66715389b9bf732ad99573a88d/messages/doubleq.sh" title="messages/doubleq.sh
+date: 20201226-22:38:15
 sha1sum: 747c4db
 size: 324 B">doubleq.sh</a><span class="m4-cb" title="vybrat text"></span><a href="#m4-messages_doubleq-sh" title="⚓"></a></code></div>
-<h3 id="m4-bash-echo-aretezeca" class="m4-ch"><a href="#m4-bash-echo-aretezeca-toc" title="Obsah"></a><a href="#m4-bash-echo-aretezeca" title="⚓">A.17</a><code>[]</code> Bash <code>$ echo 'řetězec'</code><a href="#m4--toc" title="Nahoru"></a></h3>
+<h3 id="m4-bash-echo-aretezeca" class="m4-ch"><a href="#m4-bash-echo-aretezeca-toc" title="Obsah"></a><a href="#m4-bash-echo-aretezeca" title="⚓">A.17</a><code>⟦⟧</code> Bash <code>$ echo 'řetězec'</code><a href="#m4--toc" title="Nahoru"></a></h3>
 <div id="m4-messages_apost-sh-m4" class="m4-src"><pre># A → β
 # β
-define([ERROR], [
+define(⟦ERROR⟧, ⟦
 
 	divert(0)dnl
 echo '$2'
 divert(-1)
-])
+⟧)
 
 # A → β
-define([QUERY], defn([ERROR]))
-define([WARNING], defn([ERROR]))
+define(⟦QUERY⟧, defn(⟦ERROR⟧))
+define(⟦WARNING⟧, defn(⟦ERROR⟧))
 
 divert(0)dnl
 #!/bin/bash
 #
-[#] DONTE()
+⟦#⟧ DONTE()
 
-divert(-1)</pre><code><span class="m4-sha">b53eafe</span><a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/messages/apost.sh.m4" title="messages/apost.sh.m4
-date: 20200106-16:21:10
-sha1sum: 369390b
-size: 201 B">apost.sh.m4</a><span class="m4-cb" title="vybrat text"></span><a href="#m4-messages_apost-sh-m4" title="⚓"></a></code></div>
-<div id="m4-messages_apost-sh-command" class="m4-cmd m4-usc"><pre title="příkaz">m4 <a href="https://raw.githubusercontent.com/jkubin/m4root/b743040454a6ac8bc0493849a026cf385e73fe65/gfiles/root0b.m4" title="gfiles/root0b.m4
-date: 20200807-17:46:45
-git rev: b743040
-sha1sum: 90624d8
-size: 1200 B">root0b.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/messages/apost.sh.m4" title="messages/apost.sh.m4
-date: 20200106-16:21:10
-git rev: b53eafe
-sha1sum: 369390b
-size: 201 B">apost.sh.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/messages/apost.m4" title="messages/apost.m4
-date: 20200106-16:21:10
-git rev: b53eafe
-sha1sum: fff97cc
-size: 159 B">apost.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/309469e3b797150f3f2e31f8d550cb793ceceeca/messages/messages.mc" title="messages/messages.mc
-date: 20201225-10:43:00
-git rev: 309469e
-sha1sum: 518222c
-size: 450 B">messages.mc</a> > <a href="https://raw.githubusercontent.com/jkubin/m4root/596477641924afb389bd55c019cfe7debcc9e9d5/messages/apost.sh" title="messages/apost.sh
+divert(-1)</pre><code><span class="m4-sha">24fd4f3</span><a href="https://raw.githubusercontent.com/jkubin/m4root/24fd4f31afda7ced456da6ab60904553760075a5/messages/apost.sh.m4" title="messages/apost.sh.m4
+date: 20201226-21:52:28
+sha1sum: 6c78a02
+size: 229 B">apost.sh.m4</a><span class="m4-cb" title="vybrat text"></span><a href="#m4-messages_apost-sh-m4" title="⚓"></a></code></div>
+<div id="m4-messages_apost-sh-command" class="m4-cmd m4-usc"><pre title="příkaz">m4 <a href="https://raw.githubusercontent.com/jkubin/m4root/299505d34841516250138ca82e1fa3dfbf197b38/gfiles/root0u.m4" title="gfiles/root0u.m4
+date: 20200807-19:39:39
+git rev: 299505d
+sha1sum: add7617
+size: 1465 B">root0u.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/24fd4f31afda7ced456da6ab60904553760075a5/messages/apost.sh.m4" title="messages/apost.sh.m4
+date: 20201226-21:52:28
+git rev: 24fd4f3
+sha1sum: 6c78a02
+size: 229 B">apost.sh.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/d2707ad62aa69a66715389b9bf732ad99573a88d/messages/apost.m4" title="messages/apost.m4
+date: 20201226-22:38:15
+git rev: d2707ad
+sha1sum: e7eec73
+size: 249 B">apost.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/d2707ad62aa69a66715389b9bf732ad99573a88d/messages/messages.mc" title="messages/messages.mc
+date: 20201226-22:38:15
+git rev: d2707ad
+sha1sum: 3c925dc
+size: 535 B">messages.mc</a> > <a href="https://raw.githubusercontent.com/jkubin/m4root/596477641924afb389bd55c019cfe7debcc9e9d5/messages/apost.sh" title="messages/apost.sh
 date: 20201225-10:46:17
 git rev: 5964776
 sha1sum: 854fc6e
@@ -1920,11 +1924,11 @@ sha1sum: 504d5cd
 size: 137 B">preproc.file.sh</a><span class="m4-cb" title="vybrat text"></span><a href="#m4-preproc_preproc-file-sh" title="⚓"></a></code></div>
 <h2 id="m4-m4-priklady" class="m4-ch"><a href="#m4-m4-priklady-toc" title="Obsah"></a><a href="#m4-m4-priklady" title="⚓">C</a>M4: příklady<a href="#m4--toc" title="Nahoru"></a></h2>
 <div title="pro informaci" class="rs-tip-major m4-info">Znaky {<code title="uvozovky" class="m4-xp">`'</code>, <code title="hranaté závorky" class="m4-xp">[]</code>, <code title="netisknutelné znaky" class="m4-xp">␂␆</code>, <code title="UTF-8 znaky" class="m4-xp">⟦⟧</code>} v&nbsp;názvu příkladu <a href="../generovani-kodu-v-m4-uvod/#m4-rizeni-expanze-neterminalu" title="Řízení expanze neterminálů">řídí expanzi neterminálů</a>.</div>
-<p id="m4-json-leva-zavorka-b-toc" class="m4-l2"><a href="#m4-json-leva-zavorka-b"><b>C.1</b><code>[]</code> JSON: levá závorka <code>[</code></a></p>
+<p id="m4-json-leva-zavorka-toc" class="m4-l2"><a href="#m4-json-leva-zavorka"><b>C.1</b><code>[]</code> JSON: levá závorka <code>[</code></a></p>
 <p id="m4-bash-pocitadla-toc" class="m4-l2"><a href="#m4-bash-pocitadla"><b>C.2</b><code>[]</code> Bash: počítadla</a></p>
 <p id="m4-h-zavorky-h-dnl-toc" class="m4-l2"><a href="#m4-h-zavorky-h-dnl"><b>C.3</b><code>[]</code> .h: závorky <code>[]</code>, <code>[,]</code>, <code>[#]</code>, <code>[dnl]</code></a></p>
 <p id="m4-awk-priklady-bezpecnejsich-ma-toc" class="m4-l2"><a href="#m4-awk-priklady-bezpecnejsich-ma"><b>C.4</b><code>[]</code> AWK: příklady bezpečnějších maker</a></p>
-<h3 id="m4-json-leva-zavorka-b" class="m4-ch"><a href="#m4-json-leva-zavorka-b-toc" title="Obsah"></a><a href="#m4-json-leva-zavorka-b" title="⚓">C.1</a><code>[]</code> JSON: levá závorka <code>[</code><a href="#m4--toc" title="Nahoru"></a></h3>
+<h3 id="m4-json-leva-zavorka" class="m4-ch"><a href="#m4-json-leva-zavorka-toc" title="Obsah"></a><a href="#m4-json-leva-zavorka" title="⚓">C.1</a><code>[]</code> JSON: levá závorka <code>[</code><a href="#m4--toc" title="Nahoru"></a></h3>
 <p>Uvnitř hranatých závorek <code>[… se neterminály neexpandují …]</code>.
 Proto je levá hranatá závorka <code>[</code> nahrazena makrem <code class="m4-hgl" data-61="6" data-62="3">LB()</code> z&nbsp;kořenového souboru.</p>
 <div id="m4-hello_world_json-m4" class="m4-src"><pre># JSON
@@ -2001,11 +2005,11 @@ fi</pre><code><span class="m4-sha">b53eafe</span><a href="https://raw.githubuser
 date: 20200106-16:21:10
 sha1sum: d0c1127
 size: 511 B">sh.m4</a><span class="m4-cb" title="vybrat text"></span><a href="#m4-hello_world_sh-m4" title="⚓"></a></code></div>
-<div id="m4-hello_world_hello_world-sh-command" class="m4-cmd m4-usc"><pre title="příkaz">m4 -DSYMBOL='Hello, world!' <a href="https://raw.githubusercontent.com/jkubin/m4root/b743040454a6ac8bc0493849a026cf385e73fe65/gfiles/root0b.m4" title="gfiles/root0b.m4
-date: 20200807-17:46:45
-git rev: b743040
-sha1sum: 90624d8
-size: 1200 B">root0b.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/17cb82f06ccca2e7775b95b3513ab56ee94c0457/gfiles/countb.m4" title="gfiles/countb.m4
+<div id="m4-hello_world_hello_world-sh-command" class="m4-cmd m4-usc"><pre title="příkaz">m4 -DSYMBOL='Hello, world!' <a href="https://raw.githubusercontent.com/jkubin/m4root/299505d34841516250138ca82e1fa3dfbf197b38/gfiles/root0u.m4" title="gfiles/root0u.m4
+date: 20200807-19:39:39
+git rev: 299505d
+sha1sum: add7617
+size: 1465 B">root0u.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/17cb82f06ccca2e7775b95b3513ab56ee94c0457/gfiles/countb.m4" title="gfiles/countb.m4
 date: 20200429-07:34:47
 git rev: 17cb82f
 sha1sum: 2d647fa
@@ -2102,11 +2106,11 @@ BEGIN { print "<span class="m4-a">DONTE</span>[]() <span class="m4-b">LB</span> 
 date: 20200106-23:32:45
 sha1sum: b9ab8e3
 size: 112 B">awk.m4</a><span class="m4-cb" title="vybrat text"></span><a href="#m4-hello_world_awk-m4" title="⚓"></a></code></div>
-<div id="m4-hello_world_hello_world-awk-command" class="m4-cmd m4-usc"><pre title="příkaz">m4 -DSYMBOL='Hello, world!' <a href="https://raw.githubusercontent.com/jkubin/m4root/bb49ffbc656587f0f143049f2c79cb386b6af2eb/gfiles/root1b.m4" title="gfiles/root1b.m4
-date: 20200517-17:23:04
-git rev: bb49ffb
-sha1sum: 1018a35
-size: 1932 B">root1b.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/3a8a5dd754e3ccaad3641a3469597647710ca68d/hello_world/awk.m4" title="hello_world/awk.m4
+<div id="m4-hello_world_hello_world-awk-command" class="m4-cmd m4-usc"><pre title="příkaz">m4 -DSYMBOL='Hello, world!' <a href="https://raw.githubusercontent.com/jkubin/m4root/bf5a19d7a304a6c01a4fa72743c7a8385583f759/gfiles/root1b.m4" title="gfiles/root1b.m4
+date: 20201228-04:13:12
+git rev: bf5a19d
+sha1sum: 48d098e
+size: 1936 B">root1b.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/3a8a5dd754e3ccaad3641a3469597647710ca68d/hello_world/awk.m4" title="hello_world/awk.m4
 date: 20200106-23:32:45
 git rev: 3a8a5dd
 sha1sum: b9ab8e3
@@ -2144,7 +2148,7 @@ size: 135 B">hello_world.awk</a><span class="m4-cb" title="vybrat text"></span><
 <li id="m4-low-level-language">univerzální jazyk nízké úrovně (podobně jako jazyk C)
 <ul><li>což výměnou poskytuje ohromnou flexibilitu jako UNIX</li></ul></li>
 <li id="m4-nearly-forgotten-language">téměř neexistující komunita vývojářů (podzim 2019)
-<ul><li>M4 je téměř zapomenutý jazyk, málo existujících projektů</li></ul></li>
+<ul><li>M4 je zapomenutý jazyk, málo existujících projektů</li></ul></li>
 <li id="m4-unusual-language">neobvyklé programovací paradigma vyžadující splnění <a href="#m4-predpoklady-pro-zvladnuti-m4" title="Předpoklady pro zvládnutí M4">několika předpokladů</a>
 <ul><li><b>právě proto</b> lze M4 považovat za náročný jazyk</li></ul></li>
 <li id="m4-experience-dependent">produktivita značně závisí na zkušenostech (možný problém s&nbsp;termíny)
