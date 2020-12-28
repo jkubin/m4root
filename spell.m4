@@ -181,6 +181,7 @@ define(⟦BOLD⟧,		⟦ifelse(⟦$#⟧, ⟦0⟧, ⟦⟦$0⟧⟧, ⟦$2⟧, ⟦�
 # A → ε
 # β
 #define(⟦MM⟧)	<--- unattainable
+#define(⟦XSPAN⟧,		⟦ifelse(⟦$#⟧, ⟦0⟧, ⟦⟦$0⟧⟧, ⟦$2⟧, ⟦⟧, ⟦$1⟧, ⟦$1 ($2)⟧)⟧)	<--- expands title
 define(⟦ABBREV⟧,	defn(⟦BOLD⟧))
 define(⟦ACRONYM⟧,	defn(⟦BOLD⟧))
 define(⟦AMP⟧,		⟦ifelse(⟦$#⟧, ⟦0⟧, ⟦⟦$0⟧⟧, ⟦&⟧)⟧)
@@ -190,12 +191,14 @@ define(⟦CITATION⟧,	defn(⟦BOLD⟧))
 define(⟦CODE⟧,		⟦ifelse(⟦$#⟧, ⟦0⟧, ⟦⟦$0⟧⟧, ⟦$2⟧, ⟦⟧, ⟦⟧, ⟦(⟦$2⟧)⟧)⟧)
 define(⟦DEFINITION⟧,	defn(⟦BOLD⟧))
 define(⟦DELETED⟧,	defn(⟦BOLD⟧))
-define(⟦DQ⟧,		⟦ifelse(⟦$#⟧, ⟦0⟧, ⟦⟦$0⟧⟧, ⟦"⟧)⟧)
+define(⟦DQT⟧,		⟦ifelse(⟦$#⟧, ⟦0⟧, ⟦⟦$0⟧⟧, ⟦"⟧)⟧)
+define(⟦DQ⟧,		defn(⟦DQT⟧))
 define(⟦EMPHASIS⟧,	defn(⟦BOLD⟧))
 define(⟦GT⟧,		⟦ifelse(⟦$#⟧, ⟦0⟧, ⟦⟦$0⟧⟧, ⟦>⟧)⟧)
 define(⟦INSERTED⟧,	defn(⟦BOLD⟧))
 define(⟦ITALIC⟧,	defn(⟦BOLD⟧))
 define(⟦LABEL⟧,		defn(⟦BOLD⟧))
+define(⟦LF⟧,		⟦ifelse(⟦$#⟧, ⟦0⟧, ⟦⟦$0⟧⟧, ⟦\n⟧)⟧)
 define(⟦LI⟧,		defn(⟦BOLD⟧))
 define(⟦LT⟧,		⟦ifelse(⟦$#⟧, ⟦0⟧, ⟦⟦$0⟧⟧, ⟦<⟧)⟧)
 define(⟦MARK⟧,		defn(⟦BOLD⟧))
@@ -215,7 +218,6 @@ define(⟦UL⟧,		defn(⟦BOLD⟧))
 define(⟦UNDERLINE⟧,	defn(⟦BOLD⟧))
 define(⟦VARIABLE⟧,	defn(⟦BOLD⟧))
 define(⟦WBR⟧)
-#define(⟦XSPAN⟧,		⟦ifelse(⟦$#⟧, ⟦0⟧, ⟦⟦$0⟧⟧, ⟦$2⟧, ⟦⟧, ⟦$1⟧, ⟦$1 ($2)⟧)⟧)	<--- expands title
 
 # custom HTML5 inline elements for convenience
 

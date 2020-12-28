@@ -1,6 +1,8 @@
 __HEADER(⟦Josef Kubin⟧, ⟦2020/01/14⟧, ⟦html⟧)
-___DESCR(⟦solution for html entities which must be hidden⟧)
-__REASON(⟦html entities⟧)
+___DESCR(⟦solution for html entities which must be hidden (+ special characters)⟧)
+__REASON(⟦html entities and special characters⟧)
+
+# WARNING: keep 1:1 consistency: spell.m4 refs.m4 text.m4 man.m4 info.m4
 
 # nbsp
 # A → β
@@ -25,3 +27,14 @@ define(⟦DQ⟧, ⟦ifelse(⟦$#⟧, ⟦0⟧, ⟦⟦$0⟧⟧, ⟦&quot;⟧)⟧)
 # '
 # A → β
 define(⟦AP⟧, ⟦ifelse(⟦$#⟧, ⟦0⟧, ⟦⟦$0⟧⟧, ⟦&apos;⟧)⟧)
+
+
+# these characters are due to translation into C language
+
+# \n
+# A → β
+define(⟦LF⟧, ⟦ifelse(⟦$#⟧, ⟦0⟧, ⟦⟦$0⟧⟧, ⟦\n⟧)⟧)
+
+# "
+# A → β
+define(⟦DQT⟧, ⟦ifelse(⟦$#⟧, ⟦0⟧, ⟦⟦$0⟧⟧, ⟦"⟧)⟧)
