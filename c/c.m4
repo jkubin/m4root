@@ -79,7 +79,7 @@ divert(-1)
 # A → β
 define(⟦PARA_MONO_APPENDIX⟧, ⟦
 
-	define(⟦PARA_PTR_NAME⟧, app_para_⟦⟧PARA_COUNTER_APPENDIX)
+	define(⟦PARA_PTR_NAME⟧, ap_para_⟦⟧PARA_COUNTER_APPENDIX)
 
 	divert(PARAGRAPHS)dnl
 static char PARA_PTR_NAME[] =
@@ -93,7 +93,7 @@ divert(-1)
 # A → β
 define(⟦PARA_APPENDIX⟧, ⟦
 
-	define(⟦PARA_PTR_NAME⟧, app_para_⟦⟧PARA_COUNTER_APPENDIX)
+	define(⟦PARA_PTR_NAME⟧, ap_para_⟦⟧PARA_COUNTER_APPENDIX)
 
 	divert(PARAGRAPHS)dnl
 static char PARA_PTR_NAME[] =
