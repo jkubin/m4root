@@ -120,7 +120,7 @@ define(⟦PARTINTRO⟧, ⟦
 <div class="design-article__text">
 <div class="design-article__perex">
 <div class="design-article__perex-content">dnl
-EXPAND_LANG_WITHOUT_TRAILING_LF(⟧defn(⟦EXPAND_LAST_ARG⟧)⟦)dnl
+EXPAND_LANG_CROP_WHITE_CHARS(⟧defn(⟦EXPAND_LAST_ARG⟧)⟦)dnl
 </div>
 </div>
 </div>

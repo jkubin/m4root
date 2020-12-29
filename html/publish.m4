@@ -54,6 +54,6 @@ define(⟦PARTINTRO⟧, ⟦
 
 # shortcut for perex: "+yip
 
-EXPAND_LANG_WITHOUT_TRAILING_LF(⟧defn(⟦EXPAND_LAST_ARG⟧)⟦)
+EXPAND_LANG_CROP_WHITE_CHARS(⟧defn(⟦EXPAND_LAST_ARG⟧)⟦)
 divert(-1)
 ⟧)

@@ -25,7 +25,7 @@ divert(-1)
 pushdef(⟦PRINT_MONO⟧, ⟦
 
 	divert(CURRQU)dnl
-EXPAND_ARG1_WITHOUT_TRAILING_LF(⟧defn(⟦EXPAND_LAST_ARG⟧)⟦)
+EXPAND_ARG1_CROP_WHITE_CHARS(⟧defn(⟦EXPAND_LAST_ARG⟧)⟦)
 
 divert(-1)
 ⟧)
@@ -34,7 +34,7 @@ divert(-1)
 pushdef(⟦PRINT_MONO_NO_EMPTY_LINE⟧, ⟦
 
 	divert(CURRQU)dnl
-EXPAND_ARG1_WITHOUT_TRAILING_LF(⟧defn(⟦EXPAND_LAST_ARG⟧)⟦)
+EXPAND_ARG1_CROP_WHITE_CHARS(⟧defn(⟦EXPAND_LAST_ARG⟧)⟦)
 divert(-1)
 ⟧)
 
@@ -42,7 +42,7 @@ divert(-1)
 pushdef(⟦PRINT_LANG⟧, ⟦
 
 	divert(CURRQU)dnl
-EXPAND_LANG_WITHOUT_TRAILING_LF(⟧defn(⟦EXPAND_LAST_ARG⟧)⟦)
+EXPAND_LANG_CROP_WHITE_CHARS(⟧defn(⟦EXPAND_LAST_ARG⟧)⟦)
 
 divert(-1)
 ⟧)
@@ -51,7 +51,7 @@ divert(-1)
 pushdef(⟦PRINT_LANG_NO_EMPTY_LINE⟧, ⟦
 
 	divert(CURRQU)dnl
-EXPAND_LANG_WITHOUT_TRAILING_LF(⟧defn(⟦EXPAND_LAST_ARG⟧)⟦)
+EXPAND_LANG_CROP_WHITE_CHARS(⟧defn(⟦EXPAND_LAST_ARG⟧)⟦)
 divert(-1)
 ⟧)
 
@@ -59,7 +59,7 @@ divert(-1)
 pushdef(⟦PRINT_IMAGE⟧, ⟦
 
 	divert(CURRQU)dnl
-WORD_IMAGE IMAGE_COUNTER: EXPAND_LANG_WITHOUT_TRAILING_LF(⟧defn(⟦EXPAND_LAST_ARG⟧)⟦)
+WORD_IMAGE IMAGE_COUNTER: EXPAND_LANG_CROP_WHITE_CHARS(⟧defn(⟦EXPAND_LAST_ARG⟧)⟦)
 
 divert(-1)
 ⟧)
@@ -68,7 +68,7 @@ divert(-1)
 pushdef(⟦PRINT_PROGRAMLISTING⟧, ⟦
 
 	divert(CURRQU)dnl
-EXPAND_ARG1_WITHOUT_TRAILING_LF(⟧defn(⟦SELECT_LAST_ARG⟧)⟦)
+EXPAND_ARG1_CROP_WHITE_CHARS(⟧defn(⟦SELECT_LAST_ARG⟧)⟦)
 
 divert(-1)
 ⟧)
@@ -257,6 +257,7 @@ esyscmd(⟦test -f ./⟧defn(⟦ARTICLE_PATH⟧)⟦.txt⟧)ifelse(sysval, ⟦0�
 esyscmd(⟦test -f ./⟧defn(⟦ARTICLE_PATH⟧)⟦/publish.txt⟧)ifelse(sysval, ⟦0⟧,   ⟦pub ⟧)dnl
 esyscmd(⟦test -f ./⟧defn(⟦ARTICLE_PATH⟧)⟦/index.html⟧)ifelse(sysval, ⟦0⟧,    ⟦dev ⟧)dnl
 esyscmd(⟦test -f ./⟧defn(⟦ARTICLE_PATH⟧)⟦/preview.html⟧)ifelse(sysval, ⟦0⟧,  ⟦pre ⟧)dnl
+esyscmd(⟦test -f ./⟧defn(⟦ARTICLE_PATH⟧)⟦.c⟧)ifelse(sysval, ⟦0⟧,             ⟦c ⟧)dnl
 ifdef(⟦NEW_ARTICLE⟧, ⟦⟧, ⟦ WORD_UPDATED SARG1(esyscmd(defn(⟦DATE_COMMAND⟧)))⟧)
 divert(END_OF_NAVIGATION)
 divert(-1)

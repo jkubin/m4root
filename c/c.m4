@@ -26,19 +26,13 @@ divert(-1)
 # creates multiline c string
 # A → β
 # β
-define(⟦C_STRING_EXPAND_LANG_WITHOUT_TRAILING_LF⟧, ⟦patsubst(patsubst(⟧LU()LU()$defn(⟦LANG_INDEX_⟧LANG_CODE)⟧⟧⟦, ⟦\s*⟧, ⟦"⟧), ⟦
+define(⟦C_STRING_EXPAND_LANG_CROP_WHITE_CHARS⟧, ⟦patsubst(patsubst(⟧LU()LU()$defn(⟦LANG_INDEX_⟧LANG_CODE)⟧⟧⟦, ⟦\s*\s*⟧, ⟦"⟧), ⟦
 ⟧, ⟦\\n"
 "⟧)⟧)
 
-define(⟦C_STRING_EXPAND_ARG1_WITHOUT_TRAILING_LF⟧, ⟦patsubst(patsubst(⟦⟦$1⟧⟧, ⟦\s*⟧, ⟦"⟧), ⟦
+define(⟦C_STRING_EXPAND_ARG1_CROP_WHITE_CHARS⟧, ⟦patsubst(patsubst(⟦⟦$1⟧⟧, ⟦\s*\s*⟧, ⟦"⟧), ⟦
 ⟧, ⟦\\n"
 "⟧)⟧)
-
-# A → β
-define(⟦C_STRING_EXPAND_LANG⟧, "$defn(⟦LANG_INDEX_⟧LANG_CODE)")
-
-# A → β
-define(⟦C_STRING_EXPAND_ARG1⟧, ⟦"$1"⟧)
 
 define(⟦PARA_COUNTER⟧, defn(⟦COUNT_UP⟧))
 PARA_COUNTER(0)
@@ -53,7 +47,7 @@ define(⟦PARA_MONO⟧, ⟦
 
 	divert(PARAGRAPHS)dnl
 static char PARA_PTR_NAME[] =
-C_STRING_EXPAND_ARG1_WITHOUT_TRAILING_LF(⟧defn(⟦EXPAND_LAST_ARG⟧)⟦);
+C_STRING_EXPAND_ARG1_CROP_WHITE_CHARS(⟧defn(⟦EXPAND_LAST_ARG⟧)⟦);
 
 divert(PARAGRAPH_ARRAY)dnl
 	PARA_PTR_NAME,
@@ -67,7 +61,7 @@ define(⟦PARA⟧, ⟦
 
 	divert(PARAGRAPHS)dnl
 static char PARA_PTR_NAME[] =
-C_STRING_EXPAND_LANG_WITHOUT_TRAILING_LF(⟧defn(⟦EXPAND_LAST_ARG⟧)⟦);
+C_STRING_EXPAND_LANG_CROP_WHITE_CHARS(⟧defn(⟦EXPAND_LAST_ARG⟧)⟦);
 
 divert(PARAGRAPH_ARRAY)dnl
 	PARA_PTR_NAME,
@@ -81,7 +75,7 @@ define(⟦PARA_MONO_APPENDIX⟧, ⟦
 
 	divert(PARAGRAPHS)dnl
 static char PARA_PTR_NAME[] =
-C_STRING_EXPAND_ARG1_WITHOUT_TRAILING_LF(⟧defn(⟦EXPAND_LAST_ARG⟧)⟦);
+C_STRING_EXPAND_ARG1_CROP_WHITE_CHARS(⟧defn(⟦EXPAND_LAST_ARG⟧)⟦);
 
 divert(PARAGRAPH_APPEND_ARRAY)dnl
 	PARA_PTR_NAME,
@@ -95,7 +89,7 @@ define(⟦PARA_APPENDIX⟧, ⟦
 
 	divert(PARAGRAPHS)dnl
 static char PARA_PTR_NAME[] =
-C_STRING_EXPAND_LANG_WITHOUT_TRAILING_LF(⟧defn(⟦EXPAND_LAST_ARG⟧)⟦);
+C_STRING_EXPAND_LANG_CROP_WHITE_CHARS(⟧defn(⟦EXPAND_LAST_ARG⟧)⟦);
 
 divert(PARAGRAPH_APPEND_ARRAY)dnl
 	PARA_PTR_NAME,
@@ -106,7 +100,7 @@ divert(-1)
 define(⟦BRIDGEHEAD_NEXT⟧, ⟦
 
 	divert(BRIDGEHEAD_ARRAY)dnl
-	C_STRING_EXPAND_LANG(⟧defn(⟦EXPAND_LAST_ARG⟧)⟦),
+	C_STRING_EXPAND_LANG_CROP_WHITE_CHARS(⟧defn(⟦EXPAND_LAST_ARG⟧)⟦),
 divert(-1)
 ⟧)
 
@@ -129,7 +123,7 @@ divert(-1)
 define(⟦BRIDGEHEAD_MONO_NEXT⟧, ⟦
 
 	divert(BRIDGEHEAD_ARRAY)dnl
-	C_STRING_EXPAND_ARG1(⟧defn(⟦EXPAND_LAST_ARG⟧)⟦),
+	C_STRING_EXPAND_ARG1_CROP_WHITE_CHARS(⟧defn(⟦EXPAND_LAST_ARG⟧)⟦),
 divert(-1)
 ⟧)
 
@@ -154,7 +148,7 @@ define(⟦PART⟧, defn(⟦PART_INIT⟧)⟦
 	divert(PART_HEADER)dnl
 __SOURCE(PAYR(__file__), SARG1(esyscmd(⟦git log -1 --date='format:%Y%m%d-%T' --pretty='format:⟦⟦%ad⟧, ⟦%h⟧⟧' -- ⟧__file__)), SARG1(esyscmd(⟦git log -1 --format='⟦⟦%h⟧⟧,'⟧)))
  *
- * EXPAND_LANG(⟧defn(⟦EXPAND_LAST_ARG⟧)⟦)
+ * EXPAND_LANG_CROP_WHITE_CHARS(⟧defn(⟦EXPAND_LAST_ARG⟧)⟦)
 divert(-1)
 ⟧)
 
@@ -167,7 +161,7 @@ define(⟦CHAPTER_NEXT⟧, ⟦
 	define(⟦SECT2_COUNTER_val⟧, 0)
 
 	divert(CHAPTER_ARRAY)dnl
-	"CHAPTER_COUNTER_val EXPAND_LANG(⟧defn(⟦EXPAND_LAST_ARG⟧)⟦)",
+	"CHAPTER_COUNTER_val EXPAND_LANG_CROP_WHITE_CHARS(⟧defn(⟦EXPAND_LAST_ARG⟧)⟦)",
 divert(-1)
 ⟧)
 
@@ -198,7 +192,7 @@ define(⟦SECT1_ARTICLE⟧, ⟦
 	define(⟦SECT2_COUNTER_val⟧, 0)
 
 	divert(CHAPTER_ARRAY)dnl
-	"CHAPTER_COUNTER_val.SECT1_COUNTER_val EXPAND_LANG(⟧defn(⟦EXPAND_LAST_ARG⟧)⟦)",
+	"CHAPTER_COUNTER_val.SECT1_COUNTER_val EXPAND_LANG_CROP_WHITE_CHARS(⟧defn(⟦EXPAND_LAST_ARG⟧)⟦)",
 divert(-1)
 ⟧)
 
@@ -209,7 +203,7 @@ define(⟦SECT2_ARTICLE⟧, ⟦
 	SECT2_COUNTER
 
 	divert(CHAPTER_ARRAY)dnl
-	"CHAPTER_COUNTER_val.SECT1_COUNTER_val.SECT2_COUNTER_val EXPAND_LANG(⟧defn(⟦EXPAND_LAST_ARG⟧)⟦)",
+	"CHAPTER_COUNTER_val.SECT1_COUNTER_val.SECT2_COUNTER_val EXPAND_LANG_CROP_WHITE_CHARS(⟧defn(⟦EXPAND_LAST_ARG⟧)⟦)",
 divert(-1)
 ⟧)
 
@@ -222,7 +216,7 @@ define(⟦APPENDIX_NEXT⟧, ⟦
 	define(⟦SECT2_COUNTER_val⟧, 0)
 
 	divert(APPENDIX_ARRAY)dnl
-	"APPENDIX_LETTER EXPAND_LANG(⟧defn(⟦EXPAND_LAST_ARG⟧)⟦)",
+	"APPENDIX_LETTER EXPAND_LANG_CROP_WHITE_CHARS(⟧defn(⟦EXPAND_LAST_ARG⟧)⟦)",
 divert(-1)
 ⟧)
 
@@ -270,7 +264,7 @@ define(⟦SECT1_APPENDIX⟧, ⟦
 	define(⟦SECT2_COUNTER_val⟧, 0)
 
 	divert(APPENDIX_ARRAY)dnl
-	"APPENDIX_LETTER.SECT1_COUNTER_val EXPAND_LANG(⟧defn(⟦EXPAND_LAST_ARG⟧)⟦)",
+	"APPENDIX_LETTER.SECT1_COUNTER_val EXPAND_LANG_CROP_WHITE_CHARS(⟧defn(⟦EXPAND_LAST_ARG⟧)⟦)",
 divert(-1)
 ⟧)
 
@@ -281,7 +275,7 @@ define(⟦SECT2_APPENDIX⟧, ⟦
 	SECT2_COUNTER
 
 	divert(APPENDIX_ARRAY)dnl
-	"APPENDIX_LETTER.SECT1_COUNTER_val.SECT2_COUNTER_val EXPAND_LANG(⟧defn(⟦EXPAND_LAST_ARG⟧)⟦)",
+	"APPENDIX_LETTER.SECT1_COUNTER_val.SECT2_COUNTER_val EXPAND_LANG_CROP_WHITE_CHARS(⟧defn(⟦EXPAND_LAST_ARG⟧)⟦)",
 divert(-1)
 ⟧)
 

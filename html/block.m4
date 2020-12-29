@@ -51,10 +51,10 @@ pushdef(⟦HTML_WARN_ATTRIBUTES⟧,	defn(⟦ID_1_MONO⟧, ⟦TITLE_2⟧, ⟦CLAS
 
 # converts {'&', '<', '>'} to html entities, strip trailing white chars (XML)
 # β
-#pushdef(⟦PROCESS_RAW_CODE_TO_HTML_ENTITIES⟧, ⟦patsubst(patsubst(patsubst(patsubst(define(⟦#⟧, ⟦⟦⟦⟦⟦$$#⟧⟧⟧⟧⟧)indir(⟦#⟧, $@), ⟦\s*⟧), ⟦&⟧, ⟦&amp;⟧), ⟦<⟧, ⟦&lt;⟧), ⟦>⟧, ⟦&gt;⟧)⟧)
+#pushdef(⟦PROCESS_RAW_CODE_TO_HTML_ENTITIES⟧, ⟦patsubst(patsubst(patsubst(patsubst(define(⟦#⟧, ⟦⟦⟦⟦⟦$$#⟧⟧⟧⟧⟧)indir(⟦#⟧, $@), ⟦\s*\s*⟧), ⟦&⟧, ⟦&amp;⟧), ⟦<⟧, ⟦&lt;⟧), ⟦>⟧, ⟦&gt;⟧)⟧)
 
 # converts {'&', '<'} to html entities, strip trailing white chars (HTML5)
-pushdef(⟦PROCESS_RAW_CODE_TO_HTML_ENTITIES⟧, ⟦patsubst(patsubst(patsubst(define(⟦#⟧, ⟦⟦⟦⟦$$#⟧⟧⟧⟧)indir(⟦#⟧, $@), ⟦\s*⟧), ⟦&⟧, ⟦&amp;⟧), ⟦<⟧, ⟦&lt;⟧)⟧)
+pushdef(⟦PROCESS_RAW_CODE_TO_HTML_ENTITIES⟧, ⟦patsubst(patsubst(patsubst(define(⟦#⟧, ⟦⟦⟦⟦$$#⟧⟧⟧⟧)indir(⟦#⟧, $@), ⟦\s*\s*⟧), ⟦&⟧, ⟦&amp;⟧), ⟦<⟧, ⟦&lt;⟧)⟧)
 
 # β
 pushdef(⟦SET_ANCHOR⟧, ⟦
@@ -81,14 +81,14 @@ pushdef(⟦SET_ANCHOR⟧, ⟦
 # β
 pushdef(⟦HTML_MONOLINGUAL⟧, ⟦
 	divert(CURRQU)dnl
-<defn(⟦##$0>⟧)⟧defn(⟦HTML_MONO_GLOBAL_ATTRIBUTES⟧)⟦>EXPAND_ARG1_WITHOUT_TRAILING_LF(⟧defn(⟦EXPAND_LAST_ARG⟧)⟦)</defn(⟦##$0>⟧)>
+<defn(⟦##$0>⟧)⟧defn(⟦HTML_MONO_GLOBAL_ATTRIBUTES⟧)⟦>EXPAND_ARG1_CROP_WHITE_CHARS(⟧defn(⟦EXPAND_LAST_ARG⟧)⟦)</defn(⟦##$0>⟧)>
 divert(-1)
 ⟧)
 
 # β
 pushdef(⟦HTML_MULTILINGUAL⟧, ⟦
 	divert(CURRQU)dnl
-<defn(⟦##$0>⟧)⟧defn(⟦HTML_GLOBAL_ATTRIBUTES⟧)⟦>EXPAND_LANG_WITHOUT_TRAILING_LF(⟧defn(⟦EXPAND_LAST_ARG⟧)⟦)</defn(⟦##$0>⟧)>
+<defn(⟦##$0>⟧)⟧defn(⟦HTML_GLOBAL_ATTRIBUTES⟧)⟦>EXPAND_LANG_CROP_WHITE_CHARS(⟧defn(⟦EXPAND_LAST_ARG⟧)⟦)</defn(⟦##$0>⟧)>
 divert(-1)
 ⟧)
 
@@ -96,7 +96,7 @@ divert(-1)
 define(⟦PART⟧, defn(⟦PART_INIT⟧)⟦
 
 	# set value (used in multiple places)
-	define(⟦PART_val⟧, EXPAND_LANG(⟧defn(⟦EXPAND_LAST_ARG⟧)⟦))
+	define(⟦PART_val⟧, EXPAND_LANG_CROP_WHITE_CHARS(⟧defn(⟦EXPAND_LAST_ARG⟧)⟦))
 ⟧)
 
 # β
@@ -155,7 +155,6 @@ esyscmd(⟦test -f ./⟧defn(⟦ARTICLE_PATH⟧)⟦/index.html⟧)ifelse(sysval,
 esyscmd(⟦test -f ./⟧defn(⟦ARTICLE_PATH⟧)⟦/preview.html⟧)ifelse(sysval, ⟦0⟧,  ⟦<a href="SRC_FILE_PATH(defn(⟦ARTICLE_PATH⟧)⟦/preview.html⟧)" title="defn(⟦WORD_ARTICLE_PREVIEW⟧)">pre</a>⟧)dnl
 esyscmd(⟦test -f ./⟧defn(⟦ARTICLE_PATH⟧)⟦.c⟧)ifelse(sysval, ⟦0⟧,             ⟦<a href="SRC_FILE_PATH(defn(⟦ARTICLE_PATH⟧)⟦.c⟧)" title="defn(⟦WORD_ARTICLE_C⟧)">c</a>⟧)dnl
 dnl esyscmd(⟦test -f ./⟧defn(⟦ARTICLE_PATH⟧)⟦.md⟧)ifelse(sysval, ⟦0⟧,            ⟦<a href="SRC_FILE_PATH(defn(⟦ARTICLE_PATH⟧)⟦.md⟧)" title="defn(⟦WORD_ARTICLE_MARKDOWN⟧)">md</a>⟧)dnl
-⟦⟧NB()dnl
 </div>dnl
 ifdef(⟦NEW_ARTICLE⟧, ⟦⟧, ⟦<div class="ADD_CLASS(⟦updt⟧)">WORD_UPDATED<br>SARG1(esyscmd(defn(⟦DATE_COMMAND⟧)))</div>⟧)dnl
 </div>dnl
@@ -348,28 +347,28 @@ define(⟦IMAGEDATA⟧, ⟦
 
 	divert(CURRQU)dnl
 <img src="IMG_SRC($6)" alt="⟦⟧NB()" width="SARG1(IMAGE_DIM)" height="SARG2(IMAGE_DIM)"⟧defn(⟦HTML_MONO_GLOBAL_ATTRIBUTES⟧)⟦>
-<p><em>WORD_IMAGE <a href="⟦#⟧defn(__file__.mono.⟦$1⟧)" title="⚓">IMAGE_COUNTER</a>: EXPAND_LANG_WITHOUT_TRAILING_LF(⟧defn(⟦EXPAND_LAST_ARG⟧)⟦)</em></p>
+<p><em>WORD_IMAGE <a href="⟦#⟧defn(__file__.mono.⟦$1⟧)" title="⚓">IMAGE_COUNTER</a>: EXPAND_LANG_CROP_WHITE_CHARS(⟧defn(⟦EXPAND_LAST_ARG⟧)⟦)</em></p>
 divert(-1)
 ⟧)
 
 # A → β
 define(⟦PLAIN_TEXT_MONO⟧, ⟦
 	divert(CURRQU)dnl
-EXPAND_ARG1_WITHOUT_TRAILING_LF(⟧defn(⟦EXPAND_LAST_ARG⟧)⟦)⟦⟧dnl
+EXPAND_ARG1_CROP_WHITE_CHARS(⟧defn(⟦EXPAND_LAST_ARG⟧)⟦)⟦⟧dnl
 divert(-1)
 ⟧)
 
 # A → β
 define(⟦PLAIN_TEXT⟧, ⟦
 	divert(CURRQU)dnl
-EXPAND_LANG_WITHOUT_TRAILING_LF(⟧defn(⟦EXPAND_LAST_ARG⟧)⟦)⟦⟧dnl
+EXPAND_LANG_CROP_WHITE_CHARS(⟧defn(⟦EXPAND_LAST_ARG⟧)⟦)⟦⟧dnl
 divert(-1)
 ⟧)
 
 # A → β
 define(⟦COMMENT_MONO⟧, ⟦
 	divert(CURRQU)dnl
-<!-- EXPAND_ARG1_WITHOUT_TRAILING_LF(⟧defn(⟦EXPAND_LAST_ARG⟧)⟦) -->
+<!-- EXPAND_ARG1_CROP_WHITE_CHARS(⟧defn(⟦EXPAND_LAST_ARG⟧)⟦) -->
 divert(-1)
 ⟧)
 
@@ -388,42 +387,42 @@ divert(-1)
 # A → β
 define(⟦NOTE_MONO⟧, ⟦
 	divert(CURRQU)dnl
-<div⟧defn(⟦HTML_NOTE_ATTRIBUTES⟧)⟦>EXPAND_ARG1_WITHOUT_TRAILING_LF(⟧defn(⟦EXPAND_LAST_ARG⟧)⟦)</div>
+<div⟧defn(⟦HTML_NOTE_ATTRIBUTES⟧)⟦>EXPAND_ARG1_CROP_WHITE_CHARS(⟧defn(⟦EXPAND_LAST_ARG⟧)⟦)</div>
 divert(-1)
 ⟧)
 
 # A → β
 define(⟦NOTE⟧, ⟦
 	divert(CURRQU)dnl
-<div⟧defn(⟦HTML_NOTE_ATTRIBUTES⟧)⟦>EXPAND_LANG_WITHOUT_TRAILING_LF(⟧defn(⟦EXPAND_LAST_ARG⟧)⟦)</div>
+<div⟧defn(⟦HTML_NOTE_ATTRIBUTES⟧)⟦>EXPAND_LANG_CROP_WHITE_CHARS(⟧defn(⟦EXPAND_LAST_ARG⟧)⟦)</div>
 divert(-1)
 ⟧)
 
 # A → β
 define(⟦WARN⟧, ⟦
 	divert(CURRQU)dnl
-<div⟧defn(⟦HTML_WARN_ATTRIBUTES⟧)⟦>EXPAND_LANG_WITHOUT_TRAILING_LF(⟧defn(⟦EXPAND_LAST_ARG⟧)⟦)</div>
+<div⟧defn(⟦HTML_WARN_ATTRIBUTES⟧)⟦>EXPAND_LANG_CROP_WHITE_CHARS(⟧defn(⟦EXPAND_LAST_ARG⟧)⟦)</div>
 divert(-1)
 ⟧)
 
 # A → β
 define(⟦EXCL⟧, ⟦
 	divert(CURRQU)dnl
-<div⟧defn(⟦HTML_EXCL_ATTRIBUTES⟧)⟦>EXPAND_LANG_WITHOUT_TRAILING_LF(⟧defn(⟦EXPAND_LAST_ARG⟧)⟦)</div>
+<div⟧defn(⟦HTML_EXCL_ATTRIBUTES⟧)⟦>EXPAND_LANG_CROP_WHITE_CHARS(⟧defn(⟦EXPAND_LAST_ARG⟧)⟦)</div>
 divert(-1)
 ⟧)
 
 # A → β
 define(⟦INFO⟧, ⟦
 	divert(CURRQU)dnl
-<div⟧defn(⟦HTML_INFO_ATTRIBUTES⟧)⟦>EXPAND_LANG_WITHOUT_TRAILING_LF(⟧defn(⟦EXPAND_LAST_ARG⟧)⟦)</div>
+<div⟧defn(⟦HTML_INFO_ATTRIBUTES⟧)⟦>EXPAND_LANG_CROP_WHITE_CHARS(⟧defn(⟦EXPAND_LAST_ARG⟧)⟦)</div>
 divert(-1)
 ⟧)
 
 # A → β
 define(⟦TILE_BOX⟧, ⟦
 	divert(CURRQU)dnl
-<div⟧defn(⟦ID_1⟧, ⟦TITLE_2⟧, ⟦CLASS_3_TILE⟧, ⟦STYLE_4⟧)⟦>EXPAND_LANG_WITHOUT_TRAILING_LF(⟧defn(⟦EXPAND_LAST_ARG⟧)⟦)</div>
+<div⟧defn(⟦ID_1⟧, ⟦TITLE_2⟧, ⟦CLASS_3_TILE⟧, ⟦STYLE_4⟧)⟦>EXPAND_LANG_CROP_WHITE_CHARS(⟧defn(⟦EXPAND_LAST_ARG⟧)⟦)</div>
 divert(-1)
 ⟧)
 

@@ -68,10 +68,10 @@ define([SARG8],	[[$8]])
 define([SARG9],	[[$9]])
 
 # trims trailing white chars and _selects_ the first argument
-define([SELECT_ARG1_WITHOUT_TRAILING_LF], [patsubst([[$1]], [\s*])])
+define([SELECT_ARG1_CROP_WHITE_CHARS], [patsubst([[$1]], [\s*\s*])])
 
 # trims trailing white chars and _expands_ the first argument
-define([EXPAND_ARG1_WITHOUT_TRAILING_LF], [patsubst([$1], [\s*])])
+define([EXPAND_ARG1_CROP_WHITE_CHARS], [patsubst([$1], [\s*\s*])])
 
 # adds number of arguments (used for loops)
 define([NAR], [$#])

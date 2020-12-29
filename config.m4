@@ -6,8 +6,7 @@ __REASON(⟦one file to configure all generated files⟧)
 
 # A → β
 define(⟦AUTHOR_NAME⟧,		⟦Josef Kubín⟧)
-# associative image
-define(defn(⟦AUTHOR_NAME⟧),	⟦pepa.png⟧)
+define(defn(⟦AUTHOR_NAME⟧),	⟦pepa.png⟧)	<--- image associated with the name
 define(⟦AUTHOR_NAME_SHORT⟧,	⟦jkubin⟧)
 
 # A → β

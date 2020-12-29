@@ -26,7 +26,7 @@ pushdef(⟦PRINT_MONO⟧, defn(⟦TITLE_ATTR⟧)⟦
 
 	divert(0)dnl
 __line__
-EXPAND_ARG1_WITHOUT_TRAILING_LF(⟧defn(⟦EXPAND_LAST_ARG⟧)⟦)
+EXPAND_ARG1_CROP_WHITE_CHARS(⟧defn(⟦EXPAND_LAST_ARG⟧)⟦)
 
 divert(-1)
 ⟧)
@@ -37,7 +37,7 @@ pushdef(⟦PRINT_LANG⟧, defn(⟦TITLE_ATTR⟧)⟦
 
 	divert(0)dnl
 __line__
-EXPAND_LANG_WITHOUT_TRAILING_LF(⟧defn(⟦EXPAND_LAST_ARG⟧)⟦)
+EXPAND_LANG_CROP_WHITE_CHARS(⟧defn(⟦EXPAND_LAST_ARG⟧)⟦)
 
 divert(-1)
 ⟧)
@@ -46,7 +46,7 @@ divert(-1)
 # β
 pushdef(⟦PRINT_LANG_PEREX⟧, ⟦
 
-	define(⟦SELITM⟧, SELECT_LANG_WITHOUT_TRAILING_LF(⟧defn(⟦EXPAND_LAST_ARG⟧)⟦))
+	define(⟦SELITM⟧, SELECT_LANG_CROP_WHITE_CHARS(⟧defn(⟦EXPAND_LAST_ARG⟧)⟦))
 
 	divert(0)dnl
 ⟦#⟧ number of characters in perex (200 ±10 is recommended): esyscmd(⟦wc -m << EOF⟧
