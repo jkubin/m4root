@@ -2,7 +2,7 @@
 define(⟦AMP⟧, ⟦&⟧)
 define(⟦AP⟧, ⟦'⟧)
 define(⟦BQ⟧, ⟦\`⟧)
-define(⟦BS⟧, ⟦\⟧)
+define(⟦BS⟧, ⟦\\⟧)
 define(⟦DO⟧, ⟦\$⟧)
 define(⟦DQ⟧, ⟦"⟧)
 define(⟦EX⟧, ⟦!⟧)
