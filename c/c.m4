@@ -7,13 +7,13 @@ __REASON(⟦how to work with automata and queues⟧)
 divert(0)dnl
 /*
  * DONTE()
+ * SARG1(esyscmd(⟦date '+⟦%Y%m%d-%R:%S⟧,'⟧))
  *
- * __SOURCE(PAYR(__file__), SARG1(esyscmd(⟦date '+⟦⟦%Y%m%d-%R:%S⟧⟧,'⟧)), SARG1(esyscmd(⟦git log -1 --format='⟦⟦%h⟧⟧,' ⟧__file__)), SARG1(esyscmd(⟦git log -1 --format='⟦⟦%h⟧⟧,'⟧)))
- *
+ * __SOURCE(PAYR(__file__), SARG1(esyscmd(⟦git log -1 --date='format:%Y%m%d-%T' --pretty='format:⟦⟦%ad⟧, ⟦%h⟧⟧' -- ⟧__file__)), SARG1(esyscmd(⟦git log -1 --format='⟦⟦%h⟧⟧,'⟧)))
  * divert(PART_HEADER_END)dnl
  */
 
-#define ARRAY_SIZE(x) (sizeof((x)) / sizeof((x)[0]))
+#define ARRAY_SIZE(x)	(sizeof(x)/sizeof((x)[0]))
 
 divert(PARAGRAPH_ARRAY)dnl
 char *chapters_paragraphs[] = {
@@ -35,11 +35,9 @@ define(⟦C_STRING_EXPAND_ARG1_WITHOUT_TRAILING_LF⟧, ⟦patsubst(patsubst(⟦�
 "⟧)⟧)
 
 # A → β
-# β
 define(⟦C_STRING_EXPAND_LANG⟧, "$defn(⟦LANG_INDEX_⟧LANG_CODE)")
 
 # A → β
-# β
 define(⟦C_STRING_EXPAND_ARG1⟧, ⟦"$1"⟧)
 
 define(⟦PARA_COUNTER⟧, defn(⟦COUNT_UP⟧))
@@ -154,7 +152,9 @@ divert(-1)
 define(⟦PART⟧, defn(⟦PART_INIT⟧)⟦
 
 	divert(PART_HEADER)dnl
-EXPAND_LANG(⟧defn(⟦EXPAND_LAST_ARG⟧)⟦)
+__SOURCE(PAYR(__file__), SARG1(esyscmd(⟦git log -1 --date='format:%Y%m%d-%T' --pretty='format:⟦⟦%ad⟧, ⟦%h⟧⟧' -- ⟧__file__)), SARG1(esyscmd(⟦git log -1 --format='⟦⟦%h⟧⟧,'⟧)))
+ *
+ * EXPAND_LANG(⟧defn(⟦EXPAND_LAST_ARG⟧)⟦)
 divert(-1)
 ⟧)
 
