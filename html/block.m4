@@ -49,11 +49,11 @@ pushdef(⟦HTML_SOURCE_CODE_ATTRIBUTES⟧,	defn(⟦ID_1_SOURCE⟧, ⟦TITLE_2⟧
 pushdef(⟦HTML_COMMAND_ATTRIBUTES⟧,	defn(⟦ID_1_SOURCE⟧, ⟦TITLE_2⟧, ⟦CLASS_3_COMMAND⟧, ⟦STYLE_4⟧, ⟦ANYTHING_5⟧))
 pushdef(⟦HTML_WARN_ATTRIBUTES⟧,	defn(⟦ID_1_MONO⟧, ⟦TITLE_2⟧, ⟦CLASS_3_WARN⟧, ⟦STYLE_4⟧, ⟦ANYTHING_5⟧))
 
-# convert {'&', '<', '>'} to html entities, strip trailing white chars
+# converts {'&', '<', '>'} to html entities, strip trailing white chars (XML)
 # β
 #pushdef(⟦PROCESS_RAW_CODE_TO_HTML_ENTITIES⟧, ⟦patsubst(patsubst(patsubst(patsubst(define(⟦#⟧, ⟦⟦⟦⟦⟦$$#⟧⟧⟧⟧⟧)indir(⟦#⟧, $@), ⟦\s*⟧), ⟦&⟧, ⟦&amp;⟧), ⟦<⟧, ⟦&lt;⟧), ⟦>⟧, ⟦&gt;⟧)⟧)
 
-# convert {'&', '<'} to html entities, strip trailing white chars
+# converts {'&', '<'} to html entities, strip trailing white chars (HTML5)
 pushdef(⟦PROCESS_RAW_CODE_TO_HTML_ENTITIES⟧, ⟦patsubst(patsubst(patsubst(define(⟦#⟧, ⟦⟦⟦⟦$$#⟧⟧⟧⟧)indir(⟦#⟧, $@), ⟦\s*⟧), ⟦&⟧, ⟦&amp;⟧), ⟦<⟧, ⟦&lt;⟧)⟧)
 
 # β
@@ -151,8 +151,9 @@ esyscmd(⟦test -f ./⟧defn(⟦ARTICLE_PATH⟧)⟦/spell.txt⟧)ifelse(sysval, 
 esyscmd(⟦test -f ./⟧defn(⟦ARTICLE_PATH⟧)⟦.txt⟧)ifelse(sysval, ⟦0⟧,           ⟦<a href="SRC_FILE_PATH(defn(⟦ARTICLE_PATH⟧)⟦.txt⟧)" title="defn(⟦WORD_ARTICLE_TEXT⟧)">txt</a>⟧)dnl
 esyscmd(⟦test -f ./⟧defn(⟦ARTICLE_PATH⟧)⟦/publish.txt⟧)ifelse(sysval, ⟦0⟧,   ⟦<a href="SRC_FILE_PATH(defn(⟦ARTICLE_PATH⟧)⟦/publish.txt⟧)" title="defn(⟦WORD_PUBLISH_TEXT⟧)">pub</a>⟧)dnl
 <br>dnl … unfinished …
-esyscmd(⟦test -f ./⟧defn(⟦ARTICLE_PATH⟧)⟦/index.html⟧)ifelse(sysval, ⟦0⟧,    ⟦<a href="SRC_FILE_PATH(defn(⟦ARTICLE_PATH⟧)⟦/index.html⟧)" title="defn(⟦WORD_ARTICLE_DEVELOPMENT⟧)">dvl</a>⟧)dnl
+esyscmd(⟦test -f ./⟧defn(⟦ARTICLE_PATH⟧)⟦/index.html⟧)ifelse(sysval, ⟦0⟧,    ⟦<a href="SRC_FILE_PATH(defn(⟦ARTICLE_PATH⟧)⟦/index.html⟧)" title="defn(⟦WORD_ARTICLE_DEVELOPMENT⟧)">dev</a>⟧)dnl
 esyscmd(⟦test -f ./⟧defn(⟦ARTICLE_PATH⟧)⟦/preview.html⟧)ifelse(sysval, ⟦0⟧,  ⟦<a href="SRC_FILE_PATH(defn(⟦ARTICLE_PATH⟧)⟦/preview.html⟧)" title="defn(⟦WORD_ARTICLE_PREVIEW⟧)">pre</a>⟧)dnl
+esyscmd(⟦test -f ./⟧defn(⟦ARTICLE_PATH⟧)⟦.c⟧)ifelse(sysval, ⟦0⟧,             ⟦<a href="SRC_FILE_PATH(defn(⟦ARTICLE_PATH⟧)⟦.c⟧)" title="defn(⟦WORD_ARTICLE_C⟧)">c</a>⟧)dnl
 dnl esyscmd(⟦test -f ./⟧defn(⟦ARTICLE_PATH⟧)⟦.md⟧)ifelse(sysval, ⟦0⟧,            ⟦<a href="SRC_FILE_PATH(defn(⟦ARTICLE_PATH⟧)⟦.md⟧)" title="defn(⟦WORD_ARTICLE_MARKDOWN⟧)">md</a>⟧)dnl
 ⟦⟧NB()dnl
 </div>dnl

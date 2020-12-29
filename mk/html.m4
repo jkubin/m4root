@@ -28,7 +28,7 @@ FILE_STEM/spell.txt: rootu.m4 config.m4 lang.m4 headings.m4 ver.m4 lang_⟦⟧LA
 	m4 -DLANG_CODE='LANG_CODE' $(FLAGS) $^ > $⟦@⟧
 
 FILE_STEM/publish.txt: JAVASCRIPT rootu.m4 html/queues.m4 html/ent.m4 config.m4 init.m4 html/inline.m4 headings.m4 html/block.m4 ver.m4 html/style.m4 lang_⟦⟧LANG_CODE.m4 html/css.m4 js.m4 git.m4 git_mc.m4 git_⟦⟧LANG_CODE.m4 REFS_FILES lang.m4 incl.m4 html/file.m4 html/cmd.m4 html/publish.m4 $1 html/nav.m4
-	m4 -DLANG_CODE='LANG_CODE' -DARTICLE_PATH='FILE_STEM' --define='./$⟦@⟧'='⟦⟦master⟧⟧' -DFILE_LIST='FILE_LIST' $(FLAGS) $(filter-out JAVASCRIPT, $^) | sed -f html/publish.sed -f html/esc_to_ent.sed > $⟦@⟧
+	m4 -DLANG_CODE='LANG_CODE' -DARTICLE_PATH='FILE_STEM' --define='./$⟦@⟧'='master' -DFILE_LIST='FILE_LIST' $(FLAGS) $(filter-out JAVASCRIPT, $^) | sed -f html/publish.sed -f html/esc_to_ent.sed > $⟦@⟧
 	git add $⟦@⟧
 	git ci -m 'generated file'
 
@@ -43,8 +43,8 @@ MAKE_RULE(FILE_LIST)
 
 # define Makefile names
 # A → β
-define(⟦ALL_SUBTARGETS⟧,	⟦all_⟧LANG_CODE ⟦a⟧LANG_CODE LANG_CODE)
-define(⟦CLEAN_SUBTARGETS⟧,	⟦clean_⟧LANG_CODE ⟦cl_⟧LANG_CODE ⟦cl⟧LANG_CODE ⟦c⟧LANG_CODE)
+define(⟦ALL_SUBTARGETS⟧,	⟦all-⟧LANG_CODE ⟦a⟧LANG_CODE LANG_CODE)
+define(⟦CLEAN_SUBTARGETS⟧,	⟦clean-⟧LANG_CODE ⟦cl-⟧LANG_CODE ⟦cl⟧LANG_CODE ⟦c⟧LANG_CODE)
 define(⟦PUBLISH_FILES⟧,		⟦PUBLISH_⟧LANG_CODE)
 define(⟦PREVIEW_FILES⟧,		⟦PREVIEW_⟧LANG_CODE)
 define(⟦SPCHECK_FILES⟧,		⟦SPCHECK_⟧LANG_CODE)
@@ -85,9 +85,9 @@ spell spl sp: $(SPCHECK)
 .PHONY: publish pub pu
 publish pub pu: $(PUBLISH)
 
-#:article/art/a	generates an article (this is a target for routine article development)
-.PHONY: article art a
-article art a: $(ARTICLE)
+#:html/article/art/a	generates an article (for development)
+.PHONY: html article art a
+html article art a: $(ARTICLE)
 
 ⟦#⟧:patsubst(defn(⟦ALL_SUBTARGETS⟧), ⟦ ⟧, ⟦/⟧)	generates ‘LANG_CODE’ files
 .PHONY: ALL_SUBTARGETS

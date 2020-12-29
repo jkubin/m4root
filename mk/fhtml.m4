@@ -42,8 +42,8 @@ TABLE_OF_CONTENT(LANG_CODE)
 
 # define Makefile names
 # A → β
-define(⟦ALL_SUBTARGETS⟧,	⟦all_⟧LANG_CODE ⟦a⟧LANG_CODE LANG_CODE)
-define(⟦CLEAN_SUBTARGETS⟧,	⟦clean_⟧LANG_CODE ⟦cl_⟧LANG_CODE ⟦cl⟧LANG_CODE ⟦c⟧LANG_CODE)
+define(⟦ALL_SUBTARGETS⟧,	⟦all-⟧LANG_CODE ⟦a⟧LANG_CODE LANG_CODE)
+define(⟦CLEAN_SUBTARGETS⟧,	⟦clean-⟧LANG_CODE ⟦cl-⟧LANG_CODE ⟦cl⟧LANG_CODE ⟦c⟧LANG_CODE)
 define(⟦PUBLISH_FILES⟧,		⟦PUBLISH_⟧LANG_CODE)
 define(⟦PREVIEW_FILES⟧,		⟦PREVIEW_⟧LANG_CODE)
 define(⟦SPCHECK_FILES⟧,		⟦SPCHECK_⟧LANG_CODE)
@@ -87,9 +87,9 @@ spell spl sp: $(SPCHECK)
 .PHONY: publish pub pu
 publish pub pu: $(PUBLISH)
 
-#:article/art/a	generates an article (this is a target for routine article development)
-.PHONY: article art a
-article art a: $(ARTICLE)
+#:html/article/art/a	generates an article (for development)
+.PHONY: html article art a
+html article art a: $(ARTICLE)
 
 ⟦#⟧:patsubst(defn(⟦ALL_SUBTARGETS⟧), ⟦ ⟧, ⟦/⟧)	generates ‘LANG_CODE’ files
 .PHONY: ALL_SUBTARGETS
