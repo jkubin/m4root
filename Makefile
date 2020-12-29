@@ -6,14 +6,14 @@
  # <--- this is the form-feed character for Vim shortcut in normal mode
  #      type: [[ to skip backward, type: ]] to skip forward
 
-# keep secondary generated files
+# keeps secondary generated files
 .SECONDARY:
 
 # prohibits unwanted surprises
 MAKEFLAGS += --no-builtin-rules
 
 
-# source files in desired order
+# a list of source files in the desired order
 SOURCE = \
 	intro.mc \
 	fundamentals.mc \
@@ -38,6 +38,7 @@ COMMA = ,
 
 LANG_CODES = $(patsubst lang_%.m4,%,$(wildcard lang_*.m4))
 REQ_LANGS  = $(filter-out $(ex)$(exclude), $(LANG_CODES))
+MAKE_C     = $(patsubst %,c_%.mk,$(REQ_LANGS))
 MAKE_MAN   = $(patsubst %,man_%.mk,$(REQ_LANGS))
 MAKE_TEXT  = $(patsubst %,text_%.mk,$(REQ_LANGS))
 MAKE_TEXI  = $(patsubst %,texi_%.mk,$(REQ_LANGS))
@@ -55,30 +56,35 @@ CLSUBDIRS  = $(SUBDIRS:%=clean-%)
 
 #:all	generates all files (initial target)
 .PHONY: all
-all: src html text $(TARGETS)
+all: src html text mkc $(TARGETS)
 
 
-#:man	generates a child file for the Makefile to generate man
+#:mkc	generates subordinate Makefile to generate c
+.PHONY: mkc
+mkc: $(MAKE_C)
+
+
+#:man	generates subordinate Makefile to generate man
 .PHONY: man
 man: $(MAKE_MAN)
 
 
-#:text	generates a child file for the Makefile to generate text
+#:text	generates subordinate Makefile to generate text
 .PHONY: text
 text: $(MAKE_TEXT)
 
 
-#:texi	generates a child file for the Makefile to generate texi
+#:texi	generates subordinate Makefile to generate texi
 .PHONY: texi
 texi: $(MAKE_TEXI)
 
 
-#:html	generates a child file for the Makefile to generate html
+#:html	generates subordinate Makefile to generate html
 .PHONY: html
 html: $(MAKE_HTML)
 
 
-#:fhtml	generates a child file for the Makefile to generate html from a "frozen" M4 file
+#:fhtml	generates subordinate Makefile to generate html from a "frozen" M4 file
 .PHONY: fhtml
 fhtml: $(MAKE_FHTML)
 
@@ -143,7 +149,7 @@ debug dbg db d:
 #:clean/cle/del/cl	deletes all generated files
 .PHONY: clean cle del cl
 clean cle del cl:
-	$(RM) -r $(DEBUG_FILE) $(DOC_FILE) $(JAVASCRIPT) $(REFS_MONO) $(REFS_ALL) $(FOLDERS) $(TEXT) $(TEXT_GZ) $(TEXT_XZ) *.{mk,m4f}
+	$(RM) -r $(DEBUG_FILE) $(DOC_FILE) $(JAVASCRIPT) $(REFS_MONO) $(REFS_ALL) $(FOLDERS) $(TEXT) $(TEXT_GZ) $(TEXT_XZ) $(C_SOURCE) $^ *.{mk,m4f}
 
 #:distclean/dcl/cld/dc	also deletes generated files in all example folders
 .PHONY: distclean dcl cld dc
@@ -180,6 +186,9 @@ $(REFS_MONO): rootu.m4 config.m4 refs/mono.m4
 refs_%.m4: rootu.m4 config.m4 lang_%.m4 lang.m4 headings.m4 refs.m4
 	m4 -DLANG_CODE='$*' -DFILE_LIST='$(FILE_LIST)' $^ $(SOURCE) | sed -f refs.sed > $@
 
+c_%.mk: rootu.m4 refs_%.m4 lang.m4 headings.m4 mk/c.m4
+	m4 -DLANG_CODE='$*' -DFILE_LIST='$(FILE_LIST)' -DREFS_FILES='$(REFS_LANG) $(REFS_MONO)' $^ > $@
+
 man_%.mk: rootu.m4 refs_%.m4 lang.m4 headings.m4 mk/man.m4
 	m4 -DLANG_CODE='$*' -DFILE_LIST='$(FILE_LIST)' -DREFS_FILES='$(REFS_LANG) $(REFS_MONO)' $^ > $@
 
@@ -203,11 +212,11 @@ git.m4: $(shell git ls-tree -r --name-only HEAD $(MONITORED))
 	./git.sh $^ > $@
 
 git_mc.m4: $(SOURCE)
-	$(error ‘$?’ is/are modified, you have to: `git add $? && git ci -m 'my comment' && make git_mc` )
-
-.PHONY: git_mc
-git_mc: $(SOURCE)
-	./git.sh $^ > git_mc.m4
+	@if ! git diff --exit-code --quiet $?; \
+	then \
+		echo "error: add modified sources to repository: git add $? && git ci -m 'a comment'" >&2; false; \
+	fi
+	./git.sh $^ > $@
 
 # tests if there are uncommitted (forgotten) files
 # commits generated files to git repository
@@ -236,4 +245,4 @@ $(CLSUBDIRS):
 #:help/he/hl/h	prints help for this Makefile and generated mk files
 .PHONY: help he hl h
 help he hl h:
-	@sed -n '/^#:/{s//\x1b[7mmake /;s/\t/\x1b[m /;p}' Makefile $(wildcard *.mk) | sort
+	@sed -n '/^#:/{s//\x1b[7mmake /;s/\t/\x1b[m /;p}' Makefile $(wildcard *.mk) | sort -u
