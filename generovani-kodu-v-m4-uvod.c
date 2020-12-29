@@ -1,9 +1,9 @@
 /*
  * DO NOT EDIT! This file is generated automatically!
- * 20201229-20:06:06
+ * 20201229-23:14:13
  *
- * __SOURCE(⟦c/c.m4⟧, ⟦20201229-19:20:08⟧, ⟦87069ab⟧, ⟦6bc52f9⟧)
- * __SOURCE(⟦intro.mc⟧, ⟦20201229-18:35:56⟧, ⟦f373ace⟧, ⟦6bc52f9⟧)
+ * __SOURCE(⟦c/c.m4⟧, ⟦20201229-20:12:23⟧, ⟦135bc81⟧, ⟦3bba8f2⟧)
+ * __SOURCE(⟦intro.mc⟧, ⟦20201229-18:35:56⟧, ⟦f373ace⟧, ⟦3bba8f2⟧)
  *
  * Generování kódu v M4: úvod
  */
