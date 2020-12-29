@@ -457,7 +457,7 @@ The input source code is similar to CSV, which is converted to arbitrarily compl
 Stacks in the examples are not used.
 The input source code contains special characters that must be hidden:
 
-d2707ad messages/messages_raw.mc
+d5580be messages/messages_raw.mc
   1 # 2018/05/15 Josef Kubin
   2 
   3 ERROR(⟦COMPLEX⟧,     ⟦!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~⟧)
@@ -654,7 +654,7 @@ The SARG1() macro selects the first item because the second item contains an unw
 
 $ m4 root0u.m4 hello.ini.m4 code.m4 messages.mc > hello.ini
 
-24fd4f3 messages/hello.ini
+0407f61 messages/hello.ini
   1 ; DO NOT EDIT! This file is generated automatically!
   2 
   3 [hello_20201228]

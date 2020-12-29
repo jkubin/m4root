@@ -1,12 +1,14 @@
 /*
  * DO NOT EDIT! This file is generated automatically!
+ * 20201229-20:06:06
  *
- * __SOURCE(⟦c/c.m4⟧, ⟦20201229-19:16:02⟧, ⟦9147c24⟧, ⟦e678dfc⟧)
+ * __SOURCE(⟦c/c.m4⟧, ⟦20201229-19:20:08⟧, ⟦87069ab⟧, ⟦6bc52f9⟧)
+ * __SOURCE(⟦intro.mc⟧, ⟦20201229-18:35:56⟧, ⟦f373ace⟧, ⟦6bc52f9⟧)
  *
  * Generování kódu v M4: úvod
  */
 
-#define ARRAY_SIZE(x) (sizeof((x)) / sizeof((x)[0]))
+#define ARRAY_SIZE(x)	(sizeof(x)/sizeof((x)[0]))
 
 static char ch_para_0[] =
 "Čtenáři tohoto seriálu se naučí psát skripty pro strojové generování kódu.\n"

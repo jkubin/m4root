@@ -1,12 +1,14 @@
 /*
  * DO NOT EDIT! This file is generated automatically!
+ * 20201229-20:07:10
  *
- * __SOURCE(⟦c/c.m4⟧, ⟦20201229-19:16:02⟧, ⟦9147c24⟧, ⟦e678dfc⟧)
+ * __SOURCE(⟦c/c.m4⟧, ⟦20201229-19:20:08⟧, ⟦87069ab⟧, ⟦6bc52f9⟧)
+ * __SOURCE(⟦intro.mc⟧, ⟦20201229-18:35:56⟧, ⟦f373ace⟧, ⟦6bc52f9⟧)
  *
  * Generating code in M4: introduction
  */
 
-#define ARRAY_SIZE(x) (sizeof((x)) / sizeof((x)[0]))
+#define ARRAY_SIZE(x)	(sizeof(x)/sizeof((x)[0]))
 
 static char ch_para_0[] =
 "Readers of this series will learn how to write scripts for machine code generation.\n"

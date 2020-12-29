@@ -458,7 +458,7 @@ Vstupní zdrojový kód je podobný CSV, který se převede na libovolně složi
 Zásobníky v příkladech nejsou použity.
 Vstupní zdrojový kód obsahuje speciální znaky, které je nutné skrýt:
 
-d2707ad messages/messages_raw.mc
+d5580be messages/messages_raw.mc
   1 # 2018/05/15 Josef Kubin
   2 
   3 ERROR(⟦COMPLEX⟧,     ⟦!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~⟧)
@@ -655,7 +655,7 @@ Makro SARG1() vybere první položku, protože druhá položka obsahuje nežádo
 
 $ m4 root0u.m4 hello.ini.m4 code.m4 messages.mc > hello.ini
 
-24fd4f3 messages/hello.ini
+0407f61 messages/hello.ini
   1 ; DO NOT EDIT! This file is generated automatically!
   2 
   3 [hello_20201228]
