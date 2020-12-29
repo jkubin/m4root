@@ -4,5 +4,5 @@
 #
 # define(⟦./path/to/file⟧, ⟦⟦git commit hash⟧, ⟦git abbreviated commit hash⟧, ⟦git author date⟧, ⟦abbreviated sha1sum⟧, ⟦size [B]⟧, ⟦file type⟧⟧)
 #
-define(⟦./intro.mc⟧, ⟦⟦bc6c8bc08f4786b00cd96f808cdacc85a92a07fd⟧, ⟦bc6c8bc⟧, ⟦20201228-04:22:55⟧, ⟦2463326⟧, ⟦119643⟧, ⟦regular file⟧⟧)
-define(⟦./fundamentals.mc⟧, ⟦⟦f623a603e08a65486c77ce30790b5fcc58c2b314⟧, ⟦f623a60⟧, ⟦20201228-06:37:31⟧, ⟦0562daf⟧, ⟦835⟧, ⟦regular file⟧⟧)
+define(⟦./intro.mc⟧, ⟦⟦f373ace432e6202d9d44a40f4884443e0bcb22d0⟧, ⟦f373ace⟧, ⟦20201229-18:35:56⟧, ⟦0b9c456⟧, ⟦119664⟧, ⟦regular file⟧⟧)
+define(⟦./fundamentals.mc⟧, ⟦⟦479f92c0f9dc992d66e482cf3fde859c925abfd8⟧, ⟦479f92c⟧, ⟦20201228-16:20:39⟧, ⟦902aa5f⟧, ⟦821⟧, ⟦regular file⟧⟧)
