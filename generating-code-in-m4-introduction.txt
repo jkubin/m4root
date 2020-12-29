@@ -3,7 +3,7 @@ Generating code in M4: introduction
 The M4 macro processor is used to generate arbitrarily complex code from simple source code.
 The introductory part of the series contains its history, the basic principles of language, examples of usage and prerequisites for its mastery.
 
-Content (Česky)	mc spl txt dev pre  updated December 28, 2020
+Content (Česky)	mc spl txt dev pre  updated December 29, 2020
 1 Introduction
 	1.1 Examples for readers
 2 History of macro languages
@@ -465,7 +465,7 @@ d2707ad messages/messages_raw.mc
   5 ERROR(⟦SUCCESS⟧,     ⟦Too complex M4 code failed successfully.⟧)
   6 WARNING(⟦ADDICTIVE⟧, ⟦Programming in M4 is addictive!⟧)
   7 ERROR(⟦NOFAULT⟧,     ⟦It's not a language fault!⟧)
-  8 WARNING(⟦NO_ERRORS⟧, ⟦No other errors detected.⟧)
+  8 WARNING(⟦NO_ERRORS⟧, ⟦No other errors were found.⟧)
 
 🖹 The input file may also contain notes that may not be hidden in the comments #, dnl, ifelse([…]) or [… somewhere inside brackets …].
 
