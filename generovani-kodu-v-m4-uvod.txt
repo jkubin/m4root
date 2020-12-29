@@ -3,7 +3,7 @@ Generování kódu v M4: úvod
 Makro procesor M4 se používá ke generování libovolně složitého kódu z jednoduchého zdrojového kódu.
 Úvodní díl seriálu obsahuje jeho historii, základní principy jazyka, příklady použití a nutné předpoklady pro jeho zvládnutí.
 
-Obsah (English)	mc spl txt dev pre  aktualizováno 28. prosince 2020
+Obsah (English)	mc spl txt dev pre  aktualizováno 29. prosince 2020
 1 Úvod
 	1.1 Příklady pro čtenáře
 2 Historie makro jazyků
@@ -466,7 +466,7 @@ d2707ad messages/messages_raw.mc
   5 ERROR(⟦SUCCESS⟧,     ⟦Too complex M4 code failed successfully.⟧)
   6 WARNING(⟦ADDICTIVE⟧, ⟦Programming in M4 is addictive!⟧)
   7 ERROR(⟦NOFAULT⟧,     ⟦It's not a language fault!⟧)
-  8 WARNING(⟦NO_ERRORS⟧, ⟦No other errors detected.⟧)
+  8 WARNING(⟦NO_ERRORS⟧, ⟦No other errors were found.⟧)
 
 🖹 Vstupní soubor může také obsahovat poznámky, které nemusí být skryté v komentářích #, dnl, ifelse([…]) nebo [… někde uvnitř závorek …].
 
