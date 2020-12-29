@@ -16,6 +16,7 @@ let b:usr_ftplugin_m4_control = 1
 "iabbrev <buffer> <unique> ,[ ⟦<c-r>=Eatchar('\s')<cr>
 "iabbrev <buffer> <unique> ,] ⟧<c-r>=Eatchar('\s')<cr>
 iabbrev <buffer> <unique> UU ⟦<c-r>"⟧<esc>
+iabbrev <buffer> <unique> uU ⟦⟧<c-r>=Eatchar('\s')<cr>
 iabbrev <buffer> <unique> lb LB()<c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> lbb ⟦⟧LB()<c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> lbr ⟦⟧LB()<c-r>=Eatchar('.')<cr>
