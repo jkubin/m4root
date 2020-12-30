@@ -1,7 +1,7 @@
 # vim:ts=16:sw=16
 
 __HEADER(⟦Josef Kubin⟧, ⟦2020/12/28⟧)
-___DESCR(⟦an example, how to generate C source code⟧)
+___DESCR(⟦an example, how to generate a C source code⟧)
 __REASON(⟦how to work with automata and queues⟧)
 
 divert(0)dnl
@@ -25,11 +25,11 @@ divert(-1)
 
 # creates multiline c string
 # A → β
-# β
 define(⟦C_STRING_EXPAND_LANG_CROP_WHITE_CHARS⟧, ⟦patsubst(patsubst(⟧LU()LU()$defn(⟦LANG_INDEX_⟧LANG_CODE)⟧⟧⟦, ⟦\s*\s*⟧, ⟦"⟧), ⟦
 ⟧, ⟦\\n"
 "⟧)⟧)
 
+# A → β
 define(⟦C_STRING_EXPAND_ARG1_CROP_WHITE_CHARS⟧, ⟦patsubst(patsubst(⟦⟦$1⟧⟧, ⟦\s*\s*⟧, ⟦"⟧), ⟦
 ⟧, ⟦\\n"
 "⟧)⟧)
@@ -159,6 +159,7 @@ define(⟦CHAPTER_NEXT⟧, ⟦
 	CHAPTER_COUNTER
 	define(⟦SECT1_COUNTER_val⟧, 0)
 	define(⟦SECT2_COUNTER_val⟧, 0)
+	define(⟦SECT3_COUNTER_val⟧, 0)
 
 	divert(CHAPTER_ARRAY)dnl
 	"CHAPTER_COUNTER_val EXPAND_LANG_CROP_WHITE_CHARS(⟧defn(⟦EXPAND_LAST_ARG⟧)⟦)",
@@ -201,9 +202,21 @@ define(⟦SECT2_ARTICLE⟧, ⟦
 
 	# increment index
 	SECT2_COUNTER
+	define(⟦SECT3_COUNTER_val⟧, 0)
 
 	divert(CHAPTER_ARRAY)dnl
 	"CHAPTER_COUNTER_val.SECT1_COUNTER_val.SECT2_COUNTER_val EXPAND_LANG_CROP_WHITE_CHARS(⟧defn(⟦EXPAND_LAST_ARG⟧)⟦)",
+divert(-1)
+⟧)
+
+# A → β
+define(⟦SECT3_ARTICLE⟧, ⟦
+
+	# increment index
+	SECT3_COUNTER
+
+	divert(CHAPTER_ARRAY)dnl
+	"CHAPTER_COUNTER_val.SECT1_COUNTER_val.SECT2_COUNTER_val.SECT3_COUNTER_val EXPAND_LANG_CROP_WHITE_CHARS(⟧defn(⟦EXPAND_LAST_ARG⟧)⟦)",
 divert(-1)
 ⟧)
 
@@ -214,6 +227,7 @@ define(⟦APPENDIX_NEXT⟧, ⟦
 	define(⟦APPENDIX_LETTER⟧, format(⟦%c⟧, APPENDIX_COUNTER))
 	define(⟦SECT1_COUNTER_val⟧, 0)
 	define(⟦SECT2_COUNTER_val⟧, 0)
+	define(⟦SECT3_COUNTER_val⟧, 0)
 
 	divert(APPENDIX_ARRAY)dnl
 	"APPENDIX_LETTER EXPAND_LANG_CROP_WHITE_CHARS(⟧defn(⟦EXPAND_LAST_ARG⟧)⟦)",
@@ -249,10 +263,11 @@ divert(-1)
 
 	# transition to the next nodes
 	define(⟦APPENDIX⟧, defn(⟦APPENDIX_NEXT⟧))
-	define(⟦SECT1⟧, defn(⟦SECT1_APPENDIX⟧))
-	define(⟦SECT2⟧, defn(⟦SECT2_APPENDIX⟧))
 	define(⟦PARA_MONO⟧, defn(⟦PARA_MONO_APPENDIX⟧))
 	define(⟦PARA⟧, defn(⟦PARA_APPENDIX⟧))
+	define(⟦SECT1⟧, defn(⟦SECT1_APPENDIX⟧))
+	define(⟦SECT2⟧, defn(⟦SECT2_APPENDIX⟧))
+	define(⟦SECT3⟧, defn(⟦SECT3_APPENDIX⟧))
 
 ⟧defn(⟦APPENDIX_NEXT⟧))
 
@@ -273,9 +288,21 @@ define(⟦SECT2_APPENDIX⟧, ⟦
 
 	# increment index
 	SECT2_COUNTER
+	define(⟦SECT3_COUNTER_val⟧, 0)
 
 	divert(APPENDIX_ARRAY)dnl
 	"APPENDIX_LETTER.SECT1_COUNTER_val.SECT2_COUNTER_val EXPAND_LANG_CROP_WHITE_CHARS(⟧defn(⟦EXPAND_LAST_ARG⟧)⟦)",
+divert(-1)
+⟧)
+
+# β
+define(⟦SECT3_APPENDIX⟧, ⟦
+
+	# increment index
+	SECT3_COUNTER
+
+	divert(APPENDIX_ARRAY)dnl
+	"APPENDIX_LETTER.SECT1_COUNTER_val.SECT2_COUNTER_val.SECT3_COUNTER_val EXPAND_LANG_CROP_WHITE_CHARS(⟧defn(⟦EXPAND_LAST_ARG⟧)⟦)",
 divert(-1)
 ⟧)
 

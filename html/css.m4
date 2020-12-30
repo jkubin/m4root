@@ -95,6 +95,12 @@ padding-left:2em;
 
 ⟧)
 
+CSS_CLASS_RULE_SET(⟦⟦⟧⟧,	⟦l4⟧,	⟦⟦⟧⟧, ⟦
+
+padding-left:3em;
+
+⟧)
+
 CSS_CLASS_RULE_SET(⟦⟦⟧⟧,	⟦unix⟧,	⟦⟦⟧⟧, ⟦
 
 font-weight:bold;

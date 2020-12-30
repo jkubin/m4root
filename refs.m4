@@ -266,6 +266,21 @@ define(⟦SECT2⟧, defn(⟦MULTILINGUAL_HEADINGS⟧, ⟦TEST_STRING⟧, ⟦SET_
 ⟧)
 
 # A → β
+define(⟦SECT3⟧, defn(⟦MULTILINGUAL_HEADINGS⟧, ⟦TEST_STRING⟧, ⟦SET_UNIQ_KEY_FOR_LINK⟧, ⟦PRINT_ITEMS⟧)⟦
+
+	# logic flow test
+	ifelse(
+		defn(⟦DOC_NODE⟧), defn(⟦SECT2⟧), ⟦⟧,
+		defn(⟦DOC_NODE⟧), defn(⟦SECT3⟧), ⟦⟧, ⟦
+
+		ROOT_ERROR(⟦SECT3 must follow SECT2 or SECT3⟧)
+	⟧)
+
+	# set automaton to the current node
+	define(⟦DOC_NODE⟧, defn(⟦$0⟧))
+⟧)
+
+# A → β
 define(⟦APPENDIX⟧, defn(⟦CHAPTER⟧))
 
 # connects source files to generated files, languages, captions and anchors

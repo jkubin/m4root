@@ -8,7 +8,7 @@ __REASON(⟦definition of HTML5 block-level elements and unpaired tags⟧)
 
 # also used in html/nav.m4
 # β
-define(⟦CHAPTER_INDEXES⟧,	⟦<a href="⟦#⟧defn(⟦#ID⟧)" title="⚓">defn(⟦#S0⟧, ⟦#S1⟧, ⟦#S2⟧)</a>⟧)
+define(⟦CHAPTER_INDEXES⟧,	⟦<a href="⟦#⟧defn(⟦#ID⟧)" title="⚓">defn(⟦#S0⟧, ⟦#S1⟧, ⟦#S2⟧, ⟦#S3⟧)</a>⟧)
 define(⟦TOC_AND_ANCHOR⟧,	⟦<a href="⟦#⟧defn(⟦#ID⟧, ⟦TOC_ANCH⟧)" title="defn(⟦WORD_CONTENT⟧)"></a>⟧defn(⟦CHAPTER_INDEXES⟧))
 define(⟦GO_BACK_UP⟧,	⟦<a href="defn(⟦#NSP⟧, ⟦TOC_ANCH⟧)" title="defn(⟦WORD_TOP⟧)"></a>⟧)
 
@@ -76,6 +76,7 @@ pushdef(⟦SET_ANCHOR⟧, ⟦
 	define(⟦#S0⟧)
 	define(⟦#S1⟧)
 	define(⟦#S2⟧)
+	define(⟦#S3⟧)
 ⟧)
 
 # β
@@ -108,11 +109,12 @@ define(⟦CHAPTER_NEXT⟧, defn(⟦MULTILINGUAL_HEADINGS⟧, ⟦SET_ANCHOR⟧)�
 	# assign indexes
 	define(⟦SECT1_COUNTER_val⟧, 0)
 	define(⟦SECT2_COUNTER_val⟧, 0)
+	define(⟦SECT3_COUNTER_val⟧, 0)
 
 	define(⟦#S0⟧, CHAPTER_COUNTER_val)
 
 	divert(CHAPTER_NAVIG_DATA)dnl
-<p id="defn(⟦#ID⟧, ⟦TOC_ANCH⟧)"><a href="⟦#⟧defn(⟦#ID⟧)"><b>defn(⟦#S0⟧, ⟦#S1⟧, ⟦#S2⟧)</b>SELITM</a></p>
+<p id="defn(⟦#ID⟧, ⟦TOC_ANCH⟧)"><a href="⟦#⟧defn(⟦#ID⟧)"><b>defn(⟦#S0⟧, ⟦#S1⟧, ⟦#S2⟧, ⟦#S3⟧)</b>SELITM</a></p>
 divert(CURRQU)dnl
 <h2⟧defn(⟦HTML_HEADING_ATTRIBUTES⟧)>defn(⟦TOC_AND_ANCHOR⟧)⟦SELITM⟧defn(⟦GO_BACK_UP⟧)⟦</h2>
 divert(-1)
@@ -185,7 +187,7 @@ define(⟦SECT1_ARTICLE⟧, defn(⟦MULTILINGUAL_HEADINGS⟧, ⟦SET_ANCHOR⟧)�
 	define(⟦#S1⟧, .SECT1_COUNTER_val)
 
 	divert(CHAPTER_NAVIG_DATA)dnl
-<p id="defn(⟦#ID⟧, ⟦TOC_ANCH⟧)" class="ADD_CLASS(⟦l2⟧)"><a href="⟦#⟧defn(⟦#ID⟧)"><b>defn(⟦#S0⟧, ⟦#S1⟧, ⟦#S2⟧)</b>SELITM</a></p>
+<p id="defn(⟦#ID⟧, ⟦TOC_ANCH⟧)" class="ADD_CLASS(⟦l2⟧)"><a href="⟦#⟧defn(⟦#ID⟧)"><b>defn(⟦#S0⟧, ⟦#S1⟧, ⟦#S2⟧, ⟦#S3⟧)</b>SELITM</a></p>
 divert(CURRQU)dnl
 <h3⟧defn(⟦HTML_HEADING_ATTRIBUTES⟧)>defn(⟦TOC_AND_ANCHOR⟧)⟦SELITM⟧defn(⟦GO_BACK_UP⟧)⟦</h3>
 divert(-1)
@@ -199,6 +201,7 @@ define(⟦SECT2_ARTICLE⟧, defn(⟦MULTILINGUAL_HEADINGS⟧, ⟦SET_ANCHOR⟧)�
 
 	# increment index
 	SECT2_COUNTER
+	define(⟦SECT3_COUNTER_val⟧, 0)
 
 	# assign indexes
 	define(⟦#S0⟧, CHAPTER_COUNTER_val)
@@ -206,13 +209,35 @@ define(⟦SECT2_ARTICLE⟧, defn(⟦MULTILINGUAL_HEADINGS⟧, ⟦SET_ANCHOR⟧)�
 	define(⟦#S2⟧, .SECT2_COUNTER_val)
 
 	divert(CHAPTER_NAVIG_DATA)dnl
-<p id="defn(⟦#ID⟧, ⟦TOC_ANCH⟧)" class="ADD_CLASS(⟦l3⟧)"><a href="⟦#⟧defn(⟦#ID⟧)"><b>defn(⟦#S0⟧, ⟦#S1⟧, ⟦#S2⟧)</b>SELITM</a></p>
+<p id="defn(⟦#ID⟧, ⟦TOC_ANCH⟧)" class="ADD_CLASS(⟦l3⟧)"><a href="⟦#⟧defn(⟦#ID⟧)"><b>defn(⟦#S0⟧, ⟦#S1⟧, ⟦#S2⟧, ⟦#S3⟧)</b>SELITM</a></p>
 divert(CURRQU)dnl
 <h4⟧defn(⟦HTML_HEADING_ATTRIBUTES⟧)>defn(⟦TOC_AND_ANCHOR⟧)⟦SELITM⟧defn(⟦GO_BACK_UP⟧)⟦</h4>
 divert(-1)
 
 	# following bridgeheads
 	define(⟦HEADING_TAG⟧, ⟦h5⟧)
+⟧)
+
+# A → β
+define(⟦SECT3_ARTICLE⟧, defn(⟦MULTILINGUAL_HEADINGS⟧, ⟦SET_ANCHOR⟧)⟦
+
+	# increment index
+	SECT3_COUNTER
+
+	# assign indexes
+	define(⟦#S0⟧, CHAPTER_COUNTER_val)
+	define(⟦#S1⟧, .SECT1_COUNTER_val)
+	define(⟦#S2⟧, .SECT2_COUNTER_val)
+	define(⟦#S3⟧, .SECT3_COUNTER_val)
+
+	divert(CHAPTER_NAVIG_DATA)dnl
+<p id="defn(⟦#ID⟧, ⟦TOC_ANCH⟧)" class="ADD_CLASS(⟦l4⟧)"><a href="⟦#⟧defn(⟦#ID⟧)"><b>defn(⟦#S0⟧, ⟦#S1⟧, ⟦#S2⟧, ⟦#S3⟧)</b>SELITM</a></p>
+divert(CURRQU)dnl
+<h5⟧defn(⟦HTML_HEADING_ATTRIBUTES⟧)>defn(⟦TOC_AND_ANCHOR⟧)⟦SELITM⟧defn(⟦GO_BACK_UP⟧)⟦</h5>
+divert(-1)
+
+	# following bridgeheads
+	define(⟦HEADING_TAG⟧, ⟦h6⟧)
 ⟧)
 
 # β
@@ -222,6 +247,7 @@ define(⟦APPENDIX_NEXT⟧, defn(⟦MULTILINGUAL_HEADINGS⟧, ⟦SET_ANCHOR⟧)�
 	define(⟦APPENDIX_LETTER⟧, format(⟦%c⟧, APPENDIX_COUNTER))
 	define(⟦SECT1_COUNTER_val⟧, 0)
 	define(⟦SECT2_COUNTER_val⟧, 0)
+	define(⟦SECT3_COUNTER_val⟧, 0)
 
 	# assign indexes
 	define(⟦#S0⟧, APPENDIX_LETTER)
@@ -230,7 +256,7 @@ define(⟦APPENDIX_NEXT⟧, defn(⟦MULTILINGUAL_HEADINGS⟧, ⟦SET_ANCHOR⟧)�
 	define(⟦CURRQU⟧, APPENDIX_CONTENT)
 
 	divert(APPENDIX_NAVIG_DATA)dnl
-<p id="defn(⟦#ID⟧, ⟦TOC_ANCH⟧)"><a href="⟦#⟧defn(⟦#ID⟧)" title="defn(⟦WORD_APPENDIX⟧)"><b>defn(⟦#S0⟧, ⟦#S1⟧, ⟦#S2⟧)</b>SELITM</a></p>
+<p id="defn(⟦#ID⟧, ⟦TOC_ANCH⟧)"><a href="⟦#⟧defn(⟦#ID⟧)" title="defn(⟦WORD_APPENDIX⟧)"><b>defn(⟦#S0⟧, ⟦#S1⟧, ⟦#S2⟧, ⟦#S3⟧)</b>SELITM</a></p>
 divert(APPENDIX_NAVIGATION)dnl
 undivert(CURRQU)dnl
 <h2⟧defn(⟦HTML_HEADING_ATTRIBUTES⟧)>defn(⟦TOC_AND_ANCHOR⟧)⟦SELITM⟧defn(⟦GO_BACK_UP⟧)⟦</h2>
@@ -268,6 +294,7 @@ divert(-1)
 	define(⟦APPENDIX⟧, defn(⟦APPENDIX_NEXT⟧))
 	define(⟦SECT1⟧, defn(⟦SECT1_APPENDIX⟧))
 	define(⟦SECT2⟧, defn(⟦SECT2_APPENDIX⟧))
+	define(⟦SECT3⟧, defn(⟦SECT3_APPENDIX⟧))
 
 ⟧defn(⟦APPENDIX_NEXT⟧))
 
@@ -283,7 +310,7 @@ define(⟦SECT1_APPENDIX⟧, defn(⟦MULTILINGUAL_HEADINGS⟧, ⟦SET_ANCHOR⟧)
 	define(⟦#S1⟧, .SECT1_COUNTER_val)
 
 	divert(APPENDIX_NAVIGATION)dnl
-<p id="defn(⟦#ID⟧, ⟦TOC_ANCH⟧)" class="ADD_CLASS(⟦l2⟧)"><a href="⟦#⟧defn(⟦#ID⟧)"><b>defn(⟦#S0⟧, ⟦#S1⟧, ⟦#S2⟧)</b>SELITM</a></p>
+<p id="defn(⟦#ID⟧, ⟦TOC_ANCH⟧)" class="ADD_CLASS(⟦l2⟧)"><a href="⟦#⟧defn(⟦#ID⟧)"><b>defn(⟦#S0⟧, ⟦#S1⟧, ⟦#S2⟧, ⟦#S3⟧)</b>SELITM</a></p>
 divert(CURRQU)dnl
 <h3⟧defn(⟦HTML_HEADING_ATTRIBUTES⟧)>defn(⟦TOC_AND_ANCHOR⟧)⟦SELITM⟧defn(⟦GO_BACK_UP⟧)⟦</h3>
 divert(-1)
@@ -297,6 +324,7 @@ define(⟦SECT2_APPENDIX⟧, defn(⟦MULTILINGUAL_HEADINGS⟧, ⟦SET_ANCHOR⟧)
 
 	# increment index
 	SECT2_COUNTER
+	define(⟦SECT3_COUNTER_val⟧, 0)
 
 	# assign indexes
 	define(⟦#S0⟧, APPENDIX_LETTER)
@@ -304,13 +332,35 @@ define(⟦SECT2_APPENDIX⟧, defn(⟦MULTILINGUAL_HEADINGS⟧, ⟦SET_ANCHOR⟧)
 	define(⟦#S2⟧, .SECT2_COUNTER_val)
 
 	divert(APPENDIX_NAVIGATION)dnl
-<p id="defn(⟦#ID⟧, ⟦TOC_ANCH⟧)" class="ADD_CLASS(⟦l3⟧)"><a href="⟦#⟧defn(⟦#ID⟧)"><b>defn(⟦#S0⟧, ⟦#S1⟧, ⟦#S2⟧)</b>SELITM</a></p>
+<p id="defn(⟦#ID⟧, ⟦TOC_ANCH⟧)" class="ADD_CLASS(⟦l3⟧)"><a href="⟦#⟧defn(⟦#ID⟧)"><b>defn(⟦#S0⟧, ⟦#S1⟧, ⟦#S2⟧, ⟦#S3⟧)</b>SELITM</a></p>
 divert(CURRQU)dnl
 <h4⟧defn(⟦HTML_HEADING_ATTRIBUTES⟧)>defn(⟦TOC_AND_ANCHOR⟧)⟦SELITM⟧defn(⟦GO_BACK_UP⟧)⟦</h4>
 divert(-1)
 
 	# following bridgeheads
 	define(⟦HEADING_TAG⟧, ⟦h5⟧)
+⟧)
+
+# β
+define(⟦SECT3_APPENDIX⟧, defn(⟦MULTILINGUAL_HEADINGS⟧, ⟦SET_ANCHOR⟧)⟦
+
+	# increment index
+	SECT3_COUNTER
+
+	# assign indexes
+	define(⟦#S0⟧, APPENDIX_LETTER)
+	define(⟦#S1⟧, .SECT1_COUNTER_val)
+	define(⟦#S2⟧, .SECT2_COUNTER_val)
+	define(⟦#S3⟧, .SECT3_COUNTER_val)
+
+	divert(APPENDIX_NAVIGATION)dnl
+<p id="defn(⟦#ID⟧, ⟦TOC_ANCH⟧)" class="ADD_CLASS(⟦l3⟧)"><a href="⟦#⟧defn(⟦#ID⟧)"><b>defn(⟦#S0⟧, ⟦#S1⟧, ⟦#S2⟧, ⟦#S3⟧)</b>SELITM</a></p>
+divert(CURRQU)dnl
+<h5⟧defn(⟦HTML_HEADING_ATTRIBUTES⟧)>defn(⟦TOC_AND_ANCHOR⟧)⟦SELITM⟧defn(⟦GO_BACK_UP⟧)⟦</h5>
+divert(-1)
+
+	# following bridgeheads
+	define(⟦HEADING_TAG⟧, ⟦h6⟧)
 ⟧)
 
 # β
