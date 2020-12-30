@@ -13,12 +13,6 @@ ifdef(⟦LANG_INDEX_⟧LANG_CODE, ⟦⟧, ⟦
 	ROOT_ERROR(⟦undefined LANG_CODE ‘⟧LANG_CODE⟦’, assign a new index⟧)
 ⟧)
 
-# language
-# A → β
-# β
-define(⟦SELECT_LANG⟧, LU()$defn(⟦LANG_INDEX_⟧LANG_CODE)⟧)
-define(⟦EXPAND_LANG⟧, $defn(⟦LANG_INDEX_⟧LANG_CODE))
-
 # select language without trailing white chars
 # A → β
 # β
@@ -30,7 +24,7 @@ define(⟦EXPAND_LANG_CROP_WHITE_CHARS⟧, ⟦patsubst(⟧LU()$defn(⟦LANG_IND
 
 # select language
 # A → β
-define(⟦LANG⟧, ⟦ifelse(⟦$#⟧, ⟦0⟧, ⟦⟦$0⟧⟧, ⟧LU()defn(⟦SELECT_LANG⟧)⟧⟦)⟧)
+define(⟦LANG⟧, ⟦ifelse(⟦$#⟧, ⟦0⟧, ⟦⟦$0⟧⟧, ⟧LU()LU()$defn(⟦LANG_INDEX_⟧LANG_CODE)⟧⟧⟦)⟧)
 
 # select language without trailing white chars
 # A → β
@@ -38,4 +32,4 @@ define(⟦LANGW⟧, ⟦ifelse(⟦$#⟧, ⟦0⟧, ⟦⟦$0⟧⟧, ⟧LU()defn(⟦
 
 # expand language (used for language-dependent macros)
 # A → β
-define(⟦XLANG⟧, ⟦ifelse(⟦$#⟧, ⟦0⟧, ⟦⟦$0⟧⟧, ⟧LU()defn(⟦EXPAND_LANG⟧)⟧⟦)⟧)
+define(⟦XLANG⟧, ⟦ifelse(⟦$#⟧, ⟦0⟧, ⟦⟦$0⟧⟧, ⟧LU()$defn(⟦LANG_INDEX_⟧LANG_CODE)⟧⟦)⟧)
