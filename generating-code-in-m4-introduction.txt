@@ -3,7 +3,7 @@ Generating code in M4: introduction
 The M4 macro processor is used to generate arbitrarily complex code from simple source code.
 The introductory part of the series contains its history, the basic principles of language, examples of usage and prerequisites for its mastery.
 
-Content (Česky)	mc spl txt pub dev pre  updated December 29, 2020
+Content (Česky)	mc spl txt dev pre c  updated January 2, 2021
 1 Introduction
 	1.1 Examples for readers
 2 History of macro languages
@@ -121,7 +121,7 @@ Note the almost perfect symbiosis with the C language:
 • macro arguments separate commas just like commas in C functions
 	• if the FUNC(char c, int i) macro is defined, its variables are:
 $# → 2, $0 → FUNC, $1 → char c, $2 → int i
-• the left control character ` is not a part of the C family syntax
+• the left control character LQ() is not a part of the C family syntax
 • the right control character ' does not matter if it is not part of the macro
 
 	• both control characters can be hidden into user-defined macros LQ(), RQ()
@@ -245,9 +245,9 @@ $ m4 root.m4 stem.m4 branch.m4 leaf.m4 file.c > preproc.file.c
 $ m4 root.m4 stem.m4 branch.m4 leaf.m4 file.c | gcc -x c -o progr -
 
 `' Default characters
-The conflicting character ` from the input source code is hidden into a macro `'LQ().
+The conflicting character LQ() from the input source code is hidden into a macro `'LQ().
 An empty pair of control characters `' before the macro serves as a symbol separator.
-When the source code is passed through the macro processor, the `'LQ() macro is rewritten back to the original ` character and the empty pair `' is removed.
+When the source code is passed through the macro processor, the `'LQ() macro is rewritten back to the original LQ() character and the empty pair `' is removed.
 
 $ sed 's/`/`'\''LQ()/g' any.src | m4 rootq.m4 leaf.m4 -
 
@@ -464,7 +464,7 @@ d5580be messages/messages_raw.mc
   4 QUERY(⟦READABLE⟧,    ⟦Is badly written M4 code readable [N/y]?⟧)
   5 ERROR(⟦SUCCESS⟧,     ⟦Too complex M4 code failed successfully.⟧)
   6 WARNING(⟦ADDICTIVE⟧, ⟦Programming in M4 is addictive!⟧)
-  7 ERROR(⟦NOFAULT⟧,     ⟦It's not a language fault!⟧)
+  7 ERROR(⟦NO_FAULT⟧,    ⟦It's not a language fault!⟧)
   8 WARNING(⟦NO_ERRORS⟧, ⟦No other errors were found.⟧)
 
 🖹 The input file may also contain notes that may not be hidden in the comments #, dnl, ifelse([…]) or [… somewhere inside brackets …].
@@ -486,7 +486,7 @@ $ m4 root0u.m4 hello.csv.m4 messages_raw.mc > hello.csv
 9156810 messages/hello.csv
   1 COMPLEX	!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~
   2 SUCCESS	Too complex M4 code failed successfully.
-  3 NOFAULT	It's not a language fault!
+  3 NO_FAULT	It's not a language fault!
 
 A.3 ⟦⟧ CSV: counter
 The example uses the COUNT_UP macro from the countb.m4 file whose β is copied to the right side of the COUNTER macro.
@@ -514,7 +514,7 @@ $ m4 root0u.m4 countb.m4 counter.csv.m4 messages_raw.mc > counter.csv
 9156810 messages/counter.csv
   1 ERR_1	COMPLEX	!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~
   2 ERR_2	SUCCESS	Too complex M4 code failed successfully.
-  3 ERR_3	NOFAULT	It's not a language fault!
+  3 ERR_3	NO_FAULT	It's not a language fault!
 
 A.4 💡 Modification of special characters
 Each type of output code requires the modification of the special characters.
@@ -529,7 +529,7 @@ d2707ad messages/messages.mc
   4 QUERY(⟦READABLE⟧,    ⟦Is badly written M4 code readable [N/y]?⟧)
   5 ERROR(⟦SUCCESS⟧,     ⟦Too complex M4 code failed successfully.⟧)
   6 WARNING(⟦ADDICTIVE⟧, ⟦Programming in M4 is addictive⟦⟧EX()⟧)
-  7 ERROR(⟦NOFAULT⟧,     ⟦It⟦⟧AP()s not a language fault⟦⟧EX()⟧)
+  7 ERROR(⟦NO_FAULT⟧,    ⟦It⟦⟧AP()s not a language fault⟦⟧EX()⟧)
   8 WARNING(⟦NO_ERRORS⟧, ⟦No other errors were found.⟧)
 
 ⟦⟧ Conversion file for XML, XSLT, HTML
@@ -657,10 +657,10 @@ $ m4 root0u.m4 hello.ini.m4 code.m4 messages.mc > hello.ini
 0407f61 messages/hello.ini
   1 ; DO NOT EDIT! This file is generated automatically!
   2 
-  3 [hello_20201228]
+  3 [hello_20201230]
   4 COMPLEX="!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~"
   5 SUCCESS="Too complex M4 code failed successfully."
-  6 NOFAULT="It's not a language fault!"
+  6 NO_FAULT="It's not a language fault!"
 
 A.7 ⟦⟧ .h: hex counter
 The example uses the COUNTER macro to number the resulting CPP macros and one output queue.
@@ -706,7 +706,7 @@ b53eafe messages/messages.h
   7 
   8 #define COMPLEX		0x00
   9 #define SUCCESS		0x01
- 10 #define NOFAULT		0x02
+ 10 #define NO_FAULT		0x02
  11 
  12 #endif /* __ERROR_H */
 
@@ -846,14 +846,14 @@ $ m4 root0u.m4 messages.html.m4 markup.m4 messages.mc > messages.html
  10 		<li>QUERY: <a href="#READABLE">READABLE</a></li>
  11 		<li>ERROR: <a href="#SUCCESS">SUCCESS</a></li>
  12 		<li>WARNING: <a href="#ADDICTIVE">ADDICTIVE</a></li>
- 13 		<li>ERROR: <a href="#NOFAULT">NOFAULT</a></li>
+ 13 		<li>ERROR: <a href="#NO_FAULT">NO_FAULT</a></li>
  14 		<li>WARNING: <a href="#NO_ERRORS">NO_ERRORS</a></li>
  15 	</ul>
  16 	<p id="COMPLEX">!"#$%&amp;'()*+,-./:;&lt;=&gt;?@[\]^_`{|}~</p>
  17 	<p id="READABLE">Is badly written M4 code readable [N/y]?</p>
  18 	<p id="SUCCESS">Too complex M4 code failed successfully.</p>
  19 	<p id="ADDICTIVE">Programming in M4 is addictive!</p>
- 20 	<p id="NOFAULT">It's not a language fault!</p>
+ 20 	<p id="NO_FAULT">It's not a language fault!</p>
  21 	<p id="NO_ERRORS">No other errors were found.</p>
  22 </body>
  23 </html>
@@ -947,7 +947,7 @@ $ m4 root0u.m4 atm.json.m4 code.m4 messages.mc > atm.json
   3 	"error": [
   4 		{"COMPLEX": "!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~"},
   5 		{"SUCCESS": "Too complex M4 code failed successfully."},
-  6 		{"NOFAULT": "It's not a language fault!"}
+  6 		{"NO_FAULT": "It's not a language fault!"}
   7 	]
   8 }}
 
@@ -1023,7 +1023,7 @@ $ m4 root0u.m4 qnames.json.m4 code.m4 messages.mc > qnames.json
   6 	"error": [
   7 		{"COMPLEX": "!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~"},
   8 		{"SUCCESS": "Too complex M4 code failed successfully."},
-  9 		{"NOFAULT": "It's not a language fault!"}
+  9 		{"NO_FAULT": "It's not a language fault!"}
  10 	],
  11 	"warning": [
  12 		{"ADDICTIVE": "Programming in M4 is addictive!"},
@@ -1113,7 +1113,7 @@ $ m4 root0u.m4 countb.m4 queues.m4 messages.json.m4 code.m4 messages.mc > messag
   6 	"error": [
   7 		{"COMPLEX": "!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~"},
   8 		{"SUCCESS": "Too complex M4 code failed successfully."},
-  9 		{"NOFAULT": "It's not a language fault!"}
+  9 		{"NO_FAULT": "It's not a language fault!"}
  10 	],
  11 	"warning": [
  12 		{"ADDICTIVE": "Programming in M4 is addictive!"},
@@ -1172,7 +1172,7 @@ $ m4 root0u.m4 messages.ini.m4 countb.m4 queues.m4 code.m4 messages.mc > message
   6 [error]
   7 COMPLEX="!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~"
   8 SUCCESS="Too complex M4 code failed successfully."
-  9 NOFAULT="It's not a language fault!"
+  9 NO_FAULT="It's not a language fault!"
  10 
  11 [warning]
  12 ADDICTIVE="Programming in M4 is addictive!"
@@ -1229,7 +1229,7 @@ $ m4 root0u.m4 queues.m4 mixed.xml.m4 markup.m4 messages.mc > mixed.xml
  18 		<value>Programming in M4 is addictive!</value>
  19 	</warning>
  20 	<error>
- 21 		<name>NOFAULT</name>
+ 21 		<name>NO_FAULT</name>
  22 		<value>It's not a language fault!</value>
  23 	</error>
  24 	<warning>
@@ -1305,7 +1305,7 @@ $ m4 root0u.m4 queues.m4 messages.xml.m4 markup.m4 messages.mc > messages.xml
  17 			<value>Too complex M4 code failed successfully.</value>
  18 		</item>
  19 		<item>
- 20 			<name>NOFAULT</name>
+ 20 			<name>NO_FAULT</name>
  21 			<value>It's not a language fault!</value>
  22 		</item>
  23 	</error>
@@ -1404,7 +1404,7 @@ B.1 `' C preprocessor and M4
 The CPP directives are a one-line comment for M4 preventing unwanted expansion of the same named macros.
 If we define a safer SAF() macro, the similar SAF () macro will not be overwritten.
 Thus, the CPP namespace can be completely separated from the M4 namespace.
-The problematic (backquote) character ` is hidden in the LQ() macro.
+The problematic (backquote) character LQ() is hidden in the LQ() macro.
 The apostrophe ' does not matter in the source code.
 Apostrophe inside ORD() macro is hidden in RQ() macro.
 Note the define () or ifelse () function names and where the SYMBOL is expanded.
@@ -1468,7 +1468,7 @@ b53eafe preproc/preproc.file.c
  12 int b = (2 + 2) * (2 + 2)	/* SAF_M4 Hello, world! */;	/* M4 */
  13 char chr = 'x';
  14 char foo[] = "Let's say: 'Hello, world!'";
- 15 char bar[] = "ORD_M4 'Hello, world!' (args, are, ignored)";
+ 15 char bar[] = "ORD_M4 RQ()Hello, world!RQ() (args, are, ignored)";
  16 
  17 static void define (char *s) { puts(s);}
  18 static void ifelse (char *s) { puts(s);}
@@ -1477,7 +1477,7 @@ b53eafe preproc/preproc.file.c
  21 {
  22 
  23 #ifdef SYMBOL			/* SYMBOL */
- 24 	puts("`Hello, world!'");	/* note: LQ()SYMBOL */
+ 24 	puts("LQ()Hello, world!'");	/* note: LQ()SYMBOL */
  25 #endif
  26 
  27 	define (foo);		/* Hello, world! */
@@ -1544,7 +1544,7 @@ $ m4 -DSYMBOL='Hello, world!' root0q.m4 file.css.m4 file.css > preproc.file.css
  15 /* DO NOT EDIT! This file is generated automatically! */
 
 B.3 ␂␆ Bash: nonprintable characters
-Bash uses both ` and [ characters.
+Bash uses both LQ() and [ characters.
 If we do not want to hide them either in an LQ() or LB() macro, we can use nonprintable characters for expansion control, see the example:
 
 b53eafe preproc/file.sh.m4
@@ -1601,7 +1601,7 @@ b53eafe hello_world/json.m4
   3 divert(0)dnl
   4 {"foo": {
   5 	"_comment": "DONTE()",
-  6 	"bar": LB()
+  6 	"bar": LL()
   7 		{"baz": "SYMBOL"}
   8 	]
   9 }}
@@ -1643,17 +1643,17 @@ b53eafe hello_world/sh.m4
  19 
  20 if [ LEFT OP RIGHT ]
  21 then
- 22 	echo '__COUNTUP__] SYMBOL LB()__COUNTDN__'
+ 22 	echo '__COUNTUP__] SYMBOL LL()__COUNTDN__'
  23 fi
  24 
  25 if test LEFT OP RIGHT
  26 then
- 27 	echo '__COUNTUP__] SYMBOL LB()__COUNTDN__'
+ 27 	echo '__COUNTUP__] SYMBOL LL()__COUNTDN__'
  28 fi
  29 
- 30 if LB()LB() LEFT OP RIGHT ]]
+ 30 if LL()LL() LEFT OP RIGHT ]]
  31 then
- 32 	echo '__COUNTUP__] SYMBOL LB()__COUNTDN__'
+ 32 	echo '__COUNTUP__] SYMBOL LL()__COUNTDN__'
  33 fi
 
 $ m4 -DSYMBOL='Hello, world!' root0u.m4 countb.m4 sh.m4 > hello_world.sh
@@ -1727,7 +1727,7 @@ Such macros are explicitly created by a script developer, see the root file root
   5 #
   6 [# DONTE()] ---> "DONTE()"
   7 
-  8 BEGIN { print "DONTE[]() LB () LB() SYMBOL ]" }
+  8 BEGIN { print "DONTE[]() LL () LL() SYMBOL ]" }
 
 $ m4 -DSYMBOL='Hello, world!' root1b.m4 awk.m4 > hello_world.awk
 
@@ -1736,7 +1736,7 @@ $ m4 -DSYMBOL='Hello, world!' root1b.m4 awk.m4 > hello_world.awk
   2 #
   3 # DONTE() ---> "DO NOT EDIT! This file is generated automatically!"
   4 
-  5 BEGIN { print "DONTE() LB () [ Hello, world! ]" }
+  5 BEGIN { print "DONTE() LL () LL() Hello, world! ]" }
 
 D Why to use M4 and why not?
 	D.1 👍 Why to generate code in M4
