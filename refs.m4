@@ -17,8 +17,8 @@ define(⟦SEL_WORDS⟧,		QUEUE_INDEX)
 
 # create aliases to existing macros
 # A → β
-define(⟦LUTF⟧, defn(⟦LU⟧))
-define(⟦RUTF⟧, defn(⟦RU⟧))
+define(⟦LUTF⟧, defn(⟦LL⟧))
+define(⟦RUTF⟧, defn(⟦RR⟧))
 
 # re-define problematic macros used in captions
 # A → β
@@ -27,19 +27,19 @@ define(⟦BOLD⟧,		⟦ifelse(⟦$#⟧, ⟦0⟧, ⟦⟦$0⟧⟧, ⟦$1⟧)⟧)
 define(⟦CODE⟧,		⟦ifelse(⟦$#⟧, ⟦0⟧, ⟦⟦$0⟧⟧, ⟦⟦$1⟧⟧)⟧)
 define(⟦DQT⟧,		⟦ifelse(⟦$#⟧, ⟦0⟧, ⟦⟦$0⟧⟧, ⟦d⟧)⟧)
 define(⟦DQ⟧,		defn(⟦DQT⟧))
-define(⟦LB⟧,		⟦b⟧)
 define(⟦LF⟧,		⟦l⟧)
-define(⟦LN⟧,		⟦n⟧)
-define(⟦LQ⟧,		⟦g⟧)
-define(⟦LU⟧,		⟦u⟧)
+define(⟦LL⟧,		⟦u⟧)
 define(⟦NB⟧,		⟦ifelse(⟦$#⟧, ⟦0⟧, ⟦⟦$0⟧⟧, ⟦ ⟧)⟧)
 define(⟦XCODE⟧,		defn(⟦BOLD⟧))
 
 # A → ε
-define(⟦RB⟧)
-define(⟦RQ⟧)
-define(⟦RN⟧)
-define(⟦RU⟧)
+define(⟦RR⟧)
+#define(⟦LB⟧,		⟦b⟧)
+#define(⟦LN⟧,		⟦n⟧)
+#define(⟦LQ⟧,		⟦g⟧)
+#define(⟦RQ⟧)
+#define(⟦RN⟧)
+#define(⟦RU⟧)
 
 # set unique key
 # β
@@ -124,7 +124,7 @@ pushdef(⟦PROCESS_ID_UNPAIRED⟧, ⟦
 # A → β
 define(⟦TEST_CHARS_IN_STRING⟧, ⟦
 
-	# test punct chars
+	# test for empty captions (contains only ⟦%%%⟧ placeholder)
 	ifelse(patsubst(⟦⟦$1⟧⟧, ⟦[%]⟧), ⟦⟧, ⟦
 
 		ROOT_ERROR(⟦write an [:alnum:]+ chars please⟧)
@@ -190,13 +190,14 @@ $3
 define(⟦#.$2.$3⟧, ⟦$4⟧)⟧
 ⟧)
 
-# string have to be expanded
+# replaces punctuation with letters and numbers to make the references unique
 # A → β
 define(⟦PREPARING_FOR_REGEX⟧, ⟦
 
 	divert(ANCHORS)dnl
 anch⟦define(⟦$1⟧, ⟧LUTF()
-translit(⟦$2⟧, ⟦*$`'@#⟧, ⟦xdbath⟧)
+translit(⟦$2⟧, ⟦!"#$%&`'*+/:;<=>?@[\]^{}|~⟧,
+               ⟦xzhdpmbasunwvfegqtlkrcijoy⟧)
 RUTF()⟦)⟧
 divert(-1)
 ⟧)
@@ -218,7 +219,7 @@ pushdef(⟦PRINT_ITEMS⟧, ⟦
 		PRINT_ORDINARY_RULE(defn(⟦FILE_PREFIX⟧).capt.defn(⟦REFERENCE_KEY⟧), defn(⟦SELITM⟧))
 	⟧)
 
-	# print anchor
+	# creates a reference
 	PREPARING_FOR_REGEX(defn(⟦FILE_PREFIX⟧).anch.defn(⟦REFERENCE_KEY⟧), defn(⟦NSP⟧, ⟦SELITM⟧))
 
 	# create string from caption for testing
