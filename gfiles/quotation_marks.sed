@@ -11,23 +11,13 @@ s/^/dnl vim:mps+=`\\:'\ndnl\ndnl DO NOT EDIT! This file is generated automatical
 s/changequote([^)]*)//
 }
 
-# change a specific additional pair of characters
-/^define(\[\(BRAC\|NPRI\|UTFP\)\], \[/{s//define(`\1', `/; s/])$/')/;b}
-
 s/\[/`/g
 s/]/'/g
 
-# necessary changes for unpaired characters
-/^define(`LB', .ifelse.*$/{N;z;s/^/define(`LB', `[')/}
-/^define(`RB', .ifelse.*$/{N;z;s/^/define(`RB', `]')/}
+# for minimal versions of root.m4
+/^define(`LL', `changequote.*$/{N;z;s/^/define(`LL', `changequote([,])`dnl'\nchangequote`'')/}
+/^define(`RR', `changequote.*$/{N;z;s/^/define(`RR', `changequote([,])dnl`\n'changequote`'')/}
 
-/^define(`LQ', .*$/s//define(`LQ', `ifelse(`$#', `0', ``$0'', `changequote([,])`dnl'\nchangequote`'')')/
-/^define(`RQ', .*$/s//define(`RQ', `ifelse(`$#', `0', ``$0'', `changequote([,])dnl`\n'changequote`'')')/
-
-# for simplified root0b
-/^define(`LB', `changequote.*$/{N;z;s/^/define(`LQ', `changequote([,])`dnl'\nchangequote`'')/}
-/^define(`RB', `changequote.*$/{N;z;s/^/define(`RQ', `changequote([,])dnl`\n'changequote`'')/}
-
-# set aliases
-/define(`LL',/s/LB/LQ/
-/define(`RR',/s/RB/RQ/
+# for extended versions of root.m4
+/^define(`LL', .ifelse.*$/{N;z;s/^/define(`LL', `ifelse(`$#', `0', ``$0'', `changequote([,])`dnl'\nchangequote`'')')/}
+/^define(`RR', .ifelse.*$/{N;z;s/^/define(`RR', `ifelse(`$#', `0', ``$0'', `changequote([,])dnl`\n'changequote`'')')/}

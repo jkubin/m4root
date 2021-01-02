@@ -4,9 +4,9 @@
 
 1s/^/# vim:mps+=\\:\n\n/
 
-# [	<--- because of M4
+# ⟦	<--- because of M4
 /___USAGE/s/\<rootb\>/rootn/
-# ]	<--- because of M4
+# ⟧	<--- because of M4
 
 s/\[//g
 s/]//g
