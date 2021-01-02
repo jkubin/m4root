@@ -16,11 +16,11 @@ ifdef(⟦LANG_INDEX_⟧LANG_CODE, ⟦⟧, ⟦
 # select language without trailing white chars
 # A → β
 # β
-define(⟦SELECT_LANG_CROP_WHITE_CHARS⟧, ⟦patsubst(⟧LL()LL()$defn(⟦LANG_INDEX_⟧LANG_CODE)⟧⟧⟦, ⟦\s*\s*⟧)⟧)
+define(⟦SELECT_LANG_CROP_WHITE_CHARS⟧, ⟦patsubst(patsubst(⟧LL()LL()LL()$defn(⟦LANG_INDEX_⟧LANG_CODE)⟧⟧⟧⟦, ⟦\s*\s*⟧), ⟦\<dnl\>\|#⟧, ⟦⟦\&⟧⟧)⟧)
 
 # expand language without trailing white chars
 # A → β
-define(⟦EXPAND_LANG_CROP_WHITE_CHARS⟧, ⟦patsubst(⟧LL()$defn(⟦LANG_INDEX_⟧LANG_CODE)⟧⟦, ⟦\s*\s*⟧)⟧)
+define(⟦EXPAND_LANG_CROP_WHITE_CHARS⟧, ⟦patsubst(patsubst(⟧LL()LL()$defn(⟦LANG_INDEX_⟧LANG_CODE)⟧⟧⟦, ⟦\s*\s*⟧), ⟦\<dnl\>\|#⟧, ⟦⟦\&⟧⟧)⟧)
 
 # select language
 # A → β

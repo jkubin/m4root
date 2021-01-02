@@ -53,8 +53,8 @@ pushdef(⟦HTML_WARN_ATTRIBUTES⟧,	defn(⟦ID_1_MONO⟧, ⟦TITLE_2⟧, ⟦CLAS
 # β
 #pushdef(⟦PROCESS_RAW_CODE_TO_HTML_ENTITIES⟧, ⟦patsubst(patsubst(patsubst(patsubst(define(⟦#⟧, ⟦⟦⟦⟦⟦$$#⟧⟧⟧⟧⟧)indir(⟦#⟧, $@), ⟦\s*\s*⟧), ⟦&⟧, ⟦&amp;⟧), ⟦<⟧, ⟦&lt;⟧), ⟦>⟧, ⟦&gt;⟧)⟧)
 
-# converts {'&', '<'} to html entities, strip trailing white chars (HTML5)
-pushdef(⟦PROCESS_RAW_CODE_TO_HTML_ENTITIES⟧, ⟦patsubst(patsubst(patsubst(define(⟦#⟧, ⟦⟦⟦⟦$$#⟧⟧⟧⟧)indir(⟦#⟧, $@), ⟦\s*\s*⟧), ⟦&⟧, ⟦&amp;⟧), ⟦<⟧, ⟦&lt;⟧)⟧)
+# converts {'&', '<'} to html entities, strip trailing white chars (HTML5), hide # → ⟦#⟧ and dnl → ⟦dnl⟧
+pushdef(⟦PROCESS_RAW_CODE_TO_HTML_ENTITIES⟧, ⟦patsubst(patsubst(patsubst(patsubst(define(⟦#⟧, ⟦⟦⟦⟦⟦$$#⟧⟧⟧⟧⟧)indir(⟦#⟧, $@), ⟦\s*\s*⟧), ⟦&⟧, ⟦&amp;⟧), ⟦<⟧, ⟦&lt;⟧), ⟦\<dnl\>\|#⟧, ⟦⟦\&⟧⟧)⟧)
 
 # β
 pushdef(⟦SET_ANCHOR⟧, ⟦

@@ -215,17 +215,17 @@ parameters and dependencies of M4 scripts are described by CODE(⟦Makefile⟧)
 ⟧⟧)
 
 LISTITEM(⟦⟦
-znakem CODE(⟦#⟧) začíná jednořádkový komentář jako v⟦⟧NB()UNIX-ovém shell-u
+znakem XCODE(⟦#⟧) začíná jednořádkový komentář jako v⟦⟧NB()UNIX-ovém shell-u
 ⟧,dnl _next_language_
 ⟦
-the CODE(⟦#⟧) character begins with a⟦⟧NB()one-line comment like in a⟦⟧NB()UNIX shell
+the XCODE(⟦#⟧) character begins with a⟦⟧NB()one-line comment like in a⟦⟧NB()UNIX shell
 ⟧⟧)
 
 LISTITEM(⟦⟦
-proměnné XCODE(⟦$⟦@⟧⟧), XCODE(⟦$⟦*⟧⟧), XCODE(⟦$⟦#⟧⟧), XCODE(⟦$⟦0⟧⟧), XCODE(⟦$⟦1⟧⟧), XCODE(⟦$⟦2⟧⟧), … mají podobný význam jako v⟦⟧NB()shell-u
+proměnné XCODE(⟦⟦$⟧@⟧), XCODE(⟦⟦$⟧*⟧), XCODE(⟦⟦$⟧#⟧), XCODE(⟦⟦$⟧0⟧), XCODE(⟦⟦$⟧1⟧), XCODE(⟦⟦$⟧2⟧), XCODE(⟦⟦$⟧3⟧), … mají podobný význam jako v⟦⟧NB()shell-u
 ⟧,dnl _next_language_
 ⟦
-variables XCODE(⟦$⟦@⟧⟧), XCODE(⟦$⟦*⟧⟧), XCODE(⟦$⟦#⟧⟧), XCODE(⟦$⟦0⟧⟧), XCODE(⟦$⟦1⟧⟧), XCODE(⟦$⟦2⟧⟧), … have similar meanings as in a⟦⟧NB()UNIX shell
+variables XCODE(⟦⟦$⟧@⟧), XCODE(⟦⟦$⟧*⟧), XCODE(⟦⟦$⟧#⟧), XCODE(⟦⟦$⟧0⟧), XCODE(⟦⟦$⟧1⟧), XCODE(⟦⟦$⟧2⟧), XCODE(⟦⟦$⟧3⟧), … have similar meanings as in a⟦⟧NB()UNIX shell
 ⟧⟧)
 
 LISTITEM(⟦⟦
@@ -251,8 +251,8 @@ PROGRAMLISTING(⟦common_code⟧, ⟦
 …
 define(…)
 …
-divert(0)dnl
-…⟧
+divert(0)⟧dnl
+…
 ⟧)dnl PROGRAMLISTING
 
 NOTE(, defn(⟦WORD_NOTE⟧), ⟦⟦
@@ -297,10 +297,10 @@ Note the LINK(⟦almost perfect symbiosis⟧, ⟦cpp_and_m4⟧) with the C⟦⟧
 ITEMIZEDLIST_WRAP(⟦
 
 LISTITEM(⟦⟦
-direktivy ABBREV(⟦CPP⟧, ⟦Preprocesor jazyka C⟧) CODE(⟦#define⟧), CODE(⟦#include⟧), CODE(⟦#ifdef⟧), … jsou pro M4 komentáře
+direktivy ABBREV(⟦CPP⟧, ⟦Preprocesor jazyka C⟧) XCODE(⟦#define⟧), XCODE(⟦#include⟧), XCODE(⟦#ifdef⟧), … jsou pro M4 komentáře
 ⟧,dnl _next_language_
 ⟦
-ABBREV(⟦CPP⟧, ⟦C preprocessor⟧) directives CODE(⟦#define⟧), CODE(⟦#include⟧), CODE(⟦#ifdef⟧), … are comments for M4
+ABBREV(⟦CPP⟧, ⟦C preprocessor⟧) directives XCODE(⟦#define⟧), XCODE(⟦#include⟧), XCODE(⟦#ifdef⟧), … are comments for M4
 ⟧⟧)
 # LI(⟦této vlastnosti využívají LINK(⟦bezpečnější makra⟧, ⟦safer_macros⟧) definovaná uživatelem⟧)
 # LI(⟦this feature uses LINK(⟦safer user-defined macros⟧, ⟦safer_macros⟧)⟧)
@@ -317,28 +317,28 @@ UL(⟦LI(⟦for example, M4 ignores CODE(⟦void define (char c, int i) {…}⟧
 LISTITEM(⟦⟦
 argumenty maker oddělují čárky stejně jako argumenty funkcí jazyka⟦⟧NB()C
 UL(⟦LI(⟦je-li definováno makro CODE(⟦FUNC(char c, int i)⟧), jeho proměnné jsou:
-XCODE(⟦$⟦#⟧ → 2⟧), XCODE(⟦$⟦0⟧ → FUNC⟧), XCODE(⟦$⟦1⟧ → char c⟧), XCODE(⟦$⟦2⟧ → int i⟧)⟧)⟧)
+XCODE(⟦⟦$⟧# → 2⟧), XCODE(⟦⟦$⟧0 → FUNC⟧), XCODE(⟦⟦$⟧1 → char c⟧), XCODE(⟦⟦$⟧2 → int i⟧)⟧)⟧)
 ⟧,dnl _next_language_
 ⟦
 macro arguments separate commas just like commas in C⟦⟧NB()functions
 UL(⟦LI(⟦if the CODE(⟦FUNC(char c, int i)⟧) macro is defined, its variables are:
-XCODE(⟦$⟦#⟧ → 2⟧), XCODE(⟦$⟦0⟧ → FUNC⟧), XCODE(⟦$⟦1⟧ → char c⟧), XCODE(⟦$⟦2⟧ → int i⟧)⟧)⟧)
+XCODE(⟦⟦$⟧# → 2⟧), XCODE(⟦⟦$⟧0 → FUNC⟧), XCODE(⟦⟦$⟧1 → char c⟧), XCODE(⟦⟦$⟧2 → int i⟧)⟧)⟧)
 ⟧⟧)
 
 LISTITEM(⟦⟦
-BOLD(⟦levý⟧) LINK(⟦řídící znak⟧, ⟦expansion_control⟧) XCODE(⟦LQ()⟧) není součástí syntaxe rodiny jazyků⟦⟧NB()C
+BOLD(⟦levý⟧) LINK(⟦řídící znak⟧, ⟦expansion_control⟧) CODE(⟦`⟧) není součástí syntaxe rodiny jazyků⟦⟧NB()C
 ⟧,dnl _next_language_
 ⟦
-BOLD(⟦the left⟧) LINK(⟦control character⟧, ⟦expansion_control⟧) XCODE(⟦LQ()⟧) is not a⟦⟧NB()part of the C⟦⟧NB()family syntax
+BOLD(⟦the left⟧) LINK(⟦control character⟧, ⟦expansion_control⟧) CODE(⟦`⟧) is not a⟦⟧NB()part of the C⟦⟧NB()family syntax
 ⟧⟧)
 
 LISTITEM(⟦⟦
 BOLD(⟦pravý⟧) řídící znak CODE(⟦'⟧) nevadí, není-li součástí makra
-UL(⟦LI(⟦oba řídící znaky lze skrýt do uživatelských maker CODE(⟦LQ()⟧), CODE(⟦RQ()⟧)⟧)⟧)
+UL(⟦LI(⟦oba řídící znaky lze skrýt do uživatelských maker CODE(⟦LL()⟧), CODE(⟦RR()⟧)⟧)⟧)
 ⟧,dnl _next_language_
 ⟦
 BOLD(⟦the right⟧) control character CODE(⟦'⟧) does not matter if it is not part of the macro⟦⟧BR()
-UL(⟦LI(⟦both control characters can be hidden into user-defined macros CODE(⟦LQ()⟧), CODE(⟦RQ()⟧)⟧)⟧)
+UL(⟦LI(⟦both control characters can be hidden into user-defined macros CODE(⟦LL()⟧), CODE(⟦RR()⟧)⟧)⟧)
 ⟧⟧)
 
 LISTITEM(⟦⟦
@@ -475,12 +475,12 @@ The rules for rewriting HEXPLAIN(⟦are the same⟧, ⟦⟦⟦1⟧, ⟦all_conte
 ⟧⟧)
 
 PROGRAMLISTING(⟦rewriting_rules⟧, LANG(⟦přepisovací pravidla M4⟧, ⟦M4 rewriting rules⟧), ⟦
-⟦# A → β
-define(`⟧MM(⟦A⟧, d)⟦', `⟧MM(⟦β⟧, f)⟦')
+# A → β
+define⟦⟧(`MM(⟦A⟧, d)', `MM(⟦β⟧, f)')
 
 # A → ε
-define(`⟧MM(⟦A⟧, d)⟦')
-define(`⟧MM(⟦A⟧, d)⟦', `')⟧
+define⟦⟧(`MM(⟦A⟧, d)')
+define⟦⟧(`MM(⟦A⟧, d)', `')
 ⟧)dnl PROGRAMLISTING
 
 PARA(⟦⟦
@@ -495,11 +495,11 @@ This feature is crucial for the preprocessor mode.
 ⟧⟧)
 
 PROGRAMLISTING(⟦keywords_are_nonterminals⟧, LANG(⟦klíčová slova M4 jsou neterminály⟧, ⟦M4 keywords are nonterminals⟧), ⟦
-⟦divert(ℤ) → ε
-define(`A', `β') → ε
-ifelse(`', `', `yes', `no') → yes
-ifelse(`', `', `ifdef(`dnl', `1', `0')', `no') → ifdef(`dnl', `1', `0') → 1
-…⟧
+⟦divert⟧(ℤ) → ε
+define⟦⟧(`A', `β') → ε
+ifelse⟦⟧(`', `', `yes', `no') → yes
+ifelse⟦⟧(`', `', `ifdef⟦⟧(`dnl', `1', `0')', `no') → ifdef⟦⟧(`dnl', `1', `0') → 1
+…
 ⟧)dnl PROGRAMLISTING
 
 BRIDGEHEAD(⟦expansion_control⟧, ⟦
@@ -703,40 +703,40 @@ dnl _next_language_
 ⟧)
 
 PARA(⟦⟦
-Konfliktní znak XCODE(⟦LQ()⟧) ze vstupního zdrojového kódu je skryt do makra CODE(⟦`'LQ()⟧).
-Prázdný pár řídících znaků CODE(⟦`'⟧) před makrem CODE(⟦LQ()⟧) slouží jako LINK(⟦oddělovač symbolů⟧, ⟦symbols_in_brackets⟧).
-Při průchodu zdrojového kódu makro procesorem se makro CODE(⟦`'LQ()⟧) přepíše zpátky na původní znak XCODE(⟦LQ()⟧) a⟦⟧NB()prázdný pár CODE(⟦`'⟧) je odstraněn.
+Konfliktní znak CODE(⟦`⟧) ze vstupního zdrojového kódu je skryt do makra CODE(⟦`'LL()⟧).
+Prázdný pár řídících znaků CODE(⟦`'⟧) před makrem CODE(⟦LL()⟧) slouží jako LINK(⟦oddělovač symbolů⟧, ⟦symbols_in_brackets⟧).
+Při průchodu zdrojového kódu makro procesorem se makro CODE(⟦`'LL()⟧) přepíše zpátky na původní znak CODE(⟦`⟧) a⟦⟧NB()prázdný pár CODE(⟦`'⟧) je odstraněn.
 ⟧,dnl _next_language_
 ⟦
-The conflicting character XCODE(⟦LQ()⟧) from the input source code is hidden into a⟦⟧NB()macro CODE(⟦`'LQ()⟧).
+The conflicting character CODE(⟦`⟧) from the input source code is hidden into a⟦⟧NB()macro CODE(⟦`'LL()⟧).
 An empty pair of control characters CODE(⟦`'⟧) before the macro serves as a⟦⟧NB()LINK(⟦symbol separator⟧, ⟦symbols_in_brackets⟧).
-When the source code is passed through the macro processor, the CODE(⟦`'LQ()⟧) macro is rewritten back to the original XCODE(⟦LQ()⟧) character and the empty pair CODE(⟦`'⟧) is removed.
+When the source code is passed through the macro processor, the CODE(⟦`'LL()⟧) macro is rewritten back to the original CODE(⟦`⟧) character and the empty pair CODE(⟦`'⟧) is removed.
 ⟧⟧)
 
 define(⟦common_title_for_regex⟧, LANG(⟦M4 jako preprocesor s řídícími znaky⟧, ⟦M4 as preprocessor with control characters⟧))
 define(⟦common_title⟧, ⟦ ⟧LANG(⟦jinak⟧, ⟦differently⟧))
 
 CMDSYNOPSIS(, defn(⟦common_title_for_regex⟧)⟦: `'⟧, ⟦
-⟦sed 's/`/`'\''LQ()/g' any.src | m4 rootq.m4 leaf.m4 -⟧
+sed 's/`/`'\''⟦LL()⟧/g' any.src | m4 rootq.m4 leaf.m4 -
 ⟧)
 
 PARA(⟦⟦
-Vyskytují-li se ve vstupním kódu komentáře CODE(⟦#⟧) nebo CODE(⟦dnl⟧), je nutné je skrýt.
+Vyskytují-li se ve vstupním kódu komentáře XCODE(⟦#⟧) nebo XCODE(⟦dnl⟧), je nutné je skrýt.
 Znaky CODE(⟦`'⟧) LINK(⟦vypnou⟧, ⟦symbols_in_brackets⟧) původní význam komentářů a budou odebrány při průchodu makro procesorem.⟦⟧BR()
-Komentáře M4 CODE(⟦#⟧) a CODE(⟦dnl⟧) jsou skryty mezi výchozí znaky: CODE(⟦`#'⟧) CODE(⟦`dnl'⟧)
+Komentáře M4 XCODE(⟦#⟧) a XCODE(⟦dnl⟧) jsou skryty mezi výchozí znaky: XCODE(⟦`#'⟧) XCODE(⟦`dnl'⟧)
 ⟧,dnl _next_language_
 ⟦
-If there are CODE(⟦#⟧) or CODE(⟦dnl⟧) comments in the source code, they must be hidden first.
+If there are XCODE(⟦#⟧) or XCODE(⟦dnl⟧) comments in the source code, they must be hidden first.
 The characters CODE(⟦`'⟧) LINK(⟦turn off⟧, ⟦symbols_in_brackets⟧) original meaning and will be removed by the macro processor.⟦⟧BR()
-M4 CODE(⟦#⟧) and CODE(⟦dnl⟧) comments are hidden between default characters: CODE(⟦`#'⟧) CODE(⟦`dnl'⟧)
+M4 XCODE(⟦#⟧) and XCODE(⟦dnl⟧) comments are hidden between default characters: XCODE(⟦`#'⟧) XCODE(⟦`dnl'⟧)
 ⟧⟧)
 
 CMDSYNOPSIS(, defn(⟦common_title_for_regex⟧)⟦: `'⟧, ⟦
-⟦sed 's/`/`'\''LQ()/g;s/#\|\<dnl\>/`&'\''/g' any.src | m4 rootq.m4 leaf.m4 -⟧
+sed 's/`/`'\''⟦LL()⟧/g;s/#\|\<dnl\>/`&'\''/g' any.src | m4 rootq.m4 leaf.m4 -
 ⟧)
 
 CMDSYNOPSIS(, defn(⟦common_title_for_regex⟧, ⟦common_title⟧)⟦: `'⟧, ⟦
-⟦sed 's/`/`'\''LQ()/g;s/#/`#'\''/g;s/\<dnl\>/`dnl'\''/g' any.src | m4 …⟧
+sed 's/`/`'\''⟦LL()⟧/g;s/#/`#'\''/g;s/\<dnl\>/`dnl'\''/g' any.src | m4 …
 ⟧)
 
 
@@ -756,22 +756,22 @@ Everything else applies as for default characters CODE(⟦`'⟧).
 ⟧⟧)
 
 CMDSYNOPSIS(, defn(⟦common_title_for_regex⟧)⟦: []⟧, ⟦
-⟦sed 's/\[/[]LB()/g' any.src | m4 rootb.m4 leaf.m4 - | …⟧
+sed 's/\[/[]⟦LL()⟧/g' any.src | m4 rootb.m4 leaf.m4 - | …
 ⟧)
 
 PARA(⟦⟦
-Komentáře M4 CODE(⟦#⟧) a CODE(⟦dnl⟧) jsou skryty mezi závorkami: CODE(⟦[#]⟧) CODE(⟦[dnl]⟧)
+Komentáře M4 XCODE(⟦#⟧) a XCODE(⟦dnl⟧) jsou skryté mezi závorkami: XCODE(⟦[#]⟧) XCODE(⟦[dnl]⟧)
 ⟧,dnl _next_language_
 ⟦
-M4 CODE(⟦#⟧) and CODE(⟦dnl⟧) comments are hidden between parentheses: CODE(⟦[#]⟧) CODE(⟦[dnl]⟧)
+M4 XCODE(⟦#⟧) and XCODE(⟦dnl⟧) comments are hidden between parentheses: XCODE(⟦[#]⟧) XCODE(⟦[dnl]⟧)
 ⟧⟧)
 
 CMDSYNOPSIS(, defn(⟦common_title_for_regex⟧)⟦: []⟧, ⟦
-⟦sed 's/\[/[]LB()/g;s/#\|\<dnl\>/[&]/g' any.src | m4 rootb.m4 leaf.m4 - | …⟧
+sed 's/\[/[]⟦LL()⟧/g;s/#\|\<dnl\>/[&]/g' any.src | m4 rootb.m4 leaf.m4 - | …
 ⟧)
 
 CMDSYNOPSIS(, defn(⟦common_title_for_regex⟧, ⟦common_title⟧)⟦: []⟧, ⟦
-⟦sed 's/\[/[]LB()/g;s/#/[#]/g;s/\<dnl\>/[dnl]/g' any.src | m4 rootb.m4 …⟧
+sed 's/\[/[]⟦LL()⟧/g;s/#/[#]/g;s/\<dnl\>/[dnl]/g' any.src | m4 rootb.m4 …
 ⟧)
 
 
@@ -795,18 +795,18 @@ m4 rootn.m4 leaf.m4 any.src | gcc …
 ⟧)
 
 PARA(⟦⟦
-Komentáře M4 CODE(⟦#⟧) a CODE(⟦dnl⟧) jsou skryty mezi netisknutelné znaky: CODE(⟦␂#␆⟧) CODE(⟦␂dnl␆⟧)
+Komentáře M4 XCODE(⟦#⟧) a XCODE(⟦dnl⟧) jsou skryty mezi netisknutelné znaky: XCODE(⟦␂#␆⟧) XCODE(⟦␂dnl␆⟧)
 ⟧,dnl _next_language_
 ⟦
-M4 CODE(⟦#⟧) and CODE(⟦dnl⟧) comments are hidden between non printable characters: CODE(⟦␂#␆⟧) CODE(⟦␂dnl␆⟧)
+M4 XCODE(⟦#⟧) and XCODE(⟦dnl⟧) comments are hidden between non printable characters: XCODE(⟦␂#␆⟧) XCODE(⟦␂dnl␆⟧)
 ⟧⟧)
 
 CMDSYNOPSIS(, defn(⟦common_title_for_regex⟧)⟦: ␂␆⟧, ⟦
-⟦sed 's/#\|\<dnl\>/␂&␆/g' any.src | m4 rootn.m4 leaf.m4 - | gcc …⟧
+sed 's/#\|\<dnl\>/␂&␆/g' any.src | m4 rootn.m4 leaf.m4 - | gcc …
 ⟧)
 
 CMDSYNOPSIS(, defn(⟦common_title_for_regex⟧, ⟦common_title⟧)⟦: ␂␆⟧, ⟦
-⟦sed 's/#/␂#␆/g;s/\<dnl\>/␂dnl␆/g' any.src | m4 rootn.m4 leaf.m4 - | gcc …⟧
+sed 's/#/␂#␆/g;s/\<dnl\>/␂dnl␆/g' any.src | m4 rootn.m4 leaf.m4 - | gcc …
 ⟧)
 
 
@@ -818,12 +818,12 @@ dnl _next_language_
 
 PARA(⟦⟦
 Expanzi neterminálů může také řídit vhodně zvolený pár UTF-8 znaků.
-Běžný zdrojový kód takové znaky neobsahuje, proto nemusíme řešit kolizi levého XCODE(⟦LL()⟧) znaku.
+Běžný zdrojový kód takové znaky neobsahuje, proto nemusíme řešit kolizi levého řídícího XCODE(⟦LL()⟧) znaku.
 UTF-8 znaky nabízí podobné výhody jako netisknutelné znaky.
 ⟧,dnl _next_language_
 ⟦
 Expansion of nonterminals can also be controlled by a suitably selected UTF-8 character pair.
-The usual source code does not contain such characters, so we do not have to solve the collision of the left XCODE(⟦LL()⟧) bracket.
+The usual source code does not contain such characters, so we do not have to solve the collision of the left control XCODE(⟦LL()⟧) character.
 UTF-8 characters offer similar advantages to non printable characters.
 ⟧⟧)
 
@@ -832,18 +832,18 @@ m4 rootu.m4 leaf.m4 any.src | gcc …
 ⟧)
 
 PARA(⟦⟦
-Komentáře M4 CODE(⟦#⟧) a CODE(⟦dnl⟧) jsou skryty mezi UTF-8 znaky: CODE(⟦⟦#⟧⟧) CODE(⟦⟦dnl⟧⟧)
+Komentáře M4 XCODE(⟦#⟧) a XCODE(⟦dnl⟧) jsou skryty mezi UTF-8 znaky: XCODE(⟦⟦#⟧⟧) XCODE(⟦⟦dnl⟧⟧)
 ⟧,dnl _next_language_
 ⟦
-M4 CODE(⟦#⟧) and CODE(⟦dnl⟧) comments are hidden between UTF-8 characters: CODE(⟦⟦#⟧⟧) CODE(⟦⟦dnl⟧⟧)
+M4 XCODE(⟦#⟧) and XCODE(⟦dnl⟧) comments are hidden between UTF-8 characters: XCODE(⟦⟦#⟧⟧) XCODE(⟦⟦dnl⟧⟧)
 ⟧⟧)
 
 CMDSYNOPSIS(, defn(⟦common_title_for_regex⟧)⟦: ⟦⟧⟧, ⟦
-⟦sed 's/#\|\<dnl\>/⟦&⟧/g' any.src | m4 rootu.m4 leaf.m4 - | gcc …⟧
+sed 's/#\|\<dnl\>/⟦⟦&⟧⟧/g' any.src | m4 rootu.m4 leaf.m4 - | gcc …
 ⟧)
 
 CMDSYNOPSIS(, defn(⟦common_title_for_regex⟧, ⟦common_title⟧)⟦: ⟦⟧⟧, ⟦
-⟦sed 's/#/⟦#⟧/g;s/\<dnl\>/⟦dnl⟧/g' any.src | m4 rootu.m4 leaf.m4 - | gcc …⟧
+sed 's/#/⟦#⟧/g;s/\<dnl\>/⟦dnl⟧/g' any.src | m4 rootu.m4 leaf.m4 - | gcc …
 ⟧)
 
 undefine(⟦common_title_for_regex⟧, ⟦common_title⟧)
@@ -888,13 +888,13 @@ PARA(⟦⟦
 Pro úspěšné zvládnutí tohoto makro jazyka je důležité splnit několik předpokladů.
 M4 není jednoduchý jazyk, protože není možné v⟦⟧NB()něm myslet a⟦⟧NB()programovat jako v⟦⟧NB()běžném programovacím jazyce.
 Nejdůležitější je uvědomit si, že se v⟦⟧NB()něm programují přepisovací pravidla gramatiky.
-Každý řetězec je buď terminální nebo neterminální symbol včetně všech klíčových slov jazyka (symboly CODE(⟦#⟧) a⟦⟧NB()CODE(⟦,⟧) jsou speciální případy neterminálů).
+Každý řetězec je buď terminální nebo neterminální symbol včetně všech klíčových slov jazyka (symboly XCODE(⟦#⟧) a⟦⟧NB()CODE(⟦,⟧) jsou speciální případy neterminálů).
 ⟧,dnl _next_language_
 ⟦
 To successfully master this macro language it is important to fulfill several prerequisites.
 M4 is not a⟦⟧NB()simple language because it is not possible to think and program in it like an ordinary programming language.
 The most important thing to realize is that it is used to program the grammar rules for rewriting.
-Each string is either a⟦⟧NB()terminal or a⟦⟧NB()nonterminal symbol, including all language keywords (the symbols CODE(⟦#⟧) and CODE(⟦,⟧) are special cases of nonterminals).
+Each string is either a⟦⟧NB()terminal or a⟦⟧NB()nonterminal symbol, including all language keywords (the symbols XCODE(⟦#⟧) and CODE(⟦,⟧) are special cases of nonterminals).
 ⟧⟧)
 
 NOTE_WRAP(, defn(⟦WORD_NOTE⟧), ⟦
@@ -1035,8 +1035,8 @@ PROGRAMLISTING(, ⟦ASCII art ⟧LANG(⟦jako dokumentace M4 kódu⟧, ⟦for M4
 #      ___V__/   0    ____
 # --->// S1 \\------>/ S2 \---.1
 #     \\____//<------\____/<--'
-⟦#⟧                0
-⟧)dnl PROGRAMLISTING note: The symbols ⟦#⟧ or ⟦dnl⟧ on the last line must be in brackets!
+#                0
+⟧)dnl PROGRAMLISTING
 
 BRIDGEHEAD(⟦generating_automaton⟧, ⟦
 ⟦Generující automat⟧,
@@ -1054,10 +1054,10 @@ See the appendix for LINK(⟦this generating automaton⟧, ⟦json_generating_au
 ⟧⟧)
 
 PROGRAMLISTING(, ⟦ASCII art ⟧LANG(⟦generujícího automatu⟧, ⟦of generating automaton⟧), ⟦
-⟦#⟧      _______      ___________
-⟦#⟧ --->/ ERROR \--->/ NEXT_ITEM \---.
-⟦#⟧     \_______/    \___________/<--'
-⟧)dnl PROGRAMLISTING note: The symbols ⟦#⟧ or ⟦dnl⟧ on the last line must be in brackets!
+#      _______      ___________
+# --->/ ERROR \--->/ NEXT_ITEM \---.
+#     \_______/    \___________/<--'
+⟧)dnl PROGRAMLISTING
 
 _PARA(⟦⟦
 První symbol ve stavu CODE(⟦ERROR⟧) vygeneruje záhlaví se závorkami a⟦⟧NB()vloží první položku.
@@ -1177,10 +1177,10 @@ The input source code contains special characters that must be hidden:
 TEXTDATA(⟦messages/messages_raw.mc⟧,, ⟦s/\<ERROR\>/MM(r)/g⟧)
 
 NOTE(, defn(⟦WORD_NOTE⟧), ⟦⟦
-Vstupní soubor může také obsahovat poznámky, které nemusí být skryté v⟦⟧NB()komentářích CODE(⟦#⟧), CODE(⟦dnl⟧), CODE(⟦ifelse([…])⟧) nebo CODE(⟦[… někde uvnitř závorek …]⟧).
+Vstupní soubor může také obsahovat poznámky, které nemusí být skryté v⟦⟧NB()komentářích XCODE(⟦#⟧), XCODE(⟦dnl⟧), CODE(⟦ifelse([…])⟧) nebo CODE(⟦[… někde uvnitř závorek …]⟧).
 ⟧,dnl _next_language_
 ⟦
-The input file may also contain notes that may not be hidden in the comments CODE(⟦#⟧), CODE(⟦dnl⟧), CODE(⟦ifelse([…])⟧) or CODE(⟦[… somewhere inside brackets …]⟧).
+The input file may also contain notes that may not be hidden in the comments XCODE(⟦#⟧), XCODE(⟦dnl⟧), CODE(⟦ifelse([…])⟧) or CODE(⟦[… somewhere inside brackets …]⟧).
 ⟧⟧)
 
 
@@ -1211,13 +1211,13 @@ dnl _next_language_
 PARA(⟦⟦
 Příklad používá makro HCODE(⟦COUNT_UP⟧, ⟦⟦⟦A⟧, ⟦messages/counter.csv.m4⟧⟧⟧) ze souboru CODE(⟦countb.m4⟧), jehož ABBREV(⟦CODE(⟦β⟧)⟧, ⟦pravá strana přepisovacího pravidla⟧) se zkopíruje do pravé strany makra HCODE(⟦COUNTER⟧, ⟦⟦⟦2⟧, ⟦messages/counter.csv.m4⟧⟧⟧).
 Během první expanze HCODE(⟦COUNTER⟧, ⟦⟦⟦5⟧, ⟦messages/counter.csv.m4⟧⟧⟧) proběhne inicializace jeho startovací hodnoty.
-HEXPLAIN(⟦Další expanze⟧, ⟦⟦⟦B⟧, ⟦messages/counter.csv.m4⟧⟧⟧) vrátí číselný terminální symbol a⟦⟧NB()proběhne zvýšení vnitřního pomocného (globálního) symbolu o⟦⟧NB()jedničku.
+HEXPLAIN(⟦Další expanze⟧, ⟦⟦⟦B⟧, ⟦messages/counter.csv.m4⟧⟧⟧) vrátí HEXPLAIN(⟦číselný terminální symbol⟧, ⟦⟦⟦A⟧, ⟦messages/counter.csv⟧⟧⟧) a⟦⟧NB()proběhne zvýšení vnitřního pomocného (globálního) symbolu o⟦⟧NB()jedničku.
 CODE(⟦COUNTER⟧) je malý automat.
 ⟧,dnl _next_language_
 ⟦
 The example uses the HCODE(⟦COUNT_UP⟧, ⟦⟦⟦A⟧, ⟦messages/counter.csv.m4⟧⟧⟧) macro from the CODE(⟦countb.m4⟧) file whose ABBREV(⟦CODE(⟦β⟧)⟧, ⟦the right side of the rewriting rule⟧) is copied to the right side of the HCODE(⟦COUNTER⟧, ⟦⟦⟦2⟧, ⟦messages/counter.csv.m4⟧⟧⟧) macro.
 During the first expansion of HCODE(⟦COUNTER⟧, ⟦⟦⟦5⟧, ⟦messages/counter.csv.m4⟧⟧⟧) its initial value is initialized.
-HEXPLAIN(⟦Further expansion⟧, ⟦⟦⟦B⟧, ⟦messages/counter.csv.m4⟧⟧⟧) returns the numeric terminal symbol and increases the inner auxiliary (global) symbol by one.
+HEXPLAIN(⟦Further expansion⟧, ⟦⟦⟦B⟧, ⟦messages/counter.csv.m4⟧⟧⟧) returns HEXPLAIN(⟦the numeric terminal symbol⟧, ⟦⟦⟦A⟧, ⟦messages/counter.csv⟧⟧⟧) and increases the inner auxiliary (global) symbol by one.
 CODE(⟦COUNTER⟧) is a⟦⟧NB()small automaton.
 ⟧⟧)
 
@@ -1226,7 +1226,9 @@ s/\<COUNT_UP\>/MM(a)/
 /\<ERR_\>/s/\<COUNTER\>/MM(b)/
 ⟧)
 EXECUTED(⟦m4⟧, ⟦gfiles/root0u.m4⟧, ⟦gfiles/countb.m4⟧, ⟦messages/counter.csv.m4⟧, ⟦messages/messages_raw.mc⟧, ⟦messages/counter.csv⟧)
-TEXTDATA(⟦messages/counter.csv⟧)
+TEXTDATA(⟦messages/counter.csv⟧,, ⟦
+/^ERR_/s/[[:digit:]]\+/MM(a)/
+⟧)
 
 
 SECT1(⟦
@@ -1361,12 +1363,12 @@ dnl _next_language_
 
 PARA(⟦⟦
 Příklad používá makro HCODE(⟦COUNTER⟧, ⟦⟦⟦A, 2⟧, ⟦messages/messages.h.m4⟧⟧⟧) pro číslování výsledných ABBREV(⟦CPP⟧, ⟦Preprocesor jazyka C⟧) HEXPLAIN(⟦maker⟧, ⟦⟦⟦11⟧, ⟦messages/messages.h.m4⟧⟧, ⟦⟦8-10⟧, ⟦messages/messages.h⟧⟧⟧) a⟦⟧NB()jednu výstupní frontu.
-Fronta číslo HCODE(⟦1⟧, ⟦⟦⟦23⟧, ⟦messages/messages.h.m4⟧⟧⟧) obsahuje direktivu preprocesoru HCODE(⟦#endif⟧, ⟦⟦⟦24⟧, ⟦messages/messages.h.m4⟧⟧, ⟦⟦12⟧, ⟦messages/messages.h⟧⟧⟧) pro zakončení hlavičkového souboru.
+Fronta číslo HCODE(⟦1⟧, ⟦⟦⟦23⟧, ⟦messages/messages.h.m4⟧⟧⟧) obsahuje direktivu preprocesoru HXCODE(⟦#endif⟧, ⟦⟦⟦24⟧, ⟦messages/messages.h.m4⟧⟧, ⟦⟦12⟧, ⟦messages/messages.h⟧⟧⟧) pro zakončení hlavičkového souboru.
 Převod dekadické hodnoty počítadla na HEXPLAIN(⟦dvoumístné hex-a číslo⟧, ⟦⟦⟦B⟧, ⟦messages/messages.h.m4⟧⟧⟧) provádí klíčové slovo HCODE(⟦eval()⟧, ⟦⟦⟦C⟧, ⟦messages/messages.h.m4⟧⟧⟧).
 ⟧,dnl _next_language_
 ⟦
 The example uses the HCODE(⟦COUNTER⟧, ⟦⟦⟦A, 2⟧, ⟦messages/messages.h.m4⟧⟧⟧) macro to number the resulting ABBREV(⟦CPP⟧, ⟦C preprocessor⟧) HEXPLAIN(⟦macros⟧, ⟦⟦⟦11⟧, ⟦messages/messages.h.m4⟧⟧, ⟦⟦8-10⟧, ⟦messages/messages.h⟧⟧⟧) and one output queue.
-The queue number HCODE(⟦1⟧, ⟦⟦⟦23⟧, ⟦messages/messages.h.m4⟧⟧⟧) contains the preprocessor directive HCODE(⟦#endif⟧, ⟦⟦⟦24⟧, ⟦messages/messages.h.m4⟧⟧, ⟦⟦12⟧, ⟦messages/messages.h⟧⟧⟧) to terminate the header file.
+The queue number HCODE(⟦1⟧, ⟦⟦⟦23⟧, ⟦messages/messages.h.m4⟧⟧⟧) contains the preprocessor directive HXCODE(⟦#endif⟧, ⟦⟦⟦24⟧, ⟦messages/messages.h.m4⟧⟧, ⟦⟦12⟧, ⟦messages/messages.h⟧⟧⟧) to terminate the header file.
 The decimal value of the counter is converted to the HEXPLAIN(⟦two-digit hex⟧, ⟦⟦⟦B⟧, ⟦messages/messages.h.m4⟧⟧⟧) by keyword HCODE(⟦eval()⟧, ⟦⟦⟦C⟧, ⟦messages/messages.h.m4⟧⟧⟧).
 ⟧⟧)
 
@@ -1486,21 +1488,21 @@ dnl _next_language_
 ⟧)
 
 PARA(⟦⟦
-Proměnná HXCODE(⟦$⟦0⟧⟧, ⟦⟦⟦A⟧, ⟦nonterminals_for_branches⟧⟧⟧) se nahradí za HEXPLAIN(⟦jméno makra⟧, ⟦⟦⟦B⟧, ⟦nonterminals_for_branches⟧⟧⟧) a⟦⟧NB()HEXPLAIN(⟦zřetězí se s⟦⟧NB()dalším symbolem⟧, ⟦⟦⟦C⟧, ⟦nonterminals_for_branches⟧⟧⟧).
+Proměnná HXCODE(⟦⟦$⟧0⟧, ⟦⟦⟦A⟧, ⟦nonterminals_for_branches⟧⟧⟧) se nahradí za HEXPLAIN(⟦jméno makra⟧, ⟦⟦⟦B⟧, ⟦nonterminals_for_branches⟧⟧⟧) a⟦⟧NB()HEXPLAIN(⟦zřetězí se s⟦⟧NB()dalším symbolem⟧, ⟦⟦⟦C⟧, ⟦nonterminals_for_branches⟧⟧⟧).
 HEXPLAIN(⟦Nově vzniklý neterminál⟧, ⟦⟦⟦B, C⟧, ⟦nonterminals_for_branches⟧⟧⟧) se přepíše na odpovídající HEXPLAIN(⟦terminální symbol⟧, ⟦⟦⟦D⟧, ⟦nonterminals_for_branches⟧⟧⟧) (číslo fronty nebo jméno).
 ⟧,dnl _next_language_
 ⟦
-The HXCODE(⟦$⟦0⟧⟧, ⟦⟦⟦A⟧, ⟦nonterminals_for_branches⟧⟧⟧) variable is replaced by HEXPLAIN(⟦the name of the macro⟧, ⟦⟦⟦B⟧, ⟦nonterminals_for_branches⟧⟧⟧) and HEXPLAIN(⟦concatenated with another symbol⟧, ⟦⟦⟦C⟧, ⟦nonterminals_for_branches⟧⟧⟧).
+The HXCODE(⟦⟦$⟧0⟧, ⟦⟦⟦A⟧, ⟦nonterminals_for_branches⟧⟧⟧) variable is replaced by HEXPLAIN(⟦the name of the macro⟧, ⟦⟦⟦B⟧, ⟦nonterminals_for_branches⟧⟧⟧) and HEXPLAIN(⟦concatenated with another symbol⟧, ⟦⟦⟦C⟧, ⟦nonterminals_for_branches⟧⟧⟧).
 HEXPLAIN(⟦The newly formed nonterminal⟧, ⟦⟦⟦B, C⟧, ⟦nonterminals_for_branches⟧⟧⟧) is rewritten to the corresponding HEXPLAIN(⟦terminal symbol⟧, ⟦⟦⟦D⟧, ⟦nonterminals_for_branches⟧⟧⟧) (queue number or name).
 ⟧⟧)
 
 PROGRAMLISTING(⟦nonterminals_for_branches⟧, LANG(⟦větvení gramatikou v M4⟧, ⟦grammar branching in M4⟧), ⟦
-MM(⟦$⟦0⟧⟧, a)_QU → MM(⟦ERROR⟧, b)⟦⟧MM(⟦_QU⟧, c) → MM(⟦2⟧, d)
-MM(⟦$⟦0⟧⟧, a)_END → MM(⟦ERROR⟧, b)⟦⟧MM(⟦_END⟧, c) → MM(⟦3⟧, d)
-MM(⟦$⟦0⟧⟧, a)_NAME → MM(⟦ERROR⟧, b)⟦⟧MM(⟦_NAME⟧, c) → MM(⟦error⟧, d)
-MM(⟦$⟦0⟧⟧, a)_QU → MM(⟦QUERY⟧, b)⟦⟧MM(⟦_QU⟧, c) → MM(⟦0⟧, d)
-MM(⟦$⟦0⟧⟧, a)_END → MM(⟦QUERY⟧, b)⟦⟧MM(⟦_END⟧, c) → MM(⟦1⟧, d)
-MM(⟦$⟦0⟧⟧, a)_NAME → MM(⟦QUERY⟧, b)⟦⟧MM(⟦_NAME⟧, c) → MM(⟦query⟧, d)
+MM(⟦⟦$⟧0⟧, a)_QU → MM(⟦ERROR⟧, b)⟦⟧MM(⟦_QU⟧, c) → MM(⟦2⟧, d)
+MM(⟦⟦$⟧0⟧, a)_END → MM(⟦ERROR⟧, b)⟦⟧MM(⟦_END⟧, c) → MM(⟦3⟧, d)
+MM(⟦⟦$⟧0⟧, a)_NAME → MM(⟦ERROR⟧, b)⟦⟧MM(⟦_NAME⟧, c) → MM(⟦error⟧, d)
+MM(⟦⟦$⟧0⟧, a)_QU → MM(⟦QUERY⟧, b)⟦⟧MM(⟦_QU⟧, c) → MM(⟦0⟧, d)
+MM(⟦⟦$⟧0⟧, a)_END → MM(⟦QUERY⟧, b)⟦⟧MM(⟦_END⟧, c) → MM(⟦1⟧, d)
+MM(⟦⟦$⟧0⟧, a)_NAME → MM(⟦QUERY⟧, b)⟦⟧MM(⟦_NAME⟧, c) → MM(⟦query⟧, d)
 …
 ⟧)dnl PROGRAMLISTING
 
@@ -1678,23 +1680,23 @@ PARA(⟦⟦
 Direktivy ULINK(⟦CPP⟧, ⟦Preprocesor jazyka C⟧, ⟦https://cs.wikipedia.org/wiki/Preprocesor_jazyka_C⟧) jsou pro M4 jednořádkový komentář, což brání nežádoucí expanzi stejně pojmenovaných maker.
 Definujeme-li bezpečnější makro HCODE(⟦SAF()⟧, ⟦⟦⟦5⟧, ⟦preproc/file.c.m4⟧⟧, ⟦⟦12⟧, ⟦preproc/file.c⟧⟧⟧), stejně pojmenované makro HCODE(⟦SAF ()⟧, ⟦⟦⟦8, 11⟧, ⟦preproc/file.c⟧⟧⟧) nebude přepsáno.
 Jmenný prostor ABBREV(⟦CPP⟧, ⟦Preprocesor jazyka C⟧) tak BOLD(⟦může⟧) být zcela oddělen od jmenného prostoru M4.
-Problematický znak XCODE(⟦LQ()⟧) je skryt do makra HCODE(⟦LQ()⟧, ⟦⟦⟦24⟧, ⟦preproc/file.c⟧⟧⟧).
+Problematický znak XCODE(⟦`⟧) je skryt do makra HCODE(⟦LL()⟧, ⟦⟦⟦24⟧, ⟦preproc/file.c⟧⟧⟧).
 Apostrof HCODE(⟦'⟧, ⟦⟦⟦A⟧, ⟦preproc/file.c⟧⟧, ⟦⟦A⟧, ⟦preproc/preproc.file.c⟧⟧⟧) ve zdrojovém kódu ničemu nevadí.
-Apostrof uvnitř makra HXCODE(⟦ORD⟦⟧STRIKETHROUGH(⟦SPAN(⟦()⟧,,, ⟦color:rgba(0,0,0,.75)⟧)⟧,,, ⟦color:red⟧)⟧, ⟦⟦⟦4⟧, ⟦preproc/file.c.m4⟧⟧, ⟦⟦B⟧, ⟦preproc/file.c⟧⟧⟧) je skryt do makra HCODE(⟦RQ()⟧, ⟦⟦⟦A⟧, ⟦preproc/file.c.m4⟧⟧⟧).
+Apostrof uvnitř makra HXCODE(⟦ORD⟦⟧STRIKETHROUGH(⟦SPAN(⟦()⟧,,, ⟦color:rgba(0,0,0,.75)⟧)⟧,,, ⟦color:red⟧)⟧, ⟦⟦⟦4⟧, ⟦preproc/file.c.m4⟧⟧, ⟦⟦B⟧, ⟦preproc/file.c⟧⟧⟧) je skryt do makra HCODE(⟦RR()⟧, ⟦⟦⟦A⟧, ⟦preproc/file.c.m4⟧⟧⟧).
 Všimněte si jmen funkcí HCODE(⟦define ()⟧, ⟦⟦⟦17, 27⟧, ⟦preproc/file.c⟧⟧, ⟦⟦17, 27⟧, ⟦preproc/preproc.file.c⟧⟧⟧) nebo HCODE(⟦ifelse ()⟧, ⟦⟦⟦18, 28⟧, ⟦preproc/file.c⟧⟧, ⟦⟦18, 28⟧, ⟦preproc/preproc.file.c⟧⟧⟧) a⟦⟧NB()kde je expandován HCODE(⟦SYMBOL⟧, ⟦⟦⟦C⟧, ⟦preproc/file.c⟧⟧, ⟦⟦C⟧, ⟦preproc/preproc.file.c⟧⟧, ⟦⟦C⟧, ⟦preproc/file.c.m4⟧⟧⟧).
 ⟧,dnl _next_language_
 ⟦
 The ULINK(⟦CPP⟧, ⟦C preprocessor⟧, ⟦https://en.wikipedia.org/wiki/C_preprocessor⟧) directives are a⟦⟧NB()one-line comment for M4 preventing unwanted expansion of the same named macros.
 If we define a⟦⟧NB()safer HCODE(⟦SAF()⟧, ⟦⟦⟦5⟧, ⟦preproc/file.c.m4⟧⟧, ⟦⟦12⟧, ⟦preproc/file.c⟧⟧⟧) macro, the similar HCODE(⟦SAF ()⟧, ⟦⟦⟦8, 11⟧, ⟦preproc/file.c⟧⟧⟧) macro will not be overwritten.
 Thus, the ABBREV(⟦CPP⟧, ⟦C preprocessor⟧) namespace BOLD(⟦can be⟧) completely separated from the M4 namespace.
-The problematic (backquote) character XCODE(⟦LQ()⟧) is hidden in the HCODE(⟦LQ()⟧, ⟦⟦⟦24⟧, ⟦preproc/file.c⟧⟧⟧) macro.
+The problematic (backquote) character XCODE(⟦`⟧) is hidden in the HCODE(⟦LL()⟧, ⟦⟦⟦24⟧, ⟦preproc/file.c⟧⟧⟧) macro.
 The apostrophe HCODE(⟦'⟧, ⟦⟦⟦A⟧, ⟦preproc/file.c⟧⟧, ⟦⟦A⟧, ⟦preproc/preproc.file.c⟧⟧⟧) does not matter in the source code.
-Apostrophe inside HXCODE(⟦ORD⟦⟧STRIKETHROUGH(⟦SPAN(⟦()⟧,,, ⟦color:rgba(0,0,0,.75)⟧)⟧,,, ⟦color:red⟧)⟧, ⟦⟦⟦4⟧, ⟦preproc/file.c.m4⟧⟧, ⟦⟦B⟧, ⟦preproc/file.c⟧⟧⟧) macro is hidden in HCODE(⟦RQ()⟧, ⟦⟦⟦A⟧, ⟦preproc/file.c.m4⟧⟧⟧) macro.
+Apostrophe inside HXCODE(⟦ORD⟦⟧STRIKETHROUGH(⟦SPAN(⟦()⟧,,, ⟦color:rgba(0,0,0,.75)⟧)⟧,,, ⟦color:red⟧)⟧, ⟦⟦⟦4⟧, ⟦preproc/file.c.m4⟧⟧, ⟦⟦B⟧, ⟦preproc/file.c⟧⟧⟧) macro is hidden in HCODE(⟦RR()⟧, ⟦⟦⟦A⟧, ⟦preproc/file.c.m4⟧⟧⟧) macro.
 Note the HCODE(⟦define ()⟧, ⟦⟦⟦17, 27⟧, ⟦preproc/file.c⟧⟧, ⟦⟦17, 27⟧, ⟦preproc/preproc.file.c⟧⟧⟧) or HCODE(⟦ifelse ()⟧, ⟦⟦⟦18, 28⟧, ⟦preproc/file.c⟧⟧, ⟦⟦18, 28⟧, ⟦preproc/preproc.file.c⟧⟧⟧) function names and where the HCODE(⟦SYMBOL⟧, ⟦⟦⟦C⟧, ⟦preproc/file.c⟧⟧, ⟦⟦C⟧, ⟦preproc/preproc.file.c⟧⟧, ⟦⟦C⟧, ⟦preproc/file.c.m4⟧⟧⟧) is expanded.
 ⟧⟧)
 
 TEXTDATA(⟦preproc/file.c.m4⟧,, ⟦
-s/\<RQ()/MM(a)/g
+s/\<RR()/MM(a)/g
 s/\<SYMBOL\>/MM(c)/g
 ⟧)
 TEXTDATA(⟦preproc/file.c⟧,, ⟦
@@ -1716,12 +1718,12 @@ dnl _next_language_
 ⟧)
 
 PARA(⟦⟦
-CSS používá znak HCODE(⟦#⟧, ⟦⟦⟦A⟧, ⟦preproc/file.css.m4⟧⟧, ⟦⟦A⟧, ⟦preproc/preproc.file.css⟧⟧⟧) pro kódy barev, což je také začátek jednořádkového M4 komentáře.
+CSS používá znak HXCODE(⟦#⟧, ⟦⟦⟦A⟧, ⟦preproc/file.css.m4⟧⟧, ⟦⟦A⟧, ⟦preproc/preproc.file.css⟧⟧⟧) pro kódy barev, což je také začátek jednořádkového M4 komentáře.
 Klíčové slovo HCODE(⟦changecom(/*,*/)⟧, ⟦⟦⟦A⟧, ⟦preproc/file.css⟧⟧⟧) nastaví víceřádkový komentář HCODE(⟦/* … */⟧, ⟦⟦⟦B⟧, ⟦preproc/preproc.file.css⟧⟧, ⟦⟦C⟧, ⟦preproc/file.css⟧⟧⟧) a⟦⟧NB()přepíše se na ABBREV(⟦CODE(⟦ε⟧)⟧, ⟦epsilon – prázdný symbol⟧).
 Komentáře se vypínají stejným klíčovým slovem HCODE(⟦changecom⟧, ⟦⟦⟦B⟧, ⟦preproc/file.css⟧⟧⟧) bez parametrů.
 ⟧,dnl _next_language_
 ⟦
-CSS uses the HCODE(⟦#⟧, ⟦⟦⟦A⟧, ⟦preproc/file.css.m4⟧⟧, ⟦⟦A⟧, ⟦preproc/preproc.file.css⟧⟧⟧) character for color codes, which is also the beginning of a⟦⟧NB()one-line M4 comment.
+CSS uses the HXCODE(⟦#⟧, ⟦⟦⟦A⟧, ⟦preproc/file.css.m4⟧⟧, ⟦⟦A⟧, ⟦preproc/preproc.file.css⟧⟧⟧) character for color codes, which is also the beginning of a⟦⟧NB()one-line M4 comment.
 The HCODE(⟦changecom(/*,*/)⟧, ⟦⟦⟦A⟧, ⟦preproc/file.css⟧⟧⟧) keyword sets a⟦⟧NB()multiline HCODE(⟦/* … */⟧, ⟦⟦⟦B⟧, ⟦preproc/preproc.file.css⟧⟧, ⟦⟦C⟧, ⟦preproc/file.css⟧⟧⟧) comment and rewrites itself into ABBREV(⟦CODE(⟦ε⟧)⟧, ⟦epsilon – empty symbol⟧).
 The comments can be turned off with the same HCODE(⟦changecom⟧, ⟦⟦⟦B⟧, ⟦preproc/file.css⟧⟧⟧) keyword without parameters.
 ⟧⟧)
@@ -1740,12 +1742,12 @@ dnl _next_language_
 ⟧)
 
 PARA(⟦⟦
-Bash používá oba znaky, XCODE(⟦LQ()⟧) a XCODE(⟦[⟧).
-Nechceme-li je skrývat do makra CODE(⟦LQ()⟧) nebo CODE(⟦LB()⟧), můžeme použít pro LINK(⟦řízení expanze neterminálů⟧, ⟦expansion_control⟧) HEXPLAIN(⟦netisknutelné znaky⟧, ⟦zobrazené jako UTF-8 znaky⟧, ⟦⟦⟦A⟧, ⟦preproc/file.sh.m4⟧⟧, ⟦⟦A⟧, ⟦preproc/file.sh⟧⟧⟧), viz. příklad:
+Bash používá oba znaky, CODE(⟦`⟧) a XCODE(⟦[⟧).
+Nechceme-li je skrývat do makra CODE(⟦LL()⟧), můžeme použít pro LINK(⟦řízení expanze neterminálů⟧, ⟦expansion_control⟧) HEXPLAIN(⟦netisknutelné znaky⟧, ⟦zobrazené jako UTF-8 znaky⟧, ⟦⟦⟦A⟧, ⟦preproc/file.sh.m4⟧⟧, ⟦⟦A⟧, ⟦preproc/file.sh⟧⟧⟧), viz. příklad:
 ⟧,dnl _next_language_
 ⟦
-Bash uses both XCODE(⟦LQ()⟧) and XCODE(⟦[⟧) characters.
-If we do not want to hide them either in an CODE(⟦LQ()⟧) or CODE(⟦LB()⟧) macro, we can use HEXPLAIN(⟦nonprintable characters⟧, ⟦displayed as UTF-8 characters⟧, ⟦⟦⟦A⟧, ⟦preproc/file.sh.m4⟧⟧, ⟦⟦A⟧, ⟦preproc/file.sh⟧⟧⟧) for LINK(⟦expansion control⟧, ⟦expansion_control⟧), see the example:
+Bash uses both CODE(⟦`⟧) and XCODE(⟦[⟧) characters.
+If we do not want to hide them in an CODE(⟦LL()⟧) macro, we can use HEXPLAIN(⟦nonprintable characters⟧, ⟦displayed as UTF-8 characters⟧, ⟦⟦⟦A⟧, ⟦preproc/file.sh.m4⟧⟧, ⟦⟦A⟧, ⟦preproc/file.sh⟧⟧⟧) for LINK(⟦expansion control⟧, ⟦expansion_control⟧), see the example:
 ⟧⟧)
 
 TEXTDATA(⟦preproc/file.sh.m4⟧,, ⟦s/[␂␆]/MM(a)/g⟧)
@@ -1769,11 +1771,11 @@ dnl _next_language_
 
 PARA(⟦⟦
 Uvnitř hranatých závorek CODE(⟦[… se neterminály neexpandují …]⟧).
-Proto je levá hranatá závorka XCODE(⟦[⟧) nahrazena makrem HCODE(⟦LB()⟧, ⟦⟦⟦6⟧, ⟦hello_world/json.m4⟧⟧, ⟦⟦3⟧, ⟦hello_world/hello_world.json⟧⟧⟧) z⟦⟧NB()kořenového souboru.
+Proto je levá hranatá závorka XCODE(⟦[⟧) nahrazena makrem HCODE(⟦LL()⟧, ⟦⟦⟦6⟧, ⟦hello_world/json.m4⟧⟧, ⟦⟦3⟧, ⟦hello_world/hello_world.json⟧⟧⟧) z⟦⟧NB()kořenového souboru.
 ⟧,dnl _next_language_
 ⟦
 The CODE(⟦[… nonterminals are not expanded …]⟧) inside square brackets.
-Therefore, the left square bracket XCODE(⟦[⟧) is replaced by the HCODE(⟦LB()⟧, ⟦⟦⟦6⟧, ⟦hello_world/json.m4⟧⟧, ⟦⟦3⟧, ⟦hello_world/hello_world.json⟧⟧⟧) macro defined in the root file.
+Therefore, the left square bracket XCODE(⟦[⟧) is replaced by the HCODE(⟦LL()⟧, ⟦⟦⟦6⟧, ⟦hello_world/json.m4⟧⟧, ⟦⟦3⟧, ⟦hello_world/hello_world.json⟧⟧⟧) macro defined in the root file.
 ⟧⟧)
 
 TEXTDATA(⟦hello_world/json.m4⟧)
@@ -1790,12 +1792,12 @@ dnl _next_language_
 PARA(⟦⟦
 Počítadla HCODE(⟦COUNT_UP⟧, ⟦⟦⟦A⟧, ⟦hello_world/sh.m4⟧⟧⟧) a⟦⟧NB()HCODE(⟦COUNT_DOWN⟧, ⟦⟦⟦B⟧, ⟦hello_world/sh.m4⟧⟧⟧) jsou definována v⟦⟧NB()souboru CODE(⟦countb.m4⟧).
 HEXPLAIN(⟦Neterminály⟧, ⟦⟦⟦C⟧, ⟦hello_world/sh.m4⟧⟧⟧) HCODE(⟦[… uvnitř závorek …]⟧, ⟦⟦⟦20⟧, ⟦hello_world/sh.m4⟧⟧, ⟦⟦5⟧, ⟦hello_world/hello_world.sh⟧⟧⟧) nebudou expandovány, pouze se odeberou vnější závorky.
-Nutno použít makro HCODE(⟦LB()⟧, ⟦⟦⟦30⟧, ⟦hello_world/sh.m4⟧⟧, ⟦⟦15⟧, ⟦hello_world/hello_world.sh⟧⟧⟧) z⟦⟧NB()kořenového souboru.
+Nutno použít makro HCODE(⟦LL()⟧, ⟦⟦⟦30⟧, ⟦hello_world/sh.m4⟧⟧, ⟦⟦15⟧, ⟦hello_world/hello_world.sh⟧⟧⟧) z⟦⟧NB()kořenového souboru.
 ⟧,dnl _next_language_
 ⟦
 The HCODE(⟦COUNT_UP⟧, ⟦⟦⟦A⟧, ⟦hello_world/sh.m4⟧⟧⟧) and HCODE(⟦COUNT_DOWN⟧, ⟦⟦⟦B⟧, ⟦hello_world/sh.m4⟧⟧⟧) counters are defined in the file CODE(⟦countb.m4⟧).
 The HEXPLAIN(⟦nonterminals⟧, ⟦⟦⟦C⟧, ⟦hello_world/sh.m4⟧⟧⟧) HCODE(⟦[… inside brackets …]⟧, ⟦⟦⟦20⟧, ⟦hello_world/sh.m4⟧⟧, ⟦⟦5⟧, ⟦hello_world/hello_world.sh⟧⟧⟧) will not be expanded, only the outer brackets will be removed.
-The HCODE(⟦LB()⟧, ⟦⟦⟦30⟧, ⟦hello_world/sh.m4⟧⟧, ⟦⟦15⟧, ⟦hello_world/hello_world.sh⟧⟧⟧) macro defined in the root file must be used.
+The HCODE(⟦LL()⟧, ⟦⟦⟦30⟧, ⟦hello_world/sh.m4⟧⟧, ⟦⟦15⟧, ⟦hello_world/hello_world.sh⟧⟧⟧) macro defined in the root file must be used.
 ⟧⟧)
 
 TEXTDATA(⟦hello_world/sh.m4⟧,, ⟦
@@ -1808,22 +1810,22 @@ TEXTDATA(⟦hello_world/hello_world.sh⟧)
 
 
 SECT1(⟦symbols_in_brackets⟧, ⟦
-⟦CODE(⟦[]⟧) .h: závorky CODE(⟦[]⟧)⟦,⟧ CODE(⟦[,]⟧)⟦,⟧ CODE(⟦[#]⟧)⟦,⟧ CODE(⟦[dnl]⟧)⟧,
+⟦CODE(⟦[]⟧) .h: závorky CODE(⟦[]⟧)⟦,⟧ CODE(⟦[,]⟧)⟦,⟧ XCODE(⟦[#]⟧)⟦,⟧ XCODE(⟦[dnl]⟧)⟧,
 dnl _next_language_
-⟦CODE(⟦[]⟧) .h: brackets CODE(⟦[]⟧)⟦,⟧ CODE(⟦[,]⟧)⟦,⟧ CODE(⟦[#]⟧)⟦,⟧ CODE(⟦[dnl]⟧)⟧,
+⟦CODE(⟦[]⟧) .h: brackets CODE(⟦[]⟧)⟦,⟧ CODE(⟦[,]⟧)⟦,⟧ XCODE(⟦[#]⟧)⟦,⟧ XCODE(⟦[dnl]⟧)⟧,
 ⟧)
 
 PARA(⟦⟦
 Prázdný pár HCODE(⟦[]⟧, ⟦⟦⟦A⟧, ⟦hello_world/h.m4⟧⟧⟧) (nebo prázdný symbol v⟦⟧NB()závorkách CODE(⟦[ε]⟧)) slouží jako oddělovač symbolů.
-Závorky kolem znaku komentáře HCODE(⟦[#]⟧, ⟦⟦⟦B⟧, ⟦hello_world/h.m4⟧⟧, ⟦⟦B⟧, ⟦hello_world/hello_world.h⟧⟧⟧) vypnou jeho původní význam, stejně jako vypnou význam ITALIC(⟦silnějšího⟧) M4 komentáře
-HCODE(⟦[dnl]⟧, ⟦⟦⟦C⟧, ⟦hello_world/h.m4⟧⟧, ⟦⟦C⟧, ⟦hello_world/hello_world.h⟧⟧⟧).
+Závorky kolem znaku komentáře HXCODE(⟦[#]⟧, ⟦⟦⟦B⟧, ⟦hello_world/h.m4⟧⟧, ⟦⟦B⟧, ⟦hello_world/hello_world.h⟧⟧⟧) vypnou jeho původní význam, stejně jako vypnou význam ITALIC(⟦silnějšího⟧) M4 komentáře
+HXCODE(⟦[dnl]⟧, ⟦⟦⟦C⟧, ⟦hello_world/h.m4⟧⟧, ⟦⟦C⟧, ⟦hello_world/hello_world.h⟧⟧⟧).
 Vypnou také původní význam čárky CODE(⟦[,]⟧) jako oddělovače argumentů maker.
 Tyto symboly se stanou obyčejnými terminálními symboly bez jakéhokoliv vedlejšího efektu.
 ⟧,dnl _next_language_
 ⟦
 The empty pair HCODE(⟦[]⟧, ⟦⟦⟦A⟧, ⟦hello_world/h.m4⟧⟧⟧) (or the empty symbol in brackets CODE(⟦[ε]⟧)) serves as a⟦⟧NB()symbol separator.
-Brackets around the comment character HCODE(⟦[#]⟧, ⟦⟦⟦B⟧, ⟦hello_world/h.m4⟧⟧, ⟦⟦B⟧, ⟦hello_world/hello_world.h⟧⟧⟧) turn off its original meaning as well as the meaning of the ITALIC(⟦more powerful⟧) M4 comment
-HCODE(⟦[dnl]⟧, ⟦⟦⟦C⟧, ⟦hello_world/h.m4⟧⟧, ⟦⟦C⟧, ⟦hello_world/hello_world.h⟧⟧⟧).
+Brackets around the comment character HXCODE(⟦[#]⟧, ⟦⟦⟦B⟧, ⟦hello_world/h.m4⟧⟧, ⟦⟦B⟧, ⟦hello_world/hello_world.h⟧⟧⟧) turn off its original meaning as well as the meaning of the ITALIC(⟦more powerful⟧) M4 comment
+HXCODE(⟦[dnl]⟧, ⟦⟦⟦C⟧, ⟦hello_world/h.m4⟧⟧, ⟦⟦C⟧, ⟦hello_world/hello_world.h⟧⟧⟧).
 They also turn off the original meaning of the comma CODE(⟦[,]⟧) as a⟦⟧NB()macro argument delimiter.
 These symbols become ordinary terminal symbols without any side effect.
 ⟧⟧)
@@ -1847,25 +1849,25 @@ dnl _next_language_
 ⟧)
 
 PARA(⟦⟦
-Univerzální výstraha HCODE(⟦DONTE⟧, ⟦⟦⟦A⟧, ⟦hello_world/awk.m4⟧⟧, ⟦⟦A⟧, ⟦hello_world/hello_world.awk⟧⟧⟧) se ignoruje bez závorek, stejně jako HCODE(⟦LB⟧, ⟦⟦⟦B⟧, ⟦hello_world/awk.m4⟧⟧, ⟦⟦B⟧, ⟦hello_world/hello_world.awk⟧⟧⟧), CODE(⟦RB⟧), …
+Univerzální výstraha HCODE(⟦DONTE⟧, ⟦⟦⟦A⟧, ⟦hello_world/awk.m4⟧⟧, ⟦⟦A⟧, ⟦hello_world/hello_world.awk⟧⟧⟧) se ignoruje bez závorek, stejně jako HCODE(⟦LL⟧, ⟦⟦⟦B⟧, ⟦hello_world/awk.m4⟧⟧, ⟦⟦B⟧, ⟦hello_world/hello_world.awk⟧⟧⟧), CODE(⟦RR⟧), …
 Taková makra explicitně vytváří vývojář skriptů, prohlédněte si kořenový soubor CODE(⟦root1b.m4⟧).
 ⟧,dnl _next_language_
 ⟦
-The universal alert HCODE(⟦DONTE⟧, ⟦⟦⟦A⟧, ⟦hello_world/awk.m4⟧⟧, ⟦⟦A⟧, ⟦hello_world/hello_world.awk⟧⟧⟧) is ignored without parentheses, such as for example HCODE(⟦LB⟧, ⟦⟦⟦B⟧, ⟦hello_world/awk.m4⟧⟧, ⟦⟦B⟧, ⟦hello_world/hello_world.awk⟧⟧⟧) or CODE(⟦RB⟧).
+The universal alert HCODE(⟦DONTE⟧, ⟦⟦⟦A⟧, ⟦hello_world/awk.m4⟧⟧, ⟦⟦A⟧, ⟦hello_world/hello_world.awk⟧⟧⟧) is ignored without parentheses, such as for example HCODE(⟦LL⟧, ⟦⟦⟦B⟧, ⟦hello_world/awk.m4⟧⟧, ⟦⟦B⟧, ⟦hello_world/hello_world.awk⟧⟧⟧) or CODE(⟦RR⟧).
 Such macros are explicitly created by a⟦⟧NB()script developer, see the root file CODE(⟦root1b.m4⟧).
 ⟧⟧)
 
 TEXTDATA(⟦hello_world/awk.m4⟧,, ⟦
 /\<BEGIN\>/{
 s/\<DONTE\>/MM(a)/
-s/\<LB\>/MM(b)/
+s/\<LL\>/MM(b)/
 }
 ⟧)
 EXECUTED(⟦m4 -DSYMBOL='Hello, world!'⟧, ⟦gfiles/root1b.m4⟧, ⟦hello_world/awk.m4⟧, ⟦hello_world/hello_world.awk⟧)
 TEXTDATA(⟦hello_world/hello_world.awk⟧,, ⟦
 /\<BEGIN\>/{
 s/\<DONTE\>/MM(a)/
-s/\<LB\>/MM(b)/
+s/\<LL\>/MM(b)/
 }
 ⟧)
 
