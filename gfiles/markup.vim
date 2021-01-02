@@ -8,24 +8,24 @@ let b:usr_ftplugin_markup = 1
 iabbrev <buffer> <unique> ab ABBREV(⟦<c-r>"⟧, ⟦⟧)<c-o>T⟦<c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> ac ACRONYM(⟦<c-r>"⟧, ⟦⟧)<c-o>T⟦<c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> am ⟦⟧AMP()<c-r>=Eatchar('.')<cr>
-iabbrev <buffer> <unique> ap <c-l><cr>APPENDIX(⟦<cr>⟦⟧,<cr>dnl _next_language_<cr><c-u>⟦%%%⟧,<cr>⟧)<left><c-o>%<c-o>0<down><right><c-r>=Eatchar('.')<cr>
+iabbrev <buffer> <unique> ap <c-l><cr>APPENDIX(⟦⟦<cr><cr>⟧,dnl _next_language_<cr>⟦<cr>%%%<cr>⟧⟧)<left><c-o>%<c-o>0<down><c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> apo ⟦⟧AP()<c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> arw ARTICLE_WRAP(⟦<cr><cr><cr><cr>⟧)dnl ARTICLE_WRAP<up><up><c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> asw ASIDE_WRAP(⟦<cr><cr><cr><cr>⟧)dnl ASIDE_WRAP<up><up><c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> bb BOLD(⟦<c-r>"⟧)<esc>
-iabbrev <buffer> <unique> bh BRIDGEHEAD(⟦<cr>⟦⟧,<cr>dnl _next_language_<cr><c-u>⟦%%%⟧,<cr>⟧)<left><c-o>%<c-o>0<down><right><c-r>=Eatchar('.')<cr>
-iabbrev <buffer> <unique> bhm BRIDGEHEAD_MONO(⟦<cr>⟦⟧,<cr>⟧)<up><right><c-r>=Eatchar('.')<cr>
+iabbrev <buffer> <unique> bh BRIDGEHEAD(⟦⟦<cr><cr>⟧,dnl _next_language_<cr>⟦<cr>%%%<cr>⟧⟧)<left><c-o>%<c-o>0<down><c-r>=Eatchar('.')<cr>
+iabbrev <buffer> <unique> bhm BRIDGEHEAD_MONO(⟦<cr><cr>⟧)<up><c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> bm BLOCKQUOTE_MONO(⟦⟦<cr><cr>⟧⟧)<up><c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> bo BOLD(⟦<c-r>"⟧)<esc>
 iabbrev <buffer> <unique> bq BLOCKQUOTE(⟦⟦<cr><cr>⟧,dnl _next_language_<cr>⟦<cr>%%%<cr>⟧⟧)<left><c-o>%<c-o>0<down><c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> br ⟦⟧BR()<c-r>=Eatchar('.')<cr>
-iabbrev <buffer> <unique> bri BRIDGEHEAD(⟦<cr>⟦⟧,<cr>dnl _next_language_<cr><c-u>⟦%%%⟧,<cr>⟧)<left><c-o>%<c-o>0<down><right><c-r>=Eatchar('.')<cr>
+iabbrev <buffer> <unique> bri BRIDGEHEAD(⟦⟦<cr><cr>⟧,dnl _next_language_<cr>⟦<cr>%%%<cr>⟧⟧)<left><c-o>%<c-o>0<down><c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> btn BUTTON(⟦<c-r>"⟧)<esc>
 iabbrev <buffer> <unique> bu BUN(⟦<c-r>"⟧)<esc>
 iabbrev <buffer> <unique> cbr CSS_BARE_ID_RULE_SET(⟦⟦⟧⟧,	⟦%%%⟧, ⟦⟦⟧⟧, ⟦<cr>⟧)<up><up>;;<c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> cc CODE(⟦<c-r>"⟧)<esc>
 iabbrev <buffer> <unique> ccr CSS_CLASS_RULE_SET(⟦⟦⟧⟧,	⟦%%%⟧,	⟦⟦⟧⟧, ⟦<cr>⟧)<up><up>;;<c-r>=Eatchar('.')<cr>
-iabbrev <buffer> <unique> cha <c-l><cr>CHAPTER(⟦<cr>⟦⟧,<cr>dnl _next_language_<cr><c-u>⟦%%%⟧,<cr>⟧)<left><c-o>%<c-o>0<down><right><c-r>=Eatchar('.')<cr>
+iabbrev <buffer> <unique> cha <c-l><cr>CHAPTER(⟦⟦<cr><cr>⟧,dnl _next_language_<cr>⟦<cr>%%%<cr>⟧⟧)<left><c-o>%<c-o>0<down><c-r>=Eatchar('.')<cr>
 "iabbrev <buffer> <unique> ci CSS_ID(⟦⟧, ⟦⟧, ⟦<cr>%%%<cr>⟧)<left><c-o>%<right><right><c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> cir CSS_ID_RULE_SET(⟦⟦⟧⟧,	⟦%%%⟧, ⟦⟦⟧⟧, ⟦<cr>⟧)<up><up>;;<c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> cit CITATION(⟦<c-r>"⟧)<esc>
@@ -53,8 +53,8 @@ iabbrev <buffer> <unique> emp EMPHASIS(⟦<c-r>"⟧)<esc>
 iabbrev <buffer> <unique> exc EXCL(, defn(⟦WORD_IMPORTANT⟧), ⟦⟦<cr><cr>⟧,dnl _next_language_<cr>⟦<cr>%%%<cr>⟧⟧)<left><c-o>%<c-o>0<down><c-r>=Eatchar('.')<cr>
 "iabbrev <buffer> <unique> ex EXAMPLE(⟦<c-r>"⟧, ⟦⟧)<c-o>T⟦<c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> ex EXECUTED(⟦<c-r>"⟧, ⟦%%%⟧, ⟦%%%⟧)<left><c-o>%;;<c-r>=Eatchar('.')<cr>
-iabbrev <buffer> <unique> exp EXPLAIN(⟦<c-r>"⟧, ⟦⟧)<left><left><c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> exm EXPLAIN_M4(⟦<c-r>"⟧, ⟦⟧)<left><left><c-r>=Eatchar('.')<cr>
+iabbrev <buffer> <unique> exp EXPLAIN(⟦<c-r>"⟧, ⟦⟧)<left><left><c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> exr EXECUTED_ROOT(⟦<c-r>"⟧, ⟦%%%⟧, ⟦%%%⟧)<left><c-o>%;;<c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> fig FIGCAPTION(⟦⟦<cr><cr>⟧,dnl _next_language_<cr>⟦<cr>%%%<cr>⟧⟧)<left><c-o>%<c-o>0<down><c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> fim FIGCAPTION_MONO(⟦⟦<cr><cr>⟧⟧)dnl FIGCAPTION_MONO<up><c-r>=Eatchar('.')<cr>
@@ -118,7 +118,7 @@ iabbrev <buffer> <unique> prm PROMPT()
 iabbrev <buffer> <unique> prmr PROMPT_ROOT()
 iabbrev <buffer> <unique> prmt PROMPT()
 iabbrev <buffer> <unique> prog PROGRESS(⟦⟧,,,,, ⟦value="22" max="100"⟧)<c-r>=Eatchar('.')<cr>
-iabbrev <buffer> <unique> pr PROGRAMLISTING(⟦dnl<cr><cr>⟧)dnl PROGRAMLISTING note: put ⟦#⟧ or ⟦dnl⟧ in brackets on the last line!<up><c-r>=Eatchar('.')<cr>
+iabbrev <buffer> <unique> pr PROGRAMLISTING(⟦dnl<cr><cr>⟧)dnl PROGRAMLISTING
 iabbrev <buffer> <unique> qc „<c-r>"“<esc>
 "iabbrev <buffer> <unique> qc Quote _first_language_
 iabbrev <buffer> <unique> qe “<c-r>"”<esc>
@@ -132,10 +132,10 @@ iabbrev <buffer> <unique> qs ‚<c-r>"‘<esc>
 "iabbrev <buffer> <unique> qs Quote Single
 iabbrev <buffer> <unique> ref ⟦⟧REF(⟦⟧, ⟦%%%⟧, ⟦%%%⟧)<c-o>T(<right><c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> sa SAMP(⟦<c-r>"⟧)<esc>
-iabbrev <buffer> <unique> scn <c-l><cr>SECT1(⟦<cr>⟦⟧,<cr>dnl _next_language_<cr><c-u>⟦%%%⟧,<cr>⟧)<left><c-o>%<c-o>0<down><right><c-r>=Eatchar('.')<cr>
+iabbrev <buffer> <unique> scn <c-l><cr>SECT1(⟦⟦<cr><cr>⟧,dnl _next_language_<cr>⟦<cr>%%%<cr>⟧⟧)<left><c-o>%<c-o>0<down><c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> sm SMALL(⟦<c-r>"⟧)<esc>
 iabbrev <buffer> <unique> sp SPAN(⟦<c-r>"⟧, ⟦%%%⟧, ⟦%%%⟧)<left><c-o>%;;<c-r>=Eatchar('.')<cr>
-iabbrev <buffer> <unique> ss <c-l><cr>SECT1(⟦<cr>⟦⟧,<cr>dnl _next_language_<cr><c-u>⟦%%%⟧,<cr>⟧)<left><c-o>%<c-o>0<down><right><c-r>=Eatchar('.')<cr>
+iabbrev <buffer> <unique> ss <c-l><cr>SECT1(⟦⟦<cr><cr>⟧,dnl _next_language_<cr>⟦<cr>%%%<cr>⟧⟧)<left><c-o>%<c-o>0<down><c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> str STRONG(⟦<c-r>"⟧)<esc>
 iabbrev <buffer> <unique> stt STRIKETHROUGH(⟦<c-r>"⟧)<esc>
 iabbrev <buffer> <unique> subs SUBSCRIPT(⟦<c-r>"⟧)<esc>

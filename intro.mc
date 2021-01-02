@@ -5,11 +5,12 @@ ___DESCR(⟦the introductory part⟧)
 __TPLVER(1, 0, 0)
 
 
-PART(⟦
-⟦SERIES_NAME: úvod⟧,
-dnl _next_language_
-⟦SERIES_NAME: introduction⟧,
-⟧)
+PART(⟦⟦
+SERIES_NAME: úvod
+⟧,dnl _next_language_
+⟦
+SERIES_NAME: introduction
+⟧⟧)
 
 PARTIMAGE(⟦img/m4tux.png⟧, ⟦https://i.iinfo.cz/images/154/m4tux-1-prev.png⟧)
 
@@ -22,11 +23,12 @@ The introductory part of the series contains its history, the basic principles o
 ⟧⟧)
 
 
-CHAPTER(⟦
-⟦Úvod⟧,
-dnl _next_language_
-⟦Introduction⟧,
-⟧)
+CHAPTER(⟦⟦
+Úvod
+⟧,dnl _next_language_
+⟦
+Introduction
+⟧⟧)
 
 PARA(⟦⟦
 Čtenáři tohoto seriálu se naučí psát skripty pro strojové generování kódu.
@@ -75,11 +77,12 @@ We will also learn how to write LINK(⟦testing automata⟧, ⟦testing_automato
 ⟧⟧)
 
 
-SECT1(⟦
-⟦Příklady pro čtenáře⟧,
-dnl _next_language_
-⟦Examples for readers⟧,
-⟧)
+SECT1(⟦⟦
+Příklady pro čtenáře
+⟧,dnl _next_language_
+⟦
+Examples for readers
+⟧⟧)
 
 PARA(⟦⟦
 Příklady pro čtenáře tvoří komplementární část seriálu a⟦⟧NB()budou do jisté míry vytvářeny na základě podnětů v⟦⟧NB()diskuzi pod článkem.
@@ -102,20 +105,22 @@ LISTITEM_MONO(⟦⟦LINK(⟦m4_on_examples⟧, ⟦m4_on_examples⟧)⟧⟧)
 
 LISTITEM_MONO(⟦⟦LINK(⟦questions_and_answers⟧, ⟦questions_and_answers⟧)⟧⟧)
 
-LISTITEM(⟦
-⟦ULINK(⟦http://github.com/jkubin/m4root⟧, defn(⟦SERIES_NAME⟧), ⟦http://github.com/jkubin/m4root⟧) – projekt generující tento seriál⟧,
-dnl _next_language_
-⟦ULINK(⟦http://github.com/jkubin/m4root⟧, defn(⟦SERIES_NAME⟧), ⟦http://github.com/jkubin/m4root⟧) – project generating this series⟧,
-⟧)
+LISTITEM(⟦⟦
+ULINK(⟦http://github.com/jkubin/m4root⟧, defn(⟦SERIES_NAME⟧), ⟦http://github.com/jkubin/m4root⟧) – projekt generující tento seriál
+⟧,dnl _next_language_
+⟦
+ULINK(⟦http://github.com/jkubin/m4root⟧, defn(⟦SERIES_NAME⟧), ⟦http://github.com/jkubin/m4root⟧) – project generating this series
+⟧⟧)
 
 ⟧)dnl ITEMIZEDLIST_WRAP
 
 
-CHAPTER(⟦
-⟦Historie makro jazyků⟧,
-dnl _next_language_
-⟦History of macro languages⟧,
-⟧)
+CHAPTER(⟦⟦
+Historie makro jazyků
+⟧,dnl _next_language_
+⟦
+History of macro languages
+⟧⟧)
 
 PARA(⟦⟦
 Makro jazyky byly vynalezeny v⟦⟧NB()době, kdy dominoval jazyk symbolických adres – ABBREV(⟦JSA⟧, ⟦Jazyk Symbolických Adres – assembler⟧).
@@ -145,9 +150,9 @@ The speed, performance and efficiency of a⟦⟧NB()complex lower-level programm
 However, it is important to understand all layers of code well.
 ⟧⟧)
 
-BRIDGEHEAD_MONO(⟦
-⟦GPM (General Purpose Macro-generator)⟧,
-⟧)
+BRIDGEHEAD_MONO(⟦⟦
+GPM (General Purpose Macro-generator)
+⟧⟧)
 
 PARA(⟦⟦
 Základní myšlenku přepisování textových řetězců s⟦⟧NB()argumenty, které se přepíší do dalších rekurzivně přepisovatelných řetězců, představil
@@ -163,9 +168,9 @@ The next generation of M3 and M4 macro processors basically just expanded the or
 The basic idea of the original proposal remained the same.
 ⟧⟧)
 
-BRIDGEHEAD_MONO(⟦
-⟦M3⟧,
-⟧)
+BRIDGEHEAD_MONO(⟦⟦
+M3
+⟧⟧)
 
 PARA(⟦⟦
 ULINK(⟦PERSON(⟦Dennis Ritchie⟧)⟧, ⟦Wikipedie⟧, ⟦https://cs.wikipedia.org/wiki/Dennis_Ritchie⟧) převzal základní myšlenku ABBREV(⟦GPM⟧, ⟦General Purpose Macro-generator⟧) a⟦⟧NB()napsal vylepšený makro procesor pro generování zdrojového kódu programovacího jazyka C (1972), který sám navrhl.
@@ -266,9 +271,9 @@ Argument CODE(⟦-1⟧) completely disables any text output.
 Argument CODE(⟦0⟧) switches output to CODE(⟦stdout⟧) (standard output).
 ⟧⟧)
 
-BRIDGEHEAD_MONO(⟦
-⟦M4⟧,
-⟧)
+BRIDGEHEAD_MONO(⟦⟦
+M4
+⟧⟧)
 
 PARA(⟦⟦
 ULINK(⟦PERSON(⟦Brian Kernighan⟧)⟧, ⟦Wikipedie⟧, ⟦https://cs.wikipedia.org/wiki/Brian_Kernighan⟧) makro procesor M3 rozšířil na ULINK(⟦preprocesor⟧, ⟦Wikipedie⟧, ⟦https://cs.wikipedia.org/wiki/Preprocesor⟧) jazyka FORTRAN 66,
@@ -380,9 +385,9 @@ Dennis Ritchie⟦⟧REF(⟦Dennis Ritchie⟧, ⟦Zomrel tvorca Unixu a⟦⟧NB()
 Brian Kernighan⟦⟧REF(⟦Brian Kernighan⟧, ⟦An Interview with Brian Kernighan⟧, ⟦https://www.cs.cmu.edu/~mihaib/kernighan-interview/⟧)
 ⟧⟧)
 
-BRIDGEHEAD_MONO(⟦
-⟦GNU M4⟧,
-⟧)
+BRIDGEHEAD_MONO(⟦⟦
+GNU M4
+⟧⟧)
 
 PARA(⟦⟦
 Dnes existuje několik implementací lišící se od původní implementace spíše drobnostmi.
@@ -417,11 +422,12 @@ PROMPT() BOLD(⟦m4 --help⟧)
 ⟧)dnl PROGRAMLISTING
 
 
-CHAPTER(⟦
-⟦Základy jazyka M4⟧,
-dnl _next_language_
-⟦Basics of M4⟧,
-⟧)
+CHAPTER(⟦⟦
+Základy jazyka M4
+⟧,dnl _next_language_
+⟦
+Basics of M4
+⟧⟧)
 
 PARA(⟦⟦
 Základem jazyka M4 je BOLD(⟦bezkontextová gramatika⟧), BOLD(⟦automaty⟧), BOLD(⟦zásobníky⟧) a⟦⟧NB()BOLD(⟦výstupní fronty⟧).
@@ -438,11 +444,12 @@ These terms will be explained later in more detail.
 The objective is to show the basic practical use of M4 language on examples.
 ⟧⟧)
 
-SECT1(⟦context_free_grammar⟧, ⟦
-⟦Bezkontextová gramatika⟧,
-dnl _next_language_
-⟦Context-free grammar⟧,
-⟧)
+SECT1(⟦context_free_grammar⟧, ⟦⟦
+Bezkontextová gramatika
+⟧,dnl _next_language_
+⟦
+Context-free grammar
+⟧⟧)
 
 PARA(⟦⟦
 Bezkontextová gramatika (krátce ABBREV(⟦CFG⟧, ⟦Context-Free Grammar – bezkontextová gramatika⟧)) je LINK(⟦formální gramatika⟧, ⟦formal_grammar_chomsky⟧), ve které mají všechna přepisovací pravidla tvar HCODE(⟦A → β⟧, ⟦⟦⟦1⟧, ⟦all_context_free_grammar_rules⟧⟧, ⟦⟦2⟧, ⟦rewriting_rules⟧⟧⟧).
@@ -461,11 +468,12 @@ P: MM(⟦A⟧, d) MM(⟦→⟧, e) MM(⟦β⟧, f)
    MM(⟦β⟧, f) ∈ (MM(⟦N⟧, b) MM(⟦∪⟧, g) MM(⟦Σ⟧, a))MM(⟦*⟧, c)
 ⟧)dnl PROGRAMLISTING
 
-BRIDGEHEAD(⟦m4_rules⟧, ⟦
-⟦Přepisovací pravidla M4⟧,
-dnl _next_language_
-⟦M4 rewriting rules⟧,
-⟧)
+BRIDGEHEAD(⟦m4_rules⟧, ⟦⟦
+Přepisovací pravidla M4
+⟧,dnl _next_language_
+⟦
+M4 rewriting rules
+⟧⟧)
 
 PARA(⟦⟦
 Přepisovací pravidla M4 HEXPLAIN(⟦jsou stejná⟧, ⟦⟦⟦1⟧, ⟦all_context_free_grammar_rules⟧⟧, ⟦⟦2⟧, ⟦rewriting_rules⟧⟧⟧) jako přepisovací pravidla bezkontextové gramatiky.
@@ -502,11 +510,12 @@ ifelse⟦⟧(`', `', `ifdef⟦⟧(`dnl', `1', `0')', `no') → ifdef⟦⟧(`dnl'
 …
 ⟧)dnl PROGRAMLISTING
 
-BRIDGEHEAD(⟦expansion_control⟧, ⟦
-⟦Řízení expanze neterminálů⟧,
-dnl _next_language_
-⟦Nonterminal expansion control⟧,
-⟧)
+BRIDGEHEAD(⟦expansion_control⟧, ⟦⟦
+Řízení expanze neterminálů
+⟧,dnl _next_language_
+⟦
+Nonterminal expansion control
+⟧⟧)
 
 PARA(⟦⟦
 Výchozí dvojice znaků CODE(⟦`'⟧) v⟦⟧NB()M4 řídí expanzi neterminálů.
@@ -526,11 +535,12 @@ The control character pair is set at the beginning of the root file.
 ⟧⟧)
 
 
-SECT1(⟦automata_descr⟧, ⟦
-⟦Automaty⟧,
-dnl _next_language_
-⟦Automata⟧,
-⟧)
+SECT1(⟦automata_descr⟧, ⟦⟦
+Automaty
+⟧,dnl _next_language_
+⟦
+Automata
+⟧⟧)
 
 PARA(⟦⟦
 Automaty slouží jako QUOTE(⟦přepínače⟧) pravidel gramatiky.
@@ -547,11 +557,12 @@ The examples of LINK(⟦generating automata⟧, ⟦json_generating_automaton⟧)
 ⟧⟧)
 
 
-SECT1(⟦output_queues⟧, ⟦
-⟦Výstupní fronty⟧,
-dnl _next_language_
-⟦Output queues⟧,
-⟧)
+SECT1(⟦output_queues⟧, ⟦⟦
+Výstupní fronty
+⟧,dnl _next_language_
+⟦
+Output queues
+⟧⟧)
 
 PARA(⟦⟦
 Výstupní fronty jsou dočasné úložiště pro části výsledného kódu.
@@ -576,11 +587,12 @@ BOLD(⟦Stacks⟧) will be described later.
 ⟧⟧)
 
 
-CHAPTER(⟦main_uses_of_m4⟧, ⟦
-⟦Hlavní použití M4⟧,
-dnl _next_language_
-⟦Main uses of M4⟧,
-⟧)
+CHAPTER(⟦main_uses_of_m4⟧, ⟦⟦
+Hlavní použití M4
+⟧,dnl _next_language_
+⟦
+Main uses of M4
+⟧⟧)
 
 PARA(⟦⟦
 M4 se používá ke generování zdrojového kódu libovolného programovacího jazyka nebo jako preprocesor jakéhokoliv zdrojového kódu.
@@ -590,11 +602,12 @@ M4 is used to generate the source code of any programming language or as a⟦⟧
 ⟧⟧)
 
 
-SECT1(⟦code_generation⟧, ⟦
-⟦Generování kódu⟧,
-dnl _next_language_
-⟦The code generation⟧,
-⟧)
+SECT1(⟦code_generation⟧, ⟦⟦
+Generování kódu
+⟧,dnl _next_language_
+⟦
+The code generation
+⟧⟧)
 
 PARA(⟦⟦
 M4 transformuje vstupní data ze souborů ABBREV(⟦CODE(⟦.mc⟧)⟧, ⟦Macro Configuration⟧) na výsledná data následujícím příkazem:
@@ -664,11 +677,12 @@ define(⟦try_it_yourself⟧, ⟦Try:⟧)try_it_yourself() LINK(⟦code_generati
 ⟧⟧)
 
 
-SECT1(⟦m4_as_preproc⟧, ⟦
-⟦Preprocesor⟧,
-dnl _next_language_
-⟦The preprocessor⟧,
-⟧)
+SECT1(⟦m4_as_preproc⟧, ⟦⟦
+Preprocesor
+⟧,dnl _next_language_
+⟦
+The preprocessor
+⟧⟧)
 
 PARA(⟦⟦
 M4 může pracovat v⟦⟧NB()režimu preprocesoru a může být také součástí kolony.
@@ -696,11 +710,12 @@ m4 root.m4 stem.m4 branch.m4 leaf.m4 file.c | gcc -x c -o progr -
 ⟧)
 
 
-BRIDGEHEAD(⟦
-⟦CODE(⟦`'⟧) Výchozí znaky⟧,
-dnl _next_language_
-⟦CODE(⟦`'⟧) Default characters⟧,
-⟧)
+BRIDGEHEAD(⟦⟦
+CODE(⟦`'⟧) Výchozí znaky
+⟧,dnl _next_language_
+⟦
+CODE(⟦`'⟧) Default characters
+⟧⟧)
 
 PARA(⟦⟦
 Konfliktní znak CODE(⟦`⟧) ze vstupního zdrojového kódu je skryt do makra CODE(⟦`'LL()⟧).
@@ -740,11 +755,12 @@ sed 's/`/`'\''⟦LL()⟧/g;s/#/`#'\''/g;s/\<dnl\>/`dnl'\''/g' any.src | m4 …
 ⟧)
 
 
-BRIDGEHEAD(⟦
-⟦CODE(⟦[]⟧) Hranaté závorky⟧,
-dnl _next_language_
-⟦CODE(⟦[]⟧) Square brackets⟧,
-⟧)
+BRIDGEHEAD(⟦⟦
+CODE(⟦[]⟧) Hranaté závorky
+⟧,dnl _next_language_
+⟦
+CODE(⟦[]⟧) Square brackets
+⟧⟧)
 
 PARA(⟦⟦
 Použijeme-li pro LINK(⟦řízení expanze neterminálů⟧, ⟦expansion_control⟧) hranaté závorky, stejným způsobem je skryta levá XCODE(⟦[⟧) hranatá závorka.
@@ -775,11 +791,12 @@ sed 's/\[/[]⟦LL()⟧/g;s/#/[#]/g;s/\<dnl\>/[dnl]/g' any.src | m4 rootb.m4 …
 ⟧)
 
 
-BRIDGEHEAD(⟦
-⟦CODE(⟦␂␆⟧) Netisknutelné znaky⟧,
-dnl _next_language_
-⟦CODE(⟦␂␆⟧) Non printable characters⟧,
-⟧)
+BRIDGEHEAD(⟦⟦
+CODE(⟦␂␆⟧) Netisknutelné znaky
+⟧,dnl _next_language_
+⟦
+CODE(⟦␂␆⟧) Non printable characters
+⟧⟧)
 
 PARA(⟦⟦
 Pro řízení expanze neterminálů lze použít netisknutelné znaky BOLD(⟦CODE(⟦␂⟧)⟧) (SAMP(⟦0x02⟧)) a⟦⟧NB()BOLD(⟦CODE(⟦␆⟧)⟧) (SAMP(⟦0x06⟧)).
@@ -810,11 +827,12 @@ sed 's/#/␂#␆/g;s/\<dnl\>/␂dnl␆/g' any.src | m4 rootn.m4 leaf.m4 - | gcc 
 ⟧)
 
 
-BRIDGEHEAD(⟦
-⟦CODE(⟦⟦⟧⟧) UTF-8 znaky⟧,
-dnl _next_language_
-⟦CODE(⟦⟦⟧⟧) UTF-8 characters⟧,
-⟧)
+BRIDGEHEAD(⟦⟦
+CODE(⟦⟦⟧⟧) UTF-8 znaky
+⟧,dnl _next_language_
+⟦
+CODE(⟦⟦⟧⟧) UTF-8 characters
+⟧⟧)
 
 PARA(⟦⟦
 Expanzi neterminálů může také řídit vhodně zvolený pár UTF-8 znaků.
@@ -852,11 +870,12 @@ PARA_MONO(⟦⟦
 try_it_yourself() LINK(⟦preproc_examples⟧, ⟦preproc_examples⟧)
 ⟧⟧)
 
-BRIDGEHEAD(⟦
-⟦Smíšený režim⟧,
-dnl _next_language_
-⟦Mixed mode⟧,
-⟧)
+BRIDGEHEAD(⟦⟦
+Smíšený režim
+⟧,dnl _next_language_
+⟦
+Mixed mode
+⟧⟧)
 
 PARA(⟦⟦
 Smíšený režim je kombinací předchozích režimů a⟦⟧NB()je používán hlavně na pokusy.
@@ -878,11 +897,12 @@ try_it_yourself() LINK(⟦m4_on_examples⟧, ⟦m4_on_examples⟧)
 ⟧⟧)
 
 
-CHAPTER(⟦prerequisites_for_mastering⟧, ⟦
-⟦Předpoklady pro zvládnutí M4⟧,
-dnl _next_language_
-⟦Prerequisites for mastering M4⟧,
-⟧)
+CHAPTER(⟦prerequisites_for_mastering⟧, ⟦⟦
+Předpoklady pro zvládnutí M4
+⟧,dnl _next_language_
+⟦
+Prerequisites for mastering M4
+⟧⟧)
 
 PARA(⟦⟦
 Pro úspěšné zvládnutí tohoto makro jazyka je důležité splnit několik předpokladů.
@@ -929,11 +949,12 @@ BOLD(⟦branching⟧) is made by LINK(⟦symbol concatenation⟧, ⟦branching_i
 ⟧)dnl NOTE_WRAP
 
 
-SECT1(⟦
-⟦Základy gramatik⟧,
-dnl _next_language_
-⟦Fundamentals of grammars⟧,
-⟧)
+SECT1(⟦⟦
+Základy gramatik
+⟧,dnl _next_language_
+⟦
+Fundamentals of grammars
+⟧⟧)
 
 PARA(⟦⟦
 Základem všech gramatik jsou HEXPLAIN(⟦přepisovací pravidla⟧, ⟦⟦⟦6⟧, ⟦formal_definition⟧⟧⟧), jejichž podobu obecně popisuje:
@@ -942,11 +963,12 @@ Základem všech gramatik jsou HEXPLAIN(⟦přepisovací pravidla⟧, ⟦⟦⟦6
 All grammars are based on the HEXPLAIN(⟦rules for rewriting⟧, ⟦⟦⟦6⟧, ⟦formal_definition⟧⟧⟧) and their forms are generally described:
 ⟧⟧)
 
-BRIDGEHEAD(⟦formal_grammar_chomsky⟧, ⟦
-⟦Formální gramatika (Chomského typu)⟧,
-dnl _next_language_
-⟦Formal grammar (Chomsky type)⟧,
-⟧)
+BRIDGEHEAD(⟦formal_grammar_chomsky⟧, ⟦⟦
+Formální gramatika (Chomského typu)
+⟧,dnl _next_language_
+⟦
+Formal grammar (Chomsky type)
+⟧⟧)
 
 PROGRAMLISTING(⟦formal_definition⟧, ⟦
 G = (N, Σ, P, S)
@@ -979,11 +1001,12 @@ Some of the following episodes of this series will focus on formal grammar in de
 ⟧⟧)
 
 
-SECT1(⟦
-⟦Základy automatů⟧,
-dnl _next_language_
-⟦Fundamentals of automata⟧,
-⟧)
+SECT1(⟦⟦
+Základy automatů
+⟧,dnl _next_language_
+⟦
+Fundamentals of automata
+⟧⟧)
 
 PARA(⟦⟦
 Schopnost používat převážně dvoustavové automaty je zásadní věc pro psaní jednoduchých M4 skriptů, protože převážná většina skriptů používá LINK(⟦malé automaty⟧, ⟦small_automaton⟧).
@@ -992,11 +1015,12 @@ Schopnost používat převážně dvoustavové automaty je zásadní věc pro ps
 The ability to use predominantly two-state automata is an essential thing for writing simple M4 scripts because the vast majority of scripts use LINK(⟦small automata⟧, ⟦small_automaton⟧).
 ⟧⟧)
 
-BRIDGEHEAD(⟦testing_automaton⟧, ⟦
-⟦Testovací automat⟧,
-dnl _next_language_
-⟦Testing automaton⟧,
-⟧)
+BRIDGEHEAD(⟦testing_automaton⟧, ⟦⟦
+Testovací automat
+⟧,dnl _next_language_
+⟦
+Testing automaton
+⟧⟧)
 
 PARA(⟦⟦
 Pořadí vstupních symbolů nebo jejich kontext lze otestovat automatem.
@@ -1038,11 +1062,12 @@ PROGRAMLISTING(, ⟦ASCII art ⟧LANG(⟦jako dokumentace M4 kódu⟧, ⟦for M4
 #                0
 ⟧)dnl PROGRAMLISTING
 
-BRIDGEHEAD(⟦generating_automaton⟧, ⟦
-⟦Generující automat⟧,
-dnl _next_language_
-⟦Generating automaton⟧,
-⟧)
+BRIDGEHEAD(⟦generating_automaton⟧, ⟦⟦
+Generující automat
+⟧,dnl _next_language_
+⟦
+Generating automaton
+⟧⟧)
 
 PARA(⟦⟦
 Vstupní symboly mění uzly automatu, čímž zároveň mění přepisovací pravidla pro generování kódu.
@@ -1071,11 +1096,12 @@ The automaton remains in this state until all data has been processed.
 ⟧⟧)
 
 
-SECT1(⟦
-⟦(GNU) make⟧,
-dnl _next_language_
-⟦(GNU) make⟧,
-⟧)
+SECT1(⟦⟦
+(GNU) make
+⟧,dnl _next_language_
+⟦
+(GNU) make
+⟧⟧)
 
 PARA(⟦⟦
 Dobře navržený generátor kódu se obvykle skládá z⟦⟧NB()několika menších souborů, jejichž pořadí, závislosti a⟦⟧NB()parametry se zapisují do souboru CODE(⟦Makefile⟧).
@@ -1100,11 +1126,12 @@ The file CODE(⟦~/.vimrc⟧) contains XCODE(⟦nnoremap ⟦⟧LT()c-j⟦⟧GT()
 ⟧⟧)
 
 
-SECT1(⟦
-⟦Vim⟧,
-dnl _next_language_
-⟦Vim⟧,
-⟧)
+SECT1(⟦⟦
+Vim
+⟧,dnl _next_language_
+⟦
+Vim
+⟧⟧)
 
 PARA(⟦⟦
 Zvládnutí editoru Vim⟦⟧REF(⟦Vim – všudypřítomný textový editor⟧, ⟦který edituje text rychlostí myšlenky⟧, ⟦https://www.vim.org/⟧) je důležitým předpokladem pro pohodlí a⟦⟧NB()rychlost psaní kódu M4.
@@ -1118,11 +1145,12 @@ These shortcuts also significantly reduce the occurrence of almost invisible err
 ⟧⟧)
 
 
-SECT1(⟦
-⟦Talent a čas⟧,
-dnl _next_language_
-⟦Talent and time⟧,
-⟧)
+SECT1(⟦⟦
+Talent a čas
+⟧,dnl _next_language_
+⟦
+Talent and time
+⟧⟧)
 
 PARA(⟦⟦
 M4 obvykle nejde zcela zvládnout přes víkend, zvláště chybí-li základy⟦⟧REF(⟦Automaty a⟦⟧NB()formální jazyky I⟧, ⟦Učební text FI MU⟧, ⟦https://is.muni.cz/elportal/estud/fi/js06/ib005/Formalni_jazyky_a_automaty_I.pdf⟧)
@@ -1141,11 +1169,12 @@ In this way it is possible to gradually gain practice.
 ⟦⟧REF(⟦Automaty a⟦⟧NB()gramatiky⟧, ⟦Michal Chytil, 1. vydání, Praha, 331 s. 1984.⟧, ⟦https://is.muni.cz/publication/173173⟧)
 
 
-APPENDIX(⟦code_generation_examples⟧, ⟦
-⟦Příklady generování kódu⟧,
-dnl _next_language_
-⟦Code generation examples⟧,
-⟧)
+APPENDIX(⟦code_generation_examples⟧, ⟦⟦
+Příklady generování kódu
+⟧,dnl _next_language_
+⟦
+Code generation examples
+⟧⟧)
 
 NOTE(, defn(⟦WORD_NOTE⟧), ⟦⟦
 Příklady v⟦⟧NB()této příloze jsou složitější a⟦⟧NB()jejich cílem je ukázat praktické použití jazyka M4.
@@ -1157,11 +1186,12 @@ They will be explained in detail later.
 ⟧⟧)
 
 
-SECT1(⟦input_source_code⟧, ⟦
-⟦CODE(⟦⟦⟧⟧) Vstupní zdrojový kód⟧,
-dnl _next_language_
-⟦CODE(⟦⟦⟧⟧) Input source code⟧,
-⟧)
+SECT1(⟦input_source_code⟧, ⟦⟦
+CODE(⟦⟦⟧⟧) Vstupní zdrojový kód
+⟧,dnl _next_language_
+⟦
+CODE(⟦⟦⟧⟧) Input source code
+⟧⟧)
 
 PARA(⟦⟦
 Vstupní zdrojový kód je podobný ABBREV(⟦CSV⟧, ⟦Comma Separated Values⟧), který se převede na libovolně složitý cílový kód jiného jazyka pomocí ABBREV(⟦CFG⟧, ⟦Context-Free Grammar – bezkontextová gramatika⟧), automatů a⟦⟧NB()výstupních front.
@@ -1184,11 +1214,12 @@ The input file may also contain notes that may not be hidden in the comments XCO
 ⟧⟧)
 
 
-SECT1(⟦
-⟦CODE(⟦⟦⟧⟧) CSV: nejjednodušší příklad⟧,
-dnl _next_language_
-⟦CODE(⟦⟦⟧⟧) CSV: simplest example⟧,
-⟧)
+SECT1(⟦⟦
+CODE(⟦⟦⟧⟧) CSV: nejjednodušší příklad
+⟧,dnl _next_language_
+⟦
+CODE(⟦⟦⟧⟧) CSV: simplest example
+⟧⟧)
 
 PARA(⟦⟦
 Tento příklad nepoužívá výstupní fronty, HEXPLAIN(⟦pouze vypisuje⟧, ⟦⟦⟦R, 5⟧, ⟦messages/hello.csv.m4⟧⟧, ⟦⟦1-3⟧, ⟦messages/hello.csv⟧⟧, ⟦⟦R, 3, 5, 7⟧, ⟦messages/messages_raw.mc⟧⟧⟧) ABBREV(⟦CSV⟧, ⟦Comma Separated Values⟧) oddělené znakem CODE(⟦TAB⟧) na HEXPLAIN(⟦standardní výstup⟧, ⟦⟦⟦4⟧, ⟦messages/hello.csv.m4⟧⟧⟧).
@@ -1202,11 +1233,12 @@ EXECUTED(⟦m4⟧, ⟦gfiles/root0u.m4⟧, ⟦messages/hello.csv.m4⟧, ⟦messa
 TEXTDATA(⟦messages/hello.csv⟧)
 
 
-SECT1(⟦
-⟦CODE(⟦⟦⟧⟧) CSV: počítadlo⟧,
-dnl _next_language_
-⟦CODE(⟦⟦⟧⟧) CSV: counter⟧,
-⟧)
+SECT1(⟦⟦
+CODE(⟦⟦⟧⟧) CSV: počítadlo
+⟧,dnl _next_language_
+⟦
+CODE(⟦⟦⟧⟧) CSV: counter
+⟧⟧)
 
 PARA(⟦⟦
 Příklad používá makro HCODE(⟦COUNT_UP⟧, ⟦⟦⟦A⟧, ⟦messages/counter.csv.m4⟧⟧⟧) ze souboru CODE(⟦countb.m4⟧), jehož ABBREV(⟦CODE(⟦β⟧)⟧, ⟦pravá strana přepisovacího pravidla⟧) se zkopíruje do pravé strany makra HCODE(⟦COUNTER⟧, ⟦⟦⟦2⟧, ⟦messages/counter.csv.m4⟧⟧⟧).
@@ -1231,11 +1263,12 @@ TEXTDATA(⟦messages/counter.csv⟧,, ⟦
 ⟧)
 
 
-SECT1(⟦
-⟦CODE(⟦💡⟧, ⟦jak se to dělá⟧,, ⟦cursor:help⟧) Úpravy speciálních znaků⟧,
-dnl _next_language_
-⟦CODE(⟦💡⟧, ⟦how to do it⟧,, ⟦cursor:help⟧) Modification of special characters⟧,
-⟧)
+SECT1(⟦⟦
+CODE(⟦💡⟧, ⟦jak se to dělá⟧,, ⟦cursor:help⟧) Úpravy speciálních znaků
+⟧,dnl _next_language_
+⟦
+CODE(⟦💡⟧, ⟦how to do it⟧,, ⟦cursor:help⟧) Modification of special characters
+⟧⟧)
 
 PARA(⟦⟦
 Každý typ výstupního kódu vyžaduje úpravu speciálních znaků.
@@ -1248,11 +1281,12 @@ The M4 CODE(⟦patsubst()⟧) keyword is inappropriate for this type of task.
 First, we hide all special characters of the input file into HEXPLAIN(⟦appropriately named macros⟧, ⟦⟦⟦A⟧, ⟦messages/messages.mc⟧⟧⟧) using regular expressions.
 ⟧⟧)
 
-BRIDGEHEAD(⟦modified_input_source_code⟧, ⟦
-⟦Upravený vstupní kód⟧,
-dnl _next_language_
-⟦Modified input code⟧,
-⟧)
+BRIDGEHEAD(⟦modified_input_source_code⟧, ⟦⟦
+Upravený vstupní kód
+⟧,dnl _next_language_
+⟦
+Modified input code
+⟧⟧)
 
 TEXTDATA(⟦messages/messages.mc⟧, LANG(⟦všechny speciální znaky jsou skryty do maker⟧, ⟦all special characters are hidden into macros⟧), ⟦
 s/[[:upper:]]\+()/MM(a)/g
@@ -1268,51 +1302,57 @@ We create several conversion files according to the target code type, CODE(⟦[�
 
 define(⟦conv_file⟧, LANG(⟦Převodní soubor pro⟧, ⟦Conversion file for⟧))
 
-BRIDGEHEAD_MONO(⟦
-⟦CODE(⟦⟦⟧⟧) conv_file XML⟦,⟧ XSLT⟦,⟧ HTML⟧,
-⟧)
+BRIDGEHEAD_MONO(⟦⟦
+CODE(⟦⟦⟧⟧) conv_file XML⟦,⟧ XSLT⟦,⟧ HTML
+⟧⟧)
 
 TEXTDATA(⟦messages/markup.m4⟧, LANG(⟦převodní soubor pro značkovací jazyky⟧, ⟦conversion file for markup languages⟧))
 
 # hide  ‘"’ → DQ(), because of title="… &quot; … &quot; …"
-BRIDGEHEAD(⟦
-⟦CODE(⟦⟦⟧⟧) conv_file C⟦,⟧ JSON⟦,⟧ INI: XCODE(⟦DQ()řetězec⟦⟧DQ()⟧)⟧,
-⟦CODE(⟦⟦⟧⟧) conv_file C⟦,⟧ JSON⟦,⟧ INI: XCODE(⟦DQ()string⟦⟧DQ()⟧)⟧,
-⟧)
+BRIDGEHEAD(⟦⟦
+CODE(⟦⟦⟧⟧) conv_file C⟦,⟧ JSON⟦,⟧ INI: XCODE(⟦DQ()řetězec⟦⟧DQ()⟧)
+⟧,dnl _next_language_
+⟦
+CODE(⟦⟦⟧⟧) conv_file C⟦,⟧ JSON⟦,⟧ INI: XCODE(⟦DQ()string⟦⟧DQ()⟧)
+⟧⟧)
 
 TEXTDATA(⟦messages/code.m4⟧, LANG(⟦převodní soubor pro zdrojový kód⟧, ⟦conversion file for a source code⟧))
 
 # hide ‘"’ → DQ(), because of title="… &quot; … &quot; …"
-BRIDGEHEAD(⟦
-⟦CODE(⟦⟦⟧⟧) conv_file Bash: XCODE(⟦DQ()řetězec⟦⟧DQ()⟧)⟧,
-dnl _next_language_
-⟦CODE(⟦⟦⟧⟧) conv_file Bash: XCODE(⟦DQ()string⟦⟧DQ()⟧)⟧,
-⟧)
+BRIDGEHEAD(⟦⟦
+CODE(⟦⟦⟧⟧) conv_file Bash: XCODE(⟦DQ()řetězec⟦⟧DQ()⟧)
+⟧,dnl _next_language_
+⟦
+CODE(⟦⟦⟧⟧) conv_file Bash: XCODE(⟦DQ()string⟦⟧DQ()⟧)
+⟧⟧)
 
 TEXTDATA(⟦messages/doubleq.m4⟧, XLANG(⟦převodní soubor pro Bash ⟦⟧DQ()řetězce v uvozovkách⟦⟧DQ()⟧, ⟦conversion file for Bash ⟦⟧DQ()strings in quotation marks⟦⟧DQ()⟧))
 
-BRIDGEHEAD(⟦
-⟦CODE(⟦⟦⟧⟧) conv_file Bash: XCODE(⟦AP()řetězec⟦⟧AP()⟧)⟧,
-dnl _next_language_
-⟦CODE(⟦⟦⟧⟧) conv_file Bash: XCODE(⟦AP()string⟦⟧AP()⟧)⟧,
-⟧)
+BRIDGEHEAD(⟦⟦
+CODE(⟦⟦⟧⟧) conv_file Bash: XCODE(⟦AP()řetězec⟦⟧AP()⟧)
+⟧,dnl _next_language_
+⟦
+CODE(⟦⟦⟧⟧) conv_file Bash: XCODE(⟦AP()string⟦⟧AP()⟧)
+⟧⟧)
 
 TEXTDATA(⟦messages/apost.m4⟧, LANG(⟦převodní soubor pro Bash 'řetězce v apostrofech'⟧, ⟦conversion file for Bash 'strings in apostrophes'⟧))
 
-BRIDGEHEAD(⟦
-⟦CODE(⟦⟦⟧⟧) conv_file CSV⟦,⟧ M4 (vrátí všechny znaky zpátky)⟧,
-dnl _next_language_
-⟦CODE(⟦⟦⟧⟧) conv_file CSV⟦,⟧ M4 (returns all characters)⟧,
-⟧)undefine(⟦conv_file⟧)
+BRIDGEHEAD(⟦⟦
+CODE(⟦⟦⟧⟧) conv_file CSV⟦,⟧ M4 (vrátí všechny znaky zpátky)
+⟧,dnl _next_language_
+⟦
+CODE(⟦⟦⟧⟧) conv_file CSV⟦,⟧ M4 (returns all characters)
+⟧⟧)undefine(⟦conv_file⟧)
 
 TEXTDATA(⟦messages/unchanged.m4⟧, LANG(⟦převodní soubor vrátí všechny speciální znaky zpátky⟧, ⟦the conversion file puts all special characters back⟧))
 
 
-SECT1(⟦
-⟦CODE(⟦⟦⟧⟧) C: výstupní fronta⟧,
-dnl _next_language_
-⟦CODE(⟦⟦⟧⟧) C: output queue⟧,
-⟧)
+SECT1(⟦⟦
+CODE(⟦⟦⟧⟧) C: výstupní fronta
+⟧,dnl _next_language_
+⟦
+CODE(⟦⟦⟧⟧) C: output queue
+⟧⟧)
 
 PARA(⟦⟦
 Příklad používá jednu HEXPLAIN(⟦výstupní frontu⟧, ⟦⟦⟦15⟧, ⟦messages/array.c.m4⟧⟧⟧) na znaky HCODE(⟦};⟧, ⟦⟦⟦16⟧, ⟦messages/array.c.m4⟧⟧, ⟦⟦9⟧, ⟦messages/array.c⟧⟧⟧) pro uzavření HEXPLAIN(⟦pole⟧, ⟦⟦⟦6-8⟧, ⟦messages/array.c⟧⟧, ⟦⟦5⟧, ⟦messages/array.c.m4⟧⟧⟧) na konci skriptu.
@@ -1326,11 +1366,12 @@ EXECUTED(⟦m4⟧, ⟦gfiles/root0u.m4⟧, ⟦messages/array.c.m4⟧, ⟦message
 TEXTDATA(⟦messages/array.c⟧)
 
 
-SECT1(⟦
-⟦CODE(⟦⟦⟧⟧) INI: externí příkaz⟧,
-dnl _next_language_
-⟦CODE(⟦⟦⟧⟧) INI: an external command⟧,
-⟧)
+SECT1(⟦⟦
+CODE(⟦⟦⟧⟧) INI: externí příkaz
+⟧,dnl _next_language_
+⟦
+CODE(⟦⟦⟧⟧) INI: an external command
+⟧⟧)
 
 PARA(⟦⟦
 Příklad spustí externí příkaz HCODE(⟦date⟧, ⟦⟦⟦D⟧, ⟦messages/hello.ini.m4⟧⟧, ⟦⟦3⟧, ⟦messages/hello.ini⟧⟧⟧) a⟦⟧NB()jeho výstup umístí do hranatých závorek.
@@ -1355,11 +1396,12 @@ EXECUTED(⟦m4⟧, ⟦gfiles/root0u.m4⟧, ⟦messages/hello.ini.m4⟧, ⟦messa
 TEXTDATA(⟦messages/hello.ini⟧)
 
 
-SECT1(⟦
-⟦CODE(⟦⟦⟧⟧) .h: hex počítadlo⟧,
-dnl _next_language_
-⟦CODE(⟦⟦⟧⟧) .h: hex counter⟧,
-⟧)
+SECT1(⟦⟦
+CODE(⟦⟦⟧⟧) .h: hex počítadlo
+⟧,dnl _next_language_
+⟦
+CODE(⟦⟦⟧⟧) .h: hex counter
+⟧⟧)
 
 PARA(⟦⟦
 Příklad používá makro HCODE(⟦COUNTER⟧, ⟦⟦⟦A, 2⟧, ⟦messages/messages.h.m4⟧⟧⟧) pro číslování výsledných ABBREV(⟦CPP⟧, ⟦Preprocesor jazyka C⟧) HEXPLAIN(⟦maker⟧, ⟦⟦⟦11⟧, ⟦messages/messages.h.m4⟧⟧, ⟦⟦8-10⟧, ⟦messages/messages.h⟧⟧⟧) a⟦⟧NB()jednu výstupní frontu.
@@ -1383,11 +1425,12 @@ EXECUTED(⟦m4⟧, ⟦gfiles/root0u.m4⟧, ⟦gfiles/countb.m4⟧, ⟦messages/m
 TEXTDATA(⟦messages/messages.h⟧)
 
 
-SECT1(⟦small_automaton⟧, ⟦
-⟦CODE(⟦⟦⟧⟧) C: malý automat⟧,
-dnl _next_language_
-⟦CODE(⟦⟦⟧⟧) C: small automaton⟧,
-⟧)
+SECT1(⟦small_automaton⟧, ⟦⟦
+CODE(⟦⟦⟧⟧) C: malý automat
+⟧,dnl _next_language_
+⟦
+CODE(⟦⟦⟧⟧) C: small automaton
+⟧⟧)
 
 PARA(⟦⟦
 Příklad používá HEXPLAIN(⟦malý automat⟧, ⟦⟦⟦1-4⟧, ⟦messages/stringl.c.m4⟧⟧⟧) HCODE(⟦NEW_LINE⟧, ⟦⟦⟦7⟧, ⟦messages/stringl.c.m4⟧⟧⟧) pro generování znaku nového řádku HXCODE(⟦LF()⟧, ⟦⟦⟦A⟧, ⟦messages/stringl.c.m4⟧⟧, ⟦⟦A⟧, ⟦messages/stringl.c⟧⟧⟧) a⟦⟧NB()jednu výstupní frontu číslo HCODE(⟦1⟧, ⟦⟦⟦22⟧, ⟦messages/stringl.c.m4⟧⟧⟧) do které se vloží znaky HXCODE(⟦DQT();⟧, ⟦⟦⟦B⟧, ⟦messages/stringl.c.m4⟧⟧⟧) pro uzavření výsledného řetězce.
@@ -1410,11 +1453,12 @@ s/\\n/MM(a)/g
 ⟧)
 
 
-SECT1(⟦
-⟦CODE(⟦⟦⟧⟧) C: malý automat 2⟧,
-dnl _next_language_
-⟦CODE(⟦⟦⟧⟧) C: small automaton 2⟧,
-⟧)
+SECT1(⟦⟦
+CODE(⟦⟦⟧⟧) C: malý automat 2
+⟧,dnl _next_language_
+⟦
+CODE(⟦⟦⟧⟧) C: small automaton 2
+⟧⟧)
 
 PARA(⟦⟦
 Tento příklad je podobný předchozímu, avšak každý řetězec HEXPLAIN(⟦je na novém řádku⟧, ⟦⟦⟦A⟧, ⟦messages/string.c.m4⟧⟧, ⟦⟦A⟧, ⟦messages/string.c⟧⟧⟧).
@@ -1428,11 +1472,12 @@ EXECUTED(⟦m4⟧, ⟦gfiles/root0u.m4⟧, ⟦messages/string.c.m4⟧, ⟦messag
 TEXTDATA_MLH(⟦messages/string.c⟧,, ⟦s/\\n"\n"/MM(a)/g⟧)
 
 
-SECT1(⟦output_queues_html⟧, ⟦
-⟦CODE(⟦⟦⟧⟧) HTML: výstupní fronty⟧,
-dnl _next_language_
-⟦CODE(⟦⟦⟧⟧) HTML: output queues⟧,
-⟧)
+SECT1(⟦output_queues_html⟧, ⟦⟦
+CODE(⟦⟦⟧⟧) HTML: výstupní fronty
+⟧,dnl _next_language_
+⟦
+CODE(⟦⟦⟧⟧) HTML: output queues
+⟧⟧)
 
 PARA(⟦⟦
 Příklad používá HEXPLAIN(⟦dvě výstupní fronty⟧, ⟦⟦⟦9, 27, 29⟧, ⟦messages/messages.html.m4⟧⟧⟧).
@@ -1454,11 +1499,12 @@ EXECUTED(⟦m4⟧, ⟦gfiles/root0u.m4⟧, ⟦messages/messages.html.m4⟧, ⟦m
 TEXTDATA(⟦messages/messages.html⟧)
 
 
-SECT1(⟦branching_in_m4⟧, ⟦
-⟦CODE(⟦⟦⟧⟧) Větvení gramatikou⟧,
-dnl _next_language_
-⟦CODE(⟦⟦⟧⟧) Branching by grammar⟧,
-⟧)
+SECT1(⟦branching_in_m4⟧, ⟦⟦
+CODE(⟦⟦⟧⟧) Větvení gramatikou
+⟧,dnl _next_language_
+⟦
+CODE(⟦⟦⟧⟧) Branching by grammar
+⟧⟧)
 
 PARA(⟦⟦
 Příklad ukazuje LINK(⟦větvení gramatikou⟧, ⟦branching_by_grammar⟧), argumenty maker se ignorují.
@@ -1481,11 +1527,12 @@ s/🐜/MM(b)/g
 s/🐝/MM(c)/g
 ⟧)
 
-BRIDGEHEAD(⟦branching_by_grammar⟧, ⟦
-⟦Větvení gramatikou – základní princip⟧,
-dnl _next_language_
-⟦Branching by grammar – basic principle⟧,
-⟧)
+BRIDGEHEAD(⟦branching_by_grammar⟧, ⟦⟦
+Větvení gramatikou – základní princip
+⟧,dnl _next_language_
+⟦
+Branching by grammar – basic principle
+⟧⟧)
 
 PARA(⟦⟦
 Proměnná HXCODE(⟦⟦$⟧0⟧, ⟦⟦⟦A⟧, ⟦nonterminals_for_branches⟧⟧⟧) se nahradí za HEXPLAIN(⟦jméno makra⟧, ⟦⟦⟦B⟧, ⟦nonterminals_for_branches⟧⟧⟧) a⟦⟧NB()HEXPLAIN(⟦zřetězí se s⟦⟧NB()dalším symbolem⟧, ⟦⟦⟦C⟧, ⟦nonterminals_for_branches⟧⟧⟧).
@@ -1507,11 +1554,12 @@ MM(⟦⟦$⟧0⟧, a)_NAME → MM(⟦QUERY⟧, b)⟦⟧MM(⟦_NAME⟧, c) → MM
 ⟧)dnl PROGRAMLISTING
 
 
-SECT1(⟦json_generating_automaton⟧, ⟦
-⟦CODE(⟦⟦⟧⟧) JSON: generující automat⟧,
-dnl _next_language_
-⟦CODE(⟦⟦⟧⟧) JSON: generating automaton⟧,
-⟧)
+SECT1(⟦json_generating_automaton⟧, ⟦⟦
+CODE(⟦⟦⟧⟧) JSON: generující automat
+⟧,dnl _next_language_
+⟦
+CODE(⟦⟦⟧⟧) JSON: generating automaton
+⟧⟧)
 
 PARA(⟦⟦
 Příklad používá HEXPLAIN(⟦dvě výstupní fronty⟧, ⟦⟦⟦14, 30⟧, ⟦messages/atm.json.m4⟧⟧⟧) a⟦⟧NB()jeden HEXPLAIN(⟦generující automat⟧, ⟦⟦⟦1-3⟧, ⟦messages/atm.json.m4⟧⟧⟧).
@@ -1533,11 +1581,12 @@ EXECUTED(⟦m4⟧, ⟦gfiles/root0u.m4⟧, ⟦messages/atm.json.m4⟧, ⟦messag
 TEXTDATA(⟦messages/atm.json⟧)
 
 
-SECT2(⟦json_branch⟧, ⟦
-⟦CODE(⟦⟦⟧⟧) JSON: pojmenované fronty⟧,
-dnl _next_language_
-⟦CODE(⟦⟦⟧⟧) JSON: named queues⟧,
-⟧)
+SECT2(⟦json_branch⟧, ⟦⟦
+CODE(⟦⟦⟧⟧) JSON: pojmenované fronty
+⟧,dnl _next_language_
+⟦
+CODE(⟦⟦⟧⟧) JSON: named queues
+⟧⟧)
 
 PARA(⟦⟦
 Příklad zpracovává další zprávy typu CODE(⟦QUERY⟧) a⟦⟧NB()CODE(⟦WARNING⟧).
@@ -1559,11 +1608,12 @@ EXECUTED(⟦m4⟧, ⟦gfiles/root0u.m4⟧, ⟦messages/qnames.json.m4⟧, ⟦mes
 TEXTDATA(⟦messages/qnames.json⟧)
 
 
-SECT2(⟦json_symbolic_queue_names⟧, ⟦
-⟦CODE(⟦⟦⟧⟧) JSON: generované indexy front⟧,
-dnl _next_language_
-⟦CODE(⟦⟦⟧⟧) JSON: generated queue indexes⟧,
-⟧)
+SECT2(⟦json_symbolic_queue_names⟧, ⟦⟦
+CODE(⟦⟦⟧⟧) JSON: generované indexy front
+⟧,dnl _next_language_
+⟦
+CODE(⟦⟦⟧⟧) JSON: generated queue indexes
+⟧⟧)
 
 PARA(⟦⟦
 Během vývoje se často mění pořadí a⟦⟧NB()počet výstupních front, což také vyžaduje častou změnu jejich indexů.
@@ -1584,11 +1634,12 @@ EXECUTED(⟦m4⟧, ⟦gfiles/root0u.m4⟧, ⟦gfiles/countb.m4⟧, ⟦messages/q
 TEXTDATA(⟦messages/messages.json⟧)
 
 
-SECT1(⟦
-⟦CODE(⟦⟦⟧⟧) INI: nespojitý index front⟧,
-dnl _next_language_
-⟦CODE(⟦⟦⟧⟧) INI: discontinuous queue index⟧,
-⟧)
+SECT1(⟦⟦
+CODE(⟦⟦⟧⟧) INI: nespojitý index front
+⟧,dnl _next_language_
+⟦
+CODE(⟦⟦⟧⟧) INI: discontinuous queue index
+⟧⟧)
 
 PARA(⟦⟦
 Příklad používá HEXPLAIN(⟦tři automaty⟧, ⟦⟦⟦1-4⟧, ⟦messages/messages.ini.m4⟧⟧⟧) a⟦⟧NB()dvě výstupní fronty číslo HCODE(⟦2⟧, ⟦⟦⟦10, 26⟧, ⟦messages/messages.ini.m4⟧⟧⟧) a⟦⟧NB()HCODE(⟦4⟧, ⟦⟦⟦10, 26⟧, ⟦messages/messages.ini.m4⟧⟧⟧) definované v⟦⟧NB()odděleném souboru.
@@ -1606,11 +1657,12 @@ EXECUTED(⟦m4⟧, ⟦gfiles/root0u.m4⟧, ⟦messages/messages.ini.m4⟧, ⟦gf
 TEXTDATA(⟦messages/messages.ini⟧)
 
 
-SECT1(⟦
-⟦CODE(⟦⟦⟧⟧) XML: smíšené zprávy⟧,
-dnl _next_language_
-⟦CODE(⟦⟦⟧⟧) XML: mixed messages⟧,
-⟧)
+SECT1(⟦⟦
+CODE(⟦⟦⟧⟧) XML: smíšené zprávy
+⟧,dnl _next_language_
+⟦
+CODE(⟦⟦⟧⟧) XML: mixed messages
+⟧⟧)
 
 PARA(⟦⟦
 Příklad používá jednu výstupní frontu číslo HCODE(⟦1⟧, ⟦⟦⟦21⟧, ⟦messages/mixed.xml.m4⟧⟧⟧) pro uzavírací značku HXCODE(⟦⟦⟧LT()/messages⟦⟧GT()⟧, ⟦⟦⟦22⟧, ⟦messages/mixed.xml.m4⟧⟧, ⟦⟦28⟧, ⟦messages/mixed.xml⟧⟧⟧).
@@ -1624,11 +1676,12 @@ EXECUTED(⟦m4⟧, ⟦gfiles/root0u.m4⟧, ⟦messages/queues.m4⟧, ⟦messages
 TEXTDATA(⟦messages/mixed.xml⟧)
 
 
-SECT1(⟦
-⟦CODE(⟦⟦⟧⟧) XML: oddělené zprávy⟧,
-dnl _next_language_
-⟦CODE(⟦⟦⟧⟧) XML: separated messages⟧,
-⟧)
+SECT1(⟦⟦
+CODE(⟦⟦⟧⟧) XML: oddělené zprávy
+⟧,dnl _next_language_
+⟦
+CODE(⟦⟦⟧⟧) XML: separated messages
+⟧⟧)
 
 PARA(⟦⟦
 Příklad seskupuje zprávy podle jejich typu pomocí výstupních front.
@@ -1642,39 +1695,43 @@ EXECUTED(⟦m4⟧, ⟦gfiles/root0u.m4⟧, ⟦messages/queues.m4⟧, ⟦messages
 TEXTDATA(⟦messages/messages.xml⟧)
 
 
-SECT1(⟦
-⟦CODE(⟦⟦⟧⟧) Bash XCODE(⟦PROMPT() echo ⟦⟧DQ()řetězec⟦⟧DQ()⟧)⟧,
-dnl _next_language_
-⟦CODE(⟦⟦⟧⟧) Bash XCODE(⟦PROMPT() echo ⟦⟧DQ()string⟦⟧DQ()⟧)⟧,
-⟧)
+SECT1(⟦⟦
+CODE(⟦⟦⟧⟧) Bash XCODE(⟦PROMPT() echo ⟦⟧DQ()řetězec⟦⟧DQ()⟧)
+⟧,dnl _next_language_
+⟦
+CODE(⟦⟦⟧⟧) Bash XCODE(⟦PROMPT() echo ⟦⟧DQ()string⟦⟧DQ()⟧)
+⟧⟧)
 
 TEXTDATA(⟦messages/doubleq.sh.m4⟧)
 EXECUTED(⟦m4⟧, ⟦gfiles/root0u.m4⟧, ⟦messages/doubleq.sh.m4⟧, ⟦messages/doubleq.m4⟧, ⟦messages/messages.mc⟧, ⟦messages/doubleq.sh⟧)
 TEXTDATA(⟦messages/doubleq.sh⟧)
 
 
-SECT1(⟦
-⟦CODE(⟦⟦⟧⟧) Bash XCODE(⟦PROMPT() echo 'řetězec'⟧)⟧,
-dnl _next_language_
-⟦CODE(⟦⟦⟧⟧) Bash XCODE(⟦PROMPT() echo 'string'⟧)⟧,
-⟧)
+SECT1(⟦⟦
+CODE(⟦⟦⟧⟧) Bash XCODE(⟦PROMPT() echo 'řetězec'⟧)
+⟧,dnl _next_language_
+⟦
+CODE(⟦⟦⟧⟧) Bash XCODE(⟦PROMPT() echo 'string'⟧)
+⟧⟧)
 
 TEXTDATA(⟦messages/apost.sh.m4⟧)
 EXECUTED(⟦m4⟧, ⟦gfiles/root0u.m4⟧, ⟦messages/apost.sh.m4⟧, ⟦messages/apost.m4⟧, ⟦messages/messages.mc⟧, ⟦messages/apost.sh⟧)
 TEXTDATA(⟦messages/apost.sh⟧)
 
 
-APPENDIX(⟦preproc_examples⟧, ⟦
-⟦Příklady preprocesoru⟧,
-dnl _next_language_
-⟦Preprocessor examples⟧,
-⟧)
+APPENDIX(⟦preproc_examples⟧, ⟦⟦
+Příklady preprocesoru
+⟧,dnl _next_language_
+⟦
+Preprocessor examples
+⟧⟧)
 
-SECT1(⟦cpp_and_m4⟧, ⟦
-⟦CODE(⟦`'⟧) Preprocesor jazyka C⟦⟧NB()a⟦⟧NB()M4⟧,
-dnl _next_language_
-⟦CODE(⟦`'⟧) C⟦⟧NB()preprocessor and M4⟧,
-⟧)
+SECT1(⟦cpp_and_m4⟧, ⟦⟦
+CODE(⟦`'⟧) Preprocesor jazyka C⟦⟧NB()a⟦⟧NB()M4
+⟧,dnl _next_language_
+⟦
+CODE(⟦`'⟧) C⟦⟧NB()preprocessor and M4
+⟧⟧)
 
 PARA(⟦⟦
 Direktivy ULINK(⟦CPP⟧, ⟦Preprocesor jazyka C⟧, ⟦https://cs.wikipedia.org/wiki/Preprocesor_jazyka_C⟧) jsou pro M4 jednořádkový komentář, což brání nežádoucí expanzi stejně pojmenovaných maker.
@@ -1711,11 +1768,12 @@ s/\<SYMBOL\>/MM(c)/g
 ⟧)
 
 
-SECT1(⟦
-⟦CODE(⟦`'⟧) CSS: vložení souboru⟦,⟧ komentář⟧,
-dnl _next_language_
-⟦CODE(⟦`'⟧) CSS: file inclusion⟦,⟧ comment⟧,
-⟧)
+SECT1(⟦⟦
+CODE(⟦`'⟧) CSS: vložení souboru⟦,⟧ komentář
+⟧,dnl _next_language_
+⟦
+CODE(⟦`'⟧) CSS: file inclusion⟦,⟧ comment
+⟧⟧)
 
 PARA(⟦⟦
 CSS používá znak HXCODE(⟦#⟧, ⟦⟦⟦A⟧, ⟦preproc/file.css.m4⟧⟧, ⟦⟦A⟧, ⟦preproc/preproc.file.css⟧⟧⟧) pro kódy barev, což je také začátek jednořádkového M4 komentáře.
@@ -1735,11 +1793,12 @@ EXECUTED(⟦m4 -DSYMBOL='Hello, world!'⟧, ⟦gfiles/root0q.m4⟧, ⟦preproc/f
 TEXTDATA(⟦preproc/preproc.file.css⟧,, ⟦s/#/MM(a)/g;/\<DONTE\>/s:/\*.*\*/:MM(b):⟧)
 
 
-SECT1(⟦nprint_bash⟧, ⟦
-⟦BOLD(⟦CODE(⟦␂␆⟧)⟧) Bash: netisknutelné znaky⟧,
-dnl _next_language_
-⟦BOLD(⟦CODE(⟦␂␆⟧)⟧) Bash: nonprintable characters⟧,
-⟧)
+SECT1(⟦nprint_bash⟧, ⟦⟦
+BOLD(⟦CODE(⟦␂␆⟧)⟧) Bash: netisknutelné znaky
+⟧,dnl _next_language_
+⟦
+BOLD(⟦CODE(⟦␂␆⟧)⟧) Bash: nonprintable characters
+⟧⟧)
 
 PARA(⟦⟦
 Bash používá oba znaky, CODE(⟦`⟧) a XCODE(⟦[⟧).
@@ -1756,18 +1815,20 @@ EXECUTED(⟦m4 -DSYMBOL='Hello, world!'⟧, ⟦gfiles/root0n.m4⟧, ⟦preproc/f
 TEXTDATA(⟦preproc/preproc.file.sh⟧)
 
 
-APPENDIX(⟦m4_on_examples⟧, ⟦
-⟦M4: příklady⟧,
-dnl _next_language_
-⟦M4: examples⟧,
-⟧)
+APPENDIX(⟦m4_on_examples⟧, ⟦⟦
+M4: příklady
+⟧,dnl _next_language_
+⟦
+M4: examples
+⟧⟧)
 
 
-SECT1(⟦
-⟦CODE(⟦[]⟧) JSON: levá závorka XCODE(⟦[⟧)⟧,
-dnl _next_language_
-⟦CODE(⟦[]⟧) JSON: left bracket XCODE(⟦[⟧)⟧,
-⟧)
+SECT1(⟦⟦
+CODE(⟦[]⟧) JSON: levá závorka XCODE(⟦[⟧)
+⟧,dnl _next_language_
+⟦
+CODE(⟦[]⟧) JSON: left bracket XCODE(⟦[⟧)
+⟧⟧)
 
 PARA(⟦⟦
 Uvnitř hranatých závorek CODE(⟦[… se neterminály neexpandují …]⟧).
@@ -1783,11 +1844,12 @@ EXECUTED(⟦m4 -DSYMBOL='Hello, world!'⟧, ⟦gfiles/root0b.m4⟧, ⟦hello_wor
 TEXTDATA(⟦hello_world/hello_world.json⟧)
 
 
-SECT1(⟦
-⟦CODE(⟦[]⟧) Bash: počítadla⟧,
-dnl _next_language_
-⟦CODE(⟦[]⟧) Bash: counters⟧,
-⟧)
+SECT1(⟦⟦
+CODE(⟦[]⟧) Bash: počítadla
+⟧,dnl _next_language_
+⟦
+CODE(⟦[]⟧) Bash: counters
+⟧⟧)
 
 PARA(⟦⟦
 Počítadla HCODE(⟦COUNT_UP⟧, ⟦⟦⟦A⟧, ⟦hello_world/sh.m4⟧⟧⟧) a⟦⟧NB()HCODE(⟦COUNT_DOWN⟧, ⟦⟦⟦B⟧, ⟦hello_world/sh.m4⟧⟧⟧) jsou definována v⟦⟧NB()souboru CODE(⟦countb.m4⟧).
@@ -1809,11 +1871,12 @@ EXECUTED(⟦m4 -DSYMBOL='Hello, world!'⟧, ⟦gfiles/root0u.m4⟧, ⟦gfiles/co
 TEXTDATA(⟦hello_world/hello_world.sh⟧)
 
 
-SECT1(⟦symbols_in_brackets⟧, ⟦
-⟦CODE(⟦[]⟧) .h: závorky CODE(⟦[]⟧)⟦,⟧ CODE(⟦[,]⟧)⟦,⟧ XCODE(⟦[#]⟧)⟦,⟧ XCODE(⟦[dnl]⟧)⟧,
-dnl _next_language_
-⟦CODE(⟦[]⟧) .h: brackets CODE(⟦[]⟧)⟦,⟧ CODE(⟦[,]⟧)⟦,⟧ XCODE(⟦[#]⟧)⟦,⟧ XCODE(⟦[dnl]⟧)⟧,
-⟧)
+SECT1(⟦symbols_in_brackets⟧, ⟦⟦
+CODE(⟦[]⟧) .h: závorky CODE(⟦[]⟧)⟦,⟧ CODE(⟦[,]⟧)⟦,⟧ XCODE(⟦[#]⟧)⟦,⟧ XCODE(⟦[dnl]⟧)
+⟧,dnl _next_language_
+⟦
+CODE(⟦[]⟧) .h: brackets CODE(⟦[]⟧)⟦,⟧ CODE(⟦[,]⟧)⟦,⟧ XCODE(⟦[#]⟧)⟦,⟧ XCODE(⟦[dnl]⟧)
+⟧⟧)
 
 PARA(⟦⟦
 Prázdný pár HCODE(⟦[]⟧, ⟦⟦⟦A⟧, ⟦hello_world/h.m4⟧⟧⟧) (nebo prázdný symbol v⟦⟧NB()závorkách CODE(⟦[ε]⟧)) slouží jako oddělovač symbolů.
@@ -1842,11 +1905,12 @@ s/\<dnl\>/MM(c)/
 ⟧)
 
 
-SECT1(⟦safe_example⟧, ⟦
-⟦CODE(⟦[]⟧) AWK: příklady bezpečnějších maker⟧,
-dnl _next_language_
-⟦CODE(⟦[]⟧) AWK: examples of safer macros⟧,
-⟧)
+SECT1(⟦safe_example⟧, ⟦⟦
+CODE(⟦[]⟧) AWK: příklady bezpečnějších maker
+⟧,dnl _next_language_
+⟦
+CODE(⟦[]⟧) AWK: examples of safer macros
+⟧⟧)
 
 PARA(⟦⟦
 Univerzální výstraha HCODE(⟦DONTE⟧, ⟦⟦⟦A⟧, ⟦hello_world/awk.m4⟧⟧, ⟦⟦A⟧, ⟦hello_world/hello_world.awk⟧⟧⟧) se ignoruje bez závorek, stejně jako HCODE(⟦LL⟧, ⟦⟦⟦B⟧, ⟦hello_world/awk.m4⟧⟧, ⟦⟦B⟧, ⟦hello_world/hello_world.awk⟧⟧⟧), CODE(⟦RR⟧), …
@@ -1874,19 +1938,21 @@ s/\<LL\>/MM(b)/
 
 # A → ε
 pushdef(⟦APPENDIX_APPEND_CODE⟧)# temporarily disable NOTE in appendix because no examples
-APPENDIX(⟦questions_and_answers⟧, ⟦
-⟦Proč používat M4 a⟦⟧NB()proč ne?⟧,
-dnl _next_language_
-⟦Why to use M4 and why not?⟧,
-⟧)
+APPENDIX(⟦questions_and_answers⟧, ⟦⟦
+Proč používat M4 a⟦⟧NB()proč ne?
+⟧,dnl _next_language_
+⟦
+Why to use M4 and why not?
+⟧⟧)
 popdef(⟦APPENDIX_APPEND_CODE⟧)# re-enable NOTE
 
 
-SECT1(⟦why_to_use_m4⟧, ⟦
-⟦CODE(⟦👍⟧) Proč generovat kód v⟦⟧NB()M4⟧,
-dnl _next_language_
-⟦CODE(⟦👍⟧) Why to generate code in M4⟧,
-⟧)
+SECT1(⟦why_to_use_m4⟧, ⟦⟦
+CODE(⟦👍⟧) Proč generovat kód v⟦⟧NB()M4
+⟧,dnl _next_language_
+⟦
+CODE(⟦👍⟧) Why to generate code in M4
+⟧⟧)
 
 ITEMIZEDLIST_WRAP(⟦
 
@@ -1938,11 +2004,12 @@ UL(⟦LI(⟦low demands on computing resources⟧)⟧)
 ⟧)dnl ITEMIZEDLIST_WRAP
 
 
-SECT1(⟦why_not_use⟧, ⟦
-⟦CODE(⟦👎⟧) Proč se vyhnout M4⟧,
-dnl _next_language_
-⟦CODE(⟦👎⟧) Why to avoid M4⟧,
-⟧)
+SECT1(⟦why_not_use⟧, ⟦⟦
+CODE(⟦👎⟧) Proč se vyhnout M4
+⟧,dnl _next_language_
+⟦
+CODE(⟦👎⟧) Why to avoid M4
+⟧⟧)
 
 ITEMIZEDLIST_WRAP(⟦
 
