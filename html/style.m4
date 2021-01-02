@@ -31,7 +31,7 @@ define(⟦CSS_CLASS_RULE_SET⟧, ⟦
 
 	# once the CSS rule set is written to stylesheet, it undefine itself (therefore it cannot be duplicated)
 	# A → β
-	define(defn(⟦CSS_RULE_SET_KEY⟧), ⟦undefine(⟧LU()defn(⟦CSS_RULE_SET_KEY⟧)RU()⟦)divert(INTERNAL_STYLE_DATA)⟧pushdef(⟦CSS_TYPE⟧, ⟦.⟧)CSS_SELECTORS_COMBINE(⟦$1⟧, ⟦$2⟧, ⟦$3⟧)popdef(⟦CSS_TYPE⟧)⟦{patsubst(patsubst(patsubst(⟦⟦⟦$4⟧⟧⟧, ⟦#⟧, ⟦⟦#⟧⟧), ⟦
+	define(defn(⟦CSS_RULE_SET_KEY⟧), ⟦undefine(⟧LL()defn(⟦CSS_RULE_SET_KEY⟧)RR()⟦)divert(INTERNAL_STYLE_DATA)⟧pushdef(⟦CSS_TYPE⟧, ⟦.⟧)CSS_SELECTORS_COMBINE(⟦$1⟧, ⟦$2⟧, ⟦$3⟧)popdef(⟦CSS_TYPE⟧)⟦{patsubst(patsubst(patsubst(⟦⟦⟦$4⟧⟧⟧, ⟦#⟧, ⟦⟦#⟧⟧), ⟦
 ⟧), ⟦;*⟧)}divert(-1)
 	⟧)
 
@@ -72,7 +72,7 @@ define(⟦CSS_ID_RULE_SET⟧, ⟦
 
 	# once the CSS rule set is written to stylesheet, it undefine itself (therefore it cannot be duplicated)
 	# A → β
-	define(defn(⟦CSS_RULE_SET_KEY⟧), ⟦undefine(⟧LU()defn(⟦CSS_RULE_SET_KEY⟧)RU()⟦)divert(INTERNAL_STYLE_DATA)⟧pushdef(⟦NSP⟧)pushdef(⟦CSS_TYPE⟧, ⟦⟦#⟧⟧)CSS_SELECTORS_COMBINE(⟦$1⟧, ⟦$2⟧, ⟦$3⟧)popdef(⟦CSS_TYPE⟧, ⟦NSP⟧)⟦{patsubst(patsubst(patsubst(⟦⟦⟦$4⟧⟧⟧, ⟦#⟧, ⟦⟦#⟧⟧), ⟦
+	define(defn(⟦CSS_RULE_SET_KEY⟧), ⟦undefine(⟧LL()defn(⟦CSS_RULE_SET_KEY⟧)RR()⟦)divert(INTERNAL_STYLE_DATA)⟧pushdef(⟦NSP⟧)pushdef(⟦CSS_TYPE⟧, ⟦⟦#⟧⟧)CSS_SELECTORS_COMBINE(⟦$1⟧, ⟦$2⟧, ⟦$3⟧)popdef(⟦CSS_TYPE⟧, ⟦NSP⟧)⟦{patsubst(patsubst(patsubst(⟦⟦⟦$4⟧⟧⟧, ⟦#⟧, ⟦⟦#⟧⟧), ⟦
 ⟧), ⟦;*⟧)}divert(-1)
 	⟧)
 ⟧)

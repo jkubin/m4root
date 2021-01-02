@@ -129,8 +129,9 @@ test tst t: trunc devel
 #devel: rootu.m4 config.m4 queues.m4 style.m4 css.m4 js.m4 test.m4
 #devel: rootu.m4 config.m4 queues.m4 style.m4 css.m4 test.m4
 #devel:
-#	m4 gfiles/rootu.m4 --define='. a b c'='[xyz], [LU()], [123]' test.m4
-devel: rootu.m4 config.m4 git.m4 text/queues.m4 text/cmd.m4 html/ent.m4 test.m4
+#	m4 gfiles/rootu.m4 --define='. a b c'='[xyz], [LL()], [123]' test.m4
+#devel: rootu.m4 config.m4 git.m4 text/queues.m4 text/cmd.m4 html/ent.m4 test.m4
+devel: rootu.m4 test.m4
 	m4 $^
 
 #:new/n	removes the date at the top of the page (usage: $ make new art)

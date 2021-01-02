@@ -16,20 +16,20 @@ ifdef(⟦LANG_INDEX_⟧LANG_CODE, ⟦⟧, ⟦
 # select language without trailing white chars
 # A → β
 # β
-define(⟦SELECT_LANG_CROP_WHITE_CHARS⟧, ⟦patsubst(⟧LU()LU()$defn(⟦LANG_INDEX_⟧LANG_CODE)⟧⟧⟦, ⟦\s*\s*⟧)⟧)
+define(⟦SELECT_LANG_CROP_WHITE_CHARS⟧, ⟦patsubst(⟧LL()LL()$defn(⟦LANG_INDEX_⟧LANG_CODE)⟧⟧⟦, ⟦\s*\s*⟧)⟧)
 
 # expand language without trailing white chars
 # A → β
-define(⟦EXPAND_LANG_CROP_WHITE_CHARS⟧, ⟦patsubst(⟧LU()$defn(⟦LANG_INDEX_⟧LANG_CODE)⟧⟦, ⟦\s*\s*⟧)⟧)
+define(⟦EXPAND_LANG_CROP_WHITE_CHARS⟧, ⟦patsubst(⟧LL()$defn(⟦LANG_INDEX_⟧LANG_CODE)⟧⟦, ⟦\s*\s*⟧)⟧)
 
 # select language
 # A → β
-define(⟦LANG⟧, ⟦ifelse(⟦$#⟧, ⟦0⟧, ⟦⟦$0⟧⟧, ⟧LU()LU()$defn(⟦LANG_INDEX_⟧LANG_CODE)⟧⟧⟦)⟧)
+define(⟦LANG⟧, ⟦ifelse(⟦$#⟧, ⟦0⟧, ⟦⟦$0⟧⟧, ⟧LL()LL()$defn(⟦LANG_INDEX_⟧LANG_CODE)⟧⟧⟦)⟧)
 
 # select language without trailing white chars
 # A → β
-define(⟦LANGW⟧, ⟦ifelse(⟦$#⟧, ⟦0⟧, ⟦⟦$0⟧⟧, ⟧LU()defn(⟦SELECT_LANG_CROP_WHITE_CHARS⟧)⟧⟦)⟧)
+define(⟦LANGW⟧, ⟦ifelse(⟦$#⟧, ⟦0⟧, ⟦⟦$0⟧⟧, ⟧LL()defn(⟦SELECT_LANG_CROP_WHITE_CHARS⟧)⟧⟦)⟧)
 
 # expand language (used for language-dependent macros)
 # A → β
-define(⟦XLANG⟧, ⟦ifelse(⟦$#⟧, ⟦0⟧, ⟦⟦$0⟧⟧, ⟧LU()$defn(⟦LANG_INDEX_⟧LANG_CODE)⟧⟦)⟧)
+define(⟦XLANG⟧, ⟦ifelse(⟦$#⟧, ⟦0⟧, ⟦⟦$0⟧⟧, ⟧LL()$defn(⟦LANG_INDEX_⟧LANG_CODE)⟧⟦)⟧)

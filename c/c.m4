@@ -25,7 +25,7 @@ divert(-1)
 
 # creates multiline c string
 # A → β
-define(⟦C_STRING_EXPAND_LANG_CROP_WHITE_CHARS⟧, ⟦patsubst(patsubst(⟧LU()LU()$defn(⟦LANG_INDEX_⟧LANG_CODE)⟧⟧⟦, ⟦\s*\s*⟧, ⟦"⟧), ⟦
+define(⟦C_STRING_EXPAND_LANG_CROP_WHITE_CHARS⟧, ⟦patsubst(patsubst(⟧LL()LL()$defn(⟦LANG_INDEX_⟧LANG_CODE)⟧⟧⟦, ⟦\s*\s*⟧, ⟦"⟧), ⟦
 ⟧, ⟦\\n"
 "⟧)⟧)
 

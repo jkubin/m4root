@@ -818,12 +818,12 @@ dnl _next_language_
 
 PARA(⟦⟦
 Expanzi neterminálů může také řídit vhodně zvolený pár UTF-8 znaků.
-Běžný zdrojový kód takové znaky neobsahuje, proto nemusíme řešit kolizi levého XCODE(⟦LU()⟧) znaku.
+Běžný zdrojový kód takové znaky neobsahuje, proto nemusíme řešit kolizi levého XCODE(⟦LL()⟧) znaku.
 UTF-8 znaky nabízí podobné výhody jako netisknutelné znaky.
 ⟧,dnl _next_language_
 ⟦
 Expansion of nonterminals can also be controlled by a suitably selected UTF-8 character pair.
-The usual source code does not contain such characters, so we do not have to solve the collision of the left XCODE(⟦LU()⟧) bracket.
+The usual source code does not contain such characters, so we do not have to solve the collision of the left XCODE(⟦LL()⟧) bracket.
 UTF-8 characters offer similar advantages to non printable characters.
 ⟧⟧)
 
