@@ -11,6 +11,10 @@ s/^/dnl vim:mps+=`\\:'\ndnl\ndnl DO NOT EDIT! This file is generated automatical
 s/changequote([^)]*)//
 }
 
+# ⟦	<--- because of doc.m4
+/___USAGE/s/b.m4/q.m4/g
+# ⟧	<--- because of doc.m4
+
 s/\[/`/g
 s/]/'/g
 
