@@ -7,7 +7,7 @@ __REASON(⟦how to work with automata and queues⟧)
 divert(0)dnl
 /*
  * DONTE()
- * SARG1(esyscmd(⟦date '+⟦%Y%m%d-%R:%S⟧,'⟧))
+ * generated: SARG1(esyscmd(⟦date '+⟦%Y%m%d-%R:%S⟧,'⟧))
  *
  * __SOURCE(PAYR(__file__), SARG1(esyscmd(⟦git log -1 --date='format:%Y%m%d-%T' --pretty='format:⟦⟦%ad⟧, ⟦%h⟧⟧' -- ⟧__file__)), SARG1(esyscmd(⟦git log -1 --format='⟦⟦%h⟧⟧,'⟧)))
  * divert(PART_HEADER_END)dnl
@@ -25,14 +25,14 @@ divert(-1)
 
 # creates multiline c string
 # A → β
-define(⟦C_STRING_EXPAND_LANG_CROP_WHITE_CHARS⟧, ⟦patsubst(patsubst(⟧LL()LL()$defn(⟦LANG_INDEX_⟧LANG_CODE)⟧⟧⟦, ⟦\s*\s*⟧, ⟦"⟧), ⟦
+define(⟦C_STRING_EXPAND_LANG_CROP_WHITE_CHARS⟧, ⟦patsubst(patsubst(patsubst(⟧LL()LL()LL()$defn(⟦LANG_INDEX_⟧LANG_CODE)⟧⟧⟧⟦, ⟦\s*\s*⟧, ⟦"⟧), ⟦
 ⟧, ⟦\\n"
-"⟧)⟧)
+"⟧), ⟦\<dnl\>\|#⟧, ⟦⟦\&⟧⟧)⟧)
 
 # A → β
-define(⟦C_STRING_EXPAND_ARG1_CROP_WHITE_CHARS⟧, ⟦patsubst(patsubst(⟦⟦$1⟧⟧, ⟦\s*\s*⟧, ⟦"⟧), ⟦
+define(⟦C_STRING_EXPAND_ARG1_CROP_WHITE_CHARS⟧, ⟦patsubst(patsubst(patsubst(⟦⟦⟦$1⟧⟧⟧, ⟦\s*\s*⟧, ⟦"⟧), ⟦
 ⟧, ⟦\\n"
-"⟧)⟧)
+"⟧), ⟦\<dnl\>\|#⟧, ⟦⟦\&⟧⟧)⟧)
 
 define(⟦PARA_COUNTER⟧, defn(⟦COUNT_UP⟧))
 PARA_COUNTER(0)
