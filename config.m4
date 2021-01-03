@@ -6,15 +6,15 @@ __REASON(⟦one file to configure all generated files⟧)
 
 # A → β
 define(⟦AUTHOR_NAME⟧,		⟦Josef Kubín⟧)
-define(defn(⟦AUTHOR_NAME⟧),	⟦pepa.png⟧)	<--- image associated with the name
+define(defn(⟦AUTHOR_NAME⟧),	⟦pepa.png⟧)	<--- an image of the author associated with the author's name
 define(⟦AUTHOR_NAME_SHORT⟧,	⟦jkubin⟧)
 
 # A → β
-define(⟦AUTHOR_SHORT_DESCRIPTION⟧, LANGW(⟦dnl _first_language_
+define(⟦AUTHOR_SHORT_DESCRIPTION⟧, LANGW(⟦
 PERSON(⟦AUTHOR_NAME⟧) vystudoval Fakultu⟦⟧NB()informatiky Masarykovy univerzity v Brně, zabýval se teoretickou informatikou a⟦⟧NB()programováním hardware.
 Pracuje ve společnosti Red⟦⟧NB()Hat v⟦⟧NB()ABBREV(⟦GSS⟧, ⟦Global Support Services⟧).
-⟧,
-⟦dnl _next_language_
+⟧,dnl _next_language_
+⟦
 PERSON(⟦AUTHOR_NAME⟧) graduated from the Faculty of Informatics, Masaryk University, where he studied theoretical computer science and hardware programming.
 Works at Red⟦⟧NB()Hat in⟦⟧NB()ABBREV(⟦GSS⟧, ⟦Global Support Services⟧).
 ⟧))
@@ -22,8 +22,6 @@ Works at Red⟦⟧NB()Hat in⟦⟧NB()ABBREV(⟦GSS⟧, ⟦Global Support Servic
 # uncomment what you like more:
 # PROMPT() ---> ~]$
 # PROMPT(path) ---> path]$
-#
-# A → β
 #define(⟦PROMPT⟧, ⟦ifelse(⟦$#⟧, ⟦0⟧, ⟦⟦$0⟧⟧, ⟦$1⟧, ⟦⟧, ⟦~]$⟧, ⟦⟦$1⟧]$⟧)⟧)
 
 # or briefly PROMPT() ---> $
@@ -32,9 +30,7 @@ define(⟦PROMPT⟧, ⟦ifelse(⟦$#⟧, ⟦0⟧, ⟦⟦$0⟧⟧, ⟦$⟧)⟧)
 # uncomment what you like more:
 # PROMPT_ROOT() ---> ~]#
 # PROMPT_ROOT(path) ---> path]#
-#
-# A → β
-#define(⟦PROMPT_ROOT⟧, ⟦ifelse(⟦$#⟧, ⟦0⟧, ⟦⟦$0⟧⟧, ⟦$1⟧, ⟦⟧, ⟦~]⟦#⟧⟧, ⟦⟦$1]⟧⟦#⟧⟧)⟧)
+#define(⟦PROMPT_ROOT⟧, ⟦ifelse(⟦$#⟧, ⟦0⟧, ⟦⟦$0⟧⟧, ⟦$1⟧, ⟦⟧, ⟦~]⟦#⟧⟧, ⟦⟦$1]#⟧⟧)⟧)
 
 # or briefly PROMPT_ROOT() --->  #
 define(⟦PROMPT_ROOT⟧, ⟦ifelse(⟦$#⟧, ⟦0⟧, ⟦⟦$0⟧⟧, ⟦⟦#⟧⟧)⟧)
