@@ -2,15 +2,15 @@
 
 __HEADER(⟦Josef Kubin⟧, ⟦2020/02/09⟧)
 ___DESCR(⟦⟧)
-
-VERSION_TEMPLATE(1, 0, 0)
+__TPLVER(1, 0, 0)
 
 
-PART(⟦
-⟦SERIES_NAME: základy⟧,
-dnl _next_language_
-⟦SERIES_NAME: fundamentals⟧,
-⟧)
+PART(⟦⟦
+SERIES_NAME: základy
+⟧,dnl _next_language_
+⟦
+SERIES_NAME: fundamentals
+⟧⟧)
 
 PARTIMAGE(⟦img/m4tux.png⟧, ⟦https://i.iinfo.cz/images/154/m4tux-1-prev.png⟧)
 
@@ -23,11 +23,12 @@ This part is focused on explanation of necessary, seemingly complex concepts of 
 ⟧⟧)
 
 
-CHAPTER(⟦
-⟦Úvod⟧,
-dnl _next_language_
-⟦Introduction⟧,
-⟧)
+CHAPTER(⟦⟦
+Úvod
+⟧,dnl _next_language_
+⟦
+Introduction
+⟧⟧)
 
 PARA(⟦⟦
 %%%
