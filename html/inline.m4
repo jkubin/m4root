@@ -144,12 +144,12 @@ divert(CURRQU)dnl
 # β
 pushdef(⟦BETA3⟧, ⟦defn(⟦DATA_SET⟧)>$1</$0_TAG>popdef(⟦CURRQU⟧, ⟦DATA_SET_KEY⟧, ⟦DATA_SET⟧)⟧)
 pushdef(⟦BETA4⟧, ⟦defn(⟦DATA_SET⟧)>⟦$1⟧</$0_TAG>popdef(⟦CURRQU⟧, ⟦DATA_SET_KEY⟧, ⟦DATA_SET⟧)⟧)
-pushdef(⟦SUPER_BETA⟧, defn(⟦BETA1⟧, ⟦EXPAND_LAST_ARG⟧, ⟦BETA2⟧, ⟦VAR_TITLE_2⟧, ⟦VAR_CLASS_3_HGL⟧, ⟦VAR_STYLE_4⟧, ⟦VAR_ID_5⟧, ⟦VAR_ANYTHING_6⟧))
+pushdef(⟦BIG_BETA⟧, defn(⟦BETA1⟧, ⟦EXPAND_LAST_ARG⟧, ⟦BETA2⟧, ⟦VAR_TITLE_2⟧, ⟦VAR_CLASS_3_HGL⟧, ⟦VAR_STYLE_4⟧, ⟦VAR_ID_5⟧, ⟦VAR_ANYTHING_6⟧))
 
 # A → β
-define(⟦HCODE⟧, defn(⟦SUPER_BETA⟧, ⟦BETA4⟧))
-define(⟦HEXPLAIN⟧, defn(⟦SUPER_BETA⟧, ⟦BETA3⟧))
-define(⟦HXCODE⟧, defn(⟦SUPER_BETA⟧, ⟦BETA3⟧))
+define(⟦HCODE⟧, defn(⟦BIG_BETA⟧, ⟦BETA4⟧))
+define(⟦HEXPLAIN⟧, defn(⟦BIG_BETA⟧, ⟦BETA3⟧))
+define(⟦HXCODE⟧, defn(⟦BIG_BETA⟧, ⟦BETA3⟧))
 
 # A → β
 define(⟦HCODE_TAG⟧, ⟦code⟧)
@@ -317,20 +317,20 @@ popdef(
 	⟦BETA2⟧,
 	⟦BETA3⟧,
 	⟦BETA4⟧,
-	⟦CLASS_3⟧,
+	⟦BIG_BETA⟧,
 	⟦CLASS_3_EXPLAIN⟧,
+	⟦CLASS_3⟧,
 	⟦HTML_GLOBAL_ATTRIBUTES⟧,
 	⟦ID_5⟧,
-	⟦MAKE_INLINE_ELEMENT⟧,
 	⟦MAKE_INLINE_ELEMENT_EXPAND⟧,
 	⟦MAKE_INLINE_ELEMENT_SPECIAL⟧,
+	⟦MAKE_INLINE_ELEMENT⟧,
 	⟦STYLE_4⟧,
-	⟦SUPER_BETA⟧,
 	⟦TITLE_2⟧,
 	⟦VAR_ANYTHING_6⟧,
 	⟦VAR_ANYTHING_7⟧,
-	⟦VAR_CLASS_3⟧,
 	⟦VAR_CLASS_3_HGL⟧,
+	⟦VAR_CLASS_3⟧,
 	⟦VAR_ID_5⟧,
 	⟦VAR_REL_6⟧,
 	⟦VAR_STYLE_4⟧,
