@@ -2,9 +2,9 @@
 #
 # DO NOT EDIT! This file is generated automatically!
 #
-# __SOURCE(⟦fundamentals.mc⟧, ⟦20210102-13:26:30⟧, ⟦ea4aa92⟧, ⟦4275c99⟧)
+# __SOURCE(⟦fundamentals.mc⟧, ⟦20210103-12:08:21⟧, ⟦ea4aa92⟧, ⟦25905c7⟧)
 
-9
+8
 Generování kódu v M4: základy
 
 # number of characters in perex (200 ±10 is recommended): 196
@@ -15,7 +15,7 @@ Tento díl je zaměřen na vysvětlení potřebných, zdánlivě složitých poj
 26
 Úvod
 
-32
+33
 %%%
 
 ---
