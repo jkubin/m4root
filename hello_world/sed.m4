@@ -11,5 +11,5 @@ divert(0)dnl
 # echo | sed -f hello_world.sed
 
 s/^/SYMBOL/
-s/LB()defn([SET_OF_CHARS])]//g
+s/LL()defn([SET_OF_CHARS])]//g
 s/^/[SYMBOL]: defn([SYMBOL]) ---> /

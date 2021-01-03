@@ -6,6 +6,8 @@
 # set the non-printable characters
 changequote(,)
 
+define(NPRI, $@)
+
 # create C array
 define(ARRAY, patsubst(defn(SYMBOL), ., '\&', ))
 

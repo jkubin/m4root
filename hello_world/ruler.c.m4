@@ -39,7 +39,7 @@ char string[[]] =
 int main(void)
 {
 	/*    MY_RULER_C */
-	puts("LB()SYMBOL]");	/* note: symbol inside brackets */
+	puts("LL()SYMBOL]");	/* note: symbol inside brackets */
 
 	printf("%s\n", string);
 

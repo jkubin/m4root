@@ -9,7 +9,7 @@ divert(-1)changequote([,])
 # usage:
 # m4 hello_world.gnr.m4
 
-define([SYMBOL], ]LB()defn([SYMBOL])][)
+define([SYMBOL], ]LL()defn([SYMBOL])][)
 
 divert(0)dnl
 SYMBOL]

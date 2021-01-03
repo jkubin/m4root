@@ -6,7 +6,7 @@
 SYMBOL = Hello, world!
 #SYMBOL = Hello world [1]!
 #SYMBOL = Hello world [[1]]!
-#SYMBOL = Hello world LB()1!
+#SYMBOL = Hello world LL()1!
 
 IGNORE   = debug.m4 hello_world.gnr.m4
 PROJECT  = $(notdir $(shell pwd))

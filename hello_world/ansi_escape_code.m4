@@ -6,4 +6,4 @@ define([PROMPT], ifelse(defn([USR]), [root], [[[#]]], [$]))
 divert(0)dnl
 DONTE()
 
-LB()USR@HOSTNAME DIR]PROMPT echo -e '\e[]LB()31m[]SYMBOL\e[]LB()0m'
+LL()USR@HOSTNAME DIR]PROMPT echo -e '\e[]LL()31m[]SYMBOL\e[]LL()0m'

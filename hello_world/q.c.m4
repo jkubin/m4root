@@ -4,7 +4,7 @@
 
 # SYMBOL _must_ be without any `' characters
 # A → β
-define(`ARRAY', patsubst(defn(`SYMBOL'), `.', ``RQ()\&`'RQ(), ''))
+define(`ARRAY', patsubst(defn(`SYMBOL'), `.', ``RR()\&`'RR(), ''))
 
 # a tool to instantly see string length
 # A → β

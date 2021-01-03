@@ -5,4 +5,4 @@ divert(0)dnl
 #
 [# DONTE()] ---> "DONTE()"
 
-BEGIN { print "DONTE[]() LB () LB() SYMBOL ]" }
+BEGIN { print "DONTE[]() LL () LL() SYMBOL ]" }

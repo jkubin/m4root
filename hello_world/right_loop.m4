@@ -4,7 +4,7 @@
 define([HELLO], [
 
 	divert(0)dnl
-$1RB() SYMBOL
+$1RR() SYMBOL
 divert(-1)
 
 	# loop end condition

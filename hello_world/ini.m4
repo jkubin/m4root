@@ -4,7 +4,7 @@ define([RELL], [eval(__line__ - START_OF_OUTPUT)])
 divert(0)define([START_OF_OUTPUT], __line__)dnl
 ; DONTE()
 
-LB()__program__]
+LL()__program__]
 hello = "SYMBOL"
 file  = "__file__"
 gnu   = ifdef([__gnu__], [yes], [no])

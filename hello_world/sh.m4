@@ -19,15 +19,15 @@ divert(0)dnl
 
 if [ LEFT OP RIGHT ]
 then
-	echo '__COUNTUP__] SYMBOL LB()__COUNTDN__'
+	echo '__COUNTUP__] SYMBOL LL()__COUNTDN__'
 fi
 
 if test LEFT OP RIGHT
 then
-	echo '__COUNTUP__] SYMBOL LB()__COUNTDN__'
+	echo '__COUNTUP__] SYMBOL LL()__COUNTDN__'
 fi
 
-if LB()LB() LEFT OP RIGHT ]]
+if LL()LL() LEFT OP RIGHT ]]
 then
-	echo '__COUNTUP__] SYMBOL LB()__COUNTDN__'
+	echo '__COUNTUP__] SYMBOL LL()__COUNTDN__'
 fi

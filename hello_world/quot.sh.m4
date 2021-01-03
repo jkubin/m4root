@@ -5,6 +5,6 @@ divert(0)dnl
 #
 `#' DONTE()
 
-TEST=LQ()echo 'SYMBOL'LQ()
+TEST=LL()echo 'SYMBOL'LL()
 
 echo $TEST $[1+1]
