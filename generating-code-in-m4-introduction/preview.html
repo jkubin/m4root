@@ -33,7 +33,7 @@ The introductory part of the series contains its history, the basic principles o
 <div class="detail__article ">
 <div class=" layout-article-content">
 <div class="element-margin-top-half php-urs urs">
-<div id="m4--toc"><h2>Content (<a href="../generovani-kodu-v-m4-uvod/preview.html#m4--toc" title="Generování kódu v M4: úvod">Česky</a>)</h2><div><div class="m4-dwnl"><a href="../intro.mc" style="font-weight:bold" title="article source code">mc</a><a href="../generating-code-in-m4-introduction/spell.txt" title="generated text for spell checking and jargon (designed for Vim)">spl</a><br><a href="../generating-code-in-m4-introduction/preview.html" title="generated html page for off-line preview">pre</a><a href="../generating-code-in-m4-introduction.c" title="generated source code C">c</a></div><div class="m4-updt">updated<br>January 2, 2021</div></div></div>
+<div id="m4--toc"><h2>Content (<a href="../generovani-kodu-v-m4-uvod/preview.html#m4--toc" title="Generování kódu v M4: úvod">Česky</a>)</h2><div><div class="m4-dwnl"><a href="../intro.mc" style="font-weight:bold" title="article source code">mc</a><a href="../generating-code-in-m4-introduction/spell.txt" title="generated text for spell checking and jargon (designed for Vim)">spl</a><a href="../generating-code-in-m4-introduction.txt" title="generated text for estimating the number of characters">txt</a><br><a href="../generating-code-in-m4-introduction/index.html" title="generated html page for off-line development">dev</a><a href="../generating-code-in-m4-introduction/preview.html" title="generated html page for off-line preview">pre</a><a href="../generating-code-in-m4-introduction.c" title="generated source code C">c</a></div><div class="m4-updt">updated<br>January 3, 2021</div></div></div>
 <noscript><div title="for information" class="rs-tip-major m4-info">Enabling JavaScript enhances the clarity of the source code samples.</div></noscript>
 <p id="m4-introduction-toc"><a href="#m4-introduction"><b>1</b>Introduction</a></p>
 <p id="m4-examples-for-readers-toc" class="m4-l2"><a href="#m4-examples-for-readers"><b>1.1</b>Examples for readers</a></p>
@@ -113,7 +113,7 @@ Wikipedia">it does one thing and it does well</a></li>
 <li>it relies solely on the non-interactive command line interface</li>
 <li>parameters and dependencies of M4 scripts are described by <code>Makefile</code></li>
 <li>the <code>#</code> character begins with a&nbsp;one-line comment like in a&nbsp;UNIX shell</li>
-<li>variables <code>$@</code>, <code>$*</code>, <code>$#</code>, <code>$0</code>, <code>$1</code>, <code>$2</code>, … have similar meanings as in a&nbsp;UNIX shell</li>
+<li>variables <code>$@</code>, <code>$*</code>, <code>$#</code>, <code>$0</code>, <code>$1</code>, <code>$2</code>, <code>$3</code>, … have similar meanings as in a&nbsp;UNIX shell</li>
 <li>the argument delimiter is comma</li>
 </ul>
 </div>
@@ -140,9 +140,9 @@ The macro processor converts the source code back to FORTRAN, then the compiler 
 <li>macro arguments separate commas just like commas in C&nbsp;functions
 <ul><li>if the <code>FUNC(char c, int i)</code> macro is defined, its variables are:
 <code>$# → 2</code>, <code>$0 → FUNC</code>, <code>$1 → char c</code>, <code>$2 → int i</code></li></ul></li>
-<li><b>the left</b> <a href="#m4-nonterminal-expansion-control" title="Nonterminal expansion control">control character</a> <code>LQ()</code> is not a&nbsp;part of the C&nbsp;family syntax</li>
+<li><b>the left</b> <a href="#m4-nonterminal-expansion-control" title="Nonterminal expansion control">control character</a> <code>`</code> is not a&nbsp;part of the C&nbsp;family syntax</li>
 <li><b>the right</b> control character <code>'</code> does not matter if it is not part of the macro<br>
-<ul><li>both control characters can be hidden into user-defined macros <code>LQ()</code>, <code>RQ()</code></li></ul></li>
+<ul><li>both control characters can be hidden into user-defined macros <code>LL()</code>, <code>RR()</code></li></ul></li>
 <li>macros are written <code>IN_UPPERCASE</code>, just like <a href="https://en.wikipedia.org/wiki/Terminal_and_nonterminal_symbols" title="Wikipedia">nonterminal symbols</a>
 <ul><li>this delimits their namespace</li></ul></li>
 </ul>
@@ -238,22 +238,22 @@ However the character collision is easily solved by a regex.</p>
 <div id="m4-anch-11" title="M4 as preprocessor – in general" class="m4-cmd m4-usc"><pre>m4 root.m4 stem.m4 branch.m4 leaf.m4 file.c > preproc.file.c</pre><code><span class="m4-cb" title="select text"></span><a href="#m4-anch-11" title="⚓"></a></code></div>
 <div id="m4-anch-12" title="M4 as preprocessor – without intermediate file" class="m4-cmd m4-usc"><pre>m4 root.m4 stem.m4 branch.m4 leaf.m4 file.c | gcc -x c -o progr -</pre><code><span class="m4-cb" title="select text"></span><a href="#m4-anch-12" title="⚓"></a></code></div>
 <h4 id="m4-ba-default-characters" class="m4-bh"><a href="#m4-ba-default-characters" title="⚓"></a><code>`'</code> Default characters<a href="#m4--toc" title="Top"></a></h4>
-<p>The conflicting character <code>LQ()</code> from the input source code is hidden into a&nbsp;macro <code>`'LQ()</code>.
-An empty pair of control characters <code>`'</code> before the macro serves as a&nbsp;<a href="#m4-lr-hw-brackets-lr-l-r-lhr-ldn" title="[] .h: brackets [], [,], [#], [dnl]">symbol separator</a>.
-When the source code is passed through the macro processor, the <code>`'LQ()</code> macro is rewritten back to the original <code>LQ()</code> character and the empty pair <code>`'</code> is removed.</p>
-<div id="m4-anch-13" title="M4 as preprocessor with control characters: `'" class="m4-cmd m4-usc"><pre>sed 's/`/`'\''LQ()/g' any.src | m4 rootq.m4 leaf.m4 -</pre><code><span class="m4-cb" title="select text"></span><a href="#m4-anch-13" title="⚓"></a></code></div>
+<p>The conflicting character <code>`</code> from the input source code is hidden into a&nbsp;macro <code>`'LL()</code>.
+An empty pair of control characters <code>`'</code> before the macro serves as a&nbsp;<a href="#m4-lr-hw-brackets-lr-l-r-lhr-ldn" title="[] .h: brackets [], [,], [⟦#⟧], [⟦dnl⟧]">symbol separator</a>.
+When the source code is passed through the macro processor, the <code>`'LL()</code> macro is rewritten back to the original <code>`</code> character and the empty pair <code>`'</code> is removed.</p>
+<div id="m4-anch-13" title="M4 as preprocessor with control characters: `'" class="m4-cmd m4-usc"><pre>sed 's/`/`'\''LL()/g' any.src | m4 rootq.m4 leaf.m4 -</pre><code><span class="m4-cb" title="select text"></span><a href="#m4-anch-13" title="⚓"></a></code></div>
 <p>If there are <code>#</code> or <code>dnl</code> comments in the source code, they must be hidden first.
-The characters <code>`'</code> <a href="#m4-lr-hw-brackets-lr-l-r-lhr-ldn" title="[] .h: brackets [], [,], [#], [dnl]">turn off</a> original meaning and will be removed by the macro processor.<br>
+The characters <code>`'</code> <a href="#m4-lr-hw-brackets-lr-l-r-lhr-ldn" title="[] .h: brackets [], [,], [⟦#⟧], [⟦dnl⟧]">turn off</a> original meaning and will be removed by the macro processor.<br>
 M4 <code>#</code> and <code>dnl</code> comments are hidden between default characters: <code>`#'</code> <code>`dnl'</code></p>
-<div id="m4-anch-14" title="M4 as preprocessor with control characters: `'" class="m4-cmd m4-usc"><pre>sed 's/`/`'\''LQ()/g;s/#\|\&lt;dnl\>/`&amp;'\''/g' any.src | m4 rootq.m4 leaf.m4 -</pre><code><span class="m4-cb" title="select text"></span><a href="#m4-anch-14" title="⚓"></a></code></div>
-<div id="m4-anch-15" title="M4 as preprocessor with control characters differently: `'" class="m4-cmd m4-usc"><pre>sed 's/`/`'\''LQ()/g;s/#/`#'\''/g;s/\&lt;dnl\>/`dnl'\''/g' any.src | m4 …</pre><code><span class="m4-cb" title="select text"></span><a href="#m4-anch-15" title="⚓"></a></code></div>
+<div id="m4-anch-14" title="M4 as preprocessor with control characters: `'" class="m4-cmd m4-usc"><pre>sed 's/`/`'\''LL()/g;s/#\|\&lt;dnl\>/`&amp;'\''/g' any.src | m4 rootq.m4 leaf.m4 -</pre><code><span class="m4-cb" title="select text"></span><a href="#m4-anch-14" title="⚓"></a></code></div>
+<div id="m4-anch-15" title="M4 as preprocessor with control characters differently: `'" class="m4-cmd m4-usc"><pre>sed 's/`/`'\''LL()/g;s/#/`#'\''/g;s/\&lt;dnl\>/`dnl'\''/g' any.src | m4 …</pre><code><span class="m4-cb" title="select text"></span><a href="#m4-anch-15" title="⚓"></a></code></div>
 <h4 id="m4-lr-square-brackets" class="m4-bh"><a href="#m4-lr-square-brackets" title="⚓"></a><code>[]</code> Square brackets<a href="#m4--toc" title="Top"></a></h4>
 <p>If square brackets are used to <a href="#m4-nonterminal-expansion-control" title="Nonterminal expansion control">control the expansion</a> of nonterminals, the left <code>[</code> square bracket is hidden in the same way.
 Everything else applies as for default characters <code>`'</code>.</p>
-<div id="m4-anch-16" title="M4 as preprocessor with control characters: []" class="m4-cmd m4-usc"><pre>sed 's/\[/[]LB()/g' any.src | m4 rootb.m4 leaf.m4 - | …</pre><code><span class="m4-cb" title="select text"></span><a href="#m4-anch-16" title="⚓"></a></code></div>
+<div id="m4-anch-16" title="M4 as preprocessor with control characters: []" class="m4-cmd m4-usc"><pre>sed 's/\[/[]LL()/g' any.src | m4 rootb.m4 leaf.m4 - | …</pre><code><span class="m4-cb" title="select text"></span><a href="#m4-anch-16" title="⚓"></a></code></div>
 <p>M4 <code>#</code> and <code>dnl</code> comments are hidden between parentheses: <code>[#]</code> <code>[dnl]</code></p>
-<div id="m4-anch-17" title="M4 as preprocessor with control characters: []" class="m4-cmd m4-usc"><pre>sed 's/\[/[]LB()/g;s/#\|\&lt;dnl\>/[&amp;]/g' any.src | m4 rootb.m4 leaf.m4 - | …</pre><code><span class="m4-cb" title="select text"></span><a href="#m4-anch-17" title="⚓"></a></code></div>
-<div id="m4-anch-18" title="M4 as preprocessor with control characters differently: []" class="m4-cmd m4-usc"><pre>sed 's/\[/[]LB()/g;s/#/[#]/g;s/\&lt;dnl\>/[dnl]/g' any.src | m4 rootb.m4 …</pre><code><span class="m4-cb" title="select text"></span><a href="#m4-anch-18" title="⚓"></a></code></div>
+<div id="m4-anch-17" title="M4 as preprocessor with control characters: []" class="m4-cmd m4-usc"><pre>sed 's/\[/[]LL()/g;s/#\|\&lt;dnl\>/[&amp;]/g' any.src | m4 rootb.m4 leaf.m4 - | …</pre><code><span class="m4-cb" title="select text"></span><a href="#m4-anch-17" title="⚓"></a></code></div>
+<div id="m4-anch-18" title="M4 as preprocessor with control characters differently: []" class="m4-cmd m4-usc"><pre>sed 's/\[/[]LL()/g;s/#/[#]/g;s/\&lt;dnl\>/[dnl]/g' any.src | m4 rootb.m4 …</pre><code><span class="m4-cb" title="select text"></span><a href="#m4-anch-18" title="⚓"></a></code></div>
 <h4 id="m4-non-printable-characters" class="m4-bh"><a href="#m4-non-printable-characters" title="⚓"></a><code>␂␆</code> Non printable characters<a href="#m4--toc" title="Top"></a></h4>
 <p>Non printable characters <b><code>␂</code></b> (<samp>0x02</samp>) and <b><code>␆</code></b> (<samp>0x06</samp>) can be used to control the expansion of nonterminals.
 These characters cannot interfere with printable source code characters.</p>
@@ -263,7 +263,7 @@ These characters cannot interfere with printable source code characters.</p>
 <div id="m4-anch-21" title="M4 as preprocessor with control characters differently: ␂␆" class="m4-cmd m4-usc"><pre>sed 's/#/␂#␆/g;s/\&lt;dnl\>/␂dnl␆/g' any.src | m4 rootn.m4 leaf.m4 - | gcc …</pre><code><span class="m4-cb" title="select text"></span><a href="#m4-anch-21" title="⚓"></a></code></div>
 <h4 id="m4-utf-8-characters" class="m4-bh"><a href="#m4-utf-8-characters" title="⚓"></a><code>⟦⟧</code> UTF-8 characters<a href="#m4--toc" title="Top"></a></h4>
 <p>Expansion of nonterminals can also be controlled by a suitably selected UTF-8 character pair.
-The usual source code does not contain such characters, so we do not have to solve the collision of the left <code>⟦</code> bracket.
+The usual source code does not contain such characters, so we do not have to solve the collision of the left control <code>⟦</code> character.
 UTF-8 characters offer similar advantages to non printable characters.</p>
 <div id="m4-anch-22" title="M4 as preprocessor with control characters: ⟦⟧" class="m4-cmd m4-usc"><pre>m4 rootu.m4 leaf.m4 any.src | gcc …</pre><code><span class="m4-cb" title="select text"></span><a href="#m4-anch-22" title="⚓"></a></code></div>
 <p>M4 <code>#</code> and <code>dnl</code> comments are hidden between UTF-8 characters: <code>⟦#⟧</code> <code>⟦dnl⟧</code></p>
@@ -450,7 +450,7 @@ size: 126 B">hello.csv</a><span class="m4-cb" title="select text"></span><a href
 <h3 id="m4-csvw-counter" class="m4-ch"><a href="#m4-csvw-counter-toc" title="Content"></a><a href="#m4-csvw-counter" title="⚓">A.3</a><code>⟦⟧</code> CSV: counter<a href="#m4--toc" title="Top"></a></h3>
 <p>The example uses the <code class="m4-hgl" data-11="A">COUNT_UP</code> macro from the <code>countb.m4</code> file whose <abbr title="the right side of the rewriting rule"><code>β</code></abbr> is copied to the right side of the <code class="m4-hgl" data-11="2">COUNTER</code> macro.
 During the first expansion of <code class="m4-hgl" data-11="5">COUNTER</code> its initial value is initialized.
-<span class="m4-hgl" data-11="B">Further expansion</span> returns the numeric terminal symbol and increases the inner auxiliary (global) symbol by one.
+<span class="m4-hgl" data-11="B">Further expansion</span> returns <span class="m4-hgl" data-12="A">the numeric terminal symbol</span> and increases the inner auxiliary (global) symbol by one.
 <code>COUNTER</code> is a&nbsp;small automaton.</p>
 <div id="m4-messages_counter-csv-m4" class="m4-src"><pre># A → β
 define(⟦COUNTER⟧, defn(⟦<span class="m4-a">COUNT_UP</span>⟧))
@@ -489,9 +489,9 @@ date: 20200331-19:30:06
 git rev: 9156810
 sha1sum: 367d2b1
 size: 144 B">counter.csv</a></pre><code><span class="m4-cb" title="select text"></span><a href="#m4-messages_counter-csv-command" title="⚓"></a></code></div>
-<div id="m4-messages_counter-csv" class="m4-src"><pre>ERR_1	COMPLEX	!"#$%&amp;'()*+,-./:;&lt;=>?@[\]^_`{|}~
-ERR_2	SUCCESS	Too complex M4 code failed successfully.
-ERR_3	NO_FAULT	It's not a language fault!</pre><code><span class="m4-sha">9156810</span><a href="../messages/counter.csv" title="messages/counter.csv
+<div id="m4-messages_counter-csv" class="m4-src"><pre>ERR_<span class="m4-a">1</span>	COMPLEX	!"#$%&amp;'()*+,-./:;&lt;=>?@[\]^_`{|}~
+ERR_<span class="m4-a">2</span>	SUCCESS	Too complex M4 code failed successfully.
+ERR_<span class="m4-a">3</span>	NO_FAULT	It's not a language fault!</pre><code><span class="m4-sha">9156810</span><a href="../messages/counter.csv" title="messages/counter.csv
 date: 20200331-19:30:06
 sha1sum: 367d2b1
 size: 144 B">counter.csv</a><span class="m4-cb" title="select text"></span><a href="#m4-messages_counter-csv" title="⚓"></a></code></div>
@@ -1707,19 +1707,19 @@ size: 318 B">apost.sh</a><span class="m4-cb" title="select text"></span><a href=
 <p>The <a href="https://en.wikipedia.org/wiki/C_preprocessor" title="C preprocessor">CPP</a> directives are a&nbsp;one-line comment for M4 preventing unwanted expansion of the same named macros.
 If we define a&nbsp;safer <code class="m4-hgl" data-51="5" data-52="12">SAF()</code> macro, the similar <code class="m4-hgl" data-52="8,11">SAF ()</code> macro will not be overwritten.
 Thus, the <abbr title="C preprocessor">CPP</abbr> namespace <b>can be</b> completely separated from the M4 namespace.
-The problematic (backquote) character <code>LQ()</code> is hidden in the <code class="m4-hgl" data-52="24">LQ()</code> macro.
+The problematic (backquote) character <code>`</code> is hidden in the <code class="m4-hgl" data-52="24">LL()</code> macro.
 The apostrophe <code class="m4-hgl" data-52="A" data-53="A">'</code> does not matter in the source code.
-Apostrophe inside <code class="m4-hgl" data-51="4" data-52="B">ORD<s style="color:red"><span style="color:rgba(0,0,0,.75)">()</span></s></code> macro is hidden in <code class="m4-hgl" data-51="A">RQ()</code> macro.
+Apostrophe inside <code class="m4-hgl" data-51="4" data-52="B">ORD<s style="color:red"><span style="color:rgba(0,0,0,.75)">()</span></s></code> macro is hidden in <code class="m4-hgl" data-51="A">RR()</code> macro.
 Note the <code class="m4-hgl" data-52="17,27" data-53="17,27">define ()</code> or <code class="m4-hgl" data-52="18,28" data-53="18,28">ifelse ()</code> function names and where the <code class="m4-hgl" data-52="C" data-53="C" data-51="C">SYMBOL</code> is expanded.</p>
 <div id="m4-preproc_file-c-m4" class="m4-src"><pre># ORDinary and SAFe macros have different expansion:
 
 # A → β
-define(`ORD', `$0_M4 <span class="m4-a">RQ()</span><span class="m4-c">SYMBOL</span>`'<span class="m4-a">RQ()</span>')
+define(`ORD', `$0_M4 <span class="m4-a">RR()</span><span class="m4-c">SYMBOL</span>`'<span class="m4-a">RR()</span>')
 define(`SAF', `ifelse(`$#', `0', ``$0'', `($1) * ($1)	/* $0_M4 <span class="m4-c">SYMBOL</span> */')')
 
 divert(0)dnl</pre><code><span class="m4-sha">b53eafe</span><a href="../preproc/file.c.m4" title="preproc/file.c.m4
 date: 20200106-16:21:10
-sha1sum: cdeddf8
+sha1sum: 7e01510
 size: 196 B">file.c.m4</a><span class="m4-cb" title="select text"></span><a href="#m4-preproc_file-c-m4" title="⚓"></a></code></div>
 <div id="m4-preproc_file-c" class="m4-src"><pre>/*
  * DONTE()
@@ -1744,7 +1744,7 @@ int main(void)
 {
 
 #ifdef <span class="m4-c">SYMBOL</span>			/* <span class="m4-c">SYMBOL</span> */
-	puts("LQ()<span class="m4-c">SYMBOL</span><span class="m4-a">'</span>");	/* note: `LQ()<span class="m4-c">SYMBOL</span><span class="m4-a">'</span> */
+	puts("LL()<span class="m4-c">SYMBOL</span><span class="m4-a">'</span>");	/* note: `LL()<span class="m4-c">SYMBOL</span><span class="m4-a">'</span> */
 #endif
 
 	define (foo);		/* <span class="m4-c">SYMBOL</span> */
@@ -1753,7 +1753,7 @@ int main(void)
 	return 0;
 }</pre><code><span class="m4-sha">b53eafe</span><a href="../preproc/file.c" title="preproc/file.c
 date: 20200106-16:21:10
-sha1sum: c5c3d09
+sha1sum: 1fe5bfc
 size: 583 B">file.c</a><span class="m4-cb" title="select text"></span><a href="#m4-preproc_file-c" title="⚓"></a></code></div>
 <div id="m4-preproc_preproc-file-c-command" class="m4-cmd m4-usc"><pre title="command">m4 -DSYMBOL='Hello, world!' <a href="../gfiles/root0q.m4" title="gfiles/root0q.m4
 date: 20200807-19:39:39
@@ -1762,16 +1762,16 @@ sha1sum: eb74312
 size: 1154 B">root0q.m4</a> <a href="../preproc/file.c.m4" title="preproc/file.c.m4
 date: 20200106-16:21:10
 git rev: b53eafe
-sha1sum: cdeddf8
+sha1sum: 7e01510
 size: 196 B">file.c.m4</a> <a href="../preproc/file.c" title="preproc/file.c
 date: 20200106-16:21:10
 git rev: b53eafe
-sha1sum: c5c3d09
+sha1sum: 1fe5bfc
 size: 583 B">file.c</a> > <a href="../preproc/preproc.file.c" title="preproc/preproc.file.c
 date: 20200106-16:21:10
 git rev: b53eafe
-sha1sum: 9c44e6d
-size: 709 B">preproc.file.c</a></pre><code><span class="m4-cb" title="select text"></span><a href="#m4-preproc_preproc-file-c-command" title="⚓"></a></code></div>
+sha1sum: 041f49a
+size: 700 B">preproc.file.c</a></pre><code><span class="m4-cb" title="select text"></span><a href="#m4-preproc_preproc-file-c-command" title="⚓"></a></code></div>
 <div id="m4-preproc_preproc-file-c" class="m4-src"><pre>/*
  * DO NOT EDIT! This file is generated automatically!
  */
@@ -1786,7 +1786,7 @@ int a = SAF (1 + 1);	/* CPP */
 int b = (2 + 2) * (2 + 2)	/* SAF_M4 Hello, world! */;	/* M4 */
 char chr = <span class="m4-a">'</span>x<span class="m4-a">'</span>;
 char foo[] = "Let<span class="m4-a">'</span>s say: <span class="m4-a">'</span>Hello, world!<span class="m4-a">'</span>";
-char bar[] = "ORD_M4 RQ()Hello, world!RQ() (args, are, ignored)";
+char bar[] = "ORD_M4 <span class="m4-a">'</span>Hello, world!<span class="m4-a">'</span> (args, are, ignored)";
 
 static void define (char *s) { puts(s);}
 static void ifelse (char *s) { puts(s);}
@@ -1795,7 +1795,7 @@ int main(void)
 {
 
 #ifdef <span class="m4-c">SYMBOL</span>			/* <span class="m4-c">SYMBOL</span> */
-	puts("LQ()Hello, world!<span class="m4-a">'</span>");	/* note: LQ()<span class="m4-c">SYMBOL</span> */
+	puts("`Hello, world!<span class="m4-a">'</span>");	/* note: LL()<span class="m4-c">SYMBOL</span> */
 #endif
 
 	define (foo);		/* Hello, world! */
@@ -1804,8 +1804,8 @@ int main(void)
 	return 0;
 }</pre><code><span class="m4-sha">b53eafe</span><a href="../preproc/preproc.file.c" title="preproc/preproc.file.c
 date: 20200106-16:21:10
-sha1sum: 9c44e6d
-size: 709 B">preproc.file.c</a><span class="m4-cb" title="select text"></span><a href="#m4-preproc_preproc-file-c" title="⚓"></a></code></div>
+sha1sum: 041f49a
+size: 700 B">preproc.file.c</a><span class="m4-cb" title="select text"></span><a href="#m4-preproc_preproc-file-c" title="⚓"></a></code></div>
 <h3 id="m4-ba-cssw-file-inclusion-commen" class="m4-ch"><a href="#m4-ba-cssw-file-inclusion-commen-toc" title="Content"></a><a href="#m4-ba-cssw-file-inclusion-commen" title="⚓">B.2</a><code>`'</code> CSS: file inclusion, comment<a href="#m4--toc" title="Top"></a></h3>
 <p>CSS uses the <code class="m4-hgl" data-55="A" data-57="A">#</code> character for color codes, which is also the beginning of a&nbsp;one-line M4 comment.
 The <code class="m4-hgl" data-56="A">changecom(/*,*/)</code> keyword sets a&nbsp;multiline <code class="m4-hgl" data-57="B" data-56="C">/* … */</code> comment and rewrites itself into <abbr title="epsilon – empty symbol"><code>ε</code></abbr>.
@@ -1882,8 +1882,8 @@ date: 20200509-00:48:05
 sha1sum: 65fa35b
 size: 293 B">preproc.file.css</a><span class="m4-cb" title="select text"></span><a href="#m4-preproc_preproc-file-css" title="⚓"></a></code></div>
 <h3 id="m4-bashw-nonprintable-characters" class="m4-ch"><a href="#m4-bashw-nonprintable-characters-toc" title="Content"></a><a href="#m4-bashw-nonprintable-characters" title="⚓">B.3</a><b><code>␂␆</code></b> Bash: nonprintable characters<a href="#m4--toc" title="Top"></a></h3>
-<p>Bash uses both <code>LQ()</code> and <code>[</code> characters.
-If we do not want to hide them either in an <code>LQ()</code> or <code>LB()</code> macro, we can use <span title="displayed as UTF-8 characters" class="m4-hgl" data-58="A" data-59="A">nonprintable characters</span> for <a href="#m4-nonterminal-expansion-control" title="Nonterminal expansion control">expansion control</a>, see the example:</p>
+<p>Bash uses both <code>`</code> and <code>[</code> characters.
+If we do not want to hide them in an <code>LL()</code> macro, we can use <span title="displayed as UTF-8 characters" class="m4-hgl" data-58="A" data-59="A">nonprintable characters</span> for <a href="#m4-nonterminal-expansion-control" title="Nonterminal expansion control">expansion control</a>, see the example:</p>
 <div id="m4-preproc_file-sh-m4" class="m4-src"><pre># vim:mps+=<span class="m4-a">␂</span>\:<span class="m4-a">␆</span>
 
 # A → β
@@ -1946,7 +1946,7 @@ size: 137 B">preproc.file.sh</a><span class="m4-cb" title="select text"></span><
 <p id="m4-lr-awkw-examples-of-safer-mac-toc" class="m4-l2"><a href="#m4-lr-awkw-examples-of-safer-mac"><b>C.4</b><code>[]</code> AWK: examples of safer macros</a></p>
 <h3 id="m4-lr-jsonw-left-bracket-l" class="m4-ch"><a href="#m4-lr-jsonw-left-bracket-l-toc" title="Content"></a><a href="#m4-lr-jsonw-left-bracket-l" title="⚓">C.1</a><code>[]</code> JSON: left bracket <code>[</code><a href="#m4--toc" title="Top"></a></h3>
 <p>The <code>[… nonterminals are not expanded …]</code> inside square brackets.
-Therefore, the left square bracket <code>[</code> is replaced by the <code class="m4-hgl" data-61="6" data-62="3">LB()</code> macro defined in the root file.</p>
+Therefore, the left square bracket <code>[</code> is replaced by the <code class="m4-hgl" data-61="6" data-62="3">LL()</code> macro defined in the root file.</p>
 <div id="m4-hello_world_json-m4" class="m4-src"><pre># JSON
 
 divert(0)dnl
@@ -1984,7 +1984,7 @@ size: 120 B">hello_world.json</a><span class="m4-cb" title="select text"></span>
 <h3 id="m4-lr-bashw-counters" class="m4-ch"><a href="#m4-lr-bashw-counters-toc" title="Content"></a><a href="#m4-lr-bashw-counters" title="⚓">C.2</a><code>[]</code> Bash: counters<a href="#m4--toc" title="Top"></a></h3>
 <p>The <code class="m4-hgl" data-63="A">COUNT_UP</code> and <code class="m4-hgl" data-63="B">COUNT_DOWN</code> counters are defined in the file <code>countb.m4</code>.
 The <span class="m4-hgl" data-63="C">nonterminals</span> <code class="m4-hgl" data-63="20" data-64="5">[… inside brackets …]</code> will not be expanded, only the outer brackets will be removed.
-The <code class="m4-hgl" data-63="30" data-64="15">LB()</code> macro defined in the root file must be used.</p>
+The <code class="m4-hgl" data-63="30" data-64="15">LL()</code> macro defined in the root file must be used.</p>
 <div id="m4-hello_world_sh-m4" class="m4-src"><pre># A → β
 define([<span class="m4-c">LEFT</span>], [$[#]])
 define([<span class="m4-c">OP</span>], [-eq])
@@ -2109,7 +2109,7 @@ date: 20200213-14:51:13
 sha1sum: 306af96
 size: 179 B">hello_world.h</a><span class="m4-cb" title="select text"></span><a href="#m4-hello_world_hello_world-h" title="⚓"></a></code></div>
 <h3 id="m4-lr-awkw-examples-of-safer-mac" class="m4-ch"><a href="#m4-lr-awkw-examples-of-safer-mac-toc" title="Content"></a><a href="#m4-lr-awkw-examples-of-safer-mac" title="⚓">C.4</a><code>[]</code> AWK: examples of safer macros<a href="#m4--toc" title="Top"></a></h3>
-<p>The universal alert <code class="m4-hgl" data-67="A" data-68="A">DONTE</code> is ignored without parentheses, such as for example <code class="m4-hgl" data-67="B" data-68="B">LB</code> or <code>RB</code>.
+<p>The universal alert <code class="m4-hgl" data-67="A" data-68="A">DONTE</code> is ignored without parentheses, such as for example <code class="m4-hgl" data-67="B" data-68="B">LL</code> or <code>RR</code>.
 Such macros are explicitly created by a&nbsp;script developer, see the root file <code>root1b.m4</code>.</p>
 <div id="m4-hello_world_awk-m4" class="m4-src"><pre># AWK
 
@@ -2118,7 +2118,7 @@ divert(0)dnl
 #
 [# DONTE()] ---> "DONTE()"
 
-BEGIN { print "<span class="m4-a">DONTE</span>[]() LL () LL() SYMBOL ]" }</pre><code><span class="m4-sha">3a8a5dd</span><a href="../hello_world/awk.m4" title="hello_world/awk.m4
+BEGIN { print "<span class="m4-a">DONTE</span>[]() <span class="m4-b">LL</span> () LL() SYMBOL ]" }</pre><code><span class="m4-sha">3a8a5dd</span><a href="../hello_world/awk.m4" title="hello_world/awk.m4
 date: 20200106-23:32:45
 sha1sum: 83243af
 size: 112 B">awk.m4</a><span class="m4-cb" title="select text"></span><a href="#m4-hello_world_awk-m4" title="⚓"></a></code></div>
@@ -2139,7 +2139,7 @@ size: 138 B">hello_world.awk</a></pre><code><span class="m4-cb" title="select te
 #
 # DONTE() ---> "DO NOT EDIT! This file is generated automatically!"
 
-BEGIN { print "<span class="m4-a">DONTE</span>() LL () LL() Hello, world! ]" }</pre><code><span class="m4-sha">3a8a5dd</span><a href="../hello_world/hello_world.awk" title="hello_world/hello_world.awk
+BEGIN { print "<span class="m4-a">DONTE</span>() <span class="m4-b">LL</span> () LL() Hello, world! ]" }</pre><code><span class="m4-sha">3a8a5dd</span><a href="../hello_world/hello_world.awk" title="hello_world/hello_world.awk
 date: 20200106-23:32:45
 sha1sum: d03fed7
 size: 138 B">hello_world.awk</a><span class="m4-cb" title="select text"></span><a href="#m4-hello_world_hello_world-awk" title="⚓"></a></code></div>

@@ -2,9 +2,9 @@
 #
 # DO NOT EDIT! This file is generated automatically!
 #
-# __SOURCE(⟦fundamentals.mc⟧, ⟦20210102-13:26:31⟧, ⟦ea4aa92⟧, ⟦4275c99⟧)
+# __SOURCE(⟦fundamentals.mc⟧, ⟦20210103-12:08:21⟧, ⟦ea4aa92⟧, ⟦25905c7⟧)
 
-9
+8
 Generating code in M4: fundamentals
 
 # number of characters in perex (200 ±10 is recommended): 203
@@ -15,7 +15,7 @@ This part is focused on explanation of necessary, seemingly complex concepts of 
 26
 Introduction
 
-32
+33
 %%%
 
 ---

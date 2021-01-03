@@ -3,7 +3,7 @@ Generating code in M4: introduction
 The M4 macro processor is used to generate arbitrarily complex code from simple source code.
 The introductory part of the series contains its history, the basic principles of language, examples of usage and prerequisites for its mastery.
 
-Content (Česky)	mc spl txt dev pre c  updated January 2, 2021
+Content (Česky)	mc spl txt dev pre c  updated January 3, 2021
 1 Introduction
 	1.1 Examples for readers
 2 History of macro languages
@@ -90,7 +90,7 @@ Dennis Ritchie was also a co-creator of UNIX and therefore:
 • it relies solely on the non-interactive command line interface
 • parameters and dependencies of M4 scripts are described by Makefile
 • the # character begins with a one-line comment like in a UNIX shell
-• variables $@, $*, $#, $0, $1, $2, … have similar meanings as in a UNIX shell
+• variables $@, $*, $#, $0, $1, $2, $3, … have similar meanings as in a UNIX shell
 • the argument delimiter is comma
 
 The M3 macro processor was also extended by Jim E. Weythman, the author of program construction, which is used in almost every M4 script:
@@ -99,8 +99,7 @@ divert(-1)
 …
 define(…)
 …
-divert(0)dnl
-…
+divert(0)…
 
 🖹 The divert(ℤ) keyword switches output queues.
 Argument -1 completely disables any text output.
@@ -121,10 +120,10 @@ Note the almost perfect symbiosis with the C language:
 • macro arguments separate commas just like commas in C functions
 	• if the FUNC(char c, int i) macro is defined, its variables are:
 $# → 2, $0 → FUNC, $1 → char c, $2 → int i
-• the left control character LQ() is not a part of the C family syntax
+• the left control character ` is not a part of the C family syntax
 • the right control character ' does not matter if it is not part of the macro
 
-	• both control characters can be hidden into user-defined macros LQ(), RQ()
+	• both control characters can be hidden into user-defined macros LL(), RR()
 • macros are written IN_UPPERCASE, just like nonterminal symbols
 	• this delimits their namespace
 
@@ -183,8 +182,7 @@ This feature is crucial for the preprocessor mode.
 divert(ℤ) → ε
 define(`A', `β') → ε
 ifelse(`', `', `yes', `no') → yes
-ifelse(`', `', `ifdef(`dnl', `1', `0')', `no') → ifdef(`dnl', `1', `0') → 1
-…
+ifelse(`', `', `ifdef(`…
 
 Nonterminal expansion control
 The default character pair `' in M4 controls the expansion of nonterminals.
@@ -245,32 +243,32 @@ $ m4 root.m4 stem.m4 branch.m4 leaf.m4 file.c > preproc.file.c
 $ m4 root.m4 stem.m4 branch.m4 leaf.m4 file.c | gcc -x c -o progr -
 
 `' Default characters
-The conflicting character LQ() from the input source code is hidden into a macro `'LQ().
+The conflicting character ` from the input source code is hidden into a macro `'LL().
 An empty pair of control characters `' before the macro serves as a symbol separator.
-When the source code is passed through the macro processor, the `'LQ() macro is rewritten back to the original LQ() character and the empty pair `' is removed.
+When the source code is passed through the macro processor, the `'LL() macro is rewritten back to the original ` character and the empty pair `' is removed.
 
-$ sed 's/`/`'\''LQ()/g' any.src | m4 rootq.m4 leaf.m4 -
+$ sed 's/`/`'\''LL()/g' any.src | m4 rootq.m4 leaf.m4 -
 
 If there are # or dnl comments in the source code, they must be hidden first.
 The characters `' turn off original meaning and will be removed by the macro processor.
 
 M4 # and dnl comments are hidden between default characters: `#' `dnl'
 
-$ sed 's/`/`'\''LQ()/g;s/#\|\<dnl\>/`&'\''/g' any.src | m4 rootq.m4 leaf.m4 -
+$ sed 's/`/`'\''LL()/g;s/#\|\<dnl\>/`&'\''/g' any.src | m4 rootq.m4 leaf.m4 -
 
-$ sed 's/`/`'\''LQ()/g;s/#/`#'\''/g;s/\<dnl\>/`dnl'\''/g' any.src | m4 …
+$ sed 's/`/`'\''LL()/g;s/#/`#'\''/g;s/\<dnl\>/`dnl'\''/g' any.src | m4 …
 
 [] Square brackets
 If square brackets are used to control the expansion of nonterminals, the left [ square bracket is hidden in the same way.
 Everything else applies as for default characters `'.
 
-$ sed 's/\[/[]LB()/g' any.src | m4 rootb.m4 leaf.m4 - | …
+$ sed 's/\[/[]LL()/g' any.src | m4 rootb.m4 leaf.m4 - | …
 
 M4 # and dnl comments are hidden between parentheses: [#] [dnl]
 
-$ sed 's/\[/[]LB()/g;s/#\|\<dnl\>/[&]/g' any.src | m4 rootb.m4 leaf.m4 - | …
+$ sed 's/\[/[]LL()/g;s/#\|\<dnl\>/[&]/g' any.src | m4 rootb.m4 leaf.m4 - | …
 
-$ sed 's/\[/[]LB()/g;s/#/[#]/g;s/\<dnl\>/[dnl]/g' any.src | m4 rootb.m4 …
+$ sed 's/\[/[]LL()/g;s/#/[#]/g;s/\<dnl\>/[dnl]/g' any.src | m4 rootb.m4 …
 
 ␂␆ Non printable characters
 Non printable characters ␂ (0x02) and ␆ (0x06) can be used to control the expansion of nonterminals.
@@ -286,14 +284,14 @@ $ sed 's/#/␂#␆/g;s/\<dnl\>/␂dnl␆/g' any.src | m4 rootn.m4 leaf.m4 - | gc
 
 ⟦⟧ UTF-8 characters
 Expansion of nonterminals can also be controlled by a suitably selected UTF-8 character pair.
-The usual source code does not contain such characters, so we do not have to solve the collision of the left ⟦ bracket.
+The usual source code does not contain such characters, so we do not have to solve the collision of the left control ⟦ character.
 UTF-8 characters offer similar advantages to non printable characters.
 
 $ m4 rootu.m4 leaf.m4 any.src | gcc …
 
 M4 # and dnl comments are hidden between UTF-8 characters: ⟦#⟧ ⟦dnl⟧
 
-$ sed 's/#\|\<dnl\>/⟦&⟧/g' any.src | m4 rootu.m4 leaf.m4 - | gcc …
+$ sed 's/#\|\<dnl\>/⟦⟦&⟧⟧/g' any.src | m4 rootu.m4 leaf.m4 - | gcc …
 
 $ sed 's/#/⟦#⟧/g;s/\<dnl\>/⟦dnl⟧/g' any.src | m4 rootu.m4 leaf.m4 - | gcc …
 
@@ -1404,16 +1402,16 @@ B.1 `' C preprocessor and M4
 The CPP directives are a one-line comment for M4 preventing unwanted expansion of the same named macros.
 If we define a safer SAF() macro, the similar SAF () macro will not be overwritten.
 Thus, the CPP namespace can be completely separated from the M4 namespace.
-The problematic (backquote) character LQ() is hidden in the LQ() macro.
+The problematic (backquote) character ` is hidden in the LL() macro.
 The apostrophe ' does not matter in the source code.
-Apostrophe inside ORD() macro is hidden in RQ() macro.
+Apostrophe inside ORD() macro is hidden in RR() macro.
 Note the define () or ifelse () function names and where the SYMBOL is expanded.
 
 b53eafe preproc/file.c.m4
   1 # ORDinary and SAFe macros have different expansion:
   2 
   3 # A → β
-  4 define(`ORD', `$0_M4 RQ()SYMBOL`'RQ()')
+  4 define(`ORD', `$0_M4 RR()SYMBOL`'RR()')
   5 define(`SAF', `ifelse(`$#', `0', ``$0'', `($1) * ($1)	/* $0_M4 SYMBOL */')')
   6 
   7 divert(0)dnl
@@ -1442,7 +1440,7 @@ b53eafe preproc/file.c
  21 {
  22 
  23 #ifdef SYMBOL			/* SYMBOL */
- 24 	puts("LQ()SYMBOL'");	/* note: `LQ()SYMBOL' */
+ 24 	puts("LL()SYMBOL'");	/* note: `LL()SYMBOL' */
  25 #endif
  26 
  27 	define (foo);		/* SYMBOL */
@@ -1468,7 +1466,7 @@ b53eafe preproc/preproc.file.c
  12 int b = (2 + 2) * (2 + 2)	/* SAF_M4 Hello, world! */;	/* M4 */
  13 char chr = 'x';
  14 char foo[] = "Let's say: 'Hello, world!'";
- 15 char bar[] = "ORD_M4 RQ()Hello, world!RQ() (args, are, ignored)";
+ 15 char bar[] = "ORD_M4 'Hello, world!' (args, are, ignored)";
  16 
  17 static void define (char *s) { puts(s);}
  18 static void ifelse (char *s) { puts(s);}
@@ -1477,7 +1475,7 @@ b53eafe preproc/preproc.file.c
  21 {
  22 
  23 #ifdef SYMBOL			/* SYMBOL */
- 24 	puts("LQ()Hello, world!'");	/* note: LQ()SYMBOL */
+ 24 	puts("`Hello, world!'");	/* note: LL()SYMBOL */
  25 #endif
  26 
  27 	define (foo);		/* Hello, world! */
@@ -1544,8 +1542,8 @@ $ m4 -DSYMBOL='Hello, world!' root0q.m4 file.css.m4 file.css > preproc.file.css
  15 /* DO NOT EDIT! This file is generated automatically! */
 
 B.3 ␂␆ Bash: nonprintable characters
-Bash uses both LQ() and [ characters.
-If we do not want to hide them either in an LQ() or LB() macro, we can use nonprintable characters for expansion control, see the example:
+Bash uses both ` and [ characters.
+If we do not want to hide them in an LL() macro, we can use nonprintable characters for expansion control, see the example:
 
 b53eafe preproc/file.sh.m4
   1 # vim:mps+=␂\:␆
@@ -1593,7 +1591,7 @@ C M4: examples
 
 C.1 [] JSON: left bracket [
 The [… nonterminals are not expanded …] inside square brackets.
-Therefore, the left square bracket [ is replaced by the LB() macro defined in the root file.
+Therefore, the left square bracket [ is replaced by the LL() macro defined in the root file.
 
 b53eafe hello_world/json.m4
   1 # JSON
@@ -1619,7 +1617,7 @@ b53eafe hello_world/hello_world.json
 C.2 [] Bash: counters
 The COUNT_UP and COUNT_DOWN counters are defined in the file countb.m4.
 The nonterminals [… inside brackets …] will not be expanded, only the outer brackets will be removed.
-The LB() macro defined in the root file must be used.
+The LL() macro defined in the root file must be used.
 
 b53eafe hello_world/sh.m4
   1 # A → β
@@ -1716,7 +1714,7 @@ $ m4 -DSYMBOL='Hello, world!' root0b.m4 h.m4 > hello_world.h
  10 #endif /* __HELLO_WORLD_H */
 
 C.4 [] AWK: examples of safer macros
-The universal alert DONTE is ignored without parentheses, such as for example LB or RB.
+The universal alert DONTE is ignored without parentheses, such as for example LL or RR.
 Such macros are explicitly created by a script developer, see the root file root1b.m4.
 
 3a8a5dd hello_world/awk.m4
