@@ -12,6 +12,7 @@ ifelse(defn(⟦REF⟧), defn(⟦REF_NEXT⟧), ⟦
 	define(⟦#S0⟧, CHAPTER_COUNTER_val)
 	define(⟦#S1⟧)
 	define(⟦#S2⟧)
+	define(⟦#S3⟧)
 
 	# set link to references
 	define(⟦#ID⟧, defn(⟦NSP⟧, ⟦TOC_REFS⟧))
@@ -19,7 +20,7 @@ ifelse(defn(⟦REF⟧), defn(⟦REF_NEXT⟧), ⟦
 	# add item to navigation and below the page
 	# it have to be here because it is the last but one index, it can not be in the REF automaton
 	divert(CHAPTER_NAVIG_DATA)dnl
-<p id="defn(⟦#ID⟧, ⟦TOC_ANCH⟧)"><a href="⟦#⟧defn(⟦#ID⟧)"><b>defn(⟦#S0⟧, ⟦#S1⟧, ⟦#S2⟧)</b>WORD_REFERENCES</a></p>
+<p id="defn(⟦#ID⟧, ⟦TOC_ANCH⟧)"><a href="⟦#⟧defn(⟦#ID⟧)"><b>defn(⟦#S0⟧, ⟦#S1⟧, ⟦#S2⟧, ⟦#S3⟧)</b>WORD_REFERENCES</a></p>
 divert(ARTICLE_REFER_CAPT)dnl
 <!-- article references -->
 <h2 id="defn(⟦#ID⟧)" class="ADD_CLASS(⟦ch⟧)">⟧defn(⟦TOC_AND_ANCHOR⟧, ⟦WORD_REFERENCES⟧, ⟦GO_BACK_UP⟧)⟦</h2>
@@ -60,13 +61,14 @@ ifdef(⟦ADD_LINKS_TO_ALL_PARTS_OF_THE_SERIES⟧, ⟦
 	define(⟦#S0⟧, CHAPTER_COUNTER_val)
 	define(⟦#S1⟧)
 	define(⟦#S2⟧)
+	define(⟦#S3⟧)
 
 	# set link to references
 	define(⟦#ID⟧, defn(⟦NSP⟧, ⟦TOC_ALL_PARTS⟧))
 
 	# add item to navigation and below the page
 	divert(CHAPTER_NAVIG_DATA)dnl
-<p id="defn(⟦#ID⟧, ⟦TOC_ANCH⟧)"><a href="⟦#⟧defn(⟦#ID⟧)"><b>defn(⟦#S0⟧, ⟦#S1⟧, ⟦#S2⟧)</b>SENTENCE_ALL_PARTS</a></p>
+<p id="defn(⟦#ID⟧, ⟦TOC_ANCH⟧)"><a href="⟦#⟧defn(⟦#ID⟧)"><b>defn(⟦#S0⟧, ⟦#S1⟧, ⟦#S2⟧, ⟦#S3⟧)</b>SENTENCE_ALL_PARTS</a></p>
 divert(ALL_PARTS_LIST)dnl
 <h2 id="defn(⟦#ID⟧)" class="ADD_CLASS(⟦ch⟧)">⟧defn(⟦TOC_AND_ANCHOR⟧, ⟦SENTENCE_ALL_PARTS⟧, ⟦GO_BACK_UP⟧)⟦</h2>
 <ol>
