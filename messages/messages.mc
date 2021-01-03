@@ -4,5 +4,5 @@ ERROR(⟦COMPLEX⟧,     ⟦⟦⟧EX()⟦⟧DQ()⟦#⟧⟦⟧DO()%⟦⟧AMP()⟦
 QUERY(⟦READABLE⟧,    ⟦Is badly written M4 code readable [N/y]?⟧)
 ERROR(⟦SUCCESS⟧,     ⟦Too complex M4 code failed successfully.⟧)
 WARNING(⟦ADDICTIVE⟧, ⟦Programming in M4 is addictive⟦⟧EX()⟧)
-ERROR(⟦NOFAULT⟧,     ⟦It⟦⟧AP()s not a language fault⟦⟧EX()⟧)
+ERROR(⟦NO_FAULT⟧,    ⟦It⟦⟧AP()s not a language fault⟦⟧EX()⟧)
 WARNING(⟦NO_ERRORS⟧, ⟦No other errors were found.⟧)

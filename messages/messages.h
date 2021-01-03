@@ -7,6 +7,6 @@
 
 #define COMPLEX		0x00
 #define SUCCESS		0x01
-#define NOFAULT		0x02
+#define NO_FAULT		0x02
 
 #endif /* __ERROR_H */

@@ -18,7 +18,7 @@
 		<value>Programming in M4 is addictive!</value>
 	</warning>
 	<error>
-		<name>NOFAULT</name>
+		<name>NO_FAULT</name>
 		<value>It's not a language fault!</value>
 	</error>
 	<warning>
