@@ -3,7 +3,7 @@ Generating code in M4: fundamentals
 The M4 macro processor is used to generate arbitrarily complex code from simple source code.
 This part is focused on explanation of necessary, seemingly complex concepts of theoretical computer science.
 
-Content (Česky)	mc spl txt dev pre c  updated January 10, 2021
+Content (Česky)	mc spl txt pub dev pre c  updated January 10, 2021
 1 Introduction
 
 1 Introduction

@@ -3,7 +3,7 @@ Generating code in M4: introduction
 The M4 macro processor is used to generate arbitrarily complex code from simple source code.
 The introductory part of the series contains its history, the basic principles of language, examples of usage and prerequisites for its mastery.
 
-Content (Česky)	mc spl txt dev pre c  updated January 10, 2021
+Content (Česky)	mc spl txt pub dev pre c  updated January 10, 2021
 1 Introduction
 	1.1 Examples for readers
 2 History of macro languages
@@ -1407,7 +1407,7 @@ The apostrophe ' does not matter in the source code.
 Apostrophe inside ORD() macro is hidden in RR() macro.
 Note the define () or ifelse () function names and where the SYMBOL is expanded.
 
-b53eafe preproc/file.c.m4
+cf9fdc8 preproc/file.c.m4
   1 # ORDinary and SAFe macros have different expansion:
   2 
   3 # A → β
@@ -1416,7 +1416,7 @@ b53eafe preproc/file.c.m4
   6 
   7 divert(0)dnl
 
-b53eafe preproc/file.c
+cf9fdc8 preproc/file.c
   1 /*
   2  * DONTE()
   3  */
@@ -1451,7 +1451,7 @@ b53eafe preproc/file.c
 
 $ m4 -DSYMBOL='Hello, world!' root0q.m4 file.c.m4 file.c > preproc.file.c
 
-b53eafe preproc/preproc.file.c
+cf9fdc8 preproc/preproc.file.c
   1 /*
   2  * DO NOT EDIT! This file is generated automatically!
   3  */
