@@ -1,6 +1,6 @@
 # vim:mps+=⟦\:⟧
 
-__HEADER(⟦Josef Kubin⟧, ⟦2019/12/03⟧, ⟦https://www.root.cz/clanky/generovani-kodu-v-m4-uvod⟧)
+__HEADER(⟦Josef Kubin⟧, ⟦2019,12,03⟧, ⟦https://www.root.cz/clanky,generovani-kodu-v-m4-uvod⟧)
 ___DESCR(⟦the introductory part⟧)
 __TPLVER(1, 0, 0)
 
