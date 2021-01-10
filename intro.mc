@@ -1241,13 +1241,13 @@ CODE(⟦⟦⟧⟧) CSV: counter
 ⟧⟧)
 
 PARA(⟦⟦
-Příklad používá makro HCODE(⟦COUNT_UP⟧, ⟦⟦⟦A⟧, ⟦messages/counter.csv.m4⟧⟧⟧) ze souboru CODE(⟦countb.m4⟧), jehož ABBREV(⟦CODE(⟦β⟧)⟧, ⟦pravá strana přepisovacího pravidla⟧) se zkopíruje do pravé strany makra HCODE(⟦COUNTER⟧, ⟦⟦⟦2⟧, ⟦messages/counter.csv.m4⟧⟧⟧).
+Příklad používá makro HCODE(⟦COUNT_UP⟧, ⟦⟦⟦A⟧, ⟦messages/counter.csv.m4⟧⟧⟧) ze souboru CODE(⟦countu.m4⟧), jehož ABBREV(⟦CODE(⟦β⟧)⟧, ⟦pravá strana přepisovacího pravidla⟧) se zkopíruje do pravé strany makra HCODE(⟦COUNTER⟧, ⟦⟦⟦2⟧, ⟦messages/counter.csv.m4⟧⟧⟧).
 Během první expanze HCODE(⟦COUNTER⟧, ⟦⟦⟦5⟧, ⟦messages/counter.csv.m4⟧⟧⟧) proběhne inicializace jeho startovací hodnoty.
 HEXPLAIN(⟦Další expanze⟧, ⟦⟦⟦B⟧, ⟦messages/counter.csv.m4⟧⟧⟧) vrátí HEXPLAIN(⟦číselný terminální symbol⟧, ⟦⟦⟦A⟧, ⟦messages/counter.csv⟧⟧⟧) a⟦⟧NB()proběhne zvýšení vnitřního pomocného (globálního) symbolu o⟦⟧NB()jedničku.
 CODE(⟦COUNTER⟧) je malý automat.
 ⟧,dnl _next_language_
 ⟦
-The example uses the HCODE(⟦COUNT_UP⟧, ⟦⟦⟦A⟧, ⟦messages/counter.csv.m4⟧⟧⟧) macro from the CODE(⟦countb.m4⟧) file whose ABBREV(⟦CODE(⟦β⟧)⟧, ⟦the right side of the rewriting rule⟧) is copied to the right side of the HCODE(⟦COUNTER⟧, ⟦⟦⟦2⟧, ⟦messages/counter.csv.m4⟧⟧⟧) macro.
+The example uses the HCODE(⟦COUNT_UP⟧, ⟦⟦⟦A⟧, ⟦messages/counter.csv.m4⟧⟧⟧) macro from the CODE(⟦countu.m4⟧) file whose ABBREV(⟦CODE(⟦β⟧)⟧, ⟦the right side of the rewriting rule⟧) is copied to the right side of the HCODE(⟦COUNTER⟧, ⟦⟦⟦2⟧, ⟦messages/counter.csv.m4⟧⟧⟧) macro.
 During the first expansion of HCODE(⟦COUNTER⟧, ⟦⟦⟦5⟧, ⟦messages/counter.csv.m4⟧⟧⟧) its initial value is initialized.
 HEXPLAIN(⟦Further expansion⟧, ⟦⟦⟦B⟧, ⟦messages/counter.csv.m4⟧⟧⟧) returns HEXPLAIN(⟦the numeric terminal symbol⟧, ⟦⟦⟦A⟧, ⟦messages/counter.csv⟧⟧⟧) and increases the inner auxiliary (global) symbol by one.
 CODE(⟦COUNTER⟧) is a⟦⟧NB()small automaton.
@@ -1257,7 +1257,7 @@ TEXTDATA(⟦messages/counter.csv.m4⟧,, ⟦
 s/\<COUNT_UP\>/MM(a)/
 /\<ERR_\>/s/\<COUNTER\>/MM(b)/
 ⟧)
-EXECUTED(⟦m4⟧, ⟦gfiles/root0u.m4⟧, ⟦gfiles/countb.m4⟧, ⟦messages/counter.csv.m4⟧, ⟦messages/messages_raw.mc⟧, ⟦messages/counter.csv⟧)
+EXECUTED(⟦m4⟧, ⟦gfiles/root0u.m4⟧, ⟦gfiles/countu.m4⟧, ⟦messages/counter.csv.m4⟧, ⟦messages/messages_raw.mc⟧, ⟦messages/counter.csv⟧)
 TEXTDATA(⟦messages/counter.csv⟧,, ⟦
 /^ERR_/s/[[:digit:]]\+/MM(a)/
 ⟧)
@@ -1421,7 +1421,7 @@ s//MM(c)/
 s/\<16, 2\>/MM(b)/
 }
 ⟧)
-EXECUTED(⟦m4⟧, ⟦gfiles/root0u.m4⟧, ⟦gfiles/countb.m4⟧, ⟦messages/messages.h.m4⟧, ⟦messages/messages.mc⟧, ⟦messages/messages.h⟧)
+EXECUTED(⟦m4⟧, ⟦gfiles/root0u.m4⟧, ⟦gfiles/countu.m4⟧, ⟦messages/messages.h.m4⟧, ⟦messages/messages.mc⟧, ⟦messages/messages.h⟧)
 TEXTDATA(⟦messages/messages.h⟧)
 
 
@@ -1630,7 +1630,7 @@ The following example shows how these indexes are generated.
 
 TEXTDATA(⟦messages/queues.m4⟧,, ⟦/\<QUEUE_INDEX\>)$/s/\<QUEUE_INDEX\>/MM(a)/⟧)
 TEXTDATA(⟦messages/messages.json.m4⟧)
-EXECUTED(⟦m4⟧, ⟦gfiles/root0u.m4⟧, ⟦gfiles/countb.m4⟧, ⟦messages/queues.m4⟧, ⟦messages/messages.json.m4⟧, ⟦messages/code.m4⟧, ⟦messages/messages.mc⟧, ⟦messages/messages.json⟧)
+EXECUTED(⟦m4⟧, ⟦gfiles/root0u.m4⟧, ⟦gfiles/countu.m4⟧, ⟦messages/queues.m4⟧, ⟦messages/messages.json.m4⟧, ⟦messages/code.m4⟧, ⟦messages/messages.mc⟧, ⟦messages/messages.json⟧)
 TEXTDATA(⟦messages/messages.json⟧)
 
 
@@ -1653,7 +1653,7 @@ The example uses the same file for output queues as the LINK(⟦example⟧, ⟦j
 ⟧⟧)
 
 TEXTDATA(⟦messages/messages.ini.m4⟧,, ⟦/^\[/s/\(.0\)\(_NAME\)/<span class="NSP()r">\1<\x2fspan><span class="NSP()a">\2<\x2fspan>/⟧)
-EXECUTED(⟦m4⟧, ⟦gfiles/root0u.m4⟧, ⟦messages/messages.ini.m4⟧, ⟦gfiles/countb.m4⟧, ⟦messages/queues.m4⟧, ⟦messages/code.m4⟧, ⟦messages/messages.mc⟧, ⟦messages/messages.ini⟧)
+EXECUTED(⟦m4⟧, ⟦gfiles/root0u.m4⟧, ⟦messages/messages.ini.m4⟧, ⟦gfiles/countu.m4⟧, ⟦messages/queues.m4⟧, ⟦messages/code.m4⟧, ⟦messages/messages.mc⟧, ⟦messages/messages.ini⟧)
 TEXTDATA(⟦messages/messages.ini⟧)
 
 
@@ -1852,12 +1852,12 @@ CODE(⟦[]⟧) Bash: counters
 ⟧⟧)
 
 PARA(⟦⟦
-Počítadla HCODE(⟦COUNT_UP⟧, ⟦⟦⟦A⟧, ⟦hello_world/sh.m4⟧⟧⟧) a⟦⟧NB()HCODE(⟦COUNT_DOWN⟧, ⟦⟦⟦B⟧, ⟦hello_world/sh.m4⟧⟧⟧) jsou definována v⟦⟧NB()souboru CODE(⟦countb.m4⟧).
+Počítadla HCODE(⟦COUNT_UP⟧, ⟦⟦⟦A⟧, ⟦hello_world/sh.m4⟧⟧⟧) a⟦⟧NB()HCODE(⟦COUNT_DOWN⟧, ⟦⟦⟦B⟧, ⟦hello_world/sh.m4⟧⟧⟧) jsou definována v⟦⟧NB()souboru CODE(⟦countu.m4⟧).
 HEXPLAIN(⟦Neterminály⟧, ⟦⟦⟦C⟧, ⟦hello_world/sh.m4⟧⟧⟧) HCODE(⟦[… uvnitř závorek …]⟧, ⟦⟦⟦20⟧, ⟦hello_world/sh.m4⟧⟧, ⟦⟦5⟧, ⟦hello_world/hello_world.sh⟧⟧⟧) nebudou expandovány, pouze se odeberou vnější závorky.
 Nutno použít makro HCODE(⟦LL()⟧, ⟦⟦⟦30⟧, ⟦hello_world/sh.m4⟧⟧, ⟦⟦15⟧, ⟦hello_world/hello_world.sh⟧⟧⟧) z⟦⟧NB()kořenového souboru.
 ⟧,dnl _next_language_
 ⟦
-The HCODE(⟦COUNT_UP⟧, ⟦⟦⟦A⟧, ⟦hello_world/sh.m4⟧⟧⟧) and HCODE(⟦COUNT_DOWN⟧, ⟦⟦⟦B⟧, ⟦hello_world/sh.m4⟧⟧⟧) counters are defined in the file CODE(⟦countb.m4⟧).
+The HCODE(⟦COUNT_UP⟧, ⟦⟦⟦A⟧, ⟦hello_world/sh.m4⟧⟧⟧) and HCODE(⟦COUNT_DOWN⟧, ⟦⟦⟦B⟧, ⟦hello_world/sh.m4⟧⟧⟧) counters are defined in the file CODE(⟦countu.m4⟧).
 The HEXPLAIN(⟦nonterminals⟧, ⟦⟦⟦C⟧, ⟦hello_world/sh.m4⟧⟧⟧) HCODE(⟦[… inside brackets …]⟧, ⟦⟦⟦20⟧, ⟦hello_world/sh.m4⟧⟧, ⟦⟦5⟧, ⟦hello_world/hello_world.sh⟧⟧⟧) will not be expanded, only the outer brackets will be removed.
 The HCODE(⟦LL()⟧, ⟦⟦⟦30⟧, ⟦hello_world/sh.m4⟧⟧, ⟦⟦15⟧, ⟦hello_world/hello_world.sh⟧⟧⟧) macro defined in the root file must be used.
 ⟧⟧)
@@ -1867,7 +1867,7 @@ s/\<COUNT_UP\>/MM(a)/
 s/\<COUNT_DOWN\>/MM(b)/
 /^define/s/\<LEFT\>\|\<OP\>\|\<RIGHT\>/MM(c)/
 ⟧)
-EXECUTED(⟦m4 -DSYMBOL='Hello, world!'⟧, ⟦gfiles/root0u.m4⟧, ⟦gfiles/countb.m4⟧, ⟦hello_world/sh.m4⟧, ⟦hello_world/hello_world.sh⟧)
+EXECUTED(⟦m4 -DSYMBOL='Hello, world!'⟧, ⟦gfiles/root0u.m4⟧, ⟦gfiles/countu.m4⟧, ⟦hello_world/sh.m4⟧, ⟦hello_world/hello_world.sh⟧)
 TEXTDATA(⟦hello_world/hello_world.sh⟧)
 
 
@@ -1879,14 +1879,14 @@ CODE(⟦[]⟧) .h: brackets CODE(⟦[]⟧)⟦,⟧ CODE(⟦[,]⟧)⟦,⟧ XCODE(�
 ⟧⟧)
 
 PARA(⟦⟦
-Prázdný pár HCODE(⟦[]⟧, ⟦⟦⟦A⟧, ⟦hello_world/h.m4⟧⟧⟧) (nebo prázdný symbol v⟦⟧NB()závorkách CODE(⟦[ε]⟧)) slouží jako oddělovač symbolů.
+Prázdný pár HCODE(⟦[]⟧, ⟦⟦⟦A⟧, ⟦hello_world/h.m4⟧⟧⟧) (nebo prázdný symbol v⟦⟧NB()závorkách HCODE(⟦[ε]⟧, ⟦⟦⟦A⟧, ⟦hello_world/h.m4⟧⟧⟧)) slouží jako oddělovač symbolů.
 Závorky kolem znaku komentáře HXCODE(⟦[#]⟧, ⟦⟦⟦B⟧, ⟦hello_world/h.m4⟧⟧, ⟦⟦B⟧, ⟦hello_world/hello_world.h⟧⟧⟧) vypnou jeho původní význam, stejně jako vypnou význam ITALIC(⟦silnějšího⟧) M4 komentáře
 HXCODE(⟦[dnl]⟧, ⟦⟦⟦C⟧, ⟦hello_world/h.m4⟧⟧, ⟦⟦C⟧, ⟦hello_world/hello_world.h⟧⟧⟧).
 Vypnou také původní význam čárky CODE(⟦[,]⟧) jako oddělovače argumentů maker.
 Tyto symboly se stanou obyčejnými terminálními symboly bez jakéhokoliv vedlejšího efektu.
 ⟧,dnl _next_language_
 ⟦
-The empty pair HCODE(⟦[]⟧, ⟦⟦⟦A⟧, ⟦hello_world/h.m4⟧⟧⟧) (or the empty symbol in brackets CODE(⟦[ε]⟧)) serves as a⟦⟧NB()symbol separator.
+The empty pair HCODE(⟦[]⟧, ⟦⟦⟦A⟧, ⟦hello_world/h.m4⟧⟧⟧) (or the empty symbol in brackets HCODE(⟦[ε]⟧, ⟦⟦⟦A⟧, ⟦hello_world/h.m4⟧⟧⟧)) serves as a⟦⟧NB()symbol separator.
 Brackets around the comment character HXCODE(⟦[#]⟧, ⟦⟦⟦B⟧, ⟦hello_world/h.m4⟧⟧, ⟦⟦B⟧, ⟦hello_world/hello_world.h⟧⟧⟧) turn off its original meaning as well as the meaning of the ITALIC(⟦more powerful⟧) M4 comment
 HXCODE(⟦[dnl]⟧, ⟦⟦⟦C⟧, ⟦hello_world/h.m4⟧⟧, ⟦⟦C⟧, ⟦hello_world/hello_world.h⟧⟧⟧).
 They also turn off the original meaning of the comma CODE(⟦[,]⟧) as a⟦⟧NB()macro argument delimiter.
