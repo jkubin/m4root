@@ -34,7 +34,11 @@ define(⟦10⟧, ⟦October⟧)
 define(⟦11⟧, ⟦November⟧)
 define(⟦12⟧, ⟦December⟧)
 
+# British: day-month-year
 define(⟦doc_CONVERT_MONTH_NUMBERS_TO_NAMES⟧, ⟦doc_ifdef(⟦$2⟧, ⟦$3 doc_indir(⟦$2⟧) $1⟧, ⟦-⟧)⟧)
+
+# American: month-day-year
+#define(⟦doc_CONVERT_MONTH_NUMBERS_TO_NAMES⟧, ⟦doc_ifdef(⟦$2⟧, ⟦doc_indir(⟦$2⟧) $3th, $1⟧, ⟦-⟧)⟧)
 
 # counter for input files
 # A → β
