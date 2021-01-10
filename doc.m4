@@ -35,10 +35,10 @@ define(⟦11⟧, ⟦November⟧)
 define(⟦12⟧, ⟦December⟧)
 
 # British: day-month-year
-define(⟦doc_CONVERT_MONTH_NUMBERS_TO_NAMES⟧, ⟦doc_ifdef(⟦$2⟧, ⟦$3 doc_indir(⟦$2⟧) $1⟧, ⟦-⟧)⟧)
+define(⟦doc_CONVERT_DATE_TO_ANOTHER_FORMAT⟧, ⟦doc_ifdef(⟦$2⟧, ⟦doc_format(⟦%d⟧, ⟦$3⟧) doc_indir(⟦$2⟧) $1⟧, ⟦-⟧)⟧)
 
 # American: month-day-year
-#define(⟦doc_CONVERT_MONTH_NUMBERS_TO_NAMES⟧, ⟦doc_ifdef(⟦$2⟧, ⟦doc_indir(⟦$2⟧) $3th, $1⟧, ⟦-⟧)⟧)
+#define(⟦doc_CONVERT_DATE_TO_ANOTHER_FORMAT⟧, ⟦doc_ifdef(⟦$2⟧, ⟦doc_indir(⟦$2⟧) doc_format(⟦%d⟧, ⟦$3⟧)th, $1⟧, ⟦-⟧)⟧)
 
 # counter for input files
 # A → β
@@ -53,7 +53,7 @@ define(⟦__HEADER⟧, ⟦
 ---
 __FILE_NAME file_COUNTER_val: doc___file__
 __AUTHOR_NAME: $1
-__CREATION_DATE: doc_CONVERT_MONTH_NUMBERS_TO_NAMES($2)
+__CREATION_DATE: doc_CONVERT_DATE_TO_ANOTHER_FORMAT($2)
 __HEADER_NOTE: $3
 doc_ifelse(⟦$4⟧, ⟦⟧, ⟦⟧, ⟦__FILE_VERSION($4)⟧)doc_dnl
 doc_divert(-1)
@@ -78,6 +78,7 @@ define(⟦doc___file__⟧,	defn(⟦__file__⟧))
 define(⟦doc_define⟧,	defn(⟦define⟧))
 define(⟦doc_divert⟧,	defn(⟦divert⟧))
 define(⟦doc_dnl⟧,	defn(⟦dnl⟧))
+define(⟦doc_format⟧,	defn(⟦format⟧))
 define(⟦doc_ifdef⟧,	defn(⟦ifdef⟧))
 define(⟦doc_ifelse⟧,	defn(⟦ifelse⟧))
 define(⟦doc_incr⟧,	defn(⟦incr⟧))

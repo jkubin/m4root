@@ -1,6 +1,6 @@
 # vim:wrap:spell:spelllang=en
 # DO NOT EDIT! This file is generated automatically!
-# generated: 20210110-15:50:28
+# generated: 20210110-16:24:56
 # total number of files: 94
 #
 # To update, run:
@@ -65,7 +65,7 @@ Usage: make h && make
 ---
 File 8: if20/kiosk_preproc.m4
 Author: Josef Kubin
-Started: 05 February 2020
+Started: 5 February 2020
 Note: 
 Description: 
 Reason: 
@@ -73,7 +73,7 @@ Usage: m4 kiosk_preproc.m4 symbols.mc
 ---
 File 9: if20/Makefile
 Author: Josef Kubin
-Started: 05 February 2020
+Started: 5 February 2020
 Note: 
 Description: 
 Reason: 
@@ -197,14 +197,14 @@ Reason: root file for UTF-8 characters
 ---
 File 26: refs_mono.m4
 Author: Josef Kubin
-Started: 01 April 2020
+Started: 1 April 2020
 Note: 
 Description: (this is a generated file) associative memory for linking files
 Reason: simple hash database for files
 ---
 File 27: js/js.m4
 Author: Josef Kubin
-Started: 08 March 2020
+Started: 8 March 2020
 Note: 
 Description: here the processed parts of JavaScript-s are composed into the final script
 Reason: code decomposition to simplify difficult things
@@ -218,14 +218,14 @@ Reason: common code to pack all JavaScript-s
 ---
 File 29: js/hgl_packer.sed
 Author: Josef Kubin
-Started: 09 May 2020
+Started: 9 May 2020
 Note: 
 Description: replaces the local long_self_descriptive_funny_variables with single letters
 Reason: packs local method variables
 ---
 File 30: js/info_packer.sed
 Author: Josef Kubin
-Started: 09 May 2020
+Started: 9 May 2020
 Note: 
 Description: replaces the local long_self_descriptive_funny_variables with single letters
 Reason: packs local method variables
@@ -253,14 +253,14 @@ Reason: linking links and simple database
 ---
 File 34: tmp/refs_mono.m4
 Author: Josef Kubin
-Started: 01 April 2020
+Started: 1 April 2020
 Note: 
 Description: (this is a generated file) associative memory for linking files
 Reason: simple hash database for files
 ---
 File 35: tmp/git.m4
 Author: Josef Kubin
-Started: 08 March 2020
+Started: 8 March 2020
 Note: 
 Description: extracts important data from the git repository to create M4 macros
 Reason: subsequent faster code processing
@@ -302,7 +302,7 @@ Reason: converts multi-byte UTF-8 characters to HTML entities for Content Manage
 ---
 File 41: tmp/hgl.m4
 Author: Josef Kubin
-Started: 04 April 2020
+Started: 4 April 2020
 Note: 
 Description: 
 Reason: 
@@ -407,14 +407,14 @@ Reason: development and preview of html file before publishing
 ---
 File 56: html/nav.m4
 Author: Josef Kubin
-Started: 01 December 2019
+Started: 1 December 2019
 Note: 
 Description: navigation logic for HTML page; table of content; all parts of the series
 Reason: common script for preview and publish
 ---
 File 57: html/chr_to_esc.sed
 Author: Josef Kubin
-Started: 01 September 2019
+Started: 1 September 2019
 Note: 
 Description: the script modifies input source code for use in M4 source code and for resulting HTML page
 Reason: problematic characters in source code must be processed first
@@ -484,7 +484,7 @@ Reason: html entities and special characters
 ---
 File 67: html/esc_to_ent.sed
 Author: Josef Kubin
-Started: 09 January 2020
+Started: 9 January 2020
 Note: 
 Description: transforms esc sequences to HTML entities or to ASCII
 Reason: post processing after M4 scripts
@@ -512,7 +512,7 @@ Reason: multilingual targets
 ---
 File 71: git.sh
 Author: Josef Kubin
-Started: 08 March 2020
+Started: 8 March 2020
 Note: 
 Description: generates a simple associative file database for the resulting generated code
 Reason: fast code generation using associative memory
@@ -590,7 +590,7 @@ Usage: make h && make
 ---
 File 82: file_refs.m4
 Author: Josef Kubin
-Started: 01 April 2020
+Started: 1 April 2020
 Note: 
 Description: (this is a generated file) associative memory for linking files
 Reason: simple hash database for files
@@ -604,7 +604,7 @@ Reason: simple hash database for linking references
 ---
 File 84: mk/fhtml.m4
 Author: Josef Kubin
-Started: 05 January 2020
+Started: 5 January 2020
 Note: 
 Description: the script generates experimental additional rules extending the handwritten Makefile to generate HTML files
 Reason: additional rules by configuration from command line; the rules utilise M4 frozen files to generate HTML files
@@ -618,7 +618,7 @@ Reason: additional rules to generate txt files
 ---
 File 86: mk/html.m4
 Author: Josef Kubin
-Started: 01 September 2019
+Started: 1 September 2019
 Note: 
 Description: the script generates additional rules extending the handwritten Makefile to generate HTML files
 Reason: additional rules by configuration from command line to generate HTML files
@@ -653,14 +653,14 @@ Reason: generated XML files
 ---
 File 91: config.m4
 Author: Josef Kubin
-Started: 09 December 2019
+Started: 9 December 2019
 Note: 
 Description: configuration file for all generated files
 Reason: one file to configure all generated files
 ---
 File 92: Makefile
 Author: Josef Kubin
-Started: 09 October 2019
+Started: 9 October 2019
 Note: 
 Description: this handwritten Makefile automatically generates additional rules to generate target files
 Reason: learning M4 using the examples in this series
