@@ -35,36 +35,36 @@ define(⟦11⟧, ⟦November⟧)
 define(⟦12⟧, ⟦December⟧)
 
 # British: day-month-year
-define(⟦doc_CONVERT_DATE_TO_ANOTHER_FORMAT⟧, ⟦doc_ifdef(⟦$2⟧, ⟦doc_format(⟦%d⟧, ⟦$3⟧) doc_indir(⟦$2⟧) $1⟧, ⟦-⟧)⟧)
+define(⟦alias_CONVERT_DATE_TO_ANOTHER_FORMAT⟧, ⟦alias_ifdef(⟦$2⟧, ⟦alias_format(⟦%d⟧, ⟦$3⟧) alias_indir(⟦$2⟧) $1⟧, ⟦-⟧)⟧)
 
 # American: month-day-year
-#define(⟦doc_CONVERT_DATE_TO_ANOTHER_FORMAT⟧, ⟦doc_ifdef(⟦$2⟧, ⟦doc_indir(⟦$2⟧) doc_format(⟦%d⟧, ⟦$3⟧)th, $1⟧, ⟦-⟧)⟧)
+#define(⟦alias_CONVERT_DATE_TO_ANOTHER_FORMAT⟧, ⟦alias_ifdef(⟦$2⟧, ⟦alias_indir(⟦$2⟧) alias_format(⟦%d⟧, ⟦$3⟧)th, $1⟧, ⟦-⟧)⟧)
 
 # counter for input files
 # A → β
 define(⟦file_COUNTER_val⟧,	0)
-define(⟦file_COUNTER⟧,	⟦doc_define(⟦file_COUNTER_val⟧, doc_incr(file_COUNTER_val))⟧)
+define(⟦file_COUNTER⟧,	⟦alias_define(⟦file_COUNTER_val⟧, alias_incr(file_COUNTER_val))⟧)
 
 # A → β
 define(⟦__HEADER⟧, ⟦
 
 	file_COUNTER
-	doc_divert(2)doc_dnl
+	alias_divert(2)alias_dnl
 ---
-__FILE_NAME file_COUNTER_val: doc___file__
+__FILE_NAME file_COUNTER_val: alias___file__
 __AUTHOR_NAME: $1
-__CREATION_DATE: doc_CONVERT_DATE_TO_ANOTHER_FORMAT($2)
+__CREATION_DATE: alias_CONVERT_DATE_TO_ANOTHER_FORMAT($2)
 __HEADER_NOTE: $3
-doc_ifelse(⟦$4⟧, ⟦⟧, ⟦⟧, ⟦__FILE_VERSION($4)⟧)doc_dnl
-doc_divert(-1)
+alias_ifelse(⟦$4⟧, ⟦⟧, ⟦⟧, ⟦__FILE_VERSION($4)⟧)alias_dnl
+alias_divert(-1)
 ⟧)
 
 # A → β
 define(⟦__THANKS⟧, ⟦
 
-	doc_divert(2)doc_dnl
+	alias_divert(2)alias_dnl
 $0_CAPT: $1
-doc_divert(-1)
+alias_divert(-1)
 ⟧)
 
 # A → β
@@ -74,15 +74,15 @@ define(⟦___USAGE⟧,	defn(⟦__THANKS⟧))
 
 # aliases for the necessary keywords
 # A → β
-define(⟦doc___file__⟧,	defn(⟦__file__⟧))
-define(⟦doc_define⟧,	defn(⟦define⟧))
-define(⟦doc_divert⟧,	defn(⟦divert⟧))
-define(⟦doc_dnl⟧,	defn(⟦dnl⟧))
-define(⟦doc_format⟧,	defn(⟦format⟧))
-define(⟦doc_ifdef⟧,	defn(⟦ifdef⟧))
-define(⟦doc_ifelse⟧,	defn(⟦ifelse⟧))
-define(⟦doc_incr⟧,	defn(⟦incr⟧))
-define(⟦doc_indir⟧,	defn(⟦indir⟧))
+define(⟦alias___file__⟧,	defn(⟦__file__⟧))
+define(⟦alias_define⟧,	defn(⟦define⟧))
+define(⟦alias_divert⟧,	defn(⟦divert⟧))
+define(⟦alias_dnl⟧,	defn(⟦dnl⟧))
+define(⟦alias_format⟧,	defn(⟦format⟧))
+define(⟦alias_ifdef⟧,	defn(⟦ifdef⟧))
+define(⟦alias_ifelse⟧,	defn(⟦ifelse⟧))
+define(⟦alias_incr⟧,	defn(⟦incr⟧))
+define(⟦alias_indir⟧,	defn(⟦indir⟧))
 
 # comment out this paragraph if you do not like it (note the right unpaired bracket)
 divert(0)dnl
@@ -97,7 +97,7 @@ divert(2)dnl
 divert(-1)
 
 m4wrap(⟦
-	doc_divert(1)doc_dnl
+	alias_divert(1)alias_dnl
 ⟦#⟧ total number of files: file_COUNTER_val
 ⟧)
 
