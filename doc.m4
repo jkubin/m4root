@@ -101,7 +101,7 @@ m4wrap(⟦
 ⟦#⟧ total number of files: file_COUNTER_val
 ⟧)
 
-# disable one-line comments and turn off all M4 keywords
+# disable one-line comments (M4 can process symbols in the comments) and turn off all M4 keywords
 changecom
 
 undefine(
