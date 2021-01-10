@@ -1,4 +1,4 @@
-__HEADER(⟦Josef Kubin⟧, ⟦2019/12/30⟧)
+__HEADER(⟦Josef Kubin⟧, ⟦2019,12,30⟧)
 ___DESCR(⟦converts LANG_CODE to numeric index and selects desired language item⟧)
 __REASON(⟦selects item from multilingual list⟧)
 

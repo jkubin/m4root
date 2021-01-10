@@ -1,4 +1,4 @@
-# __HEADER(⟦Josef Kubin⟧, ⟦2019/10/27⟧)
+# __HEADER(⟦Josef Kubin⟧, ⟦2019,10,27⟧)
 # ___DESCR(⟦converts vim iabbrev file for square brackets to iabbrev file for original quotation marks⟧)
 # __REASON(⟦keeps consistent 1:1 iabbrev vim file for square brackets with quotation marks⟧)
 

@@ -1,6 +1,6 @@
 # vim:ts=16:sw=16
 
-__HEADER(⟦Josef Kubin⟧, ⟦2020/05/31⟧)
+__HEADER(⟦Josef Kubin⟧, ⟦2020,05,31⟧)
 ___DESCR(⟦initialization code of each target⟧)
 __REASON(⟦reduces code duplication⟧)
 

@@ -1,4 +1,4 @@
-# __HEADER(⟦Josef Kubin⟧, ⟦2019/10/12⟧)
+# __HEADER(⟦Josef Kubin⟧, ⟦2019,10,12⟧)
 # ___DESCR(⟦common ASM source code for Intel and AT&T notation⟧)
 
 # an arbitrarily long string from the command line to print

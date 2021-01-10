@@ -1,9 +1,9 @@
 /*
  * DO NOT EDIT! This file is generated automatically!
- * 20201229-23:14:13
+ * generated: 20210103-12:22:26
  *
- * __SOURCE(⟦c/c.m4⟧, ⟦20201229-20:12:23⟧, ⟦135bc81⟧, ⟦3bba8f2⟧)
- * __SOURCE(⟦intro.mc⟧, ⟦20201229-18:35:56⟧, ⟦f373ace⟧, ⟦3bba8f2⟧)
+ * __SOURCE(⟦c/c.m4⟧, ⟦20210102-12:33:10⟧, ⟦78ec026⟧, ⟦2057a64⟧)
+ * __SOURCE(⟦intro.mc⟧, ⟦20210102-23:33:20⟧, ⟦25905c7⟧, ⟦2057a64⟧)
  *
  * Generating code in M4: introduction
  */
@@ -153,9 +153,9 @@ static char ch_para_26[] =
 "However the character collision is easily solved by a regex.";
 
 static char ch_para_27[] =
-"The conflicting character ` from the input source code is hidden into a macro `'LQ().\n"
+"The conflicting character ` from the input source code is hidden into a macro `'LL().\n"
 "An empty pair of control characters `' before the macro serves as a symbol separator.\n"
-"When the source code is passed through the macro processor, the `'LQ() macro is rewritten back to the original ` character and the empty pair `' is removed.";
+"When the source code is passed through the macro processor, the `'LL() macro is rewritten back to the original ` character and the empty pair `' is removed.";
 
 static char ch_para_28[] =
 "If there are # or dnl comments in the source code, they must be hidden first.\n"
@@ -178,7 +178,7 @@ static char ch_para_32[] =
 
 static char ch_para_33[] =
 "Expansion of nonterminals can also be controlled by a suitably selected UTF-8 character pair.\n"
-"The usual source code does not contain such characters, so we do not have to solve the collision of the left ⟦ bracket.\n"
+"The usual source code does not contain such characters, so we do not have to solve the collision of the left control ⟦ character.\n"
 "UTF-8 characters offer similar advantages to non printable characters.";
 
 static char ch_para_34[] =
@@ -334,9 +334,9 @@ static char ap_para_18[] =
 "The CPP directives are a one-line comment for M4 preventing unwanted expansion of the same named macros.\n"
 "If we define a safer SAF() macro, the similar SAF () macro will not be overwritten.\n"
 "Thus, the CPP namespace can be completely separated from the M4 namespace.\n"
-"The problematic (backquote) character ` is hidden in the LQ() macro.\n"
+"The problematic (backquote) character ` is hidden in the LL() macro.\n"
 "The apostrophe ' does not matter in the source code.\n"
-"Apostrophe inside ORD() macro is hidden in RQ() macro.\n"
+"Apostrophe inside ORD() macro is hidden in RR() macro.\n"
 "Note the define () or ifelse () function names and where the SYMBOL is expanded.";
 
 static char ap_para_19[] =
@@ -346,16 +346,16 @@ static char ap_para_19[] =
 
 static char ap_para_20[] =
 "Bash uses both ` and [ characters.\n"
-"If we do not want to hide them either in an LQ() or LB() macro, we can use nonprintable characters for expansion control, see the example:";
+"If we do not want to hide them in an LL() macro, we can use nonprintable characters for expansion control, see the example:";
 
 static char ap_para_21[] =
 "The [… nonterminals are not expanded …] inside square brackets.\n"
-"Therefore, the left square bracket [ is replaced by the LB() macro defined in the root file.";
+"Therefore, the left square bracket [ is replaced by the LL() macro defined in the root file.";
 
 static char ap_para_22[] =
 "The COUNT_UP and COUNT_DOWN counters are defined in the file countb.m4.\n"
 "The nonterminals [… inside brackets …] will not be expanded, only the outer brackets will be removed.\n"
-"The LB() macro defined in the root file must be used.";
+"The LL() macro defined in the root file must be used.";
 
 static char ap_para_23[] =
 "The empty pair [] (or the empty symbol in brackets [ε]) serves as a symbol separator.\n"
@@ -365,7 +365,7 @@ static char ap_para_23[] =
 "These symbols become ordinary terminal symbols without any side effect.";
 
 static char ap_para_24[] =
-"The universal alert DONTE is ignored without parentheses, such as for example LB or RB.\n"
+"The universal alert DONTE is ignored without parentheses, such as for example LL or RR.\n"
 "Such macros are explicitly created by a script developer, see the root file root1b.m4.";
 
 char *chapters_paragraphs[] = {

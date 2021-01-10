@@ -1,4 +1,4 @@
-__HEADER(⟦Josef Kubin⟧, ⟦2019/12/22⟧)
+__HEADER(⟦Josef Kubin⟧, ⟦2019,12,22⟧)
 ___DESCR(⟦the project is in constant development; to avoid frustrating innocent users a version number is used⟧)
 __REASON(⟦stops source.mc processing if the major version number is different⟧)
 

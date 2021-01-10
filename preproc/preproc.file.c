@@ -21,7 +21,7 @@ int main(void)
 {
 
 #ifdef SYMBOL			/* SYMBOL */
-	puts("`Hello, world!'");	/* note: LQ()SYMBOL */
+	puts("`Hello, world!'");	/* note: LL()SYMBOL */
 #endif
 
 	define (foo);		/* Hello, world! */

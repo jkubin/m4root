@@ -1,4 +1,4 @@
-# __HEADER(⟦Josef Kubin⟧, ⟦2020/05/19⟧)
+# __HEADER(⟦Josef Kubin⟧, ⟦2020,05,19⟧)
 # ___DESCR(⟦the script modifies input source code for M4 processing⟧)
 # __REASON(⟦problematic characters must be hidden⟧)
 

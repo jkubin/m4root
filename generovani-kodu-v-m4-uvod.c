@@ -1,9 +1,9 @@
 /*
  * DO NOT EDIT! This file is generated automatically!
- * 20201229-23:14:13
+ * generated: 20210103-12:22:26
  *
- * __SOURCE(⟦c/c.m4⟧, ⟦20201229-20:12:23⟧, ⟦135bc81⟧, ⟦3bba8f2⟧)
- * __SOURCE(⟦intro.mc⟧, ⟦20201229-18:35:56⟧, ⟦f373ace⟧, ⟦3bba8f2⟧)
+ * __SOURCE(⟦c/c.m4⟧, ⟦20210102-12:33:10⟧, ⟦78ec026⟧, ⟦2057a64⟧)
+ * __SOURCE(⟦intro.mc⟧, ⟦20210102-23:33:20⟧, ⟦25905c7⟧, ⟦2057a64⟧)
  *
  * Generování kódu v M4: úvod
  */
@@ -155,9 +155,9 @@ static char ch_para_26[] =
 "Kolize znaku je ale snadno řešitelná regulárním výrazem.";
 
 static char ch_para_27[] =
-"Konfliktní znak ` ze vstupního zdrojového kódu je skryt do makra `'LQ().\n"
-"Prázdný pár řídících znaků `' před makrem LQ() slouží jako oddělovač symbolů.\n"
-"Při průchodu zdrojového kódu makro procesorem se makro `'LQ() přepíše zpátky na původní znak ` a prázdný pár `' je odstraněn.";
+"Konfliktní znak ` ze vstupního zdrojového kódu je skryt do makra `'LL().\n"
+"Prázdný pár řídících znaků `' před makrem LL() slouží jako oddělovač symbolů.\n"
+"Při průchodu zdrojového kódu makro procesorem se makro `'LL() přepíše zpátky na původní znak ` a prázdný pár `' je odstraněn.";
 
 static char ch_para_28[] =
 "Vyskytují-li se ve vstupním kódu komentáře # nebo dnl, je nutné je skrýt.\n"
@@ -169,7 +169,7 @@ static char ch_para_29[] =
 "Vše ostatní platí jako pro výchozí znaky `'.";
 
 static char ch_para_30[] =
-"Komentáře M4 # a dnl jsou skryty mezi závorkami: [#] [dnl]";
+"Komentáře M4 # a dnl jsou skryté mezi závorkami: [#] [dnl]";
 
 static char ch_para_31[] =
 "Pro řízení expanze neterminálů lze použít netisknutelné znaky ␂ (0x02) a ␆ (0x06).\n"
@@ -180,7 +180,7 @@ static char ch_para_32[] =
 
 static char ch_para_33[] =
 "Expanzi neterminálů může také řídit vhodně zvolený pár UTF-8 znaků.\n"
-"Běžný zdrojový kód takové znaky neobsahuje, proto nemusíme řešit kolizi levého ⟦ znaku.\n"
+"Běžný zdrojový kód takové znaky neobsahuje, proto nemusíme řešit kolizi levého řídícího ⟦ znaku.\n"
 "UTF-8 znaky nabízí podobné výhody jako netisknutelné znaky.";
 
 static char ch_para_34[] =
@@ -336,9 +336,9 @@ static char ap_para_18[] =
 "Direktivy CPP jsou pro M4 jednořádkový komentář, což brání nežádoucí expanzi stejně pojmenovaných maker.\n"
 "Definujeme-li bezpečnější makro SAF(), stejně pojmenované makro SAF () nebude přepsáno.\n"
 "Jmenný prostor CPP tak může být zcela oddělen od jmenného prostoru M4.\n"
-"Problematický znak ` je skryt do makra LQ().\n"
+"Problematický znak ` je skryt do makra LL().\n"
 "Apostrof ' ve zdrojovém kódu ničemu nevadí.\n"
-"Apostrof uvnitř makra ORD() je skryt do makra RQ().\n"
+"Apostrof uvnitř makra ORD() je skryt do makra RR().\n"
 "Všimněte si jmen funkcí define () nebo ifelse () a kde je expandován SYMBOL.";
 
 static char ap_para_19[] =
@@ -348,16 +348,16 @@ static char ap_para_19[] =
 
 static char ap_para_20[] =
 "Bash používá oba znaky, ` a [.\n"
-"Nechceme-li je skrývat do makra LQ() nebo LB(), můžeme použít pro řízení expanze neterminálů netisknutelné znaky, viz. příklad:";
+"Nechceme-li je skrývat do makra LL(), můžeme použít pro řízení expanze neterminálů netisknutelné znaky, viz. příklad:";
 
 static char ap_para_21[] =
 "Uvnitř hranatých závorek [… se neterminály neexpandují …].\n"
-"Proto je levá hranatá závorka [ nahrazena makrem LB() z kořenového souboru.";
+"Proto je levá hranatá závorka [ nahrazena makrem LL() z kořenového souboru.";
 
 static char ap_para_22[] =
 "Počítadla COUNT_UP a COUNT_DOWN jsou definována v souboru countb.m4.\n"
 "Neterminály [… uvnitř závorek …] nebudou expandovány, pouze se odeberou vnější závorky.\n"
-"Nutno použít makro LB() z kořenového souboru.";
+"Nutno použít makro LL() z kořenového souboru.";
 
 static char ap_para_23[] =
 "Prázdný pár [] (nebo prázdný symbol v závorkách [ε]) slouží jako oddělovač symbolů.\n"
@@ -367,7 +367,7 @@ static char ap_para_23[] =
 "Tyto symboly se stanou obyčejnými terminálními symboly bez jakéhokoliv vedlejšího efektu.";
 
 static char ap_para_24[] =
-"Univerzální výstraha DONTE se ignoruje bez závorek, stejně jako LB, RB, …\n"
+"Univerzální výstraha DONTE se ignoruje bez závorek, stejně jako LL, RR, …\n"
 "Taková makra explicitně vytváří vývojář skriptů, prohlédněte si kořenový soubor root1b.m4.";
 
 char *chapters_paragraphs[] = {

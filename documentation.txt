@@ -1,7 +1,7 @@
 # vim:wrap:spell:spelllang=en
 # DO NOT EDIT! This file is generated automatically!
-# generated: 20201229-19:17:53
-# total number of files: 96
+# generated: 20210103-12:12:18
+# total number of files: 94
 #
 # To update, run:
 # ~]$ make doc
@@ -36,7 +36,7 @@ File 4: doc.m4
 Author: Josef Kubin
 Started: 2020/01/20
 Note: 
-Description: extracts headers from source files and creates brief documentation
+Description: extracts headers from the source files and creates a brief documentation
 Reason: a solution for cryptic short filenames
 Usage: m4 doc.m4 file1.m4 file2.sed file3.abc …
 ---
@@ -123,7 +123,6 @@ Started: 2019/10/27
 Note: 
 Description: converts skeleton file for square brackets to skeleton file for UTF-8 characters
 Reason: skeleton file for UTF-8 characters
-Usage: 
 ---
 File 16: gfiles/quotation_marks.sed
 Author: Josef Kubin
@@ -138,7 +137,6 @@ Started: 2019/10/27
 Note: 
 Description: converts skeleton file for square brackets to skeleton file for nonprintable characters
 Reason: skeleton file for nonprintable characters
-Usage: 
 ---
 File 18: gfiles/utf8_chars_vim.sed
 Author: Josef Kubin
@@ -153,7 +151,6 @@ Started: 2019/11/22
 Note: 
 Description: converts skeleton file for square brackets to skeleton file for quotation marks
 Reason: skeleton file for quotation marks
-Usage: 
 ---
 File 20: gfiles/utf8_chars.sed
 Author: Josef Kubin
@@ -545,7 +542,7 @@ File 75: c/c.m4
 Author: Josef Kubin
 Started: 2020/12/28
 Note: 
-Description: an example, how to generate C source code
+Description: an example, how to generate a C source code
 Reason: how to work with automata and queues
 ---
 File 76: c/ref.m4
@@ -576,20 +573,14 @@ Note:
 Description: (this is a generated file) associative memory to linking references, contains captions and ID
 Reason: simple hash database for linking references
 ---
-File 80: conv.sed
-Author: /{
-s/
-Started: m4root
-Note: 
----
-File 81: spell.m4
+File 80: spell.m4
 Author: Josef Kubin
 Started: 2019/12/23
 Note: 
 Description: converts inline and block-level elements into a plain text file for checking jargon and typos
 Reason: plain text file for spell checking and for suggestions from other people (text can be easily edited)
 ---
-File 82: asm/Makefile
+File 81: asm/Makefile
 Author: Josef Kubin
 Started: 2019/10/13
 Note: 
@@ -597,77 +588,77 @@ Description: keeps two ASM files consistent for both Intel and AT&T notation; us
 Reason: two ASM file formats generated from one metafile
 Usage: make h && make
 ---
-File 83: file_refs.m4
+File 82: file_refs.m4
 Author: Josef Kubin
 Started: 2020/04/01
 Note: 
 Description: (this is a generated file) associative memory for linking files
 Reason: simple hash database for files
 ---
-File 84: refs_en.m4
+File 83: refs_en.m4
 Author: Josef Kubin
 Started: 2019/12/11
 Note: 
 Description: (this is a generated file) associative memory to linking references, contains captions and ID
 Reason: simple hash database for linking references
 ---
-File 85: mk/fhtml.m4
+File 84: mk/fhtml.m4
 Author: Josef Kubin
 Started: 2020/01/05
 Note: 
 Description: the script generates experimental additional rules extending the handwritten Makefile to generate HTML files
 Reason: additional rules by configuration from command line; the rules utilise M4 frozen files to generate HTML files
 ---
-File 86: mk/text.m4
+File 85: mk/text.m4
 Author: Josef Kubin
 Started: 2020/05/19
 Note: 
 Description: generates additional rules extending the handwritten Makefile to generate txt files
 Reason: additional rules to generate txt files
 ---
-File 87: mk/html.m4
+File 86: mk/html.m4
 Author: Josef Kubin
 Started: 2019/09/01
 Note: 
 Description: the script generates additional rules extending the handwritten Makefile to generate HTML files
 Reason: additional rules by configuration from command line to generate HTML files
 ---
-File 88: mk/c.m4
+File 87: mk/c.m4
 Author: Josef Kubin
 Started: 2020/12/29
 Note: 
 Description: generates additional rules extending the handwritten Makefile to generate c files
 Reason: a simple script to generate Makefile to generate c files
 ---
-File 89: mk/texi.m4
+File 88: mk/texi.m4
 Author: Josef Kubin
 Started: 2020/05/19
 Note: 
 Description: the script generates additional rules extending the handwritten Makefile to generate texi files
 Reason: additional rules by configuration from command line to generate texi files
 ---
-File 90: mk/man.m4
+File 89: mk/man.m4
 Author: Josef Kubin
 Started: 2020/05/19
 Note: 
 Description: the script generates additional rules extending the handwritten Makefile to generate man files
 Reason: additional rules by configuration from command line to generate man files
 ---
-File 91: mk/xml.m4
+File 90: mk/xml.m4
 Author: Josef Kubin
 Started: 2020/01/11
 Note: 
 Description: the script creates rules for Makefile to generate XML files
 Reason: generated XML files
 ---
-File 92: config.m4
+File 91: config.m4
 Author: Josef Kubin
 Started: 2019/12/09
 Note: 
 Description: configuration file for all generated files
 Reason: one file to configure all generated files
 ---
-File 93: Makefile
+File 92: Makefile
 Author: Josef Kubin
 Started: 2019/10/09
 Note: 
@@ -675,21 +666,14 @@ Description: this handwritten Makefile automatically generates additional rules 
 Reason: learning M4 using the examples in this series
 Usage: make h && make && make
 ---
-File 94: incl.m4
+File 93: incl.m4
 Author: Josef Kubin
 Started: 2019/12/10
 Note: 
 Description: repeated text patterns for ALL parts should be written here; modified files from the include keyword are invisible for make
 Reason: no include keyword; Note: this is M4 not C!
 ---
-File 95: print.m4
-Author: Josef Kubin
-Started: 2020/03/13
-Note: 
-Description: prints visible words to estimate their amount
-Reason: output only visible text
----
-File 96: refs/mono.m4
+File 94: refs/mono.m4
 Author: Josef Kubin
 Started: 2020/03/29
 Note: 

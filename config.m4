@@ -1,4 +1,4 @@
-__HEADER(⟦Josef Kubin⟧, ⟦2019/12/09⟧)
+__HEADER(⟦Josef Kubin⟧, ⟦2019,12,09⟧)
 ___DESCR(⟦configuration file for all generated files⟧)
 __REASON(⟦one file to configure all generated files⟧)
 

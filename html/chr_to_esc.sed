@@ -1,4 +1,4 @@
-# __HEADER(⟦Josef Kubin⟧, ⟦2019/09/01⟧)
+# __HEADER(⟦Josef Kubin⟧, ⟦2019,09,01⟧)
 # ___DESCR(⟦the script modifies input source code for use in M4 source code and for resulting HTML page⟧)
 # __REASON(⟦problematic characters in source code must be processed first⟧)
 

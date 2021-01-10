@@ -1,4 +1,4 @@
-# __HEADER(⟦Josef Kubin⟧, ⟦2020/03/30⟧)
+# __HEADER(⟦Josef Kubin⟧, ⟦2020,03,30⟧)
 # ___DESCR(⟦converts strings for anchors/files to a plain-text-string format⟧)
 # __REASON(⟦generate references at the lightning speed⟧)
 

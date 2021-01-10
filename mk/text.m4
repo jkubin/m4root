@@ -1,4 +1,4 @@
-__HEADER(⟦Josef Kubin⟧, ⟦2020/05/19⟧)
+__HEADER(⟦Josef Kubin⟧, ⟦2020,05,19⟧)
 ___DESCR(⟦generates additional rules extending the handwritten Makefile to generate txt files⟧)
 __REASON(⟦additional rules to generate txt files⟧)
 

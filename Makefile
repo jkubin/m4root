@@ -1,4 +1,4 @@
-# __HEADER(⟦Josef Kubin⟧, ⟦2019/10/09⟧)
+# __HEADER(⟦Josef Kubin⟧, ⟦2019,10,09⟧)
 # ___DESCR(⟦this handwritten Makefile automatically generates additional rules to generate target files⟧)
 # __REASON(⟦learning M4 using the examples in this series⟧)
 # ___USAGE(⟦make h && make && make⟧)
@@ -13,7 +13,7 @@
 MAKEFLAGS += --no-builtin-rules
 
 
-# a list of source files in the desired order
+# here is a list of the source files in the desired order
 SOURCE = \
 	intro.mc \
 	fundamentals.mc \
@@ -215,7 +215,7 @@ git.m4: $(shell git ls-tree -r --name-only HEAD $(MONITORED))
 git_mc.m4: $(SOURCE)
 	@if ! git diff --exit-code --quiet $?; \
 	then \
-		echo "error: add modified sources to repository: git add $? && git ci -m 'a comment'" >&2; false; \
+		echo "error: add sources to repository: git add $? && git ci -m 'a comment'" >&2; false; \
 	fi
 	./git.sh $^ > $@
 

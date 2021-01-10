@@ -1,6 +1,6 @@
 # vim:ts=20:sw=20
 
-__HEADER(⟦Josef Kubin⟧, ⟦2019/12/28⟧)
+__HEADER(⟦Josef Kubin⟧, ⟦2019,12,28⟧)
 ___DESCR(⟦inline elements and unpaired tags with a subset of global attributes⟧)
 __REASON(⟦definition of HTML5 inline elements and unpaired tags⟧)
 

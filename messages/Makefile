@@ -1,4 +1,4 @@
-# __HEADER(⟦Josef Kubin⟧, ⟦2019/11/17⟧)
+# __HEADER(⟦Josef Kubin⟧, ⟦2019,11,17⟧)
 # ___DESCR(⟦the examples show how to generate messages into various target formats requiring modification of special characters⟧)
 # __REASON(⟦different target files with specially modified characters for each file⟧)
 # ___USAGE(⟦make h && make⟧)

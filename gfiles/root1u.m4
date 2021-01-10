@@ -4,10 +4,10 @@ dnl DO NOT EDIT! This file is generated automatically!
 dnl
 divert(-1)changequote(⟦,⟧)
 
-__HEADER(⟦Josef Kubin⟧, ⟦2020/02/18⟧)
+__HEADER(⟦Josef Kubin⟧, ⟦2020,02,18⟧)
 ___DESCR(⟦minimal root script for simple projects⟧)
 __REASON(⟦root script as small as possible⟧)
-___USAGE(⟦m4 root.m4 stem.m4 branch.m4 sub_branch.m4 leaf.m4 data.mc > output.file⟧)
+___USAGE(⟦m4 rootu.m4 stem.m4 branch.m4 sub_branch.m4 leaf.m4 data.mc > output.file⟧)
 
 # LOUD alert for unsuspecting users
 define(⟦DONTE⟧, ⟦ifelse(⟦$#⟧, ⟦0⟧, ⟦⟦$0⟧⟧,
@@ -36,23 +36,10 @@ define(⟦SARG3⟧,	⟦⟦$3⟧⟧)
 # (`paYr' is not a word from the dictionary)
 define(⟦PAYR⟧, ⟦⟦$@⟧⟧)
 
-# adds another layer of paired symbols
-# (`brac', `npri', `quot' and `utfp' are not words from the dictionary)
-define(⟦BRAC⟧, ⟦[$@]⟧)
-define(⟦NPRI⟧, ⟦$@⟧)
-define(⟦QUOT⟧, ⟦`$@'⟧)
-define(⟦UTFP⟧, ⟦⟦$@⟧⟧)
-
 # adds a left/right unpaired symbol bypassing the non-terminal control
-define(⟦LB⟧, ⟦[⟧)
-define(⟦RB⟧, ⟦]⟧)
-define(⟦LQ⟧, ⟦`⟧)
-define(⟦RQ⟧, ⟦'⟧)
-define(⟦LN⟧, ⟦⟧)
-define(⟦RN⟧, ⟦⟧)
-define(⟦LU⟧, ⟦ifelse(⟦$#⟧, ⟦0⟧, ⟦⟦$0⟧⟧, ⟦changequote⟦dnl⟧
+define(⟦LL⟧, ⟦ifelse(⟦$#⟧, ⟦0⟧, ⟦⟦$0⟧⟧, ⟦changequote⟦dnl⟧
 changequote(⟦,⟧)⟧)⟧)
-define(⟦RU⟧, ⟦ifelse(⟦$#⟧, ⟦0⟧, ⟦⟦$0⟧⟧, ⟦changequote`'dnl⟦
+define(⟦RR⟧, ⟦ifelse(⟦$#⟧, ⟦0⟧, ⟦⟦$0⟧⟧, ⟦changequote`'dnl⟦
 ⟧changequote(⟦,⟧)⟧)⟧)
 
 # 'prints warning to stderr if something will be problematic

@@ -1,4 +1,4 @@
-__HEADER(⟦Josef Kubin⟧, ⟦2019/12/24⟧)
+__HEADER(⟦Josef Kubin⟧, ⟦2019,12,24⟧)
 ___DESCR(⟦combine selectors and creates a style sheet (in the reserved namespace)⟧)
 __REASON(⟦the style sheet contains only the things that are actually used⟧)
 

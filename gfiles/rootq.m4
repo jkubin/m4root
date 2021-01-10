@@ -4,7 +4,7 @@ dnl DO NOT EDIT! This file is generated automatically!
 dnl
 divert(-1)
 
-__HEADER(⟦Josef Kubin⟧, ⟦2018/10/15⟧, ⟦https://github.com/jkubin/m4root⟧, ⟦1, 1, 0⟧)
+__HEADER(⟦Josef Kubin⟧, ⟦2018,10,15⟧, ⟦https://github.com/jkubin/m4root⟧, ⟦1, 1, 0⟧)
 ___DESCR(⟦the most general (root) rules for all scripts⟧)
 __REASON(⟦script decomposition; NO repeated information anywhere else⟧)
 ___USAGE(⟦m4 root.m4 stem.m4 branch.m4 sub_branch.m4 leaf.m4 data.mc > output.file⟧)
@@ -43,11 +43,11 @@ ___USAGE(⟦m4 root.m4 stem.m4 branch.m4 sub_branch.m4 leaf.m4 data.mc > output.
 define(`DONTE', `ifelse(`$#', `0', ``$0'',
 `DO NOT EDIT! This file is generated automatically!')')
 
-# expands n-th argument if the macro has parentheses
-# A(`$1', `$2', …, `$n') → $1 | $2 | $3 | $4 → β
-define(`FST', `ifelse(`$#', `0', ``$0'', `$1')')
-define(`SND', `ifelse(`$#', `0', ``$0'', `$2')')
-define(`TRD', `ifelse(`$#', `0', ``$0'', `$3')')
+# expands to a left/right unpaired symbol to bypass quotation marks control
+define(`LL', `ifelse(`$#', `0', ``$0'', `changequote([,])`dnl'
+changequote`'')')
+define(`RR', `ifelse(`$#', `0', ``$0'', `changequote([,])dnl`
+'changequote`'')')
 
 # expands n-th argument (use Vim shortcuts Ctrl-a or Ctrl-x to change ARGn)
 define(`ARG1',	`$1')
@@ -71,12 +71,6 @@ define(`SARG7',	``$7'')
 define(`SARG8',	``$8'')
 define(`SARG9',	``$9'')
 
-# trims trailing white chars and _selects_ the first argument
-define(`SELECT_ARG1_CROP_WHITE_CHARS', `patsubst(``$1'', `\s*\s*')')
-
-# trims trailing white chars and _expands_ the first argument
-define(`EXPAND_ARG1_CROP_WHITE_CHARS', `patsubst(`$1', `\s*\s*')')
-
 # adds number of arguments (used for loops)
 define(`NAR', `$#')
 
@@ -84,28 +78,11 @@ define(`NAR', `$#')
 # (`paYr' is not a word from the dictionary)
 define(`PAYR', ``$@'')
 
-# adds another layer of paired symbols
-# (`brac', `npri', `quot' and `utfp' are not words from the dictionary)
-define(`BRAC', `[$@]')
-define(`NPRI', `$@')
-define(`QUOT', ``$@'')
-define(`UTFP', `⟦$@⟧')
+# trims trailing white chars and _selects_ the first argument
+define(`SELECT_ARG1_CROP_WHITE_CHARS', `patsubst(``$1'', `\s*\s*')')
 
-# adds a left/right unpaired symbol bypassing the non-terminal control
-define(`LB', `[')
-define(`RB', `]')
-define(`LQ', `ifelse(`$#', `0', ``$0'', `changequote([,])`dnl'
-changequote`'')')
-define(`RQ', `ifelse(`$#', `0', ``$0'', `changequote([,])dnl`
-'changequote`'')')
-define(`LN', `')
-define(`RN', `')
-define(`LU', `⟦')
-define(`RU', `⟧')
-
-#' sets aliases to unpaired control char for expansion control (universal macros)
-# define(`LL', defn(`LQ'))
-# define(`RR', defn(`RQ'))
+# trims trailing white chars and _expands_ the first argument
+define(`EXPAND_ARG1_CROP_WHITE_CHARS', `patsubst(`$1', `\s*\s*')')
 
 # expands the last argument
 # A(`$1', `$2', …, `$n') → $$# → $n → β

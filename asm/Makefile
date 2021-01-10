@@ -1,4 +1,4 @@
-# __HEADER(⟦Josef Kubin⟧, ⟦2019/10/13⟧)
+# __HEADER(⟦Josef Kubin⟧, ⟦2019,10,13⟧)
 # ___DESCR(⟦keeps two ASM files consistent for both Intel and AT&T notation; uses a local .vimrc file with iabbrev-s⟧)
 # __REASON(⟦two ASM file formats generated from one metafile⟧)
 # ___USAGE(⟦make h && make⟧)

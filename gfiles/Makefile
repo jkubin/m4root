@@ -1,4 +1,4 @@
-# __HEADER(⟦Josef Kubin⟧, ⟦2019/10/26⟧)
+# __HEADER(⟦Josef Kubin⟧, ⟦2019,10,26⟧)
 # ___DESCR(⟦maintains consistent files with square bracket files⟧)
 # __REASON(⟦one hand-written file to generate additional files⟧)
 # ___USAGE(⟦make h && make⟧)
