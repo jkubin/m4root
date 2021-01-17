@@ -3,7 +3,7 @@ Generování kódu v M4: úvod
 Makro procesor M4 se používá ke generování libovolně složitého kódu z jednoduchého zdrojového kódu.
 Úvodní díl seriálu obsahuje jeho historii, základní principy jazyka, příklady použití a nutné předpoklady pro jeho zvládnutí.
 
-Obsah (English)	mc spl txt pub dev pre c  aktualizováno 10. ledna 2021
+Obsah (English)	mc spl txt dev pre c  aktualizováno 17. ledna 2021
 1 Úvod
 	1.1 Příklady pro čtenáře
 2 Historie makro jazyků
@@ -488,7 +488,7 @@ $ m4 root0u.m4 hello.csv.m4 messages_raw.mc > hello.csv
   3 NO_FAULT	It's not a language fault!
 
 A.3 ⟦⟧ CSV: počítadlo
-Příklad používá makro COUNT_UP ze souboru countb.m4, jehož β se zkopíruje do pravé strany makra COUNTER.
+Příklad používá makro COUNT_UP ze souboru countu.m4, jehož β se zkopíruje do pravé strany makra COUNTER.
 Během první expanze COUNTER proběhne inicializace jeho startovací hodnoty.
 Další expanze vrátí číselný terminální symbol a proběhne zvýšení vnitřního pomocného (globálního) symbolu o jedničku.
 COUNTER je malý automat.
@@ -508,7 +508,7 @@ COUNTER je malý automat.
  12 divert(-1)
  13 ⟧)
 
-$ m4 root0u.m4 countb.m4 counter.csv.m4 messages_raw.mc > counter.csv
+$ m4 root0u.m4 countu.m4 counter.csv.m4 messages_raw.mc > counter.csv
 
 55ac1ea messages/counter.csv
   1 ERR_1	COMPLEX	!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~
@@ -656,7 +656,7 @@ $ m4 root0u.m4 hello.ini.m4 code.m4 messages.mc > hello.ini
 55ac1ea messages/hello.ini
   1 ; DO NOT EDIT! This file is generated automatically!
   2 
-  3 [hello_20201230]
+  3 [hello_20210117]
   4 COMPLEX="!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~"
   5 SUCCESS="Too complex M4 code failed successfully."
   6 NO_FAULT="It's not a language fault!"
@@ -693,7 +693,7 @@ Převod dekadické hodnoty počítadla na dvoumístné hex-a číslo provádí k
  24 #endif /* __ERROR_H */
  25 divert(-1)
 
-$ m4 root0u.m4 countb.m4 messages.h.m4 messages.mc > messages.h
+$ m4 root0u.m4 countu.m4 messages.h.m4 messages.mc > messages.h
 
 55ac1ea messages/messages.h
   1 /*
@@ -1101,7 +1101,7 @@ Následující příklad ukazuje, jak se tyto indexy generují.
  37 }}
  38 divert(-1)
 
-$ m4 root0u.m4 countb.m4 queues.m4 messages.json.m4 code.m4 messages.mc > messages.json
+$ m4 root0u.m4 countu.m4 queues.m4 messages.json.m4 code.m4 messages.mc > messages.json
 
 55ac1ea messages/messages.json
   1 {"messages": {
@@ -1160,7 +1160,7 @@ Příklad používá stejný soubor pro výstupní fronty jako příklad pro gen
  32 ; DONTE()
  33 divert(-1)
 
-$ m4 root0u.m4 messages.ini.m4 countb.m4 queues.m4 code.m4 messages.mc > messages.ini
+$ m4 root0u.m4 messages.ini.m4 countu.m4 queues.m4 code.m4 messages.mc > messages.ini
 
 55ac1ea messages/messages.ini
   1 ; DO NOT EDIT! This file is generated automatically!
@@ -1616,7 +1616,7 @@ b53eafe hello_world/hello_world.json
   6 }}
 
 C.2 [] Bash: počítadla
-Počítadla COUNT_UP a COUNT_DOWN jsou definována v souboru countb.m4.
+Počítadla COUNT_UP a COUNT_DOWN jsou definována v souboru countu.m4.
 Neterminály [… uvnitř závorek …] nebudou expandovány, pouze se odeberou vnější závorky.
 Nutno použít makro LL() z kořenového souboru.
 
@@ -1655,7 +1655,7 @@ Nutno použít makro LL() z kořenového souboru.
  32 	echo '__COUNTUP__] SYMBOL LL()__COUNTDN__'
  33 fi
 
-$ m4 -DSYMBOL='Hello, world!' root0u.m4 countb.m4 sh.m4 > hello_world.sh
+$ m4 -DSYMBOL='Hello, world!' root0u.m4 countu.m4 sh.m4 > hello_world.sh
 
 b53eafe hello_world/hello_world.sh
   1 #!/bin/bash
@@ -1735,7 +1735,7 @@ $ m4 -DSYMBOL='Hello, world!' root1b.m4 awk.m4 > hello_world.awk
   2 #
   3 # DONTE() ---> "DO NOT EDIT! This file is generated automatically!"
   4 
-  5 BEGIN { print "DONTE() LL () LL() Hello, world! ]" }
+  5 BEGIN { print "DONTE() LL () [ Hello, world! ]" }
 
 D Proč používat M4 a proč ne?
 	D.1 👍 Proč generovat kód v M4
