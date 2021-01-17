@@ -33,7 +33,7 @@ The introductory part of the series contains its history, the basic principles o
 <div class="detail__article ">
 <div class=" layout-article-content">
 <div class="element-margin-top-half php-urs urs">
-<div id="m4--toc"><h2>Content (<a href="../generovani-kodu-v-m4-uvod/preview.html#m4--toc" title="Generování kódu v M4: úvod">Česky</a>)</h2><div><div class="m4-dwnl"><a href="../intro.mc" style="font-weight:bold" title="article source code">mc</a><a href="../generating-code-in-m4-introduction/spell.txt" title="generated text for spell checking and jargon (designed for Vim)">spl</a><br><a href="../generating-code-in-m4-introduction/index.html" title="generated html page for off-line development">dev</a><a href="../generating-code-in-m4-introduction/preview.html" title="generated html page for off-line preview">pre</a></div><div class="m4-updt">updated<br>January 10, 2021</div></div></div>
+<div id="m4--toc"><h2>Content (<a href="../generovani-kodu-v-m4-uvod/preview.html#m4--toc" title="Generování kódu v M4: úvod">Česky</a>)</h2><div><div class="m4-dwnl"><a href="../intro.mc" style="font-weight:bold" title="article source code">mc</a><a href="../generating-code-in-m4-introduction/spell.txt" title="generated text for spell checking and jargon (designed for Vim)">spl</a><br><a href="../generating-code-in-m4-introduction/preview.html" title="generated html page for off-line preview">pre</a><a href="../generating-code-in-m4-introduction.c" title="generated source code C">c</a></div><div class="m4-updt">updated<br>January 17, 2021</div></div></div>
 <noscript><div title="for information" class="rs-tip-major m4-info">Enabling JavaScript enhances the clarity of the source code samples.</div></noscript>
 <p id="m4-introduction-toc"><a href="#m4-introduction"><b>1</b>Introduction</a></p>
 <p id="m4-examples-for-readers-toc" class="m4-l2"><a href="#m4-examples-for-readers"><b>1.1</b>Examples for readers</a></p>
@@ -675,16 +675,16 @@ sha1sum: c6496e4
 size: 535 B">messages.mc</a> > <a href="../messages/hello.ini" title="messages/hello.ini
 date: 20210103 13:28:44
 git rev: 55ac1ea
-sha1sum: 89718d7
+sha1sum: 62002e7
 size: 205 B">hello.ini</a></pre><code><span class="m4-cb" title="select text"></span><a href="#m4-messages_hello-ini-command" title="⚓"></a></code></div>
 <div id="m4-messages_hello-ini" class="m4-src"><pre>; DO NOT EDIT! This file is generated automatically!
 
-[hello_20201230]
+[hello_20210117]
 COMPLEX="!\"#$%&amp;'()*+,-./:;&lt;=>?@[\\]^_`{|}~"
 SUCCESS="Too complex M4 code failed successfully."
 NO_FAULT="It's not a language fault!"</pre><code><span class="m4-sha">55ac1ea</span><a href="../messages/hello.ini" title="messages/hello.ini
 date: 20210103 13:28:44
-sha1sum: 89718d7
+sha1sum: 62002e7
 size: 205 B">hello.ini</a><span class="m4-cb" title="select text"></span><a href="#m4-messages_hello-ini" title="⚓"></a></code></div>
 <h3 id="m4-hw-hex-counter" class="m4-ch"><a href="#m4-hw-hex-counter-toc" title="Content"></a><a href="#m4-hw-hex-counter" title="⚓">A.7</a><code>⟦⟧</code> .h: hex counter<a href="#m4--toc" title="Top"></a></h3>
 <p>The example uses the <code class="m4-hgl" data-23="A,2">COUNTER</code> macro to number the resulting <abbr title="C preprocessor">CPP</abbr> <span class="m4-hgl" data-23="11" data-24="8-10">macros</span> and one output queue.
@@ -2133,16 +2133,16 @@ sha1sum: 83243af
 size: 112 B">awk.m4</a> > <a href="../hello_world/hello_world.awk" title="hello_world/hello_world.awk
 date: 20210103 13:26:54
 git rev: 39013f2
-sha1sum: d03fed7
-size: 138 B">hello_world.awk</a></pre><code><span class="m4-cb" title="select text"></span><a href="#m4-hello_world_hello_world-awk-command" title="⚓"></a></code></div>
+sha1sum: a92eb9d
+size: 135 B">hello_world.awk</a></pre><code><span class="m4-cb" title="select text"></span><a href="#m4-hello_world_hello_world-awk-command" title="⚓"></a></code></div>
 <div id="m4-hello_world_hello_world-awk" class="m4-src"><pre>#!/bin/awk -f
 #
 # DONTE() ---> "DO NOT EDIT! This file is generated automatically!"
 
-BEGIN { print "<span class="m4-a">DONTE</span>() <span class="m4-b">LL</span> () LL() Hello, world! ]" }</pre><code><span class="m4-sha">39013f2</span><a href="../hello_world/hello_world.awk" title="hello_world/hello_world.awk
+BEGIN { print "<span class="m4-a">DONTE</span>() <span class="m4-b">LL</span> () [ Hello, world! ]" }</pre><code><span class="m4-sha">39013f2</span><a href="../hello_world/hello_world.awk" title="hello_world/hello_world.awk
 date: 20210103 13:26:54
-sha1sum: d03fed7
-size: 138 B">hello_world.awk</a><span class="m4-cb" title="select text"></span><a href="#m4-hello_world_hello_world-awk" title="⚓"></a></code></div>
+sha1sum: a92eb9d
+size: 135 B">hello_world.awk</a><span class="m4-cb" title="select text"></span><a href="#m4-hello_world_hello_world-awk" title="⚓"></a></code></div>
 <h2 id="m4-why-to-use-m4-and-why-notq" class="m4-ch"><a href="#m4-why-to-use-m4-and-why-notq-toc" title="Content"></a><a href="#m4-why-to-use-m4-and-why-notq" title="⚓">D</a>Why to use M4 and why not?<a href="#m4--toc" title="Top"></a></h2>
 <p id="m4-why-to-generate-code-in-m4-toc" class="m4-l2"><a href="#m4-why-to-generate-code-in-m4"><b>D.1</b><code>👍</code> Why to generate code in M4</a></p>
 <p id="m4-why-to-avoid-m4-toc" class="m4-l2"><a href="#m4-why-to-avoid-m4"><b>D.2</b><code>👎</code> Why to avoid M4</a></p>

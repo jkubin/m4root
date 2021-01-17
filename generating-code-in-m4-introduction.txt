@@ -3,7 +3,7 @@ Generating code in M4: introduction
 The M4 macro processor is used to generate arbitrarily complex code from simple source code.
 The introductory part of the series contains its history, the basic principles of language, examples of usage and prerequisites for its mastery.
 
-Content (Česky)	mc spl txt pub dev pre c  updated January 10, 2021
+Content (Česky)	mc spl txt dev pre c  updated January 17, 2021
 1 Introduction
 	1.1 Examples for readers
 2 History of macro languages
@@ -487,7 +487,7 @@ $ m4 root0u.m4 hello.csv.m4 messages_raw.mc > hello.csv
   3 NO_FAULT	It's not a language fault!
 
 A.3 ⟦⟧ CSV: counter
-The example uses the COUNT_UP macro from the countb.m4 file whose β is copied to the right side of the COUNTER macro.
+The example uses the COUNT_UP macro from the countu.m4 file whose β is copied to the right side of the COUNTER macro.
 During the first expansion of COUNTER its initial value is initialized.
 Further expansion returns the numeric terminal symbol and increases the inner auxiliary (global) symbol by one.
 COUNTER is a small automaton.
@@ -507,7 +507,7 @@ COUNTER is a small automaton.
  12 divert(-1)
  13 ⟧)
 
-$ m4 root0u.m4 countb.m4 counter.csv.m4 messages_raw.mc > counter.csv
+$ m4 root0u.m4 countu.m4 counter.csv.m4 messages_raw.mc > counter.csv
 
 55ac1ea messages/counter.csv
   1 ERR_1	COMPLEX	!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~
@@ -655,7 +655,7 @@ $ m4 root0u.m4 hello.ini.m4 code.m4 messages.mc > hello.ini
 55ac1ea messages/hello.ini
   1 ; DO NOT EDIT! This file is generated automatically!
   2 
-  3 [hello_20201230]
+  3 [hello_20210117]
   4 COMPLEX="!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~"
   5 SUCCESS="Too complex M4 code failed successfully."
   6 NO_FAULT="It's not a language fault!"
@@ -692,7 +692,7 @@ The decimal value of the counter is converted to the two-digit hex by keyword ev
  24 #endif /* __ERROR_H */
  25 divert(-1)
 
-$ m4 root0u.m4 countb.m4 messages.h.m4 messages.mc > messages.h
+$ m4 root0u.m4 countu.m4 messages.h.m4 messages.mc > messages.h
 
 55ac1ea messages/messages.h
   1 /*
@@ -1100,7 +1100,7 @@ The following example shows how these indexes are generated.
  37 }}
  38 divert(-1)
 
-$ m4 root0u.m4 countb.m4 queues.m4 messages.json.m4 code.m4 messages.mc > messages.json
+$ m4 root0u.m4 countu.m4 queues.m4 messages.json.m4 code.m4 messages.mc > messages.json
 
 55ac1ea messages/messages.json
   1 {"messages": {
@@ -1159,7 +1159,7 @@ The example uses the same file for output queues as the example to generate JSON
  32 ; DONTE()
  33 divert(-1)
 
-$ m4 root0u.m4 messages.ini.m4 countb.m4 queues.m4 code.m4 messages.mc > messages.ini
+$ m4 root0u.m4 messages.ini.m4 countu.m4 queues.m4 code.m4 messages.mc > messages.ini
 
 55ac1ea messages/messages.ini
   1 ; DO NOT EDIT! This file is generated automatically!
@@ -1615,7 +1615,7 @@ b53eafe hello_world/hello_world.json
   6 }}
 
 C.2 [] Bash: counters
-The COUNT_UP and COUNT_DOWN counters are defined in the file countb.m4.
+The COUNT_UP and COUNT_DOWN counters are defined in the file countu.m4.
 The nonterminals [… inside brackets …] will not be expanded, only the outer brackets will be removed.
 The LL() macro defined in the root file must be used.
 
@@ -1654,7 +1654,7 @@ The LL() macro defined in the root file must be used.
  32 	echo '__COUNTUP__] SYMBOL LL()__COUNTDN__'
  33 fi
 
-$ m4 -DSYMBOL='Hello, world!' root0u.m4 countb.m4 sh.m4 > hello_world.sh
+$ m4 -DSYMBOL='Hello, world!' root0u.m4 countu.m4 sh.m4 > hello_world.sh
 
 b53eafe hello_world/hello_world.sh
   1 #!/bin/bash
@@ -1734,7 +1734,7 @@ $ m4 -DSYMBOL='Hello, world!' root1b.m4 awk.m4 > hello_world.awk
   2 #
   3 # DONTE() ---> "DO NOT EDIT! This file is generated automatically!"
   4 
-  5 BEGIN { print "DONTE() LL () LL() Hello, world! ]" }
+  5 BEGIN { print "DONTE() LL () [ Hello, world! ]" }
 
 D Why to use M4 and why not?
 	D.1 👍 Why to generate code in M4
