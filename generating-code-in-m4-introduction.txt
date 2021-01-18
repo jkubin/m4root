@@ -652,7 +652,7 @@ The SARG1() macro selects the first item because the second item contains an unw
 
 $ m4 root0u.m4 hello.ini.m4 code.m4 messages.mc > hello.ini
 
-55ac1ea messages/hello.ini
+02f55b8 messages/hello.ini
   1 ; DO NOT EDIT! This file is generated automatically!
   2 
   3 [hello_20210118]
@@ -1729,7 +1729,7 @@ Such macros are explicitly created by a script developer, see the root file root
 
 $ m4 -DSYMBOL='Hello, world!' root1b.m4 awk.m4 > hello_world.awk
 
-39013f2 hello_world/hello_world.awk
+02f55b8 hello_world/hello_world.awk
   1 #!/bin/awk -f
   2 #
   3 # DONTE() ---> "DO NOT EDIT! This file is generated automatically!"
