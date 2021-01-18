@@ -1,4 +1,4 @@
-___TITLE(⟦Josef Kubin⟧, ⟦2019,12,01⟧)
+__AUTHOR(⟦Josef Kubin⟧, ⟦2019,12,01⟧)
 ___DESCR(⟦navigation logic for HTML page; table of content; all parts of the series⟧)
 __REASON(⟦common script for preview and publish⟧)
 

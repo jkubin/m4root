@@ -1,4 +1,4 @@
-___TITLE(⟦Josef Kubin⟧, ⟦2019,12,16⟧)
+__AUTHOR(⟦Josef Kubin⟧, ⟦2019,12,16⟧)
 ___DESCR(⟦⟧)
 __REASON(⟦⟧)
 

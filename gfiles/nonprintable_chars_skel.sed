@@ -1,4 +1,4 @@
-# ___TITLE(⟦Josef Kubin⟧, ⟦2019,10,27⟧)
+# __AUTHOR(⟦Josef Kubin⟧, ⟦2019,10,27⟧)
 # ___DESCR(⟦converts skeleton file for square brackets to skeleton file for nonprintable characters⟧)
 # __REASON(⟦skeleton file for nonprintable characters⟧)
 

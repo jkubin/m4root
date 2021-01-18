@@ -1,4 +1,4 @@
-___TITLE(⟦Josef Kubin⟧, ⟦2019,12,09⟧)
+__AUTHOR(⟦Josef Kubin⟧, ⟦2019,12,09⟧)
 ___DESCR(⟦configuration file for all generated files⟧)
 __REASON(⟦one file to configure all generated files⟧)
 

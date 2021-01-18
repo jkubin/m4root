@@ -1,5 +1,5 @@
 #!/bin/bash
-# ___TITLE(⟦Josef Kubin⟧, ⟦2020,03,08⟧)
+# __AUTHOR(⟦Josef Kubin⟧, ⟦2020,03,08⟧)
 # ___DESCR(⟦generates a simple associative file database for the resulting generated code⟧)
 # __REASON(⟦fast code generation using associative memory⟧)
 

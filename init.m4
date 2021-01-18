@@ -1,6 +1,6 @@
 # vim:ts=16:sw=16
 
-___TITLE(⟦Josef Kubin⟧, ⟦2020,05,31⟧)
+__AUTHOR(⟦Josef Kubin⟧, ⟦2020,05,31⟧)
 ___DESCR(⟦initialization code of each target⟧)
 __REASON(⟦reduces code duplication⟧)
 

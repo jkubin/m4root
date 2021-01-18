@@ -4,7 +4,7 @@ dnl DO NOT EDIT! This file is generated automatically!
 dnl
 divert(-1)
 
-___TITLE(⟦Josef Kubin⟧, ⟦2018,10,15⟧, ⟦https://github.com/jkubin/m4root⟧)
+__AUTHOR(⟦Josef Kubin⟧, ⟦2018,10,15⟧, ⟦https://github.com/jkubin/m4root⟧)
 ___DESCR(⟦the most general (root) rules for all scripts⟧)
 __REASON(⟦script decomposition; NO repeated information anywhere else⟧)
 ___USAGE(⟦m4 root.m4 stem.m4 branch.m4 sub_branch.m4 leaf.m4 data.mc > output.file⟧)

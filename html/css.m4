@@ -1,6 +1,6 @@
 # vim:ts=10:sw=10
 
-___TITLE(⟦Josef Kubin⟧, ⟦2019,12,24⟧)
+__AUTHOR(⟦Josef Kubin⟧, ⟦2019,12,24⟧)
 ___DESCR(⟦the resulting style sheet is embedded in the web page or can be extracted into a separated file⟧)
 __REASON(⟦here are the main CSS rules; a subset will be selected into the final style sheet⟧)
 

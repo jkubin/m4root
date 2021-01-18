@@ -1,6 +1,6 @@
 # vim:ts=16:sw=16
 
-___TITLE(⟦Josef Kubin⟧, ⟦2020,05,11⟧)
+__AUTHOR(⟦Josef Kubin⟧, ⟦2020,05,11⟧)
 ___DESCR(⟦generates a plain text file from (multiple) source files⟧)
 __REASON(⟦the total number of words and characters that would be printed⟧)
 

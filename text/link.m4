@@ -1,4 +1,4 @@
-___TITLE(⟦Josef Kubin⟧, ⟦2020,05,24⟧)
+__AUTHOR(⟦Josef Kubin⟧, ⟦2020,05,24⟧)
 ___DESCR(⟦generates text link⟧)
 __REASON(⟦copies captions to text⟧)
 

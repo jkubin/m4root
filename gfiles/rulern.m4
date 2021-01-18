@@ -2,7 +2,7 @@ dnl vim:mps+=\:
 dnl
 dnl DO NOT EDIT! This file is generated automatically!
 dnl
-___TITLE(⟦Josef Kubin⟧, ⟦2019,11,16⟧)
+__AUTHOR(⟦Josef Kubin⟧, ⟦2019,11,16⟧)
 ___DESCR(⟦generates a string to truncate the next string (manually) because machine truncation is hardly acceptable⟧)
 __REASON(⟦the computer cannot truncate the string to keep it human readable⟧)
 ___USAGE(⟦m4 rootn.m4 rulern.m4 …⟧)

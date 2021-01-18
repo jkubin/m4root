@@ -1,4 +1,4 @@
-___TITLE(⟦Josef Kubin⟧, ⟦2020,01,14⟧)
+__AUTHOR(⟦Josef Kubin⟧, ⟦2020,01,14⟧)
 ___DESCR(⟦solution for html entities which must be hidden (+ special characters)⟧)
 __REASON(⟦html entities and special characters⟧)
 

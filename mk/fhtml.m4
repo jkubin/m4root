@@ -1,6 +1,6 @@
 # vim:ft=m4
 
-___TITLE(⟦Josef Kubin⟧, ⟦2020,01,05⟧)
+__AUTHOR(⟦Josef Kubin⟧, ⟦2020,01,05⟧)
 ___DESCR(⟦the script generates experimental additional rules extending the handwritten Makefile to generate HTML files⟧)
 __REASON(⟦additional rules by configuration from command line; the rules utilise M4 frozen files to generate HTML files⟧)
 

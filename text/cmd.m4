@@ -1,4 +1,4 @@
-___TITLE(⟦Josef Kubin⟧, ⟦2020,05,19⟧)
+__AUTHOR(⟦Josef Kubin⟧, ⟦2020,05,19⟧)
 ___DESCR(⟦command line with a list of input files, the last file is an output file⟧)
 __REASON(⟦estimate the total number of words and characters⟧)
 

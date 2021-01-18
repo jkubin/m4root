@@ -1,4 +1,4 @@
-___TITLE(⟦Josef Kubin⟧, ⟦2020,12,29⟧)
+__AUTHOR(⟦Josef Kubin⟧, ⟦2020,12,29⟧)
 ___DESCR(⟦generates additional rules extending the handwritten Makefile to generate c files⟧)
 __REASON(⟦a simple script to generate Makefile to generate c files⟧)
 

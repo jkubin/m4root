@@ -1,4 +1,4 @@
-___TITLE(⟦Josef Kubin⟧, ⟦2019,12,31⟧)
+__AUTHOR(⟦Josef Kubin⟧, ⟦2019,12,31⟧)
 ___DESCR(⟦sets heading item in desired language⟧)
 __REASON(⟦{mono,multi}lingual headings⟧)
 

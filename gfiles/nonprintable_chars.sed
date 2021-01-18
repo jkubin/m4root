@@ -1,6 +1,6 @@
 # vim:mps+=\:
 #
-# ___TITLE(⟦Josef Kubin⟧, ⟦2019,09,22⟧)
+# __AUTHOR(⟦Josef Kubin⟧, ⟦2019,09,22⟧)
 # ___DESCR(⟦converts the root file for square brackets to the root file for nonprintable characters⟧)
 # __REASON(⟦root file for nonprintable characters⟧)
 #

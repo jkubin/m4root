@@ -1,6 +1,6 @@
 /* vim:cc=81
  *
- * ___TITLE(⟦Josef Kubin⟧, ⟦2020,05,04⟧)
+ * __AUTHOR(⟦Josef Kubin⟧, ⟦2020,05,04⟧)
  * ___DESCR(⟦copy additional file information to other element⟧)
  * __REASON(⟦data selected by mouse⟧)
  *

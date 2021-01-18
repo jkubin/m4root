@@ -1,6 +1,6 @@
 # vim:ts=16:sw=16
 
-___TITLE(⟦Josef Kubin⟧, ⟦2020,12,28⟧)
+__AUTHOR(⟦Josef Kubin⟧, ⟦2020,12,28⟧)
 ___DESCR(⟦an example, how to generate a C source code⟧)
 __REASON(⟦how to work with automata and queues⟧)
 

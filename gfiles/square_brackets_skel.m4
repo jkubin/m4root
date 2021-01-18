@@ -1,4 +1,4 @@
-___TITLE(⟦Your Name⟧, ⟦skeletonVIM_CREATION_DATE⟧)
+__AUTHOR(⟦Your Name⟧, ⟦skeletonVIM_CREATION_DATE⟧)
 __THANKS(⟦⟧)
 ___DESCR(⟦⟧)
 __REASON(⟦⟧)

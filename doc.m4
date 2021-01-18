@@ -2,7 +2,7 @@ dnl vim:ts=32:sw=32:mps+=⟦\:⟧
 dnl
 divert(-1)changequote(⟦,⟧)
 
-___TITLE(⟦Josef Kubin⟧, ⟦2020,01,20⟧)
+__AUTHOR(⟦Josef Kubin⟧, ⟦2020,01,20⟧)
 ___DESCR(⟦extracts headers from the source files and creates a brief documentation⟧)
 __REASON(⟦a solution for cryptic short filenames⟧)
 ___USAGE(⟦m4 doc.m4 file1.m4 file2.sed file3.abc …⟧)
@@ -15,7 +15,7 @@ ___USAGE(⟦m4 doc.m4 file1.m4 file2.sed file3.abc …⟧)
 define(⟦__AUTHOR_NAME⟧,	⟦Author⟧)
 define(⟦__CREATION_DATE⟧,	⟦Started⟧)
 define(⟦__FILE_NAME⟧,	⟦File⟧)
-define(⟦___TITLE_NOTE⟧,	⟦Note⟧)
+define(⟦__AUTHOR_NOTE⟧,	⟦Note⟧)
 define(⟦__THANKS_CAPT⟧,	⟦Thanks⟧)
 define(⟦___DESCR_CAPT⟧,	⟦Description⟧)
 define(⟦__REASON_CAPT⟧,	⟦Reason⟧)
@@ -52,7 +52,7 @@ define(⟦alias_COUNTER_val⟧,	0)
 define(⟦alias_COUNTER⟧,	⟦alias_define(⟦alias_COUNTER_val⟧, alias_incr(alias_COUNTER_val))alias_COUNTER_val⟧)
 
 # A → β
-define(⟦___TITLE⟧, ⟦
+define(⟦__AUTHOR⟧, ⟦
 
 	alias_divert(2)alias_dnl
 ---
@@ -60,7 +60,7 @@ __FILE_NAME ⟦#⟧alias_COUNTER: alias___file__
 alias_ifelse(⟦$1⟧, ⟦⟧, ⟦⟧, ⟦__AUTHOR_NAME: $1
 ⟧)alias_dnl
 alias_CONVERT_DATE_TO_ANOTHER_FORMAT($2)alias_dnl
-alias_ifelse(⟦$3⟧, ⟦⟧, ⟦⟧, ⟦___TITLE_NOTE: $3
+alias_ifelse(⟦$3⟧, ⟦⟧, ⟦⟧, ⟦__AUTHOR_NOTE: $3
 ⟧)alias_dnl
 alias_divert(-1)
 ⟧)

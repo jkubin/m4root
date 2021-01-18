@@ -1,6 +1,6 @@
 /* vim:cc=81
  *
- * ___TITLE(⟦Josef Kubin⟧, ⟦2020,12,24⟧)
+ * __AUTHOR(⟦Josef Kubin⟧, ⟦2020,12,24⟧)
  * ___DESCR(⟦selects source code and put it into clipboard (Linux)⟧)
  * __REASON(⟦easily code selection in one mouse click⟧)
  *

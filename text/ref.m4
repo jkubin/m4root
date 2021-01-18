@@ -1,4 +1,4 @@
-___TITLE(⟦Josef Kubin⟧, ⟦2020,05,16⟧)
+__AUTHOR(⟦Josef Kubin⟧, ⟦2020,05,16⟧)
 ___DESCR(⟦automaton for generating text references⟧)
 __REASON(⟦two nodes to generate references⟧)
 

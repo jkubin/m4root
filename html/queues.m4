@@ -1,6 +1,6 @@
 # vim:ts=40:sw=40
 
-___TITLE(⟦Josef Kubin⟧, ⟦2019,07,11⟧)
+__AUTHOR(⟦Josef Kubin⟧, ⟦2019,07,11⟧)
 ___DESCR(⟦definitions of indexes for output queues⟧)
 __REASON(⟦each target generation file format has a specific list of queues⟧)
 

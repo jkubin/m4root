@@ -1,6 +1,6 @@
 # vim:mps+=⟦\:⟧
 
-___TITLE(⟦Josef Kubin⟧, ⟦2020,02,09⟧)
+__AUTHOR(⟦Josef Kubin⟧, ⟦2020,02,09⟧)
 ___DESCR(⟦⟧)
 __TPLVER(1, 0, 0)
 

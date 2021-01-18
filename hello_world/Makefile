@@ -1,4 +1,4 @@
-# ___TITLE(⟦Josef Kubin⟧, ⟦2019,08,24⟧)
+# __AUTHOR(⟦Josef Kubin⟧, ⟦2019,08,24⟧)
 # ___DESCR(⟦examples generate several hello world source files⟧)
 # __REASON(⟦how to generate files for different computer languages⟧)
 # ___USAGE(⟦make h && make⟧)

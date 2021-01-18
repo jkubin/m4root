@@ -1,6 +1,6 @@
 # vim:ts=20:sw=20
 
-___TITLE(⟦Josef Kubin⟧, ⟦2019,12,29⟧)
+__AUTHOR(⟦Josef Kubin⟧, ⟦2019,12,29⟧)
 ___DESCR(⟦basic set of block-level elements and unpaired tags with a subset of global attributes⟧)
 __REASON(⟦definition of HTML5 block-level elements and unpaired tags⟧)
 

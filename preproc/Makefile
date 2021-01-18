@@ -1,4 +1,4 @@
-# ___TITLE(⟦Josef Kubin⟧, ⟦2019,11,18⟧)
+# __AUTHOR(⟦Josef Kubin⟧, ⟦2019,11,18⟧)
 # ___DESCR(⟦generic examples how to use M4 as a preprocessor⟧)
 # __REASON(⟦M4 as a preprocessor⟧)
 # ___USAGE(⟦make h && make⟧)

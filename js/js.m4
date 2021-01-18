@@ -1,4 +1,4 @@
-___TITLE(⟦Josef Kubin⟧, ⟦2020,03,08⟧)
+__AUTHOR(⟦Josef Kubin⟧, ⟦2020,03,08⟧)
 ___DESCR(⟦here the processed parts of JavaScript-s are composed into the final script⟧)
 __REASON(⟦code decomposition to simplify difficult things⟧)
 

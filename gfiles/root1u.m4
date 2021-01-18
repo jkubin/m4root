@@ -4,7 +4,7 @@ dnl DO NOT EDIT! This file is generated automatically!
 dnl
 divert(-1)changequote(⟦,⟧)
 
-___TITLE(⟦Josef Kubin⟧, ⟦2020,02,18⟧)
+__AUTHOR(⟦Josef Kubin⟧, ⟦2020,02,18⟧)
 ___DESCR(⟦minimal root script for simple projects⟧)
 __REASON(⟦root script as small as possible⟧)
 ___USAGE(⟦m4 rootu.m4 stem.m4 branch.m4 sub_branch.m4 leaf.m4 data.mc > output.file⟧)
