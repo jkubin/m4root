@@ -1,9 +1,9 @@
 /*
  * DO NOT EDIT! This file is generated automatically!
- * generated: 20210110-15:34:10
+ * generated: 20210118-19:14:10
  *
- * __SOURCE(⟦c/c.m4⟧, ⟦20210110-15:33:50⟧, ⟦cf9fdc8⟧, ⟦cf9fdc8⟧)
- * __SOURCE(⟦intro.mc⟧, ⟦20210110-15:14:04⟧, ⟦7ecb7ac⟧, ⟦cf9fdc8⟧)
+ * __SOURCE(⟦c/c.m4⟧, ⟦20210110-15:33:50⟧, ⟦cf9fdc8⟧, ⟦0a10a7f⟧)
+ * __SOURCE(⟦intro.mc⟧, ⟦20210110-21:08:39⟧, ⟦0518f94⟧, ⟦0a10a7f⟧)
  *
  * Generating code in M4: introduction
  */
@@ -252,7 +252,7 @@ static char ap_para_1[] =
 "This example does not use output queues, it only prints CSV separated by TAB to standard output.";
 
 static char ap_para_2[] =
-"The example uses the COUNT_UP macro from the countb.m4 file whose β is copied to the right side of the COUNTER macro.\n"
+"The example uses the COUNT_UP macro from the countu.m4 file whose β is copied to the right side of the COUNTER macro.\n"
 "During the first expansion of COUNTER its initial value is initialized.\n"
 "Further expansion returns the numeric terminal symbol and increases the inner auxiliary (global) symbol by one.\n"
 "COUNTER is a small automaton.";
@@ -353,7 +353,7 @@ static char ap_para_21[] =
 "Therefore, the left square bracket [ is replaced by the LL() macro defined in the root file.";
 
 static char ap_para_22[] =
-"The COUNT_UP and COUNT_DOWN counters are defined in the file countb.m4.\n"
+"The COUNT_UP and COUNT_DOWN counters are defined in the file countu.m4.\n"
 "The nonterminals [… inside brackets …] will not be expanded, only the outer brackets will be removed.\n"
 "The LL() macro defined in the root file must be used.";
 

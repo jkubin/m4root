@@ -11,7 +11,7 @@ define(DONTE, DO NOT EDIT! This file is generated automatically!)
 define(LL, changequotednl
 changequote(,))
 define(RR, changequote`'dnl
-changequote(,))	'
+changequote(,))
 
 # adds number of arguments (used for loops)
 define(NAR, $#)

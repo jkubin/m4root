@@ -1,9 +1,9 @@
 /*
  * DO NOT EDIT! This file is generated automatically!
- * generated: 20210110-15:34:09
+ * generated: 20210118-19:14:10
  *
- * __SOURCE(⟦c/c.m4⟧, ⟦20210110-15:33:50⟧, ⟦cf9fdc8⟧, ⟦cf9fdc8⟧)
- * __SOURCE(⟦intro.mc⟧, ⟦20210110-15:14:04⟧, ⟦7ecb7ac⟧, ⟦cf9fdc8⟧)
+ * __SOURCE(⟦c/c.m4⟧, ⟦20210110-15:33:50⟧, ⟦cf9fdc8⟧, ⟦0a10a7f⟧)
+ * __SOURCE(⟦intro.mc⟧, ⟦20210110-21:08:39⟧, ⟦0518f94⟧, ⟦0a10a7f⟧)
  *
  * Generování kódu v M4: úvod
  */
@@ -254,7 +254,7 @@ static char ap_para_1[] =
 "Tento příklad nepoužívá výstupní fronty, pouze vypisuje CSV oddělené znakem TAB na standardní výstup.";
 
 static char ap_para_2[] =
-"Příklad používá makro COUNT_UP ze souboru countb.m4, jehož β se zkopíruje do pravé strany makra COUNTER.\n"
+"Příklad používá makro COUNT_UP ze souboru countu.m4, jehož β se zkopíruje do pravé strany makra COUNTER.\n"
 "Během první expanze COUNTER proběhne inicializace jeho startovací hodnoty.\n"
 "Další expanze vrátí číselný terminální symbol a proběhne zvýšení vnitřního pomocného (globálního) symbolu o jedničku.\n"
 "COUNTER je malý automat.";
@@ -355,7 +355,7 @@ static char ap_para_21[] =
 "Proto je levá hranatá závorka [ nahrazena makrem LL() z kořenového souboru.";
 
 static char ap_para_22[] =
-"Počítadla COUNT_UP a COUNT_DOWN jsou definována v souboru countb.m4.\n"
+"Počítadla COUNT_UP a COUNT_DOWN jsou definována v souboru countu.m4.\n"
 "Neterminály [… uvnitř závorek …] nebudou expandovány, pouze se odeberou vnější závorky.\n"
 "Nutno použít makro LL() z kořenového souboru.";
 

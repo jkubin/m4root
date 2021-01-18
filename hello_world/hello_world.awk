@@ -2,4 +2,4 @@
 #
 # DONTE() ---> "DO NOT EDIT! This file is generated automatically!"
 
-BEGIN { print "DONTE() LL () LL() Hello, world! ]" }
+BEGIN { print "DONTE() LL () [ Hello, world! ]" }
