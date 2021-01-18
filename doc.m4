@@ -17,7 +17,6 @@ define(⟦__CREATION_DATE⟧,	⟦Started⟧)
 define(⟦__FILE_NAME⟧,	⟦File⟧)
 define(⟦___TITLE_NOTE⟧,	⟦Note⟧)
 define(⟦__THANKS_CAPT⟧,	⟦Thanks⟧)
-define(⟦__VERSION⟧,	⟦Version⟧)
 define(⟦___DESCR_CAPT⟧,	⟦Description⟧)
 define(⟦__REASON_CAPT⟧,	⟦Reason⟧)
 define(⟦___USAGE_CAPT⟧,	⟦Usage⟧)
@@ -52,8 +51,6 @@ define(⟦alias_CONVERT_DATE_TO_ANOTHER_FORMAT⟧, ⟦alias_ifdef(⟦$2⟧, ⟦_
 define(⟦alias_COUNTER_val⟧,	0)
 define(⟦alias_COUNTER⟧,	⟦alias_define(⟦alias_COUNTER_val⟧, alias_incr(alias_COUNTER_val))alias_COUNTER_val⟧)
 
-define(⟦__FILE_VERSION⟧,	⟦__VERSION: $1.$2.$3⟧)
-
 # A → β
 define(⟦___TITLE⟧, ⟦
 
@@ -64,8 +61,6 @@ alias_ifelse(⟦$1⟧, ⟦⟧, ⟦⟧, ⟦__AUTHOR_NAME: $1
 ⟧)alias_dnl
 alias_CONVERT_DATE_TO_ANOTHER_FORMAT($2)alias_dnl
 alias_ifelse(⟦$3⟧, ⟦⟧, ⟦⟧, ⟦___TITLE_NOTE: $3
-⟧)alias_dnl
-alias_ifelse(⟦$4⟧, ⟦⟧, ⟦⟧, ⟦__FILE_VERSION($4)
 ⟧)alias_dnl
 alias_divert(-1)
 ⟧)
