@@ -1,4 +1,4 @@
-__HEADER(⟦Josef Kubin⟧, ⟦2019,11,16⟧)
+___TITLE(⟦Josef Kubin⟧, ⟦2019,11,16⟧)
 ___DESCR(⟦generates a string to truncate the next string (manually) because machine truncation is hardly acceptable⟧)
 __REASON(⟦the computer cannot truncate the string to keep it human readable⟧)
 ___USAGE(⟦m4 rootb.m4 rulerb.m4 …⟧)

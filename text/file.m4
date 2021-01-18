@@ -1,4 +1,4 @@
-__HEADER(⟦Josef Kubin⟧, ⟦2020,05,16⟧)
+___TITLE(⟦Josef Kubin⟧, ⟦2020,05,16⟧)
 ___DESCR(⟦inserts (snippet of) a source file⟧)
 __REASON(⟦estimate the total number of words and characters⟧)
 

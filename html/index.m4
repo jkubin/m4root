@@ -1,4 +1,4 @@
-__HEADER(⟦Josef Kubin⟧, ⟦2019,12,27⟧)
+___TITLE(⟦Josef Kubin⟧, ⟦2019,12,27⟧)
 ___DESCR(⟦creates a html file for article development⟧)
 __REASON(⟦development and preview of html file before publishing⟧)
 

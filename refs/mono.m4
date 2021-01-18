@@ -1,4 +1,4 @@
-__HEADER(⟦Josef Kubin⟧, ⟦2020,03,29⟧)
+___TITLE(⟦Josef Kubin⟧, ⟦2020,03,29⟧)
 ___DESCR(⟦references to monolingual macros⟧)
 __REASON(⟦breakdown of references⟧)
 
@@ -118,7 +118,7 @@ define(⟦PROGRAMLISTING⟧,		defn(⟦PROCESS_ID⟧)⟦
 divert(0)dnl
 ⟦#⟧ DONTE()
 ⟦
-__HEADER(⟦Josef Kubin⟧, ⟦2020,04,01⟧)
+___TITLE(⟦Josef Kubin⟧, ⟦2020,04,01⟧)
 ___DESCR(⟦(this is a generated file) associative memory for linking files⟧)
 __REASON(⟦simple hash database for files⟧)
 ⟧

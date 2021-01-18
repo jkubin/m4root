@@ -1,4 +1,4 @@
-__HEADER(⟦Josef Kubin⟧, ⟦2020,04,26⟧)
+___TITLE(⟦Josef Kubin⟧, ⟦2020,04,26⟧)
 ___DESCR(⟦command line with a list of input files, the last file is an output file⟧)
 __REASON(⟦generates HTML code from the command line⟧)
 

@@ -1,6 +1,6 @@
 # vim:mps+=\:
 
-__HEADER(⟦Your Name⟧, ⟦skeletonVIM_CREATION_DATE⟧)
+___TITLE(⟦Your Name⟧, ⟦skeletonVIM_CREATION_DATE⟧)
 __THANKS(⟦⟧)
 ___DESCR(⟦⟧)
 __REASON(⟦⟧)

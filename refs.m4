@@ -1,4 +1,4 @@
-__HEADER(⟦Josef Kubin⟧, ⟦2019,12,11⟧)
+___TITLE(⟦Josef Kubin⟧, ⟦2019,12,11⟧)
 ___DESCR(⟦tests logic flow (CHAPTER → SECT1 → SECT2 → SECT3) and generates references for anchors⟧)
 __REASON(⟦extracts all IDs from files and creates associative pair⟧)
 
@@ -288,7 +288,7 @@ define(⟦APPENDIX⟧, defn(⟦CHAPTER⟧))
 divert(0)dnl
 ⟦#⟧ DONTE()
 ⟦
-__HEADER(⟦Josef Kubin⟧, ⟦2019,12,11⟧)
+___TITLE(⟦Josef Kubin⟧, ⟦2019,12,11⟧)
 ___DESCR(⟦(this is a generated file) associative memory to linking references, contains captions and ID⟧)
 __REASON(⟦simple hash database for linking references⟧)
 ⟧

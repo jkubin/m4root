@@ -1,4 +1,4 @@
-# __HEADER(⟦Josef Kubin⟧, ⟦2020,01,09⟧)
+# ___TITLE(⟦Josef Kubin⟧, ⟦2020,01,09⟧)
 # ___DESCR(⟦transforms esc sequences to HTML entities or to ASCII⟧)
 # __REASON(⟦post processing after M4 scripts⟧)
 

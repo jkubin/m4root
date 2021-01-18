@@ -1,6 +1,6 @@
 # DO NOT EDIT! This file is generated automatically!
 
-__HEADER(⟦Josef Kubin⟧, ⟦2019,12,11⟧)
+___TITLE(⟦Josef Kubin⟧, ⟦2019,12,11⟧)
 ___DESCR(⟦(this is a generated file) associative memory to linking references, contains captions and ID⟧)
 __REASON(⟦simple hash database for linking references⟧)
 

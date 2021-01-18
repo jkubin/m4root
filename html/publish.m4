@@ -1,4 +1,4 @@
-__HEADER(⟦Josef Kubin⟧, ⟦2019,12,12⟧)
+___TITLE(⟦Josef Kubin⟧, ⟦2019,12,12⟧)
 ___DESCR(⟦creates the final file for Content Management System (copy and paste)⟧)
 __REASON(⟦template for Content Management System⟧)
 

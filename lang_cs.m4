@@ -1,6 +1,6 @@
 # vim:ts=40:sw=40
 
-__HEADER(⟦Josef Kubin⟧, ⟦2019,07,11⟧)
+___TITLE(⟦Josef Kubin⟧, ⟦2019,07,11⟧)
 ___DESCR(⟦the file contains language-specific words⟧)
 __REASON(⟦multilingual targets⟧)
 

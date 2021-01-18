@@ -1,4 +1,4 @@
-__HEADER(⟦Josef Kubin⟧, ⟦2019,12,15⟧)
+___TITLE(⟦Josef Kubin⟧, ⟦2019,12,15⟧)
 ___DESCR(⟦processes a source file inserted to HTML; converts forbidden characters; sets string highlighting⟧)
 __REASON(⟦source file (possibly snippet) suitable for HTML⟧)
 

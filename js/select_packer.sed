@@ -1,4 +1,4 @@
-# __HEADER(⟦Josef Kubin⟧, ⟦2020,12,24⟧)
+# ___TITLE(⟦Josef Kubin⟧, ⟦2020,12,24⟧)
 # ___DESCR(⟦replaces the local long_self_descriptive_funny_variables with single letters⟧)
 # __REASON(⟦packs local method variables⟧)
 
