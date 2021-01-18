@@ -13,9 +13,9 @@ The introductory part of the series contains its history, the basic principles o
 
 # shortcut for article: "+yG
 
-<!-- "Generating code in M4: introduction" __SOURCE(⟦intro.mc⟧, ⟦20210110-15:34:19⟧, ⟦7ecb7ac⟧, ⟦b81f235⟧) -->
+<!-- "Generating code in M4: introduction" __SOURCE(⟦intro.mc⟧, ⟦20210118-19:19:52⟧, ⟦0518f94⟧, ⟦62339dd⟧) -->
 <style>.m4-ev{background:#f5f5f5}.urs p[id$="-toc"]>a>b{font-weight:normal;margin-right:.6em}.urs a[id^="m4-ref"]{font-size:.65em;vertical-align:super}.m4-A .m4-a,.m4-B .m4-b,.m4-C .m4-c,.m4-D .m4-d,.m4-E .m4-e,.m4-F .m4-f,.m4-G .m4-g,.m4-dh{background:lawngreen}.m4-R .m4-r{background:gold}.m4-S .m4-s{font-weight:bold}.m4-X .m4-x{visibility:hidden}.urs q{font-style:initial}.urs q::before{content:"\201c"}.urs q::after{content:"\201d"}#m4--toc{position:relative}#m4--toc>div{position:absolute;right:0;top:0}#m4--toc>div>div{display:inline-block}.m4-dwnl a{margin-left:.4em}.m4-updt{color:#666;text-align:right;margin-left:.6em}.m4-ch,.m4-bh,.m4-cmd{position:relative}.m4-bh>a:first-child::before,.m4-ch>a:first-child::before{font-size:.9em;font-weight:normal;position:absolute;right:100%;width:1.3em}.m4-ch>a:first-child::before{content:"\2630"}.m4-ch>a:first-child+a{margin-right:.4em}.m4-ch>a:last-child::before,.m4-bh>a:last-child::before{content:"\1f845";font-size:.65em;margin-left:.3em;position:absolute}.m4-ch>a:first-child,.m4-ch>a:last-child,.m4-bh>a:first-child,.m4-bh>a:last-child{opacity:0}.m4-ch:hover>a:first-child,.m4-ch:hover>a:last-child,.m4-bh:hover>a:first-child,.m4-bh:hover>a:last-child{opacity:1}.m4-xp{border-bottom:1px dotted #000;cursor:help}.m4-xp:active::after{content:" (" attr(title) ")"}.m4-note::before{content:"\1f5b9";margin-right:.2em;font-size:1.5em}.urs .m4-note,.urs .m4-info,.urs .m4-excl,.urs .m4-warn{padding-top:.2em;padding-bottom:.4em}.m4-note ul{margin-bottom:0;margin-left:1em}ol.m4-refs a:first-child::before{content:"\2191"}ol.m4-refs a:first-child{margin-right:.3em;text-decoration:none}.m4-l2{padding-left:1em}.m4-bh>a:first-child::before{content:"\1f517"}.m4-info::before{content:"\1f6c8";margin-right:.2em;font-size:1.5em}.m4-src{counter-reset:m4-nl}.m4-src>code>.m4-cb+a::before,.m4-cmd>code>.m4-cb+a::before{content:"\1f517"}.m4-src>code>.m4-cb+a,.m4-cmd>code>.m4-cb+a{font-weight:normal}.m4-src>code,.m4-cmd>code{border-radius:0 4px;border:1px solid #ddd;font-size:.7em;font-weight:bold;padding:2px 4px;position:absolute;right:0;text-align:right;top:0}.m4-src>code a,.m4-cmd>code a{margin-left:.6em}.m4-src>code>div{background:#eee;font-weight:initial;padding:0 2px;text-align:left}.m4-src>code>.m4-sha+a{background:#eee;color:inherit;margin:0 .6em}.m4-src>pre.m4-re{left:0;overflow:visible;padding-left:0;padding-right:0;position:absolute;top:0}.m4-src>pre+pre{background:none}.m4-src,.m4-src>pre,.m4-src>pre.m4-re>div{position:relative}.m4-src>pre.m4-re>div::before{content:counter(m4-nl);counter-increment:m4-nl;left:-3em;position:absolute;text-align:right;top:0;width:2.5em}.m4-src>pre.m4-re>div::after{content:" "}.m4-cb{cursor:pointer}.m4-cb::before{content:"\1f4cb"}.m4-hgl{border-bottom:1px dashed #000;cursor:help}.m4-cmd>pre{font-weight:bold;padding-right:0;white-space:normal;word-break:normal}.m4-cmd>code{visibility:hidden}.m4-cmd:hover>code{visibility:visible}.m4-cmd>pre a{color:inherit}.m4-root>pre::before{content:"# ";font-weight:normal}.m4-usc>pre::before{content:"$ ";font-weight:normal}.m4-sha{background:#eee;cursor:pointer;text-decoration:#f04c23 underline dashed}.m4-l3{padding-left:2em}</style>
-<div id="m4--toc"><h2>Content (<a href="../../clanky/generovani-kodu-v-m4-uvod/#m4--toc" title="Generování kódu v M4: úvod">Česky</a>)</h2><div><div class="m4-dwnl"><a href="https://raw.githubusercontent.com/jkubin/m4root/7ecb7ac7eaa5f936378bc364dc961fc6ac76042c/intro.mc" style="font-weight:bold" title="article source code">mc</a><a href="https://raw.githubusercontent.com/jkubin/m4root/b81f235937a50a0e0ef2274e3f14b2cdf1223f4b/generating-code-in-m4-introduction/spell.txt" title="generated text for spell checking and jargon (designed for Vim)">spl</a><a href="https://raw.githubusercontent.com/jkubin/m4root/b81f235937a50a0e0ef2274e3f14b2cdf1223f4b/generating-code-in-m4-introduction.txt" title="generated text for estimating the number of characters">txt</a><a href="https://raw.githubusercontent.com/jkubin/m4root/master/generating-code-in-m4-introduction/publish.txt" title="generated text that you are currently reading and that has been entered into the content management system (CMS)">pub</a><br><a href="https://raw.githubusercontent.com/jkubin/m4root/b81f235937a50a0e0ef2274e3f14b2cdf1223f4b/generating-code-in-m4-introduction/index.html" title="generated html page for off-line development">dev</a><a href="https://raw.githubusercontent.com/jkubin/m4root/b81f235937a50a0e0ef2274e3f14b2cdf1223f4b/generating-code-in-m4-introduction/preview.html" title="generated html page for off-line preview">pre</a><a href="https://raw.githubusercontent.com/jkubin/m4root//generating-code-in-m4-introduction.c" title="generated source code C">c</a></div><div class="m4-updt">updated<br>January 10, 2021</div></div></div>
+<div id="m4--toc"><h2>Content (<a href="../../clanky/generovani-kodu-v-m4-uvod/#m4--toc" title="Generování kódu v M4: úvod">Česky</a>)</h2><div><div class="m4-dwnl"><a href="https://raw.githubusercontent.com/jkubin/m4root/0518f94ee015b908e75fed0f3447efe2024ec5cd/intro.mc" style="font-weight:bold" title="article source code">mc</a><a href="https://raw.githubusercontent.com/jkubin/m4root/46a1c91eaf306526f69f856f541fe8bac50138cc/generating-code-in-m4-introduction/spell.txt" title="generated text for spell checking and jargon (designed for Vim)">spl</a><a href="https://raw.githubusercontent.com/jkubin/m4root/46a1c91eaf306526f69f856f541fe8bac50138cc/generating-code-in-m4-introduction.txt" title="generated text for estimating the number of characters">txt</a><a href="https://raw.githubusercontent.com/jkubin/m4root/master/generating-code-in-m4-introduction/publish.txt" title="generated text that you are currently reading and that has been entered into the content management system (CMS)">pub</a><br><a href="https://raw.githubusercontent.com/jkubin/m4root/46a1c91eaf306526f69f856f541fe8bac50138cc/generating-code-in-m4-introduction/index.html" title="generated html page for off-line development">dev</a><a href="https://raw.githubusercontent.com/jkubin/m4root/46a1c91eaf306526f69f856f541fe8bac50138cc/generating-code-in-m4-introduction/preview.html" title="generated html page for off-line preview">pre</a><a href="https://raw.githubusercontent.com/jkubin/m4root//generating-code-in-m4-introduction.c" title="generated source code C">c</a></div><div class="m4-updt">updated<br>January 18, 2021</div></div></div>
 <noscript><div title="for information" class="rs-tip-major m4-info">Enabling JavaScript enhances the clarity of the source code samples.</div></noscript>
 <p id="m4-introduction-toc"><a href="#m4-introduction"><b>1</b>Introduction</a></p>
 <p id="m4-examples-for-readers-toc" class="m4-l2"><a href="#m4-examples-for-readers"><b>1.1</b>Examples for readers</a></p>
@@ -390,7 +390,7 @@ QUERY(⟦READABLE⟧,    ⟦Is badly written M4 code readable [N/y]?⟧)
 WARNING(⟦ADDICTIVE⟧, ⟦Programming in M4 is addictive!⟧)
 <span class="m4-r">ERROR</span>(⟦NO_FAULT⟧,    ⟦It's not a language fault!⟧)
 WARNING(⟦NO_ERRORS⟧, ⟦No other errors were found.⟧)</pre><code><span class="m4-sha">55ac1ea</span><a href="https://raw.githubusercontent.com/jkubin/m4root/55ac1eac6d38aa9e36ddea55a839355a6a5bcba4/messages/messages_raw.mc" title="messages/messages_raw.mc
-date: 20210103-13:28:44
+date: 20210103 13:28:44
 sha1sum: d1f057c
 size: 420 B">messages_raw.mc</a><span class="m4-cb" title="select text"></span><a href="#m4-messages_messages_raw-mc" title="⚓"></a></code></div>
 <div title="note" class="rs-tip-major m4-note">The input file may also contain notes that may not be hidden in the comments <code>#</code>, <code>dnl</code>, <code>ifelse([…])</code> or <code>[… somewhere inside brackets …]</code>.</div>
@@ -403,34 +403,34 @@ define(⟦<span class="m4-r">ERROR</span>⟧, ⟦
 ⟦$1	$2⟧
 divert(-1)
 ⟧)</pre><code><span class="m4-sha">24fd4f3</span><a href="https://raw.githubusercontent.com/jkubin/m4root/24fd4f31afda7ced456da6ab60904553760075a5/messages/hello.csv.m4" title="messages/hello.csv.m4
-date: 20201226-21:52:28
+date: 20201226 21:52:28
 sha1sum: 020529d
 size: 78 B">hello.csv.m4</a><span class="m4-cb" title="select text"></span><a href="#m4-messages_hello-csv-m4" title="⚓"></a></code></div>
 <div id="m4-messages_hello-csv-command" class="m4-cmd m4-usc"><pre title="command">m4 <a href="https://raw.githubusercontent.com/jkubin/m4root/cf9fdc8d1a26af256fe9a5f43b13a166fa23ea7f/gfiles/root0u.m4" title="gfiles/root0u.m4
-date: 20210110-15:33:50
+date: 20210110 15:33:50
 git rev: cf9fdc8
-sha1sum: d251bd4
-size: 1322 B">root0u.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/24fd4f31afda7ced456da6ab60904553760075a5/messages/hello.csv.m4" title="messages/hello.csv.m4
-date: 20201226-21:52:28
+sha1sum: f498f9d
+size: 1320 B">root0u.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/24fd4f31afda7ced456da6ab60904553760075a5/messages/hello.csv.m4" title="messages/hello.csv.m4
+date: 20201226 21:52:28
 git rev: 24fd4f3
 sha1sum: 020529d
 size: 78 B">hello.csv.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/55ac1eac6d38aa9e36ddea55a839355a6a5bcba4/messages/messages_raw.mc" title="messages/messages_raw.mc
-date: 20210103-13:28:44
+date: 20210103 13:28:44
 git rev: 55ac1ea
 sha1sum: d1f057c
 size: 420 B">messages_raw.mc</a> > <a href="https://raw.githubusercontent.com/jkubin/m4root/55ac1eac6d38aa9e36ddea55a839355a6a5bcba4/messages/hello.csv" title="messages/hello.csv
-date: 20210103-13:28:44
+date: 20210103 13:28:44
 git rev: 55ac1ea
 sha1sum: 429f847
 size: 126 B">hello.csv</a></pre><code><span class="m4-cb" title="select text"></span><a href="#m4-messages_hello-csv-command" title="⚓"></a></code></div>
 <div id="m4-messages_hello-csv" class="m4-src"><pre>COMPLEX	!"#$%&amp;'()*+,-./:;&lt;=>?@[\]^_`{|}~
 SUCCESS	Too complex M4 code failed successfully.
 NO_FAULT	It's not a language fault!</pre><code><span class="m4-sha">55ac1ea</span><a href="https://raw.githubusercontent.com/jkubin/m4root/55ac1eac6d38aa9e36ddea55a839355a6a5bcba4/messages/hello.csv" title="messages/hello.csv
-date: 20210103-13:28:44
+date: 20210103 13:28:44
 sha1sum: 429f847
 size: 126 B">hello.csv</a><span class="m4-cb" title="select text"></span><a href="#m4-messages_hello-csv" title="⚓"></a></code></div>
 <h3 id="m4-csvw-counter" class="m4-ch"><a href="#m4-csvw-counter-toc" title="Content"></a><a href="#m4-csvw-counter" title="⚓">A.3</a><code>⟦⟧</code> CSV: counter<a href="#m4--toc" title="Top"></a></h3>
-<p>The example uses the <code class="m4-hgl" data-11="A">COUNT_UP</code> macro from the <code>countb.m4</code> file whose <abbr title="the right side of the rewriting rule"><code>β</code></abbr> is copied to the right side of the <code class="m4-hgl" data-11="2">COUNTER</code> macro.
+<p>The example uses the <code class="m4-hgl" data-11="A">COUNT_UP</code> macro from the <code>countu.m4</code> file whose <abbr title="the right side of the rewriting rule"><code>β</code></abbr> is copied to the right side of the <code class="m4-hgl" data-11="2">COUNTER</code> macro.
 During the first expansion of <code class="m4-hgl" data-11="5">COUNTER</code> its initial value is initialized.
 <span class="m4-hgl" data-11="B">Further expansion</span> returns <span class="m4-hgl" data-12="A">the numeric terminal symbol</span> and increases the inner auxiliary (global) symbol by one.
 <code>COUNTER</code> is a&nbsp;small automaton.</p>
@@ -447,34 +447,34 @@ define(⟦ERROR⟧, ⟦
 ERR_⟦⟧<span class="m4-b">COUNTER</span>	⟦$1	$2⟧
 divert(-1)
 ⟧)</pre><code><span class="m4-sha">24fd4f3</span><a href="https://raw.githubusercontent.com/jkubin/m4root/24fd4f31afda7ced456da6ab60904553760075a5/messages/counter.csv.m4" title="messages/counter.csv.m4
-date: 20201226-21:52:28
+date: 20201226 21:52:28
 sha1sum: 63e2693
 size: 179 B">counter.csv.m4</a><span class="m4-cb" title="select text"></span><a href="#m4-messages_counter-csv-m4" title="⚓"></a></code></div>
 <div id="m4-messages_counter-csv-command" class="m4-cmd m4-usc"><pre title="command">m4 <a href="https://raw.githubusercontent.com/jkubin/m4root/cf9fdc8d1a26af256fe9a5f43b13a166fa23ea7f/gfiles/root0u.m4" title="gfiles/root0u.m4
-date: 20210110-15:33:50
+date: 20210110 15:33:50
 git rev: cf9fdc8
-sha1sum: d251bd4
-size: 1322 B">root0u.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/17cb82f06ccca2e7775b95b3513ab56ee94c0457/gfiles/countb.m4" title="gfiles/countb.m4
-date: 20200429-07:34:47
+sha1sum: f498f9d
+size: 1320 B">root0u.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/17cb82f06ccca2e7775b95b3513ab56ee94c0457/gfiles/countu.m4" title="gfiles/countu.m4
+date: 20200429 07:34:47
 git rev: 17cb82f
-sha1sum: 2d647fa
-size: 766 B">countb.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/24fd4f31afda7ced456da6ab60904553760075a5/messages/counter.csv.m4" title="messages/counter.csv.m4
-date: 20201226-21:52:28
+sha1sum: 83b97d7
+size: 947 B">countu.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/24fd4f31afda7ced456da6ab60904553760075a5/messages/counter.csv.m4" title="messages/counter.csv.m4
+date: 20201226 21:52:28
 git rev: 24fd4f3
 sha1sum: 63e2693
 size: 179 B">counter.csv.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/55ac1eac6d38aa9e36ddea55a839355a6a5bcba4/messages/messages_raw.mc" title="messages/messages_raw.mc
-date: 20210103-13:28:44
+date: 20210103 13:28:44
 git rev: 55ac1ea
 sha1sum: d1f057c
 size: 420 B">messages_raw.mc</a> > <a href="https://raw.githubusercontent.com/jkubin/m4root/55ac1eac6d38aa9e36ddea55a839355a6a5bcba4/messages/counter.csv" title="messages/counter.csv
-date: 20210103-13:28:44
+date: 20210103 13:28:44
 git rev: 55ac1ea
 sha1sum: 367d2b1
 size: 144 B">counter.csv</a></pre><code><span class="m4-cb" title="select text"></span><a href="#m4-messages_counter-csv-command" title="⚓"></a></code></div>
 <div id="m4-messages_counter-csv" class="m4-src"><pre>ERR_<span class="m4-a">1</span>	COMPLEX	!"#$%&amp;'()*+,-./:;&lt;=>?@[\]^_`{|}~
 ERR_<span class="m4-a">2</span>	SUCCESS	Too complex M4 code failed successfully.
 ERR_<span class="m4-a">3</span>	NO_FAULT	It's not a language fault!</pre><code><span class="m4-sha">55ac1ea</span><a href="https://raw.githubusercontent.com/jkubin/m4root/55ac1eac6d38aa9e36ddea55a839355a6a5bcba4/messages/counter.csv" title="messages/counter.csv
-date: 20210103-13:28:44
+date: 20210103 13:28:44
 sha1sum: 367d2b1
 size: 144 B">counter.csv</a><span class="m4-cb" title="select text"></span><a href="#m4-messages_counter-csv" title="⚓"></a></code></div>
 <h3 id="m4-modification-of-special-chara" class="m4-ch"><a href="#m4-modification-of-special-chara-toc" title="Content"></a><a href="#m4-modification-of-special-chara" title="⚓">A.4</a><code title="how to do it" style="cursor:help">&#x1f4a1;</code> Modification of special characters<a href="#m4--toc" title="Top"></a></h3>
@@ -490,7 +490,7 @@ ERROR(⟦SUCCESS⟧,     ⟦Too complex M4 code failed successfully.⟧)
 WARNING(⟦ADDICTIVE⟧, ⟦Programming in M4 is addictive⟦⟧<span class="m4-a">EX()</span>⟧)
 ERROR(⟦NO_FAULT⟧,    ⟦It⟦⟧<span class="m4-a">AP()</span>s not a language fault⟦⟧<span class="m4-a">EX()</span>⟧)
 WARNING(⟦NO_ERRORS⟧, ⟦No other errors were found.⟧)</pre><code><span class="m4-sha">55ac1ea</span><a href="https://raw.githubusercontent.com/jkubin/m4root/55ac1eac6d38aa9e36ddea55a839355a6a5bcba4/messages/messages.mc" title="messages/messages.mc
-date: 20210103-13:28:44
+date: 20210103 13:28:44
 sha1sum: c6496e4
 size: 535 B">messages.mc</a><span class="m4-cb" title="select text"></span><a href="#m4-messages_messages-mc" title="⚓"></a></code></div>
 <h4 id="m4-conversion-file-for-xml-xslt" class="m4-bh"><a href="#m4-conversion-file-for-xml-xslt" title="⚓"></a><code>⟦⟧</code> Conversion file for XML, XSLT, HTML<a href="#m4--toc" title="Top"></a></h4>
@@ -504,7 +504,7 @@ define(⟦DQ⟧, ⟦"⟧)
 define(⟦EX⟧, ⟦!⟧)
 define(⟦GT⟧, ⟦&amp;gt;⟧)
 define(⟦LT⟧, ⟦&amp;lt;⟧)</pre><code><span class="m4-sha">d2707ad</span><a href="https://raw.githubusercontent.com/jkubin/m4root/d2707ad62aa69a66715389b9bf732ad99573a88d/messages/markup.m4" title="messages/markup.m4
-date: 20201226-22:38:15
+date: 20201226 22:38:15
 sha1sum: 98612ec
 size: 256 B">markup.m4</a><span class="m4-cb" title="select text"></span><a href="#m4-messages_markup-m4" title="⚓"></a></code></div>
 <h4 id="m4-conversion-file-for-c-json-in" class="m4-bh"><a href="#m4-conversion-file-for-c-json-in" title="⚓"></a><code>⟦⟧</code> Conversion file for C, JSON, INI: <code>&quot;string&quot;</code><a href="#m4--toc" title="Top"></a></h4>
@@ -518,7 +518,7 @@ define(⟦DQ⟧, ⟦\"⟧)
 define(⟦EX⟧, ⟦!⟧)
 define(⟦GT⟧, ⟦>⟧)
 define(⟦LT⟧, ⟦&lt;⟧)</pre><code><span class="m4-sha">d2707ad</span><a href="https://raw.githubusercontent.com/jkubin/m4root/d2707ad62aa69a66715389b9bf732ad99573a88d/messages/code.m4" title="messages/code.m4
-date: 20201226-22:38:15
+date: 20201226 22:38:15
 sha1sum: d709e07
 size: 248 B">code.m4</a><span class="m4-cb" title="select text"></span><a href="#m4-messages_code-m4" title="⚓"></a></code></div>
 <h4 id="m4-conversion-file-for-bashw-dst" class="m4-bh"><a href="#m4-conversion-file-for-bashw-dst" title="⚓"></a><code>⟦⟧</code> Conversion file for Bash: <code>&quot;string&quot;</code><a href="#m4--toc" title="Top"></a></h4>
@@ -532,7 +532,7 @@ define(⟦DQ⟧, ⟦\"⟧)
 define(⟦EX⟧, ⟦"\!"⟧)
 define(⟦GT⟧, ⟦>⟧)
 define(⟦LT⟧, ⟦&lt;⟧)</pre><code><span class="m4-sha">d2707ad</span><a href="https://raw.githubusercontent.com/jkubin/m4root/d2707ad62aa69a66715389b9bf732ad99573a88d/messages/doubleq.m4" title="messages/doubleq.m4
-date: 20201226-22:38:15
+date: 20201226 22:38:15
 sha1sum: c94b763
 size: 252 B">doubleq.m4</a><span class="m4-cb" title="select text"></span><a href="#m4-messages_doubleq-m4" title="⚓"></a></code></div>
 <h4 id="m4-conversion-file-for-bashw-ast" class="m4-bh"><a href="#m4-conversion-file-for-bashw-ast" title="⚓"></a><code>⟦⟧</code> Conversion file for Bash: <code>&apos;string&apos;</code><a href="#m4--toc" title="Top"></a></h4>
@@ -546,7 +546,7 @@ define(⟦DQ⟧, ⟦"⟧)
 define(⟦EX⟧, ⟦!⟧)
 define(⟦GT⟧, ⟦>⟧)
 define(⟦LT⟧, ⟦&lt;⟧)</pre><code><span class="m4-sha">d2707ad</span><a href="https://raw.githubusercontent.com/jkubin/m4root/d2707ad62aa69a66715389b9bf732ad99573a88d/messages/apost.m4" title="messages/apost.m4
-date: 20201226-22:38:15
+date: 20201226 22:38:15
 sha1sum: e7eec73
 size: 249 B">apost.m4</a><span class="m4-cb" title="select text"></span><a href="#m4-messages_apost-m4" title="⚓"></a></code></div>
 <h4 id="m4-conversion-file-for-csv-m4-re" class="m4-bh"><a href="#m4-conversion-file-for-csv-m4-re" title="⚓"></a><code>⟦⟧</code> Conversion file for CSV, M4 (returns all characters)<a href="#m4--toc" title="Top"></a></h4>
@@ -560,7 +560,7 @@ define(⟦DQ⟧, ⟦"⟧)
 define(⟦EX⟧, ⟦!⟧)
 define(⟦GT⟧, ⟦>⟧)
 define(⟦LT⟧, ⟦&lt;⟧)</pre><code><span class="m4-sha">d2707ad</span><a href="https://raw.githubusercontent.com/jkubin/m4root/d2707ad62aa69a66715389b9bf732ad99573a88d/messages/unchanged.m4" title="messages/unchanged.m4
-date: 20201226-22:38:15
+date: 20201226 22:38:15
 sha1sum: d2fb4b9
 size: 246 B">unchanged.m4</a><span class="m4-cb" title="select text"></span><a href="#m4-messages_unchanged-m4" title="⚓"></a></code></div>
 <h3 id="m4-cw-output-queue" class="m4-ch"><a href="#m4-cw-output-queue-toc" title="Content"></a><a href="#m4-cw-output-queue" title="⚓">A.5</a><code>⟦⟧</code> C: output queue<a href="#m4--toc" title="Top"></a></h3>
@@ -582,27 +582,27 @@ char *error[] = {
 divert(1)dnl
 };
 divert(-1)</pre><code><span class="m4-sha">24fd4f3</span><a href="https://raw.githubusercontent.com/jkubin/m4root/24fd4f31afda7ced456da6ab60904553760075a5/messages/array.c.m4" title="messages/array.c.m4
-date: 20201226-21:52:28
+date: 20201226 21:52:28
 sha1sum: 8c6c428
 size: 151 B">array.c.m4</a><span class="m4-cb" title="select text"></span><a href="#m4-messages_array-c-m4" title="⚓"></a></code></div>
 <div id="m4-messages_array-c-command" class="m4-cmd m4-usc"><pre title="command">m4 <a href="https://raw.githubusercontent.com/jkubin/m4root/cf9fdc8d1a26af256fe9a5f43b13a166fa23ea7f/gfiles/root0u.m4" title="gfiles/root0u.m4
-date: 20210110-15:33:50
+date: 20210110 15:33:50
 git rev: cf9fdc8
-sha1sum: d251bd4
-size: 1322 B">root0u.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/24fd4f31afda7ced456da6ab60904553760075a5/messages/array.c.m4" title="messages/array.c.m4
-date: 20201226-21:52:28
+sha1sum: f498f9d
+size: 1320 B">root0u.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/24fd4f31afda7ced456da6ab60904553760075a5/messages/array.c.m4" title="messages/array.c.m4
+date: 20201226 21:52:28
 git rev: 24fd4f3
 sha1sum: 8c6c428
 size: 151 B">array.c.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/d2707ad62aa69a66715389b9bf732ad99573a88d/messages/code.m4" title="messages/code.m4
-date: 20201226-22:38:15
+date: 20201226 22:38:15
 git rev: d2707ad
 sha1sum: d709e07
 size: 248 B">code.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/55ac1eac6d38aa9e36ddea55a839355a6a5bcba4/messages/messages.mc" title="messages/messages.mc
-date: 20210103-13:28:44
+date: 20210103 13:28:44
 git rev: 55ac1ea
 sha1sum: c6496e4
 size: 535 B">messages.mc</a> > <a href="https://raw.githubusercontent.com/jkubin/m4root/91568108231a0a6510905d67a6b33dfd0d6ecd39/messages/array.c" title="messages/array.c
-date: 20200331-19:30:06
+date: 20200331 19:30:06
 git rev: 9156810
 sha1sum: 9651d22
 size: 198 B">array.c</a></pre><code><span class="m4-cb" title="select text"></span><a href="#m4-messages_array-c-command" title="⚓"></a></code></div>
@@ -615,7 +615,7 @@ char *error[] = {
 	"Too complex M4 code failed successfully.",
 	"It's not a language fault!",
 };</pre><code><span class="m4-sha">9156810</span><a href="https://raw.githubusercontent.com/jkubin/m4root/91568108231a0a6510905d67a6b33dfd0d6ecd39/messages/array.c" title="messages/array.c
-date: 20200331-19:30:06
+date: 20200331 19:30:06
 sha1sum: 9651d22
 size: 198 B">array.c</a><span class="m4-cb" title="select text"></span><a href="#m4-messages_array-c" title="⚓"></a></code></div>
 <h3 id="m4-iniw-an-external-command" class="m4-ch"><a href="#m4-iniw-an-external-command-toc" title="Content"></a><a href="#m4-iniw-an-external-command" title="⚓">A.6</a><code>⟦⟧</code> INI: an external command<a href="#m4--toc" title="Top"></a></h3>
@@ -635,38 +635,38 @@ divert(0)dnl
 
 <span class="m4-c">SARG1</span>(esyscmd(⟦<span class="m4-d">date '+<span class="m4-b">⟦[hello_%Y%m%d]⟧</span><span class="m4-a">,</span>'</span>⟧))
 divert(-1)</pre><code><span class="m4-sha">24fd4f3</span><a href="https://raw.githubusercontent.com/jkubin/m4root/24fd4f31afda7ced456da6ab60904553760075a5/messages/hello.ini.m4" title="messages/hello.ini.m4
-date: 20201226-21:52:28
+date: 20201226 21:52:28
 sha1sum: a7f4062
 size: 168 B">hello.ini.m4</a><span class="m4-cb" title="select text"></span><a href="#m4-messages_hello-ini-m4" title="⚓"></a></code></div>
 <div id="m4-messages_hello-ini-command" class="m4-cmd m4-usc"><pre title="command">m4 <a href="https://raw.githubusercontent.com/jkubin/m4root/cf9fdc8d1a26af256fe9a5f43b13a166fa23ea7f/gfiles/root0u.m4" title="gfiles/root0u.m4
-date: 20210110-15:33:50
+date: 20210110 15:33:50
 git rev: cf9fdc8
-sha1sum: d251bd4
-size: 1322 B">root0u.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/24fd4f31afda7ced456da6ab60904553760075a5/messages/hello.ini.m4" title="messages/hello.ini.m4
-date: 20201226-21:52:28
+sha1sum: f498f9d
+size: 1320 B">root0u.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/24fd4f31afda7ced456da6ab60904553760075a5/messages/hello.ini.m4" title="messages/hello.ini.m4
+date: 20201226 21:52:28
 git rev: 24fd4f3
 sha1sum: a7f4062
 size: 168 B">hello.ini.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/d2707ad62aa69a66715389b9bf732ad99573a88d/messages/code.m4" title="messages/code.m4
-date: 20201226-22:38:15
+date: 20201226 22:38:15
 git rev: d2707ad
 sha1sum: d709e07
 size: 248 B">code.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/55ac1eac6d38aa9e36ddea55a839355a6a5bcba4/messages/messages.mc" title="messages/messages.mc
-date: 20210103-13:28:44
+date: 20210103 13:28:44
 git rev: 55ac1ea
 sha1sum: c6496e4
 size: 535 B">messages.mc</a> > <a href="https://raw.githubusercontent.com/jkubin/m4root/55ac1eac6d38aa9e36ddea55a839355a6a5bcba4/messages/hello.ini" title="messages/hello.ini
-date: 20210103-13:28:44
+date: 20210103 13:28:44
 git rev: 55ac1ea
-sha1sum: 89718d7
+sha1sum: e38f80a
 size: 205 B">hello.ini</a></pre><code><span class="m4-cb" title="select text"></span><a href="#m4-messages_hello-ini-command" title="⚓"></a></code></div>
 <div id="m4-messages_hello-ini" class="m4-src"><pre>; DO NOT EDIT! This file is generated automatically!
 
-[hello_20201230]
+[hello_20210118]
 COMPLEX="!\"#$%&amp;'()*+,-./:;&lt;=>?@[\\]^_`{|}~"
 SUCCESS="Too complex M4 code failed successfully."
 NO_FAULT="It's not a language fault!"</pre><code><span class="m4-sha">55ac1ea</span><a href="https://raw.githubusercontent.com/jkubin/m4root/55ac1eac6d38aa9e36ddea55a839355a6a5bcba4/messages/hello.ini" title="messages/hello.ini
-date: 20210103-13:28:44
-sha1sum: 89718d7
+date: 20210103 13:28:44
+sha1sum: e38f80a
 size: 205 B">hello.ini</a><span class="m4-cb" title="select text"></span><a href="#m4-messages_hello-ini" title="⚓"></a></code></div>
 <h3 id="m4-hw-hex-counter" class="m4-ch"><a href="#m4-hw-hex-counter-toc" title="Content"></a><a href="#m4-hw-hex-counter" title="⚓">A.7</a><code>⟦⟧</code> .h: hex counter<a href="#m4--toc" title="Top"></a></h3>
 <p>The example uses the <code class="m4-hgl" data-23="A,2">COUNTER</code> macro to number the resulting <abbr title="C preprocessor">CPP</abbr> <span class="m4-hgl" data-23="11" data-24="8-10">macros</span> and one output queue.
@@ -697,27 +697,27 @@ divert(0)dnl
 divert(1)
 #endif /* __ERROR_H */
 divert(-1)</pre><code><span class="m4-sha">24fd4f3</span><a href="https://raw.githubusercontent.com/jkubin/m4root/24fd4f31afda7ced456da6ab60904553760075a5/messages/messages.h.m4" title="messages/messages.h.m4
-date: 20201226-21:52:28
+date: 20201226 21:52:28
 sha1sum: cc44faa
 size: 304 B">messages.h.m4</a><span class="m4-cb" title="select text"></span><a href="#m4-messages_messages-h-m4" title="⚓"></a></code></div>
 <div id="m4-messages_messages-h-command" class="m4-cmd m4-usc"><pre title="command">m4 <a href="https://raw.githubusercontent.com/jkubin/m4root/cf9fdc8d1a26af256fe9a5f43b13a166fa23ea7f/gfiles/root0u.m4" title="gfiles/root0u.m4
-date: 20210110-15:33:50
+date: 20210110 15:33:50
 git rev: cf9fdc8
-sha1sum: d251bd4
-size: 1322 B">root0u.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/17cb82f06ccca2e7775b95b3513ab56ee94c0457/gfiles/countb.m4" title="gfiles/countb.m4
-date: 20200429-07:34:47
+sha1sum: f498f9d
+size: 1320 B">root0u.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/17cb82f06ccca2e7775b95b3513ab56ee94c0457/gfiles/countu.m4" title="gfiles/countu.m4
+date: 20200429 07:34:47
 git rev: 17cb82f
-sha1sum: 2d647fa
-size: 766 B">countb.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/24fd4f31afda7ced456da6ab60904553760075a5/messages/messages.h.m4" title="messages/messages.h.m4
-date: 20201226-21:52:28
+sha1sum: 83b97d7
+size: 947 B">countu.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/24fd4f31afda7ced456da6ab60904553760075a5/messages/messages.h.m4" title="messages/messages.h.m4
+date: 20201226 21:52:28
 git rev: 24fd4f3
 sha1sum: cc44faa
 size: 304 B">messages.h.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/55ac1eac6d38aa9e36ddea55a839355a6a5bcba4/messages/messages.mc" title="messages/messages.mc
-date: 20210103-13:28:44
+date: 20210103 13:28:44
 git rev: 55ac1ea
 sha1sum: c6496e4
 size: 535 B">messages.mc</a> > <a href="https://raw.githubusercontent.com/jkubin/m4root/55ac1eac6d38aa9e36ddea55a839355a6a5bcba4/messages/messages.h" title="messages/messages.h
-date: 20210103-13:28:44
+date: 20210103 13:28:44
 git rev: 55ac1ea
 sha1sum: a2f1f33
 size: 190 B">messages.h</a></pre><code><span class="m4-cb" title="select text"></span><a href="#m4-messages_messages-h-command" title="⚓"></a></code></div>
@@ -733,7 +733,7 @@ size: 190 B">messages.h</a></pre><code><span class="m4-cb" title="select text"><
 #define NO_FAULT		0x02
 
 #endif /* __ERROR_H */</pre><code><span class="m4-sha">55ac1ea</span><a href="https://raw.githubusercontent.com/jkubin/m4root/55ac1eac6d38aa9e36ddea55a839355a6a5bcba4/messages/messages.h" title="messages/messages.h
-date: 20210103-13:28:44
+date: 20210103 13:28:44
 sha1sum: a2f1f33
 size: 190 B">messages.h</a><span class="m4-cb" title="select text"></span><a href="#m4-messages_messages-h" title="⚓"></a></code></div>
 <h3 id="m4-cw-small-automaton" class="m4-ch"><a href="#m4-cw-small-automaton-toc" title="Content"></a><a href="#m4-cw-small-automaton" title="⚓">A.8</a><code>⟦⟧</code> C: small automaton<a href="#m4--toc" title="Top"></a></h3>
@@ -762,27 +762,27 @@ divert(0)dnl
 char error[] =
 "divert(1)<span class="m4-b">";</span>
 divert(-1)</pre><code><span class="m4-sha">24fd4f3</span><a href="https://raw.githubusercontent.com/jkubin/m4root/24fd4f31afda7ced456da6ab60904553760075a5/messages/stringl.c.m4" title="messages/stringl.c.m4
-date: 20201226-21:52:28
+date: 20201226 21:52:28
 sha1sum: daf85ec
 size: 329 B">stringl.c.m4</a><span class="m4-cb" title="select text"></span><a href="#m4-messages_stringl-c-m4" title="⚓"></a></code></div>
 <div id="m4-messages_stringl-c-command" class="m4-cmd m4-usc"><pre title="command">m4 <a href="https://raw.githubusercontent.com/jkubin/m4root/cf9fdc8d1a26af256fe9a5f43b13a166fa23ea7f/gfiles/root0u.m4" title="gfiles/root0u.m4
-date: 20210110-15:33:50
+date: 20210110 15:33:50
 git rev: cf9fdc8
-sha1sum: d251bd4
-size: 1322 B">root0u.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/24fd4f31afda7ced456da6ab60904553760075a5/messages/stringl.c.m4" title="messages/stringl.c.m4
-date: 20201226-21:52:28
+sha1sum: f498f9d
+size: 1320 B">root0u.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/24fd4f31afda7ced456da6ab60904553760075a5/messages/stringl.c.m4" title="messages/stringl.c.m4
+date: 20201226 21:52:28
 git rev: 24fd4f3
 sha1sum: daf85ec
 size: 329 B">stringl.c.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/d2707ad62aa69a66715389b9bf732ad99573a88d/messages/code.m4" title="messages/code.m4
-date: 20201226-22:38:15
+date: 20201226 22:38:15
 git rev: d2707ad
 sha1sum: d709e07
 size: 248 B">code.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/55ac1eac6d38aa9e36ddea55a839355a6a5bcba4/messages/messages.mc" title="messages/messages.mc
-date: 20210103-13:28:44
+date: 20210103 13:28:44
 git rev: 55ac1ea
 sha1sum: c6496e4
 size: 535 B">messages.mc</a> > <a href="https://raw.githubusercontent.com/jkubin/m4root/91568108231a0a6510905d67a6b33dfd0d6ecd39/messages/stringl.c" title="messages/stringl.c
-date: 20200331-19:30:06
+date: 20200331 19:30:06
 git rev: 9156810
 sha1sum: dc45b92
 size: 185 B">stringl.c</a></pre><code><span class="m4-cb" title="select text"></span><a href="#m4-messages_stringl-c-command" title="⚓"></a></code></div>
@@ -792,7 +792,7 @@ size: 185 B">stringl.c</a></pre><code><span class="m4-cb" title="select text"></
 
 char error[] =
 "!\"#$%&amp;'()*+,-./:;&lt;=>?@[\\]^_`{|}~<span class="m4-a">\n</span>Too complex M4 code failed successfully.<span class="m4-a">\n</span>It's not a language fault!";</pre><code><span class="m4-sha">9156810</span><a href="https://raw.githubusercontent.com/jkubin/m4root/91568108231a0a6510905d67a6b33dfd0d6ecd39/messages/stringl.c" title="messages/stringl.c
-date: 20200331-19:30:06
+date: 20200331 19:30:06
 sha1sum: dc45b92
 size: 185 B">stringl.c</a><span class="m4-cb" title="select text"></span><a href="#m4-messages_stringl-c" title="⚓"></a></code></div>
 <h3 id="m4-cw-small-automaton-2" class="m4-ch"><a href="#m4-cw-small-automaton-2-toc" title="Content"></a><a href="#m4-cw-small-automaton-2" title="⚓">A.9</a><code>⟦⟧</code> C: small automaton 2<a href="#m4--toc" title="Top"></a></h3>
@@ -821,27 +821,27 @@ divert(0)dnl
 char error[] =
 "divert(1)";
 divert(-1)</pre><code><span class="m4-sha">24fd4f3</span><a href="https://raw.githubusercontent.com/jkubin/m4root/24fd4f31afda7ced456da6ab60904553760075a5/messages/string.c.m4" title="messages/string.c.m4
-date: 20201226-21:52:28
+date: 20201226 21:52:28
 sha1sum: 4b4d1b8
 size: 348 B">string.c.m4</a><span class="m4-cb" title="select text"></span><a href="#m4-messages_string-c-m4" title="⚓"></a></code></div>
 <div id="m4-messages_string-c-command" class="m4-cmd m4-usc"><pre title="command">m4 <a href="https://raw.githubusercontent.com/jkubin/m4root/cf9fdc8d1a26af256fe9a5f43b13a166fa23ea7f/gfiles/root0u.m4" title="gfiles/root0u.m4
-date: 20210110-15:33:50
+date: 20210110 15:33:50
 git rev: cf9fdc8
-sha1sum: d251bd4
-size: 1322 B">root0u.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/24fd4f31afda7ced456da6ab60904553760075a5/messages/string.c.m4" title="messages/string.c.m4
-date: 20201226-21:52:28
+sha1sum: f498f9d
+size: 1320 B">root0u.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/24fd4f31afda7ced456da6ab60904553760075a5/messages/string.c.m4" title="messages/string.c.m4
+date: 20201226 21:52:28
 git rev: 24fd4f3
 sha1sum: 4b4d1b8
 size: 348 B">string.c.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/d2707ad62aa69a66715389b9bf732ad99573a88d/messages/code.m4" title="messages/code.m4
-date: 20201226-22:38:15
+date: 20201226 22:38:15
 git rev: d2707ad
 sha1sum: d709e07
 size: 248 B">code.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/55ac1eac6d38aa9e36ddea55a839355a6a5bcba4/messages/messages.mc" title="messages/messages.mc
-date: 20210103-13:28:44
+date: 20210103 13:28:44
 git rev: 55ac1ea
 sha1sum: c6496e4
 size: 535 B">messages.mc</a> > <a href="https://raw.githubusercontent.com/jkubin/m4root/91568108231a0a6510905d67a6b33dfd0d6ecd39/messages/string.c" title="messages/string.c
-date: 20200331-19:30:06
+date: 20200331 19:30:06
 git rev: 9156810
 sha1sum: 76ca62e
 size: 191 B">string.c</a></pre><code><span class="m4-cb" title="select text"></span><a href="#m4-messages_string-c-command" title="⚓"></a></code></div>
@@ -853,7 +853,7 @@ char error[] =
 "!\"#$%&amp;'()*+,-./:;&lt;=>?@[\\]^_`{|}~<span class="m4-a">\n"
 "</span>Too complex M4 code failed successfully.<span class="m4-a">\n"
 "</span>It's not a language fault!";</pre><code><span class="m4-sha">9156810</span><a href="https://raw.githubusercontent.com/jkubin/m4root/91568108231a0a6510905d67a6b33dfd0d6ecd39/messages/string.c" title="messages/string.c
-date: 20200331-19:30:06
+date: 20200331 19:30:06
 sha1sum: 76ca62e
 size: 191 B">string.c</a><span class="m4-cb" title="select text"></span><a href="#m4-messages_string-c" title="⚓"></a></code></div>
 <h3 id="m4-htmlw-output-queues" class="m4-ch"><a href="#m4-htmlw-output-queues-toc" title="Content"></a><a href="#m4-htmlw-output-queues" title="⚓">A.10</a><code>⟦⟧</code> HTML: output queues<a href="#m4--toc" title="Top"></a></h3>
@@ -894,27 +894,27 @@ divert(2)dnl
 &lt;/body>
 &lt;/html>
 divert(-1)</pre><code><span class="m4-sha">24fd4f3</span><a href="https://raw.githubusercontent.com/jkubin/m4root/24fd4f31afda7ced456da6ab60904553760075a5/messages/messages.html.m4" title="messages/messages.html.m4
-date: 20201226-21:52:28
+date: 20201226 21:52:28
 sha1sum: 3911284
 size: 468 B">messages.html.m4</a><span class="m4-cb" title="select text"></span><a href="#m4-messages_messages-html-m4" title="⚓"></a></code></div>
 <div id="m4-messages_messages-html-command" class="m4-cmd m4-usc"><pre title="command">m4 <a href="https://raw.githubusercontent.com/jkubin/m4root/cf9fdc8d1a26af256fe9a5f43b13a166fa23ea7f/gfiles/root0u.m4" title="gfiles/root0u.m4
-date: 20210110-15:33:50
+date: 20210110 15:33:50
 git rev: cf9fdc8
-sha1sum: d251bd4
-size: 1322 B">root0u.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/24fd4f31afda7ced456da6ab60904553760075a5/messages/messages.html.m4" title="messages/messages.html.m4
-date: 20201226-21:52:28
+sha1sum: f498f9d
+size: 1320 B">root0u.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/24fd4f31afda7ced456da6ab60904553760075a5/messages/messages.html.m4" title="messages/messages.html.m4
+date: 20201226 21:52:28
 git rev: 24fd4f3
 sha1sum: 3911284
 size: 468 B">messages.html.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/d2707ad62aa69a66715389b9bf732ad99573a88d/messages/markup.m4" title="messages/markup.m4
-date: 20201226-22:38:15
+date: 20201226 22:38:15
 git rev: d2707ad
 sha1sum: 98612ec
 size: 256 B">markup.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/55ac1eac6d38aa9e36ddea55a839355a6a5bcba4/messages/messages.mc" title="messages/messages.mc
-date: 20210103-13:28:44
+date: 20210103 13:28:44
 git rev: 55ac1ea
 sha1sum: c6496e4
 size: 535 B">messages.mc</a> > <a href="https://raw.githubusercontent.com/jkubin/m4root/55ac1eac6d38aa9e36ddea55a839355a6a5bcba4/messages/messages.html" title="messages/messages.html
-date: 20210103-13:28:44
+date: 20210103 13:28:44
 git rev: 55ac1ea
 sha1sum: 20b155f
 size: 866 B">messages.html</a></pre><code><span class="m4-cb" title="select text"></span><a href="#m4-messages_messages-html-command" title="⚓"></a></code></div>
@@ -941,7 +941,7 @@ size: 866 B">messages.html</a></pre><code><span class="m4-cb" title="select text
 	&lt;p id="NO_ERRORS">No other errors were found.&lt;/p>
 &lt;/body>
 &lt;/html></pre><code><span class="m4-sha">55ac1ea</span><a href="https://raw.githubusercontent.com/jkubin/m4root/55ac1eac6d38aa9e36ddea55a839355a6a5bcba4/messages/messages.html" title="messages/messages.html
-date: 20210103-13:28:44
+date: 20210103 13:28:44
 sha1sum: 20b155f
 size: 866 B">messages.html</a><span class="m4-cb" title="select text"></span><a href="#m4-messages_messages-html" title="⚓"></a></code></div>
 <h3 id="m4-branching-by-grammar" class="m4-ch"><a href="#m4-branching-by-grammar-toc" title="Content"></a><a href="#m4-branching-by-grammar" title="⚓">A.11</a><code>⟦⟧</code> Branching by grammar<a href="#m4--toc" title="Top"></a></h3>
@@ -964,28 +964,28 @@ define(⟦WARNING⟧, defn(⟦ERROR⟧))
 define(⟦ERROR_INSECT⟧,   ⟦&#x1f41b;⟧)
 define(⟦QUERY_INSECT⟧,   ⟦&#x1f41c;⟧)
 define(⟦WARNING_INSECT⟧, ⟦&#x1f41d;⟧)</pre><code><span class="m4-sha">24fd4f3</span><a href="https://raw.githubusercontent.com/jkubin/m4root/24fd4f31afda7ced456da6ab60904553760075a5/messages/insect.txt.m4" title="messages/insect.txt.m4
-date: 20201226-21:52:28
+date: 20201226 21:52:28
 sha1sum: ce656e5
 size: 307 B">insect.txt.m4</a><span class="m4-cb" title="select text"></span><a href="#m4-messages_insect-txt-m4" title="⚓"></a></code></div>
 <div id="m4-messages_insect-txt-command" class="m4-cmd m4-usc"><pre title="command">m4 <a href="https://raw.githubusercontent.com/jkubin/m4root/cf9fdc8d1a26af256fe9a5f43b13a166fa23ea7f/gfiles/root0u.m4" title="gfiles/root0u.m4
-date: 20210110-15:33:50
+date: 20210110 15:33:50
 git rev: cf9fdc8
-sha1sum: d251bd4
-size: 1322 B">root0u.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/24fd4f31afda7ced456da6ab60904553760075a5/messages/insect.txt.m4" title="messages/insect.txt.m4
-date: 20201226-21:52:28
+sha1sum: f498f9d
+size: 1320 B">root0u.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/24fd4f31afda7ced456da6ab60904553760075a5/messages/insect.txt.m4" title="messages/insect.txt.m4
+date: 20201226 21:52:28
 git rev: 24fd4f3
 sha1sum: ce656e5
 size: 307 B">insect.txt.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/55ac1eac6d38aa9e36ddea55a839355a6a5bcba4/messages/messages.mc" title="messages/messages.mc
-date: 20210103-13:28:44
+date: 20210103 13:28:44
 git rev: 55ac1ea
 sha1sum: c6496e4
 size: 535 B">messages.mc</a> > <a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/messages/insect.txt" title="messages/insect.txt
-date: 20200106-16:21:10
+date: 20200106 16:21:10
 git rev: b53eafe
 sha1sum: a08c5e8
 size: 24 B">insect.txt</a></pre><code><span class="m4-cb" title="select text"></span><a href="#m4-messages_insect-txt-command" title="⚓"></a></code></div>
 <div id="m4-messages_insect-txt" class="m4-src"><pre><span class="m4-a">&#x1f41b;</span><span class="m4-b">&#x1f41c;</span><span class="m4-a">&#x1f41b;</span><span class="m4-c">&#x1f41d;</span><span class="m4-a">&#x1f41b;</span><span class="m4-c">&#x1f41d;</span></pre><code><span class="m4-sha">b53eafe</span><a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/messages/insect.txt" title="messages/insect.txt
-date: 20200106-16:21:10
+date: 20200106 16:21:10
 sha1sum: a08c5e8
 size: 24 B">insect.txt</a><span class="m4-cb" title="select text"></span><a href="#m4-messages_insect-txt" title="⚓"></a></code></div>
 <h4 id="m4-branching-by-grammar-basic-pr" class="m4-bh"><a href="#m4-branching-by-grammar-basic-pr" title="⚓"></a>Branching by grammar – basic principle<a href="#m4--toc" title="Top"></a></h4>
@@ -1036,27 +1036,27 @@ divert(0)dnl
 divert(2)dnl
 }}
 divert(-1)</pre><code><span class="m4-sha">24fd4f3</span><a href="https://raw.githubusercontent.com/jkubin/m4root/24fd4f31afda7ced456da6ab60904553760075a5/messages/atm.json.m4" title="messages/atm.json.m4
-date: 20201226-21:52:28
+date: 20201226 21:52:28
 sha1sum: f09f617
 size: 474 B">atm.json.m4</a><span class="m4-cb" title="select text"></span><a href="#m4-messages_atm-json-m4" title="⚓"></a></code></div>
 <div id="m4-messages_atm-json-command" class="m4-cmd m4-usc"><pre title="command">m4 <a href="https://raw.githubusercontent.com/jkubin/m4root/cf9fdc8d1a26af256fe9a5f43b13a166fa23ea7f/gfiles/root0u.m4" title="gfiles/root0u.m4
-date: 20210110-15:33:50
+date: 20210110 15:33:50
 git rev: cf9fdc8
-sha1sum: d251bd4
-size: 1322 B">root0u.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/24fd4f31afda7ced456da6ab60904553760075a5/messages/atm.json.m4" title="messages/atm.json.m4
-date: 20201226-21:52:28
+sha1sum: f498f9d
+size: 1320 B">root0u.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/24fd4f31afda7ced456da6ab60904553760075a5/messages/atm.json.m4" title="messages/atm.json.m4
+date: 20201226 21:52:28
 git rev: 24fd4f3
 sha1sum: f09f617
 size: 474 B">atm.json.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/d2707ad62aa69a66715389b9bf732ad99573a88d/messages/code.m4" title="messages/code.m4
-date: 20201226-22:38:15
+date: 20201226 22:38:15
 git rev: d2707ad
 sha1sum: d709e07
 size: 248 B">code.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/55ac1eac6d38aa9e36ddea55a839355a6a5bcba4/messages/messages.mc" title="messages/messages.mc
-date: 20210103-13:28:44
+date: 20210103 13:28:44
 git rev: 55ac1ea
 sha1sum: c6496e4
 size: 535 B">messages.mc</a> > <a href="https://raw.githubusercontent.com/jkubin/m4root/55ac1eac6d38aa9e36ddea55a839355a6a5bcba4/messages/atm.json" title="messages/atm.json
-date: 20210103-13:28:44
+date: 20210103 13:28:44
 git rev: 55ac1ea
 sha1sum: 841e816
 size: 269 B">atm.json</a></pre><code><span class="m4-cb" title="select text"></span><a href="#m4-messages_atm-json-command" title="⚓"></a></code></div>
@@ -1068,7 +1068,7 @@ size: 269 B">atm.json</a></pre><code><span class="m4-cb" title="select text"></s
 		{"NO_FAULT": "It's not a language fault!"}
 	]
 }}</pre><code><span class="m4-sha">55ac1ea</span><a href="https://raw.githubusercontent.com/jkubin/m4root/55ac1eac6d38aa9e36ddea55a839355a6a5bcba4/messages/atm.json" title="messages/atm.json
-date: 20210103-13:28:44
+date: 20210103 13:28:44
 sha1sum: 841e816
 size: 269 B">atm.json</a><span class="m4-cb" title="select text"></span><a href="#m4-messages_atm-json" title="⚓"></a></code></div>
 <h4 id="m4-jsonw-named-queues" class="m4-ch"><a href="#m4-jsonw-named-queues-toc" title="Content"></a><a href="#m4-jsonw-named-queues" title="⚓">A.12.1</a><code>⟦⟧</code> JSON: named queues<a href="#m4--toc" title="Top"></a></h4>
@@ -1129,27 +1129,27 @@ divert(0)dnl
 divert(LAST_QUEUE)
 }}
 divert(-1)</pre><code><span class="m4-sha">24fd4f3</span><a href="https://raw.githubusercontent.com/jkubin/m4root/24fd4f31afda7ced456da6ab60904553760075a5/messages/qnames.json.m4" title="messages/qnames.json.m4
-date: 20201226-21:52:28
+date: 20201226 21:52:28
 sha1sum: 1e3b868
 size: 1027 B">qnames.json.m4</a><span class="m4-cb" title="select text"></span><a href="#m4-messages_qnames-json-m4" title="⚓"></a></code></div>
 <div id="m4-messages_qnames-json-command" class="m4-cmd m4-usc"><pre title="command">m4 <a href="https://raw.githubusercontent.com/jkubin/m4root/cf9fdc8d1a26af256fe9a5f43b13a166fa23ea7f/gfiles/root0u.m4" title="gfiles/root0u.m4
-date: 20210110-15:33:50
+date: 20210110 15:33:50
 git rev: cf9fdc8
-sha1sum: d251bd4
-size: 1322 B">root0u.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/24fd4f31afda7ced456da6ab60904553760075a5/messages/qnames.json.m4" title="messages/qnames.json.m4
-date: 20201226-21:52:28
+sha1sum: f498f9d
+size: 1320 B">root0u.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/24fd4f31afda7ced456da6ab60904553760075a5/messages/qnames.json.m4" title="messages/qnames.json.m4
+date: 20201226 21:52:28
 git rev: 24fd4f3
 sha1sum: 1e3b868
 size: 1027 B">qnames.json.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/d2707ad62aa69a66715389b9bf732ad99573a88d/messages/code.m4" title="messages/code.m4
-date: 20201226-22:38:15
+date: 20201226 22:38:15
 git rev: d2707ad
 sha1sum: d709e07
 size: 248 B">code.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/55ac1eac6d38aa9e36ddea55a839355a6a5bcba4/messages/messages.mc" title="messages/messages.mc
-date: 20210103-13:28:44
+date: 20210103 13:28:44
 git rev: 55ac1ea
 sha1sum: c6496e4
 size: 535 B">messages.mc</a> > <a href="https://raw.githubusercontent.com/jkubin/m4root/55ac1eac6d38aa9e36ddea55a839355a6a5bcba4/messages/qnames.json" title="messages/qnames.json
-date: 20210103-13:28:44
+date: 20210103 13:28:44
 git rev: 55ac1ea
 sha1sum: 3c39e26
 size: 452 B">qnames.json</a></pre><code><span class="m4-cb" title="select text"></span><a href="#m4-messages_qnames-json-command" title="⚓"></a></code></div>
@@ -1168,7 +1168,7 @@ size: 452 B">qnames.json</a></pre><code><span class="m4-cb" title="select text">
 		{"NO_ERRORS": "No other errors were found."}
 	]
 }}</pre><code><span class="m4-sha">55ac1ea</span><a href="https://raw.githubusercontent.com/jkubin/m4root/55ac1eac6d38aa9e36ddea55a839355a6a5bcba4/messages/qnames.json" title="messages/qnames.json
-date: 20210103-13:28:44
+date: 20210103 13:28:44
 sha1sum: 3c39e26
 size: 452 B">qnames.json</a><span class="m4-cb" title="select text"></span><a href="#m4-messages_qnames-json" title="⚓"></a></code></div>
 <h4 id="m4-jsonw-generated-queue-indexes" class="m4-ch"><a href="#m4-jsonw-generated-queue-indexes-toc" title="Content"></a><a href="#m4-jsonw-generated-queue-indexes" title="⚓">A.12.2</a><code>⟦⟧</code> JSON: generated queue indexes<a href="#m4--toc" title="Top"></a></h4>
@@ -1199,7 +1199,7 @@ define(⟦LAST_QUEUE⟧,   <span class="m4-a">QUEUE_INDEX</span>)
 define(⟦WARNING_NAME⟧, ⟦warning⟧)
 define(⟦ERROR_NAME⟧,   ⟦error⟧)
 define(⟦QUERY_NAME⟧,   ⟦query⟧)</pre><code><span class="m4-sha">24fd4f3</span><a href="https://raw.githubusercontent.com/jkubin/m4root/24fd4f31afda7ced456da6ab60904553760075a5/messages/queues.m4" title="messages/queues.m4
-date: 20201226-21:52:28
+date: 20201226 21:52:28
 sha1sum: 79f498c
 size: 674 B">queues.m4</a><span class="m4-cb" title="select text"></span><a href="#m4-messages_queues-m4" title="⚓"></a></code></div>
 <div id="m4-messages_messages-json-m4" class="m4-src"><pre>#      _________      ___________
@@ -1240,35 +1240,35 @@ divert(0)dnl
 divert(LAST_QUEUE)
 }}
 divert(-1)</pre><code><span class="m4-sha">24fd4f3</span><a href="https://raw.githubusercontent.com/jkubin/m4root/24fd4f31afda7ced456da6ab60904553760075a5/messages/messages.json.m4" title="messages/messages.json.m4
-date: 20201226-21:52:28
+date: 20201226 21:52:28
 sha1sum: f74c194
 size: 609 B">messages.json.m4</a><span class="m4-cb" title="select text"></span><a href="#m4-messages_messages-json-m4" title="⚓"></a></code></div>
 <div id="m4-messages_messages-json-command" class="m4-cmd m4-usc"><pre title="command">m4 <a href="https://raw.githubusercontent.com/jkubin/m4root/cf9fdc8d1a26af256fe9a5f43b13a166fa23ea7f/gfiles/root0u.m4" title="gfiles/root0u.m4
-date: 20210110-15:33:50
+date: 20210110 15:33:50
 git rev: cf9fdc8
-sha1sum: d251bd4
-size: 1322 B">root0u.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/17cb82f06ccca2e7775b95b3513ab56ee94c0457/gfiles/countb.m4" title="gfiles/countb.m4
-date: 20200429-07:34:47
+sha1sum: f498f9d
+size: 1320 B">root0u.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/17cb82f06ccca2e7775b95b3513ab56ee94c0457/gfiles/countu.m4" title="gfiles/countu.m4
+date: 20200429 07:34:47
 git rev: 17cb82f
-sha1sum: 2d647fa
-size: 766 B">countb.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/24fd4f31afda7ced456da6ab60904553760075a5/messages/queues.m4" title="messages/queues.m4
-date: 20201226-21:52:28
+sha1sum: 83b97d7
+size: 947 B">countu.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/24fd4f31afda7ced456da6ab60904553760075a5/messages/queues.m4" title="messages/queues.m4
+date: 20201226 21:52:28
 git rev: 24fd4f3
 sha1sum: 79f498c
 size: 674 B">queues.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/24fd4f31afda7ced456da6ab60904553760075a5/messages/messages.json.m4" title="messages/messages.json.m4
-date: 20201226-21:52:28
+date: 20201226 21:52:28
 git rev: 24fd4f3
 sha1sum: f74c194
 size: 609 B">messages.json.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/d2707ad62aa69a66715389b9bf732ad99573a88d/messages/code.m4" title="messages/code.m4
-date: 20201226-22:38:15
+date: 20201226 22:38:15
 git rev: d2707ad
 sha1sum: d709e07
 size: 248 B">code.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/55ac1eac6d38aa9e36ddea55a839355a6a5bcba4/messages/messages.mc" title="messages/messages.mc
-date: 20210103-13:28:44
+date: 20210103 13:28:44
 git rev: 55ac1ea
 sha1sum: c6496e4
 size: 535 B">messages.mc</a> > <a href="https://raw.githubusercontent.com/jkubin/m4root/55ac1eac6d38aa9e36ddea55a839355a6a5bcba4/messages/messages.json" title="messages/messages.json
-date: 20210103-13:28:44
+date: 20210103 13:28:44
 git rev: 55ac1ea
 sha1sum: cc6ff19
 size: 449 B">messages.json</a></pre><code><span class="m4-cb" title="select text"></span><a href="#m4-messages_messages-json-command" title="⚓"></a></code></div>
@@ -1287,7 +1287,7 @@ size: 449 B">messages.json</a></pre><code><span class="m4-cb" title="select text
 		{"NO_ERRORS": "No other errors were found."}
 	]
 }}</pre><code><span class="m4-sha">55ac1ea</span><a href="https://raw.githubusercontent.com/jkubin/m4root/55ac1eac6d38aa9e36ddea55a839355a6a5bcba4/messages/messages.json" title="messages/messages.json
-date: 20210103-13:28:44
+date: 20210103 13:28:44
 sha1sum: cc6ff19
 size: 449 B">messages.json</a><span class="m4-cb" title="select text"></span><a href="#m4-messages_messages-json" title="⚓"></a></code></div>
 <h3 id="m4-iniw-discontinuous-queue-inde" class="m4-ch"><a href="#m4-iniw-discontinuous-queue-inde-toc" title="Content"></a><a href="#m4-iniw-discontinuous-queue-inde" title="⚓">A.13</a><code>⟦⟧</code> INI: discontinuous queue index<a href="#m4--toc" title="Top"></a></h3>
@@ -1327,35 +1327,35 @@ divert(-1)
 divert(0)dnl
 ; DONTE()
 divert(-1)</pre><code><span class="m4-sha">24fd4f3</span><a href="https://raw.githubusercontent.com/jkubin/m4root/24fd4f31afda7ced456da6ab60904553760075a5/messages/messages.ini.m4" title="messages/messages.ini.m4
-date: 20201226-21:52:28
+date: 20201226 21:52:28
 sha1sum: fb8782f
 size: 512 B">messages.ini.m4</a><span class="m4-cb" title="select text"></span><a href="#m4-messages_messages-ini-m4" title="⚓"></a></code></div>
 <div id="m4-messages_messages-ini-command" class="m4-cmd m4-usc"><pre title="command">m4 <a href="https://raw.githubusercontent.com/jkubin/m4root/cf9fdc8d1a26af256fe9a5f43b13a166fa23ea7f/gfiles/root0u.m4" title="gfiles/root0u.m4
-date: 20210110-15:33:50
+date: 20210110 15:33:50
 git rev: cf9fdc8
-sha1sum: d251bd4
-size: 1322 B">root0u.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/24fd4f31afda7ced456da6ab60904553760075a5/messages/messages.ini.m4" title="messages/messages.ini.m4
-date: 20201226-21:52:28
+sha1sum: f498f9d
+size: 1320 B">root0u.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/24fd4f31afda7ced456da6ab60904553760075a5/messages/messages.ini.m4" title="messages/messages.ini.m4
+date: 20201226 21:52:28
 git rev: 24fd4f3
 sha1sum: fb8782f
-size: 512 B">messages.ini.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/17cb82f06ccca2e7775b95b3513ab56ee94c0457/gfiles/countb.m4" title="gfiles/countb.m4
-date: 20200429-07:34:47
+size: 512 B">messages.ini.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/17cb82f06ccca2e7775b95b3513ab56ee94c0457/gfiles/countu.m4" title="gfiles/countu.m4
+date: 20200429 07:34:47
 git rev: 17cb82f
-sha1sum: 2d647fa
-size: 766 B">countb.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/24fd4f31afda7ced456da6ab60904553760075a5/messages/queues.m4" title="messages/queues.m4
-date: 20201226-21:52:28
+sha1sum: 83b97d7
+size: 947 B">countu.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/24fd4f31afda7ced456da6ab60904553760075a5/messages/queues.m4" title="messages/queues.m4
+date: 20201226 21:52:28
 git rev: 24fd4f3
 sha1sum: 79f498c
 size: 674 B">queues.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/d2707ad62aa69a66715389b9bf732ad99573a88d/messages/code.m4" title="messages/code.m4
-date: 20201226-22:38:15
+date: 20201226 22:38:15
 git rev: d2707ad
 sha1sum: d709e07
 size: 248 B">code.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/55ac1eac6d38aa9e36ddea55a839355a6a5bcba4/messages/messages.mc" title="messages/messages.mc
-date: 20210103-13:28:44
+date: 20210103 13:28:44
 git rev: 55ac1ea
 sha1sum: c6496e4
 size: 535 B">messages.mc</a> > <a href="https://raw.githubusercontent.com/jkubin/m4root/55ac1eac6d38aa9e36ddea55a839355a6a5bcba4/messages/messages.ini" title="messages/messages.ini
-date: 20210103-13:28:44
+date: 20210103 13:28:44
 git rev: 55ac1ea
 sha1sum: cf65110
 size: 352 B">messages.ini</a></pre><code><span class="m4-cb" title="select text"></span><a href="#m4-messages_messages-ini-command" title="⚓"></a></code></div>
@@ -1372,7 +1372,7 @@ NO_FAULT="It's not a language fault!"
 [warning]
 ADDICTIVE="Programming in M4 is addictive!"
 NO_ERRORS="No other errors were found."</pre><code><span class="m4-sha">55ac1ea</span><a href="https://raw.githubusercontent.com/jkubin/m4root/55ac1eac6d38aa9e36ddea55a839355a6a5bcba4/messages/messages.ini" title="messages/messages.ini
-date: 20210103-13:28:44
+date: 20210103 13:28:44
 sha1sum: cf65110
 size: 352 B">messages.ini</a><span class="m4-cb" title="select text"></span><a href="#m4-messages_messages-ini" title="⚓"></a></code></div>
 <h3 id="m4-xmlw-mixed-messages" class="m4-ch"><a href="#m4-xmlw-mixed-messages-toc" title="Content"></a><a href="#m4-xmlw-mixed-messages" title="⚓">A.14</a><code>⟦⟧</code> XML: mixed messages<a href="#m4--toc" title="Top"></a></h3>
@@ -1400,31 +1400,31 @@ divert(0)dnl
 divert(1)dnl
 &lt;/messages>
 divert(-1)</pre><code><span class="m4-sha">24fd4f3</span><a href="https://raw.githubusercontent.com/jkubin/m4root/24fd4f31afda7ced456da6ab60904553760075a5/messages/mixed.xml.m4" title="messages/mixed.xml.m4
-date: 20201226-21:52:28
+date: 20201226 21:52:28
 sha1sum: d43ef91
 size: 347 B">mixed.xml.m4</a><span class="m4-cb" title="select text"></span><a href="#m4-messages_mixed-xml-m4" title="⚓"></a></code></div>
 <div id="m4-messages_mixed-xml-command" class="m4-cmd m4-usc"><pre title="command">m4 <a href="https://raw.githubusercontent.com/jkubin/m4root/cf9fdc8d1a26af256fe9a5f43b13a166fa23ea7f/gfiles/root0u.m4" title="gfiles/root0u.m4
-date: 20210110-15:33:50
+date: 20210110 15:33:50
 git rev: cf9fdc8
-sha1sum: d251bd4
-size: 1322 B">root0u.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/24fd4f31afda7ced456da6ab60904553760075a5/messages/queues.m4" title="messages/queues.m4
-date: 20201226-21:52:28
+sha1sum: f498f9d
+size: 1320 B">root0u.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/24fd4f31afda7ced456da6ab60904553760075a5/messages/queues.m4" title="messages/queues.m4
+date: 20201226 21:52:28
 git rev: 24fd4f3
 sha1sum: 79f498c
 size: 674 B">queues.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/24fd4f31afda7ced456da6ab60904553760075a5/messages/mixed.xml.m4" title="messages/mixed.xml.m4
-date: 20201226-21:52:28
+date: 20201226 21:52:28
 git rev: 24fd4f3
 sha1sum: d43ef91
 size: 347 B">mixed.xml.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/d2707ad62aa69a66715389b9bf732ad99573a88d/messages/markup.m4" title="messages/markup.m4
-date: 20201226-22:38:15
+date: 20201226 22:38:15
 git rev: d2707ad
 sha1sum: 98612ec
 size: 256 B">markup.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/55ac1eac6d38aa9e36ddea55a839355a6a5bcba4/messages/messages.mc" title="messages/messages.mc
-date: 20210103-13:28:44
+date: 20210103 13:28:44
 git rev: 55ac1ea
 sha1sum: c6496e4
 size: 535 B">messages.mc</a> > <a href="https://raw.githubusercontent.com/jkubin/m4root/55ac1eac6d38aa9e36ddea55a839355a6a5bcba4/messages/mixed.xml" title="messages/mixed.xml
-date: 20210103-13:28:44
+date: 20210103 13:28:44
 git rev: 55ac1ea
 sha1sum: b907138
 size: 702 B">mixed.xml</a></pre><code><span class="m4-cb" title="select text"></span><a href="#m4-messages_mixed-xml-command" title="⚓"></a></code></div>
@@ -1456,7 +1456,7 @@ size: 702 B">mixed.xml</a></pre><code><span class="m4-cb" title="select text"></
 		&lt;value>No other errors were found.&lt;/value>
 	&lt;/warning>
 &lt;/messages></pre><code><span class="m4-sha">55ac1ea</span><a href="https://raw.githubusercontent.com/jkubin/m4root/55ac1eac6d38aa9e36ddea55a839355a6a5bcba4/messages/mixed.xml" title="messages/mixed.xml
-date: 20210103-13:28:44
+date: 20210103 13:28:44
 sha1sum: b907138
 size: 702 B">mixed.xml</a><span class="m4-cb" title="select text"></span><a href="#m4-messages_mixed-xml" title="⚓"></a></code></div>
 <h3 id="m4-xmlw-separated-messages" class="m4-ch"><a href="#m4-xmlw-separated-messages-toc" title="Content"></a><a href="#m4-xmlw-separated-messages" title="⚓">A.15</a><code>⟦⟧</code> XML: separated messages<a href="#m4--toc" title="Top"></a></h3>
@@ -1501,31 +1501,31 @@ divert(0)dnl
 divert(LAST_QUEUE)dnl
 &lt;/messages>
 divert(-1)</pre><code><span class="m4-sha">24fd4f3</span><a href="https://raw.githubusercontent.com/jkubin/m4root/24fd4f31afda7ced456da6ab60904553760075a5/messages/messages.xml.m4" title="messages/messages.xml.m4
-date: 20201226-21:52:28
+date: 20201226 21:52:28
 sha1sum: bea84ce
 size: 618 B">messages.xml.m4</a><span class="m4-cb" title="select text"></span><a href="#m4-messages_messages-xml-m4" title="⚓"></a></code></div>
 <div id="m4-messages_messages-xml-command" class="m4-cmd m4-usc"><pre title="command">m4 <a href="https://raw.githubusercontent.com/jkubin/m4root/cf9fdc8d1a26af256fe9a5f43b13a166fa23ea7f/gfiles/root0u.m4" title="gfiles/root0u.m4
-date: 20210110-15:33:50
+date: 20210110 15:33:50
 git rev: cf9fdc8
-sha1sum: d251bd4
-size: 1322 B">root0u.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/24fd4f31afda7ced456da6ab60904553760075a5/messages/queues.m4" title="messages/queues.m4
-date: 20201226-21:52:28
+sha1sum: f498f9d
+size: 1320 B">root0u.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/24fd4f31afda7ced456da6ab60904553760075a5/messages/queues.m4" title="messages/queues.m4
+date: 20201226 21:52:28
 git rev: 24fd4f3
 sha1sum: 79f498c
 size: 674 B">queues.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/24fd4f31afda7ced456da6ab60904553760075a5/messages/messages.xml.m4" title="messages/messages.xml.m4
-date: 20201226-21:52:28
+date: 20201226 21:52:28
 git rev: 24fd4f3
 sha1sum: bea84ce
 size: 618 B">messages.xml.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/d2707ad62aa69a66715389b9bf732ad99573a88d/messages/markup.m4" title="messages/markup.m4
-date: 20201226-22:38:15
+date: 20201226 22:38:15
 git rev: d2707ad
 sha1sum: 98612ec
 size: 256 B">markup.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/55ac1eac6d38aa9e36ddea55a839355a6a5bcba4/messages/messages.mc" title="messages/messages.mc
-date: 20210103-13:28:44
+date: 20210103 13:28:44
 git rev: 55ac1ea
 sha1sum: c6496e4
 size: 535 B">messages.mc</a> > <a href="https://raw.githubusercontent.com/jkubin/m4root/55ac1eac6d38aa9e36ddea55a839355a6a5bcba4/messages/messages.xml" title="messages/messages.xml
-date: 20210103-13:28:44
+date: 20210103 13:28:44
 git rev: 55ac1ea
 sha1sum: 038f4ab
 size: 767 B">messages.xml</a></pre><code><span class="m4-cb" title="select text"></span><a href="#m4-messages_messages-xml-command" title="⚓"></a></code></div>
@@ -1563,7 +1563,7 @@ size: 767 B">messages.xml</a></pre><code><span class="m4-cb" title="select text"
 		&lt;/item>
 	&lt;/warning>
 &lt;/messages></pre><code><span class="m4-sha">55ac1ea</span><a href="https://raw.githubusercontent.com/jkubin/m4root/55ac1eac6d38aa9e36ddea55a839355a6a5bcba4/messages/messages.xml" title="messages/messages.xml
-date: 20210103-13:28:44
+date: 20210103 13:28:44
 sha1sum: 038f4ab
 size: 767 B">messages.xml</a><span class="m4-cb" title="select text"></span><a href="#m4-messages_messages-xml" title="⚓"></a></code></div>
 <h3 id="m4-bash-echo-dstringd" class="m4-ch"><a href="#m4-bash-echo-dstringd-toc" title="Content"></a><a href="#m4-bash-echo-dstringd" title="⚓">A.16</a><code>⟦⟧</code> Bash <code>$ echo &quot;string&quot;</code><a href="#m4--toc" title="Top"></a></h3>
@@ -1586,27 +1586,27 @@ divert(0)dnl
 ⟦#⟧ DONTE()
 
 divert(-1)</pre><code><span class="m4-sha">24fd4f3</span><a href="https://raw.githubusercontent.com/jkubin/m4root/24fd4f31afda7ced456da6ab60904553760075a5/messages/doubleq.sh.m4" title="messages/doubleq.sh.m4
-date: 20201226-21:52:28
+date: 20201226 21:52:28
 sha1sum: 8de61d2
 size: 229 B">doubleq.sh.m4</a><span class="m4-cb" title="select text"></span><a href="#m4-messages_doubleq-sh-m4" title="⚓"></a></code></div>
 <div id="m4-messages_doubleq-sh-command" class="m4-cmd m4-usc"><pre title="command">m4 <a href="https://raw.githubusercontent.com/jkubin/m4root/cf9fdc8d1a26af256fe9a5f43b13a166fa23ea7f/gfiles/root0u.m4" title="gfiles/root0u.m4
-date: 20210110-15:33:50
+date: 20210110 15:33:50
 git rev: cf9fdc8
-sha1sum: d251bd4
-size: 1322 B">root0u.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/24fd4f31afda7ced456da6ab60904553760075a5/messages/doubleq.sh.m4" title="messages/doubleq.sh.m4
-date: 20201226-21:52:28
+sha1sum: f498f9d
+size: 1320 B">root0u.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/24fd4f31afda7ced456da6ab60904553760075a5/messages/doubleq.sh.m4" title="messages/doubleq.sh.m4
+date: 20201226 21:52:28
 git rev: 24fd4f3
 sha1sum: 8de61d2
 size: 229 B">doubleq.sh.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/d2707ad62aa69a66715389b9bf732ad99573a88d/messages/doubleq.m4" title="messages/doubleq.m4
-date: 20201226-22:38:15
+date: 20201226 22:38:15
 git rev: d2707ad
 sha1sum: c94b763
 size: 252 B">doubleq.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/55ac1eac6d38aa9e36ddea55a839355a6a5bcba4/messages/messages.mc" title="messages/messages.mc
-date: 20210103-13:28:44
+date: 20210103 13:28:44
 git rev: 55ac1ea
 sha1sum: c6496e4
 size: 535 B">messages.mc</a> > <a href="https://raw.githubusercontent.com/jkubin/m4root/d2707ad62aa69a66715389b9bf732ad99573a88d/messages/doubleq.sh" title="messages/doubleq.sh
-date: 20201226-22:38:15
+date: 20201226 22:38:15
 git rev: d2707ad
 sha1sum: 747c4db
 size: 324 B">doubleq.sh</a></pre><code><span class="m4-cb" title="select text"></span><a href="#m4-messages_doubleq-sh-command" title="⚓"></a></code></div>
@@ -1620,7 +1620,7 @@ echo "Too complex M4 code failed successfully."
 echo "Programming in M4 is addictive"\!""
 echo "It's not a language fault"\!""
 echo "No other errors were found."</pre><code><span class="m4-sha">d2707ad</span><a href="https://raw.githubusercontent.com/jkubin/m4root/d2707ad62aa69a66715389b9bf732ad99573a88d/messages/doubleq.sh" title="messages/doubleq.sh
-date: 20201226-22:38:15
+date: 20201226 22:38:15
 sha1sum: 747c4db
 size: 324 B">doubleq.sh</a><span class="m4-cb" title="select text"></span><a href="#m4-messages_doubleq-sh" title="⚓"></a></code></div>
 <h3 id="m4-bash-echo-astringa" class="m4-ch"><a href="#m4-bash-echo-astringa-toc" title="Content"></a><a href="#m4-bash-echo-astringa" title="⚓">A.17</a><code>⟦⟧</code> Bash <code>$ echo 'string'</code><a href="#m4--toc" title="Top"></a></h3>
@@ -1643,27 +1643,27 @@ divert(0)dnl
 ⟦#⟧ DONTE()
 
 divert(-1)</pre><code><span class="m4-sha">24fd4f3</span><a href="https://raw.githubusercontent.com/jkubin/m4root/24fd4f31afda7ced456da6ab60904553760075a5/messages/apost.sh.m4" title="messages/apost.sh.m4
-date: 20201226-21:52:28
+date: 20201226 21:52:28
 sha1sum: 6c78a02
 size: 229 B">apost.sh.m4</a><span class="m4-cb" title="select text"></span><a href="#m4-messages_apost-sh-m4" title="⚓"></a></code></div>
 <div id="m4-messages_apost-sh-command" class="m4-cmd m4-usc"><pre title="command">m4 <a href="https://raw.githubusercontent.com/jkubin/m4root/cf9fdc8d1a26af256fe9a5f43b13a166fa23ea7f/gfiles/root0u.m4" title="gfiles/root0u.m4
-date: 20210110-15:33:50
+date: 20210110 15:33:50
 git rev: cf9fdc8
-sha1sum: d251bd4
-size: 1322 B">root0u.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/24fd4f31afda7ced456da6ab60904553760075a5/messages/apost.sh.m4" title="messages/apost.sh.m4
-date: 20201226-21:52:28
+sha1sum: f498f9d
+size: 1320 B">root0u.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/24fd4f31afda7ced456da6ab60904553760075a5/messages/apost.sh.m4" title="messages/apost.sh.m4
+date: 20201226 21:52:28
 git rev: 24fd4f3
 sha1sum: 6c78a02
 size: 229 B">apost.sh.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/d2707ad62aa69a66715389b9bf732ad99573a88d/messages/apost.m4" title="messages/apost.m4
-date: 20201226-22:38:15
+date: 20201226 22:38:15
 git rev: d2707ad
 sha1sum: e7eec73
 size: 249 B">apost.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/55ac1eac6d38aa9e36ddea55a839355a6a5bcba4/messages/messages.mc" title="messages/messages.mc
-date: 20210103-13:28:44
+date: 20210103 13:28:44
 git rev: 55ac1ea
 sha1sum: c6496e4
 size: 535 B">messages.mc</a> > <a href="https://raw.githubusercontent.com/jkubin/m4root/596477641924afb389bd55c019cfe7debcc9e9d5/messages/apost.sh" title="messages/apost.sh
-date: 20201225-10:46:17
+date: 20201225 10:46:17
 git rev: 5964776
 sha1sum: 854fc6e
 size: 318 B">apost.sh</a></pre><code><span class="m4-cb" title="select text"></span><a href="#m4-messages_apost-sh-command" title="⚓"></a></code></div>
@@ -1677,7 +1677,7 @@ echo 'Too complex M4 code failed successfully.'
 echo 'Programming in M4 is addictive!'
 echo 'It'\''s not a language fault!'
 echo 'No other errors were found.'</pre><code><span class="m4-sha">5964776</span><a href="https://raw.githubusercontent.com/jkubin/m4root/596477641924afb389bd55c019cfe7debcc9e9d5/messages/apost.sh" title="messages/apost.sh
-date: 20201225-10:46:17
+date: 20201225 10:46:17
 sha1sum: 854fc6e
 size: 318 B">apost.sh</a><span class="m4-cb" title="select text"></span><a href="#m4-messages_apost-sh" title="⚓"></a></code></div>
 <h2 id="m4-preprocessor-examples" class="m4-ch"><a href="#m4-preprocessor-examples-toc" title="Content"></a><a href="#m4-preprocessor-examples" title="⚓">B</a>Preprocessor examples<a href="#m4--toc" title="Top"></a></h2>
@@ -1700,7 +1700,7 @@ define(`ORD', `$0_M4 <span class="m4-a">RR()</span><span class="m4-c">SYMBOL</sp
 define(`SAF', `ifelse(`$#', `0', ``$0'', `($1) * ($1)	/* $0_M4 <span class="m4-c">SYMBOL</span> */')')
 
 divert(0)dnl</pre><code><span class="m4-sha">cf9fdc8</span><a href="https://raw.githubusercontent.com/jkubin/m4root/cf9fdc8d1a26af256fe9a5f43b13a166fa23ea7f/preproc/file.c.m4" title="preproc/file.c.m4
-date: 20210110-15:33:50
+date: 20210110 15:33:50
 sha1sum: 7e01510
 size: 196 B">file.c.m4</a><span class="m4-cb" title="select text"></span><a href="#m4-preproc_file-c-m4" title="⚓"></a></code></div>
 <div id="m4-preproc_file-c" class="m4-src"><pre>/*
@@ -1734,23 +1734,23 @@ int main(void)
 
 	return 0;
 }</pre><code><span class="m4-sha">cf9fdc8</span><a href="https://raw.githubusercontent.com/jkubin/m4root/cf9fdc8d1a26af256fe9a5f43b13a166fa23ea7f/preproc/file.c" title="preproc/file.c
-date: 20210110-15:33:50
+date: 20210110 15:33:50
 sha1sum: 1fe5bfc
 size: 583 B">file.c</a><span class="m4-cb" title="select text"></span><a href="#m4-preproc_file-c" title="⚓"></a></code></div>
 <div id="m4-preproc_preproc-file-c-command" class="m4-cmd m4-usc"><pre title="command">m4 -DSYMBOL='Hello, world!' <a href="https://raw.githubusercontent.com/jkubin/m4root/cf9fdc8d1a26af256fe9a5f43b13a166fa23ea7f/gfiles/root0q.m4" title="gfiles/root0q.m4
-date: 20210110-15:33:50
+date: 20210110 15:33:50
 git rev: cf9fdc8
 sha1sum: eb74312
 size: 1154 B">root0q.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/cf9fdc8d1a26af256fe9a5f43b13a166fa23ea7f/preproc/file.c.m4" title="preproc/file.c.m4
-date: 20210110-15:33:50
+date: 20210110 15:33:50
 git rev: cf9fdc8
 sha1sum: 7e01510
 size: 196 B">file.c.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/cf9fdc8d1a26af256fe9a5f43b13a166fa23ea7f/preproc/file.c" title="preproc/file.c
-date: 20210110-15:33:50
+date: 20210110 15:33:50
 git rev: cf9fdc8
 sha1sum: 1fe5bfc
 size: 583 B">file.c</a> > <a href="https://raw.githubusercontent.com/jkubin/m4root/cf9fdc8d1a26af256fe9a5f43b13a166fa23ea7f/preproc/preproc.file.c" title="preproc/preproc.file.c
-date: 20210110-15:33:50
+date: 20210110 15:33:50
 git rev: cf9fdc8
 sha1sum: 041f49a
 size: 700 B">preproc.file.c</a></pre><code><span class="m4-cb" title="select text"></span><a href="#m4-preproc_preproc-file-c-command" title="⚓"></a></code></div>
@@ -1785,7 +1785,7 @@ int main(void)
 
 	return 0;
 }</pre><code><span class="m4-sha">cf9fdc8</span><a href="https://raw.githubusercontent.com/jkubin/m4root/cf9fdc8d1a26af256fe9a5f43b13a166fa23ea7f/preproc/preproc.file.c" title="preproc/preproc.file.c
-date: 20210110-15:33:50
+date: 20210110 15:33:50
 sha1sum: 041f49a
 size: 700 B">preproc.file.c</a><span class="m4-cb" title="select text"></span><a href="#m4-preproc_preproc-file-c" title="⚓"></a></code></div>
 <h3 id="m4-ba-cssw-file-inclusion-commen" class="m4-ch"><a href="#m4-ba-cssw-file-inclusion-commen-toc" title="Content"></a><a href="#m4-ba-cssw-file-inclusion-commen" title="⚓">B.2</a><code>`'</code> CSS: file inclusion, comment<a href="#m4--toc" title="Top"></a></h3>
@@ -1795,7 +1795,7 @@ The comments can be turned off with the same <code class="m4-hgl" data-56="B">ch
 <div id="m4-preproc_foo-css" class="m4-src"><pre title="file embedded by the macro processor">.foo {
 	border: WIDTH 2px 1px;
 }</pre><code><span class="m4-sha">9e13656</span><a href="https://raw.githubusercontent.com/jkubin/m4root/9e136564861374ce1aebcc3f02cfcc35748d9a30/preproc/foo.css" title="preproc/foo.css
-date: 20200211-02:32:35
+date: 20200211 02:32:35
 sha1sum: 70f2196
 size: 33 B">foo.css</a><span class="m4-cb" title="select text"></span><a href="#m4-preproc_foo-css" title="⚓"></a></code></div>
 <div id="m4-preproc_file-css-m4" class="m4-src"><pre># CSS preprocessor
@@ -1809,7 +1809,7 @@ define(`IMAGE', `m4tux.png')
 define(`PATH', `https://SITE/IMAGE')
 
 divert(0)dnl</pre><code><span class="m4-sha">9e13656</span><a href="https://raw.githubusercontent.com/jkubin/m4root/9e136564861374ce1aebcc3f02cfcc35748d9a30/preproc/file.css.m4" title="preproc/file.css.m4
-date: 20200211-02:32:35
+date: 20200211 02:32:35
 sha1sum: df580d7
 size: 224 B">file.css.m4</a><span class="m4-cb" title="select text"></span><a href="#m4-preproc_file-css-m4" title="⚓"></a></code></div>
 <div id="m4-preproc_file-css" class="m4-src"><pre>/* DONTE() */<span class="m4-a">changecom(/*,*/)</span>
@@ -1825,23 +1825,23 @@ include(`foo.css')dnl
 
 <span class="m4-c">/* DONTE() */</span>
 <span class="m4-b">changecom</span>/* DONTE() */<span class="m4-a">changecom(/*,*/)</span></pre><code><span class="m4-sha">3ed8f6a</span><a href="https://raw.githubusercontent.com/jkubin/m4root/3ed8f6af06f5b3c308289c9bff1b4f5234b6f455/preproc/file.css" title="preproc/file.css
-date: 20200505-00:05:58
+date: 20200505 00:05:58
 sha1sum: 380eb22
 size: 218 B">file.css</a><span class="m4-cb" title="select text"></span><a href="#m4-preproc_file-css" title="⚓"></a></code></div>
 <div id="m4-preproc_preproc-file-css-command" class="m4-cmd m4-usc"><pre title="command">m4 -DSYMBOL='Hello, world!' <a href="https://raw.githubusercontent.com/jkubin/m4root/cf9fdc8d1a26af256fe9a5f43b13a166fa23ea7f/gfiles/root0q.m4" title="gfiles/root0q.m4
-date: 20210110-15:33:50
+date: 20210110 15:33:50
 git rev: cf9fdc8
 sha1sum: eb74312
 size: 1154 B">root0q.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/9e136564861374ce1aebcc3f02cfcc35748d9a30/preproc/file.css.m4" title="preproc/file.css.m4
-date: 20200211-02:32:35
+date: 20200211 02:32:35
 git rev: 9e13656
 sha1sum: df580d7
 size: 224 B">file.css.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/3ed8f6af06f5b3c308289c9bff1b4f5234b6f455/preproc/file.css" title="preproc/file.css
-date: 20200505-00:05:58
+date: 20200505 00:05:58
 git rev: 3ed8f6a
 sha1sum: 380eb22
 size: 218 B">file.css</a> > <a href="https://raw.githubusercontent.com/jkubin/m4root/41542d13c5aa57e1c87679d5075546b27e45c4b3/preproc/preproc.file.css" title="preproc/preproc.file.css
-date: 20200509-00:48:05
+date: 20200509 00:48:05
 git rev: 41542d1
 sha1sum: 65fa35b
 size: 293 B">preproc.file.css</a></pre><code><span class="m4-cb" title="select text"></span><a href="#m4-preproc_preproc-file-css-command" title="⚓"></a></code></div>
@@ -1860,7 +1860,7 @@ size: 293 B">preproc.file.css</a></pre><code><span class="m4-cb" title="select t
 
 <span class="m4-b">/* DONTE() */</span>
 /* DO NOT EDIT! This file is generated automatically! */</pre><code><span class="m4-sha">41542d1</span><a href="https://raw.githubusercontent.com/jkubin/m4root/41542d13c5aa57e1c87679d5075546b27e45c4b3/preproc/preproc.file.css" title="preproc/preproc.file.css
-date: 20200509-00:48:05
+date: 20200509 00:48:05
 sha1sum: 65fa35b
 size: 293 B">preproc.file.css</a><span class="m4-cb" title="select text"></span><a href="#m4-preproc_preproc-file-css" title="⚓"></a></code></div>
 <h3 id="m4-bashw-nonprintable-characters" class="m4-ch"><a href="#m4-bashw-nonprintable-characters-toc" title="Content"></a><a href="#m4-bashw-nonprintable-characters" title="⚓">B.3</a><b><code>␂␆</code></b> Bash: nonprintable characters<a href="#m4--toc" title="Top"></a></h3>
@@ -1874,7 +1874,7 @@ define(<span class="m4-a">␂</span>OP<span class="m4-a">␆</span>, <span class
 define(<span class="m4-a">␂</span>RIGHT<span class="m4-a">␆</span>, <span class="m4-a">␂</span>0<span class="m4-a">␆</span>)
 
 divert(0)dnl</pre><code><span class="m4-sha">b53eafe</span><a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/preproc/file.sh.m4" title="preproc/file.sh.m4
-date: 20200106-16:21:10
+date: 20200106 16:21:10
 sha1sum: f1c81b2
 size: 106 B">file.sh.m4</a><span class="m4-cb" title="select text"></span><a href="#m4-preproc_file-sh-m4" title="⚓"></a></code></div>
 <div id="m4-preproc_file-sh" class="m4-src"><pre>#!/bin/bash
@@ -1887,23 +1887,23 @@ if [[ LEFT OP RIGHT ]]
 then
 	echo $HELLO
 fi</pre><code><span class="m4-sha">b53eafe</span><a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/preproc/file.sh" title="preproc/file.sh
-date: 20200106-16:21:10
+date: 20200106 16:21:10
 sha1sum: fe8d3e3
 size: 94 B">file.sh</a><span class="m4-cb" title="select text"></span><a href="#m4-preproc_file-sh" title="⚓"></a></code></div>
 <div id="m4-preproc_preproc-file-sh-command" class="m4-cmd m4-usc"><pre title="command">m4 -DSYMBOL='Hello, world!' <a href="https://raw.githubusercontent.com/jkubin/m4root/cf9fdc8d1a26af256fe9a5f43b13a166fa23ea7f/gfiles/root0n.m4" title="gfiles/root0n.m4
-date: 20210110-15:33:50
+date: 20210110 15:33:50
 git rev: cf9fdc8
-sha1sum: cb3c370
-size: 1170 B">root0n.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/preproc/file.sh.m4" title="preproc/file.sh.m4
-date: 20200106-16:21:10
+sha1sum: 8bb195a
+size: 1168 B">root0n.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/preproc/file.sh.m4" title="preproc/file.sh.m4
+date: 20200106 16:21:10
 git rev: b53eafe
 sha1sum: f1c81b2
 size: 106 B">file.sh.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/preproc/file.sh" title="preproc/file.sh
-date: 20200106-16:21:10
+date: 20200106 16:21:10
 git rev: b53eafe
 sha1sum: fe8d3e3
 size: 94 B">file.sh</a> > <a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/preproc/preproc.file.sh" title="preproc/preproc.file.sh
-date: 20200106-16:21:10
+date: 20200106 16:21:10
 git rev: b53eafe
 sha1sum: 504d5cd
 size: 137 B">preproc.file.sh</a></pre><code><span class="m4-cb" title="select text"></span><a href="#m4-preproc_preproc-file-sh-command" title="⚓"></a></code></div>
@@ -1917,7 +1917,7 @@ if [[ $# -eq 0 ]]
 then
 	echo $HELLO
 fi</pre><code><span class="m4-sha">b53eafe</span><a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/preproc/preproc.file.sh" title="preproc/preproc.file.sh
-date: 20200106-16:21:10
+date: 20200106 16:21:10
 sha1sum: 504d5cd
 size: 137 B">preproc.file.sh</a><span class="m4-cb" title="select text"></span><a href="#m4-preproc_preproc-file-sh" title="⚓"></a></code></div>
 <h2 id="m4-m4w-examples" class="m4-ch"><a href="#m4-m4w-examples-toc" title="Content"></a><a href="#m4-m4w-examples" title="⚓">C</a>M4: examples<a href="#m4--toc" title="Top"></a></h2>
@@ -1938,19 +1938,19 @@ divert(0)dnl
 		{"baz": "SYMBOL"}
 	]
 }}</pre><code><span class="m4-sha">39013f2</span><a href="https://raw.githubusercontent.com/jkubin/m4root/39013f29d9aaee4d333d45d08f1ce30f0f3fd485/hello_world/json.m4" title="hello_world/json.m4
-date: 20210103-13:26:54
+date: 20210103 13:26:54
 sha1sum: 7e2f54b
 size: 94 B">json.m4</a><span class="m4-cb" title="select text"></span><a href="#m4-hello_world_json-m4" title="⚓"></a></code></div>
 <div id="m4-hello_world_hello_world-json-command" class="m4-cmd m4-usc"><pre title="command">m4 -DSYMBOL='Hello, world!' <a href="https://raw.githubusercontent.com/jkubin/m4root/78ec0264daea59b2191711138bd61249ef56b850/gfiles/root0b.m4" title="gfiles/root0b.m4
-date: 20210102-12:33:10
+date: 20210102 12:33:10
 git rev: 78ec026
-sha1sum: e45d587
-size: 1089 B">root0b.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/39013f29d9aaee4d333d45d08f1ce30f0f3fd485/hello_world/json.m4" title="hello_world/json.m4
-date: 20210103-13:26:54
+sha1sum: 5350ae1
+size: 1087 B">root0b.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/39013f29d9aaee4d333d45d08f1ce30f0f3fd485/hello_world/json.m4" title="hello_world/json.m4
+date: 20210103 13:26:54
 git rev: 39013f2
 sha1sum: 7e2f54b
 size: 94 B">json.m4</a> > <a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/hello_world/hello_world.json" title="hello_world/hello_world.json
-date: 20200106-16:21:10
+date: 20200106 16:21:10
 git rev: b53eafe
 sha1sum: 94f820a
 size: 120 B">hello_world.json</a></pre><code><span class="m4-cb" title="select text"></span><a href="#m4-hello_world_hello_world-json-command" title="⚓"></a></code></div>
@@ -1960,11 +1960,11 @@ size: 120 B">hello_world.json</a></pre><code><span class="m4-cb" title="select t
 		{"baz": "Hello, world!"}
 	]
 }}</pre><code><span class="m4-sha">b53eafe</span><a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/hello_world/hello_world.json" title="hello_world/hello_world.json
-date: 20200106-16:21:10
+date: 20200106 16:21:10
 sha1sum: 94f820a
 size: 120 B">hello_world.json</a><span class="m4-cb" title="select text"></span><a href="#m4-hello_world_hello_world-json" title="⚓"></a></code></div>
 <h3 id="m4-lr-bashw-counters" class="m4-ch"><a href="#m4-lr-bashw-counters-toc" title="Content"></a><a href="#m4-lr-bashw-counters" title="⚓">C.2</a><code>[]</code> Bash: counters<a href="#m4--toc" title="Top"></a></h3>
-<p>The <code class="m4-hgl" data-63="A">COUNT_UP</code> and <code class="m4-hgl" data-63="B">COUNT_DOWN</code> counters are defined in the file <code>countb.m4</code>.
+<p>The <code class="m4-hgl" data-63="A">COUNT_UP</code> and <code class="m4-hgl" data-63="B">COUNT_DOWN</code> counters are defined in the file <code>countu.m4</code>.
 The <span class="m4-hgl" data-63="C">nonterminals</span> <code class="m4-hgl" data-63="20" data-64="5">[… inside brackets …]</code> will not be expanded, only the outer brackets will be removed.
 The <code class="m4-hgl" data-63="30" data-64="15">LL()</code> macro defined in the root file must be used.</p>
 <div id="m4-hello_world_sh-m4" class="m4-src"><pre># A → β
@@ -2000,23 +2000,23 @@ if LL()LL() LEFT OP RIGHT ]]
 then
 	echo '__COUNTUP__] SYMBOL LL()__COUNTDN__'
 fi</pre><code><span class="m4-sha">39013f2</span><a href="https://raw.githubusercontent.com/jkubin/m4root/39013f29d9aaee4d333d45d08f1ce30f0f3fd485/hello_world/sh.m4" title="hello_world/sh.m4
-date: 20210103-13:26:54
+date: 20210103 13:26:54
 sha1sum: f9b14e5
 size: 511 B">sh.m4</a><span class="m4-cb" title="select text"></span><a href="#m4-hello_world_sh-m4" title="⚓"></a></code></div>
 <div id="m4-hello_world_hello_world-sh-command" class="m4-cmd m4-usc"><pre title="command">m4 -DSYMBOL='Hello, world!' <a href="https://raw.githubusercontent.com/jkubin/m4root/cf9fdc8d1a26af256fe9a5f43b13a166fa23ea7f/gfiles/root0u.m4" title="gfiles/root0u.m4
-date: 20210110-15:33:50
+date: 20210110 15:33:50
 git rev: cf9fdc8
-sha1sum: d251bd4
-size: 1322 B">root0u.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/17cb82f06ccca2e7775b95b3513ab56ee94c0457/gfiles/countb.m4" title="gfiles/countb.m4
-date: 20200429-07:34:47
+sha1sum: f498f9d
+size: 1320 B">root0u.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/17cb82f06ccca2e7775b95b3513ab56ee94c0457/gfiles/countu.m4" title="gfiles/countu.m4
+date: 20200429 07:34:47
 git rev: 17cb82f
-sha1sum: 2d647fa
-size: 766 B">countb.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/39013f29d9aaee4d333d45d08f1ce30f0f3fd485/hello_world/sh.m4" title="hello_world/sh.m4
-date: 20210103-13:26:54
+sha1sum: 83b97d7
+size: 947 B">countu.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/39013f29d9aaee4d333d45d08f1ce30f0f3fd485/hello_world/sh.m4" title="hello_world/sh.m4
+date: 20210103 13:26:54
 git rev: 39013f2
 sha1sum: f9b14e5
 size: 511 B">sh.m4</a> > <a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/hello_world/hello_world.sh" title="hello_world/hello_world.sh
-date: 20200106-16:21:10
+date: 20200106 16:21:10
 git rev: b53eafe
 sha1sum: 6d2cc4c
 size: 236 B">hello_world.sh</a></pre><code><span class="m4-cb" title="select text"></span><a href="#m4-hello_world_hello_world-sh-command" title="⚓"></a></code></div>
@@ -2038,11 +2038,11 @@ if [[ $# -eq 0 ]]
 then
 	echo '12] Hello, world! [8'
 fi</pre><code><span class="m4-sha">b53eafe</span><a href="https://raw.githubusercontent.com/jkubin/m4root/b53eafee39bdbb023005f9c318bcc57360c9eb30/hello_world/hello_world.sh" title="hello_world/hello_world.sh
-date: 20200106-16:21:10
+date: 20200106 16:21:10
 sha1sum: 6d2cc4c
 size: 236 B">hello_world.sh</a><span class="m4-cb" title="select text"></span><a href="#m4-hello_world_hello_world-sh" title="⚓"></a></code></div>
 <h3 id="m4-lr-hw-brackets-lr-l-r-lhr-ldn" class="m4-ch"><a href="#m4-lr-hw-brackets-lr-l-r-lhr-ldn-toc" title="Content"></a><a href="#m4-lr-hw-brackets-lr-l-r-lhr-ldn" title="⚓">C.3</a><code>[]</code> .h: brackets <code>[]</code>, <code>[,]</code>, <code>[#]</code>, <code>[dnl]</code><a href="#m4--toc" title="Top"></a></h3>
-<p>The empty pair <code class="m4-hgl" data-65="A">[]</code> (or the empty symbol in brackets <code>[ε]</code>) serves as a&nbsp;symbol separator.
+<p>The empty pair <code class="m4-hgl" data-65="A">[]</code> (or the empty symbol in brackets <code class="m4-hgl" data-65="A">[ε]</code>) serves as a&nbsp;symbol separator.
 Brackets around the comment character <code class="m4-hgl" data-65="B" data-66="B">[#]</code> turn off its original meaning as well as the meaning of the <i>more powerful</i> M4 comment
 <code class="m4-hgl" data-65="C" data-66="C">[dnl]</code>.
 They also turn off the original meaning of the comma <code>[,]</code> as a&nbsp;macro argument delimiter.
@@ -2061,19 +2061,19 @@ divert(0)dnl
 <span class="m4-b">[#]</span>define HELLO	SYMBOL
 
 <span class="m4-b">[#]</span>endif /* __<span class="m4-a">[]</span>HELLO<span class="m4-a">[]</span>_H */</pre><code><span class="m4-sha">ce5cd99</span><a href="https://raw.githubusercontent.com/jkubin/m4root/ce5cd99832d8062a8d20b2b4eb39fd482c6f1769/hello_world/h.m4" title="hello_world/h.m4
-date: 20200213-14:50:23
+date: 20200213 14:50:23
 sha1sum: 267465d
 size: 183 B">h.m4</a><span class="m4-cb" title="select text"></span><a href="#m4-hello_world_h-m4" title="⚓"></a></code></div>
 <div id="m4-hello_world_hello_world-h-command" class="m4-cmd m4-usc"><pre title="command">m4 -DSYMBOL='Hello, world!' <a href="https://raw.githubusercontent.com/jkubin/m4root/78ec0264daea59b2191711138bd61249ef56b850/gfiles/root0b.m4" title="gfiles/root0b.m4
-date: 20210102-12:33:10
+date: 20210102 12:33:10
 git rev: 78ec026
-sha1sum: e45d587
-size: 1089 B">root0b.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/ce5cd99832d8062a8d20b2b4eb39fd482c6f1769/hello_world/h.m4" title="hello_world/h.m4
-date: 20200213-14:50:23
+sha1sum: 5350ae1
+size: 1087 B">root0b.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/ce5cd99832d8062a8d20b2b4eb39fd482c6f1769/hello_world/h.m4" title="hello_world/h.m4
+date: 20200213 14:50:23
 git rev: ce5cd99
 sha1sum: 267465d
 size: 183 B">h.m4</a> > <a href="https://raw.githubusercontent.com/jkubin/m4root/6b10c6c67a04e8172b361ce5852b934c774a4faf/hello_world/hello_world.h" title="hello_world/hello_world.h
-date: 20200213-14:51:13
+date: 20200213 14:51:13
 git rev: 6b10c6c
 sha1sum: 306af96
 size: 179 B">hello_world.h</a></pre><code><span class="m4-cb" title="select text"></span><a href="#m4-hello_world_hello_world-h-command" title="⚓"></a></code></div>
@@ -2087,7 +2087,7 @@ size: 179 B">hello_world.h</a></pre><code><span class="m4-cb" title="select text
 <span class="m4-b">#</span>define HELLO_WORLD	Hello, world!
 
 <span class="m4-b">#</span>endif /* __HELLO_WORLD_H */</pre><code><span class="m4-sha">6b10c6c</span><a href="https://raw.githubusercontent.com/jkubin/m4root/6b10c6c67a04e8172b361ce5852b934c774a4faf/hello_world/hello_world.h" title="hello_world/hello_world.h
-date: 20200213-14:51:13
+date: 20200213 14:51:13
 sha1sum: 306af96
 size: 179 B">hello_world.h</a><span class="m4-cb" title="select text"></span><a href="#m4-hello_world_hello_world-h" title="⚓"></a></code></div>
 <h3 id="m4-lr-awkw-examples-of-safer-mac" class="m4-ch"><a href="#m4-lr-awkw-examples-of-safer-mac-toc" title="Content"></a><a href="#m4-lr-awkw-examples-of-safer-mac" title="⚓">C.4</a><code>[]</code> AWK: examples of safer macros<a href="#m4--toc" title="Top"></a></h3>
@@ -2101,30 +2101,30 @@ divert(0)dnl
 [# DONTE()] ---> "DONTE()"
 
 BEGIN { print "<span class="m4-a">DONTE</span>[]() <span class="m4-b">LL</span> () LL() SYMBOL ]" }</pre><code><span class="m4-sha">39013f2</span><a href="https://raw.githubusercontent.com/jkubin/m4root/39013f29d9aaee4d333d45d08f1ce30f0f3fd485/hello_world/awk.m4" title="hello_world/awk.m4
-date: 20210103-13:26:54
+date: 20210103 13:26:54
 sha1sum: 83243af
 size: 112 B">awk.m4</a><span class="m4-cb" title="select text"></span><a href="#m4-hello_world_awk-m4" title="⚓"></a></code></div>
 <div id="m4-hello_world_hello_world-awk-command" class="m4-cmd m4-usc"><pre title="command">m4 -DSYMBOL='Hello, world!' <a href="https://raw.githubusercontent.com/jkubin/m4root/cf9fdc8d1a26af256fe9a5f43b13a166fa23ea7f/gfiles/root1b.m4" title="gfiles/root1b.m4
-date: 20210110-15:33:50
+date: 20210110 15:33:50
 git rev: cf9fdc8
 sha1sum: 85c7b3a
 size: 1603 B">root1b.m4</a> <a href="https://raw.githubusercontent.com/jkubin/m4root/39013f29d9aaee4d333d45d08f1ce30f0f3fd485/hello_world/awk.m4" title="hello_world/awk.m4
-date: 20210103-13:26:54
+date: 20210103 13:26:54
 git rev: 39013f2
 sha1sum: 83243af
 size: 112 B">awk.m4</a> > <a href="https://raw.githubusercontent.com/jkubin/m4root/39013f29d9aaee4d333d45d08f1ce30f0f3fd485/hello_world/hello_world.awk" title="hello_world/hello_world.awk
-date: 20210103-13:26:54
+date: 20210103 13:26:54
 git rev: 39013f2
-sha1sum: d03fed7
-size: 138 B">hello_world.awk</a></pre><code><span class="m4-cb" title="select text"></span><a href="#m4-hello_world_hello_world-awk-command" title="⚓"></a></code></div>
+sha1sum: a92eb9d
+size: 135 B">hello_world.awk</a></pre><code><span class="m4-cb" title="select text"></span><a href="#m4-hello_world_hello_world-awk-command" title="⚓"></a></code></div>
 <div id="m4-hello_world_hello_world-awk" class="m4-src"><pre>#!/bin/awk -f
 #
 # DONTE() ---> "DO NOT EDIT! This file is generated automatically!"
 
-BEGIN { print "<span class="m4-a">DONTE</span>() <span class="m4-b">LL</span> () LL() Hello, world! ]" }</pre><code><span class="m4-sha">39013f2</span><a href="https://raw.githubusercontent.com/jkubin/m4root/39013f29d9aaee4d333d45d08f1ce30f0f3fd485/hello_world/hello_world.awk" title="hello_world/hello_world.awk
-date: 20210103-13:26:54
-sha1sum: d03fed7
-size: 138 B">hello_world.awk</a><span class="m4-cb" title="select text"></span><a href="#m4-hello_world_hello_world-awk" title="⚓"></a></code></div>
+BEGIN { print "<span class="m4-a">DONTE</span>() <span class="m4-b">LL</span> () [ Hello, world! ]" }</pre><code><span class="m4-sha">39013f2</span><a href="https://raw.githubusercontent.com/jkubin/m4root/39013f29d9aaee4d333d45d08f1ce30f0f3fd485/hello_world/hello_world.awk" title="hello_world/hello_world.awk
+date: 20210103 13:26:54
+sha1sum: a92eb9d
+size: 135 B">hello_world.awk</a><span class="m4-cb" title="select text"></span><a href="#m4-hello_world_hello_world-awk" title="⚓"></a></code></div>
 <h2 id="m4-why-to-use-m4-and-why-notq" class="m4-ch"><a href="#m4-why-to-use-m4-and-why-notq-toc" title="Content"></a><a href="#m4-why-to-use-m4-and-why-notq" title="⚓">D</a>Why to use M4 and why not?<a href="#m4--toc" title="Top"></a></h2>
 <p id="m4-why-to-generate-code-in-m4-toc" class="m4-l2"><a href="#m4-why-to-generate-code-in-m4"><b>D.1</b><code>&#x1f44d;</code> Why to generate code in M4</a></p>
 <p id="m4-why-to-avoid-m4-toc" class="m4-l2"><a href="#m4-why-to-avoid-m4"><b>D.2</b><code>&#x1f44e;</code> Why to avoid M4</a></p>
