@@ -43,7 +43,7 @@ define([DONTE], [ifelse([$#], [0], [[$0]],
 define([LL], [ifelse([$#], [0], [[$0]], [changequote[dnl]
 changequote([,])])])
 define([RR], [ifelse([$#], [0], [[$0]], [changequote`'dnl[
-]changequote([,])])])	'
+]changequote([,])])])
 
 # expands n-th argument (use Vim shortcuts Ctrl-a or Ctrl-x to change ARGn)
 define([ARG1],	[$1])
