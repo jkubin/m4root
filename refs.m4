@@ -1,5 +1,5 @@
 __HEADER(⟦Josef Kubin⟧, ⟦2019,12,11⟧)
-___DESCR(⟦tests logic flow (CHAPTER → SECT1 → SECT2) and generates references for anchors⟧)
+___DESCR(⟦tests logic flow (CHAPTER → SECT1 → SECT2 → SECT3) and generates references for anchors⟧)
 __REASON(⟦extracts all IDs from files and creates associative pair⟧)
 
 # define counter for output queues and source files
