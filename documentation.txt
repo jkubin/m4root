@@ -1,6 +1,6 @@
 # vim:wrap:spell:spelllang=en
 # DO NOT EDIT! This file is generated automatically!
-# generated: 20210118-19:33:13
+# generated: 20210118-23:32:34
 # total number of files: 94
 #
 # To update, run:
@@ -18,7 +18,6 @@ File #2: gfiles/rootb.m4
 Author: Josef Kubin
 Started: 15 October 2018
 Note: https://github.com/jkubin/m4root
-Version: 1.1.0
 Description: the most general (root) rules for all scripts
 Reason: script decomposition; NO repeated information anywhere else
 Usage: m4 root.m4 stem.m4 branch.m4 sub_branch.m4 leaf.m4 data.mc > output.file
