@@ -1,9 +1,8 @@
 Generating code in M4: introduction
 
-The M4 macro processor is used to generate arbitrarily complex code from simple source code.
-The introductory part of the series contains its history, the basic principles of language, examples of usage and prerequisites for its mastery.
+The M4 macro processor is used to generate arbitrarily complex code from simple source code. The introductory part of the series contains its history, the basic principles of language, examples of usage and prerequisites for its mastery.
 
-Content (Česky)	mc spl txt pub dev pre c  updated January 19, 2021
+Content (Česky)	mc spl txt dev pre c  updated January 20, 2021
 1 Introduction
 	1.1 Examples for readers
 2 History of macro languages
@@ -475,16 +474,16 @@ This example does not use output queues, it only prints CSV separated by TAB to 
   2 define(⟦ERROR⟧, ⟦
   3 
   4 	divert(0)dnl
-  5 ⟦$1	$2⟧
+  5 ⟦$1    $2⟧
   6 divert(-1)
   7 ⟧)
 
 $ m4 root0u.m4 hello.csv.m4 messages_raw.mc > hello.csv
 
 55ac1ea messages/hello.csv
-  1 COMPLEX	!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~
-  2 SUCCESS	Too complex M4 code failed successfully.
-  3 NO_FAULT	It's not a language fault!
+  1 COMPLEX    !"#$%&'()*+,-./:;<=>?@[\]^_`{|}~
+  2 SUCCESS    Too complex M4 code failed successfully.
+  3 NO_FAULT    It's not a language fault!
 
 A.3 ⟦⟧ CSV: counter
 The example uses the COUNT_UP macro from the countu.m4 file whose β is copied to the right side of the COUNTER macro.
@@ -503,16 +502,16 @@ COUNTER is a small automaton.
   8 define(⟦ERROR⟧, ⟦
   9 
  10 	divert(0)dnl
- 11 ERR_⟦⟧COUNTER	⟦$1	$2⟧
+ 11 ERR_⟦⟧COUNTER    ⟦$1	$2⟧
  12 divert(-1)
  13 ⟧)
 
 $ m4 root0u.m4 countu.m4 counter.csv.m4 messages_raw.mc > counter.csv
 
 55ac1ea messages/counter.csv
-  1 ERR_1	COMPLEX	!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~
-  2 ERR_2	SUCCESS	Too complex M4 code failed successfully.
-  3 ERR_3	NO_FAULT	It's not a language fault!
+  1 ERR_1    COMPLEX	!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~
+  2 ERR_2    SUCCESS	Too complex M4 code failed successfully.
+  3 ERR_3    NO_FAULT	It's not a language fault!
 
 A.4 💡 Modification of special characters
 Each type of output code requires the modification of the special characters.
@@ -676,7 +675,7 @@ The decimal value of the counter is converted to the two-digit hex by keyword ev
   8 define(⟦ERROR⟧, ⟦
   9 
  10 	divert(0)dnl
- 11 ⟦#define $1		0x⟧eval(COUNTER, 16, 2)
+ 11 ⟦#define $1    0x⟧eval(COUNTER, 16, 2)
  12 divert(-1)
  13 ⟧)
  14 
@@ -702,9 +701,9 @@ $ m4 root0u.m4 countu.m4 messages.h.m4 messages.mc > messages.h
   5 #ifndef __ERROR_H
   6 #define __ERROR_H
   7 
-  8 #define COMPLEX		0x00
-  9 #define SUCCESS		0x01
- 10 #define NO_FAULT		0x02
+  8 #define COMPLEX    0x00
+  9 #define SUCCESS    0x01
+ 10 #define NO_FAULT    0x02
  11 
  12 #endif /* __ERROR_H */
 

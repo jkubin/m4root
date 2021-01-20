@@ -2,15 +2,14 @@
 #
 # DO NOT EDIT! This file is generated automatically!
 #
-# __SOURCE(⟦intro.mc⟧, ⟦20210119-01:47:48⟧, ⟦44c7674⟧, ⟦d64fbd5⟧)
+# __SOURCE(⟦intro.mc⟧, ⟦20210120-19:33:10⟧, ⟦801a2ed⟧, ⟦d01fc8e⟧)
 
 8
 Generating code in M4: introduction
 
 # number of characters in perex (200 ±10 is recommended): 238
 18
-The M4 macro processor is used to generate arbitrarily complex code from simple source code.
-The introductory part of the series contains its history, the basic principles of language, examples of usage and prerequisites for its mastery.
+The M4 macro processor is used to generate arbitrarily complex code from simple source code. The introductory part of the series contains its history, the basic principles of language, examples of usage and prerequisites for its mastery.
 
 26
 Introduction
