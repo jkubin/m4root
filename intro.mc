@@ -2,7 +2,7 @@
 
 __AUTHOR(⟦Josef Kubin⟧, ⟦2019,12,03⟧, ⟦https://www.root.cz/clanky,generovani-kodu-v-m4-uvod⟧)
 ___DESCR(⟦the introductory part⟧)
-__TPLVER(1, 0, 0)
+__TPLVER(⟦1,0,0⟧)
 
 
 PART(⟦⟦
@@ -15,11 +15,11 @@ SERIES_NAME: introduction
 PARTIMAGE(⟦img/m4tux.png⟧, ⟦https://i.iinfo.cz/images/154/m4tux-1-prev.png⟧)
 
 
-PARTINTRO(⟦defn(⟦PARTINTRO_CS⟧)⟦
-Úvodní díl seriálu obsahuje jeho historii, základní principy jazyka, příklady použití a⟦⟧NB()nutné předpoklady pro jeho zvládnutí.
+PARTINTRO(⟦⟦
+PARTINTRO_CS Úvodní díl seriálu obsahuje jeho historii, základní principy jazyka, příklady použití a⟦⟧NB()nutné předpoklady pro jeho zvládnutí.
 ⟧,dnl _next_language_
-defn(⟦PARTINTRO_EN⟧)⟦
-The introductory part of the series contains its history, the basic principles of language, examples of usage and prerequisites for its mastery.
+⟦
+PARTINTRO_EN The introductory part of the series contains its history, the basic principles of language, examples of usage and prerequisites for its mastery.
 ⟧⟧)
 
 
