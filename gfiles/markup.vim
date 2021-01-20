@@ -132,6 +132,7 @@ iabbrev <buffer> <unique> qs ‚<c-r>"‘<esc>
 "iabbrev <buffer> <unique> qs Quote Single
 iabbrev <buffer> <unique> ref ⟦⟧REF(⟦⟧, ⟦%%%⟧, ⟦%%%⟧)<c-o>T(<right><c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> sa SAMP(⟦<c-r>"⟧)<esc>
+iabbrev <buffer> <unique> sc <c-l><cr>SECT1(⟦⟦<cr><cr>⟧,dnl _next_language_<cr>⟦<cr>%%%<cr>⟧⟧)<left><c-o>%<c-o>0<down><c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> scn <c-l><cr>SECT1(⟦⟦<cr><cr>⟧,dnl _next_language_<cr>⟦<cr>%%%<cr>⟧⟧)<left><c-o>%<c-o>0<down><c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> sm SMALL(⟦<c-r>"⟧)<esc>
 iabbrev <buffer> <unique> sp SPAN(⟦<c-r>"⟧, ⟦%%%⟧, ⟦%%%⟧)<left><c-o>%;;<c-r>=Eatchar('.')<cr>
