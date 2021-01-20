@@ -1,3 +1,3 @@
-ERR_1	COMPLEX	!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~
-ERR_2	SUCCESS	Too complex M4 code failed successfully.
-ERR_3	NO_FAULT	It's not a language fault!
+ERR_1    COMPLEX	!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~
+ERR_2    SUCCESS	Too complex M4 code failed successfully.
+ERR_3    NO_FAULT	It's not a language fault!
