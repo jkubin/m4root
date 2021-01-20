@@ -30,6 +30,7 @@ function! <SID>CustomizeTemplate()
 
 	silent execute "%s/skeletonVIM_CREATION_DATE/" . strftime("%Y\\/%m\\/%d") . "/ge"
 	silent execute "%s/skeletonVIM_CREATION_DTIME/" . strftime("%Y\\/%m\\/%d %H:%M") . "/ge"
+	silent execute "%s/skeletonVIM_CREATION_M4_DATE/" . strftime("%Y,%m,%d") . "/ge"
 	silent execute "%s/skeletonVIM_CREATION_TIME/" . strftime("%H:%M") . "/ge"
 	silent execute "%s/skeletonVIM_DIRECTORY/" . expand("%:p:h:t") . "/ge"
 	silent execute "%s/skeletonVIM_FILE_BASE/" . expand("%:t:r") . "/ge"
