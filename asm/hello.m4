@@ -1,4 +1,4 @@
-# creates final asm code
+# creates the final asm code
 
 divert(0)dnl
 # vim:ft=asm

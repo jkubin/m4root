@@ -1,6 +1,6 @@
 # __AUTHOR(⟦Josef Kubin⟧, ⟦2020,05,09⟧)
 # ___DESCR(⟦replaces the local long_self_descriptive_funny_variables with single letters⟧)
-# __REASON(⟦packs local method variables⟧)
+# __REASON(⟦the script packs local method variables⟧)
 
 # '<,'>s:./g$:/g:
 # '<,'>s:^\(.\)\(.*\)/g:\2\1/g:

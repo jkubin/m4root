@@ -5,8 +5,8 @@
 # __REASON(⟦root file for nonprintable characters⟧)
 #
 # non-printable characters  and  were chosen because can be easily typed from Vim
-# 	Ctrl-b	as _b_eginning
-# 	Ctrl-f	as _f_inal or _f_inish
+# 	Ctrl-b	as a _B_eginning
+# 	Ctrl-f	as a _F_inal or a _F_inish
 
 # set vim modeline; write LOUD alert for unsuspecting users
 1s/^/dnl vim:mps+=\\:\ndnl\ndnl DO NOT EDIT! This file is generated automatically!\ndnl\n/

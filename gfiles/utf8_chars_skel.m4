@@ -1,6 +1,6 @@
 # vim:mps+=⟦\:⟧
 
-__AUTHOR(⟦Your Name⟧, ⟦skeletonVIM_CREATION_DATE⟧)
+__AUTHOR(⟦Your Name⟧, ⟦skeletonVIM_CREATION_M4_DATE⟧)
 __THANKS(⟦⟧)
 ___DESCR(⟦⟧)
 __REASON(⟦⟧)
