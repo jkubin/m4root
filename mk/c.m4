@@ -56,6 +56,8 @@ sub-targets sub su: $(TARGETS)
 .PHONY: c
 c: $(C_FILES)
 
+git_⟦⟧LANG_CODE.m4: $(C_FILES)
+
 ⟦#⟧:patsubst(defn(⟦CLEAN_SUBTARGETS⟧), ⟦ ⟧, ⟦/⟧)	deletes all ‘LANG_CODE’ C files
 .PHONY: CLEAN_SUBTARGETS
 CLEAN_SUBTARGETS:
