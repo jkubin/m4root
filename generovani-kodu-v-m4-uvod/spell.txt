@@ -2,15 +2,14 @@
 #
 # DO NOT EDIT! This file is generated automatically!
 #
-# __SOURCE(⟦intro.mc⟧, ⟦20210119-01:47:48⟧, ⟦44c7674⟧, ⟦dd6453f⟧)
+# __SOURCE(⟦intro.mc⟧, ⟦20210120-19:33:09⟧, ⟦801a2ed⟧, ⟦d01fc8e⟧)
 
 8
 Generování kódu v M4: úvod
 
 # number of characters in perex (200 ±10 is recommended): 226
 18
-Makro procesor M4 se používá ke generování libovolně složitého kódu z jednoduchého zdrojového kódu.
-Úvodní díl seriálu obsahuje jeho historii, základní principy jazyka, příklady použití a nutné předpoklady pro jeho zvládnutí.
+Makro procesor M4 se používá ke generování libovolně složitého kódu z jednoduchého zdrojového kódu. Úvodní díl seriálu obsahuje jeho historii, základní principy jazyka, příklady použití a nutné předpoklady pro jeho zvládnutí.
 
 26
 Úvod

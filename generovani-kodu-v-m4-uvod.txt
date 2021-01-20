@@ -1,9 +1,8 @@
 Generování kódu v M4: úvod
 
-Makro procesor M4 se používá ke generování libovolně složitého kódu z jednoduchého zdrojového kódu.
-Úvodní díl seriálu obsahuje jeho historii, základní principy jazyka, příklady použití a nutné předpoklady pro jeho zvládnutí.
+Makro procesor M4 se používá ke generování libovolně složitého kódu z jednoduchého zdrojového kódu. Úvodní díl seriálu obsahuje jeho historii, základní principy jazyka, příklady použití a nutné předpoklady pro jeho zvládnutí.
 
-Obsah	mc spl txt pub dev pre c  aktualizováno 19. ledna 2021
+Obsah (English)	mc spl txt dev pre c  aktualizováno 20. ledna 2021
 1 Úvod
 	1.1 Příklady pro čtenáře
 2 Historie makro jazyků
@@ -476,16 +475,16 @@ Tento příklad nepoužívá výstupní fronty, pouze vypisuje CSV oddělené zn
   2 define(⟦ERROR⟧, ⟦
   3 
   4 	divert(0)dnl
-  5 ⟦$1	$2⟧
+  5 ⟦$1    $2⟧
   6 divert(-1)
   7 ⟧)
 
 $ m4 root0u.m4 hello.csv.m4 messages_raw.mc > hello.csv
 
 55ac1ea messages/hello.csv
-  1 COMPLEX	!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~
-  2 SUCCESS	Too complex M4 code failed successfully.
-  3 NO_FAULT	It's not a language fault!
+  1 COMPLEX    !"#$%&'()*+,-./:;<=>?@[\]^_`{|}~
+  2 SUCCESS    Too complex M4 code failed successfully.
+  3 NO_FAULT    It's not a language fault!
 
 A.3 ⟦⟧ CSV: počítadlo
 Příklad používá makro COUNT_UP ze souboru countu.m4, jehož β se zkopíruje do pravé strany makra COUNTER.
@@ -504,16 +503,16 @@ COUNTER je malý automat.
   8 define(⟦ERROR⟧, ⟦
   9 
  10 	divert(0)dnl
- 11 ERR_⟦⟧COUNTER	⟦$1	$2⟧
+ 11 ERR_⟦⟧COUNTER    ⟦$1	$2⟧
  12 divert(-1)
  13 ⟧)
 
 $ m4 root0u.m4 countu.m4 counter.csv.m4 messages_raw.mc > counter.csv
 
 55ac1ea messages/counter.csv
-  1 ERR_1	COMPLEX	!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~
-  2 ERR_2	SUCCESS	Too complex M4 code failed successfully.
-  3 ERR_3	NO_FAULT	It's not a language fault!
+  1 ERR_1    COMPLEX	!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~
+  2 ERR_2    SUCCESS	Too complex M4 code failed successfully.
+  3 ERR_3    NO_FAULT	It's not a language fault!
 
 A.4 💡 Úpravy speciálních znaků
 Každý typ výstupního kódu vyžaduje úpravu speciálních znaků.
@@ -677,7 +676,7 @@ Převod dekadické hodnoty počítadla na dvoumístné hex-a číslo provádí k
   8 define(⟦ERROR⟧, ⟦
   9 
  10 	divert(0)dnl
- 11 ⟦#define $1		0x⟧eval(COUNTER, 16, 2)
+ 11 ⟦#define $1    0x⟧eval(COUNTER, 16, 2)
  12 divert(-1)
  13 ⟧)
  14 
@@ -703,9 +702,9 @@ $ m4 root0u.m4 countu.m4 messages.h.m4 messages.mc > messages.h
   5 #ifndef __ERROR_H
   6 #define __ERROR_H
   7 
-  8 #define COMPLEX		0x00
-  9 #define SUCCESS		0x01
- 10 #define NO_FAULT		0x02
+  8 #define COMPLEX    0x00
+  9 #define SUCCESS    0x01
+ 10 #define NO_FAULT    0x02
  11 
  12 #endif /* __ERROR_H */
 

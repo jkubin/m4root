@@ -22,8 +22,7 @@
 <div class="design-article--opener--simple design-article--opener design-article--with-image design-article design-tile">
 <div class="design-article__text">
 <div class="design-article__perex">
-<div class="design-article__perex-content">Makro procesor M4 se používá ke generování libovolně složitého kódu z&nbsp;jednoduchého zdrojového kódu.
-Úvodní díl seriálu obsahuje jeho historii, základní principy jazyka, příklady použití a&nbsp;nutné předpoklady pro jeho zvládnutí.</div>
+<div class="design-article__perex-content">Makro procesor M4 se používá ke generování libovolně složitého kódu z&nbsp;jednoduchého zdrojového kódu. Úvodní díl seriálu obsahuje jeho historii, základní principy jazyka, příklady použití a&nbsp;nutné předpoklady pro jeho zvládnutí.</div>
 </div>
 </div>
 </div>
@@ -32,7 +31,7 @@
 <div class="detail__article ">
 <div class=" layout-article-content">
 <div class="element-margin-top-half php-urs urs">
-<div id="m4--toc"><h2>Obsah</h2><div><div class="m4-dwnl"><a href="../intro.mc" style="font-weight:bold" title="zdrojový kód článku">mc</a><a href="../generovani-kodu-v-m4-uvod/spell.txt" title="vygenerovaný text pro kontrolu překlepů a žargonu (určeno pro Vim)">spl</a><a href="../generovani-kodu-v-m4-uvod.txt" title="vygenerovaný text pro odhad počtu znaků">txt</a><a href="../generovani-kodu-v-m4-uvod/publish.txt" title="vygenerovaný text, který právě čtete a který byl vložen do redakčního systému (CMS)">pub</a><br><a href="../generovani-kodu-v-m4-uvod/index.html" title="vygenerovaná html stránka pro off-line vývoj">dev</a><a href="../generovani-kodu-v-m4-uvod/preview.html" title="vygenerovaná html stránka pro off-line náhled">pre</a><a href="../generovani-kodu-v-m4-uvod.c" title="vygenerovaný zdrojový kód C">c</a></div><div class="m4-updt">aktualizováno<br>19. ledna 2021</div></div></div>
+<div id="m4--toc"><h2>Obsah (<a href="../generating-code-in-m4-introduction/index.html#m4--toc" title="Generating code in M4: introduction">English</a>)</h2><div><div class="m4-dwnl"><a href="../intro.mc" style="font-weight:bold" title="zdrojový kód článku">mc</a><a href="../generovani-kodu-v-m4-uvod/spell.txt" title="vygenerovaný text pro kontrolu překlepů a žargonu (určeno pro Vim)">spl</a><br><a href="../generovani-kodu-v-m4-uvod/index.html" title="vygenerovaná html stránka pro off-line vývoj">dev</a><a href="../generovani-kodu-v-m4-uvod/preview.html" title="vygenerovaná html stránka pro off-line náhled">pre</a></div><div class="m4-updt">aktualizováno<br>20. ledna 2021</div></div></div>
 <noscript><div title="pro informaci" class="rs-tip-major m4-info">Srozumitelnost ukázek zdrojového kódu zvyšuje povolený JavaScript.</div></noscript>
 <p id="m4-uvod-toc"><a href="#m4-uvod"><b>1</b>Úvod</a></p>
 <p id="m4-priklady-pro-ctenare-toc" class="m4-l2"><a href="#m4-priklady-pro-ctenare"><b>1.1</b>Příklady pro čtenáře</a></p>
@@ -419,12 +418,12 @@ size: 420 B">messages_raw.mc</a><span class="m4-cb" title="vybrat text"></span><
 define(⟦<span class="m4-r">ERROR</span>⟧, ⟦
 
 	divert(0)dnl
-⟦$1	$2⟧
+⟦$1    $2⟧
 divert(-1)
 ⟧)</pre><code><span class="m4-sha">24fd4f3</span><a href="../messages/hello.csv.m4" title="messages/hello.csv.m4
 date: 20201226 21:52:28
-sha1sum: 020529d
-size: 78 B">hello.csv.m4</a><span class="m4-cb" title="vybrat text"></span><a href="#m4-messages_hello-csv-m4" title="⚓"></a></code></div>
+sha1sum: 100b66a
+size: 81 B">hello.csv.m4</a><span class="m4-cb" title="vybrat text"></span><a href="#m4-messages_hello-csv-m4" title="⚓"></a></code></div>
 <div id="m4-messages_hello-csv-command" class="m4-cmd m4-usc"><pre title="příkaz">m4 <a href="../gfiles/root0u.m4" title="gfiles/root0u.m4
 date: 20210118 19:23:51
 git rev: 02f55b8
@@ -432,22 +431,22 @@ sha1sum: f498f9d
 size: 1320 B">root0u.m4</a> <a href="../messages/hello.csv.m4" title="messages/hello.csv.m4
 date: 20201226 21:52:28
 git rev: 24fd4f3
-sha1sum: 020529d
-size: 78 B">hello.csv.m4</a> <a href="../messages/messages_raw.mc" title="messages/messages_raw.mc
+sha1sum: 100b66a
+size: 81 B">hello.csv.m4</a> <a href="../messages/messages_raw.mc" title="messages/messages_raw.mc
 date: 20210103 13:28:44
 git rev: 55ac1ea
 sha1sum: d1f057c
 size: 420 B">messages_raw.mc</a> > <a href="../messages/hello.csv" title="messages/hello.csv
 date: 20210103 13:28:44
 git rev: 55ac1ea
-sha1sum: 429f847
-size: 126 B">hello.csv</a></pre><code><span class="m4-cb" title="vybrat text"></span><a href="#m4-messages_hello-csv-command" title="⚓"></a></code></div>
-<div id="m4-messages_hello-csv" class="m4-src"><pre>COMPLEX	!"#$%&amp;'()*+,-./:;&lt;=>?@[\]^_`{|}~
-SUCCESS	Too complex M4 code failed successfully.
-NO_FAULT	It's not a language fault!</pre><code><span class="m4-sha">55ac1ea</span><a href="../messages/hello.csv" title="messages/hello.csv
+sha1sum: e217b28
+size: 135 B">hello.csv</a></pre><code><span class="m4-cb" title="vybrat text"></span><a href="#m4-messages_hello-csv-command" title="⚓"></a></code></div>
+<div id="m4-messages_hello-csv" class="m4-src"><pre>COMPLEX    !"#$%&amp;'()*+,-./:;&lt;=>?@[\]^_`{|}~
+SUCCESS    Too complex M4 code failed successfully.
+NO_FAULT    It's not a language fault!</pre><code><span class="m4-sha">55ac1ea</span><a href="../messages/hello.csv" title="messages/hello.csv
 date: 20210103 13:28:44
-sha1sum: 429f847
-size: 126 B">hello.csv</a><span class="m4-cb" title="vybrat text"></span><a href="#m4-messages_hello-csv" title="⚓"></a></code></div>
+sha1sum: e217b28
+size: 135 B">hello.csv</a><span class="m4-cb" title="vybrat text"></span><a href="#m4-messages_hello-csv" title="⚓"></a></code></div>
 <h3 id="m4-csvw-pocitadlo" class="m4-ch"><a href="#m4-csvw-pocitadlo-toc" title="Obsah"></a><a href="#m4-csvw-pocitadlo" title="⚓">A.3</a><code>⟦⟧</code> CSV: počítadlo<a href="#m4--toc" title="Nahoru"></a></h3>
 <p>Příklad používá makro <code class="m4-hgl" data-11="A">COUNT_UP</code> ze souboru <code>countu.m4</code>, jehož <abbr title="pravá strana přepisovacího pravidla"><code>β</code></abbr> se zkopíruje do pravé strany makra <code class="m4-hgl" data-11="2">COUNTER</code>.
 Během první expanze <code class="m4-hgl" data-11="5">COUNTER</code> proběhne inicializace jeho startovací hodnoty.
@@ -463,12 +462,12 @@ COUNTER(1)
 define(⟦ERROR⟧, ⟦
 
 	divert(0)dnl
-ERR_⟦⟧<span class="m4-b">COUNTER</span>	⟦$1	$2⟧
+ERR_⟦⟧<span class="m4-b">COUNTER</span>    ⟦$1	$2⟧
 divert(-1)
 ⟧)</pre><code><span class="m4-sha">24fd4f3</span><a href="../messages/counter.csv.m4" title="messages/counter.csv.m4
 date: 20201226 21:52:28
-sha1sum: 63e2693
-size: 179 B">counter.csv.m4</a><span class="m4-cb" title="vybrat text"></span><a href="#m4-messages_counter-csv-m4" title="⚓"></a></code></div>
+sha1sum: 856d37d
+size: 182 B">counter.csv.m4</a><span class="m4-cb" title="vybrat text"></span><a href="#m4-messages_counter-csv-m4" title="⚓"></a></code></div>
 <div id="m4-messages_counter-csv-command" class="m4-cmd m4-usc"><pre title="příkaz">m4 <a href="../gfiles/root0u.m4" title="gfiles/root0u.m4
 date: 20210118 19:23:51
 git rev: 02f55b8
@@ -480,22 +479,22 @@ sha1sum: 83b97d7
 size: 947 B">countu.m4</a> <a href="../messages/counter.csv.m4" title="messages/counter.csv.m4
 date: 20201226 21:52:28
 git rev: 24fd4f3
-sha1sum: 63e2693
-size: 179 B">counter.csv.m4</a> <a href="../messages/messages_raw.mc" title="messages/messages_raw.mc
+sha1sum: 856d37d
+size: 182 B">counter.csv.m4</a> <a href="../messages/messages_raw.mc" title="messages/messages_raw.mc
 date: 20210103 13:28:44
 git rev: 55ac1ea
 sha1sum: d1f057c
 size: 420 B">messages_raw.mc</a> > <a href="../messages/counter.csv" title="messages/counter.csv
 date: 20210103 13:28:44
 git rev: 55ac1ea
-sha1sum: 367d2b1
-size: 144 B">counter.csv</a></pre><code><span class="m4-cb" title="vybrat text"></span><a href="#m4-messages_counter-csv-command" title="⚓"></a></code></div>
-<div id="m4-messages_counter-csv" class="m4-src"><pre>ERR_<span class="m4-a">1</span>	COMPLEX	!"#$%&amp;'()*+,-./:;&lt;=>?@[\]^_`{|}~
-ERR_<span class="m4-a">2</span>	SUCCESS	Too complex M4 code failed successfully.
-ERR_<span class="m4-a">3</span>	NO_FAULT	It's not a language fault!</pre><code><span class="m4-sha">55ac1ea</span><a href="../messages/counter.csv" title="messages/counter.csv
+sha1sum: 8c62269
+size: 153 B">counter.csv</a></pre><code><span class="m4-cb" title="vybrat text"></span><a href="#m4-messages_counter-csv-command" title="⚓"></a></code></div>
+<div id="m4-messages_counter-csv" class="m4-src"><pre>ERR_<span class="m4-a">1</span>    COMPLEX	!"#$%&amp;'()*+,-./:;&lt;=>?@[\]^_`{|}~
+ERR_<span class="m4-a">2</span>    SUCCESS	Too complex M4 code failed successfully.
+ERR_<span class="m4-a">3</span>    NO_FAULT	It's not a language fault!</pre><code><span class="m4-sha">55ac1ea</span><a href="../messages/counter.csv" title="messages/counter.csv
 date: 20210103 13:28:44
-sha1sum: 367d2b1
-size: 144 B">counter.csv</a><span class="m4-cb" title="vybrat text"></span><a href="#m4-messages_counter-csv" title="⚓"></a></code></div>
+sha1sum: 8c62269
+size: 153 B">counter.csv</a><span class="m4-cb" title="vybrat text"></span><a href="#m4-messages_counter-csv" title="⚓"></a></code></div>
 <h3 id="m4-upravy-specialnich-znaku" class="m4-ch"><a href="#m4-upravy-specialnich-znaku-toc" title="Obsah"></a><a href="#m4-upravy-specialnich-znaku" title="⚓">A.4</a><code title="jak se to dělá" style="cursor:help">💡</code> Úpravy speciálních znaků<a href="#m4--toc" title="Nahoru"></a></h3>
 <p>Každý typ výstupního kódu vyžaduje úpravu speciálních znaků.
 Klíčové slovo jazyka M4 <code>patsubst()</code> je nevhodné pro tento úkol.
@@ -701,7 +700,7 @@ define(⟦<span class="m4-a">COUNTER</span>⟧, defn(⟦COUNT_UP⟧))
 define(⟦ERROR⟧, ⟦
 
 	divert(0)dnl
-⟦#define $1		0x⟧<span class="m4-c">eval</span>(<span class="m4-a">COUNTER</span>, <span class="m4-b">16, 2</span>)
+⟦#define $1    0x⟧<span class="m4-c">eval</span>(<span class="m4-a">COUNTER</span>, <span class="m4-b">16, 2</span>)
 divert(-1)
 ⟧)
 
@@ -717,8 +716,8 @@ divert(1)
 #endif /* __ERROR_H */
 divert(-1)</pre><code><span class="m4-sha">24fd4f3</span><a href="../messages/messages.h.m4" title="messages/messages.h.m4
 date: 20201226 21:52:28
-sha1sum: cc44faa
-size: 304 B">messages.h.m4</a><span class="m4-cb" title="vybrat text"></span><a href="#m4-messages_messages-h-m4" title="⚓"></a></code></div>
+sha1sum: d30ec6e
+size: 306 B">messages.h.m4</a><span class="m4-cb" title="vybrat text"></span><a href="#m4-messages_messages-h-m4" title="⚓"></a></code></div>
 <div id="m4-messages_messages-h-command" class="m4-cmd m4-usc"><pre title="příkaz">m4 <a href="../gfiles/root0u.m4" title="gfiles/root0u.m4
 date: 20210118 19:23:51
 git rev: 02f55b8
@@ -730,16 +729,16 @@ sha1sum: 83b97d7
 size: 947 B">countu.m4</a> <a href="../messages/messages.h.m4" title="messages/messages.h.m4
 date: 20201226 21:52:28
 git rev: 24fd4f3
-sha1sum: cc44faa
-size: 304 B">messages.h.m4</a> <a href="../messages/messages.mc" title="messages/messages.mc
+sha1sum: d30ec6e
+size: 306 B">messages.h.m4</a> <a href="../messages/messages.mc" title="messages/messages.mc
 date: 20210103 13:28:44
 git rev: 55ac1ea
 sha1sum: c6496e4
 size: 535 B">messages.mc</a> > <a href="../messages/messages.h" title="messages/messages.h
 date: 20210103 13:28:44
 git rev: 55ac1ea
-sha1sum: a2f1f33
-size: 190 B">messages.h</a></pre><code><span class="m4-cb" title="vybrat text"></span><a href="#m4-messages_messages-h-command" title="⚓"></a></code></div>
+sha1sum: 30dbdcf
+size: 196 B">messages.h</a></pre><code><span class="m4-cb" title="vybrat text"></span><a href="#m4-messages_messages-h-command" title="⚓"></a></code></div>
 <div id="m4-messages_messages-h" class="m4-src"><pre>/*
  * DO NOT EDIT! This file is generated automatically!
  */
@@ -747,14 +746,14 @@ size: 190 B">messages.h</a></pre><code><span class="m4-cb" title="vybrat text"><
 #ifndef __ERROR_H
 #define __ERROR_H
 
-#define COMPLEX		0x00
-#define SUCCESS		0x01
-#define NO_FAULT		0x02
+#define COMPLEX    0x00
+#define SUCCESS    0x01
+#define NO_FAULT    0x02
 
 #endif /* __ERROR_H */</pre><code><span class="m4-sha">55ac1ea</span><a href="../messages/messages.h" title="messages/messages.h
 date: 20210103 13:28:44
-sha1sum: a2f1f33
-size: 190 B">messages.h</a><span class="m4-cb" title="vybrat text"></span><a href="#m4-messages_messages-h" title="⚓"></a></code></div>
+sha1sum: 30dbdcf
+size: 196 B">messages.h</a><span class="m4-cb" title="vybrat text"></span><a href="#m4-messages_messages-h" title="⚓"></a></code></div>
 <h3 id="m4-cw-maly-automat" class="m4-ch"><a href="#m4-cw-maly-automat-toc" title="Obsah"></a><a href="#m4-cw-maly-automat" title="⚓">A.8</a><code>⟦⟧</code> C: malý automat<a href="#m4--toc" title="Nahoru"></a></h3>
 <p>Příklad používá <span class="m4-hgl" data-25="1-4">malý automat</span> <code class="m4-hgl" data-25="7">NEW_LINE</code> pro generování znaku nového řádku <code class="m4-hgl" data-25="A" data-26="A">\n</code> a&nbsp;jednu výstupní frontu číslo <code class="m4-hgl" data-25="22">1</code> do které se vloží znaky <code class="m4-hgl" data-25="B">";</code> pro uzavření výsledného řetězce.
 Poprvé se <code class="m4-hgl" data-25="C">NEW_LINE</code> přepíše na <abbr title="epsilon – prázdný symbol"><code class="m4-hgl" data-25="D">ε</code></abbr>, podruhé a dále se přepíše na <code class="m4-hgl" data-25="A" data-26="A">\n</code>.</p>
