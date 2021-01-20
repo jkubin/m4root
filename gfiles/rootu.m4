@@ -36,8 +36,8 @@ ___USAGE(⟦m4 root.m4 stem.m4 branch.m4 sub_branch.m4 leaf.m4 data.mc > output.
 # define(⟦A⟧, ⟦β⟧)
 #
 # A → ε
-# define(⟦A⟧)
 # define(⟦A⟧, ⟦⟧)
+# define(⟦A⟧)
 
 # adds LOUD alert for unsuspecting users
 define(⟦DONTE⟧, ⟦ifelse(⟦$#⟧, ⟦0⟧, ⟦⟦$0⟧⟧,
@@ -104,11 +104,11 @@ define(⟦SELECT_LAST_BUT_ONE⟧, ⟦define(⟦#⟧, PAYR($decr($#)))indir(⟦#�
 define(⟦ROOT_INFO⟧, ⟦errprint(__file__:__line__⟦: info: $1
 ⟧)⟧)
 
-# prints warning message to stderr if something is strange
+# prints a warning message to stderr if something is strange
 define(⟦ROOT_WARNING⟧, ⟦errprint(__file__:__line__⟦: warning: $1
 ⟧)⟧)
 
-# aborts script if something goes wrong and prints the reason to stderr
+# aborts a script if something goes wrong and prints the reason to stderr
 define(⟦ROOT_ERROR⟧, ⟦errprint(__file__:__line__⟦: error: $1
 ⟧)m4exit(1)⟧)
 

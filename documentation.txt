@@ -1,6 +1,6 @@
 # vim:wrap:spell:spelllang=en
 # DO NOT EDIT! This file is generated automatically!
-# generated: 20210118-23:32:34
+# generated: 20210120-19:34:00
 # total number of files: 94
 #
 # To update, run:
@@ -73,7 +73,7 @@ Usage: m4 rootb.m4 skeletonVIM_FILE_NAME
 File #11: refs.m4
 Author: Josef Kubin
 Started: 11 December 2019
-Description: tests logic flow (CHAPTER → SECT1 → SECT2 → SECT3) and generates references for anchors
+Description: tests a logic flow (CHAPTER → SECT1 → SECT2 → SECT3) and generates references for anchors
 Reason: extracts all IDs from files and creates associative pair
 ---
 File #12: hello_world/Makefile
@@ -190,7 +190,7 @@ File #30: js/info_packer.sed
 Author: Josef Kubin
 Started: 9 May 2020
 Description: replaces the local long_self_descriptive_funny_variables with single letters
-Reason: packs local method variables
+Reason: the script packs local method variables
 ---
 File #31: js/select_packer.sed
 Author: Josef Kubin
@@ -481,7 +481,7 @@ Reason: copies captions to text
 File #79: refs_cs.m4
 Author: Josef Kubin
 Started: 11 December 2019
-Description: (this is a generated file) associative memory to linking references, contains captions and ID
+Description: DO NOT EDIT! This file is generated automatically! This is an associative memory to linking references, contains captions and ID
 Reason: simple hash database for linking references
 ---
 File #80: spell.m4
@@ -494,7 +494,7 @@ File #81: asm/Makefile
 Author: Josef Kubin
 Started: 13 October 2019
 Description: keeps two ASM files consistent for both Intel and AT&T notation; uses a local .vimrc file with iabbrev-s
-Reason: two ASM file formats generated from one metafile
+Reason: two ASM files are generated from one source file
 Usage: make h && make
 ---
 File #82: file_refs.m4
@@ -506,7 +506,7 @@ Reason: simple hash database for files
 File #83: refs_en.m4
 Author: Josef Kubin
 Started: 11 December 2019
-Description: (this is a generated file) associative memory to linking references, contains captions and ID
+Description: DO NOT EDIT! This file is generated automatically! This is an associative memory to linking references, contains captions and ID
 Reason: simple hash database for linking references
 ---
 File #84: mk/fhtml.m4

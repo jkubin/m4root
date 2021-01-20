@@ -11,7 +11,7 @@ let b:usr_ftplugin_m4_maps = 1
 
 iabbrev <buffer> <unique> ar ARG1(<c-r>")<esc>
 iabbrev <buffer> <unique> ,b ⟦⟧<c-r>=Eatchar('.')<cr>
-iabbrev <buffer> <unique> bra BRAC(<c-r>")<esc>
+"iabbrev <buffer> <unique> bra BRAC(<c-r>")<esc>
 "iabbrev <buffer> <unique> bu builtin(⟦⟧, ⟦%%%⟧, ⟦%%%⟧)<left><c-o>%<right><c-r>=Eatchar('.')<cr>
 "iabbrev <buffer> <unique> cc changecom()<left><c-r>=Eatchar('.')<cr>	<--- kolize
 "iabbrev <buffer> <unique> chw changeword()<left><c-r>=Eatchar('.')<cr>	<--- nevyuzito

@@ -1,7 +1,7 @@
 # DO NOT EDIT! This file is generated automatically!
 
 __AUTHOR(⟦Josef Kubin⟧, ⟦2019,12,11⟧)
-___DESCR(⟦(this is a generated file) associative memory to linking references, contains captions and ID⟧)
+___DESCR(⟦DO NOT EDIT! This file is generated automatically! This is an associative memory to linking references, contains captions and ID⟧)
 __REASON(⟦simple hash database for linking references⟧)
 
 # A → β
