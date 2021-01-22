@@ -1,6 +1,6 @@
 # vim:mps+=⟦\:⟧
 
-__AUTHOR(⟦Josef Kubin⟧, ⟦2019,12,03⟧, ⟦https://www.root.cz/clanky,generovani-kodu-v-m4-uvod⟧)
+__AUTHOR(⟦Josef Kubin⟧, ⟦2019,12,03⟧, ⟦https://www.root.cz/clanky/generovani-kodu-v-m4-uvod⟧)
 ___DESCR(⟦the introductory part⟧)
 __TPLVER(⟦1,0,0⟧)
 
@@ -97,13 +97,13 @@ Each part can be read in any order.
 
 ITEMIZEDLIST_WRAP(⟦
 
-LISTITEM_MONO(⟦⟦LINK(⟦code_generation_examples⟧, ⟦code_generation_examples⟧)⟧⟧)
+LISTITEM(⟦⟦LINK(⟦code_generation_examples⟧, ⟦code_generation_examples⟧)⟧⟧)
 
-LISTITEM_MONO(⟦⟦LINK(⟦preproc_examples⟧, ⟦preproc_examples⟧)⟧⟧)
+LISTITEM(⟦⟦LINK(⟦preproc_examples⟧, ⟦preproc_examples⟧)⟧⟧)
 
-LISTITEM_MONO(⟦⟦LINK(⟦m4_on_examples⟧, ⟦m4_on_examples⟧)⟧⟧)
+LISTITEM(⟦⟦LINK(⟦m4_on_examples⟧, ⟦m4_on_examples⟧)⟧⟧)
 
-LISTITEM_MONO(⟦⟦LINK(⟦questions_and_answers⟧, ⟦questions_and_answers⟧)⟧⟧)
+LISTITEM(⟦⟦LINK(⟦questions_and_answers⟧, ⟦questions_and_answers⟧)⟧⟧)
 
 LISTITEM(⟦⟦
 ULINK(⟦http://github.com/jkubin/m4root⟧, defn(⟦SERIES_NAME⟧), ⟦http://github.com/jkubin/m4root⟧) – projekt generující tento seriál
@@ -150,9 +150,11 @@ The speed, performance and efficiency of a⟦⟧NB()complex lower-level programm
 However, it is important to understand all layers of code well.
 ⟧⟧)
 
-BRIDGEHEAD_MONO(⟦⟦
+debugfile(⟦debug.m4⟧)debugmode(⟦taeq⟧)
+BRIDGEHEAD(⟦⟦
 GPM (General Purpose Macro-generator)
 ⟧⟧)
+debugmode
 
 PARA(⟦⟦
 Základní myšlenku přepisování textových řetězců s⟦⟧NB()argumenty, které se přepíší do dalších rekurzivně přepisovatelných řetězců, představil
@@ -168,7 +170,7 @@ The next generation of M3 and M4 macro processors basically just expanded the or
 The basic idea of the original proposal remained the same.
 ⟧⟧)
 
-BRIDGEHEAD_MONO(⟦⟦
+BRIDGEHEAD(⟦⟦
 M3
 ⟧⟧)
 
@@ -271,7 +273,7 @@ Argument CODE(⟦-1⟧) completely disables any text output.
 Argument CODE(⟦0⟧) switches output to CODE(⟦stdout⟧) (standard output).
 ⟧⟧)
 
-BRIDGEHEAD_MONO(⟦⟦
+BRIDGEHEAD(⟦⟦
 M4
 ⟧⟧)
 
@@ -385,7 +387,7 @@ Dennis Ritchie⟦⟧REF(⟦Dennis Ritchie⟧, ⟦Zomrel tvorca Unixu a⟦⟧NB()
 Brian Kernighan⟦⟧REF(⟦Brian Kernighan⟧, ⟦An Interview with Brian Kernighan⟧, ⟦https://www.cs.cmu.edu/~mihaib/kernighan-interview/⟧)
 ⟧⟧)
 
-BRIDGEHEAD_MONO(⟦⟦
+BRIDGEHEAD(⟦⟦
 GNU M4
 ⟧⟧)
 
@@ -487,8 +489,8 @@ PROGRAMLISTING(⟦rewriting_rules⟧, LANG(⟦přepisovací pravidla M4⟧, ⟦M
 define⟦⟧(`MM(⟦A⟧, d)', `MM(⟦β⟧, f)')
 
 # A → ε
-define⟦⟧(`MM(⟦A⟧, d)')
 define⟦⟧(`MM(⟦A⟧, d)', `')
+define⟦⟧(`MM(⟦A⟧, d)')
 ⟧)dnl PROGRAMLISTING
 
 PARA(⟦⟦
@@ -866,7 +868,7 @@ sed 's/#/⟦#⟧/g;s/\<dnl\>/⟦dnl⟧/g' any.src | m4 rootu.m4 leaf.m4 - | gcc 
 
 undefine(⟦common_title_for_regex⟧, ⟦common_title⟧)
 
-PARA_MONO(⟦⟦
+PARA(⟦⟦
 try_it_yourself() LINK(⟦preproc_examples⟧, ⟦preproc_examples⟧)
 ⟧⟧)
 
@@ -892,7 +894,7 @@ CMDSYNOPSIS(, LANG(⟦jak se naučit M4⟧, ⟦how to learn M4⟧), ⟦
 m4 root.m4 leaf.m4
 ⟧)
 
-PARA_MONO(⟦⟦
+PARA(⟦⟦
 try_it_yourself() LINK(⟦m4_on_examples⟧, ⟦m4_on_examples⟧)
 ⟧⟧)
 
@@ -1098,9 +1100,6 @@ The automaton remains in this state until all data has been processed.
 
 SECT1(⟦⟦
 (GNU) make
-⟧,dnl _next_language_
-⟦
-(GNU) make
 ⟧⟧)
 
 PARA(⟦⟦
@@ -1127,9 +1126,6 @@ The file CODE(⟦~/.vimrc⟧) contains XCODE(⟦nnoremap ⟦⟧LT()c-j⟦⟧GT()
 
 
 SECT1(⟦⟦
-Vim
-⟧,dnl _next_language_
-⟦
 Vim
 ⟧⟧)
 
@@ -1302,7 +1298,7 @@ We create several conversion files according to the target code type, CODE(⟦[�
 
 define(⟦conv_file⟧, LANG(⟦Převodní soubor pro⟧, ⟦Conversion file for⟧))
 
-BRIDGEHEAD_MONO(⟦⟦
+BRIDGEHEAD(⟦⟦
 CODE(⟦⟦⟧⟧) conv_file XML⟦,⟧ XSLT⟦,⟧ HTML
 ⟧⟧)
 
