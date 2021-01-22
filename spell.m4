@@ -20,33 +20,22 @@ divert(-1)
 	⟧)
 ⟧)
 
-# prints monolingual text
-# β
-pushdef(⟦PRINT_MONO⟧, defn(⟦TITLE_ATTR⟧)⟦
-
-	divert(0)dnl
-__line__
-EXPAND_ARG1_CROP_WHITE_CHARS(⟧defn(⟦EXPAND_LAST_ARG⟧)⟦)
-
-divert(-1)
-⟧)
-
 # prints the text selected by the language code
 # β
-pushdef(⟦PRINT_LANG⟧, defn(⟦TITLE_ATTR⟧)⟦
+pushdef(⟦PRINT_ITEM⟧, defn(⟦TITLE_ATTR⟧)⟦
 
 	divert(0)dnl
 __line__
-EXPAND_LANG_CROP_WHITE_CHARS(⟧defn(⟦EXPAND_LAST_ARG⟧)⟦)
+EXPAND_REQUIRED_ITEM(⟧defn(⟦EXPAND_LAST_ARG⟧)⟦)(indir(⟦#⟧, $@))
 
 divert(-1)
 ⟧)
 
 # prints the text along with the number of characters
 # β
-pushdef(⟦PRINT_LANG_PEREX⟧, ⟦
+pushdef(⟦PRINT_ITEM_PEREX⟧, ⟦
 
-	define(⟦SELITM⟧, SELECT_LANG_CROP_WHITE_CHARS(⟧defn(⟦EXPAND_LAST_ARG⟧)⟦))
+	define(⟦SELITM⟧, SELECT_REQUIRED_ITEM(⟧defn(⟦EXPAND_LAST_ARG⟧)⟦)(indir(⟦#⟧, $@)))
 
 	divert(0)dnl
 ⟦#⟧ number of characters in perex (200 ±10 is recommended): esyscmd(⟦wc -m << EOF⟧
@@ -74,7 +63,7 @@ divert(1)dnl
 ---
 divert(-1)
 
-⟧defn(⟦PRINT_LANG⟧))
+⟧defn(⟦PRINT_ITEM⟧))
 
 # prints a hyperlink or a linked text that dereferences
 # A → β
@@ -237,70 +226,54 @@ define(⟦XCODE⟧,		defn(⟦CODE⟧))
 
 # A → β
 define(⟦ADDRESS_WRAP⟧,		defn(⟦TITLE_ATTR⟧, ⟦EXPAND_LAST_ARG⟧))
-define(⟦APPENDIX⟧,		defn(⟦PRINT_LANG⟧, ⟦APPENDIX_APPEND_CODE⟧))
+define(⟦APPENDIX⟧,		defn(⟦PRINT_ITEM⟧, ⟦APPENDIX_APPEND_CODE⟧))
 define(⟦ARTICLE_WRAP⟧,		defn(⟦TITLE_ATTR⟧, ⟦EXPAND_LAST_ARG⟧))
 define(⟦ASIDE_WRAP⟧,		defn(⟦TITLE_ATTR⟧, ⟦EXPAND_LAST_ARG⟧))
-define(⟦BLOCKQUOTE⟧,		defn(⟦PRINT_LANG⟧))
-define(⟦BLOCKQUOTE_MONO⟧,		defn(⟦PRINT_MONO⟧))
-define(⟦BRIDGEHEAD⟧,		defn(⟦PRINT_LANG⟧))
-define(⟦BRIDGEHEAD_MONO⟧,		defn(⟦PRINT_MONO⟧))
-define(⟦CHAPTER⟧,		defn(⟦PRINT_LANG⟧))
+define(⟦BLOCKQUOTE⟧,		defn(⟦PRINT_ITEM⟧))
+define(⟦BRIDGEHEAD⟧,		defn(⟦PRINT_ITEM⟧))
+define(⟦CHAPTER⟧,		defn(⟦PRINT_ITEM⟧))
 define(⟦CMDSYNOPSIS⟧, 		defn(⟦TITLE_ATTR⟧))
 define(⟦CMDSYNOPSIS_ROOT⟧, 		defn(⟦TITLE_ATTR⟧))
-define(⟦COMMENT_MONO⟧,		defn(⟦PRINT_MONO⟧))
-define(⟦DESCRIPTION_LIST_DESC⟧,		defn(⟦PRINT_LANG⟧))
-define(⟦DESCRIPTION_LIST_DESC_MONO⟧,	defn(⟦PRINT_MONO⟧))
-define(⟦DESCRIPTION_LIST_TERM⟧,		defn(⟦PRINT_LANG⟧))
-define(⟦DESCRIPTION_LIST_TERM_MONO⟧,	defn(⟦PRINT_MONO⟧))
+define(⟦DESCRIPTION_LIST_DESC⟧,		defn(⟦PRINT_ITEM⟧))
+define(⟦DESCRIPTION_LIST_TERM⟧,		defn(⟦PRINT_ITEM⟧))
 define(⟦DESCRIPTION_LIST_WRAP⟧,		defn(⟦TITLE_ATTR⟧, ⟦EXPAND_LAST_ARG⟧))
 define(⟦DETAILS_WRAP⟧,		defn(⟦TITLE_ATTR⟧, ⟦EXPAND_LAST_ARG⟧))
-define(⟦DIV⟧,			defn(⟦PRINT_LANG⟧))
-define(⟦DIV_MONO⟧,		defn(⟦PRINT_MONO⟧))
+define(⟦DIV⟧,			defn(⟦PRINT_ITEM⟧))
 define(⟦DIV_WRAP⟧,		defn(⟦TITLE_ATTR⟧, ⟦EXPAND_LAST_ARG⟧))
-define(⟦ENTRY⟧,			defn(⟦PRINT_LANG⟧))
-define(⟦ENTRY_HEAD⟧,		defn(⟦PRINT_LANG⟧))
-define(⟦ENTRY_HEAD_MONO⟧,		defn(⟦PRINT_MONO⟧))
-define(⟦ENTRY_MONO⟧,		defn(⟦PRINT_MONO⟧))
-define(⟦EXCL⟧,			defn(⟦PRINT_LANG⟧))
-define(⟦FIGCAPTION⟧,		defn(⟦PRINT_LANG⟧))
-define(⟦FIGCAPTION_MONO⟧,		defn(⟦PRINT_MONO⟧))
+define(⟦ENTRY⟧,			defn(⟦PRINT_ITEM⟧))
+define(⟦ENTRY_HEAD⟧,		defn(⟦PRINT_ITEM⟧))
+define(⟦EXCL⟧,			defn(⟦PRINT_ITEM⟧))
+define(⟦FIGCAPTION⟧,		defn(⟦PRINT_ITEM⟧))
 define(⟦FIGURE_WRAP⟧,		defn(⟦TITLE_ATTR⟧, ⟦EXPAND_LAST_ARG⟧))
 define(⟦FOOTER_WRAP⟧,		defn(⟦TITLE_ATTR⟧, ⟦EXPAND_LAST_ARG⟧))
 define(⟦FORM_WRAP⟧,		defn(⟦TITLE_ATTR⟧, ⟦EXPAND_LAST_ARG⟧))
 define(⟦HEADER_WRAP⟧,		defn(⟦TITLE_ATTR⟧, ⟦EXPAND_LAST_ARG⟧))
-define(⟦IMAGEDATA⟧,		defn(⟦PRINT_LANG⟧))
-define(⟦INFO⟧,			defn(⟦PRINT_LANG⟧))
+define(⟦IMAGEDATA⟧,		defn(⟦PRINT_ITEM⟧))
+define(⟦INFO⟧,			defn(⟦PRINT_ITEM⟧))
 define(⟦ITEMIZEDLIST_WRAP⟧,		defn(⟦TITLE_ATTR⟧, ⟦EXPAND_LAST_ARG⟧))
-define(⟦LISTITEM⟧,		defn(⟦PRINT_LANG⟧))
-define(⟦LISTITEM_MONO⟧,		defn(⟦PRINT_MONO⟧))
+define(⟦LISTITEM⟧,		defn(⟦PRINT_ITEM⟧))
 define(⟦MAIN_WRAP⟧,		defn(⟦TITLE_ATTR⟧, ⟦EXPAND_LAST_ARG⟧))
-define(⟦NAV⟧,			defn(⟦PRINT_LANG⟧))
-define(⟦NAV_MONO⟧,		defn(⟦PRINT_MONO⟧))
-define(⟦NOTE⟧,			defn(⟦PRINT_LANG⟧))
-define(⟦NOTE_MONO⟧,		defn(⟦PRINT_MONO⟧))
+define(⟦NAV⟧,			defn(⟦PRINT_ITEM⟧))
+define(⟦NOTE⟧,			defn(⟦PRINT_ITEM⟧))
 define(⟦NOTE_WRAP⟧,		defn(⟦TITLE_ATTR⟧, ⟦EXPAND_LAST_ARG⟧))
 define(⟦ORDEREDLIST_WRAP⟧,		defn(⟦TITLE_ATTR⟧, ⟦EXPAND_LAST_ARG⟧))
-define(⟦PARA⟧,			defn(⟦PRINT_LANG⟧))
-define(⟦PARA_MONO⟧,		defn(⟦PRINT_MONO⟧))
-define(⟦PARTINTRO⟧,		defn(⟦PRINT_LANG_PEREX⟧))
-define(⟦PLAIN_TEXT⟧,		defn(⟦PRINT_LANG⟧))
-define(⟦PLAIN_TEXT_MONO⟧,		defn(⟦PRINT_MONO⟧))
+define(⟦PARA⟧,			defn(⟦PRINT_ITEM⟧))
+define(⟦PARTINTRO⟧,		defn(⟦PRINT_ITEM_PEREX⟧))
+define(⟦PLAIN_TEXT⟧,		defn(⟦PRINT_ITEM⟧))
 define(⟦PROGRAMLISTING⟧, 		defn(⟦TITLE_ATTR⟧))
 define(⟦ROW_WRAP⟧,		defn(⟦TITLE_ATTR⟧, ⟦EXPAND_LAST_ARG⟧))
-define(⟦SECT1⟧,			defn(⟦PRINT_LANG⟧))
-define(⟦SECT2⟧,			defn(⟦PRINT_LANG⟧))
+define(⟦SECT1⟧,			defn(⟦PRINT_ITEM⟧))
+define(⟦SECT2⟧,			defn(⟦PRINT_ITEM⟧))
 define(⟦SECTION_WRAP⟧,		defn(⟦TITLE_ATTR⟧, ⟦EXPAND_LAST_ARG⟧))
-define(⟦SUMMARY⟧,		defn(⟦PRINT_LANG⟧))
-define(⟦SUMMARY_MONO⟧,		defn(⟦PRINT_MONO⟧))
+define(⟦SUMMARY⟧,		defn(⟦PRINT_ITEM⟧))
 define(⟦TABLE_COLGROUP_WRAP⟧,		defn(⟦TITLE_ATTR⟧, ⟦EXPAND_LAST_ARG⟧))
 define(⟦TABLE_WRAP⟧,		defn(⟦TITLE_ATTR⟧, ⟦EXPAND_LAST_ARG⟧))
 define(⟦TBODY_WRAP⟧,		defn(⟦TITLE_ATTR⟧, ⟦EXPAND_LAST_ARG⟧))
 define(⟦TFOOT_WRAP⟧,		defn(⟦TITLE_ATTR⟧, ⟦EXPAND_LAST_ARG⟧))
 define(⟦THEAD_WRAP⟧,		defn(⟦TITLE_ATTR⟧, ⟦EXPAND_LAST_ARG⟧))
-define(⟦TILE_BOX⟧,		defn(⟦PRINT_LANG⟧))
-define(⟦TTITLE⟧,		defn(⟦PRINT_LANG⟧))
-define(⟦TTITLE_MONO⟧,		defn(⟦PRINT_MONO⟧))
-define(⟦WARN⟧,			defn(⟦PRINT_LANG⟧))
+define(⟦TILE_BOX⟧,		defn(⟦PRINT_ITEM⟧))
+define(⟦TTITLE⟧,		defn(⟦PRINT_ITEM⟧))
+define(⟦WARN⟧,			defn(⟦PRINT_ITEM⟧))
 
 # A → β
 # β
@@ -322,9 +295,8 @@ define(⟦TEXTDATA_MLH⟧, defn(⟦TEXTDATA⟧))
 
 popdef(
 
-	⟦PRINT_LANG⟧,
-	⟦PRINT_LANG_PEREX⟧,
-	⟦PRINT_MONO⟧,
+	⟦PRINT_ITEM_PEREX⟧,
+	⟦PRINT_ITEM⟧,
 	⟦TITLE_ATTR⟧,
 
 )

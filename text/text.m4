@@ -22,36 +22,19 @@ divert(-1)
 ⟧)
 
 # β
-pushdef(⟦PRINT_MONO⟧, ⟦
+pushdef(⟦PRINT_ITEM⟧, ⟦
 
 	divert(CURRQU)dnl
-EXPAND_ARG1_CROP_WHITE_CHARS(⟧defn(⟦EXPAND_LAST_ARG⟧)⟦)
+EXPAND_REQUIRED_ITEM(⟧defn(⟦EXPAND_LAST_ARG⟧)⟦)(indir(⟦#⟧, $@))
 
 divert(-1)
 ⟧)
 
 # β
-pushdef(⟦PRINT_MONO_NO_EMPTY_LINE⟧, ⟦
+pushdef(⟦PRINT_ITEM_NO_EMPTY_LINE⟧, ⟦
 
 	divert(CURRQU)dnl
-EXPAND_ARG1_CROP_WHITE_CHARS(⟧defn(⟦EXPAND_LAST_ARG⟧)⟦)
-divert(-1)
-⟧)
-
-# β
-pushdef(⟦PRINT_LANG⟧, ⟦
-
-	divert(CURRQU)dnl
-EXPAND_LANG_CROP_WHITE_CHARS(⟧defn(⟦EXPAND_LAST_ARG⟧)⟦)
-
-divert(-1)
-⟧)
-
-# β
-pushdef(⟦PRINT_LANG_NO_EMPTY_LINE⟧, ⟦
-
-	divert(CURRQU)dnl
-EXPAND_LANG_CROP_WHITE_CHARS(⟧defn(⟦EXPAND_LAST_ARG⟧)⟦)
+EXPAND_REQUIRED_ITEM(⟧defn(⟦EXPAND_LAST_ARG⟧)⟦)(indir(⟦#⟧, $@))
 divert(-1)
 ⟧)
 
@@ -59,7 +42,7 @@ divert(-1)
 pushdef(⟦PRINT_IMAGE⟧, ⟦
 
 	divert(CURRQU)dnl
-WORD_IMAGE IMAGE_COUNTER: EXPAND_LANG_CROP_WHITE_CHARS(⟧defn(⟦EXPAND_LAST_ARG⟧)⟦)
+WORD_IMAGE IMAGE_COUNTER: EXPAND_REQUIRED_ITEM(⟧defn(⟦EXPAND_LAST_ARG⟧)⟦)(indir(⟦#⟧, $@))
 
 divert(-1)
 ⟧)
@@ -68,7 +51,7 @@ divert(-1)
 pushdef(⟦PRINT_PROGRAMLISTING⟧, ⟦
 
 	divert(CURRQU)dnl
-EXPAND_ARG1_CROP_WHITE_CHARS(⟧defn(⟦SELECT_LAST_ARG⟧)⟦)
+EXPAND_CASE_1(⟧defn(⟦SELECT_LAST_ARG⟧)⟦)
 
 divert(-1)
 ⟧)
@@ -141,7 +124,7 @@ WORD_PART PART_COUNTER. dnl
 divert(-1)
 	⟧)
 
-⟧defn(⟦PRINT_LANG⟧))
+⟧defn(⟦PRINT_ITEM⟧))
 
 #      ______      ___________
 # --->/ PART \--->/ PART_NEXT \---.
@@ -235,7 +218,7 @@ define(⟦CHAPTER_NEXT⟧, ⟦
 	define(⟦SECT2_COUNTER_val⟧, 0)
 	define(⟦SECT3_COUNTER_val⟧, 0)
 
-	define(⟦SELITM⟧, SELECT_LANG_CROP_WHITE_CHARS(⟧defn(⟦EXPAND_LAST_ARG⟧)⟦))
+	define(⟦SELITM⟧, SELECT_REQUIRED_ITEM(⟧defn(⟦EXPAND_LAST_ARG⟧)⟦)(indir(⟦#⟧, $@)))
 
 	divert(CHAPTER_NAVIG_DATA)dnl
 CHAPTER_COUNTER_val SELITM
@@ -278,7 +261,7 @@ define(⟦SECT1_ARTICLE⟧, ⟦
 	SECT1_COUNTER
 	define(⟦SECT2_COUNTER_val⟧, 0)
 
-	define(⟦SELITM⟧, SELECT_LANG_CROP_WHITE_CHARS(⟧defn(⟦EXPAND_LAST_ARG⟧)⟦))
+	define(⟦SELITM⟧, SELECT_REQUIRED_ITEM(⟧defn(⟦EXPAND_LAST_ARG⟧)⟦)(indir(⟦#⟧, $@)))
 
 	divert(CHAPTER_NAVIG_DATA)dnl
 	CHAPTER_COUNTER_val.SECT1_COUNTER_val SELITM
@@ -294,7 +277,7 @@ define(⟦SECT2_ARTICLE⟧, ⟦
 	SECT2_COUNTER
 	define(⟦SECT3_COUNTER_val⟧, 0)
 
-	define(⟦SELITM⟧, SELECT_LANG_CROP_WHITE_CHARS(⟧defn(⟦EXPAND_LAST_ARG⟧)⟦))
+	define(⟦SELITM⟧, SELECT_REQUIRED_ITEM(⟧defn(⟦EXPAND_LAST_ARG⟧)⟦)(indir(⟦#⟧, $@)))
 
 	divert(CHAPTER_NAVIG_DATA)dnl
 		CHAPTER_COUNTER_val.SECT1_COUNTER_val.SECT2_COUNTER_val SELITM
@@ -309,7 +292,7 @@ define(⟦SECT3_ARTICLE⟧, ⟦
 	# increment index
 	SECT3_COUNTER
 
-	define(⟦SELITM⟧, SELECT_LANG_CROP_WHITE_CHARS(⟧defn(⟦EXPAND_LAST_ARG⟧)⟦))
+	define(⟦SELITM⟧, SELECT_REQUIRED_ITEM(⟧defn(⟦EXPAND_LAST_ARG⟧)⟦)(indir(⟦#⟧, $@)))
 
 	divert(CHAPTER_NAVIG_DATA)dnl
 			CHAPTER_COUNTER_val.SECT1_COUNTER_val.SECT2_COUNTER_val.SECT3_COUNTER_val SELITM
@@ -327,7 +310,7 @@ define(⟦APPENDIX_NEXT⟧, ⟦
 	define(⟦SECT2_COUNTER_val⟧, 0)
 	define(⟦SECT3_COUNTER_val⟧, 0)
 
-	define(⟦SELITM⟧, SELECT_LANG_CROP_WHITE_CHARS(⟧defn(⟦EXPAND_LAST_ARG⟧)⟦))
+	define(⟦SELITM⟧, SELECT_REQUIRED_ITEM(⟧defn(⟦EXPAND_LAST_ARG⟧)⟦)(indir(⟦#⟧, $@)))
 
 	divert(APPENDIX_NAVIG_DATA)dnl
 APPENDIX_LETTER SELITM
@@ -381,7 +364,7 @@ define(⟦SECT1_APPENDIX⟧, ⟦
 	SECT1_COUNTER
 	define(⟦SECT2_COUNTER_val⟧, 0)
 
-	define(⟦SELITM⟧, SELECT_LANG_CROP_WHITE_CHARS(⟧defn(⟦EXPAND_LAST_ARG⟧)⟦))
+	define(⟦SELITM⟧, SELECT_REQUIRED_ITEM(⟧defn(⟦EXPAND_LAST_ARG⟧)⟦)(indir(⟦#⟧, $@)))
 
 	divert(APPENDIX_NAVIGATION)dnl
 	APPENDIX_LETTER.SECT1_COUNTER_val SELITM
@@ -397,7 +380,7 @@ define(⟦SECT2_APPENDIX⟧, ⟦
 	SECT2_COUNTER
 	define(⟦SECT3_COUNTER_val⟧, 0)
 
-	define(⟦SELITM⟧, SELECT_LANG_CROP_WHITE_CHARS(⟧defn(⟦EXPAND_LAST_ARG⟧)⟦))
+	define(⟦SELITM⟧, SELECT_REQUIRED_ITEM(⟧defn(⟦EXPAND_LAST_ARG⟧)⟦)(indir(⟦#⟧, $@)))
 
 	divert(APPENDIX_NAVIGATION)dnl
 		APPENDIX_LETTER.SECT1_COUNTER_val.SECT2_COUNTER_val SELITM
@@ -412,7 +395,7 @@ define(⟦SECT3_APPENDIX⟧, ⟦
 	# increment index
 	SECT2_COUNTER
 
-	define(⟦SELITM⟧, SELECT_LANG_CROP_WHITE_CHARS(⟧defn(⟦EXPAND_LAST_ARG⟧)⟦))
+	define(⟦SELITM⟧, SELECT_REQUIRED_ITEM(⟧defn(⟦EXPAND_LAST_ARG⟧)⟦)(indir(⟦#⟧, $@)))
 
 	divert(APPENDIX_NAVIGATION)dnl
 			APPENDIX_LETTER.SECT1_COUNTER_val.SECT2_COUNTER_val.SECT3_COUNTER_val SELITM
@@ -505,64 +488,48 @@ define(⟦PERSON⟧,	defn(⟦BOLD⟧))
 define(⟦ADDRESS_WRAP⟧,		defn(⟦EXPAND_LAST_ARG⟧))
 define(⟦ARTICLE_WRAP⟧,		defn(⟦EXPAND_LAST_ARG⟧))
 define(⟦ASIDE_WRAP⟧,		defn(⟦EXPAND_LAST_ARG⟧))
-define(⟦BLOCKQUOTE⟧,		defn(⟦PRINT_LANG⟧))
-define(⟦BLOCKQUOTE_MONO⟧,		defn(⟦PRINT_MONO⟧))
-define(⟦BRIDGEHEAD⟧,		defn(⟦PRINT_LANG_NO_EMPTY_LINE⟧))
-define(⟦BRIDGEHEAD_MONO⟧,		defn(⟦PRINT_MONO_NO_EMPTY_LINE⟧))
+define(⟦BLOCKQUOTE⟧,		defn(⟦PRINT_ITEM⟧))
+define(⟦BRIDGEHEAD⟧,		defn(⟦PRINT_ITEM_NO_EMPTY_LINE⟧))
 define(⟦CMDSYNOPSIS⟧, 		defn(⟦PRINT_PROMPT_USR⟧, ⟦PRINT_PROGRAMLISTING⟧))
 define(⟦CMDSYNOPSIS_ROOT⟧, 		defn(⟦PRINT_PROMPT_ROOT⟧, ⟦PRINT_PROGRAMLISTING⟧))
-define(⟦COMMENT_MONO⟧,		defn(⟦PRINT_MONO⟧))
-define(⟦DESCRIPTION_LIST_DESC⟧,		defn(⟦PRINT_LANG⟧))
-define(⟦DESCRIPTION_LIST_DESC_MONO⟧,	defn(⟦PRINT_MONO⟧))
-define(⟦DESCRIPTION_LIST_TERM⟧,		defn(⟦PRINT_LANG⟧))
-define(⟦DESCRIPTION_LIST_TERM_MONO⟧,	defn(⟦PRINT_MONO⟧))
+define(⟦DESCRIPTION_LIST_DESC⟧,		defn(⟦PRINT_ITEM⟧))
+define(⟦DESCRIPTION_LIST_TERM⟧,		defn(⟦PRINT_ITEM⟧))
 define(⟦DESCRIPTION_LIST_WRAP⟧,		defn(⟦EXPAND_LAST_ARG⟧))
 define(⟦DETAILS_WRAP⟧,		defn(⟦EXPAND_LAST_ARG⟧))
-define(⟦DIV⟧,			defn(⟦PRINT_LANG⟧))
-define(⟦DIV_MONO⟧,		defn(⟦PRINT_MONO⟧))
+define(⟦DIV⟧,			defn(⟦PRINT_ITEM⟧))
 define(⟦DIV_WRAP⟧,		defn(⟦EXPAND_LAST_ARG⟧))
-define(⟦ENTRY⟧,			defn(⟦PRINT_LANG⟧))
-define(⟦ENTRY_HEAD⟧,		defn(⟦PRINT_LANG⟧))
-define(⟦ENTRY_HEAD_MONO⟧,		defn(⟦PRINT_MONO⟧))
-define(⟦ENTRY_MONO⟧,		defn(⟦PRINT_MONO⟧))
-define(⟦EXCL⟧,			defn(⟦PRINT_EXCL_SYMBOL⟧, ⟦PRINT_LANG⟧))
-define(⟦FIGCAPTION⟧,		defn(⟦PRINT_LANG⟧))
-define(⟦FIGCAPTION_MONO⟧,		defn(⟦PRINT_MONO⟧))
+define(⟦ENTRY⟧,			defn(⟦PRINT_ITEM⟧))
+define(⟦ENTRY_HEAD⟧,		defn(⟦PRINT_ITEM⟧))
+define(⟦EXCL⟧,			defn(⟦PRINT_EXCL_SYMBOL⟧, ⟦PRINT_ITEM⟧))
+define(⟦FIGCAPTION⟧,		defn(⟦PRINT_ITEM⟧))
 define(⟦FIGURE_WRAP⟧,		defn(⟦EXPAND_LAST_ARG⟧))
 define(⟦FOOTER_WRAP⟧,		defn(⟦EXPAND_LAST_ARG⟧))
 define(⟦FORM_WRAP⟧,		defn(⟦EXPAND_LAST_ARG⟧))
 define(⟦HEADER_WRAP⟧,		defn(⟦EXPAND_LAST_ARG⟧))
 define(⟦IMAGEDATA⟧,		defn(⟦PRINT_IMAGE⟧))
-define(⟦INFO⟧,			defn(⟦PRINT_INFO_SYMBOL⟧, ⟦PRINT_LANG⟧))
+define(⟦INFO⟧,			defn(⟦PRINT_INFO_SYMBOL⟧, ⟦PRINT_ITEM⟧))
 define(⟦ITEMIZEDLIST_WRAP⟧,		defn(⟦EXPAND_LAST_ARG⟧, ⟦PRINT_EMPTY_LINE⟧))
-define(⟦LISTITEM⟧,		defn(⟦PRINT_BULLET⟧, ⟦PRINT_LANG_NO_EMPTY_LINE⟧))
-define(⟦LISTITEM_MONO⟧,		defn(⟦PRINT_BULLET⟧, ⟦PRINT_MONO_NO_EMPTY_LINE⟧))
+define(⟦LISTITEM⟧,		defn(⟦PRINT_BULLET⟧, ⟦PRINT_ITEM_NO_EMPTY_LINE⟧))
 define(⟦MAIN_WRAP⟧,		defn(⟦EXPAND_LAST_ARG⟧))
-define(⟦NAV⟧,			defn(⟦PRINT_LANG⟧))
-define(⟦NAV_MONO⟧,		defn(⟦PRINT_MONO⟧))
-define(⟦NOTE⟧,			defn(⟦PRINT_NOTE_SYMBOL⟧, ⟦PRINT_LANG⟧))
-define(⟦NOTE_MONO⟧,		defn(⟦PRINT_MONO⟧))
+define(⟦NAV⟧,			defn(⟦PRINT_ITEM⟧))
+define(⟦NOTE⟧,			defn(⟦PRINT_NOTE_SYMBOL⟧, ⟦PRINT_ITEM⟧))
 define(⟦NOTE_WRAP⟧,		defn(⟦EXPAND_LAST_ARG⟧))
 define(⟦ORDEREDLIST_WRAP⟧,		defn(⟦EXPAND_LAST_ARG⟧))
-define(⟦PARA⟧,			defn(⟦PRINT_LANG⟧))
-define(⟦PARA_MONO⟧,		defn(⟦PRINT_MONO⟧))
-define(⟦PARTINTRO⟧,		defn(⟦PRINT_LANG⟧))
-define(⟦PLAIN_TEXT⟧,		defn(⟦PRINT_LANG⟧))
-define(⟦PLAIN_TEXT_MONO⟧,		defn(⟦PRINT_MONO⟧))
+define(⟦PARA⟧,			defn(⟦PRINT_ITEM⟧))
+define(⟦PARTINTRO⟧,		defn(⟦PRINT_ITEM⟧))
+define(⟦PLAIN_TEXT⟧,		defn(⟦PRINT_ITEM⟧))
 define(⟦PROGRAMLISTING⟧, 		defn(⟦PRINT_PROGRAMLISTING⟧))
 define(⟦ROW_WRAP⟧,		defn(⟦EXPAND_LAST_ARG⟧))
 define(⟦SECTION_WRAP⟧,		defn(⟦EXPAND_LAST_ARG⟧))
-define(⟦SUMMARY⟧,		defn(⟦PRINT_LANG⟧))
-define(⟦SUMMARY_MONO⟧,		defn(⟦PRINT_MONO⟧))
+define(⟦SUMMARY⟧,		defn(⟦PRINT_ITEM⟧))
 define(⟦TABLE_COLGROUP_WRAP⟧,		defn(⟦EXPAND_LAST_ARG⟧))
 define(⟦TABLE_WRAP⟧,		defn(⟦EXPAND_LAST_ARG⟧))
 define(⟦TBODY_WRAP⟧,		defn(⟦EXPAND_LAST_ARG⟧))
 define(⟦TFOOT_WRAP⟧,		defn(⟦EXPAND_LAST_ARG⟧))
 define(⟦THEAD_WRAP⟧,		defn(⟦EXPAND_LAST_ARG⟧))
-define(⟦TILE_BOX⟧,		defn(⟦PRINT_LANG⟧))
-define(⟦TTITLE⟧,		defn(⟦PRINT_LANG⟧))
-define(⟦TTITLE_MONO⟧,		defn(⟦PRINT_MONO⟧))
-define(⟦WARN⟧,			defn(⟦PRINT_WARN_SYMBOL⟧, ⟦PRINT_LANG⟧))
+define(⟦TILE_BOX⟧,		defn(⟦PRINT_ITEM⟧))
+define(⟦TTITLE⟧,		defn(⟦PRINT_ITEM⟧))
+define(⟦WARN⟧,			defn(⟦PRINT_WARN_SYMBOL⟧, ⟦PRINT_ITEM⟧))
 
 popdef(
 
@@ -573,10 +540,8 @@ popdef(
 	⟦PRINT_EXCL_SYMBOL⟧,
 	⟦PRINT_IMAGE⟧,
 	⟦PRINT_INFO_SYMBOL⟧,
-	⟦PRINT_LANG⟧,
-	⟦PRINT_LANG_NO_EMPTY_LINE⟧,
-	⟦PRINT_MONO⟧,
-	⟦PRINT_MONO_NO_EMPTY_LINE⟧,
+	⟦PRINT_ITEM⟧,
+	⟦PRINT_ITEM_NO_EMPTY_LINE⟧,
 	⟦PRINT_NOTE_SYMBOL⟧,
 	⟦PRINT_PROGRAMLISTING⟧,
 	⟦PRINT_PROMPT_ROOT⟧,

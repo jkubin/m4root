@@ -22,6 +22,7 @@ define(⟦RUTF⟧, defn(⟦RR⟧))
 
 # re-define problematic macros used in captions
 # A → β
+# A → ε
 define(⟦AP⟧,		⟦ifelse(⟦$#⟧, ⟦0⟧, ⟦⟦$0⟧⟧, ⟦a⟧)⟧)
 define(⟦BOLD⟧,		⟦ifelse(⟦$#⟧, ⟦0⟧, ⟦⟦$0⟧⟧, ⟦$1⟧)⟧)
 define(⟦CODE⟧,		⟦ifelse(⟦$#⟧, ⟦0⟧, ⟦⟦$0⟧⟧, ⟦⟦$1⟧⟧)⟧)
@@ -30,18 +31,10 @@ define(⟦DQ⟧,		defn(⟦DQT⟧))
 define(⟦LF⟧,		⟦l⟧)
 define(⟦LL⟧,		⟦u⟧)
 define(⟦NB⟧,		⟦ifelse(⟦$#⟧, ⟦0⟧, ⟦⟦$0⟧⟧, ⟦ ⟧)⟧)
+define(⟦RR⟧)
 define(⟦XCODE⟧,		defn(⟦BOLD⟧))
 
-# A → ε
-define(⟦RR⟧)
-#define(⟦LB⟧,		⟦b⟧)
-#define(⟦LN⟧,		⟦n⟧)
-#define(⟦LQ⟧,		⟦g⟧)
-#define(⟦RQ⟧)
-#define(⟦RN⟧)
-#define(⟦RU⟧)
-
-# set unique key
+# set an unique key
 # β
 pushdef(⟦SET_UNIQ_KEY_FOR_LINK⟧, ⟦
 
@@ -139,19 +132,19 @@ define(⟦TEST_CHARS_IN_STRING⟧, ⟦
 
 # the resulting string must be tested
 # β
-pushdef(⟦TEST_STRING⟧, ⟦
+pushdef(⟦TEST_RESULTING_STRING⟧, ⟦
 
 	ifelse(NAR(SELITM), ⟦1⟧, ⟦⟧, ⟦
 
-		ROOT_ERROR(⟦comma is not protected, use UTF8 brackets: ‘,’ → ⟦,⟧ $0(⟧PAYR(defn(⟦SELITM⟧))⟦)⟧)
+		ROOT_ERROR(⟦comma is not protected, use the brackets: ‘,’ → ‘⟦,⟧’ $0(⟧PAYR(defn(⟦SELITM⟧))⟦)⟧)
 	⟧)
 
 	TEST_CHARS_IN_STRING(defn(⟦SELITM⟧))
 
-	# create a unique string for test
+	# create an unique string for test
 	define(⟦UNIQ⟧, defn(⟦FILE_PREFIX⟧, ⟦SELITM⟧))
 
-	# already has a value?
+	# is the string is really unique?
 	ifdef(defn(⟦UNIQ⟧), ⟦
 
 		ROOT_ERROR(⟦anchor ‘⟧defn(⟦SELITM⟧)⟦’ from $0(⟧PAYR(defn(⟦SELITM⟧))⟦) is not unique, the first occurrence on:⟧defn(defn(⟦UNIQ⟧)))
@@ -161,9 +154,20 @@ pushdef(⟦TEST_STRING⟧, ⟦
 	define(defn(⟦UNIQ⟧), __file__:__line__)
 ⟧)
 
+# β
+pushdef(⟦SELECT_REQ_ITEM⟧, ⟦
+
+	ifelse(⟦$#⟧, ⟦1⟧, ⟦
+		undefine(⟦#ID⟧)
+	⟧, ⟦
+		define(⟦#ID⟧, ⟦$1⟧)
+	⟧)
+
+	define(⟦SELITM⟧, SELECT_REQUIRED_ITEM(⟧defn(⟦EXPAND_LAST_ARG⟧)⟦)(indir(⟦#⟧, $@)))
+⟧)
 
 # A → β
-define(⟦PART⟧, defn(⟦MULTILINGUAL_HEADINGS⟧, ⟦TEST_STRING⟧)⟦
+define(⟦PART⟧, defn(⟦SELECT_REQ_ITEM⟧, ⟦TEST_RESULTING_STRING⟧)⟦
 
 	define(⟦FILE_PREFIX⟧, __file__.LANG_CODE)
 
@@ -192,7 +196,7 @@ define(⟦#.$2.$3⟧, ⟦$4⟧)⟧
 
 # replaces punctuation with letters to make the references unique
 # A → β
-define(⟦PREPARING_FOR_REGEX⟧, ⟦
+define(⟦PREPARE_FOR_EXTERNAL_REGEX⟧, ⟦
 
 	divert(ANCHORS)dnl
 anch⟦define(⟦$1⟧, ⟧LUTF()
@@ -220,7 +224,7 @@ pushdef(⟦PRINT_ITEMS⟧, ⟦
 	⟧)
 
 	# creates a reference
-	PREPARING_FOR_REGEX(defn(⟦FILE_PREFIX⟧).anch.defn(⟦REFERENCE_KEY⟧), defn(⟦NSP⟧, ⟦SELITM⟧))
+	PREPARE_FOR_EXTERNAL_REGEX(defn(⟦FILE_PREFIX⟧).anch.defn(⟦REFERENCE_KEY⟧), defn(⟦NSP⟧, ⟦SELITM⟧))
 
 	# create string from caption for testing
 	divert(ANCHORS)dnl
@@ -230,13 +234,13 @@ divert(-1)
 
 # A → β
 # β
-define(⟦CHAPTER⟧, defn(⟦MULTILINGUAL_HEADINGS⟧, ⟦TEST_STRING⟧, ⟦SET_UNIQ_KEY_FOR_LINK⟧, ⟦PRINT_ITEMS⟧)⟦
+define(⟦CHAPTER⟧, defn(⟦SELECT_REQ_ITEM⟧, ⟦TEST_RESULTING_STRING⟧, ⟦SET_UNIQ_KEY_FOR_LINK⟧, ⟦PRINT_ITEMS⟧)⟦
 
 	define(⟦DOC_NODE⟧, defn(⟦$0⟧))
 ⟧)
 
 # A → β
-define(⟦SECT1⟧, defn(⟦MULTILINGUAL_HEADINGS⟧, ⟦TEST_STRING⟧, ⟦SET_UNIQ_KEY_FOR_LINK⟧, ⟦PRINT_ITEMS⟧)⟦
+define(⟦SECT1⟧, defn(⟦SELECT_REQ_ITEM⟧, ⟦TEST_RESULTING_STRING⟧, ⟦SET_UNIQ_KEY_FOR_LINK⟧, ⟦PRINT_ITEMS⟧)⟦
 
 	# logic flow test
 	ifelse(
@@ -252,7 +256,7 @@ define(⟦SECT1⟧, defn(⟦MULTILINGUAL_HEADINGS⟧, ⟦TEST_STRING⟧, ⟦SET_
 ⟧)
 
 # A → β
-define(⟦SECT2⟧, defn(⟦MULTILINGUAL_HEADINGS⟧, ⟦TEST_STRING⟧, ⟦SET_UNIQ_KEY_FOR_LINK⟧, ⟦PRINT_ITEMS⟧)⟦
+define(⟦SECT2⟧, defn(⟦SELECT_REQ_ITEM⟧, ⟦TEST_RESULTING_STRING⟧, ⟦SET_UNIQ_KEY_FOR_LINK⟧, ⟦PRINT_ITEMS⟧)⟦
 
 	# logic flow test
 	ifelse(
@@ -267,7 +271,7 @@ define(⟦SECT2⟧, defn(⟦MULTILINGUAL_HEADINGS⟧, ⟦TEST_STRING⟧, ⟦SET_
 ⟧)
 
 # A → β
-define(⟦SECT3⟧, defn(⟦MULTILINGUAL_HEADINGS⟧, ⟦TEST_STRING⟧, ⟦SET_UNIQ_KEY_FOR_LINK⟧, ⟦PRINT_ITEMS⟧)⟦
+define(⟦SECT3⟧, defn(⟦SELECT_REQ_ITEM⟧, ⟦TEST_RESULTING_STRING⟧, ⟦SET_UNIQ_KEY_FOR_LINK⟧, ⟦PRINT_ITEMS⟧)⟦
 
 	# logic flow test
 	ifelse(
@@ -289,7 +293,7 @@ divert(0)dnl
 ⟦#⟧ DONTE()
 ⟦
 __AUTHOR(⟦Josef Kubin⟧, ⟦2019,12,11⟧)
-___DESCR(⟧LUTF()DONTE()⟦ This is an associative memory to linking references, contains captions and ID⟧RUTF()⟦)
+___DESCR(⟦(generated) an associative memory for linking references, contains captions and ID⟧)
 __REASON(⟦simple hash database for linking references⟧)
 ⟧
 # A → β
@@ -306,25 +310,17 @@ define(⟦ADDRESS_WRAP⟧,			defn(⟦PROCESS_ID⟧, ⟦EXPAND_LAST_ARG⟧))
 define(⟦ARTICLE_WRAP⟧,			defn(⟦PROCESS_ID⟧, ⟦EXPAND_LAST_ARG⟧))
 define(⟦ASIDE_WRAP⟧,			defn(⟦PROCESS_ID⟧, ⟦EXPAND_LAST_ARG⟧))
 define(⟦BLOCKQUOTE⟧,			defn(⟦PROCESS_ID⟧))
-define(⟦BLOCKQUOTE_MONO⟧,		defn(⟦PROCESS_ID⟧))
-define(⟦BRIDGEHEAD⟧,			defn(⟦MULTILINGUAL_HEADINGS⟧, ⟦TEST_STRING⟧, ⟦SET_UNIQ_KEY_FOR_LINK⟧, ⟦PRINT_ITEMS⟧))
-define(⟦BRIDGEHEAD_MONO⟧,		defn(⟦MONOLINGUAL_HEADINGS⟧, ⟦TEST_STRING⟧, ⟦SET_UNIQ_KEY_FOR_LINK⟧, ⟦PRINT_ITEMS⟧))
+define(⟦BRIDGEHEAD⟧,			defn(⟦SELECT_REQ_ITEM⟧, ⟦TEST_RESULTING_STRING⟧, ⟦SET_UNIQ_KEY_FOR_LINK⟧, ⟦PRINT_ITEMS⟧))
 define(⟦DESCRIPTION_LIST_DESC⟧,		defn(⟦PROCESS_ID⟧))
-define(⟦DESCRIPTION_LIST_DESC_MONO⟧,	defn(⟦PROCESS_ID⟧))
 define(⟦DESCRIPTION_LIST_TERM⟧,		defn(⟦PROCESS_ID⟧))
-define(⟦DESCRIPTION_LIST_TERM_MONO⟧,	defn(⟦PROCESS_ID⟧))
 define(⟦DESCRIPTION_LIST_WRAP⟧,		defn(⟦PROCESS_ID⟧, ⟦EXPAND_LAST_ARG⟧))
 define(⟦DETAILS_WRAP⟧,			defn(⟦PROCESS_ID⟧, ⟦EXPAND_LAST_ARG⟧))
 define(⟦DIV⟧,				defn(⟦PROCESS_ID⟧))
-define(⟦DIV_MONO⟧,			defn(⟦PROCESS_ID⟧))
 define(⟦DIV_WRAP⟧,			defn(⟦PROCESS_ID⟧, ⟦EXPAND_LAST_ARG⟧))
 define(⟦ENTRY⟧,				defn(⟦PROCESS_ID⟧))
 define(⟦ENTRY_HEAD⟧,			defn(⟦PROCESS_ID⟧))
-define(⟦ENTRY_HEAD_MONO⟧,		defn(⟦PROCESS_ID⟧))
-define(⟦ENTRY_MONO⟧,			defn(⟦PROCESS_ID⟧))
 define(⟦EXCL⟧,				defn(⟦PROCESS_ID⟧))
 define(⟦FIGCAPTION⟧,			defn(⟦PROCESS_ID⟧))
-define(⟦FIGCAPTION_MONO⟧,		defn(⟦PROCESS_ID⟧))
 define(⟦FIGURE_WRAP⟧,			defn(⟦PROCESS_ID⟧, ⟦EXPAND_LAST_ARG⟧))
 define(⟦FOOTER_WRAP⟧,			defn(⟦PROCESS_ID⟧, ⟦EXPAND_LAST_ARG⟧))
 define(⟦FORM_WRAP⟧,			defn(⟦PROCESS_ID⟧, ⟦EXPAND_LAST_ARG⟧))
@@ -333,22 +329,16 @@ define(⟦HORIZONTAL_RULE⟧,		defn(⟦PROCESS_ID_UNPAIRED⟧))
 define(⟦INFO⟧,				defn(⟦PROCESS_ID⟧))
 define(⟦ITEMIZEDLIST_WRAP⟧,		defn(⟦PROCESS_ID⟧, ⟦EXPAND_LAST_ARG⟧))
 define(⟦LISTITEM⟧,			defn(⟦PROCESS_ID⟧))
-define(⟦LISTITEM_MONO⟧,			defn(⟦PROCESS_ID⟧))
 define(⟦MAIN_WRAP⟧,			defn(⟦PROCESS_ID⟧, ⟦EXPAND_LAST_ARG⟧))
 define(⟦NAV⟧,				defn(⟦PROCESS_ID⟧))
-define(⟦NAV_MONO⟧,			defn(⟦PROCESS_ID⟧))
 define(⟦NOTE⟧,				defn(⟦PROCESS_ID⟧))
-define(⟦NOTE_MONO⟧,			defn(⟦PROCESS_ID⟧))
 define(⟦NOTE_WRAP⟧,			defn(⟦PROCESS_ID⟧, ⟦EXPAND_LAST_ARG⟧))
 define(⟦ORDEREDLIST_WRAP⟧,		defn(⟦PROCESS_ID⟧, ⟦EXPAND_LAST_ARG⟧))
 define(⟦PARA⟧,				defn(⟦PROCESS_ID⟧))
-define(⟦PARA_MONO⟧,			defn(⟦PROCESS_ID⟧))
 define(⟦ROW_WRAP⟧,			defn(⟦PROCESS_ID⟧, ⟦EXPAND_LAST_ARG⟧))
 define(⟦SECTION_WRAP⟧,			defn(⟦PROCESS_ID⟧, ⟦EXPAND_LAST_ARG⟧))
 define(⟦SUMMARY⟧,			defn(⟦PROCESS_ID⟧))
-define(⟦SUMMARY_MONO⟧,			defn(⟦PROCESS_ID⟧))
 define(⟦TABLE_CAPTION⟧,			defn(⟦PROCESS_ID⟧))
-define(⟦TABLE_CAPTION_MONO⟧,		defn(⟦PROCESS_ID⟧))
 define(⟦TABLE_COL⟧,			defn(⟦PROCESS_ID_UNPAIRED⟧))
 define(⟦TABLE_COLGROUP_WRAP⟧,		defn(⟦PROCESS_ID⟧, ⟦EXPAND_LAST_ARG⟧))
 define(⟦TABLE_WRAP⟧,			defn(⟦PROCESS_ID⟧, ⟦EXPAND_LAST_ARG⟧))
@@ -361,12 +351,11 @@ define(⟦WARN⟧,				defn(⟦PROCESS_ID⟧))
 # forget local β rules (good for frozen files)
 popdef(
 
-	⟦LANG_REC⟧,
-	⟦MONO_REC⟧,
 	⟦PRINT_ITEMS⟧,
-	⟦PROCESS_ID⟧,
 	⟦PROCESS_ID_UNPAIRED⟧,
+	⟦PROCESS_ID⟧,
+	⟦SELECT_REQ_ITEM⟧,
 	⟦SET_UNIQ_KEY_FOR_LINK⟧,
-	⟦TEST_STRING⟧,
+	⟦TEST_RESULTING_STRING⟧,
 
 )

@@ -4,7 +4,7 @@ __AUTHOR(⟦Josef Kubin⟧, ⟦2019,12,29⟧)
 ___DESCR(⟦basic set of block-level elements and unpaired tags with a subset of global attributes⟧)
 __REASON(⟦definition of HTML5 block-level elements and unpaired tags⟧)
 
-# WARNING: keep 1:1 consistency: spell.m4 refs.m4 text.m4 man.m4 info.m4
+# WARNING: keep 1:1 consistency: spell.m4 refs.m4 txt.m4 man.m4 texi.m4
 
 # also used in html/nav.m4
 # β
@@ -80,28 +80,34 @@ pushdef(⟦SET_ANCHOR⟧, ⟦
 ⟧)
 
 # β
-pushdef(⟦HTML_MONOLINGUAL⟧, ⟦
+pushdef(⟦HTML_PAIRED_TAG⟧, ⟦
+
 	divert(CURRQU)dnl
-<defn(⟦##$0>⟧)⟧defn(⟦HTML_MONO_GLOBAL_ATTRIBUTES⟧)⟦>EXPAND_ARG1_CROP_WHITE_CHARS(⟧defn(⟦EXPAND_LAST_ARG⟧)⟦)</defn(⟦##$0>⟧)>
+<defn(⟦##$0>⟧)⟧defn(⟦HTML_GLOBAL_ATTRIBUTES⟧)⟦>EXPAND_REQUIRED_ITEM(⟧defn(⟦EXPAND_LAST_ARG⟧)⟦)(indir(⟦#⟧, $@))</defn(⟦##$0>⟧)>
 divert(-1)
 ⟧)
 
 # β
-pushdef(⟦HTML_MULTILINGUAL⟧, ⟦
-	divert(CURRQU)dnl
-<defn(⟦##$0>⟧)⟧defn(⟦HTML_GLOBAL_ATTRIBUTES⟧)⟦>EXPAND_LANG_CROP_WHITE_CHARS(⟧defn(⟦EXPAND_LAST_ARG⟧)⟦)</defn(⟦##$0>⟧)>
-divert(-1)
+pushdef(⟦SELECT_REQ_ITEM⟧, ⟦
+
+	ifelse(⟦$#⟧, ⟦1⟧, ⟦
+		undefine(⟦#ID⟧)
+	⟧, ⟦
+		define(⟦#ID⟧, ⟦$1⟧)
+	⟧)
+
+	define(⟦SELITM⟧, SELECT_REQUIRED_ITEM(⟧defn(⟦EXPAND_LAST_ARG⟧)⟦)(indir(⟦#⟧, $@)))
 ⟧)
 
 # A → β
 define(⟦PART⟧, defn(⟦PART_INIT⟧)⟦
 
 	# set value (used in multiple places)
-	define(⟦PART_val⟧, EXPAND_LANG_CROP_WHITE_CHARS(⟧defn(⟦EXPAND_LAST_ARG⟧)⟦))
+	define(⟦PART_val⟧, EXPAND_REQUIRED_ITEM(⟧defn(⟦EXPAND_LAST_ARG⟧)⟦)(indir(⟦#⟧, $@)))
 ⟧)
 
 # β
-define(⟦CHAPTER_NEXT⟧, defn(⟦MULTILINGUAL_HEADINGS⟧, ⟦SET_ANCHOR⟧)⟦
+define(⟦CHAPTER_NEXT⟧, defn(⟦SELECT_REQ_ITEM⟧, ⟦SET_ANCHOR⟧)⟦
 
 	# increment index
 	CHAPTER_COUNTER
@@ -119,7 +125,7 @@ divert(CURRQU)dnl
 <h2⟧defn(⟦HTML_HEADING_ATTRIBUTES⟧)>defn(⟦TOC_AND_ANCHOR⟧)⟦SELITM⟧defn(⟦GO_BACK_UP⟧)⟦</h2>
 divert(-1)
 
-	# following bridgeheads
+	# size of the following bridgeheads
 	define(⟦HEADING_TAG⟧, ⟦h3⟧)
 ⟧)
 
@@ -176,7 +182,7 @@ divert(-1)
 ⟧defn(⟦CHAPTER_NEXT⟧))
 
 # A → β
-define(⟦SECT1_ARTICLE⟧, defn(⟦MULTILINGUAL_HEADINGS⟧, ⟦SET_ANCHOR⟧)⟦
+define(⟦SECT1_ARTICLE⟧, defn(⟦SELECT_REQ_ITEM⟧, ⟦SET_ANCHOR⟧)⟦
 
 	# increment index
 	SECT1_COUNTER
@@ -192,12 +198,12 @@ divert(CURRQU)dnl
 <h3⟧defn(⟦HTML_HEADING_ATTRIBUTES⟧)>defn(⟦TOC_AND_ANCHOR⟧)⟦SELITM⟧defn(⟦GO_BACK_UP⟧)⟦</h3>
 divert(-1)
 
-	# following bridgeheads
+	# size of the following bridgeheads
 	define(⟦HEADING_TAG⟧, ⟦h4⟧)
 ⟧)
 
 # A → β
-define(⟦SECT2_ARTICLE⟧, defn(⟦MULTILINGUAL_HEADINGS⟧, ⟦SET_ANCHOR⟧)⟦
+define(⟦SECT2_ARTICLE⟧, defn(⟦SELECT_REQ_ITEM⟧, ⟦SET_ANCHOR⟧)⟦
 
 	# increment index
 	SECT2_COUNTER
@@ -214,12 +220,12 @@ divert(CURRQU)dnl
 <h4⟧defn(⟦HTML_HEADING_ATTRIBUTES⟧)>defn(⟦TOC_AND_ANCHOR⟧)⟦SELITM⟧defn(⟦GO_BACK_UP⟧)⟦</h4>
 divert(-1)
 
-	# following bridgeheads
+	# size of the following bridgeheads
 	define(⟦HEADING_TAG⟧, ⟦h5⟧)
 ⟧)
 
 # A → β
-define(⟦SECT3_ARTICLE⟧, defn(⟦MULTILINGUAL_HEADINGS⟧, ⟦SET_ANCHOR⟧)⟦
+define(⟦SECT3_ARTICLE⟧, defn(⟦SELECT_REQ_ITEM⟧, ⟦SET_ANCHOR⟧)⟦
 
 	# increment index
 	SECT3_COUNTER
@@ -236,12 +242,12 @@ divert(CURRQU)dnl
 <h5⟧defn(⟦HTML_HEADING_ATTRIBUTES⟧)>defn(⟦TOC_AND_ANCHOR⟧)⟦SELITM⟧defn(⟦GO_BACK_UP⟧)⟦</h5>
 divert(-1)
 
-	# following bridgeheads
+	# size of the following bridgeheads
 	define(⟦HEADING_TAG⟧, ⟦h6⟧)
 ⟧)
 
 # β
-define(⟦APPENDIX_NEXT⟧, defn(⟦MULTILINGUAL_HEADINGS⟧, ⟦SET_ANCHOR⟧)⟦
+define(⟦APPENDIX_NEXT⟧, defn(⟦SELECT_REQ_ITEM⟧, ⟦SET_ANCHOR⟧)⟦
 
 	# increment letter index
 	define(⟦APPENDIX_LETTER⟧, format(⟦%c⟧, APPENDIX_COUNTER))
@@ -262,7 +268,7 @@ undivert(CURRQU)dnl
 <h2⟧defn(⟦HTML_HEADING_ATTRIBUTES⟧)>defn(⟦TOC_AND_ANCHOR⟧)⟦SELITM⟧defn(⟦GO_BACK_UP⟧)⟦</h2>
 divert(-1)
 
-	# following bridgeheads
+	# size of the following bridgeheads
 	define(⟦HEADING_TAG⟧, ⟦h3⟧)
 
 	# temporarily change the current queue
@@ -299,7 +305,7 @@ divert(-1)
 ⟧defn(⟦APPENDIX_NEXT⟧))
 
 # β
-define(⟦SECT1_APPENDIX⟧, defn(⟦MULTILINGUAL_HEADINGS⟧, ⟦SET_ANCHOR⟧)⟦
+define(⟦SECT1_APPENDIX⟧, defn(⟦SELECT_REQ_ITEM⟧, ⟦SET_ANCHOR⟧)⟦
 
 	# increment index
 	SECT1_COUNTER
@@ -315,12 +321,12 @@ divert(CURRQU)dnl
 <h3⟧defn(⟦HTML_HEADING_ATTRIBUTES⟧)>defn(⟦TOC_AND_ANCHOR⟧)⟦SELITM⟧defn(⟦GO_BACK_UP⟧)⟦</h3>
 divert(-1)
 
-	# following bridgeheads
+	# size of the following bridgeheads
 	define(⟦HEADING_TAG⟧, ⟦h4⟧)
 ⟧)
 
 # β
-define(⟦SECT2_APPENDIX⟧, defn(⟦MULTILINGUAL_HEADINGS⟧, ⟦SET_ANCHOR⟧)⟦
+define(⟦SECT2_APPENDIX⟧, defn(⟦SELECT_REQ_ITEM⟧, ⟦SET_ANCHOR⟧)⟦
 
 	# increment index
 	SECT2_COUNTER
@@ -337,12 +343,12 @@ divert(CURRQU)dnl
 <h4⟧defn(⟦HTML_HEADING_ATTRIBUTES⟧)>defn(⟦TOC_AND_ANCHOR⟧)⟦SELITM⟧defn(⟦GO_BACK_UP⟧)⟦</h4>
 divert(-1)
 
-	# following bridgeheads
+	# size of the following bridgeheads
 	define(⟦HEADING_TAG⟧, ⟦h5⟧)
 ⟧)
 
 # β
-define(⟦SECT3_APPENDIX⟧, defn(⟦MULTILINGUAL_HEADINGS⟧, ⟦SET_ANCHOR⟧)⟦
+define(⟦SECT3_APPENDIX⟧, defn(⟦SELECT_REQ_ITEM⟧, ⟦SET_ANCHOR⟧)⟦
 
 	# increment index
 	SECT3_COUNTER
@@ -359,7 +365,7 @@ divert(CURRQU)dnl
 <h5⟧defn(⟦HTML_HEADING_ATTRIBUTES⟧)>defn(⟦TOC_AND_ANCHOR⟧)⟦SELITM⟧defn(⟦GO_BACK_UP⟧)⟦</h5>
 divert(-1)
 
-	# following bridgeheads
+	# size of the following bridgeheads
 	define(⟦HEADING_TAG⟧, ⟦h6⟧)
 ⟧)
 
@@ -387,6 +393,7 @@ pushdef(⟦FIND_IMG_DIM⟧, ⟦
 # IMAGEDATA(⟦ID⟧, ⟦title⟧, ⟦class⟧, ⟦style⟧, ⟦anything⟧, ⟦img.png, http://root.cz/img.png⟧, ⟦⟦czech⟧, ⟦english⟧⟧)
 # A → β
 define(⟦IMAGEDATA⟧, ⟦
+
 	# Fixed number of arguments!
 	ifelse(⟦$#⟧, ⟦7⟧, ⟦⟧, ⟦
 
@@ -397,33 +404,21 @@ define(⟦IMAGEDATA⟧, ⟦
 
 	divert(CURRQU)dnl
 <img src="IMG_SRC($6)" alt="⟦⟧NB()" width="SARG1(IMAGE_DIM)" height="SARG2(IMAGE_DIM)"⟧defn(⟦HTML_MONO_GLOBAL_ATTRIBUTES⟧)⟦>
-<p><em>WORD_IMAGE <a href="⟦#⟧defn(__file__.mono.⟦$1⟧)" title="⚓">IMAGE_COUNTER</a>: EXPAND_LANG_CROP_WHITE_CHARS(⟧defn(⟦EXPAND_LAST_ARG⟧)⟦)</em></p>
-divert(-1)
-⟧)
-
-# A → β
-define(⟦PLAIN_TEXT_MONO⟧, ⟦
-	divert(CURRQU)dnl
-EXPAND_ARG1_CROP_WHITE_CHARS(⟧defn(⟦EXPAND_LAST_ARG⟧)⟦)⟦⟧dnl
+<p><em>WORD_IMAGE <a href="⟦#⟧defn(__file__.mono.⟦$1⟧)" title="⚓">IMAGE_COUNTER</a>: EXPAND_REQUIRED_ITEM(⟧defn(⟦EXPAND_LAST_ARG⟧)⟦)(indir(⟦#⟧, $@))</em></p>
 divert(-1)
 ⟧)
 
 # A → β
 define(⟦PLAIN_TEXT⟧, ⟦
-	divert(CURRQU)dnl
-EXPAND_LANG_CROP_WHITE_CHARS(⟧defn(⟦EXPAND_LAST_ARG⟧)⟦)⟦⟧dnl
-divert(-1)
-⟧)
 
-# A → β
-define(⟦COMMENT_MONO⟧, ⟦
 	divert(CURRQU)dnl
-<!-- EXPAND_ARG1_CROP_WHITE_CHARS(⟧defn(⟦EXPAND_LAST_ARG⟧)⟦) -->
+EXPAND_REQUIRED_ITEM(⟧defn(⟦EXPAND_LAST_ARG⟧)⟦)(indir(⟦#⟧, $@))⟦⟧dnl
 divert(-1)
 ⟧)
 
 # A → β
 define(⟦NOTE_WRAP⟧, ⟦
+
 	divert(CURRQU)dnl
 <div⟧defn(⟦HTML_NOTE_ATTRIBUTES⟧)⟦>dnl
 divert(-1)
@@ -435,44 +430,42 @@ divert(-1)
 ⟧)
 
 # A → β
-define(⟦NOTE_MONO⟧, ⟦
-	divert(CURRQU)dnl
-<div⟧defn(⟦HTML_NOTE_ATTRIBUTES⟧)⟦>EXPAND_ARG1_CROP_WHITE_CHARS(⟧defn(⟦EXPAND_LAST_ARG⟧)⟦)</div>
-divert(-1)
-⟧)
-
-# A → β
 define(⟦NOTE⟧, ⟦
+
 	divert(CURRQU)dnl
-<div⟧defn(⟦HTML_NOTE_ATTRIBUTES⟧)⟦>EXPAND_LANG_CROP_WHITE_CHARS(⟧defn(⟦EXPAND_LAST_ARG⟧)⟦)</div>
+<div⟧defn(⟦HTML_NOTE_ATTRIBUTES⟧)⟦>EXPAND_REQUIRED_ITEM(⟧defn(⟦EXPAND_LAST_ARG⟧)⟦)(indir(⟦#⟧, $@))</div>
 divert(-1)
 ⟧)
 
 # A → β
 define(⟦WARN⟧, ⟦
+
 	divert(CURRQU)dnl
-<div⟧defn(⟦HTML_WARN_ATTRIBUTES⟧)⟦>EXPAND_LANG_CROP_WHITE_CHARS(⟧defn(⟦EXPAND_LAST_ARG⟧)⟦)</div>
+<div⟧defn(⟦HTML_WARN_ATTRIBUTES⟧)⟦>EXPAND_REQUIRED_ITEM(⟧defn(⟦EXPAND_LAST_ARG⟧)⟦)(indir(⟦#⟧, $@))</div>
 divert(-1)
 ⟧)
 
 # A → β
 define(⟦EXCL⟧, ⟦
+
 	divert(CURRQU)dnl
-<div⟧defn(⟦HTML_EXCL_ATTRIBUTES⟧)⟦>EXPAND_LANG_CROP_WHITE_CHARS(⟧defn(⟦EXPAND_LAST_ARG⟧)⟦)</div>
+<div⟧defn(⟦HTML_EXCL_ATTRIBUTES⟧)⟦>EXPAND_REQUIRED_ITEM(⟧defn(⟦EXPAND_LAST_ARG⟧)⟦)(indir(⟦#⟧, $@))</div>
 divert(-1)
 ⟧)
 
 # A → β
 define(⟦INFO⟧, ⟦
+
 	divert(CURRQU)dnl
-<div⟧defn(⟦HTML_INFO_ATTRIBUTES⟧)⟦>EXPAND_LANG_CROP_WHITE_CHARS(⟧defn(⟦EXPAND_LAST_ARG⟧)⟦)</div>
+<div⟧defn(⟦HTML_INFO_ATTRIBUTES⟧)⟦>EXPAND_REQUIRED_ITEM(⟧defn(⟦EXPAND_LAST_ARG⟧)⟦)(indir(⟦#⟧, $@))</div>
 divert(-1)
 ⟧)
 
 # A → β
 define(⟦TILE_BOX⟧, ⟦
+
 	divert(CURRQU)dnl
-<div⟧defn(⟦ID_1⟧, ⟦TITLE_2⟧, ⟦CLASS_3_TILE⟧, ⟦STYLE_4⟧)⟦>EXPAND_LANG_CROP_WHITE_CHARS(⟧defn(⟦EXPAND_LAST_ARG⟧)⟦)</div>
+<div⟧defn(⟦ID_1⟧, ⟦TITLE_2⟧, ⟦CLASS_3_TILE⟧, ⟦STYLE_4⟧)⟦>EXPAND_REQUIRED_ITEM(⟧defn(⟦EXPAND_LAST_ARG⟧)⟦)(indir(⟦#⟧, $@))</div>
 divert(-1)
 ⟧)
 
@@ -488,6 +481,7 @@ divert(-1)
 
 # A → β
 define(⟦CMDSYNOPSIS⟧, ⟦
+
 	divert(CURRQU)dnl
 <div⟧defn(⟦HTML_COMMAND_ATTRIBUTES⟧)><pre>defn(⟦PROCESS_RAW_CODE_TO_HTML_ENTITIES⟧)</pre>defn(⟦ID_1_ANCHOR⟧)⟦</div>
 divert(-1)
@@ -495,21 +489,14 @@ divert(-1)
 
 # A → β
 define(⟦CMDSYNOPSIS_ROOT⟧, ⟦
+
 	divert(CURRQU)dnl
 <div⟧defn(⟦HTML_COMMAND_ROOT_ATTRIBUTES⟧)><pre>defn(⟦PROCESS_RAW_CODE_TO_HTML_ENTITIES⟧)</pre>defn(⟦ID_1_ANCHOR⟧)⟦</div>
 divert(-1)
 ⟧)
 
 # A → β
-define(⟦BRIDGEHEAD_MONO⟧, defn(⟦MONOLINGUAL_HEADINGS⟧, ⟦SET_ANCHOR⟧)⟦
-
-	divert(CURRQU)dnl
-<HEADING_TAG⟧defn(⟦HTML_BRIDGEHEAD_ATTRIBUTES⟧)>defn(⟦CHAPTER_INDEXES⟧)⟦SELITM⟧defn(⟦GO_BACK_UP⟧)⟦</HEADING_TAG>
-divert(-1)
-⟧)
-
-# A → β
-define(⟦BRIDGEHEAD⟧, defn(⟦MULTILINGUAL_HEADINGS⟧, ⟦SET_ANCHOR⟧)⟦
+define(⟦BRIDGEHEAD⟧, defn(⟦SELECT_REQ_ITEM⟧, ⟦SET_ANCHOR⟧)⟦
 
 	divert(CURRQU)dnl
 <HEADING_TAG⟧defn(⟦HTML_BRIDGEHEAD_ATTRIBUTES⟧)>defn(⟦CHAPTER_INDEXES⟧)⟦SELITM⟧defn(⟦GO_BACK_UP⟧)⟦</HEADING_TAG>
@@ -543,38 +530,24 @@ define(⟦ARTICLE_WRAP⟧,	defn(⟦DIV_WRAP⟧))
 define(⟦##ASIDE_WRAP>⟧,	⟦aside⟧)
 define(⟦ASIDE_WRAP⟧,	defn(⟦DIV_WRAP⟧))
 define(⟦##BLOCKQUOTE>⟧,	⟦blockquote⟧)
-define(⟦BLOCKQUOTE⟧,	defn(⟦HTML_MULTILINGUAL⟧))
-define(⟦##BLOCKQUOTE_MONO>⟧,	⟦blockquote⟧)
-define(⟦BLOCKQUOTE_MONO⟧,	defn(⟦HTML_MONOLINGUAL⟧))
+define(⟦BLOCKQUOTE⟧,	defn(⟦HTML_PAIRED_TAG⟧))
 define(⟦##DESCRIPTION_LIST_DESC>⟧,	⟦dd⟧)
-define(⟦DESCRIPTION_LIST_DESC⟧,	defn(⟦HTML_MULTILINGUAL⟧))
-define(⟦##DESCRIPTION_LIST_DESC_MONO>⟧,	⟦dd⟧)
-define(⟦DESCRIPTION_LIST_DESC_MONO⟧,	defn(⟦HTML_MONOLINGUAL⟧))
-define(⟦DESCRIPTION_LIST_TERM⟧,	defn(⟦HTML_MULTILINGUAL⟧))
+define(⟦DESCRIPTION_LIST_DESC⟧,	defn(⟦HTML_PAIRED_TAG⟧))
+define(⟦DESCRIPTION_LIST_TERM⟧,	defn(⟦HTML_PAIRED_TAG⟧))
 define(⟦##DESCRIPTION_LIST_TERM>⟧,	⟦dt⟧)
-define(⟦DESCRIPTION_LIST_TERM_MONO⟧,	defn(⟦HTML_MONOLINGUAL⟧))
-define(⟦##DESCRIPTION_LIST_TERM_MONO>⟧,	⟦dt⟧)
 define(⟦DESCRIPTION_LIST_WRAP⟧,	defn(⟦DIV_WRAP⟧))
 define(⟦##DESCRIPTION_LIST_WRAP>⟧,	⟦dl⟧)
 define(⟦DETAILS_WRAP⟧,	defn(⟦DIV_WRAP⟧))
 define(⟦##DETAILS_WRAP>⟧,	⟦details⟧)
-define(⟦DIV⟧,		defn(⟦HTML_MULTILINGUAL⟧))
+define(⟦DIV⟧,		defn(⟦HTML_PAIRED_TAG⟧))
 define(⟦##DIV>⟧,		⟦div⟧)
-define(⟦DIV_MONO⟧,		defn(⟦HTML_MONOLINGUAL⟧))
-define(⟦##DIV_MONO>⟧,	⟦div⟧)
 define(⟦##DIV_WRAP>⟧,	⟦div⟧)
-define(⟦ENTRY⟧,		defn(⟦HTML_MULTILINGUAL⟧))
-define(⟦ENTRY_HEAD⟧,	defn(⟦HTML_MULTILINGUAL⟧))
-define(⟦ENTRY_HEAD_MONO⟧,	defn(⟦HTML_MONOLINGUAL⟧))
-define(⟦##ENTRY_HEAD_MONO>⟧,	⟦th⟧)
+define(⟦ENTRY⟧,		defn(⟦HTML_PAIRED_TAG⟧))
+define(⟦ENTRY_HEAD⟧,	defn(⟦HTML_PAIRED_TAG⟧))
 define(⟦##ENTRY_HEAD>⟧,	⟦th⟧)
-define(⟦ENTRY_MONO⟧,	defn(⟦HTML_MONOLINGUAL⟧))
-define(⟦##ENTRY_MONO>⟧,	⟦td⟧)
 define(⟦##ENTRY>⟧,		⟦td⟧)
-define(⟦FIGCAPTION⟧,	defn(⟦HTML_MULTILINGUAL⟧))
+define(⟦FIGCAPTION⟧,	defn(⟦HTML_PAIRED_TAG⟧))
 define(⟦##FIGCAPTION>⟧,	⟦figcaption⟧)
-define(⟦FIGCAPTION_MONO⟧,	defn(⟦HTML_MONOLINGUAL⟧))
-define(⟦##FIGCAPTION_MONO>⟧,	⟦figcaption⟧)
 define(⟦FIGURE_WRAP⟧,	defn(⟦DIV_WRAP⟧))
 define(⟦##FIGURE_WRAP>⟧,	⟦figure⟧)
 define(⟦FOOTER_WRAP⟧,	defn(⟦DIV_WRAP⟧))
@@ -589,29 +562,21 @@ define(⟦INPUT⟧,		defn(⟦HTML_UNPAIRED_TAG⟧))
 define(⟦##INPUT>⟧,		⟦input⟧)
 define(⟦ITEMIZEDLIST_WRAP⟧,	defn(⟦DIV_WRAP⟧))
 define(⟦##ITEMIZEDLIST_WRAP>⟧,	⟦ul⟧)
-define(⟦LISTITEM⟧,		defn(⟦HTML_MULTILINGUAL⟧))
+define(⟦LISTITEM⟧,		defn(⟦HTML_PAIRED_TAG⟧))
 define(⟦##LISTITEM>⟧,	⟦li⟧)
-define(⟦LISTITEM_MONO⟧,	defn(⟦HTML_MONOLINGUAL⟧))
-define(⟦##LISTITEM_MONO>⟧,	⟦li⟧)
 define(⟦MAIN_WRAP⟧,		defn(⟦DIV_WRAP⟧))
 define(⟦##MAIN_WRAP>⟧,	⟦main⟧)
-define(⟦NAV⟧,		defn(⟦HTML_MULTILINGUAL⟧))
-define(⟦NAV_MONO⟧,		defn(⟦HTML_MONOLINGUAL⟧))
-define(⟦##NAV_MONO>⟧,	⟦nav⟧)
+define(⟦NAV⟧,		defn(⟦HTML_PAIRED_TAG⟧))
 define(⟦##NAV>⟧,		⟦nav⟧)
 define(⟦ORDEREDLIST_WRAP⟧,	defn(⟦DIV_WRAP⟧))
 define(⟦##ORDEREDLIST_WRAP>⟧,	⟦ol⟧)
-define(⟦PARA⟧,		defn(⟦HTML_MULTILINGUAL⟧))
-define(⟦PARA_MONO⟧,		defn(⟦HTML_MONOLINGUAL⟧))
-define(⟦##PARA_MONO>⟧,	⟦p⟧)
+define(⟦PARA⟧,		defn(⟦HTML_PAIRED_TAG⟧))
 define(⟦##PARA>⟧,		⟦p⟧)
 define(⟦ROW_WRAP⟧,		defn(⟦DIV_WRAP⟧))
 define(⟦##ROW_WRAP>⟧,	⟦tr⟧)
 define(⟦SECTION_WRAP⟧,	defn(⟦DIV_WRAP⟧))
 define(⟦##SECTION_WRAP>⟧,	⟦section⟧)
-define(⟦SUMMARY⟧,		defn(⟦HTML_MULTILINGUAL⟧))
-define(⟦SUMMARY_MONO⟧,	defn(⟦HTML_MONOLINGUAL⟧))
-define(⟦##SUMMARY_MONO>⟧,	⟦summary⟧)
+define(⟦SUMMARY⟧,		defn(⟦HTML_PAIRED_TAG⟧))
 define(⟦##SUMMARY>⟧,	⟦summary⟧)
 define(⟦##TABLE_COL>⟧,	⟦col⟧)
 define(⟦TABLE_COL⟧,		defn(⟦HTML_UNPAIRED_TAG⟧))
@@ -626,15 +591,12 @@ define(⟦##TFOOT_WRAP>⟧,	⟦tfoot⟧)
 define(⟦THEAD_WRAP⟧,	defn(⟦DIV_WRAP⟧))
 define(⟦##THEAD_WRAP>⟧,	⟦thead⟧)
 define(⟦##TTITLE>⟧,		⟦caption⟧)
-define(⟦TTITLE⟧,		defn(⟦HTML_MULTILINGUAL⟧))
-define(⟦##TTITLE_MONO>⟧,	⟦caption⟧)
-define(⟦TTITLE_MONO⟧,	defn(⟦HTML_MONOLINGUAL⟧))
+define(⟦TTITLE⟧,		defn(⟦HTML_PAIRED_TAG⟧))
 
 # forget local β rules (good for frozen files)
 popdef(
 
 	⟦ANYTHING_5⟧,
-	⟦CLASS_3⟧,
 	⟦CLASS_3_BRIDGEHEAD⟧,
 	⟦CLASS_3_COMMAND⟧,
 	⟦CLASS_3_EXCL⟧,
@@ -646,6 +608,7 @@ popdef(
 	⟦CLASS_3_SUFFIX⟧,
 	⟦CLASS_3_TILE⟧,
 	⟦CLASS_3_WARN⟧,
+	⟦CLASS_3⟧,
 	⟦FIND_IMG_DIM⟧,
 	⟦HTML_BRIDGEHEAD_ATTRIBUTES⟧,
 	⟦HTML_COMMAND_ATTRIBUTES⟧,
@@ -653,16 +616,16 @@ popdef(
 	⟦HTML_EXCL_ATTRIBUTES⟧,
 	⟦HTML_GLOBAL_ATTRIBUTES⟧,
 	⟦HTML_INFO_ATTRIBUTES⟧,
-	⟦HTML_MONOLINGUAL⟧,
 	⟦HTML_MONO_GLOBAL_ATTRIBUTES⟧,
-	⟦HTML_MULTILINGUAL⟧,
 	⟦HTML_NOTE_ATTRIBUTES⟧,
+	⟦HTML_PAIRED_TAG⟧,
 	⟦HTML_SOURCE_CODE_ATTRIBUTES⟧,
 	⟦HTML_UNPAIRED_TAG⟧,
 	⟦HTML_WARN_ATTRIBUTES⟧,
-	⟦ID_1⟧,
 	⟦ID_1_ANCHOR⟧,
+	⟦ID_1⟧,
 	⟦PROCESS_RAW_CODE_TO_HTML_ENTITIES⟧,
+	⟦SELECT_REQ_ITEM⟧,
 	⟦SET_ANCHOR⟧,
 	⟦STYLE_4⟧,
 	⟦TITLE_2⟧,

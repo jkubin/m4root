@@ -54,6 +54,6 @@ define(⟦PARTINTRO⟧, ⟦
 
 # shortcut for perex: "+yip
 
-EXPAND_LANG_CROP_WHITE_CHARS(⟧defn(⟦EXPAND_LAST_ARG⟧)⟦)
+EXPAND_REQUIRED_ITEM(⟧defn(⟦EXPAND_LAST_ARG⟧)⟦)(indir(⟦#⟧, $@))
 divert(-1)
 ⟧)
