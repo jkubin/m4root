@@ -5,7 +5,7 @@ __REASON(⟦breakdown of references⟧)
 # A → β
 define(⟦COUNTER⟧, defn(⟦COUNT_UP⟧))
 
-# counter is an index for dataset in a <tag … data-n₁="…" data-n₂="…">…</tag>
+# counter is an index for dataset in an HTML <tag … data-n₁="…" data-n₂="…">…</tag>
 COUNTER(0)
 
 # A → β
@@ -70,7 +70,7 @@ define(⟦CREATE_REFERENCE⟧, ⟦
 	# translit upper case to lower case, change underscore to dash
 	define(⟦STRING⟧, translit(⟦⟦$1⟧⟧, ⟦_A-Z⟧, ⟦-a-z⟧))
 
-	# create a unique string
+	# create an unique string
 	define(⟦UNIQ⟧, defn(⟦FILE_PREFIX⟧, ⟦STRING⟧))
 
 	# already has a value?
@@ -119,8 +119,8 @@ divert(0)dnl
 ⟦#⟧ DONTE()
 ⟦
 __AUTHOR(⟦Josef Kubin⟧, ⟦2020,04,01⟧)
-___DESCR(⟦(this is a generated file) associative memory for linking files⟧)
-__REASON(⟦simple hash database for files⟧)
+___DESCR(⟦(generated) an associative memory for linking files⟧)
+__REASON(⟦a simple hash database for used files⟧)
 ⟧
 divert(-1)
 
