@@ -1,6 +1,6 @@
 __AUTHOR(⟦Josef Kubin⟧, ⟦2021,01,21⟧)
 ___DESCR(⟦an example of a Push-Down Automata (PDA)⟧)
-__REASON(⟦how to remember the state of automaton⟧)
+__REASON(⟦how to remember the state of an automaton⟧)
         ,------------------.
       __V_      ____      _|__
  --->/ 🐱 \--->/ 🐶 \--->/ 🐷 \
