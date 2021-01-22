@@ -184,28 +184,28 @@ pkjs pjs js j: $(JAVASCRIPT)
 $(REFS_MONO): rootu.m4 config.m4 refs/mono.m4
 	m4 $^ $(SOURCE) > $@
 
-refs_%.m4: rootu.m4 config.m4 lang_%.m4 lang.m4 headings.m4 refs.m4
+refs_%.m4: rootu.m4 config.m4 lang_%.m4 lang.m4 refs.m4
 	m4 -DLANG_CODE='$*' -DFILE_LIST='$(FILE_LIST)' $^ $(SOURCE) | sed -f refs.sed > $@
 
-c_%.mk: rootu.m4 refs_%.m4 lang.m4 headings.m4 mk/c.m4
+c_%.mk: rootu.m4 refs_%.m4 lang.m4 mk/c.m4
 	m4 -DLANG_CODE='$*' -DFILE_LIST='$(FILE_LIST)' -DREFS_FILES='$(REFS_LANG) $(REFS_MONO)' $^ > $@
 
-man_%.mk: rootu.m4 refs_%.m4 lang.m4 headings.m4 mk/man.m4
+man_%.mk: rootu.m4 refs_%.m4 lang.m4 mk/man.m4
 	m4 -DLANG_CODE='$*' -DFILE_LIST='$(FILE_LIST)' -DREFS_FILES='$(REFS_LANG) $(REFS_MONO)' $^ > $@
 
-tex_%.mk: rootu.m4 refs_%.m4 lang.m4 headings.m4 mk/tex.m4
+tex_%.mk: rootu.m4 refs_%.m4 lang.m4 mk/tex.m4
 	m4 -DLANG_CODE='$*' -DFILE_LIST='$(FILE_LIST)' -DREFS_FILES='$(REFS_LANG) $(REFS_MONO)' $^ > $@
 
-texi_%.mk: rootu.m4 refs_%.m4 lang.m4 headings.m4 mk/texi.m4
+texi_%.mk: rootu.m4 refs_%.m4 lang.m4 mk/texi.m4
 	m4 -DLANG_CODE='$*' -DFILE_LIST='$(FILE_LIST)' -DREFS_FILES='$(REFS_LANG) $(REFS_MONO)' $^ > $@
 
-text_%.mk: rootu.m4 refs_%.m4 lang.m4 headings.m4 mk/text.m4
+text_%.mk: rootu.m4 refs_%.m4 lang.m4 mk/text.m4
 	m4 -DLANG_CODE='$*' -DFILE_LIST='$(FILE_LIST)' -DREFS_FILES='$(REFS_LANG) $(REFS_MONO)' $^ > $@
 
-html_%.mk: rootu.m4 refs_%.m4 lang.m4 headings.m4 mk/html.m4
+html_%.mk: rootu.m4 refs_%.m4 lang.m4 mk/html.m4
 	m4 -DLANG_CODE='$*' -DFILE_LIST='$(FILE_LIST)' -DREFS_FILES='$(REFS_LANG) $(REFS_MONO)' -DJAVASCRIPT='$(JAVASCRIPT)' $^ > $@
 
-fhtml_%.mk: rootu.m4 refs_%.m4 lang.m4 headings.m4 mk/fhtml.m4
+fhtml_%.mk: rootu.m4 refs_%.m4 lang.m4 mk/fhtml.m4
 	m4 -DLANG_CODE='$*' -DFILE_LIST='$(FILE_LIST)' -DREFS_FILES='$(REFS_LANG) $(REFS_MONO)' -DJAVASCRIPT='$(JAVASCRIPT)' $^ > $@
 
 git.m4: $(shell git ls-tree -r --name-only HEAD $(MONITORED))
