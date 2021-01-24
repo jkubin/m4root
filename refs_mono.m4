@@ -1,8 +1,8 @@
 # DO NOT EDIT! This file is generated automatically!
 
 __AUTHOR(⟦Josef Kubin⟧, ⟦2020,04,01⟧)
-___DESCR(⟦(this is a generated file) associative memory for linking files⟧)
-__REASON(⟦simple hash database for files⟧)
+___DESCR(⟦(generated) an associative memory for linking files⟧)
+__REASON(⟦a simple hash database for used files⟧)
 
 define(⟦intro.mc.mono.common_code⟧, ⟦m4-common-code⟧)
 define(⟦intro.mc.dset.common_code⟧, ⟦0⟧)

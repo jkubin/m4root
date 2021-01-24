@@ -30,10 +30,10 @@ define(SARG3,	$3)
 # (the word `paYr' is not from the dictionary)
 define(PAYR, $@)
 
-# prints warning to stderr if something will be problematic
+# prints a warning to stderr if something will be problematic
 define(ROOT_WARNING, errprint(__file__:__line__: warning: $1
 ))
 
-# aborts script if something goes wrong, prints the reason to stderr
+# aborts a script if something goes wrong, prints the reason to stderr
 define(ROOT_ERROR, errprint(__file__:__line__: error: $1
 )m4exit(1))

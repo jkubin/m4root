@@ -78,12 +78,6 @@ define(`NAR', `$#')
 # (`paYr' is not a word from the dictionary)
 define(`PAYR', ``$@'')
 
-# trims trailing white chars and _selects_ the first argument
-define(`SELECT_ARG1_CROP_WHITE_CHARS', `patsubst(``$1'', `\s*\s*')')
-
-# trims trailing white chars and _expands_ the first argument
-define(`EXPAND_ARG1_CROP_WHITE_CHARS', `patsubst(`$1', `\s*\s*')')
-
 # expands the last argument
 # A(`$1', `$2', …, `$n') → $$# → $n → β
 define(`EXPAND_LAST_ARG', `define(`#', `$$#')indir(`#', $@)')
