@@ -8,7 +8,7 @@ __REASON(⟦source file (possibly snippet) suitable for HTML⟧)
 # TEXTDATA(⟦path/file.src,ID⟧, ⟦title⟧)
 #
 # insert the entire file, apply (maybe several) RE to specific keywords, and highlight them in a specific color
-# TEXTDATA(⟦path/file.src⟧, ⟦title⟧, ⟦s/\<foo\>/MM(a)/g;s/\<bar\>/MM(b)/g⟧)
+# TEXTDATA(⟦path/file.src⟧, ⟦title⟧, ⟦s/\<foo\>/HH(a)/g;s/\<bar\>/HH(b)/g⟧)
 #
 # sometimes it is needed to highlight something over a few lines (as Multi-Line Highlighting)
 # the whole file is inserted into the sed buffer as a one long string for multi-line regex processing
@@ -21,8 +21,8 @@ __REASON(⟦source file (possibly snippet) suitable for HTML⟧)
 # TEXTDATA(⟦path/file.src⟧, ⟦title⟧, ⟦RE⟧, ⟦10, 20⟧)
 #
 # Note:
-# MM(b) is a Marking Macro for coloring RE with an argument for class "b"
-# MM(b) → <span class="NSP()b">&<\x2fspan> → <span class="m4-b">&<\x2fspan>
+# HH(b) is a higlighting symbol (This is not a macro!) for coloring RE with an argument for class "b"
+# HH(b) → <span class="NSP()b">&<\x2fspan> → <span class="m4-b">&<\x2fspan>
 # NSP() expands to an user defined Name SPace prefix, for example m4-
 #
 # A → β
@@ -82,20 +82,22 @@ divert(-1)
 # A → β
 define(⟦TEXTDATA_MLH⟧, defn(⟦TEXTDATA⟧))
 
-# Marking Macro MM(my_class_name) saves a lot of typing (<span class="m4-my_class_name">&<\x2fspan>), concatenates user defined prefix to my_class_name
+# Highlighting symbol (This is not a macro!) HH(my_highligting_class_name) saves a lot of typing (<span class="m4-my_highligting_class_name">&<\x2fspan>), concatenates user defined prefix to my_highligting_class_name
 #
 # SARG1 after the file processing removes unwanted trailing LF
 # A → β
 define(⟦TEXTDATA_SET_PARAMETERS_REGEX⟧, ⟦dnl
-define(⟦COMMAND_FOR_TEXTDATA⟧, ⟦sed -ne '$3,$4{' -f html/chr_to_esc.sed -e '⟧patsubst(patsubst(⟦⟦⟦$2⟧⟧⟧, ⟦\<MM(\([^)]+\))⟧, ⟦<span class="NSP()\1">&<\\x2fspan>⟧), ⟦NSP()⟧, defn(⟦NSP⟧))⟦' -e '$3s/^/\xe2\x9f\xa6/;$4$5;p}' $1⟧)dnl
+define(⟦COMMAND_FOR_TEXTDATA⟧, ⟦sed -ne '$3,$4{' -f html/chr_to_esc.sed -e '⟧patsubst(patsubst(⟦⟦⟦$2⟧⟧⟧, ⟦\<HH(\([^)]+\))⟧, ⟦<span class="NSP()\1">&<\\x2fspan>⟧), ⟦NSP()⟧, defn(⟦NSP⟧))⟦' -e '$3s/^/\xe2\x9f\xa6/;$4$5;p}' $1⟧)dnl
 ⟧)
 
 # loads the file into the sed buffer
 # A → β
 define(⟦TEXTDATA_MLH_SET_PARAMETERS_REGEX⟧, ⟦dnl
-define(⟦COMMAND_FOR_TEXTDATA⟧, ⟦sed -ne '$3{:a;N;$4!ba' -f html/chr_to_esc.sed -e '⟧patsubst(patsubst(⟦⟦⟦$2⟧⟧⟧, ⟦\<MM(\([^)]+\))⟧, ⟦<span class="NSP()\1">&<\\x2fspan>⟧), ⟦NSP()⟧, defn(⟦NSP⟧))⟦' -e 's/^/\xe2\x9f\xa6/;$5;p}' $1⟧)dnl
+define(⟦COMMAND_FOR_TEXTDATA⟧, ⟦sed -ne '$3{:a;N;$4!ba' -f html/chr_to_esc.sed -e '⟧patsubst(patsubst(⟦⟦⟦$2⟧⟧⟧, ⟦\<HH(\([^)]+\))⟧, ⟦<span class="NSP()\1">&<\\x2fspan>⟧), ⟦NSP()⟧, defn(⟦NSP⟧))⟦' -e 's/^/\xe2\x9f\xa6/;$5;p}' $1⟧)dnl
 ⟧)
 
+# Hex codes for the sed command:
+#
 # echo -n '⟦' | hexdump -C
 # 00000000  e2 9f a6
 #
