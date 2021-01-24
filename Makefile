@@ -40,7 +40,7 @@ LANG_CODES = $(patsubst lang_%.m4,%,$(wildcard lang_*.m4))
 REQ_LANGS  = $(filter-out $(ex)$(exclude), $(LANG_CODES))
 MAKE_C     = $(patsubst %,c_%.mk,$(REQ_LANGS))
 MAKE_MAN   = $(patsubst %,man_%.mk,$(REQ_LANGS))
-MAKE_TEXT  = $(patsubst %,text_%.mk,$(REQ_LANGS))
+MAKE_TEXT  = $(patsubst %,txt_%.mk,$(REQ_LANGS))
 MAKE_TEXI  = $(patsubst %,texi_%.mk,$(REQ_LANGS))
 MAKE_HTML  = $(patsubst %,html_%.mk,$(REQ_LANGS))
 MAKE_FHTML = $(patsubst %,fhtml_%.mk,$(REQ_LANGS))
@@ -56,7 +56,7 @@ CLSUBDIRS  = $(SUBDIRS:%=clean-%)
 
 #:all	generates all files (initial target)
 .PHONY: all
-all: src html text mkc $(TARGETS)
+all: src html txt mkc $(TARGETS)
 
 
 #:mkc	generates subordinate Makefile to generate c
@@ -69,9 +69,9 @@ mkc: $(MAKE_C)
 man: $(MAKE_MAN)
 
 
-#:text	generates subordinate Makefile to generate text
-.PHONY: text
-text: $(MAKE_TEXT)
+#:txt	generates subordinate Makefile to generate text
+.PHONY: txt
+txt: $(MAKE_TEXT)
 
 
 #:texi	generates subordinate Makefile to generate texi
@@ -131,7 +131,7 @@ test tst t: trunc devel
 #devel:
 #devel: rootu.m4 test.m4
 #	m4 gfiles/rootu.m4 --define='. a b c'='[xyz], [LL()], [123]' test.m4
-#devel: rootu.m4 config.m4 git.m4 text/queues.m4 text/cmd.m4 html/ent.m4 test.m4
+#devel: rootu.m4 config.m4 git.m4 txt/queues.m4 txt/cmd.m4 html/ent.m4 test.m4
 #devel: rootu.m4 git.m4 html/file.m4 tmp/test.mc
 devel: rootu.m4 lang.m4 html/ent.m4 config.m4 test.m4
 	m4 -DLANG_CODE='en' $^
@@ -201,7 +201,7 @@ tex_%.mk: rootu.m4 refs_%.m4 lang.m4 mk/tex.m4
 texi_%.mk: rootu.m4 refs_%.m4 lang.m4 mk/texi.m4
 	m4 -DLANG_CODE='$*' -DFILE_LIST='$(FILE_LIST)' -DREFS_FILES='$(REFS_LANG) $(REFS_MONO)' $^ > $@
 
-text_%.mk: rootu.m4 refs_%.m4 lang.m4 mk/text.m4
+txt_%.mk: rootu.m4 refs_%.m4 lang.m4 mk/txt.m4
 	m4 -DLANG_CODE='$*' -DFILE_LIST='$(FILE_LIST)' -DREFS_FILES='$(REFS_LANG) $(REFS_MONO)' $^ > $@
 
 html_%.mk: rootu.m4 refs_%.m4 lang.m4 mk/html.m4

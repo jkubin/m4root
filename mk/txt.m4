@@ -18,8 +18,8 @@ define(⟦MAKE_RULE⟧, ⟦
 		divert(1)dnl
 defn(⟦FILE_STEM⟧) \
 divert(3)dnl
-FILE_STEM.txt: rootu.m4 config.m4 lang.m4 ver.m4 lang_⟦⟧LANG_CODE.m4 git.m4 REFS_FILES incl.m4 init.m4 text/file.m4 text/cmd.m4 text/queues.m4 text/ref.m4 text/link.m4 text/text.m4 $1
-	m4 -DLANG_CODE='LANG_CODE' -DARTICLE_PATH='FILE_STEM' -DFILE_LIST='FILE_LIST' -DLINE_NUMBERS $(FLAGS) $^ | sed -f text/esc_to_txt.sed > $⟦@⟧
+FILE_STEM.txt: rootu.m4 config.m4 lang.m4 ver.m4 lang_⟦⟧LANG_CODE.m4 git.m4 REFS_FILES incl.m4 init.m4 txt/file.m4 txt/cmd.m4 txt/queues.m4 txt/ref.m4 txt/link.m4 txt/txt.m4 $1
+	m4 -DLANG_CODE='LANG_CODE' -DARTICLE_PATH='FILE_STEM' -DFILE_LIST='FILE_LIST' -DLINE_NUMBERS $(FLAGS) $^ | sed -f txt/esc_to_txt.sed > $⟦@⟧
 
 divert(-1)
 
@@ -32,8 +32,8 @@ MAKE_RULE(FILE_LIST)
 
 # define Makefile names
 # A → β
-define(⟦ALL_SUBTARGETS⟧,	⟦all-text-⟧LANG_CODE ⟦at⟧LANG_CODE)
-define(⟦CLEAN_SUBTARGETS⟧,	⟦clean-text-⟧LANG_CODE ⟦clt⟧LANG_CODE ⟦ct⟧LANG_CODE)
+define(⟦ALL_SUBTARGETS⟧,	⟦all-txt-⟧LANG_CODE ⟦at⟧LANG_CODE)
+define(⟦CLEAN_SUBTARGETS⟧,	⟦clean-txt-⟧LANG_CODE ⟦clt⟧LANG_CODE ⟦ct⟧LANG_CODE)
 define(⟦ALL_IN_ONE⟧,		⟦all_⟧LANG_CODE.txt)
 define(⟦TEXT_STEM⟧,		⟦TEXT_STEM_⟧LANG_CODE)
 define(⟦TXT_FILES⟧,		⟦TEXT_⟧LANG_CODE)
@@ -93,6 +93,6 @@ ALL_SUBTARGETS: SUBTARGETS
 CLEAN_SUBTARGETS:
 	$(RM) SUBTARGETS
 
-ALL_IN_ONE: rootu.m4 config.m4 lang.m4 ver.m4 lang_⟦⟧LANG_CODE.m4 git.m4 REFS_FILES incl.m4 text/file.m4 text/cmd.m4 text/queues.m4 text/ref.m4 text/link.m4 text/text.m4 patsubst(defn(⟦FILE_LIST⟧), ⟦,⟧, ⟦ ⟧)
-	m4 -DLANG_CODE='LANG_CODE' -DFILE_LIST='FILE_LIST' -DPRINT_HEADER -DLINE_NUMBERS $(FLAGS) $^ | sed -f text/esc_to_txt.sed > $@
+ALL_IN_ONE: rootu.m4 config.m4 lang.m4 ver.m4 lang_⟦⟧LANG_CODE.m4 git.m4 REFS_FILES incl.m4 txt/file.m4 txt/cmd.m4 txt/queues.m4 txt/ref.m4 txt/link.m4 txt/txt.m4 patsubst(defn(⟦FILE_LIST⟧), ⟦,⟧, ⟦ ⟧)
+	m4 -DLANG_CODE='LANG_CODE' -DFILE_LIST='FILE_LIST' -DPRINT_HEADER -DLINE_NUMBERS $(FLAGS) $^ | sed -f txt/esc_to_txt.sed > $@
 

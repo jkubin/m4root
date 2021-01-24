@@ -54,5 +54,5 @@ TEXTDATA_SET_PARAMETERS(
 
 # A → β
 define(⟦TEXTDATA_SET_PARAMETERS⟧, ⟦dnl
-define(⟦COMMAND_FOR_TEXTDATA⟧, ⟦awk -e 'NR==$3,NR==$4{' -f text/chr_to_esc.awk -e '⟧ifdef(⟦LINE_NUMBERS⟧, ⟦⟦printf "%3d ", NR;⟧⟧)⟦print}BEGIN{printf "⟦"}END{printf "$5⟧"}' $1⟧)dnl
+define(⟦COMMAND_FOR_TEXTDATA⟧, ⟦awk -e 'NR==$3,NR==$4{' -f txt/chr_to_esc.awk -e '⟧ifdef(⟦LINE_NUMBERS⟧, ⟦⟦printf "%3d ", NR;⟧⟧)⟦print}BEGIN{printf "⟦"}END{printf "$5⟧"}' $1⟧)dnl
 ⟧)
