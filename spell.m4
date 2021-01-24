@@ -39,7 +39,7 @@ pushdef(⟦PRINT_ITEM_PEREX⟧, ⟦
 
 	divert(0)dnl
 ⟦#⟧ number of characters in perex (200 ±10 is recommended): esyscmd(⟦wc -m << EOF⟧
-patsubst(defn(⟦SELITM⟧), ⟦,⟧, ⟦⟦,⟧⟧)
+patsubst(defn(⟦SELITM⟧), ⟦\<dnl\>\|[#,]⟧, ⟦⟦\&⟧⟧)
 ⟦EOF⟧)dnl
 __line__
 SELITM
@@ -280,11 +280,12 @@ define(⟦WARN⟧,			defn(⟦PRINT_ITEM⟧))
 define(⟦TEXTDATA⟧, ⟦
 
 	ifelse(
-		⟦$#⟧, ⟦1⟧, ⟦⟧, ⟦
+		⟦$#⟧, ⟦1⟧, ⟦⟧,
+		⟦$2⟧, ⟦⟧, ⟦⟧, ⟦
 
 		divert(0)dnl
 __line__
-[$2]
+⟦[$2]⟧
 
 divert(-1)
 	⟧)
