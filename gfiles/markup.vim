@@ -34,6 +34,7 @@ iabbrev <buffer> <unique> cit CITATION(⟦<c-r>"⟧)<esc>
 "iabbrev <buffer> <unique> cm ⟦⟧CM()<c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> cmm CMDSYNOPSIS(⟦dnl<cr><cr>⟧)<up><c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> cmr CMDSYNOPSIS_ROOT(⟦dnl<cr><cr>⟧)<up><c-r>=Eatchar('.')<cr>
+iabbrev <buffer> <unique> cod CODE(⟦<c-r>"⟧)<esc>
 iabbrev <buffer> <unique> com COMMENT(⟦⟦<cr><cr>⟧⟧)<up><c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> cp CSS_PARENT(⟦⟧, ⟦⟧, ⟦<cr>%%%<cr>⟧)<left><c-o>%<right><right><c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> del DELETED(⟦<c-r>"⟧)<esc>
@@ -53,14 +54,12 @@ iabbrev <buffer> <unique> exr EXECUTED_ROOT(⟦<c-r>"⟧, ⟦%%%⟧, ⟦%%%⟧)<
 iabbrev <buffer> <unique> fig FIGCAPTION(⟦⟦<cr><cr>⟧,dnl lang_en<cr>⟦<cr>%%%<cr>⟧⟧)<left><c-o>%<c-o>0<down><c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> ftn ⟦⟧FOOTNOTE(⟦⟧, ⟦%%%⟧)<c-o>T(<right><c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> ftnn ⟦⟧FOOTNOTE(⟦⟧)<left><left><c-r>=Eatchar('.')<cr>
-"iabbrev <buffer> <unique> ftnn FooT Note Next
 iabbrev <buffer> <unique> fw FIGURE_WRAP(⟦<cr><cr><cr><cr>⟧)dnl FIGURE_WRAP<up><up><c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> gr GRAY(⟦<c-r>"⟧)<esc>
 iabbrev <buffer> <unique> gt ⟦⟧GT()<c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> hc HCODE(⟦<c-r>"⟧, ⟦⟦⟦%%%⟧, ⟦%%%⟧⟧%%%⟧)<left><c-o>%;;<c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> hew HEADER_WRAP(⟦<cr><cr><cr><cr>⟧)dnl HEADER_WRAP<up><up><c-r>=Eatchar('.')<cr>
-"iabbrev <buffer> <unique> hh H1(⟦⟧)<left><left><c-r>=Eatchar('.')<cr>
-"iabbrev <buffer> <unique> hh HTEXT(⟦<c-r>"⟧, ⟦⟦⟦%%%⟧, ⟦%%%⟧⟧⟧)<left><c-o>%;;<c-r>=Eatchar('.')<cr>
+iabbrev <buffer> <unique> hh s/<c-o>m`/HH(%%%)/%%%<c-o>``<right><c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> hr HORIZONTAL_RULE()<c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> hx HEXPLAIN(⟦<c-r>"⟧, ⟦⟦⟦%%%⟧, ⟦%%%⟧⟧%%%⟧)<left><c-o>%;;<c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> ifi INSERT_FILE(⟦⟧)<left><left><c-r>=Eatchar('.')<cr>
@@ -84,7 +83,6 @@ iabbrev <buffer> <unique> mar MARK(⟦<c-r>"⟧)<esc>
 iabbrev <buffer> <unique> maw MAIN_WRAP(⟦<cr><cr><cr><cr>⟧)dnl MAIN_WRAP<up><up><c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> met METER(⟦60%⟧,,,,, ⟦value="0.6"⟧)<c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> mM MM(⟦<c-r>"⟧, )<left><c-r>=Eatchar('.')<cr>
-iabbrev <buffer> <unique> mm s/<c-o>m`/MM(%%%)/%%%<c-o>``<right><c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> nav NAV(⟦⟦<cr><cr>⟧,dnl lang_en<cr>⟦<cr>%%%<cr>⟧⟧)<left><c-o>%<c-o>0<down><c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> nb ⟦⟧NB()<esc>
 iabbrev <buffer> <unique> nt NOTE(, defn(⟦WORD_NOTE⟧), ⟦⟦<cr><cr>⟧,dnl lang_en<cr>⟦<cr>%%%<cr>⟧⟧)<left><c-o>%<c-o>0<down><c-r>=Eatchar('.')<cr>
@@ -97,9 +95,6 @@ iabbrev <buffer> <unique> pa PARA(⟦⟦<cr><cr>⟧,dnl lang_en<cr>⟦<cr>%%%<cr
 iabbrev <buffer> <unique> par PARA(⟦⟦<cr><cr>⟧,dnl lang_en<cr>⟦<cr>%%%<cr>⟧⟧)<left><c-o>%<c-o>0<down><c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> pe PERSON(⟦<c-r>"⟧)<esc>
 iabbrev <buffer> <unique> pl PLAIN_TEXT(⟦⟦<cr><cr>⟧,dnl lang_en<cr>⟦<cr>%%%<cr>⟧⟧)<left><c-o>%<c-o>0<down><c-r>=Eatchar('.')<cr>
-iabbrev <buffer> <unique> pp PARA(⟦⟦<cr><cr>⟧,dnl lang_en<cr>⟦<cr>%%%<cr>⟧⟧)<left><c-o>%<c-o>0<down><c-r>=Eatchar('.')<cr>
-"iabbrev <buffer> <unique> pp P(⟦⟧)%%%<c-o>T(<right><c-r>=Eatchar('.')<cr>
-"iabbrev <buffer> <unique> prl PRE_LANG(⟦⟦<cr><cr>⟧,dnl lang_en<cr>⟦<cr>%%%<cr>⟧⟧)<left><c-o>%<c-o>0<down><c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> prm PROMPT()
 iabbrev <buffer> <unique> prmt PROMPT()
 iabbrev <buffer> <unique> prog PROGRESS(⟦⟧,,,,, ⟦value="22" max="100"⟧)<c-r>=Eatchar('.')<cr>
@@ -107,7 +102,7 @@ iabbrev <buffer> <unique> proo PROMPT_ROOT()
 iabbrev <buffer> <unique> proot PROMPT_ROOT()
 iabbrev <buffer> <unique> pr PROGRAMLISTING(⟦dnl<cr><cr>⟧)dnl PROGRAMLISTING
 iabbrev <buffer> <unique> qc „<c-r>"“<esc>
-"iabbrev <buffer> <unique> qc Quote _first_language_
+"iabbrev <buffer> <unique> qc Quote Czech
 iabbrev <buffer> <unique> qe “<c-r>"”<esc>
 "iabbrev <buffer> <unique> qe Quote English
 iabbrev <buffer> <unique> qf »<c-r>"«<esc>
@@ -121,6 +116,7 @@ iabbrev <buffer> <unique> ref ⟦⟧REF(⟦⟧, ⟦%%%⟧, ⟦%%%⟧)<c-o>T(<rig
 iabbrev <buffer> <unique> sa SAMP(⟦<c-r>"⟧)<esc>
 iabbrev <buffer> <unique> sc <c-l><cr>SECT1(⟦⟦<cr><cr>⟧,dnl lang_en<cr>⟦<cr>%%%<cr>⟧⟧)<left><c-o>%<c-o>0<down><c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> scn <c-l><cr>SECT1(⟦⟦<cr><cr>⟧,dnl lang_en<cr>⟦<cr>%%%<cr>⟧⟧)<left><c-o>%<c-o>0<down><c-r>=Eatchar('.')<cr>
+iabbrev <buffer> <unique> sl SLANG(⟦<c-r>"⟧, ⟦⟧)<left><left><c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> sm SMALL(⟦<c-r>"⟧)<esc>
 iabbrev <buffer> <unique> sp SPAN(⟦<c-r>"⟧, ⟦%%%⟧, ⟦%%%⟧)<left><c-o>%;;<c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> ss <c-l><cr>SECT1(⟦⟦<cr><cr>⟧,dnl lang_en<cr>⟦<cr>%%%<cr>⟧⟧)<left><c-o>%<c-o>0<down><c-r>=Eatchar('.')<cr>
@@ -140,6 +136,8 @@ iabbrev <buffer> <unique> uuu ULINK(⟦<c-r>"⟧, ⟦%%%⟧, ⟦%%%⟧)<left><c-
 iabbrev <buffer> <unique> wa WARN(, defn(⟦WORD_WARNING⟧), ⟦⟦<cr><cr>⟧,dnl lang_en<cr>⟦<cr>%%%<cr>⟧⟧)<left><c-o>%<c-o>0<down><c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> wb ⟦⟧WBR()<c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> ww WARN(, defn(⟦WORD_WARNING⟧), ⟦⟦<cr><cr>⟧,dnl lang_en<cr>⟦<cr>%%%<cr>⟧⟧)<left><c-o>%<c-o>0<down><c-r>=Eatchar('.')<cr>
+iabbrev <buffer> <unique> xlan XLANG(⟦<c-r>"⟧, ⟦⟧)<left><left><c-r>=Eatchar('.')<cr>
+iabbrev <buffer> <unique> xl XLANG(⟦<c-r>"⟧, ⟦⟧)<left><left><c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> xs XSPAN(⟦<c-r>"⟧, ⟦%%%⟧, ⟦%%%⟧)<left><c-o>%;;<c-r>=Eatchar('.')<cr>
 
 iabbrev <buffer> <unique> enh ENTRY_HEAD(⟦⟦<cr><cr>⟧,dnl lang_en<cr>⟦<cr>%%%<cr>⟧⟧)<left><c-o>%<c-o>0<down><c-r>=Eatchar('.')<cr>

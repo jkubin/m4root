@@ -26,12 +26,14 @@ iabbrev <buffer> <unique> dd debugfile([debug.m4])debugmode([taeq])<cr>debugmode
 iabbrev <buffer> <unique> deb # β<cr><c-u>define([], [<cr><cr><tab>%%%<cr><c-d>])<left><c-o>%<right><right><c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> dec decr($1)
 iabbrev <buffer> <unique> de define([], [%%%])<c-o>T(<right><c-r>=Eatchar('.')<cr>
+iabbrev <buffer> <unique> dE define([], defn([%%%]))<c-o>T(<c-o>;<right><c-r>=Eatchar('.')<cr>
 "iabbrev <buffer> <unique> dee define(`', `%%%')<c-o>T(<right><c-r>=Eatchar('.')<cr>
+iabbrev <buffer> <unique> dee define([], defn([%%%]))<c-o>T(<c-o>;<right><c-r>=Eatchar('.')<cr>
+iabbrev <buffer> <unique> defa define([], defn([%%%]))<c-o>T(<c-o>;<right><c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> def # A → β<cr><c-u>define([], [<cr><cr><tab>%%%<cr><c-d>])<left><c-o>%<right><right><c-r>=Eatchar('.')<cr>
 "iabbrev <buffer> <unique> def # A → β<cr><c-u>define([], [<cr><cr><tab>%%%<cr><c-d>])<up><up><up><c-o>f]<c-r>=Eatchar('.')<cr>
 "iabbrev <buffer> <unique> deff define([])<c-o>T(<right><c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> deff define([], defn([%%%]))<c-o>T(<c-o>;<right><c-r>=Eatchar('.')<cr>
-iabbrev <buffer> <unique> defa define([], defn([%%%]))<c-o>T(<c-o>;<right><c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> defi define([])<c-o>T(<right><c-r>=Eatchar('.')<cr>
 "iabbrev <buffer> <unique> defn defn([])<left><left><c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> defs # A → β<cr><c-u>define([], [ifelse([$#], [0], [[$0]], [<cr><cr><tab>%%%<cr><c-d>])])<up><up><up><c-o>f]<c-r>=Eatchar('.')<cr>
