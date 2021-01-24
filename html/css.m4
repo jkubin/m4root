@@ -1,11 +1,28 @@
 # vim:ts=10:sw=10
 
-__AUTHOR(⟦Josef Kubin⟧, ⟦2019,12,24⟧)
-___DESCR(⟦the resulting style sheet is embedded in the web page or can be extracted into a separated file⟧)
+__AUTHOR(⟦Josef Kubin⟧, ⟦2019,12,24⟧) an inspiration during merry.tuxmas++
+___DESCR(⟦the resulting style sheet is embedded in the resulting web page or can be extracted into a separated file⟧)
 __REASON(⟦here are the main CSS rules; a subset will be selected into the final style sheet⟧)
 
-# ⟦⟦prefix1⟧, ⟦prefix2⟧, …⟧, ⟦class_name1, class_name2, …⟧, ⟦⟦suffix1⟧, ⟦suffix2⟧, …⟧, ⟦… rule set …⟧
-# if the middle bracket set is sempty, M4 template unconditionally places the rule set in the style sheet
+# generates Cartesian product (Cartesian cube):
+#
+# ⟦⟦prefix1⟧, ⟦prefix2⟧, ⟦prefix3⟧, …⟧, ⟦class_name1, class_name2, class_name3, …⟧, ⟦⟦suffix1⟧, ⟦suffix2⟧, ⟦suffix3⟧, …⟧, ⟦… rule set …⟧
+#
+# .prefix1.class_name1.suffix1 ⟦… rule set …⟧
+# .prefix1.class_name1.suffix2 ⟦… rule set …⟧
+# .prefix1.class_name1.suffix3 ⟦… rule set …⟧
+# …
+# .prefix1.class_name2.suffix1 ⟦… rule set …⟧
+# .prefix1.class_name2.suffix2 ⟦… rule set …⟧
+# .prefix1.class_name2.suffix3 ⟦… rule set …⟧
+# …
+# …
+# .prefix2.class_name1.suffix1 ⟦… rule set …⟧
+# .prefix2.class_name1.suffix2 ⟦… rule set …⟧
+# .prefix2.class_name1.suffix3 ⟦… rule set …⟧
+# …
+#
+# Note: if the middle bracket is sempty (by design), M4 template unconditionally places the rule set in the style sheet
 
 # 🖹
 CSS_CLASS_RULE_SET(⟦⟦⟧⟧,	⟦note⟧,	⟦⟦::before⟧⟧, ⟦
