@@ -9,16 +9,16 @@ __REASON(⟦stops source.mc processing if the major version number is different�
 # A → β
 define(⟦__TPLVER⟧, ⟦
 
-	ifdef(⟦VERSION_MAJOR_⟧ARG1($1), ⟦
+	ifdef(⟦VERSION_MAJOR_⟧SARG1($1), ⟦
 
 		# prints nothing or a warning
-		VERSION_MAJOR_⟦⟧ARG1($1)
+		⟦VERSION_MAJOR_⟧SARG1($1)
 	⟧, ⟦
 		ROOT_ERROR(⟦your ‘⟧__file__⟦’ is too different to process⟧)
 	⟧)
 
 	# prints nothing or an informative message
-	VERSION_MINOR_⟦⟧ARG2($1)
+	⟦VERSION_MINOR_⟧SARG2($1)
 
 	# the patch number is not tested
 ⟧)
