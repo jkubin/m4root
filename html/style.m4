@@ -1,8 +1,8 @@
 __AUTHOR(⟦Josef Kubin⟧, ⟦2019,12,24⟧)
 ___DESCR(⟦combine selectors and creates a style sheet (in the reserved namespace)⟧)
-__REASON(⟦the style sheet contains only the things that are actually used⟧)
+__REASON(⟦the resulting CSS file contains only the things that are actually used⟧)
 
-# three nested loops combine selectors for a ruleset
+# three nested loops combine selectors for a ruleset (Cartesian product)
 # A → β
 define(⟦CSS_SELECTORS_COMBINE⟧, ⟦CSS_SELECTORS_MIDDLE_LOOP($@)⟦⟧ifelse(NAR($1), ⟦1⟧, ⟦⟧, ⟦$0(PAYR(shift($1)), ⟦$2⟧, ⟦$3⟧)⟧)⟧)
 define(⟦CSS_SELECTORS_MIDDLE_LOOP⟧, ⟦CSS_SELECTORS_INNER_LOOP($@)⟦⟧ifelse(NAR($2), ⟦1⟧, ⟦⟧, ⟦$0(⟦$1⟧, PAYR(shift($2)), ⟦$3⟧)⟧)⟧)

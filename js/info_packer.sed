@@ -11,9 +11,9 @@ s/\<source_item\>/c/g
 s/\<text_item\>/d/g
 s/\<title_data\>/e/g
 
-# the letters below are for regexes above, letters {i, j} are reserved for loops
+# the letters below are for the regexes above (copy&paste), the letters {i, j} are reserved for loops
 
-# y30j
+# for example: y30j
 
 #a
 #b
