@@ -1,7 +1,7 @@
 # vim:ts=16:sw=16
 
 __AUTHOR(⟦Josef Kubin⟧, ⟦2020,12,28⟧)
-___DESCR(⟦an example, how to generate a C source code⟧)
+___DESCR(⟦an example, how to generate a C source code from an article⟧)
 __REASON(⟦how to work with automata and queues⟧)
 
 divert(0)dnl
@@ -37,7 +37,7 @@ define(⟦C_STRING_EXPAND_CASE_⟧LANG_INDEX_LAST, ⟦patsubst(patsubst(patsubst
 
 # branches to {mono,multi}lingual macro
 # A → β
-define(⟦C_STRING_EXPAND_REQUIRED_ITEM⟧, ⟦ifdef(⟦C_STRING_EXPAND_CASE_$#⟧, ⟦C_STRING_EXPAND_CASE_$#⟧, ⟦ROOT_ERROR(⟦the number of language entries is not consistent⟧)⟧)⟧)
+define(⟦C_STRING_EXPAND_REQUIRED_ITEM⟧, ⟦ifdef(⟦C_STRING_EXPAND_CASE_$#⟧, ⟦C_STRING_EXPAND_CASE_$#($@)⟧, ⟦ROOT_ERROR(⟦the number of language entries is not consistent⟧)⟧)⟧)
 
 define(⟦PARA_COUNTER⟧, defn(⟦COUNT_UP⟧))
 PARA_COUNTER(0)
@@ -52,7 +52,7 @@ define(⟦PARA⟧, ⟦
 
 	divert(PARAGRAPHS)dnl
 static char PARA_PTR_NAME[] =
-C_STRING_EXPAND_REQUIRED_ITEM(⟧defn(⟦EXPAND_LAST_ARG⟧)⟦)(indir(⟦#⟧, $@));
+C_STRING_EXPAND_REQUIRED_ITEM(⟧defn(⟦EXPAND_LAST_ARG⟧)⟦);
 
 divert(PARAGRAPH_ARRAY)dnl
 	PARA_PTR_NAME,
@@ -66,7 +66,7 @@ define(⟦PARA_APPENDIX⟧, ⟦
 
 	divert(PARAGRAPHS)dnl
 static char PARA_PTR_NAME[] =
-C_STRING_EXPAND_REQUIRED_ITEM(⟧defn(⟦EXPAND_LAST_ARG⟧)⟦)(indir(⟦#⟧, $@));
+C_STRING_EXPAND_REQUIRED_ITEM(⟧defn(⟦EXPAND_LAST_ARG⟧)⟦);
 
 divert(PARAGRAPH_APPEND_ARRAY)dnl
 	PARA_PTR_NAME,
@@ -77,7 +77,7 @@ divert(-1)
 define(⟦BRIDGEHEAD_NEXT⟧, ⟦
 
 	divert(BRIDGEHEAD_ARRAY)dnl
-	C_STRING_EXPAND_REQUIRED_ITEM(⟧defn(⟦EXPAND_LAST_ARG⟧)⟦)(indir(⟦#⟧, $@)),
+	C_STRING_EXPAND_REQUIRED_ITEM(⟧defn(⟦EXPAND_LAST_ARG⟧)⟦),
 divert(-1)
 ⟧)
 
@@ -101,7 +101,7 @@ define(⟦PART⟧, defn(⟦PART_INIT⟧)⟦
 	divert(PART_HEADER)dnl
 __SOURCE(PAYR(__file__), SARG1(esyscmd(⟦git log -1 --date='format:%Y%m%d-%T' --pretty='format:⟦⟦%ad⟧, ⟦%h⟧⟧' -- ⟧__file__)), SARG1(esyscmd(⟦git log -1 --format='⟦⟦%h⟧⟧,'⟧)))
  *
- * EXPAND_REQUIRED_ITEM(⟧defn(⟦EXPAND_LAST_ARG⟧)⟦)(indir(⟦#⟧, $@))
+ * EXPAND_REQUIRED_ITEM(⟧defn(⟦EXPAND_LAST_ARG⟧)⟦)
 divert(-1)
 ⟧)
 
@@ -115,7 +115,7 @@ define(⟦CHAPTER_NEXT⟧, ⟦
 	define(⟦SECT3_COUNTER_val⟧, 0)
 
 	divert(CHAPTER_ARRAY)dnl
-	"CHAPTER_COUNTER_val EXPAND_REQUIRED_ITEM(⟧defn(⟦EXPAND_LAST_ARG⟧)⟦)(indir(⟦#⟧, $@))",
+	"CHAPTER_COUNTER_val EXPAND_REQUIRED_ITEM(⟧defn(⟦EXPAND_LAST_ARG⟧)⟦)",
 divert(-1)
 ⟧)
 
@@ -146,7 +146,7 @@ define(⟦SECT1_ARTICLE⟧, ⟦
 	define(⟦SECT2_COUNTER_val⟧, 0)
 
 	divert(CHAPTER_ARRAY)dnl
-	"CHAPTER_COUNTER_val.SECT1_COUNTER_val EXPAND_REQUIRED_ITEM(⟧defn(⟦EXPAND_LAST_ARG⟧)⟦)(indir(⟦#⟧, $@))",
+	"CHAPTER_COUNTER_val.SECT1_COUNTER_val EXPAND_REQUIRED_ITEM(⟧defn(⟦EXPAND_LAST_ARG⟧)⟦)",
 divert(-1)
 ⟧)
 
@@ -158,7 +158,7 @@ define(⟦SECT2_ARTICLE⟧, ⟦
 	define(⟦SECT3_COUNTER_val⟧, 0)
 
 	divert(CHAPTER_ARRAY)dnl
-	"CHAPTER_COUNTER_val.SECT1_COUNTER_val.SECT2_COUNTER_val EXPAND_REQUIRED_ITEM(⟧defn(⟦EXPAND_LAST_ARG⟧)⟦)(indir(⟦#⟧, $@))",
+	"CHAPTER_COUNTER_val.SECT1_COUNTER_val.SECT2_COUNTER_val EXPAND_REQUIRED_ITEM(⟧defn(⟦EXPAND_LAST_ARG⟧)⟦)",
 divert(-1)
 ⟧)
 
@@ -169,7 +169,7 @@ define(⟦SECT3_ARTICLE⟧, ⟦
 	SECT3_COUNTER
 
 	divert(CHAPTER_ARRAY)dnl
-	"CHAPTER_COUNTER_val.SECT1_COUNTER_val.SECT2_COUNTER_val.SECT3_COUNTER_val EXPAND_REQUIRED_ITEM(⟧defn(⟦EXPAND_LAST_ARG⟧)⟦)(indir(⟦#⟧, $@))",
+	"CHAPTER_COUNTER_val.SECT1_COUNTER_val.SECT2_COUNTER_val.SECT3_COUNTER_val EXPAND_REQUIRED_ITEM(⟧defn(⟦EXPAND_LAST_ARG⟧)⟦)",
 divert(-1)
 ⟧)
 
@@ -183,7 +183,7 @@ define(⟦APPENDIX_NEXT⟧, ⟦
 	define(⟦SECT3_COUNTER_val⟧, 0)
 
 	divert(APPENDIX_ARRAY)dnl
-	"APPENDIX_LETTER EXPAND_REQUIRED_ITEM(⟧defn(⟦EXPAND_LAST_ARG⟧)⟦)(indir(⟦#⟧, $@))",
+	"APPENDIX_LETTER EXPAND_REQUIRED_ITEM(⟧defn(⟦EXPAND_LAST_ARG⟧)⟦)",
 divert(-1)
 ⟧)
 
@@ -231,7 +231,7 @@ define(⟦SECT1_APPENDIX⟧, ⟦
 	define(⟦SECT2_COUNTER_val⟧, 0)
 
 	divert(APPENDIX_ARRAY)dnl
-	"APPENDIX_LETTER.SECT1_COUNTER_val EXPAND_REQUIRED_ITEM(⟧defn(⟦EXPAND_LAST_ARG⟧)⟦)(indir(⟦#⟧, $@))",
+	"APPENDIX_LETTER.SECT1_COUNTER_val EXPAND_REQUIRED_ITEM(⟧defn(⟦EXPAND_LAST_ARG⟧)⟦)",
 divert(-1)
 ⟧)
 
@@ -243,7 +243,7 @@ define(⟦SECT2_APPENDIX⟧, ⟦
 	define(⟦SECT3_COUNTER_val⟧, 0)
 
 	divert(APPENDIX_ARRAY)dnl
-	"APPENDIX_LETTER.SECT1_COUNTER_val.SECT2_COUNTER_val EXPAND_REQUIRED_ITEM(⟧defn(⟦EXPAND_LAST_ARG⟧)⟦)(indir(⟦#⟧, $@))",
+	"APPENDIX_LETTER.SECT1_COUNTER_val.SECT2_COUNTER_val EXPAND_REQUIRED_ITEM(⟧defn(⟦EXPAND_LAST_ARG⟧)⟦)",
 divert(-1)
 ⟧)
 
@@ -254,7 +254,7 @@ define(⟦SECT3_APPENDIX⟧, ⟦
 	SECT3_COUNTER
 
 	divert(APPENDIX_ARRAY)dnl
-	"APPENDIX_LETTER.SECT1_COUNTER_val.SECT2_COUNTER_val.SECT3_COUNTER_val EXPAND_REQUIRED_ITEM(⟧defn(⟦EXPAND_LAST_ARG⟧)⟦)(indir(⟦#⟧, $@))",
+	"APPENDIX_LETTER.SECT1_COUNTER_val.SECT2_COUNTER_val.SECT3_COUNTER_val EXPAND_REQUIRED_ITEM(⟧defn(⟦EXPAND_LAST_ARG⟧)⟦)",
 divert(-1)
 ⟧)
 

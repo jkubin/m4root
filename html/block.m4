@@ -71,7 +71,7 @@ pushdef(⟦SET_ANCHOR⟧, ⟦
 		define(⟦#ID⟧, defn(defn(⟦FILE_PREFIX⟧).anch.defn(⟦SELITM⟧)))
 	⟧)
 
-	# init indices
+	# reset indices
 	# A → ε
 	define(⟦#S0⟧)
 	define(⟦#S1⟧)
@@ -83,7 +83,7 @@ pushdef(⟦SET_ANCHOR⟧, ⟦
 pushdef(⟦HTML_PAIRED_TAG⟧, ⟦
 
 	divert(CURRQU)dnl
-<defn(⟦##$0>⟧)⟧defn(⟦HTML_GLOBAL_ATTRIBUTES⟧)⟦>EXPAND_REQUIRED_ITEM(⟧defn(⟦EXPAND_LAST_ARG⟧)⟦)(indir(⟦#⟧, $@))</defn(⟦##$0>⟧)>
+<defn(⟦##$0>⟧)⟧defn(⟦HTML_GLOBAL_ATTRIBUTES⟧)⟦>EXPAND_REQUIRED_ITEM(⟧defn(⟦EXPAND_LAST_ARG⟧)⟦)</defn(⟦##$0>⟧)>
 divert(-1)
 ⟧)
 
@@ -96,14 +96,14 @@ pushdef(⟦SELECT_REQ_ITEM⟧, ⟦
 		define(⟦#ID⟧, ⟦$1⟧)
 	⟧)
 
-	define(⟦SELITM⟧, SELECT_REQUIRED_ITEM(⟧defn(⟦EXPAND_LAST_ARG⟧)⟦)(indir(⟦#⟧, $@)))
+	define(⟦SELITM⟧, SELECT_REQUIRED_ITEM(⟧defn(⟦EXPAND_LAST_ARG⟧)⟦))
 ⟧)
 
 # A → β
 define(⟦PART⟧, defn(⟦PART_INIT⟧)⟦
 
 	# set value (used in multiple places)
-	define(⟦PART_val⟧, EXPAND_REQUIRED_ITEM(⟧defn(⟦EXPAND_LAST_ARG⟧)⟦)(indir(⟦#⟧, $@)))
+	define(⟦PART_val⟧, EXPAND_REQUIRED_ITEM(⟧defn(⟦EXPAND_LAST_ARG⟧)⟦))
 ⟧)
 
 # β
@@ -404,7 +404,7 @@ define(⟦IMAGEDATA⟧, ⟦
 
 	divert(CURRQU)dnl
 <img src="IMG_SRC($6)" alt="⟦⟧NB()" width="SARG1(IMAGE_DIM)" height="SARG2(IMAGE_DIM)"⟧defn(⟦HTML_MONO_GLOBAL_ATTRIBUTES⟧)⟦>
-<p><em>WORD_IMAGE <a href="⟦#⟧defn(__file__.mono.⟦$1⟧)" title="⚓">IMAGE_COUNTER</a>: EXPAND_REQUIRED_ITEM(⟧defn(⟦EXPAND_LAST_ARG⟧)⟦)(indir(⟦#⟧, $@))</em></p>
+<p><em>WORD_IMAGE <a href="⟦#⟧defn(__file__.mono.⟦$1⟧)" title="⚓">IMAGE_COUNTER</a>: EXPAND_REQUIRED_ITEM(⟧defn(⟦EXPAND_LAST_ARG⟧)⟦)</em></p>
 divert(-1)
 ⟧)
 
@@ -412,7 +412,7 @@ divert(-1)
 define(⟦PLAIN_TEXT⟧, ⟦
 
 	divert(CURRQU)dnl
-EXPAND_REQUIRED_ITEM(⟧defn(⟦EXPAND_LAST_ARG⟧)⟦)(indir(⟦#⟧, $@))⟦⟧dnl
+EXPAND_REQUIRED_ITEM(⟧defn(⟦EXPAND_LAST_ARG⟧)⟦)⟦⟧dnl
 divert(-1)
 ⟧)
 
@@ -433,7 +433,7 @@ divert(-1)
 define(⟦NOTE⟧, ⟦
 
 	divert(CURRQU)dnl
-<div⟧defn(⟦HTML_NOTE_ATTRIBUTES⟧)⟦>EXPAND_REQUIRED_ITEM(⟧defn(⟦EXPAND_LAST_ARG⟧)⟦)(indir(⟦#⟧, $@))</div>
+<div⟧defn(⟦HTML_NOTE_ATTRIBUTES⟧)⟦>EXPAND_REQUIRED_ITEM(⟧defn(⟦EXPAND_LAST_ARG⟧)⟦)</div>
 divert(-1)
 ⟧)
 
@@ -441,7 +441,7 @@ divert(-1)
 define(⟦WARN⟧, ⟦
 
 	divert(CURRQU)dnl
-<div⟧defn(⟦HTML_WARN_ATTRIBUTES⟧)⟦>EXPAND_REQUIRED_ITEM(⟧defn(⟦EXPAND_LAST_ARG⟧)⟦)(indir(⟦#⟧, $@))</div>
+<div⟧defn(⟦HTML_WARN_ATTRIBUTES⟧)⟦>EXPAND_REQUIRED_ITEM(⟧defn(⟦EXPAND_LAST_ARG⟧)⟦)</div>
 divert(-1)
 ⟧)
 
@@ -449,7 +449,7 @@ divert(-1)
 define(⟦EXCL⟧, ⟦
 
 	divert(CURRQU)dnl
-<div⟧defn(⟦HTML_EXCL_ATTRIBUTES⟧)⟦>EXPAND_REQUIRED_ITEM(⟧defn(⟦EXPAND_LAST_ARG⟧)⟦)(indir(⟦#⟧, $@))</div>
+<div⟧defn(⟦HTML_EXCL_ATTRIBUTES⟧)⟦>EXPAND_REQUIRED_ITEM(⟧defn(⟦EXPAND_LAST_ARG⟧)⟦)</div>
 divert(-1)
 ⟧)
 
@@ -457,7 +457,7 @@ divert(-1)
 define(⟦INFO⟧, ⟦
 
 	divert(CURRQU)dnl
-<div⟧defn(⟦HTML_INFO_ATTRIBUTES⟧)⟦>EXPAND_REQUIRED_ITEM(⟧defn(⟦EXPAND_LAST_ARG⟧)⟦)(indir(⟦#⟧, $@))</div>
+<div⟧defn(⟦HTML_INFO_ATTRIBUTES⟧)⟦>EXPAND_REQUIRED_ITEM(⟧defn(⟦EXPAND_LAST_ARG⟧)⟦)</div>
 divert(-1)
 ⟧)
 
@@ -465,7 +465,7 @@ divert(-1)
 define(⟦TILE_BOX⟧, ⟦
 
 	divert(CURRQU)dnl
-<div⟧defn(⟦ID_1⟧, ⟦TITLE_2⟧, ⟦CLASS_3_TILE⟧, ⟦STYLE_4⟧)⟦>EXPAND_REQUIRED_ITEM(⟧defn(⟦EXPAND_LAST_ARG⟧)⟦)(indir(⟦#⟧, $@))</div>
+<div⟧defn(⟦ID_1⟧, ⟦TITLE_2⟧, ⟦CLASS_3_TILE⟧, ⟦STYLE_4⟧)⟦>EXPAND_REQUIRED_ITEM(⟧defn(⟦EXPAND_LAST_ARG⟧)⟦)</div>
 divert(-1)
 ⟧)
 

@@ -26,7 +26,7 @@ pushdef(⟦PRINT_ITEM⟧, defn(⟦TITLE_ATTR⟧)⟦
 
 	divert(0)dnl
 __line__
-EXPAND_REQUIRED_ITEM(⟧defn(⟦EXPAND_LAST_ARG⟧)⟦)(indir(⟦#⟧, $@))
+EXPAND_REQUIRED_ITEM(⟧defn(⟦EXPAND_LAST_ARG⟧)⟦)
 
 divert(-1)
 ⟧)
@@ -35,7 +35,7 @@ divert(-1)
 # β
 pushdef(⟦PRINT_ITEM_PEREX⟧, ⟦
 
-	define(⟦SELITM⟧, SELECT_REQUIRED_ITEM(⟧defn(⟦EXPAND_LAST_ARG⟧)⟦)(indir(⟦#⟧, $@)))
+	define(⟦SELITM⟧, SELECT_REQUIRED_ITEM(⟧defn(⟦EXPAND_LAST_ARG⟧)⟦))
 
 	divert(0)dnl
 ⟦#⟧ number of characters in perex (200 ±10 is recommended): esyscmd(⟦wc -m << EOF⟧

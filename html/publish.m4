@@ -54,6 +54,6 @@ define(⟦PARTINTRO⟧, ⟦
 
 # shortcut for perex: "+yip
 
-EXPAND_REQUIRED_ITEM(⟧defn(⟦EXPAND_LAST_ARG⟧)⟦)(indir(⟦#⟧, $@))
+EXPAND_REQUIRED_ITEM(⟧defn(⟦EXPAND_LAST_ARG⟧)⟦)
 divert(-1)
 ⟧)

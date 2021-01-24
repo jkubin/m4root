@@ -163,7 +163,7 @@ pushdef(⟦SELECT_REQ_ITEM⟧, ⟦
 		define(⟦#ID⟧, ⟦$1⟧)
 	⟧)
 
-	define(⟦SELITM⟧, SELECT_REQUIRED_ITEM(⟧defn(⟦EXPAND_LAST_ARG⟧)⟦)(indir(⟦#⟧, $@)))
+	define(⟦SELITM⟧, SELECT_REQUIRED_ITEM(⟧defn(⟦EXPAND_LAST_ARG⟧)⟦))
 ⟧)
 
 # A → β

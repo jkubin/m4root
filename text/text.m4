@@ -1,7 +1,7 @@
 # vim:ts=16:sw=16
 
 __AUTHOR(⟦Josef Kubin⟧, ⟦2020,05,11⟧)
-___DESCR(⟦generates a plain text file from (multiple) source files⟧)
+___DESCR(⟦generates a plain text file from (possibly multiple) source files⟧)
 __REASON(⟦the total number of words and characters that would be printed⟧)
 
 ifdef(⟦PRINT_HEADER⟧, ⟦
@@ -25,7 +25,7 @@ divert(-1)
 pushdef(⟦PRINT_ITEM⟧, ⟦
 
 	divert(CURRQU)dnl
-EXPAND_REQUIRED_ITEM(⟧defn(⟦EXPAND_LAST_ARG⟧)⟦)(indir(⟦#⟧, $@))
+EXPAND_REQUIRED_ITEM(⟧defn(⟦EXPAND_LAST_ARG⟧)⟦)
 
 divert(-1)
 ⟧)
@@ -34,7 +34,7 @@ divert(-1)
 pushdef(⟦PRINT_ITEM_NO_EMPTY_LINE⟧, ⟦
 
 	divert(CURRQU)dnl
-EXPAND_REQUIRED_ITEM(⟧defn(⟦EXPAND_LAST_ARG⟧)⟦)(indir(⟦#⟧, $@))
+EXPAND_REQUIRED_ITEM(⟧defn(⟦EXPAND_LAST_ARG⟧)⟦)
 divert(-1)
 ⟧)
 
@@ -42,7 +42,7 @@ divert(-1)
 pushdef(⟦PRINT_IMAGE⟧, ⟦
 
 	divert(CURRQU)dnl
-WORD_IMAGE IMAGE_COUNTER: EXPAND_REQUIRED_ITEM(⟧defn(⟦EXPAND_LAST_ARG⟧)⟦)(indir(⟦#⟧, $@))
+WORD_IMAGE IMAGE_COUNTER: EXPAND_REQUIRED_ITEM(⟧defn(⟦EXPAND_LAST_ARG⟧)⟦)
 
 divert(-1)
 ⟧)
@@ -183,9 +183,9 @@ divert(-1)
 # A → β
 define(⟦PART_NEXT⟧, defn(⟦PART_FINISH⟧)⟦
 
-	divert(0)dnl print all cached previous parts to stdout, start the next part
+	divert(0)dnl print all cached previous parts to the stdout, start the next part
 undivert⟦⟧ifdef(⟦PRINT_HEADER⟧,
-⟦------------------------ >8 ------------------------
+⟦------------------------ 8< ------------------------
 ⟧)dnl
 divert(-1)
 
@@ -218,7 +218,7 @@ define(⟦CHAPTER_NEXT⟧, ⟦
 	define(⟦SECT2_COUNTER_val⟧, 0)
 	define(⟦SECT3_COUNTER_val⟧, 0)
 
-	define(⟦SELITM⟧, SELECT_REQUIRED_ITEM(⟧defn(⟦EXPAND_LAST_ARG⟧)⟦)(indir(⟦#⟧, $@)))
+	define(⟦SELITM⟧, SELECT_REQUIRED_ITEM(⟧defn(⟦EXPAND_LAST_ARG⟧)⟦))
 
 	divert(CHAPTER_NAVIG_DATA)dnl
 CHAPTER_COUNTER_val SELITM
@@ -261,7 +261,7 @@ define(⟦SECT1_ARTICLE⟧, ⟦
 	SECT1_COUNTER
 	define(⟦SECT2_COUNTER_val⟧, 0)
 
-	define(⟦SELITM⟧, SELECT_REQUIRED_ITEM(⟧defn(⟦EXPAND_LAST_ARG⟧)⟦)(indir(⟦#⟧, $@)))
+	define(⟦SELITM⟧, SELECT_REQUIRED_ITEM(⟧defn(⟦EXPAND_LAST_ARG⟧)⟦))
 
 	divert(CHAPTER_NAVIG_DATA)dnl
 	CHAPTER_COUNTER_val.SECT1_COUNTER_val SELITM
@@ -277,7 +277,7 @@ define(⟦SECT2_ARTICLE⟧, ⟦
 	SECT2_COUNTER
 	define(⟦SECT3_COUNTER_val⟧, 0)
 
-	define(⟦SELITM⟧, SELECT_REQUIRED_ITEM(⟧defn(⟦EXPAND_LAST_ARG⟧)⟦)(indir(⟦#⟧, $@)))
+	define(⟦SELITM⟧, SELECT_REQUIRED_ITEM(⟧defn(⟦EXPAND_LAST_ARG⟧)⟦))
 
 	divert(CHAPTER_NAVIG_DATA)dnl
 		CHAPTER_COUNTER_val.SECT1_COUNTER_val.SECT2_COUNTER_val SELITM
@@ -292,7 +292,7 @@ define(⟦SECT3_ARTICLE⟧, ⟦
 	# increment index
 	SECT3_COUNTER
 
-	define(⟦SELITM⟧, SELECT_REQUIRED_ITEM(⟧defn(⟦EXPAND_LAST_ARG⟧)⟦)(indir(⟦#⟧, $@)))
+	define(⟦SELITM⟧, SELECT_REQUIRED_ITEM(⟧defn(⟦EXPAND_LAST_ARG⟧)⟦))
 
 	divert(CHAPTER_NAVIG_DATA)dnl
 			CHAPTER_COUNTER_val.SECT1_COUNTER_val.SECT2_COUNTER_val.SECT3_COUNTER_val SELITM
@@ -310,7 +310,7 @@ define(⟦APPENDIX_NEXT⟧, ⟦
 	define(⟦SECT2_COUNTER_val⟧, 0)
 	define(⟦SECT3_COUNTER_val⟧, 0)
 
-	define(⟦SELITM⟧, SELECT_REQUIRED_ITEM(⟧defn(⟦EXPAND_LAST_ARG⟧)⟦)(indir(⟦#⟧, $@)))
+	define(⟦SELITM⟧, SELECT_REQUIRED_ITEM(⟧defn(⟦EXPAND_LAST_ARG⟧)⟦))
 
 	divert(APPENDIX_NAVIG_DATA)dnl
 APPENDIX_LETTER SELITM
@@ -364,7 +364,7 @@ define(⟦SECT1_APPENDIX⟧, ⟦
 	SECT1_COUNTER
 	define(⟦SECT2_COUNTER_val⟧, 0)
 
-	define(⟦SELITM⟧, SELECT_REQUIRED_ITEM(⟧defn(⟦EXPAND_LAST_ARG⟧)⟦)(indir(⟦#⟧, $@)))
+	define(⟦SELITM⟧, SELECT_REQUIRED_ITEM(⟧defn(⟦EXPAND_LAST_ARG⟧)⟦))
 
 	divert(APPENDIX_NAVIGATION)dnl
 	APPENDIX_LETTER.SECT1_COUNTER_val SELITM
@@ -380,7 +380,7 @@ define(⟦SECT2_APPENDIX⟧, ⟦
 	SECT2_COUNTER
 	define(⟦SECT3_COUNTER_val⟧, 0)
 
-	define(⟦SELITM⟧, SELECT_REQUIRED_ITEM(⟧defn(⟦EXPAND_LAST_ARG⟧)⟦)(indir(⟦#⟧, $@)))
+	define(⟦SELITM⟧, SELECT_REQUIRED_ITEM(⟧defn(⟦EXPAND_LAST_ARG⟧)⟦))
 
 	divert(APPENDIX_NAVIGATION)dnl
 		APPENDIX_LETTER.SECT1_COUNTER_val.SECT2_COUNTER_val SELITM
@@ -395,7 +395,7 @@ define(⟦SECT3_APPENDIX⟧, ⟦
 	# increment index
 	SECT2_COUNTER
 
-	define(⟦SELITM⟧, SELECT_REQUIRED_ITEM(⟧defn(⟦EXPAND_LAST_ARG⟧)⟦)(indir(⟦#⟧, $@)))
+	define(⟦SELITM⟧, SELECT_REQUIRED_ITEM(⟧defn(⟦EXPAND_LAST_ARG⟧)⟦))
 
 	divert(APPENDIX_NAVIGATION)dnl
 			APPENDIX_LETTER.SECT1_COUNTER_val.SECT2_COUNTER_val.SECT3_COUNTER_val SELITM

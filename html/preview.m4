@@ -120,7 +120,7 @@ define(⟦PARTINTRO⟧, ⟦
 <div class="design-article__text">
 <div class="design-article__perex">
 <div class="design-article__perex-content">dnl
-EXPAND_REQUIRED_ITEM(⟧defn(⟦EXPAND_LAST_ARG⟧)⟦)(indir(⟦#⟧, $@))dnl
+EXPAND_REQUIRED_ITEM(⟧defn(⟦EXPAND_LAST_ARG⟧)⟦)dnl
 </div>
 </div>
 </div>
