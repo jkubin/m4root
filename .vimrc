@@ -6,7 +6,6 @@ set matchpairs+=⟦\:⟧
 "nnoremap <c-j> :make text_cs.mk<cr>
 "nnoremap <c-j> :make text_cs.mk ex=en<cr>
 "nnoremap <c-j> :make text SOURCE='intro.mc' ex=en<cr>
-"nnoremap <c-j> :make test<cr>
 "nnoremap <c-j> :make -B refs SOURCE='intro.mc' ex=en<cr>
 nnoremap <c-j> :make art ex=en<cr>
 "nnoremap <c-j> :make new art<cr>
@@ -16,3 +15,4 @@ nnoremap <c-j> :make art ex=en<cr>
 "nnoremap <c-n> :make text SOURCE='intro.mc' ex=en<cr>
 "nnoremap <c-n> :make text html SOURCE='intro.mc' ex=en<cr>
 nnoremap <c-n> :make -B refs html SOURCE='intro.mc' ex=en<cr>
+"nnoremap <c-j> :make test<cr>
