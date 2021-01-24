@@ -1320,7 +1320,7 @@ CODE(⟦⟦⟧⟧) conv_file Bash: XCODE(⟦DQ()řetězec⟦⟧DQ()⟧)
 CODE(⟦⟦⟧⟧) conv_file Bash: XCODE(⟦DQ()string⟦⟧DQ()⟧)
 ⟧⟧)
 
-TEXTDATA(⟦messages/doubleq.m4⟧, XLANG(⟦převodní soubor pro Bash ⟦⟧DQ()řetězce v uvozovkách⟦⟧DQ()⟧, ⟦conversion file for Bash ⟦⟧DQ()strings in quotation marks⟦⟧DQ()⟧))
+TEXTDATA(⟦messages/doubleq.m4⟧, XLANG_REGEX(⟦převodní soubor pro Bash ⟦⟧DQ()řetězce v uvozovkách⟦⟧DQ()⟧, ⟦conversion file for Bash ⟦⟧DQ()strings in quotation marks⟦⟧DQ()⟧))
 
 BRIDGEHEAD(⟦⟦
 CODE(⟦⟦⟧⟧) conv_file Bash: XCODE(⟦AP()řetězec⟦⟧AP()⟧)

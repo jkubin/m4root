@@ -1,5 +1,5 @@
 __AUTHOR(⟦Josef Kubin⟧, ⟦2019,12,30⟧)
-___DESCR(⟦converts LANG_CODE to numeric index and selects desired language item⟧)
+___DESCR(⟦converts LANG_CODE to numeric index and returns the required language item⟧)
 __REASON(⟦selects item from multilingual list⟧)
 
 # TODO: should be in a different file
@@ -31,14 +31,38 @@ define(⟦EXPAND_CASE_⟧LANG_INDEX_LAST, ⟦patsubst(patsubst(⟧LL()LL()$defn
 define(⟦SELECT_REQUIRED_ITEM⟧, ⟦ifdef(⟦SELECT_CASE_$#⟧, ⟦SELECT_CASE_$#($@)⟧, ⟦ROOT_ERROR(⟦the number of language entries is not consistent⟧)⟧)⟧)
 define(⟦EXPAND_REQUIRED_ITEM⟧, ⟦ifdef(⟦EXPAND_CASE_$#⟧, ⟦EXPAND_CASE_$#($@)⟧, ⟦ROOT_ERROR(⟦the number of language entries is not consistent⟧)⟧)⟧)
 
-# selects language (no processing through REGEX), ⟦#⟧ and ⟦dnl⟧ affects trailing text
+# selects language
+# Note: the selected text is _NOT_ processed through REGEX, the symbols ⟦,⟧, ⟦#⟧, ⟦dnl⟧ _WILL_ affects the trailing text
 # A → β
-define(⟦LANG⟧, ⟦ifelse(⟦$#⟧, ⟦0⟧, ⟦⟦$0⟧⟧, ⟧LL()LL()$defn(⟦LANG_INDEX_⟧LANG_CODE)⟧⟧⟦)⟧)
+define(⟦LANG⟧, LL()$defn(⟦LANG_INDEX_⟧LANG_CODE)⟧)
+#
+# a safer variant of the above macro:
+# define(⟦LANG⟧, ⟦ifelse(⟦$#⟧, ⟦0⟧, ⟦⟦$0⟧⟧, ⟧LL()LL()$defn(⟦LANG_INDEX_⟧LANG_CODE)⟧⟧⟦)⟧)
 
-# selects language without leading and trailing white chars (the macro hides ⟦#⟧ and ⟦dnl⟧)
+# selects language for inline text, the macro hides M4 symbols
+# Note: the symbols ⟦,⟧, ⟦#⟧, ⟦dnl⟧ _WILL_NOT_ affects the subsequent text
 # A → β
-define(⟦SLANG⟧, ⟦ifelse(⟦$#⟧, ⟦0⟧, ⟦⟦$0⟧⟧, ⟧LL()defn(⟦SELECT_CASE_⟧LANG_INDEX_LAST)⟧⟦)⟧)
+define(⟦LANG_REGEX⟧, ⟦patsubst(⟧LL()LL()$defn(⟦LANG_INDEX_⟧LANG_CODE)⟧⟧⟦, ⟦\<dnl\>\|[#,]⟧, ⟦⟦\&⟧⟧)⟧)
+# a safer variant
+# define(⟦LANG_REGEX⟧, ⟦ifelse(⟦$#⟧, ⟦0⟧, ⟦⟦$0⟧⟧, ⟧LL()⟦patsubst(⟧LL()LL()$defn(⟦LANG_INDEX_⟧LANG_CODE)⟧⟧⟦, ⟦\<dnl\>\|[#,]⟧, ⟦⟦\&⟧⟧)⟧⟧⟦)⟧)
 
-# expands language without leading and trailing white chars (the macro hides ⟦#⟧ and ⟦dnl⟧)
+# selects language without leading and trailing white chars
+# Note: the symbols ⟦#⟧, ⟦dnl⟧ _WILL_NOT_ affects the subsequent text
 # A → β
-define(⟦XLANG⟧, ⟦ifelse(⟦$#⟧, ⟦0⟧, ⟦⟦$0⟧⟧, ⟧LL()defn(⟦EXPAND_CASE_⟧LANG_INDEX_LAST)⟧⟦)⟧)
+define(⟦LANG_REGEX2⟧, defn(⟦SELECT_CASE_⟧LANG_INDEX_LAST))
+# a safer variant
+# define(⟦LANG_REGEX2⟧, ⟦ifelse(⟦$#⟧, ⟦0⟧, ⟦⟦$0⟧⟧, ⟧LL()defn(⟦SELECT_CASE_⟧LANG_INDEX_LAST)⟧⟦)⟧)
+
+# expands language (inline text)
+# Note: the symbols ⟦,⟧, ⟦#⟧, ⟦dnl⟧ _WILL_NOT_ affects the subsequent text
+# A → β
+define(⟦XLANG_REGEX⟧, ⟦patsubst(⟧LL()$defn(⟦LANG_INDEX_⟧LANG_CODE)⟧⟦, ⟦\<dnl\>\|[#,]⟧, ⟦⟦\&⟧⟧)⟧)
+# a safer variant
+#define(⟦XLANG_REGEX⟧, ⟦ifelse(⟦$#⟧, ⟦0⟧, ⟦⟦$0⟧⟧, ⟧LL()⟦patsubst(⟧LL()$defn(⟦LANG_INDEX_⟧LANG_CODE)⟧⟦, ⟦\<dnl\>\|[#,]⟧, ⟦⟦\&⟧⟧)⟧⟧⟦)⟧)
+
+# expands language without leading and trailing white chars
+# Note: the symbols ⟦#⟧, ⟦dnl⟧ _WILL_NOT_ affects the subsequent text
+# A → β
+define(⟦XLANG_REGEX2⟧, defn(⟦EXPAND_CASE_⟧LANG_INDEX_LAST))
+# a safer variant
+#define(⟦XLANG_REGEX2⟧, ⟦ifelse(⟦$#⟧, ⟦0⟧, ⟦⟦$0⟧⟧, ⟧LL()defn(⟦EXPAND_CASE_⟧LANG_INDEX_LAST)⟧⟦)⟧)

@@ -73,11 +73,15 @@ iabbrev <buffer> <unique> itl ITEMIZEDLIST_WRAP(⟦<cr><cr><cr><cr>⟧)dnl ITEMI
 iabbrev <buffer> <unique> itt ITALIC(⟦<c-r>"⟧)<esc>
 iabbrev <buffer> <unique> itw ITEMIZEDLIST_WRAP(⟦<cr><cr><cr><cr>⟧)dnl ITEMIZEDLIST_WRAP<up><up><c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> lan LANG(⟦<c-r>"⟧, ⟦⟧)<left><left><c-r>=Eatchar('.')<cr>
+iabbrev <buffer> <unique> lar LANG_REGEX(⟦<c-r>"⟧, ⟦⟧)<left><left><c-r>=Eatchar('.')<cr>
+iabbrev <buffer> <unique> larr LANG_REGEX2(⟦<c-r>"⟧, ⟦⟧)<left><left><c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> ,. , ⟦⟦⟦%%%⟧, ⟦%%%⟧⟧%%%⟧<left><c-o>%;;<c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> ,/ , ⟦⟦%%%⟧, ⟦%%%⟧⟧<left><c-o>%;;<c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> lii LI(⟦<c-r>"⟧)<esc>
 iabbrev <buffer> <unique> lit LISTITEM(⟦⟦<cr><cr>⟧,dnl lang_en<cr>⟦<cr>%%%<cr>⟧⟧)dnl LISTITEM<up><up><up><up><c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> lnk LINK(⟦<c-r>"⟧, ⟦⟧)<c-o>T⟦<c-r>=Eatchar('.')<cr>
+iabbrev <buffer> <unique> lr LANG_REGEX(⟦<c-r>"⟧, ⟦⟧)<left><left><c-r>=Eatchar('.')<cr>
+iabbrev <buffer> <unique> lrr LANG_REGEX2(⟦<c-r>"⟧, ⟦⟧)<left><left><c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> lt ⟦⟧LT()<c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> mar MARK(⟦<c-r>"⟧)<esc>
 iabbrev <buffer> <unique> maw MAIN_WRAP(⟦<cr><cr><cr><cr>⟧)dnl MAIN_WRAP<up><up><c-r>=Eatchar('.')<cr>
@@ -116,7 +120,6 @@ iabbrev <buffer> <unique> ref ⟦⟧REF(⟦⟧, ⟦%%%⟧, ⟦%%%⟧)<c-o>T(<rig
 iabbrev <buffer> <unique> sa SAMP(⟦<c-r>"⟧)<esc>
 iabbrev <buffer> <unique> sc <c-l><cr>SECT1(⟦⟦<cr><cr>⟧,dnl lang_en<cr>⟦<cr>%%%<cr>⟧⟧)<left><c-o>%<c-o>0<down><c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> scn <c-l><cr>SECT1(⟦⟦<cr><cr>⟧,dnl lang_en<cr>⟦<cr>%%%<cr>⟧⟧)<left><c-o>%<c-o>0<down><c-r>=Eatchar('.')<cr>
-iabbrev <buffer> <unique> sl SLANG(⟦<c-r>"⟧, ⟦⟧)<left><left><c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> sm SMALL(⟦<c-r>"⟧)<esc>
 iabbrev <buffer> <unique> sp SPAN(⟦<c-r>"⟧, ⟦%%%⟧, ⟦%%%⟧)<left><c-o>%;;<c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> ss <c-l><cr>SECT1(⟦⟦<cr><cr>⟧,dnl lang_en<cr>⟦<cr>%%%<cr>⟧⟧)<left><c-o>%<c-o>0<down><c-r>=Eatchar('.')<cr>
@@ -136,8 +139,8 @@ iabbrev <buffer> <unique> uuu ULINK(⟦<c-r>"⟧, ⟦%%%⟧, ⟦%%%⟧)<left><c-
 iabbrev <buffer> <unique> wa WARN(, defn(⟦WORD_WARNING⟧), ⟦⟦<cr><cr>⟧,dnl lang_en<cr>⟦<cr>%%%<cr>⟧⟧)<left><c-o>%<c-o>0<down><c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> wb ⟦⟧WBR()<c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> ww WARN(, defn(⟦WORD_WARNING⟧), ⟦⟦<cr><cr>⟧,dnl lang_en<cr>⟦<cr>%%%<cr>⟧⟧)<left><c-o>%<c-o>0<down><c-r>=Eatchar('.')<cr>
-iabbrev <buffer> <unique> xlan XLANG(⟦<c-r>"⟧, ⟦⟧)<left><left><c-r>=Eatchar('.')<cr>
-iabbrev <buffer> <unique> xl XLANG(⟦<c-r>"⟧, ⟦⟧)<left><left><c-r>=Eatchar('.')<cr>
+iabbrev <buffer> <unique> xlrr XLANG_REGEX2(⟦<c-r>"⟧, ⟦⟧)<left><left><c-r>=Eatchar('.')<cr>
+iabbrev <buffer> <unique> xlr XLANG_REGEX(⟦<c-r>"⟧, ⟦⟧)<left><left><c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> xs XSPAN(⟦<c-r>"⟧, ⟦%%%⟧, ⟦%%%⟧)<left><c-o>%;;<c-r>=Eatchar('.')<cr>
 
 iabbrev <buffer> <unique> enh ENTRY_HEAD(⟦⟦<cr><cr>⟧,dnl lang_en<cr>⟦<cr>%%%<cr>⟧⟧)<left><c-o>%<c-o>0<down><c-r>=Eatchar('.')<cr>
