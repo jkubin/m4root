@@ -2,7 +2,7 @@ Generování kódu v M4: úvod
 
 Makro procesor M4 se používá ke generování libovolně složitého kódu z jednoduchého zdrojového kódu. Úvodní díl seriálu obsahuje jeho historii, základní principy jazyka, příklady použití a nutné předpoklady pro jeho zvládnutí.
 
-Obsah (English)	mc spl txt dev pre c  aktualizováno 20. ledna 2021
+Obsah (English)	mc spl txt dev pre c  aktualizováno 24. ledna 2021
 1 Úvod
 	1.1 Příklady pro čtenáře
 2 Historie makro jazyků
@@ -99,7 +99,8 @@ divert(-1)
 …
 define(…)
 …
-divert(0)…
+divert(0)dnl
+…
 
 🖹 Klíčové slovo divert(ℤ) přepíná výstupní fronty.
 Argument -1 zcela vypne jakýkoliv textový výstup.
@@ -171,8 +172,8 @@ Přepisovací pravidla M4 jsou stejná jako přepisovací pravidla bezkontextov�
 define(`A', `β')
 
 # A → ε
-define(`A')
 define(`A', `')
+define(`A')
 
 Všechna klíčová slova M4 jsou neterminály (makra), provedou nějakou akci a přepíší se na ε nebo jiný symbol.
 Všechna klíčová slova lze přejmenovat nebo úplně vypnout.
@@ -181,7 +182,8 @@ Tato vlastnost je velmi důležitá pro režim preprocesoru.
 divert(ℤ) → ε
 define(`A', `β') → ε
 ifelse(`', `', `yes', `no') → yes
-ifelse(`', `', `ifdef(`…
+ifelse(`', `', `ifdef(`dnl', `1', `0')', `no') → ifdef(`dnl', `1', `0') → 1
+…
 
 Řízení expanze neterminálů
 Výchozí dvojice znaků `' v M4 řídí expanzi neterminálů.
@@ -291,7 +293,7 @@ $ m4 rootu.m4 leaf.m4 any.src | gcc …
 
 Komentáře M4 # a dnl jsou skryty mezi UTF-8 znaky: ⟦#⟧ ⟦dnl⟧
 
-$ sed 's/#\|\<dnl\>/⟦⟦&⟧⟧/g' any.src | m4 rootu.m4 leaf.m4 - | gcc …
+$ sed 's/#\|\<dnl\>/⟦&⟧/g' any.src | m4 rootu.m4 leaf.m4 - | gcc …
 
 $ sed 's/#/⟦#⟧/g;s/\<dnl\>/⟦dnl⟧/g' any.src | m4 rootu.m4 leaf.m4 - | gcc …
 
@@ -465,12 +467,12 @@ Vstupní zdrojový kód obsahuje speciální znaky, které je nutné skrýt:
   7 ERROR(⟦NO_FAULT⟧,    ⟦It's not a language fault!⟧)
   8 WARNING(⟦NO_ERRORS⟧, ⟦No other errors were found.⟧)
 
-🖹 Vstupní soubor může také obsahovat poznámky, které nemusí být skryté v komentářích #, dnl, ifelse([…]) nebo [… někde uvnitř závorek …].
+🖹 Vstupní soubor může také obsahovat poznámky, které nemusí být skryté v komentářích #, dnl, ifelse(⟦…⟧) nebo ⟦… někde uvnitř závorek …⟧.
 
 A.2 ⟦⟧ CSV: nejjednodušší příklad
 Tento příklad nepoužívá výstupní fronty, pouze vypisuje CSV oddělené znakem TAB na standardní výstup.
 
-24fd4f3 messages/hello.csv.m4
+825d4a3 messages/hello.csv.m4
   1 # A → β
   2 define(⟦ERROR⟧, ⟦
   3 
@@ -481,7 +483,7 @@ Tento příklad nepoužívá výstupní fronty, pouze vypisuje CSV oddělené zn
 
 $ m4 root0u.m4 hello.csv.m4 messages_raw.mc > hello.csv
 
-55ac1ea messages/hello.csv
+825d4a3 messages/hello.csv
   1 COMPLEX    !"#$%&'()*+,-./:;<=>?@[\]^_`{|}~
   2 SUCCESS    Too complex M4 code failed successfully.
   3 NO_FAULT    It's not a language fault!
@@ -492,7 +494,7 @@ Během první expanze COUNTER proběhne inicializace jeho startovací hodnoty.
 Další expanze vrátí číselný terminální symbol a proběhne zvýšení vnitřního pomocného (globálního) symbolu o jedničku.
 COUNTER je malý automat.
 
-24fd4f3 messages/counter.csv.m4
+825d4a3 messages/counter.csv.m4
   1 # A → β
   2 define(⟦COUNTER⟧, defn(⟦COUNT_UP⟧))
   3 
@@ -509,7 +511,7 @@ COUNTER je malý automat.
 
 $ m4 root0u.m4 countu.m4 counter.csv.m4 messages_raw.mc > counter.csv
 
-55ac1ea messages/counter.csv
+825d4a3 messages/counter.csv
   1 ERR_1    COMPLEX	!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~
   2 ERR_2    SUCCESS	Too complex M4 code failed successfully.
   3 ERR_3    NO_FAULT	It's not a language fault!
@@ -655,7 +657,7 @@ $ m4 root0u.m4 hello.ini.m4 code.m4 messages.mc > hello.ini
 02f55b8 messages/hello.ini
   1 ; DO NOT EDIT! This file is generated automatically!
   2 
-  3 [hello_20210118]
+  3 [hello_20210122]
   4 COMPLEX="!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~"
   5 SUCCESS="Too complex M4 code failed successfully."
   6 NO_FAULT="It's not a language fault!"
@@ -665,7 +667,7 @@ Příklad používá makro COUNTER pro číslování výsledných CPP maker a je
 Fronta číslo 1 obsahuje direktivu preprocesoru #endif pro zakončení hlavičkového souboru.
 Převod dekadické hodnoty počítadla na dvoumístné hex-a číslo provádí klíčové slovo eval().
 
-24fd4f3 messages/messages.h.m4
+825d4a3 messages/messages.h.m4
   1 # A → β
   2 define(⟦COUNTER⟧, defn(⟦COUNT_UP⟧))
   3 
@@ -694,7 +696,7 @@ Převod dekadické hodnoty počítadla na dvoumístné hex-a číslo provádí k
 
 $ m4 root0u.m4 countu.m4 messages.h.m4 messages.mc > messages.h
 
-55ac1ea messages/messages.h
+825d4a3 messages/messages.h
   1 /*
   2  * DO NOT EDIT! This file is generated automatically!
   3  */

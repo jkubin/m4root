@@ -2,7 +2,7 @@
 #
 # DO NOT EDIT! This file is generated automatically!
 #
-# __SOURCE(⟦intro.mc⟧, ⟦20210120-19:55:58⟧, ⟦801a2ed⟧, ⟦49128af⟧)
+# __SOURCE(⟦intro.mc⟧, ⟦20210124-11:14:18⟧, ⟦92feda7⟧, ⟦6d01629⟧)
 
 8
 Generování kódu v M4: úvod
@@ -511,296 +511,296 @@ Příklad generujícího automatu naleznete v příloze:
 1099
 (GNU) make
 
-1106
+1103
 Dobře navržený generátor kódu se obvykle skládá z několika menších souborů, jejichž pořadí, závislosti a parametry se zapisují do souboru .
 Dobrá znalost tvorby  je proto základním předpokladem pro zvládnutí M4.
 Čtení a údržba zdrojového kódu celkově zabere vždy více času než jeho tvorba.
 Dobře strukturovaný  proto zásadním způsobem přispívá k celkové přehlednosti výsledného generátoru kódu.
 
-1119
+1116
 [tímto tématem se budeme zabývat jindy]
 
-1119
+1116
 Spouštění  z editoru kódu pomocí vhodné klávesové zkratky zásadně urychluje vývoj M4 kódu.
 Soubor  obsahuje .
 
-1129
+1126
 Vim
 
-1136
+1130
 Zvládnutí editoru Vim je důležitým předpokladem pro pohodlí a rychlost psaní kódu M4.
 Vim zkratky, definované klíčovým slovem , ušetří velké množství zbytečně napsaného textu.
 Tyto zkratky také významně snižují výskyt téměř neviditelných chyb způsobených nepárovou závorkou, čímž šetří ztracený čas vynaložený na ladění kódu.
 
-1148
+1142
 Talent a čas
 
-1155
+1149
 M4 obvykle nejde zcela zvládnout přes víkend, zvláště chybí-li základy
 teorie automatů (Wikipedie) a formálních gramatik (Wikipedie).
 Ke zvládnutí jazyka M4 je nutné v něm programovat delší období a napsat množství špatného (složitého) M4 kódu, který z vlastní vůle přepíšete kvůli lepšímu nápadu.
 Tímto způsobem je možné postupně získat praxi.
 
-1172
+1166
 Příklady generování kódu
 
-1172
+1166
 [pro informaci]
 
-1172
+1166
 Znaky {(uvozovky), (hranaté závorky), (netisknutelné znaky), (UTF-8 znaky)} v názvu příkladu řídí expanzi neterminálů.
 
-1179
+1173
 [poznámka]
 
-1179
+1173
 Příklady v této příloze jsou složitější a jejich cílem je ukázat praktické použití jazyka M4.
 Podrobněji budou vysvětleny později.
 
-1189
+1183
  Vstupní zdrojový kód
 
-1196
+1190
 Vstupní zdrojový kód je podobný CSV (Comma Separated Values), který se převede na libovolně složitý cílový kód jiného jazyka pomocí CFG (Context-Free Grammar – bezkontextová gramatika), automatů a výstupních front.
 Zásobníky v příkladech nejsou použity.
 Vstupní zdrojový kód obsahuje speciální znaky, které je nutné skrýt:
 
-1207
+1201
 []
 
-1209
+1203
 [poznámka]
 
-1209
+1203
 Vstupní soubor může také obsahovat poznámky, které nemusí být skryté v komentářích , ,  nebo .
 
-1217
+1211
  CSV: nejjednodušší příklad
 
-1224
+1218
 Tento příklad nepoužívá výstupní fronty, pouze vypisuje CSV (Comma Separated Values) oddělené znakem  na standardní výstup.
 
-1231
+1225
 []
 
-1236
+1230
  CSV: počítadlo
 
-1243
+1237
 Příklad používá makro  ze souboru , jehož  (pravá strana přepisovacího pravidla) se zkopíruje do pravé strany makra .
 Během první expanze  proběhne inicializace jeho startovací hodnoty.
 Další expanze vrátí číselný terminální symbol a proběhne zvýšení vnitřního pomocného (globálního) symbolu o jedničku.
  je malý automat.
 
-1256
+1250
 []
 
-1261
+1255
 []
 
-1266
+1260
 (jak se to dělá) Úpravy speciálních znaků
 
-1273
+1267
 Každý typ výstupního kódu vyžaduje úpravu speciálních znaků.
 Klíčové slovo jazyka M4  je nevhodné pro tento úkol.
 Všechny speciální znaky vstupního souboru proto napřed skryjeme do vhodně pojmenovaných maker pomocí regulárních výrazů.
 
-1284
+1278
 Upravený vstupní kód
 
-1291
+1285
 [všechny speciální znaky jsou skryty do maker]
 
-1305
+1299
  Převodní soubor pro XML, XSLT, HTML
 
-1309
+1303
 [převodní soubor pro značkovací jazyky]
 
-1312
+1306
  Převodní soubor pro C, JSON, INI: 
 
-1319
+1313
 [převodní soubor pro zdrojový kód]
 
-1322
+1316
  Převodní soubor pro Bash: 
 
-1329
+1323
 [převodní soubor pro Bash "řetězce v uvozovkách"]
 
-1331
+1325
  Převodní soubor pro Bash: 
 
-1338
+1332
 [převodní soubor pro Bash 'řetězce v apostrofech']
 
-1340
+1334
  Převodní soubor pro CSV, M4 (vrátí všechny znaky zpátky)
 
-1347
+1341
 [převodní soubor vrátí všechny speciální znaky zpátky]
 
-1350
+1344
  C: výstupní fronta
 
-1357
+1351
 Příklad používá jednu výstupní frontu na znaky  pro uzavření pole na konci skriptu.
 
-1369
+1363
  INI: externí příkaz
 
-1376
+1370
 Příklad spustí externí příkaz  a jeho výstup umístí do hranatých závorek.
 Výstupem externího příkazu jsou dvě položky oddělené čárkou.
 Makro  vybere první položku, protože druhá položka obsahuje nežádoucí znak nového řádku  ().
 
-1387
+1381
 []
 
-1399
+1393
  .h: hex počítadlo
 
-1406
+1400
 Příklad používá makro  pro číslování výsledných CPP (Preprocesor jazyka C) maker a jednu výstupní frontu.
 Fronta číslo  obsahuje direktivu preprocesoru  pro zakončení hlavičkového souboru.
 Převod dekadické hodnoty počítadla na dvoumístné hex-a číslo provádí klíčové slovo .
 
-1417
+1411
 []
 
-1428
+1422
  C: malý automat
 
-1435
+1429
 Příklad používá malý automat  pro generování znaku nového řádku  a jednu výstupní frontu číslo  do které se vloží znaky  pro uzavření výsledného řetězce.
 Poprvé se  přepíše na  (epsilon – prázdný symbol), podruhé a dále se přepíše na .
 
-1444
+1438
 []
 
-1451
+1445
 []
 
-1456
+1450
  C: malý automat 2
 
-1463
+1457
 Tento příklad je podobný předchozímu, avšak každý řetězec je na novém řádku.
 
-1470
+1464
 []
 
-1472
+1466
 []
 
-1475
+1469
  HTML: výstupní fronty
 
-1482
+1476
 Příklad používá dvě výstupní fronty.
 Fronta číslo  obsahuje odstavce,
 fronta číslo  uzavírací značky HTML stránky.
 Navigační odkazy nemusí být nikde uloženy, jdou přímo na výstup.
 Zprávy typu  a  jsou zpracovány stejně jako zprávy typu .
 
-1502
+1496
  Větvení gramatikou
 
-1509
+1503
 Příklad ukazuje větvení gramatikou, argumenty maker se ignorují.
 Vstupní neterminály se přepisují na terminály (🐛),
 (🐜),
 (🐝).
 
-1524
+1518
 []
 
-1530
+1524
 Větvení gramatikou – základní princip
 
-1537
+1531
 Proměnná  se nahradí za jméno makra a zřetězí se s dalším symbolem.
 Nově vzniklý neterminál se přepíše na odpovídající terminální symbol (číslo fronty nebo jméno).
 
-1546
+1540
 [větvení gramatikou v M4]
 
-1557
+1551
  JSON: generující automat
 
-1564
+1558
 Příklad používá dvě výstupní fronty a jeden generující automat.
 První chybová zpráva  ve stavu  vygeneruje záhlaví se závorkami a vypíše na výstup první záznam.
 Automat přejde do stavu  což je  pravidlo (takové pravidlo se používá jako pravá strana jiného přepisovacího pravidla).
 Následující chybové zprávy ve stavu  pouze vypisují na výstup jednotlivé záznamy.
 Na závěr výstupní fronty číslo  a  vypíšou znaky  a  čímž zakončí výsledný JSON.
 
-1584
+1578
  JSON: pojmenované fronty
 
-1591
+1585
 Příklad zpracovává další zprávy typu  a .
 Používá tři automaty a šest výstupních front.
 Generujeme-li složitější zdrojový kód, brzy narazíme na problém udržení konzistence indexů pro výstupní fronty.
 Abychom se vyhnuli zmatku, pojmenujeme si fronty a místo čísel používáme jména.
 Abychom nemuseli definovat podobná pravidla, zkopírujeme si pravou stranu  (je to také  pravidlo (takové pravidlo se používá jako pravá strana jiného přepisovacího pravidla)) do pravé strany pravidel  a .
 
-1611
+1605
  JSON: generované indexy front
 
-1618
+1612
 Během vývoje se často mění pořadí a počet výstupních front, což také vyžaduje častou změnu jejich indexů.
 Indexy je proto vhodné generovat.
 Můžeme pak používat prakticky neomezený počet front.
 Následující příklad ukazuje, jak se tyto indexy generují.
 
-1631
+1625
 []
 
-1637
+1631
  INI: nespojitý index front
 
-1644
+1638
 Příklad používá tři automaty a dvě výstupní fronty číslo  a  definované v odděleném souboru.
 Názvy INI sekcí jsou generovány řetězením symbolů (viz. větvení).
 Příklad používá stejný soubor pro výstupní fronty jako příklad pro generování JSON.
 
-1655
+1649
 []
 
-1660
+1654
  XML: smíšené zprávy
 
-1667
+1661
 Příklad používá jednu výstupní frontu číslo  pro uzavírací značku .
 
-1679
+1673
  XML: oddělené zprávy
 
-1686
+1680
 Příklad seskupuje zprávy podle jejich typu pomocí výstupních front.
 
-1698
+1692
  Bash 
 
-1710
+1704
  Bash 
 
-1722
+1716
 Příklady preprocesoru
 
-1722
+1716
 [pro informaci]
 
-1722
+1716
 Znaky {(uvozovky), (hranaté závorky), (netisknutelné znaky), (UTF-8 znaky)} v názvu příkladu řídí expanzi neterminálů.
 
-1729
+1723
  Preprocesor jazyka C a M4
 
-1736
+1730
 Direktivy CPP (Preprocesor jazyka C) jsou pro M4 jednořádkový komentář, což brání nežádoucí expanzi stejně pojmenovaných maker.
 Definujeme-li bezpečnější makro , stejně pojmenované makro  nebude přepsáno.
 Jmenný prostor CPP (Preprocesor jazyka C) tak může být zcela oddělen od jmenného prostoru M4.
@@ -809,156 +809,156 @@ Apostrof  ve zdrojovém kódu ničemu nevadí.
 Apostrof uvnitř makra  je skryt do makra .
 Všimněte si jmen funkcí  nebo  a kde je expandován .
 
-1755
+1749
+[]
+
+1753
 []
 
 1759
 []
 
 1765
-[]
-
-1771
  CSS: vložení souboru, komentář
 
-1778
+1772
 CSS používá znak  pro kódy barev, což je také začátek jednořádkového M4 komentáře.
 Klíčové slovo  nastaví víceřádkový komentář  a přepíše se na  (epsilon – prázdný symbol).
 Komentáře se vypínají stejným klíčovým slovem  bez parametrů.
 
-1789
+1783
 [soubor vložený makro procesorem]
 
+1784
+[]
+
+1785
+[]
+
+1787
+[]
+
 1790
-[]
-
-1791
-[]
-
-1793
-[]
-
-1796
  Bash: netisknutelné znaky
 
-1803
+1797
 Bash používá oba znaky,  a .
 Nechceme-li je skrývat do makra , můžeme použít pro řízení expanze neterminálů netisknutelné znaky (zobrazené jako UTF-8 znaky), viz. příklad:
 
+1806
+[]
+
+1807
+[]
+
 1812
-[]
-
-1813
-[]
-
-1818
 M4: příklady
 
-1818
+1812
 [pro informaci]
 
-1818
+1812
 Znaky {(uvozovky), (hranaté závorky), (netisknutelné znaky), (UTF-8 znaky)} v názvu příkladu řídí expanzi neterminálů.
 
-1826
+1820
  JSON: levá závorka 
 
-1833
+1827
 Uvnitř hranatých závorek .
 Proto je levá hranatá závorka  nahrazena makrem  z kořenového souboru.
 
-1847
+1841
  Bash: počítadla
 
-1854
+1848
 Počítadla  a  jsou definována v souboru .
 Neterminály  nebudou expandovány, pouze se odeberou vnější závorky.
 Nutno použít makro  z kořenového souboru.
 
-1865
+1859
 []
 
-1874
+1868
  .h: závorky , , , 
 
-1881
+1875
 Prázdný pár  (nebo prázdný symbol v závorkách ) slouží jako oddělovač symbolů.
 Závorky kolem znaku komentáře  vypnou jeho původní význam, stejně jako vypnou význam silnějšího M4 komentáře
 .
 Vypnou také původní význam čárky  jako oddělovače argumentů maker.
 Tyto symboly se stanou obyčejnými terminálními symboly bez jakéhokoliv vedlejšího efektu.
 
+1890
+[]
+
 1896
 []
 
 1902
-[]
-
-1908
  AWK: příklady bezpečnějších maker
 
-1915
+1909
 Univerzální výstraha  se ignoruje bez závorek, stejně jako , , …
 Taková makra explicitně vytváří vývojář skriptů, prohlédněte si kořenový soubor .
 
-1924
+1918
 []
 
-1931
+1925
 []
 
-1941
+1935
 Proč používat M4 a proč ne?
 
-1941
+1935
 [pro informaci]
 
-1941
+1935
 Znaky {(uvozovky), (hranaté závorky), (netisknutelné znaky), (UTF-8 znaky)} v názvu příkladu řídí expanzi neterminálů.
 
-1950
+1944
  Proč generovat kód v M4
 
-1957
+1951
 přímé použití bezkontextové gramatiky (rekurze zdarma)
 pro transformaci dat stačí napsat minimum M4 kódu
 
-1957
+1951
 přímé použití automatů
 možnost vymodelovat si potřebné algoritmy (M4 nepotřebuje verze)
 
-1957
+1951
 přímé použití zásobníků
 zásobníky propojené s automaty rozšiřují možnosti generátoru kódu
 
-1957
+1951
 přímé použití výstupních front pro dočasné uložení výsledných částí kódu
 jednotlivé fronty jsou na závěr vypsány na výstup ve vzestupném pořadí
 
-1957
+1951
 výrazně vyšší rychlost generování kódu (ve srovnání s XSLT)
 nízké nároky na výpočetní zdroje
 
-2007
+2001
  Proč se vyhnout M4
 
-2014
+2008
 univerzální jazyk nízké úrovně (podobně jako jazyk C)
 což výměnou poskytuje ohromnou flexibilitu jako UNIX
 
-2014
+2008
 téměř neexistující komunita vývojářů (podzim 2019)
 M4 je zapomenutý jazyk, málo existujících projektů
 
-2014
+2008
 neobvyklé programovací paradigma vyžadující splnění několika předpokladů
 právě proto lze M4 považovat za náročný jazyk
 
-2014
+2008
 produktivita značně závisí na zkušenostech (možný problém s termíny)
 psaní M4 skriptů vyžaduje základní znalost automatů a gramatik
 
-2014
+2008
 údržba špatně napsaného M4 kódu není jednoduchá
 existující M4 kód je snadné proměnit ve zmatek (nutný dohled!)
 
@@ -991,14 +991,14 @@ GNU M4 - GNU macro processor	Free Software Foundation
 1034
 Teorie automatů	From Wikipedia, the free encyclopedia
 
-1119
+1116
 GNU Make Manual	Free Software Foundation
 
-1136
+1130
 Vim – všudypřítomný textový editor	který edituje text rychlostí myšlenky
 
-1155
+1149
 Automaty a formální jazyky I	Učební text FI MU
 
-1169
+1163
 Automaty a gramatiky	Michal Chytil, 1. vydání, Praha, 331 s. 1984.
