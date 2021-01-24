@@ -60,7 +60,7 @@ divert(-1)
 pushdef(⟦PRINT_PROMPT_USR⟧, ⟦
 
 	divert(CURRQU)dnl
-PROMPT() dnl
+PRMT() dnl
 divert(-1)
 ⟧)
 
@@ -68,7 +68,7 @@ divert(-1)
 pushdef(⟦PRINT_PROMPT_ROOT⟧, ⟦
 
 	divert(CURRQU)dnl
-PROMPT_ROOT() dnl
+PRMT_ROOT() dnl
 divert(-1)
 ⟧)
 

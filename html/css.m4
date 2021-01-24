@@ -348,14 +348,14 @@ cursor:help;
 
 CSS_CLASS_RULE_SET(⟦⟦⟧⟧,	⟦usc⟧,	⟦⟦>pre::before⟧⟧, ⟦
 
-content:"PROMPT() ";
+content:"PRMT() ";
 font-weight:normal;
 
 ⟧)
 
 CSS_CLASS_RULE_SET(⟦⟦⟧⟧,	⟦root⟧,	⟦⟦>pre::before⟧⟧, ⟦
 
-content:"PROMPT_ROOT() ";
+content:"PRMT_ROOT() ";
 font-weight:normal;
 
 ⟧)

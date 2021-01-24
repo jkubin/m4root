@@ -21,20 +21,20 @@ Works at Red⟦⟧NB()Hat in⟦⟧NB()ABBREV(⟦GSS⟧, ⟦Global Support Servic
 ⟧))
 
 # uncomment what you like more:
-# PROMPT() ---> ~]$
-# PROMPT(path) ---> path]$
-#define(⟦PROMPT⟧, ⟦ifelse(⟦$#⟧, ⟦0⟧, ⟦⟦$0⟧⟧, ⟦$1⟧, ⟦⟧, ⟦~]$⟧, ⟦⟦$1⟧]$⟧)⟧)
+# PRMT() ---> ~]$
+# PRMT(path) ---> path]$
+#define(⟦PRMT⟧, ⟦ifelse(⟦$#⟧, ⟦0⟧, ⟦⟦$0⟧⟧, ⟦$1⟧, ⟦⟧, ⟦~]$⟧, ⟦⟦$1⟧]$⟧)⟧)
 
-# or briefly PROMPT() ---> $
-define(⟦PROMPT⟧, ⟦ifelse(⟦$#⟧, ⟦0⟧, ⟦⟦$0⟧⟧, ⟦$⟧)⟧)
+# or briefly PRMT() ---> $
+define(⟦PRMT⟧, ⟦ifelse(⟦$#⟧, ⟦0⟧, ⟦⟦$0⟧⟧, ⟦$⟧)⟧)
 
 # uncomment what you like more:
-# PROMPT_ROOT() ---> ~]#
-# PROMPT_ROOT(path) ---> path]#
-#define(⟦PROMPT_ROOT⟧, ⟦ifelse(⟦$#⟧, ⟦0⟧, ⟦⟦$0⟧⟧, ⟦$1⟧, ⟦⟧, ⟦~]⟦#⟧⟧, ⟦⟦$1]#⟧⟧)⟧)
+# PRMT_ROOT() ---> ~]#
+# PRMT_ROOT(path) ---> path]#
+#define(⟦PRMT_ROOT⟧, ⟦ifelse(⟦$#⟧, ⟦0⟧, ⟦⟦$0⟧⟧, ⟦$1⟧, ⟦⟧, ⟦~]⟦#⟧⟧, ⟦⟦$1]#⟧⟧)⟧)
 
-# or briefly PROMPT_ROOT() --->  #
-define(⟦PROMPT_ROOT⟧, ⟦ifelse(⟦$#⟧, ⟦0⟧, ⟦⟦$0⟧⟧, ⟦⟦#⟧⟧)⟧)
+# or briefly PRMT_ROOT() --->  #
+define(⟦PRMT_ROOT⟧, ⟦ifelse(⟦$#⟧, ⟦0⟧, ⟦⟦$0⟧⟧, ⟦⟦#⟧⟧)⟧)
 
 # add all parts of the series
 # A → ε

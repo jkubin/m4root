@@ -11,24 +11,24 @@ pushdef(⟦TEST_NUMBER_OF_ARGS⟧, ⟦
 	⟧)
 ⟧)
 
-# EXECUTED(⟦foo -o a,b,c -DMACRO⟧, ⟦input/file1.src⟧, ⟦input/file2.src⟧, ⟦input/file3.src⟧, …, ⟦output/file.dst⟧)
-# EXECUTED(⟦foo -o a,b,c -DMACRO⟧, ⟦input/file1.src,⟦-o x,y,z⟧⟧, ⟦input/file2.src⟧, …, ⟦output/file.dst⟧)
+# CMDFILE(⟦⟦foo -o a,b,c -DMACRO⟧, ⟦input/file1.src⟧, ⟦input/file2.src⟧, ⟦input/file3.src⟧, …, ⟦output/file.dst⟧⟧)
+# CMDFILE(⟦⟦foo -o a,b,c -DMACRO⟧, ⟦input/file1.src,⟦-o x,y,z⟧⟧, ⟦input/file2.src⟧, …, ⟦output/file.dst⟧⟧)
 # A → β
-define(⟦EXECUTED⟧, defn(⟦TEST_NUMBER_OF_ARGS⟧)⟦
+define(⟦CMDFILE⟧, defn(⟦TEST_NUMBER_OF_ARGS⟧)⟦
 
 	divert(COMMAND_ARGS_QUEUE)dnl
-PROMPT() $1 dnl
+PRMT() $1 dnl
 divert(-1)
 
 	FILES_ON_THE_COMMAND_LINE(shift($@))
 ⟧)
 
-# EXECUTED_ROOT(…)
+# CMDFILE_ROOT(…)
 # A → β
-define(⟦EXECUTED_ROOT⟧, defn(⟦TEST_NUMBER_OF_ARGS⟧)⟦
+define(⟦CMDFILE_ROOT⟧, defn(⟦TEST_NUMBER_OF_ARGS⟧)⟦
 
 	divert(COMMAND_ARGS_QUEUE)dnl
-PROMPT_ROOT() $1 dnl
+PRMT_ROOT() $1 dnl
 divert(-1)
 
 	FILES_ON_THE_COMMAND_LINE(shift($@))

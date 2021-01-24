@@ -3,7 +3,7 @@ ___DESCR(⟦command line with a list of input files, the last file is an output 
 __REASON(⟦generates HTML code from the command line⟧)
 
 # β
-pushdef(⟦#$EXECUTED⟧, ⟦
+pushdef(⟦#$CMDFILE⟧, ⟦
 
 	ifelse(eval(⟦$# > 1⟧), ⟦1⟧, ⟦⟧, ⟦
 
@@ -17,22 +17,22 @@ divert(-1)
 	FILES_ON_THE_COMMAND_LINE(shift($@))
 ⟧)
 
-# EXECUTED(⟦foo -o a,b,c -DMACRO⟧, ⟦input/file1.src⟧, ⟦input/file2.src⟧, ⟦input/file3.src⟧, …, ⟦output/file.dst⟧)
-# EXECUTED(⟦foo -o a,b,c -DMACRO⟧, ⟦input/file1.src,⟦-o x,y,z⟧⟧, ⟦input/file2.src⟧, …, ⟦output/file.dst⟧)
+# CMDFILE(⟦⟦foo -o a,b,c -DMACRO⟧, ⟦input/file1.src⟧, ⟦input/file2.src⟧, ⟦input/file3.src⟧, …, ⟦output/file.dst⟧⟧)
+# CMDFILE(⟦⟦foo -o a,b,c -DMACRO⟧, ⟦input/file1.src,⟦-o x,y,z⟧⟧, ⟦input/file2.src⟧, …, ⟦output/file.dst⟧⟧)
 # A → β
-define(⟦EXECUTED⟧, ⟦
+define(⟦CMDFILE⟧, ⟦
 
 	define(⟦COMMAND_LINE_CLASS⟧, ⟦usc⟧)
 
-⟧defn(⟦#$EXECUTED⟧))
+⟧defn(⟦#$CMDFILE⟧))
 
-# EXECUTED_ROOT(…)
+# CMDFILE_ROOT(…)
 # A → β
-define(⟦EXECUTED_ROOT⟧, ⟦
+define(⟦CMDFILE_ROOT⟧, ⟦
 
 	define(⟦COMMAND_LINE_CLASS⟧, ⟦root⟧)
 
-⟧defn(⟦#$EXECUTED⟧))
+⟧defn(⟦#$CMDFILE⟧))
 
 # A → β
 define(⟦FILES_ON_THE_COMMAND_LINE⟧, ⟦
@@ -81,4 +81,4 @@ divert(-1)
 ⟧)
 
 # no need for further
-popdef(⟦#$EXECUTED⟧)
+popdef(⟦#$CMDFILE⟧)
