@@ -2,7 +2,7 @@ Generating code in M4: introduction
 
 The M4 macro processor is used to generate arbitrarily complex code from simple source code. The introductory part of the series contains its history, the basic principles of language, examples of usage and prerequisites for its mastery.
 
-Content (Česky)	mc spl txt dev pre c  updated January 20, 2021
+Content (Česky)	mc spl txt dev pre c  updated January 24, 2021
 1 Introduction
 	1.1 Examples for readers
 2 History of macro languages
@@ -98,7 +98,8 @@ divert(-1)
 …
 define(…)
 …
-divert(0)…
+divert(0)dnl
+…
 
 🖹 The divert(ℤ) keyword switches output queues.
 Argument -1 completely disables any text output.
@@ -171,8 +172,8 @@ The rules for rewriting are the same for context-free grammar and M4.
 define(`A', `β')
 
 # A → ε
-define(`A')
 define(`A', `')
+define(`A')
 
 All M4 keywords are nonterminals (macros), which take action and are rewritten to ε or another symbol.
 All keywords can be renamed or turned off completely.
@@ -181,7 +182,8 @@ This feature is crucial for the preprocessor mode.
 divert(ℤ) → ε
 define(`A', `β') → ε
 ifelse(`', `', `yes', `no') → yes
-ifelse(`', `', `ifdef(`…
+ifelse(`', `', `ifdef(`dnl', `1', `0')', `no') → ifdef(`dnl', `1', `0') → 1
+…
 
 Nonterminal expansion control
 The default character pair `' in M4 controls the expansion of nonterminals.
@@ -290,7 +292,7 @@ $ m4 rootu.m4 leaf.m4 any.src | gcc …
 
 M4 # and dnl comments are hidden between UTF-8 characters: ⟦#⟧ ⟦dnl⟧
 
-$ sed 's/#\|\<dnl\>/⟦⟦&⟧⟧/g' any.src | m4 rootu.m4 leaf.m4 - | gcc …
+$ sed 's/#\|\<dnl\>/⟦&⟧/g' any.src | m4 rootu.m4 leaf.m4 - | gcc …
 
 $ sed 's/#/⟦#⟧/g;s/\<dnl\>/⟦dnl⟧/g' any.src | m4 rootu.m4 leaf.m4 - | gcc …
 
@@ -464,12 +466,12 @@ The input source code contains special characters that must be hidden:
   7 ERROR(⟦NO_FAULT⟧,    ⟦It's not a language fault!⟧)
   8 WARNING(⟦NO_ERRORS⟧, ⟦No other errors were found.⟧)
 
-🖹 The input file may also contain notes that may not be hidden in the comments #, dnl, ifelse([…]) or [… somewhere inside brackets …].
+🖹 The input file may also contain notes that may not be hidden in the comments #, dnl, ifelse(⟦…⟧) or ⟦… somewhere inside brackets …⟧.
 
 A.2 ⟦⟧ CSV: simplest example
 This example does not use output queues, it only prints CSV separated by TAB to standard output.
 
-24fd4f3 messages/hello.csv.m4
+825d4a3 messages/hello.csv.m4
   1 # A → β
   2 define(⟦ERROR⟧, ⟦
   3 
@@ -480,7 +482,7 @@ This example does not use output queues, it only prints CSV separated by TAB to 
 
 $ m4 root0u.m4 hello.csv.m4 messages_raw.mc > hello.csv
 
-55ac1ea messages/hello.csv
+825d4a3 messages/hello.csv
   1 COMPLEX    !"#$%&'()*+,-./:;<=>?@[\]^_`{|}~
   2 SUCCESS    Too complex M4 code failed successfully.
   3 NO_FAULT    It's not a language fault!
@@ -491,7 +493,7 @@ During the first expansion of COUNTER its initial value is initialized.
 Further expansion returns the numeric terminal symbol and increases the inner auxiliary (global) symbol by one.
 COUNTER is a small automaton.
 
-24fd4f3 messages/counter.csv.m4
+825d4a3 messages/counter.csv.m4
   1 # A → β
   2 define(⟦COUNTER⟧, defn(⟦COUNT_UP⟧))
   3 
@@ -508,7 +510,7 @@ COUNTER is a small automaton.
 
 $ m4 root0u.m4 countu.m4 counter.csv.m4 messages_raw.mc > counter.csv
 
-55ac1ea messages/counter.csv
+825d4a3 messages/counter.csv
   1 ERR_1    COMPLEX	!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~
   2 ERR_2    SUCCESS	Too complex M4 code failed successfully.
   3 ERR_3    NO_FAULT	It's not a language fault!
@@ -654,7 +656,7 @@ $ m4 root0u.m4 hello.ini.m4 code.m4 messages.mc > hello.ini
 02f55b8 messages/hello.ini
   1 ; DO NOT EDIT! This file is generated automatically!
   2 
-  3 [hello_20210118]
+  3 [hello_20210122]
   4 COMPLEX="!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~"
   5 SUCCESS="Too complex M4 code failed successfully."
   6 NO_FAULT="It's not a language fault!"
@@ -664,7 +666,7 @@ The example uses the COUNTER macro to number the resulting CPP macros and one ou
 The queue number 1 contains the preprocessor directive #endif to terminate the header file.
 The decimal value of the counter is converted to the two-digit hex by keyword eval().
 
-24fd4f3 messages/messages.h.m4
+825d4a3 messages/messages.h.m4
   1 # A → β
   2 define(⟦COUNTER⟧, defn(⟦COUNT_UP⟧))
   3 
@@ -693,7 +695,7 @@ The decimal value of the counter is converted to the two-digit hex by keyword ev
 
 $ m4 root0u.m4 countu.m4 messages.h.m4 messages.mc > messages.h
 
-55ac1ea messages/messages.h
+825d4a3 messages/messages.h
   1 /*
   2  * DO NOT EDIT! This file is generated automatically!
   3  */

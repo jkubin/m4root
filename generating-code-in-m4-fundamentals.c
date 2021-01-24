@@ -1,9 +1,9 @@
 /*
  * DO NOT EDIT! This file is generated automatically!
- * generated: 20210120-19:55:59
+ * generated: 20210124-11:14:19
  *
- * __SOURCE(⟦c/c.m4⟧, ⟦20210118-23:26:59⟧, ⟦44c7674⟧, ⟦49128af⟧)
- * __SOURCE(⟦fundamentals.mc⟧, ⟦20210120-18:41:55⟧, ⟦801a2ed⟧, ⟦49128af⟧)
+ * __SOURCE(⟦c/c.m4⟧, ⟦20210124-11:13:46⟧, ⟦6d01629⟧, ⟦ec09bd4⟧)
+ * __SOURCE(⟦fundamentals.mc⟧, ⟦20210122-17:47:12⟧, ⟦70d9683⟧, ⟦ec09bd4⟧)
  *
  * Generating code in M4: fundamentals
  */
