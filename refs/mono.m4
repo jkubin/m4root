@@ -1,6 +1,6 @@
 __AUTHOR(⟦Josef Kubin⟧, ⟦2020,03,29⟧)
-___DESCR(⟦references to monolingual macros⟧)
-__REASON(⟦breakdown of references⟧)
+___DESCR(⟦generates references from all monolingual macros⟧)
+__REASON(⟦no duplicate monolingual references in language-specific files⟧)
 
 # A → β
 define(⟦COUNTER⟧, defn(⟦COUNT_UP⟧))
