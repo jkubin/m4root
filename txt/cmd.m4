@@ -41,7 +41,7 @@ define(⟦COMMAND_WITH_INPUT_FILES_AND_OUTPUT_FILE⟧, ⟦
 	⟧)
 
 	divert(CURRQU)dnl
-⟦$1⟧ dnl print the first item (a command)
+$1 dnl print the first item (a command)
 divert(-1)
 
 	INPUT_FILES_AND_OUTPUT_FILE(shift($@))
@@ -92,7 +92,7 @@ define(⟦COMMAND_AND_VARIOUS_FILES⟧, ⟦
 	⟧)
 
 	divert(CURRQU)dnl
-⟦$1⟧ dnl print the first item (a command)
+$1 dnl print the first item (a command)
 divert(-1)
 
 	VARIOUS_FILES_AFTER_COMMAND(shift($@))
