@@ -23,9 +23,6 @@ define(⟦ALL_PARTS_END⟧,	QUEUE_INDEX)
 define(⟦APPENDIX_NAVIGATION⟧,	QUEUE_INDEX)
 define(⟦APPENDIX_CONTENT⟧,	QUEUE_INDEX)
 
-# auxiliary command line queue
-define(⟦COMMAND_ARGS_QUEUE⟧,	QUEUE_INDEX)
-
 # (optionally) forget the counter and its internal value
 undefine(
 
