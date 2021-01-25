@@ -19,7 +19,7 @@ pushdef(⟦ID_1_MONO⟧,	⟦⟦⟧ifelse(⟦$#⟧, ⟦1⟧, ⟦⟧, ⟦$1⟧, �
 pushdef(⟦ID_1_SOURCE⟧,	⟦ ANCH_COUNTER()id="ifelse(⟦$#⟧, ⟦1⟧, ⟦NSP()anch-ANCH_COUNTER_val⟧, ⟦$1⟧, ⟦⟧, ⟦NSP()anch-ANCH_COUNTER_val⟧, ⟦ADD_ID_MONO(⟦$1⟧)⟧)"⟧)
 pushdef(⟦ID_1_ANCHOR⟧,	⟦<code><span class="ADD_CLASS(⟦cb⟧)" title="defn(⟦WORD_CLIPBOARD⟧)"></span><a href="⟦#⟧ifelse(⟦$#⟧, ⟦1⟧, ⟦NSP()anch-ANCH_COUNTER_val⟧, ⟦$1⟧, ⟦⟧, ⟦NSP()anch-ANCH_COUNTER_val⟧, ⟦ADD_ID_MONO(⟦$1⟧)⟧)" title="⚓"></a></code>⟧)
 #pushdef(⟦ID_1_ANCHOR⟧,	⟦⟦⟧ifelse(⟦$#⟧, ⟦1⟧, ⟦⟧, ⟦$1⟧, ⟦⟧, ⟦⟧, ⟦<code><span class="ADD_CLASS(⟦cb⟧)"></span><a href="⟦#⟧ADD_ID_MONO(⟦$1⟧)" title="⚓"></a></code>⟧)⟧)
-pushdef(⟦TITLE_2⟧,		⟦ifelse(⟦$#⟧, ⟦2⟧, ⟦⟧, ⟦$2⟧, ⟦⟧, ⟦⟧, ⟦ title="⟦$2⟧"⟧)⟧)
+pushdef(⟦TITLE_2⟧,		⟦ifelse(⟦$#⟧, ⟦2⟧, ⟦⟧, ⟦$2⟧, ⟦⟧, ⟦⟧, ⟦⟦ title="$2"⟧⟧)⟧)
 pushdef(⟦CLASS_3⟧,		⟦ifelse(⟦$#⟧, ⟦3⟧, ⟦⟧, ⟦$3⟧, ⟦⟧, ⟦⟧, ⟦ class="ADD_CLASS(⟦$3⟧)"⟧)⟧)
 pushdef(⟦CLASS_3_SUFFIX⟧,	⟦ifelse(⟦$#⟧, ⟦3⟧, ⟦⟧, ⟦$3⟧, ⟦⟧, ⟦⟧, ⟦ ADD_CLASS(⟦$3⟧)⟧)"⟧)		<--- Keep it up (because this is a β rule)!
 pushdef(⟦CLASS_3_EXCL⟧,	⟦ class="rs-tip-major ADD_CLASS(⟦excl⟧)⟧defn(⟦CLASS_3_SUFFIX⟧))
@@ -32,8 +32,8 @@ pushdef(⟦CLASS_3_TILE⟧,	⟦ class="rs-tile⟧defn(⟦CLASS_3_SUFFIX⟧))
 pushdef(⟦CLASS_3_SOURCE⟧,	⟦ class="ADD_CLASS(⟦src⟧)⟧defn(⟦CLASS_3_SUFFIX⟧))
 pushdef(⟦CLASS_3_COMMAND⟧,	⟦ class="ADD_CLASS(⟦cmd⟧) ADD_CLASS(⟦usc⟧)⟧defn(⟦CLASS_3_SUFFIX⟧))
 pushdef(⟦CLASS_3_WARN⟧,	⟦ class="rs-tip-major ADD_CLASS(⟦warn⟧)⟧defn(⟦CLASS_3_SUFFIX⟧))
-pushdef(⟦STYLE_4⟧,		⟦ifelse(⟦$#⟧, ⟦4⟧, ⟦⟧, ⟦$4⟧, ⟦⟧, ⟦⟧, ⟦ style="⟦$4⟧"⟧)⟧)
-pushdef(⟦ANYTHING_5⟧,	⟦ifelse(⟦$#⟧, ⟦5⟧, ⟦⟧, ⟦$5⟧, ⟦⟧, ⟦⟧, ⟦ ⟦$5⟧⟧)⟧)
+pushdef(⟦STYLE_4⟧,		⟦ifelse(⟦$#⟧, ⟦4⟧, ⟦⟧, ⟦$4⟧, ⟦⟧, ⟦⟧, ⟦⟦ style="$4"⟧⟧)⟧)
+pushdef(⟦ANYTHING_5⟧,	⟦ifelse(⟦$#⟧, ⟦5⟧, ⟦⟧, ⟦$5⟧, ⟦⟧, ⟦⟧, ⟦⟦ $5⟧⟧)⟧)
 
 # html tag attributes groups
 # β
@@ -152,7 +152,7 @@ dnl
 dnl the following code generates the links at the top of the download next to the TOC
 dnl (the ARTICLE_PATH macro comes from the command line)
 dnl
-dnl the first line containing links to download files
+dnl the first line contains the links to download files
 dnl
 <a href="SRC_FILE_PATH(__file__)" style="font-weight:bold" title="defn(⟦WORD_ARTICLE_SOURCE⟧)">mc</a>dnl
 esyscmd(⟦test -f ./⟧defn(⟦ARTICLE_PATH⟧)⟦/spell.txt⟧)ifelse(sysval, ⟦0⟧,     ⟦<a href="SRC_FILE_PATH(defn(⟦ARTICLE_PATH⟧)⟦/spell.txt⟧)" title="defn(⟦WORD_SPELL_TEXT⟧)">spl</a>⟧)dnl
@@ -623,6 +623,7 @@ popdef(
 	⟦HTML_UNPAIRED_TAG⟧,
 	⟦HTML_WARN_ATTRIBUTES⟧,
 	⟦ID_1_ANCHOR⟧,
+	⟦ID_1_MONO⟧,
 	⟦ID_1⟧,
 	⟦PROCESS_RAW_CODE_TO_HTML_ENTITIES⟧,
 	⟦SELECT_REQ_ITEM⟧,
