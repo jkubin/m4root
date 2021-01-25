@@ -51,7 +51,9 @@ divert(-1)
 define(⟦INPUT_FILES_AND_OUTPUT_FILE⟧, ⟦
 
 	divert(CURRQU)dnl
-ifelse(⟦$#⟧, ⟦1⟧, ⟦> ⟧)patsubst(SARG1($1), ⟦.*/⟧)⟦⟧ifelse(SARG2($1), ⟦⟧, ⟦⟧, ⟦ ARG2($1)⟧)⟦⟧ifelse(⟦$#⟧, ⟦1⟧, ⟦⟧, ⟦ ⟧)⟦⟧dnl
+ifelse(⟦$#⟧, ⟦1⟧, ⟦> ⟧)patsubst(SARG1($1), ⟦.*/⟧)⟦⟧ifelse(SARG2($1), ⟦⟧, ⟦⟧, ⟦ ARG2($1)⟧)⟦⟧ifelse(⟦$#⟧, ⟦1⟧, ⟦
+
+⟧, ⟦ ⟧)⟦⟧dnl
 divert(-1)
 
 	ifelse(⟦$#⟧, ⟦1⟧, ⟦⟧, ⟦
@@ -100,7 +102,9 @@ divert(-1)
 define(⟦VARIOUS_FILES_AFTER_COMMAND⟧, ⟦
 
 	divert(CURRQU)dnl
-patsubst(SARG1($1), ⟦.*/⟧)⟦⟧ifelse(SARG2($1), ⟦⟧, ⟦⟧, ⟦ ARG2($1)⟧)⟦⟧ifelse(⟦$#⟧, ⟦1⟧, ⟦⟧, ⟦ ⟧)⟦⟧dnl
+patsubst(SARG1($1), ⟦.*/⟧)⟦⟧ifelse(SARG2($1), ⟦⟧, ⟦⟧, ⟦ ARG2($1)⟧)⟦⟧ifelse(⟦$#⟧, ⟦1⟧, ⟦
+
+⟧, ⟦ ⟧)⟦⟧dnl
 divert(-1)
 
 	ifelse(⟦$#⟧, ⟦1⟧, ⟦⟧, ⟦
