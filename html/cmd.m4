@@ -1,84 +1,197 @@
 __AUTHOR(⟦Josef Kubin⟧, ⟦2020,04,26⟧)
-___DESCR(⟦command line with a list of input files, the last file is an output file⟧)
-__REASON(⟦generates HTML code from the command line⟧)
+___DESCR(⟦processes command line with a list of files⟧)
+__REASON(⟦generates HTML code⟧)
 
-# β
-pushdef(⟦#$CMDFILE⟧, ⟦
+# CMDBARE(⟦⟦cmd⟧, ⟦file.1⟧, ⟦file.2⟧, …, ⟦file.n⟧⟧)
+# CMDBARE(⟦⟦cmd -o a,b,c -DMACRO⟧, ⟦file.1,⟦-o x,y,z⟧⟧, ⟦file.2,⟦-DFOO=bar⟧⟧, …, ⟦file.n,⟦2>&1⟧⟧⟧)
+#
+# Or with attributes:
+#
+# CMDBARE(⟦id⟧, ⟦⟦cmd⟧, ⟦file.1⟧, ⟦file.2⟧, …, ⟦file.n⟧⟧)
+# CMDBARE(⟦id⟧, ⟦title⟧, ⟦⟦cmd⟧, ⟦file.1⟧, ⟦file.2⟧, …, ⟦file.n⟧⟧)
+# CMDBARE(⟦id⟧, ⟦title⟧, ⟦class⟧, ⟦⟦cmd⟧, ⟦file.1⟧, ⟦file.2⟧, …, ⟦file.n⟧⟧)
+# CMDBARE(⟦id⟧, ⟦title⟧, ⟦class⟧, ⟦style⟧, ⟦⟦cmd⟧, ⟦file.1⟧, ⟦file.2⟧, …, ⟦file.n⟧⟧)
+# CMDBARE(⟦id⟧, ⟦title⟧, ⟦class⟧, ⟦style⟧, ⟦anything⟧, ⟦⟦cmd⟧, ⟦file.1⟧, ⟦file.2⟧, …, ⟦file.n⟧⟧)
+#
+# CMDFILE(⟦⟦cmd⟧, ⟦file1.src⟧, ⟦file2.src⟧, …, ⟦file.dst⟧⟧)
+# CMDFILE(⟦⟦cmd -o a,b,c -DMACRO⟧, ⟦file1.src,⟦-o x,y,z⟧⟧, ⟦file2.src,⟦-DFOO=bar⟧⟧, …, ⟦file.dst,⟦2>&1⟧⟧⟧)
+# …
+# CMDFILE(⟦id⟧, …, ⟦⟦cmd⟧, ⟦input/file1.src⟧, ⟦input/file2.src⟧, …, ⟦output/file.dst⟧⟧)
+# …
 
-	ifelse(eval(⟦$# > 1⟧), ⟦1⟧, ⟦⟧, ⟦
+pushdef(⟦ID_1_BARE⟧,	⟦ifelse(⟦$#⟧, ⟦1⟧, ⟦NSP()anch-ANCH_COUNTER_val⟧, ⟦$1⟧, ⟦⟧, ⟦NSP()anch-ANCH_COUNTER_val⟧, ⟦ADD_ID_MONO(⟦$1⟧)⟧)⟧)
+pushdef(⟦ID_1_FILE⟧,	⟦ifelse(⟦$#⟧, ⟦1⟧, ⟦SARG1(GIT_CSV)⟦-command⟧⟧, ⟦$1⟧, ⟦⟧, ⟦SARG1(GIT_CSV)⟦-command⟧⟧, ⟦ADD_ID_MONO(⟦$1⟧)⟧)⟧)
+pushdef(⟦TITLE_2⟧,	⟦⟦⟧ifelse(⟦$#⟧, ⟦2⟧, ⟦⟧, ⟦$2⟧, ⟦⟧, ⟦⟧, ⟦⟦ title="$2"⟧⟧)⟧)
+pushdef(⟦CLASS_3_USRC⟧,	⟦ class="ADD_CLASS(⟦cmd usc⟧ifelse(⟦$#⟧, ⟦3⟧, ⟦⟧, ⟦$3⟧, ⟦⟧, ⟦⟧, ⟦⟦ $3⟧⟧))"⟧)
+pushdef(⟦CLASS_3_ROOT⟧,	⟦ class="ADD_CLASS(⟦cmd root⟧ifelse(⟦$#⟧, ⟦3⟧, ⟦⟧, ⟦$3⟧, ⟦⟧, ⟦⟧, ⟦⟦ $3⟧⟧))"⟧)
+pushdef(⟦STYLE_4⟧,	⟦ifelse(⟦$#⟧, ⟦4⟧, ⟦⟧, ⟦$4⟧, ⟦⟧, ⟦⟧, ⟦⟦ style="$4"⟧⟧)⟧)
+pushdef(⟦ANYTHING_5⟧,	⟦ifelse(⟦$#⟧, ⟦5⟧, ⟦⟧, ⟦$5⟧, ⟦⟧, ⟦⟧, ⟦⟦ $5⟧⟧)⟧)
 
-		ROOT_ERROR(⟦‘$0($@)’ requires at least 2 arguments⟧)
-	⟧)
-
-	divert(COMMAND_ARGS_QUEUE)dnl
-$1 dnl
-divert(-1)
-
-	FILES_ON_THE_COMMAND_LINE(shift($@))
-⟧)
-
-# CMDFILE(⟦⟦foo -o a,b,c -DMACRO⟧, ⟦input/file1.src⟧, ⟦input/file2.src⟧, ⟦input/file3.src⟧, …, ⟦output/file.dst⟧⟧)
-# CMDFILE(⟦⟦foo -o a,b,c -DMACRO⟧, ⟦input/file1.src,⟦-o x,y,z⟧⟧, ⟦input/file2.src⟧, …, ⟦output/file.dst⟧⟧)
 # A → β
 define(⟦CMDFILE⟧, ⟦
 
-	define(⟦COMMAND_LINE_CLASS⟧, ⟦usc⟧)
+	# create HTML skeleton
+	divert(CURRQU)dnl
+<div id="divert(AUXILIARY_1_QUEUE)"⟧defn(⟦CLASS_3_USRC⟧)⟦><pre⟧defn(⟦TITLE_2⟧, ⟦STYLE_4⟧, ⟦ANYTHING_5⟧)⟦>dnl
+divert(AUXILIARY_2_QUEUE)dnl
+</pre><code><span class="ADD_CLASS(⟦cb⟧)" title="defn(⟦WORD_CLIPBOARD⟧)"></span><a href="⟦#⟧divert(AUXILIARY_3_QUEUE)" title="⚓"></a></code></div>
+divert(-1)
 
-⟧defn(⟦#$CMDFILE⟧))
+	COMMAND_LINE_LIST_OUTPUT_FILE(⟧defn(⟦EXPAND_LAST_ARG⟧)⟦)
+
+	# finish the resulting HTML code
+	divert(CURRQU)dnl
+⟧defn(⟦ID_1_FILE⟧)⟦dnl
+undivert(AUXILIARY_1_QUEUE, AUXILIARY_2_QUEUE)dnl
+⟧defn(⟦ID_1_FILE⟧)⟦dnl
+undivert(AUXILIARY_3_QUEUE)dnl
+divert(-1)
+⟧)
 
 # CMDFILE_ROOT(…)
 # A → β
 define(⟦CMDFILE_ROOT⟧, ⟦
 
-	define(⟦COMMAND_LINE_CLASS⟧, ⟦root⟧)
+	# create HTML skeleton
+	divert(CURRQU)dnl
+<div id="divert(AUXILIARY_1_QUEUE)"⟧defn(⟦CLASS_3_ROOT⟧)⟦><pre⟧defn(⟦TITLE_2⟧, ⟦STYLE_4⟧, ⟦ANYTHING_5⟧)⟦>dnl
+divert(AUXILIARY_2_QUEUE)dnl
+</pre><code><span class="ADD_CLASS(⟦cb⟧)" title="defn(⟦WORD_CLIPBOARD⟧)"></span><a href="⟦#⟧divert(AUXILIARY_3_QUEUE)" title="⚓"></a></code></div>
+divert(-1)
 
-⟧defn(⟦#$CMDFILE⟧))
+	COMMAND_LINE_LIST_OUTPUT_FILE(⟧defn(⟦EXPAND_LAST_ARG⟧)⟦)
+
+	# finish the resulting HTML code
+	divert(CURRQU)dnl
+⟧defn(⟦ID_1_FILE⟧)⟦dnl
+undivert(AUXILIARY_1_QUEUE, AUXILIARY_2_QUEUE)dnl
+⟧defn(⟦ID_1_FILE⟧)⟦dnl
+undivert(AUXILIARY_3_QUEUE)dnl
+divert(-1)
+⟧)
 
 # A → β
-define(⟦FILES_ON_THE_COMMAND_LINE⟧, ⟦
+define(⟦COMMAND_LINE_LIST_OUTPUT_FILE⟧, ⟦
 
-	# git record from an associative array
+	ifelse(eval(⟦$# > 2⟧), ⟦1⟧, ⟦⟧, ⟦
+
+		ROOT_ERROR(⟦the command ‘$1’ requires at least 2 files (input and output): ‘$@’⟧)
+	⟧)
+
+	divert(AUXILIARY_1_QUEUE)dnl
+⟦$1⟧ dnl print the first item (a command)
+divert(-1)
+
+	COMMAND_INPUT_FILES_TO_OUTPUT_FILE(shift($@))
+⟧)
+
+# A → β
+define(⟦COMMAND_INPUT_FILES_TO_OUTPUT_FILE⟧, ⟦
+
+	# set the git csv record for the file from the associative memory
 	define(⟦GIT_CSV⟧, defn(⟦./⟧SARG1($1)))
 
 	ifelse(defn(⟦GIT_CSV⟧), ⟦⟧, ⟦
 
-		ROOT_ERROR(⟦git record for the key ‘./$1’ not found, regenerate git database⟧)
+		ROOT_ERROR(⟦the file record for the key ‘./$1’ not found, run the command: make db⟧)
 	⟧)
 
-	ifelse(⟦$#⟧, ⟦1⟧, ⟦
-
-		# set id from an associative array
-		define(⟦#ID⟧, defn(__file__.mono.SARG1($1)))
-
-		ifelse(defn(⟦#ID⟧), ⟦⟧, ⟦
-
-			ROOT_ERROR(⟦id record for the key ‘⟧__file__⟦.mono.⟧SARG1($1)⟦’ not found, regenerate file references⟧)
-		⟧)
-
-		divert(CURRQU)dnl
-<div id="ADD_ID_RULE(defn(⟦#ID⟧)-command)" class="ADD_CLASS(⟦cmd⟧) ADD_CLASS(defn(⟦COMMAND_LINE_CLASS⟧))"><pre title="defn(⟦WORD_COMMAND⟧)">dnl
-undivert(COMMAND_ARGS_QUEUE)dnl
-> <a href="SRC_FILE_PATH(SARG1($1))" title="SARG1($1)
-date: SARG3(GIT_CSV)
-git rev: SARG2(GIT_CSV)
-sha1sum: SARG4(GIT_CSV)
-size: SARG5(GIT_CSV) B">patsubst(SARG1($1), ⟦.*/⟧)</a></pre><code><span class="ADD_CLASS(⟦cb⟧)" title="defn(⟦WORD_CLIPBOARD⟧)"></span><a href="⟦#⟧defn(⟦#ID⟧)-command" title="⚓"></a></code></div>
+	divert(AUXILIARY_1_QUEUE)dnl
+ifelse(⟦$#⟧, ⟦1⟧, ⟦> ⟧)<a href="SRC_FILE_PATH(SARG1($1))" title="SARG1($1)
+date: SARG4(GIT_CSV)
+git rev: SARG3(GIT_CSV)
+sha1sum: SARG5(GIT_CSV)
+size: SARG6(GIT_CSV) B">patsubst(SARG1($1), ⟦.*/⟧)</a>ifelse(SARG2($1), ⟦⟧, ⟦⟧, ⟦ ARG2($1)⟧)⟦⟧ifelse(⟦$#⟧, ⟦1⟧, ⟦⟧, ⟦ ⟧)⟦⟧dnl
 divert(-1)
 
-	⟧, ⟦
-
-		divert(COMMAND_ARGS_QUEUE)dnl
-<a href="SRC_FILE_PATH(SARG1($1))" title="SARG1($1)
-date: SARG3(GIT_CSV)
-git rev: SARG2(GIT_CSV)
-sha1sum: SARG4(GIT_CSV)
-size: SARG5(GIT_CSV) B">patsubst(SARG1($1), ⟦.*/⟧)</a> ifelse(SARG2($1), ⟦⟧, ⟦⟧, ⟦ARG2($1) ⟧)dnl
-divert(-1)
+	ifelse(⟦$#⟧, ⟦1⟧, ⟦⟧, ⟦
 
 		# right recursive loop
 		$0(shift($@))
 	⟧)
 ⟧)
 
-# no need for further
-popdef(⟦#$CMDFILE⟧)
+# A → β
+define(⟦CMDBARE⟧, ⟦
+
+	# increment default anchor number
+	ANCH_COUNTER
+
+	divert(CURRQU)dnl
+<div id="⟧defn(⟦ID_1_BARE⟧)⟦"⟧defn(⟦CLASS_3_USRC⟧)⟦><pre⟧defn(⟦TITLE_2⟧, ⟦STYLE_4⟧, ⟦ANYTHING_5⟧)⟦>dnl
+divert(-1)
+
+	COMMAND_LINE_LIST(⟧defn(⟦EXPAND_LAST_ARG⟧)⟦)
+
+	divert(CURRQU)dnl
+</pre><code><span class="ADD_CLASS(⟦cb⟧)" title="defn(⟦WORD_CLIPBOARD⟧)"></span><a href="⟦#⟧⟧defn(⟦ID_1_BARE⟧)⟦" title="⚓"></a></code></div>
+divert(-1)
+⟧)
+
+# CMDBARE_ROOT(…)
+# A → β
+define(⟦CMDBARE_ROOT⟧, ⟦
+
+	# increment default anchor number
+	ANCH_COUNTER
+
+	divert(CURRQU)dnl
+<div id="⟧defn(⟦ID_1_BARE⟧)⟦"⟧defn(⟦CLASS_3_ROOT⟧)⟦><pre⟧defn(⟦TITLE_2⟧, ⟦STYLE_4⟧, ⟦ANYTHING_5⟧)⟦>dnl
+divert(-1)
+
+	COMMAND_LINE_LIST(⟧defn(⟦EXPAND_LAST_ARG⟧)⟦)
+
+	divert(CURRQU)dnl
+</pre><code><span class="ADD_CLASS(⟦cb⟧)" title="defn(⟦WORD_CLIPBOARD⟧)"></span><a href="⟦#⟧⟧defn(⟦ID_1_BARE⟧)⟦" title="⚓"></a></code></div>
+divert(-1)
+⟧)
+
+# A → β
+define(⟦COMMAND_LINE_LIST⟧, ⟦
+
+	divert(CURRQU)dnl
+⟦$1⟧ dnl print the first item (a command)
+divert(-1)
+
+	COMMAND_FILES(shift($@))
+⟧)
+
+# A → β
+define(⟦COMMAND_FILES⟧, ⟦
+
+	# set the file csv record from the associative memory
+	define(⟦GIT_CSV⟧, defn(⟦./⟧SARG1($1)))
+
+	ifelse(defn(⟦GIT_CSV⟧), ⟦⟧, ⟦
+
+		ROOT_ERROR(⟦the file record for the key ‘./$1’ not found, run the command: make db⟧)
+	⟧)
+
+	divert(CURRQU)dnl
+<a href="SRC_FILE_PATH(SARG1($1))" title="SARG1($1)
+date: SARG4(GIT_CSV)
+git rev: SARG3(GIT_CSV)
+sha1sum: SARG5(GIT_CSV)
+size: SARG6(GIT_CSV) B">patsubst(SARG1($1), ⟦.*/⟧)</a>ifelse(SARG2($1), ⟦⟧, ⟦⟧, ⟦ ARG2($1)⟧)⟦⟧ifelse(⟦$#⟧, ⟦1⟧, ⟦⟧, ⟦ ⟧)⟦⟧dnl
+divert(-1)
+
+	ifelse(⟦$#⟧, ⟦1⟧, ⟦⟧, ⟦
+
+		# right recursive loop
+		$0(shift($@))
+	⟧)
+⟧)
+
+# forget local β rules (good for frozen files)
+popdef(
+
+		⟦ANYTHING_5⟧,
+		⟦CLASS_3⟧,
+		⟦ID_1_BARE⟧,
+		⟦ID_1_FILE⟧,
+		⟦STYLE_4⟧,
+		⟦TITLE_2⟧,
+		⟦__CMDBARE⟧,
+		⟦__CMDFILE⟧,
+
+)
