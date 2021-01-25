@@ -32,7 +32,7 @@
 <div class="detail__article ">
 <div class=" layout-article-content">
 <div class="element-margin-top-half php-urs urs">
-<div id="m4--toc"><h2>Content (<a href="../generovani-kodu-v-m4-uvod/preview.html#m4--toc" title="Generování kódu v M4: úvod">Česky</a>)</h2><div><div class="m4-dwnl"><a href="../intro.mc" style="font-weight:bold" title="article source code">mc</a><a href="../generating-code-in-m4-introduction/spell.txt" title="generated text for spell checking and jargon (designed for Vim)">spl</a><a href="../generating-code-in-m4-introduction.txt" title="generated text for estimating the number of characters">txt</a><br><a href="../generating-code-in-m4-introduction/index.html" title="generated html page for off-line development">dev</a><a href="../generating-code-in-m4-introduction/preview.html" title="generated html page for off-line preview">pre</a><a href="../generating-code-in-m4-introduction.c" title="generated source code C">c</a></div><div class="m4-updt">updated<br>January 24, 2021</div></div></div>
+<div id="m4--toc"><h2>Content (<a href="../generovani-kodu-v-m4-uvod/preview.html#m4--toc" title="Generování kódu v M4: úvod">Česky</a>)</h2><div><div class="m4-dwnl"><a href="../intro.mc" style="font-weight:bold" title="article source code">mc</a><a href="../generating-code-in-m4-introduction/spell.txt" title="generated text for spell checking and jargon (designed for Vim)">spl</a><a href="../generating-code-in-m4-introduction.txt" title="generated text for estimating the number of characters">txt</a><br><a href="../generating-code-in-m4-introduction/index.html" title="generated html page for off-line development">dev</a><a href="../generating-code-in-m4-introduction/preview.html" title="generated html page for off-line preview">pre</a><a href="../generating-code-in-m4-introduction.c" title="generated source code C">c</a></div><div class="m4-updt">updated<br>January 25, 2021</div></div></div>
 <noscript><div title="for information" class="rs-tip-major m4-info">Enabling JavaScript enhances the clarity of the source code samples.</div></noscript>
 <p id="m4-introduction-toc"><a href="#m4-introduction"><b>1</b>Introduction</a></p>
 <p id="m4-examples-for-readers-toc" class="m4-l2"><a href="#m4-examples-for-readers"><b>1.1</b>Examples for readers</a></p>
@@ -160,9 +160,9 @@ The author of this implementation (1990) is <a href="https://www.seindal.dk/rene
 To install <span title="with small letter “m”" class="m4-xp">m4</span>, type the following command:</p>
 <div id="m4-install" title="the command also installs other important packages" class="m4-cmd m4-root"><pre>dnf -y install make m4 pinfo</pre><code><span class="m4-cb" title="select the text"></span><a href="#m4-install" title="⚓"></a></code></div>
 <p>A&nbsp;detailed description of the keywords can be found in the documentation<a href="https://www.gnu.org/software/m4/manual/" title="GNU M4 - GNU macro processor" id="m4-ref8">[8]</a>:</p>
-<div id="m4-anch-4" class="m4-src"><pre>$ <b>pinfo m4</b>
+<div id="m4-anch-3" class="m4-src"><pre>$ <b>pinfo m4</b>
 $ <b>man m4</b>
-$ <b>m4 --help</b></pre><code><span class="m4-cb" title="select the text"></span><a href="#m4-anch-4" title="⚓"></a></code></div>
+$ <b>m4 --help</b></pre><code><span class="m4-cb" title="select the text"></span><a href="#m4-anch-3" title="⚓"></a></code></div>
 <h2 id="m4-basics-of-m4" class="m4-ch"><a href="#m4-basics-of-m4-toc" title="Content"></a><a href="#m4-basics-of-m4" title="⚓">3</a>Basics of M4<a href="#m4--toc" title="Top"></a></h2>
 <p>M4 is based on <b>context-free grammar</b>, <b>automata</b>, <b>stacks</b> and <b>output queues</b>.
 To understand M4, it is therefore crucial to understand the basic concepts of formal language theory –
@@ -224,8 +224,8 @@ The examples of the <a href="#m4-htmlw-output-queues" title="⟦⟧ HTML: output
 <p>The <code>input1.mc</code> and <code>input2.mc</code> files contain the <b>input data</b> in a&nbsp;format that allows them to be transformed into <b>output data</b> according to the rules in the previous <code>.m4</code> files.
 The <code>.mc</code> data files usually do not contain any transformation rules.</p>
 <p>The input data may also come from the pipeline:</p>
-<div id="m4-anch-9" title="input code → source code generation → file" class="m4-cmd m4-usc"><pre>cat input.mc | m4 root.m4 stem.m4 branch.m4 leaf.m4 - > output.file</pre><code><span class="m4-cb" title="select the text"></span><a href="#m4-anch-9" title="⚓"></a></code></div>
-<div id="m4-anch-10" title="input code → source code generation → program" class="m4-cmd m4-usc"><pre>cat input.mc | m4 root.m4 stem.m4 branch.m4 leaf.m4 - | gcc -x c -o progr -</pre><code><span class="m4-cb" title="select the text"></span><a href="#m4-anch-10" title="⚓"></a></code></div>
+<div id="m4-anch-8" title="input code → source code generation → file" class="m4-cmd m4-usc"><pre>cat input.mc | m4 root.m4 stem.m4 branch.m4 leaf.m4 - > output.file</pre><code><span class="m4-cb" title="select the text"></span><a href="#m4-anch-8" title="⚓"></a></code></div>
+<div id="m4-anch-9" title="input code → source code generation → program" class="m4-cmd m4-usc"><pre>cat input.mc | m4 root.m4 stem.m4 branch.m4 leaf.m4 - | gcc -x c -o progr -</pre><code><span class="m4-cb" title="select the text"></span><a href="#m4-anch-9" title="⚓"></a></code></div>
 <p>Try: <a href="#m4-code-generation-examples" title="Code generation examples">Code generation examples</a></p>
 <h3 id="m4-the-preprocessor" class="m4-ch"><a href="#m4-the-preprocessor-toc" title="Content"></a><a href="#m4-the-preprocessor" title="⚓">4.2</a>The preprocessor<a href="#m4--toc" title="Top"></a></h3>
 <p>M4 can operate in the preprocessor mode and can also be part of a&nbsp;pipeline.
@@ -234,46 +234,46 @@ The nonterminals found are expanded to terminals and the output along with the s
 M4 can extend any other language where the preprocessor is insufficient (no recursion) or none.
 It is important to select the left character for nonterminal expansion control, which must not collide with the input source code character.
 However the character collision is easily solved by a regex.</p>
-<div id="m4-anch-11" title="M4 as preprocessor – in general" class="m4-cmd m4-usc"><pre>m4 root.m4 stem.m4 branch.m4 leaf.m4 file.c > preproc.file.c</pre><code><span class="m4-cb" title="select the text"></span><a href="#m4-anch-11" title="⚓"></a></code></div>
-<div id="m4-anch-12" title="M4 as preprocessor – without intermediate file" class="m4-cmd m4-usc"><pre>m4 root.m4 stem.m4 branch.m4 leaf.m4 file.c | gcc -x c -o progr -</pre><code><span class="m4-cb" title="select the text"></span><a href="#m4-anch-12" title="⚓"></a></code></div>
+<div id="m4-anch-10" title="M4 as preprocessor – in general" class="m4-cmd m4-usc"><pre>m4 root.m4 stem.m4 branch.m4 leaf.m4 file.c > preproc.file.c</pre><code><span class="m4-cb" title="select the text"></span><a href="#m4-anch-10" title="⚓"></a></code></div>
+<div id="m4-anch-11" title="M4 as preprocessor – without intermediate file" class="m4-cmd m4-usc"><pre>m4 root.m4 stem.m4 branch.m4 leaf.m4 file.c | gcc -x c -o progr -</pre><code><span class="m4-cb" title="select the text"></span><a href="#m4-anch-11" title="⚓"></a></code></div>
 <h4 id="m4-ba-default-characters" class="m4-bh"><a href="#m4-ba-default-characters" title="⚓"></a><code>`'</code> Default characters<a href="#m4--toc" title="Top"></a></h4>
 <p>The conflicting character <code>`</code> from the input source code is hidden into a&nbsp;macro <code>`'LL()</code>.
 An empty pair of control characters <code>`'</code> before the macro serves as a&nbsp;<a href="#m4-lr-hw-brackets-lr-l-r-lhr-ldn" title="[] .h: brackets [], [,], [⟦#⟧], [⟦dnl⟧]">symbol separator</a>.
 When the source code is passed through the macro processor, the <code>`'LL()</code> macro is rewritten back to the original <code>`</code> character and the empty pair <code>`'</code> is removed.</p>
-<div id="m4-anch-13" title="M4 as preprocessor with control characters: `'" class="m4-cmd m4-usc"><pre>sed 's/`/`'\''LL()/g' any.src | m4 rootq.m4 leaf.m4 -</pre><code><span class="m4-cb" title="select the text"></span><a href="#m4-anch-13" title="⚓"></a></code></div>
+<div id="m4-anch-12" title="M4 as preprocessor with control characters: `'" class="m4-cmd m4-usc"><pre>sed 's/`/`'\''LL()/g' any.src | m4 rootq.m4 leaf.m4 -</pre><code><span class="m4-cb" title="select the text"></span><a href="#m4-anch-12" title="⚓"></a></code></div>
 <p>If there are <code>#</code> or <code>dnl</code> comments in the source code, they must be hidden first.
 The characters <code>`'</code> <a href="#m4-lr-hw-brackets-lr-l-r-lhr-ldn" title="[] .h: brackets [], [,], [⟦#⟧], [⟦dnl⟧]">turn off</a> original meaning and will be removed by the macro processor.<br>
 M4 <code>#</code> and <code>dnl</code> comments are hidden between default characters: <code>`#'</code> <code>`dnl'</code></p>
-<div id="m4-anch-14" title="M4 as preprocessor with control characters: `'" class="m4-cmd m4-usc"><pre>sed 's/`/`'\''LL()/g;s/#\|\&lt;dnl\>/`&amp;'\''/g' any.src | m4 rootq.m4 leaf.m4 -</pre><code><span class="m4-cb" title="select the text"></span><a href="#m4-anch-14" title="⚓"></a></code></div>
-<div id="m4-anch-15" title="M4 as preprocessor with control characters differently: `'" class="m4-cmd m4-usc"><pre>sed 's/`/`'\''LL()/g;s/#/`#'\''/g;s/\&lt;dnl\>/`dnl'\''/g' any.src | m4 …</pre><code><span class="m4-cb" title="select the text"></span><a href="#m4-anch-15" title="⚓"></a></code></div>
+<div id="m4-anch-13" title="M4 as preprocessor with control characters: `'" class="m4-cmd m4-usc"><pre>sed 's/`/`'\''LL()/g;s/#\|\&lt;dnl\>/`&amp;'\''/g' any.src | m4 rootq.m4 leaf.m4 -</pre><code><span class="m4-cb" title="select the text"></span><a href="#m4-anch-13" title="⚓"></a></code></div>
+<div id="m4-anch-14" title="M4 as preprocessor with control characters differently: `'" class="m4-cmd m4-usc"><pre>sed 's/`/`'\''LL()/g;s/#/`#'\''/g;s/\&lt;dnl\>/`dnl'\''/g' any.src | m4 …</pre><code><span class="m4-cb" title="select the text"></span><a href="#m4-anch-14" title="⚓"></a></code></div>
 <h4 id="m4-lr-square-brackets" class="m4-bh"><a href="#m4-lr-square-brackets" title="⚓"></a><code>[]</code> Square brackets<a href="#m4--toc" title="Top"></a></h4>
 <p>If square brackets are used to <a href="#m4-nonterminal-expansion-control" title="Nonterminal expansion control">control the expansion</a> of nonterminals, the left <code>[</code> square bracket is hidden in the same way.
 Everything else applies as for default characters <code>`'</code>.</p>
-<div id="m4-anch-16" title="M4 as preprocessor with control characters: []" class="m4-cmd m4-usc"><pre>sed 's/\[/[]LL()/g' any.src | m4 rootb.m4 leaf.m4 - | …</pre><code><span class="m4-cb" title="select the text"></span><a href="#m4-anch-16" title="⚓"></a></code></div>
+<div id="m4-anch-15" title="M4 as preprocessor with control characters: []" class="m4-cmd m4-usc"><pre>sed 's/\[/[]LL()/g' any.src | m4 rootb.m4 leaf.m4 - | …</pre><code><span class="m4-cb" title="select the text"></span><a href="#m4-anch-15" title="⚓"></a></code></div>
 <p>M4 <code>#</code> and <code>dnl</code> comments are hidden between parentheses: <code>[#]</code> <code>[dnl]</code></p>
-<div id="m4-anch-17" title="M4 as preprocessor with control characters: []" class="m4-cmd m4-usc"><pre>sed 's/\[/[]LL()/g;s/#\|\&lt;dnl\>/[&amp;]/g' any.src | m4 rootb.m4 leaf.m4 - | …</pre><code><span class="m4-cb" title="select the text"></span><a href="#m4-anch-17" title="⚓"></a></code></div>
-<div id="m4-anch-18" title="M4 as preprocessor with control characters differently: []" class="m4-cmd m4-usc"><pre>sed 's/\[/[]LL()/g;s/#/[#]/g;s/\&lt;dnl\>/[dnl]/g' any.src | m4 rootb.m4 …</pre><code><span class="m4-cb" title="select the text"></span><a href="#m4-anch-18" title="⚓"></a></code></div>
+<div id="m4-anch-16" title="M4 as preprocessor with control characters: []" class="m4-cmd m4-usc"><pre>sed 's/\[/[]LL()/g;s/#\|\&lt;dnl\>/[&amp;]/g' any.src | m4 rootb.m4 leaf.m4 - | …</pre><code><span class="m4-cb" title="select the text"></span><a href="#m4-anch-16" title="⚓"></a></code></div>
+<div id="m4-anch-17" title="M4 as preprocessor with control characters differently: []" class="m4-cmd m4-usc"><pre>sed 's/\[/[]LL()/g;s/#/[#]/g;s/\&lt;dnl\>/[dnl]/g' any.src | m4 rootb.m4 …</pre><code><span class="m4-cb" title="select the text"></span><a href="#m4-anch-17" title="⚓"></a></code></div>
 <h4 id="m4-non-printable-characters" class="m4-bh"><a href="#m4-non-printable-characters" title="⚓"></a><code>␂␆</code> Non printable characters<a href="#m4--toc" title="Top"></a></h4>
 <p>Non printable characters <b><code>␂</code></b> (<samp>0x02</samp>) and <b><code>␆</code></b> (<samp>0x06</samp>) can be used to control the expansion of nonterminals.
 These characters cannot interfere with printable source code characters.</p>
-<div id="m4-anch-19" title="M4 as preprocessor with control characters: ␂␆" class="m4-cmd m4-usc"><pre>m4 rootn.m4 leaf.m4 any.src | gcc …</pre><code><span class="m4-cb" title="select the text"></span><a href="#m4-anch-19" title="⚓"></a></code></div>
+<div id="m4-anch-18" title="M4 as preprocessor with control characters: ␂␆" class="m4-cmd m4-usc"><pre>m4 rootn.m4 leaf.m4 any.src | gcc …</pre><code><span class="m4-cb" title="select the text"></span><a href="#m4-anch-18" title="⚓"></a></code></div>
 <p>M4 <code>#</code> and <code>dnl</code> comments are hidden between non printable characters: <code>␂#␆</code> <code>␂dnl␆</code></p>
-<div id="m4-anch-20" title="M4 as preprocessor with control characters: ␂␆" class="m4-cmd m4-usc"><pre>sed 's/#\|\&lt;dnl\>/␂&amp;␆/g' any.src | m4 rootn.m4 leaf.m4 - | gcc …</pre><code><span class="m4-cb" title="select the text"></span><a href="#m4-anch-20" title="⚓"></a></code></div>
-<div id="m4-anch-21" title="M4 as preprocessor with control characters differently: ␂␆" class="m4-cmd m4-usc"><pre>sed 's/#/␂#␆/g;s/\&lt;dnl\>/␂dnl␆/g' any.src | m4 rootn.m4 leaf.m4 - | gcc …</pre><code><span class="m4-cb" title="select the text"></span><a href="#m4-anch-21" title="⚓"></a></code></div>
+<div id="m4-anch-19" title="M4 as preprocessor with control characters: ␂␆" class="m4-cmd m4-usc"><pre>sed 's/#\|\&lt;dnl\>/␂&amp;␆/g' any.src | m4 rootn.m4 leaf.m4 - | gcc …</pre><code><span class="m4-cb" title="select the text"></span><a href="#m4-anch-19" title="⚓"></a></code></div>
+<div id="m4-anch-20" title="M4 as preprocessor with control characters differently: ␂␆" class="m4-cmd m4-usc"><pre>sed 's/#/␂#␆/g;s/\&lt;dnl\>/␂dnl␆/g' any.src | m4 rootn.m4 leaf.m4 - | gcc …</pre><code><span class="m4-cb" title="select the text"></span><a href="#m4-anch-20" title="⚓"></a></code></div>
 <h4 id="m4-utf-8-characters" class="m4-bh"><a href="#m4-utf-8-characters" title="⚓"></a><code>⟦⟧</code> UTF-8 characters<a href="#m4--toc" title="Top"></a></h4>
 <p>Expansion of nonterminals can also be controlled by a suitably selected UTF-8 character pair.
 The usual source code does not contain such characters, so we do not have to solve the collision of the left control <code>⟦</code> character.
 UTF-8 characters offer similar advantages to non printable characters.</p>
-<div id="m4-anch-22" title="M4 as preprocessor with control characters: ⟦⟧" class="m4-cmd m4-usc"><pre>m4 rootu.m4 leaf.m4 any.src | gcc …</pre><code><span class="m4-cb" title="select the text"></span><a href="#m4-anch-22" title="⚓"></a></code></div>
+<div id="m4-anch-21" title="M4 as preprocessor with control characters: ⟦⟧" class="m4-cmd m4-usc"><pre>m4 rootu.m4 leaf.m4 any.src | gcc …</pre><code><span class="m4-cb" title="select the text"></span><a href="#m4-anch-21" title="⚓"></a></code></div>
 <p>M4 <code>#</code> and <code>dnl</code> comments are hidden between UTF-8 characters: <code>⟦#⟧</code> <code>⟦dnl⟧</code></p>
-<div id="m4-anch-23" title="M4 as preprocessor with control characters: ⟦⟧" class="m4-cmd m4-usc"><pre>sed 's/#\|\&lt;dnl\>/⟦&amp;⟧/g' any.src | m4 rootu.m4 leaf.m4 - | gcc …</pre><code><span class="m4-cb" title="select the text"></span><a href="#m4-anch-23" title="⚓"></a></code></div>
-<div id="m4-anch-24" title="M4 as preprocessor with control characters differently: ⟦⟧" class="m4-cmd m4-usc"><pre>sed 's/#/⟦#⟧/g;s/\&lt;dnl\>/⟦dnl⟧/g' any.src | m4 rootu.m4 leaf.m4 - | gcc …</pre><code><span class="m4-cb" title="select the text"></span><a href="#m4-anch-24" title="⚓"></a></code></div>
+<div id="m4-anch-22" title="M4 as preprocessor with control characters: ⟦⟧" class="m4-cmd m4-usc"><pre>sed 's/#\|\&lt;dnl\>/⟦&amp;⟧/g' any.src | m4 rootu.m4 leaf.m4 - | gcc …</pre><code><span class="m4-cb" title="select the text"></span><a href="#m4-anch-22" title="⚓"></a></code></div>
+<div id="m4-anch-23" title="M4 as preprocessor with control characters differently: ⟦⟧" class="m4-cmd m4-usc"><pre>sed 's/#/⟦#⟧/g;s/\&lt;dnl\>/⟦dnl⟧/g' any.src | m4 rootu.m4 leaf.m4 - | gcc …</pre><code><span class="m4-cb" title="select the text"></span><a href="#m4-anch-23" title="⚓"></a></code></div>
 <p>Try: <a href="#m4-preprocessor-examples" title="Preprocessor examples">Preprocessor examples</a></p>
 <h4 id="m4-mixed-mode" class="m4-bh"><a href="#m4-mixed-mode" title="⚓"></a>Mixed mode<a href="#m4--toc" title="Top"></a></h4>
 <p>The mixed mode is a&nbsp;combination of the previous modes and is mainly used for experiments.
 The data is not separated from the rules for its transformation.
 The leaf file <code>leaf.m4</code> contains transformation rule definitions along with input data.</p>
-<div id="m4-anch-25" title="how to learn M4" class="m4-cmd m4-usc"><pre>m4 root.m4 leaf.m4</pre><code><span class="m4-cb" title="select the text"></span><a href="#m4-anch-25" title="⚓"></a></code></div>
+<div id="m4-anch-24" title="how to learn M4" class="m4-cmd m4-usc"><pre>m4 root.m4 leaf.m4</pre><code><span class="m4-cb" title="select the text"></span><a href="#m4-anch-24" title="⚓"></a></code></div>
 <p>Try: <a href="#m4-m4w-examples" title="M4: examples">M4: examples</a></p>
 <h2 id="m4-prerequisites-for-mastering-m" class="m4-ch"><a href="#m4-prerequisites-for-mastering-m-toc" title="Content"></a><a href="#m4-prerequisites-for-mastering-m" title="⚓">5</a>Prerequisites for mastering M4<a href="#m4--toc" title="Top"></a></h2>
 <p>To successfully master this macro language it is important to fulfill several prerequisites.
@@ -313,18 +313,18 @@ If the input symbols meet the required properties, the automaton ends up in&nbsp
 <p><em>Picture <a href="#m4-dfa-img" title="⚓">2</a>: Example of an automaton<a href="https://en.wikipedia.org/wiki/Automata_theory" title="Automata theory" id="m4-ref9">[9]</a> accepting an even number (none is even) of symbols <code>0</code>, ignoring symbols <code>1</code>.
 The automaton is the same as the regular expression <code>(1*01*01*)*1*</code>.</em></p>
 <p>The previous automaton can be written as an ASCII art accompanying the M4 script:</p>
-<div id="m4-anch-27" title="ASCII art for M4 code documentation" class="m4-src"><pre>#          ____1
+<div id="m4-anch-26" title="ASCII art for M4 code documentation" class="m4-src"><pre>#          ____1
 #         |   /
 #      ___V__/   0    ____
 # --->// S1 \\------>/ S2 \---.1
 #     \\____//&lt;------\____/&lt;--'
-#                0</pre><code><span class="m4-cb" title="select the text"></span><a href="#m4-anch-27" title="⚓"></a></code></div>
+#                0</pre><code><span class="m4-cb" title="select the text"></span><a href="#m4-anch-26" title="⚓"></a></code></div>
 <h4 id="m4-generating-automaton" class="m4-bh"><a href="#m4-generating-automaton" title="⚓"></a>Generating automaton<a href="#m4--toc" title="Top"></a></h4>
 <p>Input symbols change the nodes of the automaton, thereby changing the rewriting rules for code generation.
 See the appendix for <a href="#m4-jsonw-generating-automaton" title="⟦⟧ JSON: generating automaton">this generating automaton</a>:</p>
-<div id="m4-anch-28" title="ASCII art of generating automaton" class="m4-src"><pre>#      _______      ___________
+<div id="m4-anch-27" title="ASCII art of generating automaton" class="m4-src"><pre>#      _______      ___________
 # --->/ ERROR \--->/ NEXT_ITEM \---.
-#     \_______/    \___________/&lt;--'</pre><code><span class="m4-cb" title="select the text"></span><a href="#m4-anch-28" title="⚓"></a></code></div>
+#     \_______/    \___________/&lt;--'</pre><code><span class="m4-cb" title="select the text"></span><a href="#m4-anch-27" title="⚓"></a></code></div>
 <h3 id="m4-gnu-make" class="m4-ch"><a href="#m4-gnu-make-toc" title="Content"></a><a href="#m4-gnu-make" title="⚓">5.3</a>(GNU) make<a href="#m4--toc" title="Top"></a></h3>
 <p>A&nbsp;well-designed code generator usually consists of several smaller files whose order, dependencies and parameters are written to the <code>Makefile</code> file.
 Good knowledge of <code>Makefile</code> writing is therefore a&nbsp;prerequisite for mastering M4.
@@ -403,13 +403,13 @@ The input source code contains special characters that must be hidden:</p>
 
 <span class="m4-r">ERROR</span>(⟦COMPLEX⟧,     ⟦!"#$%&amp;'()*+,-./:;&lt;=>?@[\]^_`{|}~⟧)
 QUERY(⟦READABLE⟧,    ⟦Is badly written M4 code readable [N/y]?⟧)
-<span class="m4-r">ERROR</span>(⟦SUCCESS⟧,     ⟦Too complex M4 code failed successfully.⟧)
+<span class="m4-r">ERROR</span>(⟦SUCCESS⟧,     ⟦Complex M4 code failed successfully.⟧)
 WARNING(⟦ADDICTIVE⟧, ⟦Programming in M4 is addictive!⟧)
 <span class="m4-r">ERROR</span>(⟦NO_FAULT⟧,    ⟦It's not a language fault!⟧)
 WARNING(⟦NO_ERRORS⟧, ⟦No other errors were found.⟧)</pre><code><span class="m4-sha">55ac1ea</span><a href="../messages/messages_raw.mc" title="messages/messages_raw.mc
 date: 20210103 13:28:44
-sha1sum: d1f057c
-size: 420 B">messages_raw.mc</a><span class="m4-cb" title="select the text"></span><a href="#m4-messages_messages_raw-mc" title="⚓"></a></code></div>
+sha1sum: b45432b
+size: 416 B">messages_raw.mc</a><span class="m4-cb" title="select the text"></span><a href="#m4-messages_messages_raw-mc" title="⚓"></a></code></div>
 <div title="note" class="rs-tip-major m4-note">The input file may also contain notes that may not be hidden in the comments <code>#</code>, <code>dnl</code>, <code>ifelse(⟦…⟧)</code> or <code>⟦… somewhere inside brackets …⟧</code>.</div>
 <h3 id="m4-csvw-simplest-example" class="m4-ch"><a href="#m4-csvw-simplest-example-toc" title="Content"></a><a href="#m4-csvw-simplest-example" title="⚓">A.2</a><code>⟦⟧</code> CSV: simplest example<a href="#m4--toc" title="Top"></a></h3>
 <p>This example does not use output queues, <span class="m4-hgl" data-9="R,5" data-10="1-3" data-8="R,3,5,7">it only prints</span> <abbr title="Comma Separated Values">CSV</abbr> separated by <code>TAB</code> to <span class="m4-hgl" data-9="4">standard output</span>.</p>
@@ -417,35 +417,35 @@ size: 420 B">messages_raw.mc</a><span class="m4-cb" title="select the text"></sp
 define(⟦<span class="m4-r">ERROR</span>⟧, ⟦
 
 	divert(0)dnl
-⟦$1    $2⟧
+⟦$1	$2⟧
 divert(-1)
 ⟧)</pre><code><span class="m4-sha">825d4a3</span><a href="../messages/hello.csv.m4" title="messages/hello.csv.m4
 date: 20210120 19:01:00
-sha1sum: 100b66a
-size: 81 B">hello.csv.m4</a><span class="m4-cb" title="select the text"></span><a href="#m4-messages_hello-csv-m4" title="⚓"></a></code></div>
-<div id="m4-messages_hello-csv-command" class="m4-cmd m4-usc"><pre title="command">m4 <a href="../gfiles/root0u.m4" title="gfiles/root0u.m4
-date: 20210118 19:23:51
-git rev: 02f55b8
+sha1sum: 020529d
+size: 78 B">hello.csv.m4</a><span class="m4-cb" title="select the text"></span><a href="#m4-messages_hello-csv-m4" title="⚓"></a></code></div>
+<div id="m4-messages_hello-csv-command" class="m4-cmd m4-usc"><pre>m4 <a href="../gfiles/root0u.m4" title="gfiles/root0u.m4
+date: 20210124 11:41:06
+git rev: d7e7a53
 sha1sum: eb93f2e
 size: 1324 B">root0u.m4</a> <a href="../messages/hello.csv.m4" title="messages/hello.csv.m4
 date: 20210120 19:01:00
 git rev: 825d4a3
-sha1sum: 100b66a
-size: 81 B">hello.csv.m4</a> <a href="../messages/messages_raw.mc" title="messages/messages_raw.mc
+sha1sum: 020529d
+size: 78 B">hello.csv.m4</a> <a href="../messages/messages_raw.mc" title="messages/messages_raw.mc
 date: 20210103 13:28:44
 git rev: 55ac1ea
-sha1sum: d1f057c
-size: 420 B">messages_raw.mc</a> > <a href="../messages/hello.csv" title="messages/hello.csv
+sha1sum: b45432b
+size: 416 B">messages_raw.mc</a> > <a href="../messages/hello.csv" title="messages/hello.csv
 date: 20210120 19:01:00
 git rev: 825d4a3
-sha1sum: e217b28
-size: 135 B">hello.csv</a></pre><code><span class="m4-cb" title="select the text"></span><a href="#m4-messages_hello-csv-command" title="⚓"></a></code></div>
-<div id="m4-messages_hello-csv" class="m4-src"><pre>COMPLEX    !"#$%&amp;'()*+,-./:;&lt;=>?@[\]^_`{|}~
-SUCCESS    Too complex M4 code failed successfully.
-NO_FAULT    It's not a language fault!</pre><code><span class="m4-sha">825d4a3</span><a href="../messages/hello.csv" title="messages/hello.csv
+sha1sum: 0d804f3
+size: 122 B">hello.csv</a></pre><code><span class="m4-cb" title="select the text"></span><a href="#m4-messages_hello-csv-command" title="⚓"></a></code></div>
+<div id="m4-messages_hello-csv" class="m4-src"><pre>COMPLEX	!"#$%&amp;'()*+,-./:;&lt;=>?@[\]^_`{|}~
+SUCCESS	Complex M4 code failed successfully.
+NO_FAULT	It's not a language fault!</pre><code><span class="m4-sha">825d4a3</span><a href="../messages/hello.csv" title="messages/hello.csv
 date: 20210120 19:01:00
-sha1sum: e217b28
-size: 135 B">hello.csv</a><span class="m4-cb" title="select the text"></span><a href="#m4-messages_hello-csv" title="⚓"></a></code></div>
+sha1sum: 0d804f3
+size: 122 B">hello.csv</a><span class="m4-cb" title="select the text"></span><a href="#m4-messages_hello-csv" title="⚓"></a></code></div>
 <h3 id="m4-csvw-counter" class="m4-ch"><a href="#m4-csvw-counter-toc" title="Content"></a><a href="#m4-csvw-counter" title="⚓">A.3</a><code>⟦⟧</code> CSV: counter<a href="#m4--toc" title="Top"></a></h3>
 <p>The example uses the <code class="m4-hgl" data-11="A">COUNT_UP</code> macro from the <code>countu.m4</code> file whose <abbr title="the right side of the rewriting rule"><code>β</code></abbr> is copied to the right side of the <code class="m4-hgl" data-11="2">COUNTER</code> macro.
 During the first expansion of <code class="m4-hgl" data-11="5">COUNTER</code> its initial value is initialized.
@@ -467,9 +467,9 @@ divert(-1)
 date: 20210120 19:01:00
 sha1sum: 856d37d
 size: 182 B">counter.csv.m4</a><span class="m4-cb" title="select the text"></span><a href="#m4-messages_counter-csv-m4" title="⚓"></a></code></div>
-<div id="m4-messages_counter-csv-command" class="m4-cmd m4-usc"><pre title="command">m4 <a href="../gfiles/root0u.m4" title="gfiles/root0u.m4
-date: 20210118 19:23:51
-git rev: 02f55b8
+<div id="m4-messages_counter-csv-command" class="m4-cmd m4-usc"><pre>m4 <a href="../gfiles/root0u.m4" title="gfiles/root0u.m4
+date: 20210124 11:41:06
+git rev: d7e7a53
 sha1sum: eb93f2e
 size: 1324 B">root0u.m4</a> <a href="../gfiles/countu.m4" title="gfiles/countu.m4
 date: 20200429 07:34:47
@@ -482,18 +482,18 @@ sha1sum: 856d37d
 size: 182 B">counter.csv.m4</a> <a href="../messages/messages_raw.mc" title="messages/messages_raw.mc
 date: 20210103 13:28:44
 git rev: 55ac1ea
-sha1sum: d1f057c
-size: 420 B">messages_raw.mc</a> > <a href="../messages/counter.csv" title="messages/counter.csv
+sha1sum: b45432b
+size: 416 B">messages_raw.mc</a> > <a href="../messages/counter.csv" title="messages/counter.csv
 date: 20210120 19:01:00
 git rev: 825d4a3
-sha1sum: 8c62269
-size: 153 B">counter.csv</a></pre><code><span class="m4-cb" title="select the text"></span><a href="#m4-messages_counter-csv-command" title="⚓"></a></code></div>
+sha1sum: 65d64e5
+size: 149 B">counter.csv</a></pre><code><span class="m4-cb" title="select the text"></span><a href="#m4-messages_counter-csv-command" title="⚓"></a></code></div>
 <div id="m4-messages_counter-csv" class="m4-src"><pre>ERR_<span class="m4-a">1</span>    COMPLEX	!"#$%&amp;'()*+,-./:;&lt;=>?@[\]^_`{|}~
-ERR_<span class="m4-a">2</span>    SUCCESS	Too complex M4 code failed successfully.
+ERR_<span class="m4-a">2</span>    SUCCESS	Complex M4 code failed successfully.
 ERR_<span class="m4-a">3</span>    NO_FAULT	It's not a language fault!</pre><code><span class="m4-sha">825d4a3</span><a href="../messages/counter.csv" title="messages/counter.csv
 date: 20210120 19:01:00
-sha1sum: 8c62269
-size: 153 B">counter.csv</a><span class="m4-cb" title="select the text"></span><a href="#m4-messages_counter-csv" title="⚓"></a></code></div>
+sha1sum: 65d64e5
+size: 149 B">counter.csv</a><span class="m4-cb" title="select the text"></span><a href="#m4-messages_counter-csv" title="⚓"></a></code></div>
 <h3 id="m4-modification-of-special-chara" class="m4-ch"><a href="#m4-modification-of-special-chara-toc" title="Content"></a><a href="#m4-modification-of-special-chara" title="⚓">A.4</a><code title="how to do it" style="cursor:help">💡</code> Modification of special characters<a href="#m4--toc" title="Top"></a></h3>
 <p>Each type of output code requires the modification of the special characters.
 The M4 <code>patsubst()</code> keyword is inappropriate for this type of task.
@@ -503,13 +503,13 @@ First, we hide all special characters of the input file into <span class="m4-hgl
 
 ERROR(⟦COMPLEX⟧,     ⟦⟦⟧<span class="m4-a">EX()</span>⟦⟧<span class="m4-a">DQ()</span>⟦#⟧⟦⟧<span class="m4-a">DO()</span>%⟦⟧<span class="m4-a">AMP()</span>⟦⟧<span class="m4-a">AP()</span>()*+,-./:;⟦⟧<span class="m4-a">LT()</span>=⟦⟧<span class="m4-a">GT()</span>?@[⟦⟧<span class="m4-a">BS()</span>]^_⟦⟧<span class="m4-a">BQ()</span>{|}~⟧)
 QUERY(⟦READABLE⟧,    ⟦Is badly written M4 code readable [N/y]?⟧)
-ERROR(⟦SUCCESS⟧,     ⟦Too complex M4 code failed successfully.⟧)
+ERROR(⟦SUCCESS⟧,     ⟦Complex M4 code failed successfully.⟧)
 WARNING(⟦ADDICTIVE⟧, ⟦Programming in M4 is addictive⟦⟧<span class="m4-a">EX()</span>⟧)
 ERROR(⟦NO_FAULT⟧,    ⟦It⟦⟧<span class="m4-a">AP()</span>s not a language fault⟦⟧<span class="m4-a">EX()</span>⟧)
 WARNING(⟦NO_ERRORS⟧, ⟦No other errors were found.⟧)</pre><code><span class="m4-sha">55ac1ea</span><a href="../messages/messages.mc" title="messages/messages.mc
 date: 20210103 13:28:44
-sha1sum: c6496e4
-size: 535 B">messages.mc</a><span class="m4-cb" title="select the text"></span><a href="#m4-messages_messages-mc" title="⚓"></a></code></div>
+sha1sum: 24e5362
+size: 531 B">messages.mc</a><span class="m4-cb" title="select the text"></span><a href="#m4-messages_messages-mc" title="⚓"></a></code></div>
 <h4 id="m4-conversion-file-for-xml-xslt" class="m4-bh"><a href="#m4-conversion-file-for-xml-xslt" title="⚓"></a><code>⟦⟧</code> Conversion file for XML, XSLT, HTML<a href="#m4--toc" title="Top"></a></h4>
 <div id="m4-messages_markup-m4" class="m4-src"><pre title="conversion file for markup languages"># A → β
 define(⟦AMP⟧, ⟦&amp;amp;⟧)
@@ -602,9 +602,9 @@ divert(-1)</pre><code><span class="m4-sha">24fd4f3</span><a href="../messages/ar
 date: 20201226 21:52:28
 sha1sum: 8c6c428
 size: 151 B">array.c.m4</a><span class="m4-cb" title="select the text"></span><a href="#m4-messages_array-c-m4" title="⚓"></a></code></div>
-<div id="m4-messages_array-c-command" class="m4-cmd m4-usc"><pre title="command">m4 <a href="../gfiles/root0u.m4" title="gfiles/root0u.m4
-date: 20210118 19:23:51
-git rev: 02f55b8
+<div id="m4-messages_array-c-command" class="m4-cmd m4-usc"><pre>m4 <a href="../gfiles/root0u.m4" title="gfiles/root0u.m4
+date: 20210124 11:41:06
+git rev: d7e7a53
 sha1sum: eb93f2e
 size: 1324 B">root0u.m4</a> <a href="../messages/array.c.m4" title="messages/array.c.m4
 date: 20201226 21:52:28
@@ -617,24 +617,24 @@ sha1sum: d709e07
 size: 248 B">code.m4</a> <a href="../messages/messages.mc" title="messages/messages.mc
 date: 20210103 13:28:44
 git rev: 55ac1ea
-sha1sum: c6496e4
-size: 535 B">messages.mc</a> > <a href="../messages/array.c" title="messages/array.c
+sha1sum: 24e5362
+size: 531 B">messages.mc</a> > <a href="../messages/array.c" title="messages/array.c
 date: 20200331 19:30:06
 git rev: 9156810
-sha1sum: 9651d22
-size: 198 B">array.c</a></pre><code><span class="m4-cb" title="select the text"></span><a href="#m4-messages_array-c-command" title="⚓"></a></code></div>
+sha1sum: 7df9b67
+size: 194 B">array.c</a></pre><code><span class="m4-cb" title="select the text"></span><a href="#m4-messages_array-c-command" title="⚓"></a></code></div>
 <div id="m4-messages_array-c" class="m4-src"><pre>/*
  * DO NOT EDIT! This file is generated automatically!
  */
 
 char *error[] = {
 	"!\"#$%&amp;'()*+,-./:;&lt;=>?@[\\]^_`{|}~",
-	"Too complex M4 code failed successfully.",
+	"Complex M4 code failed successfully.",
 	"It's not a language fault!",
 };</pre><code><span class="m4-sha">9156810</span><a href="../messages/array.c" title="messages/array.c
 date: 20200331 19:30:06
-sha1sum: 9651d22
-size: 198 B">array.c</a><span class="m4-cb" title="select the text"></span><a href="#m4-messages_array-c" title="⚓"></a></code></div>
+sha1sum: 7df9b67
+size: 194 B">array.c</a><span class="m4-cb" title="select the text"></span><a href="#m4-messages_array-c" title="⚓"></a></code></div>
 <h3 id="m4-iniw-an-external-command" class="m4-ch"><a href="#m4-iniw-an-external-command-toc" title="Content"></a><a href="#m4-iniw-an-external-command" title="⚓">A.6</a><code>⟦⟧</code> INI: an external command<a href="#m4--toc" title="Top"></a></h3>
 <p>The example runs an external <code class="m4-hgl" data-21="D" data-22="3">date</code> command and places its output in square brackets.
 The output of an external command are <span class="m4-hgl" data-21="A">two comma-separated items</span>.
@@ -655,9 +655,9 @@ divert(-1)</pre><code><span class="m4-sha">24fd4f3</span><a href="../messages/he
 date: 20201226 21:52:28
 sha1sum: a7f4062
 size: 168 B">hello.ini.m4</a><span class="m4-cb" title="select the text"></span><a href="#m4-messages_hello-ini-m4" title="⚓"></a></code></div>
-<div id="m4-messages_hello-ini-command" class="m4-cmd m4-usc"><pre title="command">m4 <a href="../gfiles/root0u.m4" title="gfiles/root0u.m4
-date: 20210118 19:23:51
-git rev: 02f55b8
+<div id="m4-messages_hello-ini-command" class="m4-cmd m4-usc"><pre>m4 <a href="../gfiles/root0u.m4" title="gfiles/root0u.m4
+date: 20210124 11:41:06
+git rev: d7e7a53
 sha1sum: eb93f2e
 size: 1324 B">root0u.m4</a> <a href="../messages/hello.ini.m4" title="messages/hello.ini.m4
 date: 20201226 21:52:28
@@ -670,21 +670,21 @@ sha1sum: d709e07
 size: 248 B">code.m4</a> <a href="../messages/messages.mc" title="messages/messages.mc
 date: 20210103 13:28:44
 git rev: 55ac1ea
-sha1sum: c6496e4
-size: 535 B">messages.mc</a> > <a href="../messages/hello.ini" title="messages/hello.ini
-date: 20210118 19:23:51
-git rev: 02f55b8
-sha1sum: 80902fe
-size: 205 B">hello.ini</a></pre><code><span class="m4-cb" title="select the text"></span><a href="#m4-messages_hello-ini-command" title="⚓"></a></code></div>
+sha1sum: 24e5362
+size: 531 B">messages.mc</a> > <a href="../messages/hello.ini" title="messages/hello.ini
+date: 20210124 11:41:06
+git rev: d7e7a53
+sha1sum: bee7252
+size: 201 B">hello.ini</a></pre><code><span class="m4-cb" title="select the text"></span><a href="#m4-messages_hello-ini-command" title="⚓"></a></code></div>
 <div id="m4-messages_hello-ini" class="m4-src"><pre>; DO NOT EDIT! This file is generated automatically!
 
-[hello_20210122]
+[hello_20210125]
 COMPLEX="!\"#$%&amp;'()*+,-./:;&lt;=>?@[\\]^_`{|}~"
-SUCCESS="Too complex M4 code failed successfully."
-NO_FAULT="It's not a language fault!"</pre><code><span class="m4-sha">02f55b8</span><a href="../messages/hello.ini" title="messages/hello.ini
-date: 20210118 19:23:51
-sha1sum: 80902fe
-size: 205 B">hello.ini</a><span class="m4-cb" title="select the text"></span><a href="#m4-messages_hello-ini" title="⚓"></a></code></div>
+SUCCESS="Complex M4 code failed successfully."
+NO_FAULT="It's not a language fault!"</pre><code><span class="m4-sha">d7e7a53</span><a href="../messages/hello.ini" title="messages/hello.ini
+date: 20210124 11:41:06
+sha1sum: bee7252
+size: 201 B">hello.ini</a><span class="m4-cb" title="select the text"></span><a href="#m4-messages_hello-ini" title="⚓"></a></code></div>
 <h3 id="m4-hw-hex-counter" class="m4-ch"><a href="#m4-hw-hex-counter-toc" title="Content"></a><a href="#m4-hw-hex-counter" title="⚓">A.7</a><code>⟦⟧</code> .h: hex counter<a href="#m4--toc" title="Top"></a></h3>
 <p>The example uses the <code class="m4-hgl" data-23="A,2">COUNTER</code> macro to number the resulting <abbr title="C preprocessor">CPP</abbr> <span class="m4-hgl" data-23="11" data-24="8-10">macros</span> and one output queue.
 The queue number <code class="m4-hgl" data-23="23">1</code> contains the preprocessor directive <code class="m4-hgl" data-23="24" data-24="12">#endif</code> to terminate the header file.
@@ -717,9 +717,9 @@ divert(-1)</pre><code><span class="m4-sha">825d4a3</span><a href="../messages/me
 date: 20210120 19:01:00
 sha1sum: d30ec6e
 size: 306 B">messages.h.m4</a><span class="m4-cb" title="select the text"></span><a href="#m4-messages_messages-h-m4" title="⚓"></a></code></div>
-<div id="m4-messages_messages-h-command" class="m4-cmd m4-usc"><pre title="command">m4 <a href="../gfiles/root0u.m4" title="gfiles/root0u.m4
-date: 20210118 19:23:51
-git rev: 02f55b8
+<div id="m4-messages_messages-h-command" class="m4-cmd m4-usc"><pre>m4 <a href="../gfiles/root0u.m4" title="gfiles/root0u.m4
+date: 20210124 11:41:06
+git rev: d7e7a53
 sha1sum: eb93f2e
 size: 1324 B">root0u.m4</a> <a href="../gfiles/countu.m4" title="gfiles/countu.m4
 date: 20200429 07:34:47
@@ -732,8 +732,8 @@ sha1sum: d30ec6e
 size: 306 B">messages.h.m4</a> <a href="../messages/messages.mc" title="messages/messages.mc
 date: 20210103 13:28:44
 git rev: 55ac1ea
-sha1sum: c6496e4
-size: 535 B">messages.mc</a> > <a href="../messages/messages.h" title="messages/messages.h
+sha1sum: 24e5362
+size: 531 B">messages.mc</a> > <a href="../messages/messages.h" title="messages/messages.h
 date: 20210120 19:01:00
 git rev: 825d4a3
 sha1sum: 30dbdcf
@@ -782,9 +782,9 @@ divert(-1)</pre><code><span class="m4-sha">24fd4f3</span><a href="../messages/st
 date: 20201226 21:52:28
 sha1sum: daf85ec
 size: 329 B">stringl.c.m4</a><span class="m4-cb" title="select the text"></span><a href="#m4-messages_stringl-c-m4" title="⚓"></a></code></div>
-<div id="m4-messages_stringl-c-command" class="m4-cmd m4-usc"><pre title="command">m4 <a href="../gfiles/root0u.m4" title="gfiles/root0u.m4
-date: 20210118 19:23:51
-git rev: 02f55b8
+<div id="m4-messages_stringl-c-command" class="m4-cmd m4-usc"><pre>m4 <a href="../gfiles/root0u.m4" title="gfiles/root0u.m4
+date: 20210124 11:41:06
+git rev: d7e7a53
 sha1sum: eb93f2e
 size: 1324 B">root0u.m4</a> <a href="../messages/stringl.c.m4" title="messages/stringl.c.m4
 date: 20201226 21:52:28
@@ -797,21 +797,21 @@ sha1sum: d709e07
 size: 248 B">code.m4</a> <a href="../messages/messages.mc" title="messages/messages.mc
 date: 20210103 13:28:44
 git rev: 55ac1ea
-sha1sum: c6496e4
-size: 535 B">messages.mc</a> > <a href="../messages/stringl.c" title="messages/stringl.c
+sha1sum: 24e5362
+size: 531 B">messages.mc</a> > <a href="../messages/stringl.c" title="messages/stringl.c
 date: 20200331 19:30:06
 git rev: 9156810
-sha1sum: dc45b92
-size: 185 B">stringl.c</a></pre><code><span class="m4-cb" title="select the text"></span><a href="#m4-messages_stringl-c-command" title="⚓"></a></code></div>
+sha1sum: 3dc0fe1
+size: 181 B">stringl.c</a></pre><code><span class="m4-cb" title="select the text"></span><a href="#m4-messages_stringl-c-command" title="⚓"></a></code></div>
 <div id="m4-messages_stringl-c" class="m4-src"><pre>/*
  * DO NOT EDIT! This file is generated automatically!
  */
 
 char error[] =
-"!\"#$%&amp;'()*+,-./:;&lt;=>?@[\\]^_`{|}~<span class="m4-a">\n</span>Too complex M4 code failed successfully.<span class="m4-a">\n</span>It's not a language fault!";</pre><code><span class="m4-sha">9156810</span><a href="../messages/stringl.c" title="messages/stringl.c
+"!\"#$%&amp;'()*+,-./:;&lt;=>?@[\\]^_`{|}~<span class="m4-a">\n</span>Complex M4 code failed successfully.<span class="m4-a">\n</span>It's not a language fault!";</pre><code><span class="m4-sha">9156810</span><a href="../messages/stringl.c" title="messages/stringl.c
 date: 20200331 19:30:06
-sha1sum: dc45b92
-size: 185 B">stringl.c</a><span class="m4-cb" title="select the text"></span><a href="#m4-messages_stringl-c" title="⚓"></a></code></div>
+sha1sum: 3dc0fe1
+size: 181 B">stringl.c</a><span class="m4-cb" title="select the text"></span><a href="#m4-messages_stringl-c" title="⚓"></a></code></div>
 <h3 id="m4-cw-small-automaton-2" class="m4-ch"><a href="#m4-cw-small-automaton-2-toc" title="Content"></a><a href="#m4-cw-small-automaton-2" title="⚓">A.9</a><code>⟦⟧</code> C: small automaton 2<a href="#m4--toc" title="Top"></a></h3>
 <p>This example is similar to the previous one, but each string is on a&nbsp;<span class="m4-hgl" data-27="A" data-28="A">new line</span>.</p>
 <div id="m4-messages_string-c-m4" class="m4-src"><pre>#      NEW_LINE automaton
@@ -841,9 +841,9 @@ divert(-1)</pre><code><span class="m4-sha">24fd4f3</span><a href="../messages/st
 date: 20201226 21:52:28
 sha1sum: 4b4d1b8
 size: 348 B">string.c.m4</a><span class="m4-cb" title="select the text"></span><a href="#m4-messages_string-c-m4" title="⚓"></a></code></div>
-<div id="m4-messages_string-c-command" class="m4-cmd m4-usc"><pre title="command">m4 <a href="../gfiles/root0u.m4" title="gfiles/root0u.m4
-date: 20210118 19:23:51
-git rev: 02f55b8
+<div id="m4-messages_string-c-command" class="m4-cmd m4-usc"><pre>m4 <a href="../gfiles/root0u.m4" title="gfiles/root0u.m4
+date: 20210124 11:41:06
+git rev: d7e7a53
 sha1sum: eb93f2e
 size: 1324 B">root0u.m4</a> <a href="../messages/string.c.m4" title="messages/string.c.m4
 date: 20201226 21:52:28
@@ -856,23 +856,23 @@ sha1sum: d709e07
 size: 248 B">code.m4</a> <a href="../messages/messages.mc" title="messages/messages.mc
 date: 20210103 13:28:44
 git rev: 55ac1ea
-sha1sum: c6496e4
-size: 535 B">messages.mc</a> > <a href="../messages/string.c" title="messages/string.c
+sha1sum: 24e5362
+size: 531 B">messages.mc</a> > <a href="../messages/string.c" title="messages/string.c
 date: 20200331 19:30:06
 git rev: 9156810
-sha1sum: 76ca62e
-size: 191 B">string.c</a></pre><code><span class="m4-cb" title="select the text"></span><a href="#m4-messages_string-c-command" title="⚓"></a></code></div>
+sha1sum: 0c8af37
+size: 187 B">string.c</a></pre><code><span class="m4-cb" title="select the text"></span><a href="#m4-messages_string-c-command" title="⚓"></a></code></div>
 <div id="m4-messages_string-c" class="m4-src"><pre>/*
  * DO NOT EDIT! This file is generated automatically!
  */
 
 char error[] =
 "!\"#$%&amp;'()*+,-./:;&lt;=>?@[\\]^_`{|}~<span class="m4-a">\n"
-"</span>Too complex M4 code failed successfully.<span class="m4-a">\n"
+"</span>Complex M4 code failed successfully.<span class="m4-a">\n"
 "</span>It's not a language fault!";</pre><code><span class="m4-sha">9156810</span><a href="../messages/string.c" title="messages/string.c
 date: 20200331 19:30:06
-sha1sum: 76ca62e
-size: 191 B">string.c</a><span class="m4-cb" title="select the text"></span><a href="#m4-messages_string-c" title="⚓"></a></code></div>
+sha1sum: 0c8af37
+size: 187 B">string.c</a><span class="m4-cb" title="select the text"></span><a href="#m4-messages_string-c" title="⚓"></a></code></div>
 <h3 id="m4-htmlw-output-queues" class="m4-ch"><a href="#m4-htmlw-output-queues-toc" title="Content"></a><a href="#m4-htmlw-output-queues" title="⚓">A.10</a><code>⟦⟧</code> HTML: output queues<a href="#m4--toc" title="Top"></a></h3>
 <p>The example uses <span class="m4-hgl" data-29="9,27,29">two output queues</span>.
 The queue number <code class="m4-hgl" data-29="9,27">1</code> contains <span class="m4-hgl" data-29="10" data-30="16-21">paragraphs</span>.
@@ -914,9 +914,9 @@ divert(-1)</pre><code><span class="m4-sha">24fd4f3</span><a href="../messages/me
 date: 20201226 21:52:28
 sha1sum: 3911284
 size: 468 B">messages.html.m4</a><span class="m4-cb" title="select the text"></span><a href="#m4-messages_messages-html-m4" title="⚓"></a></code></div>
-<div id="m4-messages_messages-html-command" class="m4-cmd m4-usc"><pre title="command">m4 <a href="../gfiles/root0u.m4" title="gfiles/root0u.m4
-date: 20210118 19:23:51
-git rev: 02f55b8
+<div id="m4-messages_messages-html-command" class="m4-cmd m4-usc"><pre>m4 <a href="../gfiles/root0u.m4" title="gfiles/root0u.m4
+date: 20210124 11:41:06
+git rev: d7e7a53
 sha1sum: eb93f2e
 size: 1324 B">root0u.m4</a> <a href="../messages/messages.html.m4" title="messages/messages.html.m4
 date: 20201226 21:52:28
@@ -929,12 +929,12 @@ sha1sum: 98612ec
 size: 256 B">markup.m4</a> <a href="../messages/messages.mc" title="messages/messages.mc
 date: 20210103 13:28:44
 git rev: 55ac1ea
-sha1sum: c6496e4
-size: 535 B">messages.mc</a> > <a href="../messages/messages.html" title="messages/messages.html
+sha1sum: 24e5362
+size: 531 B">messages.mc</a> > <a href="../messages/messages.html" title="messages/messages.html
 date: 20210103 13:28:44
 git rev: 55ac1ea
-sha1sum: 20b155f
-size: 866 B">messages.html</a></pre><code><span class="m4-cb" title="select the text"></span><a href="#m4-messages_messages-html-command" title="⚓"></a></code></div>
+sha1sum: cb55f69
+size: 862 B">messages.html</a></pre><code><span class="m4-cb" title="select the text"></span><a href="#m4-messages_messages-html-command" title="⚓"></a></code></div>
 <div id="m4-messages_messages-html" class="m4-src"><pre>&lt;!-- DO NOT EDIT! This file is generated automatically! -->
 &lt;!doctype html>
 &lt;html lang="en">
@@ -952,15 +952,15 @@ size: 866 B">messages.html</a></pre><code><span class="m4-cb" title="select the 
 	&lt;/ul>
 	&lt;p id="COMPLEX">!"#$%&amp;amp;'()*+,-./:;&amp;lt;=&amp;gt;?@[\]^_`{|}~&lt;/p>
 	&lt;p id="READABLE">Is badly written M4 code readable [N/y]?&lt;/p>
-	&lt;p id="SUCCESS">Too complex M4 code failed successfully.&lt;/p>
+	&lt;p id="SUCCESS">Complex M4 code failed successfully.&lt;/p>
 	&lt;p id="ADDICTIVE">Programming in M4 is addictive!&lt;/p>
 	&lt;p id="NO_FAULT">It's not a language fault!&lt;/p>
 	&lt;p id="NO_ERRORS">No other errors were found.&lt;/p>
 &lt;/body>
 &lt;/html></pre><code><span class="m4-sha">55ac1ea</span><a href="../messages/messages.html" title="messages/messages.html
 date: 20210103 13:28:44
-sha1sum: 20b155f
-size: 866 B">messages.html</a><span class="m4-cb" title="select the text"></span><a href="#m4-messages_messages-html" title="⚓"></a></code></div>
+sha1sum: cb55f69
+size: 862 B">messages.html</a><span class="m4-cb" title="select the text"></span><a href="#m4-messages_messages-html" title="⚓"></a></code></div>
 <h3 id="m4-branching-by-grammar" class="m4-ch"><a href="#m4-branching-by-grammar-toc" title="Content"></a><a href="#m4-branching-by-grammar" title="⚓">A.11</a><code>⟦⟧</code> Branching by grammar<a href="#m4--toc" title="Top"></a></h3>
 <p>The example shows <a href="#m4-branching-by-grammar-basic-pr" title="Branching by grammar – basic principle">branching by grammar</a>, macro arguments are ignored.
 Input nonterminals are rewritten to terminals <code title="🐛" class="m4-hgl" data-31="6,13" data-32="A">ERROR → 🐛</code>,
@@ -984,9 +984,9 @@ define(⟦WARNING_INSECT⟧, ⟦🐝⟧)</pre><code><span class="m4-sha">24fd4f3
 date: 20201226 21:52:28
 sha1sum: ce656e5
 size: 307 B">insect.txt.m4</a><span class="m4-cb" title="select the text"></span><a href="#m4-messages_insect-txt-m4" title="⚓"></a></code></div>
-<div id="m4-messages_insect-txt-command" class="m4-cmd m4-usc"><pre title="command">m4 <a href="../gfiles/root0u.m4" title="gfiles/root0u.m4
-date: 20210118 19:23:51
-git rev: 02f55b8
+<div id="m4-messages_insect-txt-command" class="m4-cmd m4-usc"><pre>m4 <a href="../gfiles/root0u.m4" title="gfiles/root0u.m4
+date: 20210124 11:41:06
+git rev: d7e7a53
 sha1sum: eb93f2e
 size: 1324 B">root0u.m4</a> <a href="../messages/insect.txt.m4" title="messages/insect.txt.m4
 date: 20201226 21:52:28
@@ -995,8 +995,8 @@ sha1sum: ce656e5
 size: 307 B">insect.txt.m4</a> <a href="../messages/messages.mc" title="messages/messages.mc
 date: 20210103 13:28:44
 git rev: 55ac1ea
-sha1sum: c6496e4
-size: 535 B">messages.mc</a> > <a href="../messages/insect.txt" title="messages/insect.txt
+sha1sum: 24e5362
+size: 531 B">messages.mc</a> > <a href="../messages/insect.txt" title="messages/insect.txt
 date: 20200106 16:21:10
 git rev: b53eafe
 sha1sum: a08c5e8
@@ -1056,9 +1056,9 @@ divert(-1)</pre><code><span class="m4-sha">24fd4f3</span><a href="../messages/at
 date: 20201226 21:52:28
 sha1sum: f09f617
 size: 474 B">atm.json.m4</a><span class="m4-cb" title="select the text"></span><a href="#m4-messages_atm-json-m4" title="⚓"></a></code></div>
-<div id="m4-messages_atm-json-command" class="m4-cmd m4-usc"><pre title="command">m4 <a href="../gfiles/root0u.m4" title="gfiles/root0u.m4
-date: 20210118 19:23:51
-git rev: 02f55b8
+<div id="m4-messages_atm-json-command" class="m4-cmd m4-usc"><pre>m4 <a href="../gfiles/root0u.m4" title="gfiles/root0u.m4
+date: 20210124 11:41:06
+git rev: d7e7a53
 sha1sum: eb93f2e
 size: 1324 B">root0u.m4</a> <a href="../messages/atm.json.m4" title="messages/atm.json.m4
 date: 20201226 21:52:28
@@ -1071,23 +1071,23 @@ sha1sum: d709e07
 size: 248 B">code.m4</a> <a href="../messages/messages.mc" title="messages/messages.mc
 date: 20210103 13:28:44
 git rev: 55ac1ea
-sha1sum: c6496e4
-size: 535 B">messages.mc</a> > <a href="../messages/atm.json" title="messages/atm.json
+sha1sum: 24e5362
+size: 531 B">messages.mc</a> > <a href="../messages/atm.json" title="messages/atm.json
 date: 20210103 13:28:44
 git rev: 55ac1ea
-sha1sum: 841e816
-size: 269 B">atm.json</a></pre><code><span class="m4-cb" title="select the text"></span><a href="#m4-messages_atm-json-command" title="⚓"></a></code></div>
+sha1sum: 5760a56
+size: 265 B">atm.json</a></pre><code><span class="m4-cb" title="select the text"></span><a href="#m4-messages_atm-json-command" title="⚓"></a></code></div>
 <div id="m4-messages_atm-json" class="m4-src"><pre>{"generating_automaton": {
 	"_comment": "DO NOT EDIT! This file is generated automatically!",
 	"error": [
 		{"COMPLEX": "!\"#$%&amp;'()*+,-./:;&lt;=>?@[\\]^_`{|}~"},
-		{"SUCCESS": "Too complex M4 code failed successfully."},
+		{"SUCCESS": "Complex M4 code failed successfully."},
 		{"NO_FAULT": "It's not a language fault!"}
 	]
 }}</pre><code><span class="m4-sha">55ac1ea</span><a href="../messages/atm.json" title="messages/atm.json
 date: 20210103 13:28:44
-sha1sum: 841e816
-size: 269 B">atm.json</a><span class="m4-cb" title="select the text"></span><a href="#m4-messages_atm-json" title="⚓"></a></code></div>
+sha1sum: 5760a56
+size: 265 B">atm.json</a><span class="m4-cb" title="select the text"></span><a href="#m4-messages_atm-json" title="⚓"></a></code></div>
 <h4 id="m4-jsonw-named-queues" class="m4-ch"><a href="#m4-jsonw-named-queues-toc" title="Content"></a><a href="#m4-jsonw-named-queues" title="⚓">A.12.1</a><code>⟦⟧</code> JSON: named queues<a href="#m4--toc" title="Top"></a></h4>
 <p>The example processes other types of messages <code>QUERY</code> and <code>WARNING</code>.
 It uses three automata and six output queues.
@@ -1149,9 +1149,9 @@ divert(-1)</pre><code><span class="m4-sha">24fd4f3</span><a href="../messages/qn
 date: 20201226 21:52:28
 sha1sum: 1e3b868
 size: 1027 B">qnames.json.m4</a><span class="m4-cb" title="select the text"></span><a href="#m4-messages_qnames-json-m4" title="⚓"></a></code></div>
-<div id="m4-messages_qnames-json-command" class="m4-cmd m4-usc"><pre title="command">m4 <a href="../gfiles/root0u.m4" title="gfiles/root0u.m4
-date: 20210118 19:23:51
-git rev: 02f55b8
+<div id="m4-messages_qnames-json-command" class="m4-cmd m4-usc"><pre>m4 <a href="../gfiles/root0u.m4" title="gfiles/root0u.m4
+date: 20210124 11:41:06
+git rev: d7e7a53
 sha1sum: eb93f2e
 size: 1324 B">root0u.m4</a> <a href="../messages/qnames.json.m4" title="messages/qnames.json.m4
 date: 20201226 21:52:28
@@ -1164,12 +1164,12 @@ sha1sum: d709e07
 size: 248 B">code.m4</a> <a href="../messages/messages.mc" title="messages/messages.mc
 date: 20210103 13:28:44
 git rev: 55ac1ea
-sha1sum: c6496e4
-size: 535 B">messages.mc</a> > <a href="../messages/qnames.json" title="messages/qnames.json
+sha1sum: 24e5362
+size: 531 B">messages.mc</a> > <a href="../messages/qnames.json" title="messages/qnames.json
 date: 20210103 13:28:44
 git rev: 55ac1ea
-sha1sum: 3c39e26
-size: 452 B">qnames.json</a></pre><code><span class="m4-cb" title="select the text"></span><a href="#m4-messages_qnames-json-command" title="⚓"></a></code></div>
+sha1sum: 77bcadb
+size: 448 B">qnames.json</a></pre><code><span class="m4-cb" title="select the text"></span><a href="#m4-messages_qnames-json-command" title="⚓"></a></code></div>
 <div id="m4-messages_qnames-json" class="m4-src"><pre>{"queue_names": {
 	"_comment": "DO NOT EDIT! This file is generated automatically!",
 	"query": [
@@ -1177,7 +1177,7 @@ size: 452 B">qnames.json</a></pre><code><span class="m4-cb" title="select the te
 	],
 	"error": [
 		{"COMPLEX": "!\"#$%&amp;'()*+,-./:;&lt;=>?@[\\]^_`{|}~"},
-		{"SUCCESS": "Too complex M4 code failed successfully."},
+		{"SUCCESS": "Complex M4 code failed successfully."},
 		{"NO_FAULT": "It's not a language fault!"}
 	],
 	"warning": [
@@ -1186,8 +1186,8 @@ size: 452 B">qnames.json</a></pre><code><span class="m4-cb" title="select the te
 	]
 }}</pre><code><span class="m4-sha">55ac1ea</span><a href="../messages/qnames.json" title="messages/qnames.json
 date: 20210103 13:28:44
-sha1sum: 3c39e26
-size: 452 B">qnames.json</a><span class="m4-cb" title="select the text"></span><a href="#m4-messages_qnames-json" title="⚓"></a></code></div>
+sha1sum: 77bcadb
+size: 448 B">qnames.json</a><span class="m4-cb" title="select the text"></span><a href="#m4-messages_qnames-json" title="⚓"></a></code></div>
 <h4 id="m4-jsonw-generated-queue-indexes" class="m4-ch"><a href="#m4-jsonw-generated-queue-indexes-toc" title="Content"></a><a href="#m4-jsonw-generated-queue-indexes" title="⚓">A.12.2</a><code>⟦⟧</code> JSON: generated queue indexes<a href="#m4--toc" title="Top"></a></h4>
 <p>During development, the order and number of output queues often change, which also requires frequent changes of their indexes.
 <span class="m4-hgl" data-38="A">It is therefore appropriate to generate indexes</span>.
@@ -1260,9 +1260,9 @@ divert(-1)</pre><code><span class="m4-sha">24fd4f3</span><a href="../messages/me
 date: 20201226 21:52:28
 sha1sum: f74c194
 size: 609 B">messages.json.m4</a><span class="m4-cb" title="select the text"></span><a href="#m4-messages_messages-json-m4" title="⚓"></a></code></div>
-<div id="m4-messages_messages-json-command" class="m4-cmd m4-usc"><pre title="command">m4 <a href="../gfiles/root0u.m4" title="gfiles/root0u.m4
-date: 20210118 19:23:51
-git rev: 02f55b8
+<div id="m4-messages_messages-json-command" class="m4-cmd m4-usc"><pre>m4 <a href="../gfiles/root0u.m4" title="gfiles/root0u.m4
+date: 20210124 11:41:06
+git rev: d7e7a53
 sha1sum: eb93f2e
 size: 1324 B">root0u.m4</a> <a href="../gfiles/countu.m4" title="gfiles/countu.m4
 date: 20200429 07:34:47
@@ -1283,12 +1283,12 @@ sha1sum: d709e07
 size: 248 B">code.m4</a> <a href="../messages/messages.mc" title="messages/messages.mc
 date: 20210103 13:28:44
 git rev: 55ac1ea
-sha1sum: c6496e4
-size: 535 B">messages.mc</a> > <a href="../messages/messages.json" title="messages/messages.json
+sha1sum: 24e5362
+size: 531 B">messages.mc</a> > <a href="../messages/messages.json" title="messages/messages.json
 date: 20210103 13:28:44
 git rev: 55ac1ea
-sha1sum: cc6ff19
-size: 449 B">messages.json</a></pre><code><span class="m4-cb" title="select the text"></span><a href="#m4-messages_messages-json-command" title="⚓"></a></code></div>
+sha1sum: 0b51562
+size: 445 B">messages.json</a></pre><code><span class="m4-cb" title="select the text"></span><a href="#m4-messages_messages-json-command" title="⚓"></a></code></div>
 <div id="m4-messages_messages-json" class="m4-src"><pre>{"messages": {
 	"_comment": "DO NOT EDIT! This file is generated automatically!",
 	"query": [
@@ -1296,7 +1296,7 @@ size: 449 B">messages.json</a></pre><code><span class="m4-cb" title="select the 
 	],
 	"error": [
 		{"COMPLEX": "!\"#$%&amp;'()*+,-./:;&lt;=>?@[\\]^_`{|}~"},
-		{"SUCCESS": "Too complex M4 code failed successfully."},
+		{"SUCCESS": "Complex M4 code failed successfully."},
 		{"NO_FAULT": "It's not a language fault!"}
 	],
 	"warning": [
@@ -1305,8 +1305,8 @@ size: 449 B">messages.json</a></pre><code><span class="m4-cb" title="select the 
 	]
 }}</pre><code><span class="m4-sha">55ac1ea</span><a href="../messages/messages.json" title="messages/messages.json
 date: 20210103 13:28:44
-sha1sum: cc6ff19
-size: 449 B">messages.json</a><span class="m4-cb" title="select the text"></span><a href="#m4-messages_messages-json" title="⚓"></a></code></div>
+sha1sum: 0b51562
+size: 445 B">messages.json</a><span class="m4-cb" title="select the text"></span><a href="#m4-messages_messages-json" title="⚓"></a></code></div>
 <h3 id="m4-iniw-discontinuous-queue-inde" class="m4-ch"><a href="#m4-iniw-discontinuous-queue-inde-toc" title="Content"></a><a href="#m4-iniw-discontinuous-queue-inde" title="⚓">A.13</a><code>⟦⟧</code> INI: discontinuous queue index<a href="#m4--toc" title="Top"></a></h3>
 <p>The example uses <span class="m4-hgl" data-41="1-4">three automata</span> and two output queues number <code class="m4-hgl" data-41="10,26">2</code> and <code class="m4-hgl" data-41="10,26">4</code> defined in a&nbsp;separate file.
 <span class="m4-hgl" data-41="11" data-42="3,6,11">INI section names</span> are generated by <span class="m4-hgl" data-41="A,R">symbol chaining</span> (see <a href="#m4-branching-by-grammar-basic-pr" title="Branching by grammar – basic principle">branching</a>).
@@ -1347,9 +1347,9 @@ divert(-1)</pre><code><span class="m4-sha">24fd4f3</span><a href="../messages/me
 date: 20201226 21:52:28
 sha1sum: fb8782f
 size: 512 B">messages.ini.m4</a><span class="m4-cb" title="select the text"></span><a href="#m4-messages_messages-ini-m4" title="⚓"></a></code></div>
-<div id="m4-messages_messages-ini-command" class="m4-cmd m4-usc"><pre title="command">m4 <a href="../gfiles/root0u.m4" title="gfiles/root0u.m4
-date: 20210118 19:23:51
-git rev: 02f55b8
+<div id="m4-messages_messages-ini-command" class="m4-cmd m4-usc"><pre>m4 <a href="../gfiles/root0u.m4" title="gfiles/root0u.m4
+date: 20210124 11:41:06
+git rev: d7e7a53
 sha1sum: eb93f2e
 size: 1324 B">root0u.m4</a> <a href="../messages/messages.ini.m4" title="messages/messages.ini.m4
 date: 20201226 21:52:28
@@ -1370,12 +1370,12 @@ sha1sum: d709e07
 size: 248 B">code.m4</a> <a href="../messages/messages.mc" title="messages/messages.mc
 date: 20210103 13:28:44
 git rev: 55ac1ea
-sha1sum: c6496e4
-size: 535 B">messages.mc</a> > <a href="../messages/messages.ini" title="messages/messages.ini
+sha1sum: 24e5362
+size: 531 B">messages.mc</a> > <a href="../messages/messages.ini" title="messages/messages.ini
 date: 20210103 13:28:44
 git rev: 55ac1ea
-sha1sum: cf65110
-size: 352 B">messages.ini</a></pre><code><span class="m4-cb" title="select the text"></span><a href="#m4-messages_messages-ini-command" title="⚓"></a></code></div>
+sha1sum: 7170d59
+size: 348 B">messages.ini</a></pre><code><span class="m4-cb" title="select the text"></span><a href="#m4-messages_messages-ini-command" title="⚓"></a></code></div>
 <div id="m4-messages_messages-ini" class="m4-src"><pre>; DO NOT EDIT! This file is generated automatically!
 
 [query]
@@ -1383,15 +1383,15 @@ READABLE="Is badly written M4 code readable [N/y]?"
 
 [error]
 COMPLEX="!\"#$%&amp;'()*+,-./:;&lt;=>?@[\\]^_`{|}~"
-SUCCESS="Too complex M4 code failed successfully."
+SUCCESS="Complex M4 code failed successfully."
 NO_FAULT="It's not a language fault!"
 
 [warning]
 ADDICTIVE="Programming in M4 is addictive!"
 NO_ERRORS="No other errors were found."</pre><code><span class="m4-sha">55ac1ea</span><a href="../messages/messages.ini" title="messages/messages.ini
 date: 20210103 13:28:44
-sha1sum: cf65110
-size: 352 B">messages.ini</a><span class="m4-cb" title="select the text"></span><a href="#m4-messages_messages-ini" title="⚓"></a></code></div>
+sha1sum: 7170d59
+size: 348 B">messages.ini</a><span class="m4-cb" title="select the text"></span><a href="#m4-messages_messages-ini" title="⚓"></a></code></div>
 <h3 id="m4-xmlw-mixed-messages" class="m4-ch"><a href="#m4-xmlw-mixed-messages-toc" title="Content"></a><a href="#m4-xmlw-mixed-messages" title="⚓">A.14</a><code>⟦⟧</code> XML: mixed messages<a href="#m4--toc" title="Top"></a></h3>
 <p>The example uses one output queue number <code class="m4-hgl" data-43="21">1</code> for the <code class="m4-hgl" data-43="22" data-44="28">&lt;/messages&gt;</code> closing tag.</p>
 <div id="m4-messages_mixed-xml-m4" class="m4-src"><pre># A → β
@@ -1420,9 +1420,9 @@ divert(-1)</pre><code><span class="m4-sha">24fd4f3</span><a href="../messages/mi
 date: 20201226 21:52:28
 sha1sum: d43ef91
 size: 347 B">mixed.xml.m4</a><span class="m4-cb" title="select the text"></span><a href="#m4-messages_mixed-xml-m4" title="⚓"></a></code></div>
-<div id="m4-messages_mixed-xml-command" class="m4-cmd m4-usc"><pre title="command">m4 <a href="../gfiles/root0u.m4" title="gfiles/root0u.m4
-date: 20210118 19:23:51
-git rev: 02f55b8
+<div id="m4-messages_mixed-xml-command" class="m4-cmd m4-usc"><pre>m4 <a href="../gfiles/root0u.m4" title="gfiles/root0u.m4
+date: 20210124 11:41:06
+git rev: d7e7a53
 sha1sum: eb93f2e
 size: 1324 B">root0u.m4</a> <a href="../messages/queues.m4" title="messages/queues.m4
 date: 20201226 21:52:28
@@ -1439,12 +1439,12 @@ sha1sum: 98612ec
 size: 256 B">markup.m4</a> <a href="../messages/messages.mc" title="messages/messages.mc
 date: 20210103 13:28:44
 git rev: 55ac1ea
-sha1sum: c6496e4
-size: 535 B">messages.mc</a> > <a href="../messages/mixed.xml" title="messages/mixed.xml
+sha1sum: 24e5362
+size: 531 B">messages.mc</a> > <a href="../messages/mixed.xml" title="messages/mixed.xml
 date: 20210103 13:28:44
 git rev: 55ac1ea
-sha1sum: b907138
-size: 702 B">mixed.xml</a></pre><code><span class="m4-cb" title="select the text"></span><a href="#m4-messages_mixed-xml-command" title="⚓"></a></code></div>
+sha1sum: b28b47d
+size: 698 B">mixed.xml</a></pre><code><span class="m4-cb" title="select the text"></span><a href="#m4-messages_mixed-xml-command" title="⚓"></a></code></div>
 <div id="m4-messages_mixed-xml" class="m4-src"><pre>&lt;!-- DO NOT EDIT! This file is generated automatically! -->
 &lt;?xml version="1.0" encoding="utf-8"?>
 &lt;messages>
@@ -1458,7 +1458,7 @@ size: 702 B">mixed.xml</a></pre><code><span class="m4-cb" title="select the text
 	&lt;/query>
 	&lt;error>
 		&lt;name>SUCCESS&lt;/name>
-		&lt;value>Too complex M4 code failed successfully.&lt;/value>
+		&lt;value>Complex M4 code failed successfully.&lt;/value>
 	&lt;/error>
 	&lt;warning>
 		&lt;name>ADDICTIVE&lt;/name>
@@ -1474,8 +1474,8 @@ size: 702 B">mixed.xml</a></pre><code><span class="m4-cb" title="select the text
 	&lt;/warning>
 &lt;/messages></pre><code><span class="m4-sha">55ac1ea</span><a href="../messages/mixed.xml" title="messages/mixed.xml
 date: 20210103 13:28:44
-sha1sum: b907138
-size: 702 B">mixed.xml</a><span class="m4-cb" title="select the text"></span><a href="#m4-messages_mixed-xml" title="⚓"></a></code></div>
+sha1sum: b28b47d
+size: 698 B">mixed.xml</a><span class="m4-cb" title="select the text"></span><a href="#m4-messages_mixed-xml" title="⚓"></a></code></div>
 <h3 id="m4-xmlw-separated-messages" class="m4-ch"><a href="#m4-xmlw-separated-messages-toc" title="Content"></a><a href="#m4-xmlw-separated-messages" title="⚓">A.15</a><code>⟦⟧</code> XML: separated messages<a href="#m4--toc" title="Top"></a></h3>
 <p>The example groups messages by their type using output queues.</p>
 <div id="m4-messages_messages-xml-m4" class="m4-src"><pre># A → β
@@ -1521,9 +1521,9 @@ divert(-1)</pre><code><span class="m4-sha">24fd4f3</span><a href="../messages/me
 date: 20201226 21:52:28
 sha1sum: bea84ce
 size: 618 B">messages.xml.m4</a><span class="m4-cb" title="select the text"></span><a href="#m4-messages_messages-xml-m4" title="⚓"></a></code></div>
-<div id="m4-messages_messages-xml-command" class="m4-cmd m4-usc"><pre title="command">m4 <a href="../gfiles/root0u.m4" title="gfiles/root0u.m4
-date: 20210118 19:23:51
-git rev: 02f55b8
+<div id="m4-messages_messages-xml-command" class="m4-cmd m4-usc"><pre>m4 <a href="../gfiles/root0u.m4" title="gfiles/root0u.m4
+date: 20210124 11:41:06
+git rev: d7e7a53
 sha1sum: eb93f2e
 size: 1324 B">root0u.m4</a> <a href="../messages/queues.m4" title="messages/queues.m4
 date: 20201226 21:52:28
@@ -1540,12 +1540,12 @@ sha1sum: 98612ec
 size: 256 B">markup.m4</a> <a href="../messages/messages.mc" title="messages/messages.mc
 date: 20210103 13:28:44
 git rev: 55ac1ea
-sha1sum: c6496e4
-size: 535 B">messages.mc</a> > <a href="../messages/messages.xml" title="messages/messages.xml
+sha1sum: 24e5362
+size: 531 B">messages.mc</a> > <a href="../messages/messages.xml" title="messages/messages.xml
 date: 20210103 13:28:44
 git rev: 55ac1ea
-sha1sum: 038f4ab
-size: 767 B">messages.xml</a></pre><code><span class="m4-cb" title="select the text"></span><a href="#m4-messages_messages-xml-command" title="⚓"></a></code></div>
+sha1sum: 0f61f24
+size: 763 B">messages.xml</a></pre><code><span class="m4-cb" title="select the text"></span><a href="#m4-messages_messages-xml-command" title="⚓"></a></code></div>
 <div id="m4-messages_messages-xml" class="m4-src"><pre>&lt;!-- DO NOT EDIT! This file is generated automatically! -->
 &lt;?xml version="1.0" encoding="utf-8"?>
 &lt;messages>
@@ -1562,7 +1562,7 @@ size: 767 B">messages.xml</a></pre><code><span class="m4-cb" title="select the t
 		&lt;/item>
 		&lt;item>
 			&lt;name>SUCCESS&lt;/name>
-			&lt;value>Too complex M4 code failed successfully.&lt;/value>
+			&lt;value>Complex M4 code failed successfully.&lt;/value>
 		&lt;/item>
 		&lt;item>
 			&lt;name>NO_FAULT&lt;/name>
@@ -1581,8 +1581,8 @@ size: 767 B">messages.xml</a></pre><code><span class="m4-cb" title="select the t
 	&lt;/warning>
 &lt;/messages></pre><code><span class="m4-sha">55ac1ea</span><a href="../messages/messages.xml" title="messages/messages.xml
 date: 20210103 13:28:44
-sha1sum: 038f4ab
-size: 767 B">messages.xml</a><span class="m4-cb" title="select the text"></span><a href="#m4-messages_messages-xml" title="⚓"></a></code></div>
+sha1sum: 0f61f24
+size: 763 B">messages.xml</a><span class="m4-cb" title="select the text"></span><a href="#m4-messages_messages-xml" title="⚓"></a></code></div>
 <h3 id="m4-bash-echo-dstringd" class="m4-ch"><a href="#m4-bash-echo-dstringd-toc" title="Content"></a><a href="#m4-bash-echo-dstringd" title="⚓">A.16</a><code>⟦⟧</code> Bash <code>$ echo &quot;string&quot;</code><a href="#m4--toc" title="Top"></a></h3>
 <div id="m4-messages_doubleq-sh-m4" class="m4-src"><pre># A → β
 # β
@@ -1606,9 +1606,9 @@ divert(-1)</pre><code><span class="m4-sha">24fd4f3</span><a href="../messages/do
 date: 20201226 21:52:28
 sha1sum: 8de61d2
 size: 229 B">doubleq.sh.m4</a><span class="m4-cb" title="select the text"></span><a href="#m4-messages_doubleq-sh-m4" title="⚓"></a></code></div>
-<div id="m4-messages_doubleq-sh-command" class="m4-cmd m4-usc"><pre title="command">m4 <a href="../gfiles/root0u.m4" title="gfiles/root0u.m4
-date: 20210118 19:23:51
-git rev: 02f55b8
+<div id="m4-messages_doubleq-sh-command" class="m4-cmd m4-usc"><pre>m4 <a href="../gfiles/root0u.m4" title="gfiles/root0u.m4
+date: 20210124 11:41:06
+git rev: d7e7a53
 sha1sum: eb93f2e
 size: 1324 B">root0u.m4</a> <a href="../messages/doubleq.sh.m4" title="messages/doubleq.sh.m4
 date: 20201226 21:52:28
@@ -1621,25 +1621,25 @@ sha1sum: c94b763
 size: 252 B">doubleq.m4</a> <a href="../messages/messages.mc" title="messages/messages.mc
 date: 20210103 13:28:44
 git rev: 55ac1ea
-sha1sum: c6496e4
-size: 535 B">messages.mc</a> > <a href="../messages/doubleq.sh" title="messages/doubleq.sh
+sha1sum: 24e5362
+size: 531 B">messages.mc</a> > <a href="../messages/doubleq.sh" title="messages/doubleq.sh
 date: 20201226 22:38:15
 git rev: d2707ad
-sha1sum: 747c4db
-size: 324 B">doubleq.sh</a></pre><code><span class="m4-cb" title="select the text"></span><a href="#m4-messages_doubleq-sh-command" title="⚓"></a></code></div>
+sha1sum: c93b788
+size: 320 B">doubleq.sh</a></pre><code><span class="m4-cb" title="select the text"></span><a href="#m4-messages_doubleq-sh-command" title="⚓"></a></code></div>
 <div id="m4-messages_doubleq-sh" class="m4-src"><pre>#!/bin/bash
 #
 # DO NOT EDIT! This file is generated automatically!
 
 echo ""\!"\"#$%&amp;'()*+,-./:;&lt;=>?@[\\]^_\`{|}~"
 echo "Is badly written M4 code readable [N/y]?"
-echo "Too complex M4 code failed successfully."
+echo "Complex M4 code failed successfully."
 echo "Programming in M4 is addictive"\!""
 echo "It's not a language fault"\!""
 echo "No other errors were found."</pre><code><span class="m4-sha">d2707ad</span><a href="../messages/doubleq.sh" title="messages/doubleq.sh
 date: 20201226 22:38:15
-sha1sum: 747c4db
-size: 324 B">doubleq.sh</a><span class="m4-cb" title="select the text"></span><a href="#m4-messages_doubleq-sh" title="⚓"></a></code></div>
+sha1sum: c93b788
+size: 320 B">doubleq.sh</a><span class="m4-cb" title="select the text"></span><a href="#m4-messages_doubleq-sh" title="⚓"></a></code></div>
 <h3 id="m4-bash-echo-astringa" class="m4-ch"><a href="#m4-bash-echo-astringa-toc" title="Content"></a><a href="#m4-bash-echo-astringa" title="⚓">A.17</a><code>⟦⟧</code> Bash <code>$ echo 'string'</code><a href="#m4--toc" title="Top"></a></h3>
 <div id="m4-messages_apost-sh-m4" class="m4-src"><pre># A → β
 # β
@@ -1663,9 +1663,9 @@ divert(-1)</pre><code><span class="m4-sha">24fd4f3</span><a href="../messages/ap
 date: 20201226 21:52:28
 sha1sum: 6c78a02
 size: 229 B">apost.sh.m4</a><span class="m4-cb" title="select the text"></span><a href="#m4-messages_apost-sh-m4" title="⚓"></a></code></div>
-<div id="m4-messages_apost-sh-command" class="m4-cmd m4-usc"><pre title="command">m4 <a href="../gfiles/root0u.m4" title="gfiles/root0u.m4
-date: 20210118 19:23:51
-git rev: 02f55b8
+<div id="m4-messages_apost-sh-command" class="m4-cmd m4-usc"><pre>m4 <a href="../gfiles/root0u.m4" title="gfiles/root0u.m4
+date: 20210124 11:41:06
+git rev: d7e7a53
 sha1sum: eb93f2e
 size: 1324 B">root0u.m4</a> <a href="../messages/apost.sh.m4" title="messages/apost.sh.m4
 date: 20201226 21:52:28
@@ -1678,25 +1678,25 @@ sha1sum: e7eec73
 size: 249 B">apost.m4</a> <a href="../messages/messages.mc" title="messages/messages.mc
 date: 20210103 13:28:44
 git rev: 55ac1ea
-sha1sum: c6496e4
-size: 535 B">messages.mc</a> > <a href="../messages/apost.sh" title="messages/apost.sh
+sha1sum: 24e5362
+size: 531 B">messages.mc</a> > <a href="../messages/apost.sh" title="messages/apost.sh
 date: 20201225 10:46:17
 git rev: 5964776
-sha1sum: 854fc6e
-size: 318 B">apost.sh</a></pre><code><span class="m4-cb" title="select the text"></span><a href="#m4-messages_apost-sh-command" title="⚓"></a></code></div>
+sha1sum: 6ba7d7c
+size: 314 B">apost.sh</a></pre><code><span class="m4-cb" title="select the text"></span><a href="#m4-messages_apost-sh-command" title="⚓"></a></code></div>
 <div id="m4-messages_apost-sh" class="m4-src"><pre>#!/bin/bash
 #
 # DO NOT EDIT! This file is generated automatically!
 
 echo '!"#$%&amp;'\''()*+,-./:;&lt;=>?@[\]^_`{|}~'
 echo 'Is badly written M4 code readable [N/y]?'
-echo 'Too complex M4 code failed successfully.'
+echo 'Complex M4 code failed successfully.'
 echo 'Programming in M4 is addictive!'
 echo 'It'\''s not a language fault!'
 echo 'No other errors were found.'</pre><code><span class="m4-sha">5964776</span><a href="../messages/apost.sh" title="messages/apost.sh
 date: 20201225 10:46:17
-sha1sum: 854fc6e
-size: 318 B">apost.sh</a><span class="m4-cb" title="select the text"></span><a href="#m4-messages_apost-sh" title="⚓"></a></code></div>
+sha1sum: 6ba7d7c
+size: 314 B">apost.sh</a><span class="m4-cb" title="select the text"></span><a href="#m4-messages_apost-sh" title="⚓"></a></code></div>
 <h2 id="m4-preprocessor-examples" class="m4-ch"><a href="#m4-preprocessor-examples-toc" title="Content"></a><a href="#m4-preprocessor-examples" title="⚓">B</a>Preprocessor examples<a href="#m4--toc" title="Top"></a></h2>
 <div title="for information" class="rs-tip-major m4-info">Chars. {<code title="quotation marks" class="m4-xp">`'</code>, <code title="square brackets" class="m4-xp">[]</code>, <code title="nonprintable characters" class="m4-xp">␂␆</code>, <code title="UTF-8 characters" class="m4-xp">⟦⟧</code>} in the name controls the <a href="../generating-code-in-m4-introduction/preview.html#m4-nonterminal-expansion-control" title="Nonterminal expansion control">expansion of nonterminals</a>.</div>
 <p id="m4-ba-c-preprocessor-and-m4-toc" class="m4-l2"><a href="#m4-ba-c-preprocessor-and-m4"><b>B.1</b><code>`'</code> C&nbsp;preprocessor and M4</a></p>
@@ -1754,9 +1754,9 @@ int main(void)
 date: 20210110 15:33:50
 sha1sum: 1fe5bfc
 size: 583 B">file.c</a><span class="m4-cb" title="select the text"></span><a href="#m4-preproc_file-c" title="⚓"></a></code></div>
-<div id="m4-preproc_preproc-file-c-command" class="m4-cmd m4-usc"><pre title="command">m4 -DSYMBOL='Hello, world!' <a href="../gfiles/root0q.m4" title="gfiles/root0q.m4
-date: 20210110 15:33:50
-git rev: cf9fdc8
+<div id="m4-preproc_preproc-file-c-command" class="m4-cmd m4-usc"><pre>m4 -DSYMBOL='Hello, world!' <a href="../gfiles/root0q.m4" title="gfiles/root0q.m4
+date: 20210124 11:41:06
+git rev: d7e7a53
 sha1sum: 87286b9
 size: 1158 B">root0q.m4</a> <a href="../preproc/file.c.m4" title="preproc/file.c.m4
 date: 20210110 15:33:50
@@ -1845,9 +1845,9 @@ include(`foo.css')dnl
 date: 20200505 00:05:58
 sha1sum: 380eb22
 size: 218 B">file.css</a><span class="m4-cb" title="select the text"></span><a href="#m4-preproc_file-css" title="⚓"></a></code></div>
-<div id="m4-preproc_preproc-file-css-command" class="m4-cmd m4-usc"><pre title="command">m4 -DSYMBOL='Hello, world!' <a href="../gfiles/root0q.m4" title="gfiles/root0q.m4
-date: 20210110 15:33:50
-git rev: cf9fdc8
+<div id="m4-preproc_preproc-file-css-command" class="m4-cmd m4-usc"><pre>m4 -DSYMBOL='Hello, world!' <a href="../gfiles/root0q.m4" title="gfiles/root0q.m4
+date: 20210124 11:41:06
+git rev: d7e7a53
 sha1sum: 87286b9
 size: 1158 B">root0q.m4</a> <a href="../preproc/file.css.m4" title="preproc/file.css.m4
 date: 20200211 02:32:35
@@ -1907,9 +1907,9 @@ fi</pre><code><span class="m4-sha">b53eafe</span><a href="../preproc/file.sh" ti
 date: 20200106 16:21:10
 sha1sum: fe8d3e3
 size: 94 B">file.sh</a><span class="m4-cb" title="select the text"></span><a href="#m4-preproc_file-sh" title="⚓"></a></code></div>
-<div id="m4-preproc_preproc-file-sh-command" class="m4-cmd m4-usc"><pre title="command">m4 -DSYMBOL='Hello, world!' <a href="../gfiles/root0n.m4" title="gfiles/root0n.m4
-date: 20210118 19:23:51
-git rev: 02f55b8
+<div id="m4-preproc_preproc-file-sh-command" class="m4-cmd m4-usc"><pre>m4 -DSYMBOL='Hello, world!' <a href="../gfiles/root0n.m4" title="gfiles/root0n.m4
+date: 20210124 11:41:06
+git rev: d7e7a53
 sha1sum: 566dd35
 size: 1172 B">root0n.m4</a> <a href="../preproc/file.sh.m4" title="preproc/file.sh.m4
 date: 20200106 16:21:10
@@ -1958,9 +1958,9 @@ divert(0)dnl
 date: 20210103 13:26:54
 sha1sum: 7e2f54b
 size: 94 B">json.m4</a><span class="m4-cb" title="select the text"></span><a href="#m4-hello_world_json-m4" title="⚓"></a></code></div>
-<div id="m4-hello_world_hello_world-json-command" class="m4-cmd m4-usc"><pre title="command">m4 -DSYMBOL='Hello, world!' <a href="../gfiles/root0b.m4" title="gfiles/root0b.m4
-date: 20210118 19:16:44
-git rev: f77d0bc
+<div id="m4-hello_world_hello_world-json-command" class="m4-cmd m4-usc"><pre>m4 -DSYMBOL='Hello, world!' <a href="../gfiles/root0b.m4" title="gfiles/root0b.m4
+date: 20210123 00:23:32
+git rev: 49eb8a3
 sha1sum: 8b124d5
 size: 1091 B">root0b.m4</a> <a href="../hello_world/json.m4" title="hello_world/json.m4
 date: 20210103 13:26:54
@@ -2020,9 +2020,9 @@ fi</pre><code><span class="m4-sha">39013f2</span><a href="../hello_world/sh.m4" 
 date: 20210103 13:26:54
 sha1sum: f9b14e5
 size: 511 B">sh.m4</a><span class="m4-cb" title="select the text"></span><a href="#m4-hello_world_sh-m4" title="⚓"></a></code></div>
-<div id="m4-hello_world_hello_world-sh-command" class="m4-cmd m4-usc"><pre title="command">m4 -DSYMBOL='Hello, world!' <a href="../gfiles/root0u.m4" title="gfiles/root0u.m4
-date: 20210118 19:23:51
-git rev: 02f55b8
+<div id="m4-hello_world_hello_world-sh-command" class="m4-cmd m4-usc"><pre>m4 -DSYMBOL='Hello, world!' <a href="../gfiles/root0u.m4" title="gfiles/root0u.m4
+date: 20210124 11:41:06
+git rev: d7e7a53
 sha1sum: eb93f2e
 size: 1324 B">root0u.m4</a> <a href="../gfiles/countu.m4" title="gfiles/countu.m4
 date: 20200429 07:34:47
@@ -2081,9 +2081,9 @@ divert(0)dnl
 date: 20200213 14:50:23
 sha1sum: 267465d
 size: 183 B">h.m4</a><span class="m4-cb" title="select the text"></span><a href="#m4-hello_world_h-m4" title="⚓"></a></code></div>
-<div id="m4-hello_world_hello_world-h-command" class="m4-cmd m4-usc"><pre title="command">m4 -DSYMBOL='Hello, world!' <a href="../gfiles/root0b.m4" title="gfiles/root0b.m4
-date: 20210118 19:16:44
-git rev: f77d0bc
+<div id="m4-hello_world_hello_world-h-command" class="m4-cmd m4-usc"><pre>m4 -DSYMBOL='Hello, world!' <a href="../gfiles/root0b.m4" title="gfiles/root0b.m4
+date: 20210123 00:23:32
+git rev: 49eb8a3
 sha1sum: 8b124d5
 size: 1091 B">root0b.m4</a> <a href="../hello_world/h.m4" title="hello_world/h.m4
 date: 20200213 14:50:23
@@ -2121,11 +2121,11 @@ BEGIN { print "<span class="m4-a">DONTE</span>[]() <span class="m4-b">LL</span> 
 date: 20210103 13:26:54
 sha1sum: 83243af
 size: 112 B">awk.m4</a><span class="m4-cb" title="select the text"></span><a href="#m4-hello_world_awk-m4" title="⚓"></a></code></div>
-<div id="m4-hello_world_hello_world-awk-command" class="m4-cmd m4-usc"><pre title="command">m4 -DSYMBOL='Hello, world!' <a href="../gfiles/root1b.m4" title="gfiles/root1b.m4
+<div id="m4-hello_world_hello_world-awk-command" class="m4-cmd m4-usc"><pre>m4 -DSYMBOL='Hello, world!' <a href="../gfiles/root1b.m4" title="gfiles/root1b.m4
 date: 20210118 23:26:59
 git rev: 44c7674
-sha1sum: 10e4b61
-size: 1603 B">root1b.m4</a> <a href="../hello_world/awk.m4" title="hello_world/awk.m4
+sha1sum: db271a3
+size: 1366 B">root1b.m4</a> <a href="../hello_world/awk.m4" title="hello_world/awk.m4
 date: 20210103 13:26:54
 git rev: 39013f2
 sha1sum: 83243af

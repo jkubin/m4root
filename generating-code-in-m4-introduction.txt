@@ -2,7 +2,7 @@ Generating code in M4: introduction
 
 The M4 macro processor is used to generate arbitrarily complex code from simple source code. The introductory part of the series contains its history, the basic principles of language, examples of usage and prerequisites for its mastery.
 
-Content (Česky)	mc spl txt dev pre c  updated January 24, 2021
+Content (Česky)	mc spl txt dev pre c  updated January 25, 2021
 1 Introduction
 	1.1 Examples for readers
 2 History of macro languages
@@ -461,7 +461,7 @@ The input source code contains special characters that must be hidden:
   2 
   3 ERROR(⟦COMPLEX⟧,     ⟦!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~⟧)
   4 QUERY(⟦READABLE⟧,    ⟦Is badly written M4 code readable [N/y]?⟧)
-  5 ERROR(⟦SUCCESS⟧,     ⟦Too complex M4 code failed successfully.⟧)
+  5 ERROR(⟦SUCCESS⟧,     ⟦Complex M4 code failed successfully.⟧)
   6 WARNING(⟦ADDICTIVE⟧, ⟦Programming in M4 is addictive!⟧)
   7 ERROR(⟦NO_FAULT⟧,    ⟦It's not a language fault!⟧)
   8 WARNING(⟦NO_ERRORS⟧, ⟦No other errors were found.⟧)
@@ -476,16 +476,16 @@ This example does not use output queues, it only prints CSV separated by TAB to 
   2 define(⟦ERROR⟧, ⟦
   3 
   4 	divert(0)dnl
-  5 ⟦$1    $2⟧
+  5 ⟦$1	$2⟧
   6 divert(-1)
   7 ⟧)
 
 $ m4 root0u.m4 hello.csv.m4 messages_raw.mc > hello.csv
 
 825d4a3 messages/hello.csv
-  1 COMPLEX    !"#$%&'()*+,-./:;<=>?@[\]^_`{|}~
-  2 SUCCESS    Too complex M4 code failed successfully.
-  3 NO_FAULT    It's not a language fault!
+  1 COMPLEX	!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~
+  2 SUCCESS	Complex M4 code failed successfully.
+  3 NO_FAULT	It's not a language fault!
 
 A.3 ⟦⟧ CSV: counter
 The example uses the COUNT_UP macro from the countu.m4 file whose β is copied to the right side of the COUNTER macro.
@@ -512,7 +512,7 @@ $ m4 root0u.m4 countu.m4 counter.csv.m4 messages_raw.mc > counter.csv
 
 825d4a3 messages/counter.csv
   1 ERR_1    COMPLEX	!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~
-  2 ERR_2    SUCCESS	Too complex M4 code failed successfully.
+  2 ERR_2    SUCCESS	Complex M4 code failed successfully.
   3 ERR_3    NO_FAULT	It's not a language fault!
 
 A.4 💡 Modification of special characters
@@ -526,7 +526,7 @@ Modified input code
   2 
   3 ERROR(⟦COMPLEX⟧,     ⟦⟦⟧EX()⟦⟧DQ()⟦#⟧⟦⟧DO()%⟦⟧AMP()⟦⟧AP()()*+,-./:;⟦⟧LT()=⟦⟧GT()?@[⟦⟧BS()]^_⟦⟧BQ(){|}~⟧)
   4 QUERY(⟦READABLE⟧,    ⟦Is badly written M4 code readable [N/y]?⟧)
-  5 ERROR(⟦SUCCESS⟧,     ⟦Too complex M4 code failed successfully.⟧)
+  5 ERROR(⟦SUCCESS⟧,     ⟦Complex M4 code failed successfully.⟧)
   6 WARNING(⟦ADDICTIVE⟧, ⟦Programming in M4 is addictive⟦⟧EX()⟧)
   7 ERROR(⟦NO_FAULT⟧,    ⟦It⟦⟧AP()s not a language fault⟦⟧EX()⟧)
   8 WARNING(⟦NO_ERRORS⟧, ⟦No other errors were found.⟧)
@@ -627,7 +627,7 @@ $ m4 root0u.m4 array.c.m4 code.m4 messages.mc > array.c
   4 
   5 char *error[] = {
   6 	"!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~",
-  7 	"Too complex M4 code failed successfully.",
+  7 	"Complex M4 code failed successfully.",
   8 	"It's not a language fault!",
   9 };
 
@@ -653,12 +653,12 @@ The SARG1() macro selects the first item because the second item contains an unw
 
 $ m4 root0u.m4 hello.ini.m4 code.m4 messages.mc > hello.ini
 
-02f55b8 messages/hello.ini
+d7e7a53 messages/hello.ini
   1 ; DO NOT EDIT! This file is generated automatically!
   2 
-  3 [hello_20210122]
+  3 [hello_20210125]
   4 COMPLEX="!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~"
-  5 SUCCESS="Too complex M4 code failed successfully."
+  5 SUCCESS="Complex M4 code failed successfully."
   6 NO_FAULT="It's not a language fault!"
 
 A.7 ⟦⟧ .h: hex counter
@@ -746,7 +746,7 @@ $ m4 root0u.m4 stringl.c.m4 code.m4 messages.mc > stringl.c
   3  */
   4 
   5 char error[] =
-  6 "!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~\nToo complex M4 code failed successfully.\nIt's not a language fault!";
+  6 "!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~\nComplex M4 code failed successfully.\nIt's not a language fault!";
 
 A.9 ⟦⟧ C: small automaton 2
 This example is similar to the previous one, but each string is on a new line.
@@ -786,7 +786,7 @@ $ m4 root0u.m4 string.c.m4 code.m4 messages.mc > string.c
   4 
   5 char error[] =
   6 "!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~\n"
-  7 "Too complex M4 code failed successfully.\n"
+  7 "Complex M4 code failed successfully.\n"
   8 "It's not a language fault!";
 
 A.10 ⟦⟧ HTML: output queues
@@ -850,7 +850,7 @@ $ m4 root0u.m4 messages.html.m4 markup.m4 messages.mc > messages.html
  15 	</ul>
  16 	<p id="COMPLEX">!"#$%&amp;'()*+,-./:;&lt;=&gt;?@[\]^_`{|}~</p>
  17 	<p id="READABLE">Is badly written M4 code readable [N/y]?</p>
- 18 	<p id="SUCCESS">Too complex M4 code failed successfully.</p>
+ 18 	<p id="SUCCESS">Complex M4 code failed successfully.</p>
  19 	<p id="ADDICTIVE">Programming in M4 is addictive!</p>
  20 	<p id="NO_FAULT">It's not a language fault!</p>
  21 	<p id="NO_ERRORS">No other errors were found.</p>
@@ -945,7 +945,7 @@ $ m4 root0u.m4 atm.json.m4 code.m4 messages.mc > atm.json
   2 	"_comment": "DO NOT EDIT! This file is generated automatically!",
   3 	"error": [
   4 		{"COMPLEX": "!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~"},
-  5 		{"SUCCESS": "Too complex M4 code failed successfully."},
+  5 		{"SUCCESS": "Complex M4 code failed successfully."},
   6 		{"NO_FAULT": "It's not a language fault!"}
   7 	]
   8 }}
@@ -1021,7 +1021,7 @@ $ m4 root0u.m4 qnames.json.m4 code.m4 messages.mc > qnames.json
   5 	],
   6 	"error": [
   7 		{"COMPLEX": "!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~"},
-  8 		{"SUCCESS": "Too complex M4 code failed successfully."},
+  8 		{"SUCCESS": "Complex M4 code failed successfully."},
   9 		{"NO_FAULT": "It's not a language fault!"}
  10 	],
  11 	"warning": [
@@ -1111,7 +1111,7 @@ $ m4 root0u.m4 countu.m4 queues.m4 messages.json.m4 code.m4 messages.mc > messag
   5 	],
   6 	"error": [
   7 		{"COMPLEX": "!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~"},
-  8 		{"SUCCESS": "Too complex M4 code failed successfully."},
+  8 		{"SUCCESS": "Complex M4 code failed successfully."},
   9 		{"NO_FAULT": "It's not a language fault!"}
  10 	],
  11 	"warning": [
@@ -1170,7 +1170,7 @@ $ m4 root0u.m4 messages.ini.m4 countu.m4 queues.m4 code.m4 messages.mc > message
   5 
   6 [error]
   7 COMPLEX="!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~"
-  8 SUCCESS="Too complex M4 code failed successfully."
+  8 SUCCESS="Complex M4 code failed successfully."
   9 NO_FAULT="It's not a language fault!"
  10 
  11 [warning]
@@ -1221,7 +1221,7 @@ $ m4 root0u.m4 queues.m4 mixed.xml.m4 markup.m4 messages.mc > mixed.xml
  11 	</query>
  12 	<error>
  13 		<name>SUCCESS</name>
- 14 		<value>Too complex M4 code failed successfully.</value>
+ 14 		<value>Complex M4 code failed successfully.</value>
  15 	</error>
  16 	<warning>
  17 		<name>ADDICTIVE</name>
@@ -1301,7 +1301,7 @@ $ m4 root0u.m4 queues.m4 messages.xml.m4 markup.m4 messages.mc > messages.xml
  14 		</item>
  15 		<item>
  16 			<name>SUCCESS</name>
- 17 			<value>Too complex M4 code failed successfully.</value>
+ 17 			<value>Complex M4 code failed successfully.</value>
  18 		</item>
  19 		<item>
  20 			<name>NO_FAULT</name>
@@ -1351,7 +1351,7 @@ d2707ad messages/doubleq.sh
   4 
   5 echo ""\!"\"#$%&'()*+,-./:;<=>?@[\\]^_\`{|}~"
   6 echo "Is badly written M4 code readable [N/y]?"
-  7 echo "Too complex M4 code failed successfully."
+  7 echo "Complex M4 code failed successfully."
   8 echo "Programming in M4 is addictive"\!""
   9 echo "It's not a language fault"\!""
  10 echo "No other errors were found."
@@ -1387,7 +1387,7 @@ $ m4 root0u.m4 apost.sh.m4 apost.m4 messages.mc > apost.sh
   4 
   5 echo '!"#$%&'\''()*+,-./:;<=>?@[\]^_`{|}~'
   6 echo 'Is badly written M4 code readable [N/y]?'
-  7 echo 'Too complex M4 code failed successfully.'
+  7 echo 'Complex M4 code failed successfully.'
   8 echo 'Programming in M4 is addictive!'
   9 echo 'It'\''s not a language fault!'
  10 echo 'No other errors were found.'
