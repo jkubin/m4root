@@ -5,15 +5,15 @@ __REASON(⟦to estimate the total number of words and characters⟧)
 # CMDBARE(⟦⟦cmd⟧, ⟦file.1⟧, ⟦file.2⟧, …, ⟦file.n⟧⟧)
 # CMDBARE(⟦⟦cmd -o a,b,c -DMACRO⟧, ⟦file.1,⟦-o x,y,z⟧⟧, ⟦file.2,⟦-DFOO=bar⟧⟧, …, ⟦file.n,⟦2>&1⟧⟧⟧)
 # …
-# CMDFILE(⟦⟦cmd⟧, ⟦file1.src⟧, ⟦file2.src⟧, …, ⟦file.dst⟧⟧)
-# CMDFILE(⟦⟦cmd -o a,b,c -DMACRO⟧, ⟦file1.src,⟦-o x,y,z⟧⟧, ⟦file2.src,⟦-DFOO=bar⟧⟧, …, ⟦file.dst,⟦2>&1⟧⟧⟧)
+# CMDFILES(⟦⟦cmd⟧, ⟦file1.src⟧, ⟦file2.src⟧, …, ⟦file.dst⟧⟧)
+# CMDFILES(⟦⟦cmd -o a,b,c -DMACRO⟧, ⟦file1.src,⟦-o x,y,z⟧⟧, ⟦file2.src,⟦-DFOO=bar⟧⟧, …, ⟦file.dst,⟦2>&1⟧⟧⟧)
 # …
 # Or the root command line:
 # CMDBARE_ROOT(⟦⟦cmd⟧, ⟦file.1⟧, ⟦file.2⟧, …, ⟦file.n⟧⟧)
-# CMDFILE_ROOT(⟦⟦cmd⟧, ⟦file1.src⟧, ⟦file2.src⟧, …, ⟦file.dst⟧⟧)
+# CMDFILES_ROOT(⟦⟦cmd⟧, ⟦file1.src⟧, ⟦file2.src⟧, …, ⟦file.dst⟧⟧)
 
 # A → β
-define(⟦CMDFILE⟧, ⟦
+define(⟦CMDFILES⟧, ⟦
 
 	divert(CURRQU)dnl
 PRMT() dnl
@@ -23,7 +23,7 @@ divert(-1)
 ⟧)
 
 # A → β
-define(⟦CMDFILE_ROOT⟧, ⟦
+define(⟦CMDFILES_ROOT⟧, ⟦
 
 	divert(CURRQU)dnl
 PRMT_ROOT() dnl

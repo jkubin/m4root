@@ -35,8 +35,8 @@ iabbrev <buffer> <unique> cmb CMDBARE(⟦⟦<c-r>"⟧, ⟦%%%⟧, ⟦%%%⟧⟧)<
 iabbrev <buffer> <unique> cmbr CMDBARE_ROOT(⟦⟦<c-r>"⟧, ⟦%%%⟧, ⟦%%%⟧⟧)<left><c-o>%;;<c-r>=Eatchar('.')<cr>
 "iabbrev <buffer> <unique> cm ⟦⟧CM()<c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> cm CMDSYNOPSIS(⟦<cr><cr>⟧)<up><c-r>=Eatchar('.')<cr>
-iabbrev <buffer> <unique> cmf CMDFILE(⟦⟦<c-r>"⟧, ⟦%%%⟧, ⟦%%%⟧⟧)<left><c-o>%;;<c-r>=Eatchar('.')<cr>
-iabbrev <buffer> <unique> cmfr CMDFILE_ROOT(⟦⟦<c-r>"⟧, ⟦%%%⟧, ⟦%%%⟧⟧)<left><c-o>%;;<c-r>=Eatchar('.')<cr>
+iabbrev <buffer> <unique> cmf CMDFILES(⟦⟦<c-r>"⟧, ⟦%%%⟧, ⟦%%%⟧⟧)<left><c-o>%;;<c-r>=Eatchar('.')<cr>
+iabbrev <buffer> <unique> cmfr CMDFILES_ROOT(⟦⟦<c-r>"⟧, ⟦%%%⟧, ⟦%%%⟧⟧)<left><c-o>%;;<c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> cmm CMDSYNOPSIS(⟦<cr><cr>⟧)<up><c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> cmr CMDSYNOPSIS_ROOT(⟦<cr><cr>⟧)<up><c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> cod CODE(⟦<c-r>"⟧)<esc>

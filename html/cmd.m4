@@ -5,8 +5,8 @@ __REASON(⟦generates an appropriate HTML code⟧)
 # CMDBARE(⟦⟦cmd⟧, ⟦file.1⟧, ⟦file.2⟧, …, ⟦file.n⟧⟧)
 # CMDBARE(⟦⟦cmd -o a,b,c -DMACRO⟧, ⟦file.1,⟦-o x,y,z⟧⟧, ⟦file.2,⟦-DFOO=bar⟧⟧, …, ⟦file.n,⟦2>&1⟧⟧⟧)
 # …
-# CMDFILE(⟦⟦cmd⟧, ⟦file1.src⟧, ⟦file2.src⟧, …, ⟦file.dst⟧⟧)
-# CMDFILE(⟦⟦cmd -o a,b,c -DMACRO⟧, ⟦file1.src,⟦-o x,y,z⟧⟧, ⟦file2.src,⟦-DFOO=bar⟧⟧, …, ⟦file.dst,⟦2>&1⟧⟧⟧)
+# CMDFILES(⟦⟦cmd⟧, ⟦file1.src⟧, ⟦file2.src⟧, …, ⟦file.dst⟧⟧)
+# CMDFILES(⟦⟦cmd -o a,b,c -DMACRO⟧, ⟦file1.src,⟦-o x,y,z⟧⟧, ⟦file2.src,⟦-DFOO=bar⟧⟧, …, ⟦file.dst,⟦2>&1⟧⟧⟧)
 # …
 # Or with attributes:
 # CMDBARE(⟦id⟧, ⟦⟦cmd⟧, ⟦file.1⟧, ⟦file.2⟧, …, ⟦file.n⟧⟧)
@@ -15,11 +15,11 @@ __REASON(⟦generates an appropriate HTML code⟧)
 # CMDBARE(⟦id⟧, ⟦title⟧, ⟦class⟧, ⟦style⟧, ⟦⟦cmd⟧, ⟦file.1⟧, ⟦file.2⟧, …, ⟦file.n⟧⟧)
 # CMDBARE(⟦id⟧, ⟦title⟧, ⟦class⟧, ⟦style⟧, ⟦anything⟧, ⟦⟦cmd⟧, ⟦file.1⟧, ⟦file.2⟧, …, ⟦file.n⟧⟧)
 # …
-# CMDFILE(⟦id⟧, …, ⟦⟦cmd⟧, ⟦input/file1.src⟧, ⟦input/file2.src⟧, …, ⟦output/file.dst⟧⟧)
+# CMDFILES(⟦id⟧, …, ⟦⟦cmd⟧, ⟦input/file1.src⟧, ⟦input/file2.src⟧, …, ⟦output/file.dst⟧⟧)
 # …
 # Or the root command line:
 # CMDBARE_ROOT(⟦⟦cmd⟧, ⟦file.1⟧, ⟦file.2⟧, …, ⟦file.n⟧⟧)
-# CMDFILE_ROOT(⟦⟦cmd⟧, ⟦file1.src⟧, ⟦file2.src⟧, …, ⟦file.dst⟧⟧)
+# CMDFILES_ROOT(⟦⟦cmd⟧, ⟦file1.src⟧, ⟦file2.src⟧, …, ⟦file.dst⟧⟧)
 # …
 
 # β
@@ -32,7 +32,7 @@ pushdef(⟦STYLE_4⟧,	⟦ifelse(⟦$#⟧, ⟦4⟧, ⟦⟧, ⟦$4⟧, ⟦⟧, �
 pushdef(⟦ANYTHING_5⟧,	⟦ifelse(⟦$#⟧, ⟦5⟧, ⟦⟧, ⟦$5⟧, ⟦⟧, ⟦⟧, ⟦⟦ $5⟧⟧)⟧)
 
 # A → β
-define(⟦CMDFILE⟧, ⟦
+define(⟦CMDFILES⟧, ⟦
 
 	# create HTML skeleton
 	divert(CURRQU)dnl
@@ -53,7 +53,7 @@ divert(-1)
 ⟧)
 
 # A → β
-define(⟦CMDFILE_ROOT⟧, ⟦
+define(⟦CMDFILES_ROOT⟧, ⟦
 
 	# create HTML skeleton
 	divert(CURRQU)dnl
