@@ -8,7 +8,6 @@ __REASON(⟦generates an appropriate HTML code⟧)
 # CMDFILE(⟦⟦cmd⟧, ⟦file1.src⟧, ⟦file2.src⟧, …, ⟦file.dst⟧⟧)
 # CMDFILE(⟦⟦cmd -o a,b,c -DMACRO⟧, ⟦file1.src,⟦-o x,y,z⟧⟧, ⟦file2.src,⟦-DFOO=bar⟧⟧, …, ⟦file.dst,⟦2>&1⟧⟧⟧)
 # …
-#
 # Or with attributes:
 # CMDBARE(⟦id⟧, ⟦⟦cmd⟧, ⟦file.1⟧, ⟦file.2⟧, …, ⟦file.n⟧⟧)
 # CMDBARE(⟦id⟧, ⟦title⟧, ⟦⟦cmd⟧, ⟦file.1⟧, ⟦file.2⟧, …, ⟦file.n⟧⟧)
@@ -18,6 +17,7 @@ __REASON(⟦generates an appropriate HTML code⟧)
 # …
 # CMDFILE(⟦id⟧, …, ⟦⟦cmd⟧, ⟦input/file1.src⟧, ⟦input/file2.src⟧, …, ⟦output/file.dst⟧⟧)
 # …
+# Or the root command line:
 # CMDBARE_ROOT(⟦⟦cmd⟧, ⟦file.1⟧, ⟦file.2⟧, …, ⟦file.n⟧⟧)
 # CMDFILE_ROOT(⟦⟦cmd⟧, ⟦file1.src⟧, ⟦file2.src⟧, …, ⟦file.dst⟧⟧)
 # …
@@ -52,7 +52,6 @@ undivert(AUXILIARY_3_QUEUE)dnl
 divert(-1)
 ⟧)
 
-# CMDFILE_ROOT(…)
 # A → β
 define(⟦CMDFILE_ROOT⟧, ⟦
 
@@ -118,7 +117,7 @@ divert(-1)
 # A → β
 define(⟦CMDBARE⟧, ⟦
 
-	# increment default anchor number
+	# increment the default anchor number
 	ANCH_COUNTER
 
 	divert(CURRQU)dnl
@@ -132,11 +131,10 @@ divert(-1)
 divert(-1)
 ⟧)
 
-# CMDBARE_ROOT(…)
 # A → β
 define(⟦CMDBARE_ROOT⟧, ⟦
 
-	# increment default anchor number
+	# increment the default anchor number
 	ANCH_COUNTER
 
 	divert(CURRQU)dnl
@@ -152,6 +150,11 @@ divert(-1)
 
 # A → β
 define(⟦COMMAND_AND_VARIOUS_FILES⟧, ⟦
+
+	ifelse(eval(⟦$# > 1⟧), ⟦1⟧, ⟦⟧, ⟦
+
+		ROOT_ERROR(⟦the command ‘$1’ requires at least 1 file⟧)
+	⟧)
 
 	divert(CURRQU)dnl
 ⟦$1⟧ dnl print the first item (a command)

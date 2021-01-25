@@ -8,6 +8,7 @@ __REASON(⟦to estimate the total number of words and characters⟧)
 # CMDFILE(⟦⟦cmd⟧, ⟦file1.src⟧, ⟦file2.src⟧, …, ⟦file.dst⟧⟧)
 # CMDFILE(⟦⟦cmd -o a,b,c -DMACRO⟧, ⟦file1.src,⟦-o x,y,z⟧⟧, ⟦file2.src,⟦-DFOO=bar⟧⟧, …, ⟦file.dst,⟦2>&1⟧⟧⟧)
 # …
+# Or the root command line:
 # CMDBARE_ROOT(⟦⟦cmd⟧, ⟦file.1⟧, ⟦file.2⟧, …, ⟦file.n⟧⟧)
 # CMDFILE_ROOT(⟦⟦cmd⟧, ⟦file1.src⟧, ⟦file2.src⟧, …, ⟦file.dst⟧⟧)
 
@@ -21,7 +22,6 @@ divert(-1)
 	COMMAND_WITH_INPUT_FILES_AND_OUTPUT_FILE(⟧defn(⟦EXPAND_LAST_ARG⟧)⟦)
 ⟧)
 
-# CMDFILE_ROOT(…)
 # A → β
 define(⟦CMDFILE_ROOT⟧, ⟦
 
@@ -88,7 +88,7 @@ define(⟦COMMAND_AND_VARIOUS_FILES⟧, ⟦
 
 	ifelse(eval(⟦$# > 1⟧), ⟦1⟧, ⟦⟧, ⟦
 
-		ROOT_ERROR(⟦the command ‘$1’ requires at least 1 file: ‘$@’⟧)
+		ROOT_ERROR(⟦the command ‘$1’ requires at least 1 file⟧)
 	⟧)
 
 	divert(CURRQU)dnl
