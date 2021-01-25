@@ -7,7 +7,7 @@ __REASON(⟦selects item from multilingual list⟧)
 # A → β
 define(⟦LANG_INDEX_cs⟧, 1)
 define(⟦LANG_INDEX_en⟧, 2)
-define(⟦LANG_INDEX_LAST⟧, 2)
+define(⟦LANG_TOTAL_SUM⟧, 2)
 
 # the script aborts, if an undefined lang code is set
 ifdef(⟦LANG_INDEX_⟧LANG_CODE, ⟦⟧, ⟦
@@ -23,8 +23,8 @@ define(⟦EXPAND_CASE_1⟧, ⟦patsubst(patsubst(⟦⟦$1⟧⟧, ⟦\s*\s*⟧
 # multi-lingual case (the processed macro contains several languages)
 # A → β
 # β
-define(⟦SELECT_CASE_⟧LANG_INDEX_LAST, ⟦patsubst(patsubst(⟧LL()LL()LL()$defn(⟦LANG_INDEX_⟧LANG_CODE)⟧⟧⟧⟦, ⟦\s*\s*⟧), ⟦\<dnl\>\|#⟧, ⟦⟦\&⟧⟧)⟧)
-define(⟦EXPAND_CASE_⟧LANG_INDEX_LAST, ⟦patsubst(patsubst(⟧LL()LL()$defn(⟦LANG_INDEX_⟧LANG_CODE)⟧⟧⟦, ⟦\s*\s*⟧), ⟦\<dnl\>\|#⟧, ⟦⟦\&⟧⟧)⟧)
+define(⟦SELECT_CASE_⟧LANG_TOTAL_SUM, ⟦patsubst(patsubst(⟧LL()LL()LL()$defn(⟦LANG_INDEX_⟧LANG_CODE)⟧⟧⟧⟦, ⟦\s*\s*⟧), ⟦\<dnl\>\|#⟧, ⟦⟦\&⟧⟧)⟧)
+define(⟦EXPAND_CASE_⟧LANG_TOTAL_SUM, ⟦patsubst(patsubst(⟧LL()LL()$defn(⟦LANG_INDEX_⟧LANG_CODE)⟧⟧⟦, ⟦\s*\s*⟧), ⟦\<dnl\>\|#⟧, ⟦⟦\&⟧⟧)⟧)
 
 # branches to {mono,multi}lingual case
 # A → β
@@ -49,9 +49,9 @@ define(⟦LANG_REGEX⟧, ⟦patsubst(⟧LL()LL()$defn(⟦LANG_INDEX_⟧LANG_CODE
 # selects language without leading and trailing white chars
 # Note: the symbols ⟦#⟧, ⟦dnl⟧ _WILL_NOT_ affects the subsequent text
 # A → β
-define(⟦LANG_REGEX2⟧, defn(⟦SELECT_CASE_⟧LANG_INDEX_LAST))
+define(⟦LANG_REGEX2⟧, defn(⟦SELECT_CASE_⟧LANG_TOTAL_SUM))
 # a safer variant
-# define(⟦LANG_REGEX2⟧, ⟦ifelse(⟦$#⟧, ⟦0⟧, ⟦⟦$0⟧⟧, ⟧LL()defn(⟦SELECT_CASE_⟧LANG_INDEX_LAST)⟧⟦)⟧)
+# define(⟦LANG_REGEX2⟧, ⟦ifelse(⟦$#⟧, ⟦0⟧, ⟦⟦$0⟧⟧, ⟧LL()defn(⟦SELECT_CASE_⟧LANG_TOTAL_SUM)⟧⟦)⟧)
 
 # expands language (inline text)
 # Note: the symbols ⟦,⟧, ⟦#⟧, ⟦dnl⟧ _WILL_NOT_ affects the subsequent text
@@ -63,6 +63,6 @@ define(⟦XLANG_REGEX⟧, ⟦patsubst(⟧LL()$defn(⟦LANG_INDEX_⟧LANG_CODE)�
 # expands language without leading and trailing white chars
 # Note: the symbols ⟦#⟧, ⟦dnl⟧ _WILL_NOT_ affects the subsequent text
 # A → β
-define(⟦XLANG_REGEX2⟧, defn(⟦EXPAND_CASE_⟧LANG_INDEX_LAST))
+define(⟦XLANG_REGEX2⟧, defn(⟦EXPAND_CASE_⟧LANG_TOTAL_SUM))
 # a safer variant
-#define(⟦XLANG_REGEX2⟧, ⟦ifelse(⟦$#⟧, ⟦0⟧, ⟦⟦$0⟧⟧, ⟧LL()defn(⟦EXPAND_CASE_⟧LANG_INDEX_LAST)⟧⟦)⟧)
+#define(⟦XLANG_REGEX2⟧, ⟦ifelse(⟦$#⟧, ⟦0⟧, ⟦⟦$0⟧⟧, ⟧LL()defn(⟦EXPAND_CASE_⟧LANG_TOTAL_SUM)⟧⟦)⟧)

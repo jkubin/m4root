@@ -31,7 +31,7 @@ define(⟦C_STRING_EXPAND_CASE_1⟧, ⟦patsubst(patsubst(patsubst(⟦⟦⟦$1
 
 # multi-lingual c string
 # A → β
-define(⟦C_STRING_EXPAND_CASE_⟧LANG_INDEX_LAST, ⟦patsubst(patsubst(patsubst(⟧LL()LL()LL()$defn(⟦LANG_INDEX_⟧LANG_CODE)⟧⟧⟧⟦, ⟦\s*\s*⟧, ⟦"⟧), ⟦
+define(⟦C_STRING_EXPAND_CASE_⟧LANG_TOTAL_SUM, ⟦patsubst(patsubst(patsubst(⟧LL()LL()LL()$defn(⟦LANG_INDEX_⟧LANG_CODE)⟧⟧⟧⟦, ⟦\s*\s*⟧, ⟦"⟧), ⟦
 ⟧, ⟦\\n"
 "⟧), ⟦\<dnl\>\|#⟧, ⟦⟦\&⟧⟧)⟧)
 
@@ -48,7 +48,7 @@ PARA_COUNTER_APPENDIX(0)
 # A → β
 define(⟦PARA⟧, ⟦
 
-	define(⟦PARA_PTR_NAME⟧, ch_para_⟦⟧PARA_COUNTER)
+	define(⟦PARA_PTR_NAME⟧, ⟦ch_para_⟧PARA_COUNTER)
 
 	divert(PARAGRAPHS)dnl
 static char PARA_PTR_NAME[] =
@@ -62,7 +62,7 @@ divert(-1)
 # A → β
 define(⟦PARA_APPENDIX⟧, ⟦
 
-	define(⟦PARA_PTR_NAME⟧, ap_para_⟦⟧PARA_COUNTER_APPENDIX)
+	define(⟦PARA_PTR_NAME⟧, ⟦ap_para_⟧PARA_COUNTER_APPENDIX)
 
 	divert(PARAGRAPHS)dnl
 static char PARA_PTR_NAME[] =
@@ -110,6 +110,7 @@ define(⟦CHAPTER_NEXT⟧, ⟦
 
 	# increment index
 	CHAPTER_COUNTER
+
 	define(⟦SECT1_COUNTER_val⟧, 0)
 	define(⟦SECT2_COUNTER_val⟧, 0)
 	define(⟦SECT3_COUNTER_val⟧, 0)
@@ -143,6 +144,7 @@ define(⟦SECT1_ARTICLE⟧, ⟦
 
 	# increment index
 	SECT1_COUNTER
+
 	define(⟦SECT2_COUNTER_val⟧, 0)
 
 	divert(CHAPTER_ARRAY)dnl
@@ -155,6 +157,7 @@ define(⟦SECT2_ARTICLE⟧, ⟦
 
 	# increment index
 	SECT2_COUNTER
+
 	define(⟦SECT3_COUNTER_val⟧, 0)
 
 	divert(CHAPTER_ARRAY)dnl
