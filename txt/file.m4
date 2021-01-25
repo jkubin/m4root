@@ -23,7 +23,7 @@ define(⟦TEXTDATA⟧, ⟦
 	⟧)
 
 	divert(CURRQU)dnl
-SARG2(GIT_CSV) defn(⟦#FILE⟧)
+SARG3(GIT_CSV) defn(⟦#FILE⟧)
 TEXTDATA_PROCESS_RAW_DATA(defn(⟦#FILE⟧), ⟦$3⟧, $4)dnl	prepare command
 esyscmd(defn(⟦COMMAND_FOR_TEXTDATA⟧))
 divert(-1)

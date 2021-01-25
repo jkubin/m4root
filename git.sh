@@ -6,17 +6,25 @@
 cat << EOF
 # DO NOT EDIT! This file is generated automatically!
 #
-# This is a simple associative file database.
+# this is a simple associative file database
 #
-# define(⟦./path/to/file⟧, ⟦⟦git commit hash⟧, ⟦git abbreviated commit hash⟧, ⟦git author date⟧, ⟦abbreviated sha1sum⟧, ⟦size [B]⟧, ⟦file type⟧⟧)
+# define(⟦./path/to/file⟧, ⟦⟦anchor id⟧, ⟦git commit hash⟧, ⟦git abbreviated commit hash⟧, ⟦git author date⟧, ⟦abbreviated sha1sum⟧, ⟦size [B]⟧, ⟦file type⟧⟧)
 #
 EOF
+
+# extract namespace from the config file
+namespace=$(m4 gfiles/root0u.m4 config.m4 nsp.m4)
 
 for filename in $@; do
 
 	if [ -f "$filename" ]; then
+
+		anchor=${filename//./-}
+		anchor=${anchor//\//_}
+		anchor=${anchor,,}
+
 #		git ls-files --error-unmatch $filename || exit -1
-		git log -1 --date='format:%Y%m%d %T' --pretty="format:define(⟦./$filename⟧, ⟦⟦%H⟧, ⟦%h⟧, ⟦%ad⟧, ⟦" -- $filename
+		git log -1 --date='format:%Y%m%d %T' --pretty="format:define(⟦./$filename⟧, ⟦⟦$namespace$anchor⟧, ⟦%H⟧, ⟦%h⟧, ⟦%ad⟧, ⟦" -- $filename
 		sha1sum $filename | head -c 7
 		stat --printf="⟧, ⟦%s⟧, ⟦%F⟧⟧)\n" $filename
 	fi

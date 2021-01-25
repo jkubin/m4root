@@ -10,7 +10,7 @@ define(⟦IMG_SRC⟧, ⟦$2⟧)
 define(⟦OTHER_LANGUAGE⟧, defn(⟦OTHER_LANG_PATH⟧))
 
 # path for generated files
-define(⟦SRC_FILE_PATH⟧, ⟦⟦https://raw.githubusercontent.com/jkubin/m4root/⟧define(⟦GIT_CSV⟧, defn(⟦./$1⟧))SARG1(GIT_CSV)⟦/$1⟧⟧)
+define(⟦SRC_FILE_PATH⟧, ⟦⟦https://raw.githubusercontent.com/jkubin/m4root/⟧define(⟦GIT_CSV⟧, defn(⟦./$1⟧))SARG2(GIT_CSV)⟦/$1⟧⟧)
 
 # creates the resulting skeleton
 # A → β

@@ -37,12 +37,12 @@ define(⟦TEXTDATA⟧, ⟦
 	# the first is file name, the second is ID (not used here)
 	define(⟦#FILE⟧, SARG1($1))
 
-	# finds a git record from a hash database
+	# finds a record from a hash database
 	define(⟦GIT_CSV⟧, defn(⟦./⟧defn(⟦#FILE⟧)))
 
 	ifelse(defn(⟦GIT_CSV⟧), ⟦⟧, ⟦
 
-		ROOT_ERROR(⟦git record for ‘⟧defn(⟦#FILE⟧)⟦’ not found, regenerate git database⟧)
+		ROOT_ERROR(⟦file record for ‘⟧defn(⟦#FILE⟧)⟦’ not found, regenerate file database⟧)
 	⟧)
 
 	# finds a file id record from a hash database
@@ -59,10 +59,10 @@ define(⟦TEXTDATA⟧, ⟦
 	divert(CURRQU)dnl
 <div id="ADD_ID_RULE(defn(⟦#ID⟧))" class="ADD_CLASS(⟦src⟧)"SET_CSS_LINE_COUNTER($4)><pre⟦⟧ifelse(⟦$2⟧, ⟦⟧, ⟦⟧, ⟦ title="⟦$2⟧"⟧)>$0_SET_PARAMETERS(defn(⟦#FILE⟧), ⟦$3⟧, $4)dnl
 SARG1(esyscmd(defn(⟦COMMAND_FOR_TEXTDATA⟧)))dnl
-</pre><code><span class="ADD_CLASS(⟦sha⟧)">SARG2(GIT_CSV)</span><a href="SRC_FILE_PATH(defn(⟦#FILE⟧))" title="defn(⟦#FILE⟧)
-date: SARG3(GIT_CSV)
-sha1sum: SARG4(GIT_CSV)
-size: SARG5(GIT_CSV) B">patsubst(defn(⟦#FILE⟧),
+</pre><code><span class="ADD_CLASS(⟦sha⟧)">SARG3(GIT_CSV)</span><a href="SRC_FILE_PATH(defn(⟦#FILE⟧))" title="defn(⟦#FILE⟧)
+date: SARG4(GIT_CSV)
+sha1sum: SARG5(GIT_CSV)
+size: SARG6(GIT_CSV) B">patsubst(defn(⟦#FILE⟧),
 ⟦.*/⟧)</a><span class="ADD_CLASS(⟦cb⟧)" title="WORD_CLIPBOARD"></span><a href="⟦#⟧defn(⟦#ID⟧)" title="⚓"></a></code></div>
 divert(-1)
 
