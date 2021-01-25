@@ -31,38 +31,40 @@ define(⟦EXPAND_CASE_⟧LANG_TOTAL_SUM, ⟦patsubst(patsubst(⟧LL()LL()$defn(
 define(⟦SELECT_REQUIRED_ITEM⟧, ⟦ifdef(⟦SELECT_CASE_$#⟧, ⟦SELECT_CASE_$#($@)⟧, ⟦ROOT_ERROR(⟦the number of language entries is not consistent⟧)⟧)⟧)
 define(⟦EXPAND_REQUIRED_ITEM⟧, ⟦ifdef(⟦EXPAND_CASE_$#⟧, ⟦EXPAND_CASE_$#($@)⟧, ⟦ROOT_ERROR(⟦the number of language entries is not consistent⟧)⟧)⟧)
 
-# selects language
-# Note: the selected text is _NOT_ processed through REGEX, the symbols ⟦,⟧, ⟦#⟧, ⟦dnl⟧ _WILL_ affects the trailing text
+# selects language, note: the selected text is _NOT_ processed through REGEX, the symbols ⟦,⟧ and ⟦#⟧ and ⟦dnl⟧ _WILL_ affects the trailing text
 # A → β
 define(⟦LANG⟧, LL()$defn(⟦LANG_INDEX_⟧LANG_CODE)⟧)
 #
 # a safer variant of the above macro:
 # define(⟦LANG⟧, ⟦ifelse(⟦$#⟧, ⟦0⟧, ⟦⟦$0⟧⟧, ⟧LL()LL()$defn(⟦LANG_INDEX_⟧LANG_CODE)⟧⟧⟦)⟧)
 
-# selects language for inline text, the macro hides M4 symbols
-# Note: the symbols ⟦,⟧, ⟦#⟧, ⟦dnl⟧ _WILL_NOT_ affects the subsequent text
+# expands language, note: the selected text is _NOT_ processed through REGEX, the symbols ⟦,⟧ and ⟦#⟧ and ⟦dnl⟧ _WILL_ affects the trailing text
 # A → β
-define(⟦LANG_REGEX⟧, ⟦patsubst(⟧LL()LL()$defn(⟦LANG_INDEX_⟧LANG_CODE)⟧⟧⟦, ⟦\<dnl\>\|[#,]⟧, ⟦⟦\&⟧⟧)⟧)
-# a safer variant
-# define(⟦LANG_REGEX⟧, ⟦ifelse(⟦$#⟧, ⟦0⟧, ⟦⟦$0⟧⟧, ⟧LL()⟦patsubst(⟧LL()LL()$defn(⟦LANG_INDEX_⟧LANG_CODE)⟧⟧⟦, ⟦\<dnl\>\|[#,]⟧, ⟦⟦\&⟧⟧)⟧⟧⟦)⟧)
+define(⟦XLANG⟧, $defn(⟦LANG_INDEX_⟧LANG_CODE))
+#
+# a safer variant of the above macro:
+# define(⟦XLANG⟧, ⟦ifelse(⟦$#⟧, ⟦0⟧, ⟦⟦$0⟧⟧, ⟧LL()LL()$defn(⟦LANG_INDEX_⟧LANG_CODE)⟧⟧⟦)⟧)
 
-# selects language without leading and trailing white chars
-# Note: the symbols ⟦#⟧, ⟦dnl⟧ _WILL_NOT_ affects the subsequent text
+# selects language for inline text, the macro hides M4 symbols, note: the symbols ⟦,⟧ and ⟦#⟧ and ⟦dnl⟧ _WILL_NOT_ affects the subsequent text
 # A → β
-define(⟦LANG_REGEX2⟧, defn(⟦SELECT_CASE_⟧LANG_TOTAL_SUM))
+define(⟦LANG_RE⟧, ⟦patsubst(⟧LL()LL()$defn(⟦LANG_INDEX_⟧LANG_CODE)⟧⟧⟦, ⟦\<dnl\>\|[#,]⟧, ⟦⟦\&⟧⟧)⟧)
 # a safer variant
-# define(⟦LANG_REGEX2⟧, ⟦ifelse(⟦$#⟧, ⟦0⟧, ⟦⟦$0⟧⟧, ⟧LL()defn(⟦SELECT_CASE_⟧LANG_TOTAL_SUM)⟧⟦)⟧)
+# define(⟦LANG_RE⟧, ⟦ifelse(⟦$#⟧, ⟦0⟧, ⟦⟦$0⟧⟧, ⟧LL()⟦patsubst(⟧LL()LL()$defn(⟦LANG_INDEX_⟧LANG_CODE)⟧⟧⟦, ⟦\<dnl\>\|[#,]⟧, ⟦⟦\&⟧⟧)⟧⟧⟦)⟧)
 
-# expands language (inline text)
-# Note: the symbols ⟦,⟧, ⟦#⟧, ⟦dnl⟧ _WILL_NOT_ affects the subsequent text
+# selects language without leading and trailing white chars, note: the symbols ⟦#⟧ and ⟦dnl⟧ _WILL_NOT_ affects the subsequent text
 # A → β
-define(⟦XLANG_REGEX⟧, ⟦patsubst(⟧LL()$defn(⟦LANG_INDEX_⟧LANG_CODE)⟧⟦, ⟦\<dnl\>\|[#,]⟧, ⟦⟦\&⟧⟧)⟧)
+define(⟦LANG_RE2⟧, defn(⟦SELECT_CASE_⟧LANG_TOTAL_SUM))
 # a safer variant
-#define(⟦XLANG_REGEX⟧, ⟦ifelse(⟦$#⟧, ⟦0⟧, ⟦⟦$0⟧⟧, ⟧LL()⟦patsubst(⟧LL()$defn(⟦LANG_INDEX_⟧LANG_CODE)⟧⟦, ⟦\<dnl\>\|[#,]⟧, ⟦⟦\&⟧⟧)⟧⟧⟦)⟧)
+# define(⟦LANG_RE2⟧, ⟦ifelse(⟦$#⟧, ⟦0⟧, ⟦⟦$0⟧⟧, ⟧LL()defn(⟦SELECT_CASE_⟧LANG_TOTAL_SUM)⟧⟦)⟧)
 
-# expands language without leading and trailing white chars
-# Note: the symbols ⟦#⟧, ⟦dnl⟧ _WILL_NOT_ affects the subsequent text
+# expands language (inline text), note: the symbols ⟦,⟧ and ⟦#⟧ and ⟦dnl⟧ _WILL_NOT_ affects the subsequent text
 # A → β
-define(⟦XLANG_REGEX2⟧, defn(⟦EXPAND_CASE_⟧LANG_TOTAL_SUM))
+define(⟦XLANG_RE⟧, ⟦patsubst(⟧LL()$defn(⟦LANG_INDEX_⟧LANG_CODE)⟧⟦, ⟦\<dnl\>\|[#,]⟧, ⟦⟦\&⟧⟧)⟧)
 # a safer variant
-#define(⟦XLANG_REGEX2⟧, ⟦ifelse(⟦$#⟧, ⟦0⟧, ⟦⟦$0⟧⟧, ⟧LL()defn(⟦EXPAND_CASE_⟧LANG_TOTAL_SUM)⟧⟦)⟧)
+#define(⟦XLANG_RE⟧, ⟦ifelse(⟦$#⟧, ⟦0⟧, ⟦⟦$0⟧⟧, ⟧LL()⟦patsubst(⟧LL()$defn(⟦LANG_INDEX_⟧LANG_CODE)⟧⟦, ⟦\<dnl\>\|[#,]⟧, ⟦⟦\&⟧⟧)⟧⟧⟦)⟧)
+
+# expands language without leading and trailing white chars, note: the symbols ⟦#⟧ and ⟦dnl⟧ _WILL_NOT_ affects the subsequent text
+# A → β
+define(⟦XLANG_RE2⟧, defn(⟦EXPAND_CASE_⟧LANG_TOTAL_SUM))
+# a safer variant
+#define(⟦XLANG_RE2⟧, ⟦ifelse(⟦$#⟧, ⟦0⟧, ⟦⟦$0⟧⟧, ⟧LL()defn(⟦EXPAND_CASE_⟧LANG_TOTAL_SUM)⟧⟦)⟧)
