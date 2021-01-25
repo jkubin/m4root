@@ -39,8 +39,11 @@ define(⟦JAVASCRIPT_CODE_END⟧,	QUEUE_INDEX)
 define(⟦JAVASCRIPT_CODE_INIT⟧,	QUEUE_INDEX)
 define(⟦END_OF_DOCUMENT⟧,	QUEUE_INDEX)
 
-# auxiliary command line queue
-define(⟦COMMAND_ARGS_QUEUE⟧,	QUEUE_INDEX)
+# auxiliary queues to generate a more complex code
+define(⟦AUXILIARY_1_QUEUE⟧,	QUEUE_INDEX)
+define(⟦AUXILIARY_2_QUEUE⟧,	QUEUE_INDEX)
+define(⟦AUXILIARY_3_QUEUE⟧,	QUEUE_INDEX)
+define(⟦AUXILIARY_4_QUEUE⟧,	QUEUE_INDEX)
 
 # (optionally) forget the counter and its internal value
 undefine(
