@@ -2,7 +2,7 @@
 #
 # DO NOT EDIT! This file is generated automatically!
 #
-# __SOURCE(⟦intro.mc⟧, ⟦20210124-11:14:18⟧, ⟦92feda7⟧, ⟦6d01629⟧)
+# __SOURCE(⟦intro.mc⟧, ⟦20210125-20:34:22⟧, ⟦6369fff⟧, ⟦6369fff⟧)
 
 8
 Generování kódu v M4: úvod
@@ -565,9 +565,6 @@ Vstupní zdrojový kód je podobný CSV (Comma Separated Values), který se pře
 Zásobníky v příkladech nejsou použity.
 Vstupní zdrojový kód obsahuje speciální znaky, které je nutné skrýt:
 
-1201
-[]
-
 1203
 [poznámka]
 
@@ -580,9 +577,6 @@ Vstupní soubor může také obsahovat poznámky, které nemusí být skryté v 
 1218
 Tento příklad nepoužívá výstupní fronty, pouze vypisuje CSV (Comma Separated Values) oddělené znakem  na standardní výstup.
 
-1225
-[]
-
 1230
  CSV: počítadlo
 
@@ -591,12 +585,6 @@ Příklad používá makro  ze souboru , jehož  (pravá strana přepisovacího 
 Během první expanze  proběhne inicializace jeho startovací hodnoty.
 Další expanze vrátí číselný terminální symbol a proběhne zvýšení vnitřního pomocného (globálního) symbolu o jedničku.
  je malý automat.
-
-1250
-[]
-
-1255
-[]
 
 1260
 (jak se to dělá) Úpravy speciálních znaků
@@ -656,9 +644,6 @@ Příklad spustí externí příkaz  a jeho výstup umístí do hranatých závo
 Výstupem externího příkazu jsou dvě položky oddělené čárkou.
 Makro  vybere první položku, protože druhá položka obsahuje nežádoucí znak nového řádku  ().
 
-1381
-[]
-
 1393
  .h: hex počítadlo
 
@@ -667,9 +652,6 @@ Příklad používá makro  pro číslování výsledných CPP (Preprocesor jazy
 Fronta číslo  obsahuje direktivu preprocesoru  pro zakončení hlavičkového souboru.
 Převod dekadické hodnoty počítadla na dvoumístné hex-a číslo provádí klíčové slovo .
 
-1411
-[]
-
 1422
  C: malý automat
 
@@ -677,23 +659,11 @@ Převod dekadické hodnoty počítadla na dvoumístné hex-a číslo provádí k
 Příklad používá malý automat  pro generování znaku nového řádku  a jednu výstupní frontu číslo  do které se vloží znaky  pro uzavření výsledného řetězce.
 Poprvé se  přepíše na  (epsilon – prázdný symbol), podruhé a dále se přepíše na .
 
-1438
-[]
-
-1445
-[]
-
 1450
  C: malý automat 2
 
 1457
 Tento příklad je podobný předchozímu, avšak každý řetězec je na novém řádku.
-
-1464
-[]
-
-1466
-[]
 
 1469
  HTML: výstupní fronty
@@ -713,9 +683,6 @@ Příklad ukazuje větvení gramatikou, argumenty maker se ignorují.
 Vstupní neterminály se přepisují na terminály (🐛),
 (🐜),
 (🐝).
-
-1518
-[]
 
 1524
 Větvení gramatikou – základní princip
@@ -756,9 +723,6 @@ Indexy je proto vhodné generovat.
 Můžeme pak používat prakticky neomezený počet front.
 Následující příklad ukazuje, jak se tyto indexy generují.
 
-1625
-[]
-
 1631
  INI: nespojitý index front
 
@@ -766,9 +730,6 @@ Následující příklad ukazuje, jak se tyto indexy generují.
 Příklad používá tři automaty a dvě výstupní fronty číslo  a  definované v odděleném souboru.
 Názvy INI sekcí jsou generovány řetězením symbolů (viz. větvení).
 Příklad používá stejný soubor pro výstupní fronty jako příklad pro generování JSON.
-
-1649
-[]
 
 1654
  XML: smíšené zprávy
@@ -809,15 +770,6 @@ Apostrof  ve zdrojovém kódu ničemu nevadí.
 Apostrof uvnitř makra  je skryt do makra .
 Všimněte si jmen funkcí  nebo  a kde je expandován .
 
-1749
-[]
-
-1753
-[]
-
-1759
-[]
-
 1765
  CSS: vložení souboru, komentář
 
@@ -829,27 +781,12 @@ Komentáře se vypínají stejným klíčovým slovem  bez parametrů.
 1783
 [soubor vložený makro procesorem]
 
-1784
-[]
-
-1785
-[]
-
-1787
-[]
-
 1790
  Bash: netisknutelné znaky
 
 1797
 Bash používá oba znaky,  a .
 Nechceme-li je skrývat do makra , můžeme použít pro řízení expanze neterminálů netisknutelné znaky (zobrazené jako UTF-8 znaky), viz. příklad:
-
-1806
-[]
-
-1807
-[]
 
 1812
 M4: příklady
@@ -875,9 +812,6 @@ Počítadla  a  jsou definována v souboru .
 Neterminály  nebudou expandovány, pouze se odeberou vnější závorky.
 Nutno použít makro  z kořenového souboru.
 
-1859
-[]
-
 1868
  .h: závorky , , , 
 
@@ -888,24 +822,12 @@ Závorky kolem znaku komentáře  vypnou jeho původní význam, stejně jako vy
 Vypnou také původní význam čárky  jako oddělovače argumentů maker.
 Tyto symboly se stanou obyčejnými terminálními symboly bez jakéhokoliv vedlejšího efektu.
 
-1890
-[]
-
-1896
-[]
-
 1902
  AWK: příklady bezpečnějších maker
 
 1909
 Univerzální výstraha  se ignoruje bez závorek, stejně jako , , …
 Taková makra explicitně vytváří vývojář skriptů, prohlédněte si kořenový soubor .
-
-1918
-[]
-
-1925
-[]
 
 1935
 Proč používat M4 a proč ne?

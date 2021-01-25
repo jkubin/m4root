@@ -1,9 +1,9 @@
 /*
  * DO NOT EDIT! This file is generated automatically!
- * generated: 20210124-11:14:18
+ * generated: 20210125-23:25:50
  *
- * __SOURCE(⟦c/c.m4⟧, ⟦20210124-11:13:46⟧, ⟦6d01629⟧, ⟦6d01629⟧)
- * __SOURCE(⟦intro.mc⟧, ⟦20210124-10:18:49⟧, ⟦92feda7⟧, ⟦6d01629⟧)
+ * __SOURCE(⟦c/c.m4⟧, ⟦20210125-14:44:24⟧, ⟦dcc3f72⟧, ⟦590aa90⟧)
+ * __SOURCE(⟦intro.mc⟧, ⟦20210125-23:12:24⟧, ⟦8449b39⟧, ⟦590aa90⟧)
  *
  * Generování kódu v M4: úvod
  */
