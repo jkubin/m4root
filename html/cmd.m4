@@ -1,24 +1,28 @@
 __AUTHOR(⟦Josef Kubin⟧, ⟦2020,04,26⟧)
-___DESCR(⟦processes command line with a list of files⟧)
-__REASON(⟦generates HTML code⟧)
+___DESCR(⟦processes the command line with a list of files⟧)
+__REASON(⟦generates an appropriate HTML code⟧)
 
 # CMDBARE(⟦⟦cmd⟧, ⟦file.1⟧, ⟦file.2⟧, …, ⟦file.n⟧⟧)
 # CMDBARE(⟦⟦cmd -o a,b,c -DMACRO⟧, ⟦file.1,⟦-o x,y,z⟧⟧, ⟦file.2,⟦-DFOO=bar⟧⟧, …, ⟦file.n,⟦2>&1⟧⟧⟧)
+# …
+# CMDFILE(⟦⟦cmd⟧, ⟦file1.src⟧, ⟦file2.src⟧, …, ⟦file.dst⟧⟧)
+# CMDFILE(⟦⟦cmd -o a,b,c -DMACRO⟧, ⟦file1.src,⟦-o x,y,z⟧⟧, ⟦file2.src,⟦-DFOO=bar⟧⟧, …, ⟦file.dst,⟦2>&1⟧⟧⟧)
+# …
 #
 # Or with attributes:
-#
 # CMDBARE(⟦id⟧, ⟦⟦cmd⟧, ⟦file.1⟧, ⟦file.2⟧, …, ⟦file.n⟧⟧)
 # CMDBARE(⟦id⟧, ⟦title⟧, ⟦⟦cmd⟧, ⟦file.1⟧, ⟦file.2⟧, …, ⟦file.n⟧⟧)
 # CMDBARE(⟦id⟧, ⟦title⟧, ⟦class⟧, ⟦⟦cmd⟧, ⟦file.1⟧, ⟦file.2⟧, …, ⟦file.n⟧⟧)
 # CMDBARE(⟦id⟧, ⟦title⟧, ⟦class⟧, ⟦style⟧, ⟦⟦cmd⟧, ⟦file.1⟧, ⟦file.2⟧, …, ⟦file.n⟧⟧)
 # CMDBARE(⟦id⟧, ⟦title⟧, ⟦class⟧, ⟦style⟧, ⟦anything⟧, ⟦⟦cmd⟧, ⟦file.1⟧, ⟦file.2⟧, …, ⟦file.n⟧⟧)
-#
-# CMDFILE(⟦⟦cmd⟧, ⟦file1.src⟧, ⟦file2.src⟧, …, ⟦file.dst⟧⟧)
-# CMDFILE(⟦⟦cmd -o a,b,c -DMACRO⟧, ⟦file1.src,⟦-o x,y,z⟧⟧, ⟦file2.src,⟦-DFOO=bar⟧⟧, …, ⟦file.dst,⟦2>&1⟧⟧⟧)
 # …
 # CMDFILE(⟦id⟧, …, ⟦⟦cmd⟧, ⟦input/file1.src⟧, ⟦input/file2.src⟧, …, ⟦output/file.dst⟧⟧)
 # …
+# CMDBARE_ROOT(⟦⟦cmd⟧, ⟦file.1⟧, ⟦file.2⟧, …, ⟦file.n⟧⟧)
+# CMDFILE_ROOT(⟦⟦cmd⟧, ⟦file1.src⟧, ⟦file2.src⟧, …, ⟦file.dst⟧⟧)
+# …
 
+# β
 pushdef(⟦ID_1_BARE⟧,	⟦ifelse(⟦$#⟧, ⟦1⟧, ⟦NSP()anch-ANCH_COUNTER_val⟧, ⟦$1⟧, ⟦⟧, ⟦NSP()anch-ANCH_COUNTER_val⟧, ⟦ADD_ID_MONO(⟦$1⟧)⟧)⟧)
 pushdef(⟦ID_1_FILE⟧,	⟦ifelse(⟦$#⟧, ⟦1⟧, ⟦SARG1(GIT_CSV)⟦-command⟧⟧, ⟦$1⟧, ⟦⟧, ⟦SARG1(GIT_CSV)⟦-command⟧⟧, ⟦ADD_ID_MONO(⟦$1⟧)⟧)⟧)
 pushdef(⟦TITLE_2⟧,	⟦⟦⟧ifelse(⟦$#⟧, ⟦2⟧, ⟦⟧, ⟦$2⟧, ⟦⟧, ⟦⟧, ⟦⟦ title="$2"⟧⟧)⟧)
@@ -37,7 +41,7 @@ divert(AUXILIARY_2_QUEUE)dnl
 </pre><code><span class="ADD_CLASS(⟦cb⟧)" title="defn(⟦WORD_CLIPBOARD⟧)"></span><a href="⟦#⟧divert(AUXILIARY_3_QUEUE)" title="⚓"></a></code></div>
 divert(-1)
 
-	COMMAND_LINE_LIST_OUTPUT_FILE(⟧defn(⟦EXPAND_LAST_ARG⟧)⟦)
+	COMMAND_WITH_INPUT_FILES_AND_OUTPUT_FILE(⟧defn(⟦EXPAND_LAST_ARG⟧)⟦)
 
 	# finish the resulting HTML code
 	divert(CURRQU)dnl
@@ -59,7 +63,7 @@ divert(AUXILIARY_2_QUEUE)dnl
 </pre><code><span class="ADD_CLASS(⟦cb⟧)" title="defn(⟦WORD_CLIPBOARD⟧)"></span><a href="⟦#⟧divert(AUXILIARY_3_QUEUE)" title="⚓"></a></code></div>
 divert(-1)
 
-	COMMAND_LINE_LIST_OUTPUT_FILE(⟧defn(⟦EXPAND_LAST_ARG⟧)⟦)
+	COMMAND_WITH_INPUT_FILES_AND_OUTPUT_FILE(⟧defn(⟦EXPAND_LAST_ARG⟧)⟦)
 
 	# finish the resulting HTML code
 	divert(CURRQU)dnl
@@ -71,7 +75,7 @@ divert(-1)
 ⟧)
 
 # A → β
-define(⟦COMMAND_LINE_LIST_OUTPUT_FILE⟧, ⟦
+define(⟦COMMAND_WITH_INPUT_FILES_AND_OUTPUT_FILE⟧, ⟦
 
 	ifelse(eval(⟦$# > 2⟧), ⟦1⟧, ⟦⟧, ⟦
 
@@ -82,11 +86,11 @@ define(⟦COMMAND_LINE_LIST_OUTPUT_FILE⟧, ⟦
 ⟦$1⟧ dnl print the first item (a command)
 divert(-1)
 
-	COMMAND_INPUT_FILES_TO_OUTPUT_FILE(shift($@))
+	INPUT_FILES_AND_OUTPUT_FILE(shift($@))
 ⟧)
 
 # A → β
-define(⟦COMMAND_INPUT_FILES_TO_OUTPUT_FILE⟧, ⟦
+define(⟦INPUT_FILES_AND_OUTPUT_FILE⟧, ⟦
 
 	# set the git csv record for the file from the associative memory
 	define(⟦GIT_CSV⟧, defn(⟦./⟧SARG1($1)))
@@ -121,7 +125,7 @@ define(⟦CMDBARE⟧, ⟦
 <div id="⟧defn(⟦ID_1_BARE⟧)⟦"⟧defn(⟦CLASS_3_USRC⟧)⟦><pre⟧defn(⟦TITLE_2⟧, ⟦STYLE_4⟧, ⟦ANYTHING_5⟧)⟦>dnl
 divert(-1)
 
-	COMMAND_LINE_LIST(⟧defn(⟦EXPAND_LAST_ARG⟧)⟦)
+	COMMAND_AND_VARIOUS_FILES(⟧defn(⟦EXPAND_LAST_ARG⟧)⟦)
 
 	divert(CURRQU)dnl
 </pre><code><span class="ADD_CLASS(⟦cb⟧)" title="defn(⟦WORD_CLIPBOARD⟧)"></span><a href="⟦#⟧⟧defn(⟦ID_1_BARE⟧)⟦" title="⚓"></a></code></div>
@@ -139,7 +143,7 @@ define(⟦CMDBARE_ROOT⟧, ⟦
 <div id="⟧defn(⟦ID_1_BARE⟧)⟦"⟧defn(⟦CLASS_3_ROOT⟧)⟦><pre⟧defn(⟦TITLE_2⟧, ⟦STYLE_4⟧, ⟦ANYTHING_5⟧)⟦>dnl
 divert(-1)
 
-	COMMAND_LINE_LIST(⟧defn(⟦EXPAND_LAST_ARG⟧)⟦)
+	COMMAND_AND_VARIOUS_FILES(⟧defn(⟦EXPAND_LAST_ARG⟧)⟦)
 
 	divert(CURRQU)dnl
 </pre><code><span class="ADD_CLASS(⟦cb⟧)" title="defn(⟦WORD_CLIPBOARD⟧)"></span><a href="⟦#⟧⟧defn(⟦ID_1_BARE⟧)⟦" title="⚓"></a></code></div>
@@ -147,17 +151,17 @@ divert(-1)
 ⟧)
 
 # A → β
-define(⟦COMMAND_LINE_LIST⟧, ⟦
+define(⟦COMMAND_AND_VARIOUS_FILES⟧, ⟦
 
 	divert(CURRQU)dnl
 ⟦$1⟧ dnl print the first item (a command)
 divert(-1)
 
-	COMMAND_FILES(shift($@))
+	VARIOUS_FILES_AFTER_COMMAND(shift($@))
 ⟧)
 
 # A → β
-define(⟦COMMAND_FILES⟧, ⟦
+define(⟦VARIOUS_FILES_AFTER_COMMAND⟧, ⟦
 
 	# set the file csv record from the associative memory
 	define(⟦GIT_CSV⟧, defn(⟦./⟧SARG1($1)))
