@@ -1,7 +1,7 @@
 # vim:ts=16:sw=16
 
 __AUTHOR(⟦Josef Kubin⟧, ⟦2020,05,31⟧)
-___DESCR(⟦initialization code of each target⟧)
+___DESCR(⟦initialization code for each target⟧)
 __REASON(⟦reduces code duplication⟧)
 
 # β
@@ -35,6 +35,7 @@ define(⟦PART_INIT⟧, ⟦
 	SECT2_COUNTER(0)
 	SECT3_COUNTER(0)
 
-	define(⟦ANCH_COUNTER_val⟧, ⟦1⟧)
+	# if not explicitly defined ID, defines an automatically generated
+	define(⟦ANCH_COUNTER_val⟧, ⟦0⟧)
 	define(⟦ANCH_COUNTER⟧, ⟦define(⟦ANCH_COUNTER_val⟧, incr(ANCH_COUNTER_val))⟧)
 ⟧)
