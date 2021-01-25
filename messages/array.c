@@ -4,6 +4,6 @@
 
 char *error[] = {
 	"!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~",
-	"Too complex M4 code failed successfully.",
+	"Complex M4 code failed successfully.",
 	"It's not a language fault!",
 };

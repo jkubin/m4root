@@ -5,7 +5,7 @@
 	],
 	"error": [
 		{"COMPLEX": "!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~"},
-		{"SUCCESS": "Too complex M4 code failed successfully."},
+		{"SUCCESS": "Complex M4 code failed successfully."},
 		{"NO_FAULT": "It's not a language fault!"}
 	],
 	"warning": [

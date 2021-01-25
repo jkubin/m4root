@@ -4,5 +4,5 @@
 
 char error[] =
 "!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~\n"
-"Too complex M4 code failed successfully.\n"
+"Complex M4 code failed successfully.\n"
 "It's not a language fault!";
