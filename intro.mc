@@ -1198,7 +1198,7 @@ Stacks in the examples are not used.
 The input source code contains special characters that must be hidden:
 ⟧⟧)
 
-TEXTDATA(⟦messages/messages_raw.mc⟧,, ⟦s/\<ERROR\>/HH(r)/g⟧)
+TEXTDATA(⟦⟦messages/messages_raw.mc⟧, ⟦s/\<ERROR\>/HH(r)/g⟧⟧)
 
 NOTE(, defn(⟦WORD_NOTE⟧), ⟦⟦
 Vstupní soubor může také obsahovat poznámky, které nemusí být skryté v⟦⟧NB()komentářích XCODE(⟦#⟧), XCODE(⟦dnl⟧), CODE(⟦ifelse(⟦…⟧)⟧) nebo CODE(⟦⟦… někde uvnitř závorek …⟧⟧).
@@ -1222,9 +1222,9 @@ Tento příklad nepoužívá výstupní fronty, HEXPLAIN(⟦pouze vypisuje⟧, �
 This example does not use output queues, HEXPLAIN(⟦it only prints⟧, ⟦⟦⟦R, 5⟧, ⟦messages/hello.csv.m4⟧⟧, ⟦⟦1-3⟧, ⟦messages/hello.csv⟧⟧, ⟦⟦R, 3, 5, 7⟧, ⟦messages/messages_raw.mc⟧⟧⟧) ABBREV(⟦CSV⟧, ⟦Comma Separated Values⟧) separated by CODE(⟦TAB⟧) to HEXPLAIN(⟦standard output⟧, ⟦⟦⟦4⟧, ⟦messages/hello.csv.m4⟧⟧⟧).
 ⟧⟧)
 
-TEXTDATA(⟦messages/hello.csv.m4⟧,, ⟦s/\<ERROR\>/HH(r)/g⟧)
-CMDFILES(⟦⟦m4⟧, ⟦gfiles/root0u.m4⟧, ⟦messages/hello.csv.m4⟧, ⟦messages/messages_raw.mc⟧, ⟦messages/hello.csv⟧⟧)
-TEXTDATA(⟦messages/hello.csv⟧)
+TEXTDATA(⟦⟦messages/hello.csv.m4⟧, ⟦s/\<ERROR\>/HH(r)/g⟧⟧)
+CMDFILES(⟦⟦m4⟧, ⟦gfiles/root0u.m4⟧, ⟦messages/hello.csv.m4⟧, ⟦messages/messages_raw.mc,⟦GT()⟧⟧, ⟦messages/hello.csv⟧⟧)
+TEXTDATA(⟦⟦messages/hello.csv⟧⟧)
 
 
 SECT1(⟦⟦
@@ -1247,14 +1247,14 @@ HEXPLAIN(⟦Further expansion⟧, ⟦⟦⟦B⟧, ⟦messages/counter.csv.m4⟧�
 CODE(⟦COUNTER⟧) is a⟦⟧NB()small automaton.
 ⟧⟧)
 
-TEXTDATA(⟦messages/counter.csv.m4⟧,, ⟦
+TEXTDATA(⟦⟦messages/counter.csv.m4⟧, ⟦
 s/\<COUNT_UP\>/HH(a)/
 /\<ERR_\>/s/\<COUNTER\>/HH(b)/
-⟧)
-CMDFILES(⟦⟦m4⟧, ⟦gfiles/root0u.m4⟧, ⟦gfiles/countu.m4⟧, ⟦messages/counter.csv.m4⟧, ⟦messages/messages_raw.mc⟧, ⟦messages/counter.csv⟧⟧)
-TEXTDATA(⟦messages/counter.csv⟧,, ⟦
+⟧⟧)
+CMDFILES(⟦⟦m4⟧, ⟦gfiles/root0u.m4⟧, ⟦gfiles/countu.m4⟧, ⟦messages/counter.csv.m4⟧, ⟦messages/messages_raw.mc,⟦GT()⟧⟧, ⟦messages/counter.csv⟧⟧)
+TEXTDATA(⟦⟦messages/counter.csv⟧, ⟦
 /^ERR_/s/[[:digit:]]\+/HH(a)/
-⟧)
+⟧⟧)
 
 
 SECT1(⟦⟦
@@ -1282,9 +1282,10 @@ Upravený vstupní kód
 Modified input code
 ⟧⟧)
 
-TEXTDATA(⟦messages/messages.mc⟧, LANG(⟦všechny speciální znaky jsou skryty do maker⟧, ⟦all special characters are hidden into macros⟧), ⟦
+TEXTDATA(, LANG(⟦všechny speciální znaky jsou skryty do maker⟧, ⟦all special characters are hidden into macros⟧),
+⟦⟦messages/messages.mc⟧, ⟦
 s/[[:upper:]]\+()/HH(a)/g
-⟧)
+⟧⟧)
 
 TODO: zkotrolovat
 _PARA(⟦⟦
@@ -1300,7 +1301,8 @@ BRIDGEHEAD(⟦⟦
 CODE(⟦⟦⟧⟧) conv_file XML⟦,⟧ XSLT⟦,⟧ HTML
 ⟧⟧)
 
-TEXTDATA(⟦messages/markup.m4⟧, LANG(⟦převodní soubor pro značkovací jazyky⟧, ⟦conversion file for markup languages⟧))
+TEXTDATA(, LANG(⟦převodní soubor pro značkovací jazyky⟧, ⟦conversion file for markup languages⟧),
+⟦⟦messages/markup.m4⟧⟧)
 
 # hide  ‘"’ → DQ(), because of title="… &quot; … &quot; …"
 BRIDGEHEAD(⟦⟦
@@ -1310,7 +1312,8 @@ CODE(⟦⟦⟧⟧) conv_file C⟦,⟧ JSON⟦,⟧ INI: XCODE(⟦DQ()řetězec⟦
 CODE(⟦⟦⟧⟧) conv_file C⟦,⟧ JSON⟦,⟧ INI: XCODE(⟦DQ()string⟦⟧DQ()⟧)
 ⟧⟧)
 
-TEXTDATA(⟦messages/code.m4⟧, LANG(⟦převodní soubor pro zdrojový kód⟧, ⟦conversion file for a source code⟧))
+TEXTDATA(, LANG(⟦převodní soubor pro zdrojový kód⟧, ⟦conversion file for a source code⟧),
+⟦⟦messages/code.m4⟧⟧)
 
 # hide ‘"’ → DQ(), because of title="… &quot; … &quot; …"
 BRIDGEHEAD(⟦⟦
@@ -1320,7 +1323,8 @@ CODE(⟦⟦⟧⟧) conv_file Bash: XCODE(⟦DQ()řetězec⟦⟧DQ()⟧)
 CODE(⟦⟦⟧⟧) conv_file Bash: XCODE(⟦DQ()string⟦⟧DQ()⟧)
 ⟧⟧)
 
-TEXTDATA(⟦messages/doubleq.m4⟧, XLANG_RE(⟦převodní soubor pro Bash ⟦⟧DQ()řetězce v uvozovkách⟦⟧DQ()⟧, ⟦conversion file for Bash ⟦⟧DQ()strings in quotation marks⟦⟧DQ()⟧))
+TEXTDATA(, XLANG(⟦převodní soubor pro Bash ⟦⟧DQ()řetězce v uvozovkách⟦⟧DQ()⟧, ⟦conversion file for Bash ⟦⟧DQ()strings in quotation marks⟦⟧DQ()⟧),
+⟦⟦messages/doubleq.m4⟧⟧)
 
 BRIDGEHEAD(⟦⟦
 CODE(⟦⟦⟧⟧) conv_file Bash: XCODE(⟦AP()řetězec⟦⟧AP()⟧)
@@ -1329,7 +1333,8 @@ CODE(⟦⟦⟧⟧) conv_file Bash: XCODE(⟦AP()řetězec⟦⟧AP()⟧)
 CODE(⟦⟦⟧⟧) conv_file Bash: XCODE(⟦AP()string⟦⟧AP()⟧)
 ⟧⟧)
 
-TEXTDATA(⟦messages/apost.m4⟧, LANG(⟦převodní soubor pro Bash 'řetězce v apostrofech'⟧, ⟦conversion file for Bash 'strings in apostrophes'⟧))
+TEXTDATA(, LANG(⟦převodní soubor pro Bash 'řetězce v apostrofech'⟧, ⟦conversion file for Bash 'strings in apostrophes'⟧),
+⟦⟦messages/apost.m4⟧⟧)
 
 BRIDGEHEAD(⟦⟦
 CODE(⟦⟦⟧⟧) conv_file CSV⟦,⟧ M4 (vrátí všechny znaky zpátky)
@@ -1338,7 +1343,8 @@ CODE(⟦⟦⟧⟧) conv_file CSV⟦,⟧ M4 (vrátí všechny znaky zpátky)
 CODE(⟦⟦⟧⟧) conv_file CSV⟦,⟧ M4 (returns all characters)
 ⟧⟧)undefine(⟦conv_file⟧)
 
-TEXTDATA(⟦messages/unchanged.m4⟧, LANG(⟦převodní soubor vrátí všechny speciální znaky zpátky⟧, ⟦the conversion file puts all special characters back⟧))
+TEXTDATA(, LANG(⟦převodní soubor vrátí všechny speciální znaky zpátky⟧, ⟦the conversion file puts all special characters back⟧),
+⟦⟦messages/unchanged.m4⟧⟧)
 
 
 SECT1(⟦⟦
@@ -1355,9 +1361,9 @@ Příklad používá jednu HEXPLAIN(⟦výstupní frontu⟧, ⟦⟦⟦15⟧, ⟦
 The example uses one HEXPLAIN(⟦output queue⟧, ⟦⟦⟦15⟧, ⟦messages/array.c.m4⟧⟧⟧) for characters HCODE(⟦};⟧, ⟦⟦⟦16⟧, ⟦messages/array.c.m4⟧⟧, ⟦⟦9⟧, ⟦messages/array.c⟧⟧⟧) to close the HEXPLAIN(⟦array⟧, ⟦⟦⟦6-8⟧, ⟦messages/array.c⟧⟧, ⟦⟦5⟧, ⟦messages/array.c.m4⟧⟧⟧) at the end.
 ⟧⟧)
 
-TEXTDATA(⟦messages/array.c.m4⟧)
-CMDFILES(⟦⟦m4⟧, ⟦gfiles/root0u.m4⟧, ⟦messages/array.c.m4⟧, ⟦messages/code.m4⟧, ⟦messages/messages.mc⟧, ⟦messages/array.c⟧⟧)
-TEXTDATA(⟦messages/array.c⟧)
+TEXTDATA(⟦⟦messages/array.c.m4⟧⟧)
+CMDFILES(⟦⟦m4⟧, ⟦gfiles/root0u.m4⟧, ⟦messages/array.c.m4⟧, ⟦messages/code.m4⟧, ⟦messages/messages.mc,⟦GT()⟧⟧, ⟦messages/array.c⟧⟧)
+TEXTDATA(⟦⟦messages/array.c⟧⟧)
 
 
 SECT1(⟦⟦
@@ -1378,16 +1384,16 @@ The output of an external command are HEXPLAIN(⟦two comma-separated items⟧, 
 The HCODE(⟦SARG1()⟧, ⟦⟦⟦C⟧, ⟦messages/hello.ini.m4⟧⟧⟧) macro HEXPLAIN(⟦selects the first item⟧, ⟦⟦⟦B⟧, ⟦messages/hello.ini.m4⟧⟧⟧) because the second item contains an unwanted CODE(⟦LF⟧) (SAMP(⟦0x0a⟧)) new line character.
 ⟧⟧)
 
-TEXTDATA(⟦messages/hello.ini.m4⟧,, ⟦
+TEXTDATA(⟦⟦messages/hello.ini.m4⟧, ⟦
 /\<esyscmd\>/{
 s/+\([^,]*\)/+<span class="NSP()b">\1<\x2fspan>/
 s/,/HH(a)/
 s/SARG1/HH(c)/
 s/date \x27[^\x27]\+\x27/HH(d)/
 }
-⟧)
-CMDFILES(⟦⟦m4⟧, ⟦gfiles/root0u.m4⟧, ⟦messages/hello.ini.m4⟧, ⟦messages/code.m4⟧, ⟦messages/messages.mc⟧, ⟦messages/hello.ini⟧⟧)
-TEXTDATA(⟦messages/hello.ini⟧)
+⟧⟧)
+CMDFILES(⟦⟦m4⟧, ⟦gfiles/root0u.m4⟧, ⟦messages/hello.ini.m4⟧, ⟦messages/code.m4⟧, ⟦messages/messages.mc,⟦GT()⟧⟧, ⟦messages/hello.ini⟧⟧)
+TEXTDATA(⟦⟦messages/hello.ini⟧⟧)
 
 
 SECT1(⟦⟦
@@ -1408,15 +1414,15 @@ The queue number HCODE(⟦1⟧, ⟦⟦⟦23⟧, ⟦messages/messages.h.m4⟧⟧�
 The decimal value of the counter is converted to the HEXPLAIN(⟦two-digit hex⟧, ⟦⟦⟦B⟧, ⟦messages/messages.h.m4⟧⟧⟧) by keyword HCODE(⟦eval()⟧, ⟦⟦⟦C⟧, ⟦messages/messages.h.m4⟧⟧⟧).
 ⟧⟧)
 
-TEXTDATA(⟦messages/messages.h.m4⟧,, ⟦
+TEXTDATA(⟦⟦messages/messages.h.m4⟧, ⟦
 s/\<COUNTER\>\((0)\)\?/HH(a)/g
 /\<eval\>/{
 s//HH(c)/
 s/\<16, 2\>/HH(b)/
 }
-⟧)
-CMDFILES(⟦⟦m4⟧, ⟦gfiles/root0u.m4⟧, ⟦gfiles/countu.m4⟧, ⟦messages/messages.h.m4⟧, ⟦messages/messages.mc⟧, ⟦messages/messages.h⟧⟧)
-TEXTDATA(⟦messages/messages.h⟧)
+⟧⟧)
+CMDFILES(⟦⟦m4⟧, ⟦gfiles/root0u.m4⟧, ⟦gfiles/countu.m4⟧, ⟦messages/messages.h.m4⟧, ⟦messages/messages.mc,⟦GT()⟧⟧, ⟦messages/messages.h⟧⟧)
+TEXTDATA(⟦⟦messages/messages.h⟧⟧)
 
 
 SECT1(⟦small_automaton⟧, ⟦⟦
@@ -1435,16 +1441,16 @@ The example uses HEXPLAIN(⟦a⟦⟧NB()small automaton⟧, ⟦⟦⟦1-4⟧, ⟦
 Run the first time HCODE(⟦NEW_LINE⟧, ⟦⟦⟦C⟧, ⟦messages/stringl.c.m4⟧⟧⟧), is rewritten to ABBREV(⟦HCODE(⟦ε⟧, ⟦⟦⟦D⟧, ⟦messages/stringl.c.m4⟧⟧⟧)⟧, ⟦epsilon – empty symbol⟧), in all following ones, it is rewritten to HXCODE(⟦LF()⟧, ⟦⟦⟦A⟧, ⟦messages/stringl.c.m4⟧⟧, ⟦⟦A⟧, ⟦messages/stringl.c⟧⟧⟧).
 ⟧⟧)
 
-TEXTDATA(⟦messages/stringl.c.m4⟧,, ⟦
+TEXTDATA(⟦⟦messages/stringl.c.m4⟧, ⟦
 s/\\n/HH(a)/
 s/";/HH(b)/
 s/ε/HH(d)/
 /divert/s/\<NEW_LINE\>/HH(c)/
-⟧)
-CMDFILES(⟦⟦m4⟧, ⟦gfiles/root0u.m4⟧, ⟦messages/stringl.c.m4⟧, ⟦messages/code.m4⟧, ⟦messages/messages.mc⟧, ⟦messages/stringl.c⟧⟧)
-TEXTDATA(⟦messages/stringl.c⟧,, ⟦
+⟧⟧)
+CMDFILES(⟦⟦m4⟧, ⟦gfiles/root0u.m4⟧, ⟦messages/stringl.c.m4⟧, ⟦messages/code.m4⟧, ⟦messages/messages.mc,⟦GT()⟧⟧, ⟦messages/stringl.c⟧⟧)
+TEXTDATA(⟦⟦messages/stringl.c⟧, ⟦
 s/\\n/HH(a)/g
-⟧)
+⟧⟧)
 
 
 SECT1(⟦⟦
@@ -1461,9 +1467,9 @@ Tento příklad je podobný předchozímu, avšak každý řetězec HEXPLAIN(⟦
 This example is similar to the previous one, but each string is on a⟦⟧NB()HEXPLAIN(⟦new line⟧, ⟦⟦⟦A⟧, ⟦messages/string.c.m4⟧⟧, ⟦⟦A⟧, ⟦messages/string.c⟧⟧⟧).
 ⟧⟧)
 
-TEXTDATA_MLH(⟦messages/string.c.m4⟧,, ⟦s/\\n"\n"/HH(a)/⟧)
-CMDFILES(⟦⟦m4⟧, ⟦gfiles/root0u.m4⟧, ⟦messages/string.c.m4⟧, ⟦messages/code.m4⟧, ⟦messages/messages.mc⟧, ⟦messages/string.c⟧⟧)
-TEXTDATA_MLH(⟦messages/string.c⟧,, ⟦s/\\n"\n"/HH(a)/g⟧)
+TEXTDATA_MLH(⟦⟦messages/string.c.m4⟧, ⟦s/\\n"\n"/HH(a)/⟧⟧)
+CMDFILES(⟦⟦m4⟧, ⟦gfiles/root0u.m4⟧, ⟦messages/string.c.m4⟧, ⟦messages/code.m4⟧, ⟦messages/messages.mc,⟦GT()⟧⟧, ⟦messages/string.c⟧⟧)
+TEXTDATA_MLH(⟦⟦messages/string.c⟧, ⟦s/\\n"\n"/HH(a)/g⟧⟧)
 
 
 SECT1(⟦output_queues_html⟧, ⟦⟦
@@ -1488,9 +1494,9 @@ HEXPLAIN(⟦Navigation links⟧, ⟦⟦⟦8⟧, ⟦messages/messages.html.m4⟧�
 The HCODE(⟦QUERY⟧, ⟦⟦⟦15⟧, ⟦messages/messages.html.m4⟧⟧⟧) and HCODE(⟦WARNING⟧, ⟦⟦⟦16⟧, ⟦messages/messages.html.m4⟧⟧⟧) messages are processed in the same way as the HCODE(⟦ERROR⟧, ⟦⟦⟦5-12⟧, ⟦messages/messages.html.m4⟧⟧⟧) messages.
 ⟧⟧)
 
-TEXTDATA(⟦messages/messages.html.m4⟧)
-CMDFILES(⟦⟦m4⟧, ⟦gfiles/root0u.m4⟧, ⟦messages/messages.html.m4⟧, ⟦messages/markup.m4⟧, ⟦messages/messages.mc⟧, ⟦messages/messages.html⟧⟧)
-TEXTDATA(⟦messages/messages.html⟧)
+TEXTDATA(⟦⟦messages/messages.html.m4⟧⟧)
+CMDFILES(⟦⟦m4⟧, ⟦gfiles/root0u.m4⟧, ⟦messages/messages.html.m4⟧, ⟦messages/markup.m4⟧, ⟦messages/messages.mc,⟦GT()⟧⟧, ⟦messages/messages.html⟧⟧)
+TEXTDATA(⟦⟦messages/messages.html⟧⟧)
 
 
 SECT1(⟦branching_in_m4⟧, ⟦⟦
@@ -1513,13 +1519,13 @@ HCODE(⟦QUERY → 🐜⟧, ⟦🐜⟧, ⟦⟦⟦6, 14⟧, ⟦messages/insect.tx
 HCODE(⟦WARNING → 🐝⟧, ⟦🐝⟧, ⟦⟦⟦6, 15⟧, ⟦messages/insect.txt.m4⟧⟧, ⟦⟦C⟧, ⟦messages/insect.txt⟧⟧⟧).
 ⟧⟧)
 
-TEXTDATA(⟦messages/insect.txt.m4⟧)
-CMDFILES(⟦⟦m4⟧, ⟦gfiles/root0u.m4⟧, ⟦messages/insect.txt.m4⟧, ⟦messages/messages.mc⟧, ⟦messages/insect.txt⟧⟧)
-TEXTDATA(⟦messages/insect.txt⟧,, ⟦
+TEXTDATA(⟦⟦messages/insect.txt.m4⟧⟧)
+CMDFILES(⟦⟦m4⟧, ⟦gfiles/root0u.m4⟧, ⟦messages/insect.txt.m4⟧, ⟦messages/messages.mc,⟦GT()⟧⟧, ⟦messages/insect.txt⟧⟧)
+TEXTDATA(⟦⟦messages/insect.txt⟧, ⟦
 s/🐛/HH(a)/g
 s/🐜/HH(b)/g
 s/🐝/HH(c)/g
-⟧)
+⟧⟧)
 
 BRIDGEHEAD(⟦branching_by_grammar⟧, ⟦⟦
 Větvení gramatikou – základní princip
@@ -1570,9 +1576,9 @@ The following error messages in the HCODE(⟦NEXT_ITEM⟧, ⟦⟦⟦20-25⟧, �
 At the end the output queue number HCODE(⟦1⟧, ⟦⟦⟦14⟧, ⟦messages/atm.json.m4⟧⟧⟧) and number HCODE(⟦2⟧, ⟦⟦⟦30⟧, ⟦messages/atm.json.m4⟧⟧⟧) print the characters HXCODE(⟦]⟧, ⟦⟦⟦15⟧, ⟦messages/atm.json.m4⟧⟧, ⟦⟦7⟧, ⟦messages/atm.json⟧⟧⟧) and HCODE(⟦}}⟧, ⟦⟦⟦31⟧, ⟦messages/atm.json.m4⟧⟧, ⟦⟦8⟧, ⟦messages/atm.json⟧⟧⟧) to close the resulting JSON.
 ⟧⟧)
 
-TEXTDATA(⟦messages/atm.json.m4⟧)
-CMDFILES(⟦⟦m4⟧, ⟦gfiles/root0u.m4⟧, ⟦messages/atm.json.m4⟧, ⟦messages/code.m4⟧, ⟦messages/messages.mc⟧, ⟦messages/atm.json⟧⟧)
-TEXTDATA(⟦messages/atm.json⟧)
+TEXTDATA(⟦⟦messages/atm.json.m4⟧⟧)
+CMDFILES(⟦⟦m4⟧, ⟦gfiles/root0u.m4⟧, ⟦messages/atm.json.m4⟧, ⟦messages/code.m4⟧, ⟦messages/messages.mc,⟦GT()⟧⟧, ⟦messages/atm.json⟧⟧)
+TEXTDATA(⟦⟦messages/atm.json⟧⟧)
 
 
 SECT2(⟦json_branch⟧, ⟦⟦
@@ -1597,9 +1603,9 @@ To avoid confusion, we use queue names instead of numbers.
 To avoid having to define similar rules, we copy the right side of CODE(⟦ERROR⟧) (it is also a⟦⟧NB()ABBREV(⟦HCODE(⟦β⟧, ⟦⟦⟦21⟧, ⟦messages/qnames.json.m4⟧⟧⟧) rule⟧, ⟦the rule is used as the right side of another rewriting rule⟧)) to the right side of the CODE(⟦QUERY⟧) and CODE(⟦WARNING⟧) rules.
 ⟧⟧)
 
-TEXTDATA(⟦messages/qnames.json.m4⟧)
-CMDFILES(⟦⟦m4⟧, ⟦gfiles/root0u.m4⟧, ⟦messages/qnames.json.m4⟧, ⟦messages/code.m4⟧, ⟦messages/messages.mc⟧, ⟦messages/qnames.json⟧⟧)
-TEXTDATA(⟦messages/qnames.json⟧)
+TEXTDATA(⟦⟦messages/qnames.json.m4⟧⟧)
+CMDFILES(⟦⟦m4⟧, ⟦gfiles/root0u.m4⟧, ⟦messages/qnames.json.m4⟧, ⟦messages/code.m4⟧, ⟦messages/messages.mc,⟦GT()⟧⟧, ⟦messages/qnames.json⟧⟧)
+TEXTDATA(⟦⟦messages/qnames.json⟧⟧)
 
 
 SECT2(⟦json_symbolic_queue_names⟧, ⟦⟦
@@ -1622,10 +1628,10 @@ We can then use a⟦⟧NB()virtually unlimited number of queues.
 The following example shows how these indexes are generated.
 ⟧⟧)
 
-TEXTDATA(⟦messages/queues.m4⟧,, ⟦/\<QUEUE_INDEX\>)$/s/\<QUEUE_INDEX\>/HH(a)/⟧)
-TEXTDATA(⟦messages/messages.json.m4⟧)
-CMDFILES(⟦⟦m4⟧, ⟦gfiles/root0u.m4⟧, ⟦gfiles/countu.m4⟧, ⟦messages/queues.m4⟧, ⟦messages/messages.json.m4⟧, ⟦messages/code.m4⟧, ⟦messages/messages.mc⟧, ⟦messages/messages.json⟧⟧)
-TEXTDATA(⟦messages/messages.json⟧)
+TEXTDATA(⟦⟦messages/queues.m4⟧, ⟦/\<QUEUE_INDEX\>)$/s/\<QUEUE_INDEX\>/HH(a)/⟧⟧)
+TEXTDATA(⟦⟦messages/messages.json.m4⟧⟧)
+CMDFILES(⟦⟦m4⟧, ⟦gfiles/root0u.m4⟧, ⟦gfiles/countu.m4⟧, ⟦messages/queues.m4⟧, ⟦messages/messages.json.m4⟧, ⟦messages/code.m4⟧, ⟦messages/messages.mc,⟦GT()⟧⟧, ⟦messages/messages.json⟧⟧)
+TEXTDATA(⟦⟦messages/messages.json⟧⟧)
 
 
 SECT1(⟦⟦
@@ -1646,9 +1652,9 @@ HEXPLAIN(⟦INI section names⟧, ⟦⟦⟦11⟧, ⟦messages/messages.ini.m4⟧
 The example uses the same file for output queues as the LINK(⟦example⟧, ⟦json_symbolic_queue_names⟧) to generate JSON.
 ⟧⟧)
 
-TEXTDATA(⟦messages/messages.ini.m4⟧,, ⟦/^\[/s/\(.0\)\(_NAME\)/<span class="NSP()r">\1<\x2fspan><span class="NSP()a">\2<\x2fspan>/⟧)
-CMDFILES(⟦⟦m4⟧, ⟦gfiles/root0u.m4⟧, ⟦messages/messages.ini.m4⟧, ⟦gfiles/countu.m4⟧, ⟦messages/queues.m4⟧, ⟦messages/code.m4⟧, ⟦messages/messages.mc⟧, ⟦messages/messages.ini⟧⟧)
-TEXTDATA(⟦messages/messages.ini⟧)
+TEXTDATA(⟦⟦messages/messages.ini.m4⟧, ⟦/^\[/s/\(.0\)\(_NAME\)/<span class="NSP()r">\1<\x2fspan><span class="NSP()a">\2<\x2fspan>/⟧⟧)
+CMDFILES(⟦⟦m4⟧, ⟦gfiles/root0u.m4⟧, ⟦messages/messages.ini.m4⟧, ⟦gfiles/countu.m4⟧, ⟦messages/queues.m4⟧, ⟦messages/code.m4⟧, ⟦messages/messages.mc,⟦GT()⟧⟧, ⟦messages/messages.ini⟧⟧)
+TEXTDATA(⟦⟦messages/messages.ini⟧⟧)
 
 
 SECT1(⟦⟦
@@ -1665,9 +1671,9 @@ Příklad používá jednu výstupní frontu číslo HCODE(⟦1⟧, ⟦⟦⟦21�
 The example uses one output queue number HCODE(⟦1⟧, ⟦⟦⟦21⟧, ⟦messages/mixed.xml.m4⟧⟧⟧) for the HXCODE(⟦⟦⟧LT()/messages⟦⟧GT()⟧, ⟦⟦⟦22⟧, ⟦messages/mixed.xml.m4⟧⟧, ⟦⟦28⟧, ⟦messages/mixed.xml⟧⟧⟧) closing tag.
 ⟧⟧)
 
-TEXTDATA(⟦messages/mixed.xml.m4⟧)
-CMDFILES(⟦⟦m4⟧, ⟦gfiles/root0u.m4⟧, ⟦messages/queues.m4⟧, ⟦messages/mixed.xml.m4⟧, ⟦messages/markup.m4⟧, ⟦messages/messages.mc⟧, ⟦messages/mixed.xml⟧⟧)
-TEXTDATA(⟦messages/mixed.xml⟧)
+TEXTDATA(⟦⟦messages/mixed.xml.m4⟧⟧)
+CMDFILES(⟦⟦m4⟧, ⟦gfiles/root0u.m4⟧, ⟦messages/queues.m4⟧, ⟦messages/mixed.xml.m4⟧, ⟦messages/markup.m4⟧, ⟦messages/messages.mc,⟦GT()⟧⟧, ⟦messages/mixed.xml⟧⟧)
+TEXTDATA(⟦⟦messages/mixed.xml⟧⟧)
 
 
 SECT1(⟦⟦
@@ -1684,9 +1690,9 @@ Příklad seskupuje zprávy podle jejich typu pomocí výstupních front.
 The example groups messages by their type using output queues.
 ⟧⟧)
 
-TEXTDATA(⟦messages/messages.xml.m4⟧)
-CMDFILES(⟦⟦m4⟧, ⟦gfiles/root0u.m4⟧, ⟦messages/queues.m4⟧, ⟦messages/messages.xml.m4⟧, ⟦messages/markup.m4⟧, ⟦messages/messages.mc⟧, ⟦messages/messages.xml⟧⟧)
-TEXTDATA(⟦messages/messages.xml⟧)
+TEXTDATA(⟦⟦messages/messages.xml.m4⟧⟧)
+CMDFILES(⟦⟦m4⟧, ⟦gfiles/root0u.m4⟧, ⟦messages/queues.m4⟧, ⟦messages/messages.xml.m4⟧, ⟦messages/markup.m4⟧, ⟦messages/messages.mc,⟦GT()⟧⟧, ⟦messages/messages.xml⟧⟧)
+TEXTDATA(⟦⟦messages/messages.xml⟧⟧)
 
 
 SECT1(⟦⟦
@@ -1696,9 +1702,9 @@ CODE(⟦⟦⟧⟧) Bash XCODE(⟦PRMT() echo ⟦⟧DQ()řetězec⟦⟧DQ()⟧)
 CODE(⟦⟦⟧⟧) Bash XCODE(⟦PRMT() echo ⟦⟧DQ()string⟦⟧DQ()⟧)
 ⟧⟧)
 
-TEXTDATA(⟦messages/doubleq.sh.m4⟧)
-CMDFILES(⟦⟦m4⟧, ⟦gfiles/root0u.m4⟧, ⟦messages/doubleq.sh.m4⟧, ⟦messages/doubleq.m4⟧, ⟦messages/messages.mc⟧, ⟦messages/doubleq.sh⟧⟧)
-TEXTDATA(⟦messages/doubleq.sh⟧)
+TEXTDATA(⟦⟦messages/doubleq.sh.m4⟧⟧)
+CMDFILES(⟦⟦m4⟧, ⟦gfiles/root0u.m4⟧, ⟦messages/doubleq.sh.m4⟧, ⟦messages/doubleq.m4⟧, ⟦messages/messages.mc,⟦GT()⟧⟧, ⟦messages/doubleq.sh⟧⟧)
+TEXTDATA(⟦⟦messages/doubleq.sh⟧⟧)
 
 
 SECT1(⟦⟦
@@ -1708,9 +1714,9 @@ CODE(⟦⟦⟧⟧) Bash XCODE(⟦PRMT() echo 'řetězec'⟧)
 CODE(⟦⟦⟧⟧) Bash XCODE(⟦PRMT() echo 'string'⟧)
 ⟧⟧)
 
-TEXTDATA(⟦messages/apost.sh.m4⟧)
-CMDFILES(⟦⟦m4⟧, ⟦gfiles/root0u.m4⟧, ⟦messages/apost.sh.m4⟧, ⟦messages/apost.m4⟧, ⟦messages/messages.mc⟧, ⟦messages/apost.sh⟧⟧)
-TEXTDATA(⟦messages/apost.sh⟧)
+TEXTDATA(⟦⟦messages/apost.sh.m4⟧⟧)
+CMDFILES(⟦⟦m4⟧, ⟦gfiles/root0u.m4⟧, ⟦messages/apost.sh.m4⟧, ⟦messages/apost.m4⟧, ⟦messages/messages.mc,⟦GT()⟧⟧, ⟦messages/apost.sh⟧⟧)
+TEXTDATA(⟦⟦messages/apost.sh⟧⟧)
 
 
 APPENDIX(⟦preproc_examples⟧, ⟦⟦
@@ -1746,20 +1752,20 @@ Apostrophe inside HXCODE(⟦ORD⟦⟧STRIKETHROUGH(⟦SPAN(⟦()⟧,,, ⟦color:
 Note the HCODE(⟦define ()⟧, ⟦⟦⟦17, 27⟧, ⟦preproc/file.c⟧⟧, ⟦⟦17, 27⟧, ⟦preproc/preproc.file.c⟧⟧⟧) or HCODE(⟦ifelse ()⟧, ⟦⟦⟦18, 28⟧, ⟦preproc/file.c⟧⟧, ⟦⟦18, 28⟧, ⟦preproc/preproc.file.c⟧⟧⟧) function names and where the HCODE(⟦SYMBOL⟧, ⟦⟦⟦C⟧, ⟦preproc/file.c⟧⟧, ⟦⟦C⟧, ⟦preproc/preproc.file.c⟧⟧, ⟦⟦C⟧, ⟦preproc/file.c.m4⟧⟧⟧) is expanded.
 ⟧⟧)
 
-TEXTDATA(⟦preproc/file.c.m4⟧,, ⟦
+TEXTDATA(⟦⟦preproc/file.c.m4⟧, ⟦
 s/\<RR()/HH(a)/g
 s/\<SYMBOL\>/HH(c)/g
-⟧)
-TEXTDATA(⟦preproc/file.c⟧,, ⟦
+⟧⟧)
+TEXTDATA(⟦⟦preproc/file.c⟧, ⟦
 s/\x27/HH(a)/g
 s/\<SYMBOL\>/HH(c)/g
 /\<define\>/!s/\<ORD\>/HH(b)/
-⟧)
-CMDFILES(⟦⟦m4 -DSYMBOL='Hello, world!'⟧, ⟦gfiles/root0q.m4⟧, ⟦preproc/file.c.m4⟧, ⟦preproc/file.c⟧, ⟦preproc/preproc.file.c⟧⟧)
-TEXTDATA(⟦preproc/preproc.file.c⟧,, ⟦
+⟧⟧)
+CMDFILES(⟦⟦m4 -DSYMBOL='Hello, world!'⟧, ⟦gfiles/root0q.m4⟧, ⟦preproc/file.c.m4⟧, ⟦preproc/file.c,⟦GT()⟧⟧, ⟦preproc/preproc.file.c⟧⟧)
+TEXTDATA(⟦⟦preproc/preproc.file.c⟧, ⟦
 s/\x27/HH(a)/g
 s/\<SYMBOL\>/HH(c)/g
-⟧)
+⟧⟧)
 
 
 SECT1(⟦⟦
@@ -1780,11 +1786,12 @@ The HCODE(⟦changecom(/*,*/)⟧, ⟦⟦⟦A⟧, ⟦preproc/file.css⟧⟧⟧) k
 The comments can be turned off with the same HCODE(⟦changecom⟧, ⟦⟦⟦B⟧, ⟦preproc/file.css⟧⟧⟧) keyword without parameters.
 ⟧⟧)
 
-TEXTDATA(⟦preproc/foo.css⟧, LANG(⟦soubor vložený makro procesorem⟧, ⟦file embedded by the macro processor⟧))
-TEXTDATA(⟦preproc/file.css.m4⟧,, ⟦/\<define\>/s/#/HH(a)/⟧)
-TEXTDATA(⟦preproc/file.css⟧,, ⟦s/changecom(\/\*,\*\/)/HH(a)/;s/^changecom/HH(b)/;/\<DONTE\>/{/\<changecom\>/!s:/\*.*\*/:HH(c):}⟧)
-CMDFILES(⟦⟦m4 -DSYMBOL='Hello, world!'⟧, ⟦gfiles/root0q.m4⟧, ⟦preproc/file.css.m4⟧, ⟦preproc/file.css⟧, ⟦preproc/preproc.file.css⟧⟧)
-TEXTDATA(⟦preproc/preproc.file.css⟧,, ⟦s/#/HH(a)/g;/\<DONTE\>/s:/\*.*\*/:HH(b):⟧)
+TEXTDATA(, LANG(⟦soubor vložený makro procesorem⟧, ⟦file embedded by the macro processor⟧),
+⟦⟦preproc/foo.css⟧⟧)
+TEXTDATA(⟦⟦preproc/file.css.m4⟧, ⟦/\<define\>/s/#/HH(a)/⟧⟧)
+TEXTDATA(⟦⟦preproc/file.css⟧, ⟦s/changecom(\/\*,\*\/)/HH(a)/;s/^changecom/HH(b)/;/\<DONTE\>/{/\<changecom\>/!s:/\*.*\*/:HH(c):}⟧⟧)
+CMDFILES(⟦⟦m4 -DSYMBOL='Hello, world!'⟧, ⟦gfiles/root0q.m4⟧, ⟦preproc/file.css.m4⟧, ⟦preproc/file.css,⟦GT()⟧⟧, ⟦preproc/preproc.file.css⟧⟧)
+TEXTDATA(⟦⟦preproc/preproc.file.css⟧, ⟦s/#/HH(a)/g;/\<DONTE\>/s:/\*.*\*/:HH(b):⟧⟧)
 
 
 SECT1(⟦nprint_bash⟧, ⟦⟦
@@ -1803,10 +1810,10 @@ Bash uses both CODE(⟦`⟧) and XCODE(⟦[⟧) characters.
 If we do not want to hide them in an CODE(⟦LL()⟧) macro, we can use HEXPLAIN(⟦nonprintable characters⟧, ⟦displayed as UTF-8 characters⟧, ⟦⟦⟦A⟧, ⟦preproc/file.sh.m4⟧⟧, ⟦⟦A⟧, ⟦preproc/file.sh⟧⟧⟧) for LINK(⟦expansion control⟧, ⟦expansion_control⟧), see the example:
 ⟧⟧)
 
-TEXTDATA(⟦preproc/file.sh.m4⟧,, ⟦s/[␂␆]/HH(a)/g⟧)
-TEXTDATA(⟦preproc/file.sh⟧,, ⟦s/[␂␆]/HH(a)/g⟧)
-CMDFILES(⟦⟦m4 -DSYMBOL='Hello, world!'⟧, ⟦gfiles/root0n.m4⟧, ⟦preproc/file.sh.m4⟧, ⟦preproc/file.sh⟧, ⟦preproc/preproc.file.sh⟧⟧)
-TEXTDATA(⟦preproc/preproc.file.sh⟧)
+TEXTDATA(⟦⟦preproc/file.sh.m4⟧, ⟦s/[␂␆]/HH(a)/g⟧⟧)
+TEXTDATA(⟦⟦preproc/file.sh⟧, ⟦s/[␂␆]/HH(a)/g⟧⟧)
+CMDFILES(⟦⟦m4 -DSYMBOL='Hello, world!'⟧, ⟦gfiles/root0n.m4⟧, ⟦preproc/file.sh.m4⟧, ⟦preproc/file.sh,⟦GT()⟧⟧, ⟦preproc/preproc.file.sh⟧⟧)
+TEXTDATA(⟦⟦preproc/preproc.file.sh⟧⟧)
 
 
 APPENDIX(⟦m4_on_examples⟧, ⟦⟦
@@ -1833,9 +1840,9 @@ The CODE(⟦[… nonterminals are not expanded …]⟧) inside square brackets.
 Therefore, the left square bracket XCODE(⟦[⟧) is replaced by the HCODE(⟦LL()⟧, ⟦⟦⟦6⟧, ⟦hello_world/json.m4⟧⟧, ⟦⟦3⟧, ⟦hello_world/hello_world.json⟧⟧⟧) macro defined in the root file.
 ⟧⟧)
 
-TEXTDATA(⟦hello_world/json.m4⟧)
-CMDFILES(⟦⟦m4 -DSYMBOL='Hello, world!'⟧, ⟦gfiles/root0b.m4⟧, ⟦hello_world/json.m4⟧, ⟦hello_world/hello_world.json⟧⟧)
-TEXTDATA(⟦hello_world/hello_world.json⟧)
+TEXTDATA(⟦⟦hello_world/json.m4⟧⟧)
+CMDFILES(⟦⟦m4 -DSYMBOL='Hello, world!'⟧, ⟦gfiles/root0b.m4⟧, ⟦hello_world/json.m4,⟦GT()⟧⟧, ⟦hello_world/hello_world.json⟧⟧)
+TEXTDATA(⟦⟦hello_world/hello_world.json⟧⟧)
 
 
 SECT1(⟦⟦
@@ -1856,13 +1863,13 @@ The HEXPLAIN(⟦nonterminals⟧, ⟦⟦⟦C⟧, ⟦hello_world/sh.m4⟧⟧⟧) H
 The HCODE(⟦LL()⟧, ⟦⟦⟦30⟧, ⟦hello_world/sh.m4⟧⟧, ⟦⟦15⟧, ⟦hello_world/hello_world.sh⟧⟧⟧) macro defined in the root file must be used.
 ⟧⟧)
 
-TEXTDATA(⟦hello_world/sh.m4⟧,, ⟦
+TEXTDATA(⟦⟦hello_world/sh.m4⟧, ⟦
 s/\<COUNT_UP\>/HH(a)/
 s/\<COUNT_DOWN\>/HH(b)/
 /^define/s/\<LEFT\>\|\<OP\>\|\<RIGHT\>/HH(c)/
-⟧)
-CMDFILES(⟦⟦m4 -DSYMBOL='Hello, world!'⟧, ⟦gfiles/root0u.m4⟧, ⟦gfiles/countu.m4⟧, ⟦hello_world/sh.m4⟧, ⟦hello_world/hello_world.sh⟧⟧)
-TEXTDATA(⟦hello_world/hello_world.sh⟧)
+⟧⟧)
+CMDFILES(⟦⟦m4 -DSYMBOL='Hello, world!'⟧, ⟦gfiles/root0u.m4⟧, ⟦gfiles/countu.m4⟧, ⟦hello_world/sh.m4,⟦GT()⟧⟧, ⟦hello_world/hello_world.sh⟧⟧)
+TEXTDATA(⟦⟦hello_world/hello_world.sh⟧⟧)
 
 
 SECT1(⟦symbols_in_brackets⟧, ⟦⟦
@@ -1887,16 +1894,16 @@ They also turn off the original meaning of the comma CODE(⟦[,]⟧) as a⟦⟧N
 These symbols become ordinary terminal symbols without any side effect.
 ⟧⟧)
 
-TEXTDATA(⟦hello_world/h.m4⟧,, ⟦
+TEXTDATA(⟦⟦hello_world/h.m4⟧, ⟦
 s/\[]/HH(a)/g
 s/\[#]/HH(b)/
 s/\[dnl]/HH(c)/
-⟧)
-CMDFILES(⟦⟦m4 -DSYMBOL='Hello, world!'⟧, ⟦gfiles/root0b.m4⟧, ⟦hello_world/h.m4⟧, ⟦hello_world/hello_world.h⟧⟧)
-TEXTDATA(⟦hello_world/hello_world.h⟧,, ⟦
+⟧⟧)
+CMDFILES(⟦⟦m4 -DSYMBOL='Hello, world!'⟧, ⟦gfiles/root0b.m4⟧, ⟦hello_world/h.m4,⟦GT()⟧⟧, ⟦hello_world/hello_world.h⟧⟧)
+TEXTDATA(⟦⟦hello_world/hello_world.h⟧, ⟦
 s/#/HH(b)/
 s/\<dnl\>/HH(c)/
-⟧)
+⟧⟧)
 
 
 SECT1(⟦safe_example⟧, ⟦⟦
@@ -1915,19 +1922,19 @@ The universal alert HCODE(⟦DONTE⟧, ⟦⟦⟦A⟧, ⟦hello_world/awk.m4⟧�
 Such macros are explicitly created by a⟦⟧NB()script developer, see the root file CODE(⟦root1b.m4⟧).
 ⟧⟧)
 
-TEXTDATA(⟦hello_world/awk.m4⟧,, ⟦
+TEXTDATA(⟦⟦hello_world/awk.m4⟧, ⟦
 /\<BEGIN\>/{
 s/\<DONTE\>/HH(a)/
 s/\<LL\>/HH(b)/
 }
-⟧)
-CMDFILES(⟦⟦m4 -DSYMBOL='Hello, world!'⟧, ⟦gfiles/root1b.m4⟧, ⟦hello_world/awk.m4⟧, ⟦hello_world/hello_world.awk⟧⟧)
-TEXTDATA(⟦hello_world/hello_world.awk⟧,, ⟦
+⟧⟧)
+CMDFILES(⟦⟦m4 -DSYMBOL='Hello, world!'⟧, ⟦gfiles/root1b.m4⟧, ⟦hello_world/awk.m4,⟦GT()⟧⟧, ⟦hello_world/hello_world.awk⟧⟧)
+TEXTDATA(⟦⟦hello_world/hello_world.awk⟧, ⟦
 /\<BEGIN\>/{
 s/\<DONTE\>/HH(a)/
 s/\<LL\>/HH(b)/
 }
-⟧)
+⟧⟧)
 
 
 # A → ε
