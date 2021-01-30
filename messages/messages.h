@@ -5,8 +5,8 @@
 #ifndef __ERROR_H
 #define __ERROR_H
 
-#define COMPLEX    0x00
-#define SUCCESS    0x01
-#define NO_FAULT    0x02
+#define COMPLEX	0x00
+#define SUCCESS	0x01
+#define NO_FAULT	0x02
 
 #endif /* __ERROR_H */

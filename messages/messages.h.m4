@@ -8,7 +8,7 @@ COUNTER(0)
 define(⟦ERROR⟧, ⟦
 
 	divert(0)dnl
-⟦#define $1    0x⟧eval(COUNTER, 16, 2)
+⟦#define $1	0x⟧eval(COUNTER, 16, 2)
 divert(-1)
 ⟧)
 
