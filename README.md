@@ -2,7 +2,7 @@
 ![m4tux](img/m4tux.png?raw=true)
 1. install packages
 ```
-# dnf -y install m4 pinfo make tidy git-core langpacks-cs ImageMagick
+# dnf install -y m4 pinfo make tidy git-core langpacks-cs ImageMagick
 ```
 2. generate files to generate other files
 ```
@@ -26,18 +26,22 @@ $ make doc
 $ make article spell
 $ make preview publish
 ```
-> or simply
+> or generate all targets multilingually
+```
+$ make cl
+$ make
+$ make
+```
+> or generate all targets monolingually
 ```
 $ make cl
 $ make SOURCE=intro.mc ex=cs
-$ make
+$ make SOURCE=intro.mc ex=cs
 ```
-> or generate different rules for `Makefile`
+> or generate certain targets monolingually
 ```
 $ make cl
-$ make src fhtml SOURCE=intro.mc ex=cs
-$ make h
-$ make doc
-$ make
+$ make c txt html SOURCE=intro.mc ex=cs
+$ make c txt html SOURCE=intro.mc ex=cs
 ```
 ### Contact (Base64): bTR1bml4QGdtYWlsLmNvbQ
