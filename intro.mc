@@ -1484,17 +1484,17 @@ Příklad používá HEXPLAIN(⟦dvě výstupní fronty⟧, ⟦⟦⟦9, 27, 29�
 Fronta číslo HCODE(⟦1⟧, ⟦⟦⟦9, 27⟧, ⟦messages/messages.html.m4⟧⟧⟧) obsahuje HEXPLAIN(⟦odstavce⟧, ⟦⟦⟦10⟧, ⟦messages/messages.html.m4⟧⟧, ⟦⟦16-21⟧, ⟦messages/messages.html⟧⟧⟧),
 fronta číslo HCODE(⟦2⟧, ⟦⟦⟦29⟧, ⟦messages/messages.html.m4⟧⟧⟧) HEXPLAIN(⟦uzavírací značky HTML⟧, ⟦⟦⟦30-31⟧, ⟦messages/messages.html.m4⟧⟧, ⟦⟦22-23⟧, ⟦messages/messages.html⟧⟧⟧) stránky.
 HEXPLAIN(⟦Navigační odkazy⟧, ⟦⟦⟦8⟧, ⟦messages/messages.html.m4⟧⟧, ⟦⟦9-14⟧, ⟦messages/messages.html⟧⟧⟧) nemusí být nikde uloženy, HEXPLAIN(⟦jdou přímo na výstup⟧, ⟦⟦⟦7⟧, ⟦messages/messages.html.m4⟧⟧⟧).
-Zprávy typu HCODE(⟦QUERY⟧, ⟦⟦⟦15⟧, ⟦messages/messages.html.m4⟧⟧⟧) a⟦⟧NB()HCODE(⟦WARNING⟧, ⟦⟦⟦16⟧, ⟦messages/messages.html.m4⟧⟧⟧) jsou zpracovány stejně jako zprávy typu HCODE(⟦ERROR⟧, ⟦⟦⟦5-12⟧, ⟦messages/messages.html.m4⟧⟧⟧).
+Zprávy typu HCODE(⟦QUERY⟧, ⟦⟦⟦15⟧, ⟦messages/messages.html.m4⟧⟧⟧) a⟦⟧NB()HCODE(⟦WARNING⟧, ⟦⟦⟦16⟧, ⟦messages/messages.html.m4⟧⟧⟧) jsou zpracovány stejně jako zprávy typu HCODE(⟦ERROR⟧, ⟦⟦⟦A, 5-12⟧, ⟦messages/messages.html.m4⟧⟧⟧).
 ⟧,dnl ↓ lang_en
 ⟦
 The example uses HEXPLAIN(⟦two output queues⟧, ⟦⟦⟦9, 27, 29⟧, ⟦messages/messages.html.m4⟧⟧⟧).
 The queue number HCODE(⟦1⟧, ⟦⟦⟦9, 27⟧, ⟦messages/messages.html.m4⟧⟧⟧) contains HEXPLAIN(⟦paragraphs⟧, ⟦⟦⟦10⟧, ⟦messages/messages.html.m4⟧⟧, ⟦⟦16-21⟧, ⟦messages/messages.html⟧⟧⟧).
 The queue number HCODE(⟦2⟧, ⟦⟦⟦29⟧, ⟦messages/messages.html.m4⟧⟧⟧) contains HEXPLAIN(⟦closing HTML tags⟧, ⟦⟦⟦30-31⟧, ⟦messages/messages.html.m4⟧⟧, ⟦⟦22-23⟧, ⟦messages/messages.html⟧⟧⟧).
 HEXPLAIN(⟦Navigation links⟧, ⟦⟦⟦8⟧, ⟦messages/messages.html.m4⟧⟧, ⟦⟦9-14⟧, ⟦messages/messages.html⟧⟧⟧) do not have to be stored anywhere, they HEXPLAIN(⟦go straight to the output⟧, ⟦⟦⟦7⟧, ⟦messages/messages.html.m4⟧⟧⟧).
-The HCODE(⟦QUERY⟧, ⟦⟦⟦15⟧, ⟦messages/messages.html.m4⟧⟧⟧) and HCODE(⟦WARNING⟧, ⟦⟦⟦16⟧, ⟦messages/messages.html.m4⟧⟧⟧) messages are processed in the same way as the HCODE(⟦ERROR⟧, ⟦⟦⟦5-12⟧, ⟦messages/messages.html.m4⟧⟧⟧) messages.
+The HCODE(⟦QUERY⟧, ⟦⟦⟦15⟧, ⟦messages/messages.html.m4⟧⟧⟧) and HCODE(⟦WARNING⟧, ⟦⟦⟦16⟧, ⟦messages/messages.html.m4⟧⟧⟧) messages are processed in the same way as the HCODE(⟦ERROR⟧, ⟦⟦⟦A, 5-12⟧, ⟦messages/messages.html.m4⟧⟧⟧) messages.
 ⟧⟧)
 
-TEXTDATA(⟦⟦messages/messages.html.m4⟧⟧)
+TEXTDATA(⟦⟦messages/messages.html.m4⟧, ⟦/defn(\\u27e6;ERROR\\u27e7;)/s/ERROR/HH(a)/⟧⟧)
 CMDFILES(⟦⟦m4⟧, ⟦gfiles/root0u.m4⟧, ⟦messages/messages.html.m4⟧, ⟦messages/markup.m4⟧, ⟦messages/messages.mc,⟦GT()⟧⟧, ⟦messages/messages.html⟧⟧)
 TEXTDATA(⟦⟦messages/messages.html⟧⟧)
 
@@ -1761,7 +1761,7 @@ s/\x27/HH(a)/g
 s/\<SYMBOL\>/HH(c)/g
 /\<define\>/!s/\<ORD\>/HH(b)/
 ⟧⟧)
-CMDFILES(⟦⟦m4 -DSYMBOL='Hello, world!'⟧, ⟦gfiles/root0q.m4⟧, ⟦preproc/file.c.m4⟧, ⟦preproc/file.c,⟦GT()⟧⟧, ⟦preproc/preproc.file.c⟧⟧)
+CMDFILES(⟦⟦m4 -DSYMBOL='Hello⟦,⟧ world!'⟧, ⟦gfiles/root0q.m4⟧, ⟦preproc/file.c.m4⟧, ⟦preproc/file.c,⟦GT()⟧⟧, ⟦preproc/preproc.file.c⟧⟧)
 TEXTDATA(⟦⟦preproc/preproc.file.c⟧, ⟦
 s/\x27/HH(a)/g
 s/\<SYMBOL\>/HH(c)/g
@@ -1786,11 +1786,10 @@ The HCODE(⟦changecom(/*,*/)⟧, ⟦⟦⟦A⟧, ⟦preproc/file.css⟧⟧⟧) k
 The comments can be turned off with the same HCODE(⟦changecom⟧, ⟦⟦⟦B⟧, ⟦preproc/file.css⟧⟧⟧) keyword without parameters.
 ⟧⟧)
 
-TEXTDATA(, LANG(⟦soubor vložený makro procesorem⟧, ⟦file embedded by the macro processor⟧),
-⟦⟦preproc/foo.css⟧⟧)
+TEXTDATA(, LANG(⟦soubor vložený makro procesorem⟧, ⟦file embedded by the macro processor⟧), ⟦⟦preproc/foo.css⟧⟧)
 TEXTDATA(⟦⟦preproc/file.css.m4⟧, ⟦/\<define\>/s/#/HH(a)/⟧⟧)
 TEXTDATA(⟦⟦preproc/file.css⟧, ⟦s/changecom(\/\*,\*\/)/HH(a)/;s/^changecom/HH(b)/;/\<DONTE\>/{/\<changecom\>/!s:/\*.*\*/:HH(c):}⟧⟧)
-CMDFILES(⟦⟦m4 -DSYMBOL='Hello, world!'⟧, ⟦gfiles/root0q.m4⟧, ⟦preproc/file.css.m4⟧, ⟦preproc/file.css,⟦GT()⟧⟧, ⟦preproc/preproc.file.css⟧⟧)
+CMDFILES(⟦⟦m4 -DSYMBOL='Hello⟦,⟧ world!'⟧, ⟦gfiles/root0q.m4⟧, ⟦preproc/file.css.m4⟧, ⟦preproc/file.css,⟦GT()⟧⟧, ⟦preproc/preproc.file.css⟧⟧)
 TEXTDATA(⟦⟦preproc/preproc.file.css⟧, ⟦s/#/HH(a)/g;/\<DONTE\>/s:/\*.*\*/:HH(b):⟧⟧)
 
 
@@ -1812,7 +1811,7 @@ If we do not want to hide them in an CODE(⟦LL()⟧) macro, we can use HEXPLAIN
 
 TEXTDATA(⟦⟦preproc/file.sh.m4⟧, ⟦s/[␂␆]/HH(a)/g⟧⟧)
 TEXTDATA(⟦⟦preproc/file.sh⟧, ⟦s/[␂␆]/HH(a)/g⟧⟧)
-CMDFILES(⟦⟦m4 -DSYMBOL='Hello, world!'⟧, ⟦gfiles/root0n.m4⟧, ⟦preproc/file.sh.m4⟧, ⟦preproc/file.sh,⟦GT()⟧⟧, ⟦preproc/preproc.file.sh⟧⟧)
+CMDFILES(⟦⟦m4 -DSYMBOL='Hello⟦,⟧ world!'⟧, ⟦gfiles/root0n.m4⟧, ⟦preproc/file.sh.m4⟧, ⟦preproc/file.sh,⟦GT()⟧⟧, ⟦preproc/preproc.file.sh⟧⟧)
 TEXTDATA(⟦⟦preproc/preproc.file.sh⟧⟧)
 
 
@@ -1841,7 +1840,7 @@ Therefore, the left square bracket XCODE(⟦[⟧) is replaced by the HCODE(⟦LL
 ⟧⟧)
 
 TEXTDATA(⟦⟦hello_world/json.m4⟧⟧)
-CMDFILES(⟦⟦m4 -DSYMBOL='Hello, world!'⟧, ⟦gfiles/root0b.m4⟧, ⟦hello_world/json.m4,⟦GT()⟧⟧, ⟦hello_world/hello_world.json⟧⟧)
+CMDFILES(⟦⟦m4 -DSYMBOL='Hello⟦,⟧ world!'⟧, ⟦gfiles/root0b.m4⟧, ⟦hello_world/json.m4,⟦GT()⟧⟧, ⟦hello_world/hello_world.json⟧⟧)
 TEXTDATA(⟦⟦hello_world/hello_world.json⟧⟧)
 
 
@@ -1868,7 +1867,7 @@ s/\<COUNT_UP\>/HH(a)/
 s/\<COUNT_DOWN\>/HH(b)/
 /^define/s/\<LEFT\>\|\<OP\>\|\<RIGHT\>/HH(c)/
 ⟧⟧)
-CMDFILES(⟦⟦m4 -DSYMBOL='Hello, world!'⟧, ⟦gfiles/root0u.m4⟧, ⟦gfiles/countu.m4⟧, ⟦hello_world/sh.m4,⟦GT()⟧⟧, ⟦hello_world/hello_world.sh⟧⟧)
+CMDFILES(⟦⟦m4 -DSYMBOL='Hello⟦,⟧ world!'⟧, ⟦gfiles/root0u.m4⟧, ⟦gfiles/countu.m4⟧, ⟦hello_world/sh.m4,⟦GT()⟧⟧, ⟦hello_world/hello_world.sh⟧⟧)
 TEXTDATA(⟦⟦hello_world/hello_world.sh⟧⟧)
 
 
@@ -1899,7 +1898,7 @@ s/\[]/HH(a)/g
 s/\[#]/HH(b)/
 s/\[dnl]/HH(c)/
 ⟧⟧)
-CMDFILES(⟦⟦m4 -DSYMBOL='Hello, world!'⟧, ⟦gfiles/root0b.m4⟧, ⟦hello_world/h.m4,⟦GT()⟧⟧, ⟦hello_world/hello_world.h⟧⟧)
+CMDFILES(⟦⟦m4 -DSYMBOL='Hello⟦,⟧ world!'⟧, ⟦gfiles/root0b.m4⟧, ⟦hello_world/h.m4,⟦GT()⟧⟧, ⟦hello_world/hello_world.h⟧⟧)
 TEXTDATA(⟦⟦hello_world/hello_world.h⟧, ⟦
 s/#/HH(b)/
 s/\<dnl\>/HH(c)/
@@ -1928,7 +1927,7 @@ s/\<DONTE\>/HH(a)/
 s/\<LL\>/HH(b)/
 }
 ⟧⟧)
-CMDFILES(⟦⟦m4 -DSYMBOL='Hello, world!'⟧, ⟦gfiles/root1b.m4⟧, ⟦hello_world/awk.m4,⟦GT()⟧⟧, ⟦hello_world/hello_world.awk⟧⟧)
+CMDFILES(⟦⟦m4 -DSYMBOL='Hello⟦,⟧ world!'⟧, ⟦gfiles/root1b.m4⟧, ⟦hello_world/awk.m4,⟦GT()⟧⟧, ⟦hello_world/hello_world.awk⟧⟧)
 TEXTDATA(⟦⟦hello_world/hello_world.awk⟧, ⟦
 /\<BEGIN\>/{
 s/\<DONTE\>/HH(a)/
