@@ -130,23 +130,24 @@ test tst t: trunc devel
 
 .PHONY: devel
 #$(info $(subst $(SPACE),$(COMMA),$(JAVASCRIPT)))
-#devel: rootu.m4 config.m4 queues.m4 style.m4 css.m4 inline.m4 test.m4
-#devel: rootu.m4 config.m4 queues.m4 style.m4 css.m4 js.m4 test.m4
-#devel: rootu.m4 config.m4 queues.m4 style.m4 css.m4 test.m4
+#devel: rootu.m4 config.m4 queues.m4 style.m4 css.m4 inline.m4 devel.m4
+#devel: rootu.m4 config.m4 queues.m4 style.m4 css.m4 js.m4 devel.m4
+#devel: rootu.m4 config.m4 queues.m4 style.m4 css.m4 devel.m4
 #devel:
-#devel: rootu.m4 test.m4
-#	m4 -DLANG_CODE='en' $^
-#	m4 gfiles/rootu.m4 --define='. a b c'='[xyz], [LL()], [123]' test.m4
-#devel: rootu.m4 config.m4 git.m4 txt/queues.m4 txt/cmd.m4 html/ent.m4 test.m4
+#devel: rootu.m4 devel.m4
+#	m4 gfiles/rootu.m4 --define='. a b c'='[xyz], [LL()], [123]' devel.m4
+#	m4 $^ > output.txt
+#devel: rootu.m4 config.m4 git.m4 txt/queues.m4 txt/cmd.m4 html/ent.m4 devel.m4
 #devel: rootu.m4 git.m4 html/file.m4 tmp/test.mc
-#devel: rootu.m4 lang.m4 html/ent.m4 config.m4 test.m4
-#devel: rootu.m4 git.m4 config.m4 refs_mono.m4 lang_cs.m4 txt/queues.m4 txt/cmd.m4 test.m4
-#devel: rootu.m4 git.m4 config.m4 refs_mono.m4 lang_cs.m4 html/ent.m4 html/queues.m4 html/cmd.m4 html/style.m4 html/css.m4 test.m4
-#devel: rootu.m4 countu.m4 git.m4 config.m4 refs_mono.m4 lang_cs.m4 html/ent.m4 html/queues.m4 html/style.m4 html/css.m4 html/file.m4 test.m4
-#devel: rootu.m4 countu.m4 config.m4 refs/mono.m4 test.m4
-#devel: rootu.m4 countu.m4 config.m4 lang_cs.m4 git.m4 refs_cs.m4 txt/file.m4 txt/queues.m4 test.m4
-devel: rootu.m4 countu.m4 config.m4 refs/mono.m4 test.m4
-	m4 $^ > output.txt
+#devel: rootu.m4 lang.m4 html/ent.m4 config.m4 devel.m4
+#devel: rootu.m4 git.m4 config.m4 refs_mono.m4 lang_cs.m4 html/ent.m4 html/queues.m4 html/cmd.m4 html/style.m4 html/css.m4 devel.m4
+#devel: rootu.m4 countu.m4 git.m4 config.m4 refs_mono.m4 lang_cs.m4 html/ent.m4 html/queues.m4 html/style.m4 html/css.m4 html/file.m4 devel.m4
+#devel: rootu.m4 countu.m4 config.m4 refs/mono.m4 devel.m4
+#devel: rootu.m4 countu.m4 config.m4 lang_cs.m4 git.m4 refs_cs.m4 txt/file.m4 txt/queues.m4 devel.m4
+#devel: rootu.m4 countu.m4 config.m4 refs/mono.m4 devel.m4
+#devel: rootu.m4 git.m4 config.m4 refs_mono.m4 lang_cs.m4 txt/queues.m4 txt/cmd.m4 devel.m4
+devel:  rootu.m4 config.m4 lang.m4 ver.m4 lang_cs.m4 refs_cs.m4 refs_mono.m4 incl.m4 spell.m4 devel.m4
+	m4 -DLANG_CODE='en' $^ > output.txt
 
 #:new/n	removes the date at the top of the page (usage: $ make new art)
 .PHONY: new n
