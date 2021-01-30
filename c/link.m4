@@ -1,8 +1,7 @@
 __AUTHOR(⟦Josef Kubin⟧, ⟦2020,05,24⟧)
-___DESCR(⟦generates text link⟧)
-__REASON(⟦copies captions to text⟧)
+___DESCR(⟦copies target captions to the text⟧)
+__REASON(⟦dereferences the linked text⟧)
 
-# prints a hyperlink or a linked text that dereferences
 # A → β
 define(⟦LINK⟧, ⟦pushdef(⟦CURRQU⟧, divnum)divert(-1)
 
@@ -32,7 +31,8 @@ define(⟦LINK⟧, ⟦pushdef(⟦CURRQU⟧, divnum)divert(-1)
 	# find caption in the associative array
 	pushdef(⟦CAPT⟧, defn(defn(⟦PREF⟧).capt.⟦$1⟧))
 
-	ifelse(defn(⟦CAPT⟧), ⟦⟧, ⟦
+	ifelse(
+		defn(⟦CAPT⟧), ⟦⟧, ⟦
 
 			# CAPT in refs not found, use the first LINK argument
 			define(⟦CAPT⟧, ⟦$1⟧)
