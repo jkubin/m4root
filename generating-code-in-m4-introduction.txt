@@ -2,7 +2,7 @@ Generating code in M4: introduction
 
 The M4 macro processor is used to generate arbitrarily complex code from simple source code. The introductory part of the series contains its history, the basic principles of language, examples of usage and prerequisites for its mastery.
 
-Content (Česky)	mc spl txt dev pre c  updated January 25, 2021
+Content (Česky)	mc txt c  updated January 30, 2021
 1 Introduction
 	1.1 Examples for readers
 2 History of macro languages
@@ -456,7 +456,7 @@ The input source code is similar to CSV, which is converted to arbitrarily compl
 Stacks in the examples are not used.
 The input source code contains special characters that must be hidden:
 
-55ac1ea messages/messages_raw.mc
+ff812e6 messages/messages_raw.mc
   1 # 2018/05/15 Josef Kubin
   2 
   3 ERROR(⟦COMPLEX⟧,     ⟦!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~⟧)
@@ -471,7 +471,7 @@ The input source code contains special characters that must be hidden:
 A.2 ⟦⟧ CSV: simplest example
 This example does not use output queues, it only prints CSV separated by TAB to standard output.
 
-825d4a3 messages/hello.csv.m4
+97e45a3 messages/hello.csv.m4
   1 # A → β
   2 define(⟦ERROR⟧, ⟦
   3 
@@ -482,7 +482,7 @@ This example does not use output queues, it only prints CSV separated by TAB to 
 
 $ m4 root0u.m4 hello.csv.m4 messages_raw.mc > hello.csv
 
-825d4a3 messages/hello.csv
+97e45a3 messages/hello.csv
   1 COMPLEX	!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~
   2 SUCCESS	Complex M4 code failed successfully.
   3 NO_FAULT	It's not a language fault!
@@ -510,7 +510,7 @@ COUNTER is a small automaton.
 
 $ m4 root0u.m4 countu.m4 counter.csv.m4 messages_raw.mc > counter.csv
 
-825d4a3 messages/counter.csv
+97e45a3 messages/counter.csv
   1 ERR_1    COMPLEX	!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~
   2 ERR_2    SUCCESS	Complex M4 code failed successfully.
   3 ERR_3    NO_FAULT	It's not a language fault!
@@ -521,7 +521,7 @@ The M4 patsubst() keyword is inappropriate for this type of task.
 First, we hide all special characters of the input file into appropriately named macros using regular expressions.
 
 Modified input code
-55ac1ea messages/messages.mc
+ff812e6 messages/messages.mc
   1 # 2018/05/15 Josef Kubin
   2 
   3 ERROR(⟦COMPLEX⟧,     ⟦⟦⟧EX()⟦⟧DQ()⟦#⟧⟦⟧DO()%⟦⟧AMP()⟦⟧AP()()*+,-./:;⟦⟧LT()=⟦⟧GT()?@[⟦⟧BS()]^_⟦⟧BQ(){|}~⟧)
@@ -620,7 +620,7 @@ The example uses one output queue for characters }; to close the array at the en
 
 $ m4 root0u.m4 array.c.m4 code.m4 messages.mc > array.c
 
-9156810 messages/array.c
+97e45a3 messages/array.c
   1 /*
   2  * DO NOT EDIT! This file is generated automatically!
   3  */
@@ -653,10 +653,10 @@ The SARG1() macro selects the first item because the second item contains an unw
 
 $ m4 root0u.m4 hello.ini.m4 code.m4 messages.mc > hello.ini
 
-d7e7a53 messages/hello.ini
+97e45a3 messages/hello.ini
   1 ; DO NOT EDIT! This file is generated automatically!
   2 
-  3 [hello_20210125]
+  3 [hello_20210130]
   4 COMPLEX="!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~"
   5 SUCCESS="Complex M4 code failed successfully."
   6 NO_FAULT="It's not a language fault!"
@@ -677,7 +677,7 @@ The decimal value of the counter is converted to the two-digit hex by keyword ev
   8 define(⟦ERROR⟧, ⟦
   9 
  10 	divert(0)dnl
- 11 ⟦#define $1    0x⟧eval(COUNTER, 16, 2)
+ 11 ⟦#define $1	0x⟧eval(COUNTER, 16, 2)
  12 divert(-1)
  13 ⟧)
  14 
@@ -703,9 +703,9 @@ $ m4 root0u.m4 countu.m4 messages.h.m4 messages.mc > messages.h
   5 #ifndef __ERROR_H
   6 #define __ERROR_H
   7 
-  8 #define COMPLEX    0x00
-  9 #define SUCCESS    0x01
- 10 #define NO_FAULT    0x02
+  8 #define COMPLEX	0x00
+  9 #define SUCCESS	0x01
+ 10 #define NO_FAULT	0x02
  11 
  12 #endif /* __ERROR_H */
 
@@ -740,7 +740,7 @@ Run the first time NEW_LINE, is rewritten to ε, in all following ones, it is re
 
 $ m4 root0u.m4 stringl.c.m4 code.m4 messages.mc > stringl.c
 
-9156810 messages/stringl.c
+97e45a3 messages/stringl.c
   1 /*
   2  * DO NOT EDIT! This file is generated automatically!
   3  */
@@ -779,7 +779,7 @@ This example is similar to the previous one, but each string is on a new line.
 
 $ m4 root0u.m4 string.c.m4 code.m4 messages.mc > string.c
 
-9156810 messages/string.c
+97e45a3 messages/string.c
   1 /*
   2  * DO NOT EDIT! This file is generated automatically!
   3  */
@@ -832,7 +832,7 @@ The QUERY and WARNING messages are processed in the same way as the ERROR messag
 
 $ m4 root0u.m4 messages.html.m4 markup.m4 messages.mc > messages.html
 
-55ac1ea messages/messages.html
+97e45a3 messages/messages.html
   1 <!-- DO NOT EDIT! This file is generated automatically! -->
   2 <!doctype html>
   3 <html lang="en">
@@ -940,7 +940,7 @@ At the end the output queue number 1 and number 2 print the characters ] and }} 
 
 $ m4 root0u.m4 atm.json.m4 code.m4 messages.mc > atm.json
 
-55ac1ea messages/atm.json
+97e45a3 messages/atm.json
   1 {"generating_automaton": {
   2 	"_comment": "DO NOT EDIT! This file is generated automatically!",
   3 	"error": [
@@ -1013,7 +1013,7 @@ To avoid having to define similar rules, we copy the right side of ERROR (it is 
 
 $ m4 root0u.m4 qnames.json.m4 code.m4 messages.mc > qnames.json
 
-55ac1ea messages/qnames.json
+97e45a3 messages/qnames.json
   1 {"queue_names": {
   2 	"_comment": "DO NOT EDIT! This file is generated automatically!",
   3 	"query": [
@@ -1103,7 +1103,7 @@ The following example shows how these indexes are generated.
 
 $ m4 root0u.m4 countu.m4 queues.m4 messages.json.m4 code.m4 messages.mc > messages.json
 
-55ac1ea messages/messages.json
+97e45a3 messages/messages.json
   1 {"messages": {
   2 	"_comment": "DO NOT EDIT! This file is generated automatically!",
   3 	"query": [
@@ -1162,7 +1162,7 @@ The example uses the same file for output queues as the example to generate JSON
 
 $ m4 root0u.m4 messages.ini.m4 countu.m4 queues.m4 code.m4 messages.mc > messages.ini
 
-55ac1ea messages/messages.ini
+97e45a3 messages/messages.ini
   1 ; DO NOT EDIT! This file is generated automatically!
   2 
   3 [query]
@@ -1207,7 +1207,7 @@ The example uses one output queue number 1 for the </messages> closing tag.
 
 $ m4 root0u.m4 queues.m4 mixed.xml.m4 markup.m4 messages.mc > mixed.xml
 
-55ac1ea messages/mixed.xml
+97e45a3 messages/mixed.xml
   1 <!-- DO NOT EDIT! This file is generated automatically! -->
   2 <?xml version="1.0" encoding="utf-8"?>
   3 <messages>
@@ -1284,7 +1284,7 @@ The example groups messages by their type using output queues.
 
 $ m4 root0u.m4 queues.m4 messages.xml.m4 markup.m4 messages.mc > messages.xml
 
-55ac1ea messages/messages.xml
+97e45a3 messages/messages.xml
   1 <!-- DO NOT EDIT! This file is generated automatically! -->
   2 <?xml version="1.0" encoding="utf-8"?>
   3 <messages>
@@ -1344,7 +1344,7 @@ A.16 ⟦⟧ Bash $ echo "string"
 
 $ m4 root0u.m4 doubleq.sh.m4 doubleq.m4 messages.mc > doubleq.sh
 
-d2707ad messages/doubleq.sh
+97e45a3 messages/doubleq.sh
   1 #!/bin/bash
   2 #
   3 # DO NOT EDIT! This file is generated automatically!
@@ -1380,7 +1380,7 @@ A.17 ⟦⟧ Bash $ echo 'string'
 
 $ m4 root0u.m4 apost.sh.m4 apost.m4 messages.mc > apost.sh
 
-5964776 messages/apost.sh
+97e45a3 messages/apost.sh
   1 #!/bin/bash
   2 #
   3 # DO NOT EDIT! This file is generated automatically!
