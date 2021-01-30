@@ -14,7 +14,7 @@ define(⟦FAVORITE_SERVER_NAME⟧,	⟦www.root.cz⟧)
 define(⟦AUTHOR_SHORT_DESCRIPTION⟧, LANG(⟦
 PERSON(⟦AUTHOR_NAME⟧) vystudoval Fakultu⟦⟧NB()informatiky Masarykovy univerzity v Brně, zabýval se teoretickou informatikou a⟦⟧NB()programováním hardware.
 Pracuje ve společnosti Red⟦⟧NB()Hat v⟦⟧NB()ABBREV(⟦GSS⟧, ⟦Global Support Services⟧).
-⟧,dnl _next_language_
+⟧,dnl ↓ lang_en
 ⟦
 PERSON(⟦AUTHOR_NAME⟧) graduated from the Faculty of Informatics, Masaryk University, where he studied theoretical computer science and hardware programming.
 Works at Red⟦⟧NB()Hat in⟦⟧NB()ABBREV(⟦GSS⟧, ⟦Global Support Services⟧).
