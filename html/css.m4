@@ -449,7 +449,7 @@ content:"\1f4cb";
 
 ⟧)
 
-CSS_CLASS_RULE_SET(⟦⟦.urs a⟦⟧[id^="defn(⟦NSP⟧, ⟦REF_ANCH⟧)"]⟧⟧,	⟦⟧,	⟦⟦⟧⟧, ⟦
+CSS_CLASS_RULE_SET(⟦⟦.urs a[id^="defn(⟦NSP⟧, ⟦REF_ANCH⟧)"]⟧⟧,	⟦⟧,	⟦⟦⟧⟧, ⟦
 
 font-size:.65em;
 vertical-align:super
