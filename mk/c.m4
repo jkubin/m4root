@@ -18,7 +18,7 @@ define(⟦MAKE_RULE⟧, ⟦
 		divert(1)dnl
 defn(⟦FILE_STEM⟧) \
 divert(3)dnl
-FILE_STEM.c: rootu.m4 config.m4 lang.m4 ver.m4 lang_⟦⟧LANG_CODE.m4 git.m4 REFS_FILES incl.m4 init.m4 c/queues.m4 c/ref.m4 c/link.m4 c/c.m4 $1
+FILE_STEM.c: rootu.m4 countu.m4 config.m4 lang.m4 ver.m4 lang_⟦⟧LANG_CODE.m4 git.m4 REFS_FILES incl.m4 init.m4 c/queues.m4 c/ref.m4 c/link.m4 c/c.m4 $1
 	m4 -DLANG_CODE='LANG_CODE' $(FLAGS) $^ > $⟦@⟧
 
 divert(-1)

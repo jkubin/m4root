@@ -1,10 +1,23 @@
+__AUTHOR(⟦Josef Kubin⟧, ⟦2021,01,30⟧)
+___DESCR(⟦macros for automatic increment/decrement counters⟧)
+__REASON(⟦painless generation of sequence numbers in scripts⟧)
+___USAGE(⟦m4 rootb.m4 countb.m4 … data.mc > output.file⟧)
+
 #       counters are automata
 #      ______      ___________
 # --->/ INIT \--->/ INCREMENT \---.
 #     \______/    \_DECREMENT_/<--'
 #
+# Usage:
+# define(⟦MY_COUNTER⟧, defn(⟦COUNT_UP⟧))
+# MY_COUNTER(3)
+#
+# MY_COUNTER → 3
+# MY_COUNTER → 4
+# MY_COUNTER → 5
+# …
 
-# tests automaton if it is initialized
+# tests automaton if a macro is initialized
 # β₁
 define([TEST_ATM], [
 

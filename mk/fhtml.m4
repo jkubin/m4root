@@ -27,7 +27,7 @@ TARGET_FOLDER/%.html: html_⟦⟧LANG_CODE.m4f $(JAVASCRIPT) %.m4 $1 nav.m4
 TARGET_FOLDER/publish.txt: html_⟦⟧LANG_CODE.m4f git_mc.m4 git_⟦⟧LANG_CODE.m4 $(JAVASCRIPT) publish.m4 $1 nav.m4
 	m4 -DARTICLE_PATH='TARGET_FOLDER' $(FLAGS) -R $(filter-out $(JAVASCRIPT), $^) | sed -f html/publish.sed -f html/esc_to_ent.sed > $⟦@⟧
 
-TARGET_FOLDER/spell.txt: rootu.m4 aux.m4 lang.m4 ver.m4 lang_⟦⟧LANG_CODE.m4 REFS_FILES incl.m4 spell.m4 $1
+TARGET_FOLDER/spell.txt: rootu.m4 countu.m4 aux.m4 lang.m4 ver.m4 lang_⟦⟧LANG_CODE.m4 REFS_FILES incl.m4 spell.m4 $1
 	m4 -DLANG_CODE='LANG_CODE' $^ > $⟦@⟧
 
 divert(-1)
@@ -108,6 +108,6 @@ $(FOLDER_NAMES):
 
 git_⟦⟧LANG_CODE.m4: $(SPCHECK_FILES) $(PREVIEW_FILES) $(ARTICLE_FILES)
 
-FROZEN_FILE: JAVASCRIPT rootu.m4 queues.m4 config.m4 ent.m4 init.m4 inline.m4 block.m4 ver.m4 style.m4 lang_⟦⟧LANG_CODE.m4 css.m4 js.m4 git.m4 REFS_FILES lang.m4 incl.m4 file.m4 cmd.m4
+FROZEN_FILE: JAVASCRIPT rootu.m4 countu.m4 queues.m4 config.m4 ent.m4 init.m4 inline.m4 block.m4 ver.m4 style.m4 lang_⟦⟧LANG_CODE.m4 css.m4 js.m4 git.m4 REFS_FILES lang.m4 incl.m4 file.m4 cmd.m4
 	m4 -F $@ -DLANG_CODE='LANG_CODE' -DFILE_LIST='FILE_LIST' $(filter-out JAVASCRIPT, $^)
 

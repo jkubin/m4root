@@ -22,7 +22,6 @@ SOURCE = \
 DOC_FILE   = documentation.txt
 DEBUG_FILE = debug.m4
 REFS_MONO  = refs_mono.m4
-JAVASCRIPT = js/hgl_packed.js js/info_packed.js js/select_packed.js
 VPATH      = gfiles js
 SUBDIRS    = gfiles hello_world preproc messages asm
 MONITORED  = \
@@ -32,10 +31,16 @@ MONITORED  = \
 	asm \
 	preproc \
 
+JAVASCRIPT = \
+	js/hgl_packed.js \
+	js/info_packed.js \
+	js/select_packed.js \
+
 EMPTY =
 SPACE = $(EMPTY) $(EMPTY)
 COMMA = ,
 
+JAVASCRIPT := $(strip $(JAVASCRIPT))
 LANG_CODES = $(patsubst lang_%.m4,%,$(wildcard lang_*.m4))
 REQ_LANGS  = $(filter-out $(ex)$(exclude), $(LANG_CODES))
 MAKE_C     = $(patsubst %,c_%.mk,$(REQ_LANGS))
@@ -59,9 +64,9 @@ CLSUBDIRS  = $(SUBDIRS:%=clean-%)
 all: src html txt mkc $(TARGETS)
 
 
-#:mkc	generates subordinate Makefile to generate c
-.PHONY: mkc
-mkc: $(MAKE_C)
+#:mkc/c	generates subordinate Makefile to generate c
+.PHONY: mkc c
+mkc c: $(MAKE_C)
 
 
 #:man	generates subordinate Makefile to generate man
@@ -104,14 +109,14 @@ trunc trc:
 .PHONY: refs
 refs: $(REFS_MONO) $(REFS_LANG)
 
-#:cc	determines the number of characters to be printed (article length)
+#:cc	prints the character count of the articles
 .PHONY: cc $(TEXT_CC)
 cc: $(TEXT_CC)
 
 $(TEXT_CC):
 	@wc --chars $(@:.cc=.txt)
 
-#:wc	determines the number of words to be printed (article length)
+#:wc	prints the word count of the articles
 .PHONY: wc $(TEXT_WC)
 wc: $(TEXT_WC)
 
@@ -130,11 +135,18 @@ test tst t: trunc devel
 #devel: rootu.m4 config.m4 queues.m4 style.m4 css.m4 test.m4
 #devel:
 #devel: rootu.m4 test.m4
+#	m4 -DLANG_CODE='en' $^
 #	m4 gfiles/rootu.m4 --define='. a b c'='[xyz], [LL()], [123]' test.m4
 #devel: rootu.m4 config.m4 git.m4 txt/queues.m4 txt/cmd.m4 html/ent.m4 test.m4
 #devel: rootu.m4 git.m4 html/file.m4 tmp/test.mc
-devel: rootu.m4 lang.m4 html/ent.m4 config.m4 test.m4
-	m4 -DLANG_CODE='en' $^
+#devel: rootu.m4 lang.m4 html/ent.m4 config.m4 test.m4
+#devel: rootu.m4 git.m4 config.m4 refs_mono.m4 lang_cs.m4 txt/queues.m4 txt/cmd.m4 test.m4
+#devel: rootu.m4 git.m4 config.m4 refs_mono.m4 lang_cs.m4 html/ent.m4 html/queues.m4 html/cmd.m4 html/style.m4 html/css.m4 test.m4
+#devel: rootu.m4 countu.m4 git.m4 config.m4 refs_mono.m4 lang_cs.m4 html/ent.m4 html/queues.m4 html/style.m4 html/css.m4 html/file.m4 test.m4
+#devel: rootu.m4 countu.m4 config.m4 refs/mono.m4 test.m4
+#devel: rootu.m4 countu.m4 config.m4 lang_cs.m4 git.m4 refs_cs.m4 txt/file.m4 txt/queues.m4 test.m4
+devel: rootu.m4 countu.m4 config.m4 refs/mono.m4 test.m4
+	m4 $^ > output.txt
 
 #:new/n	removes the date at the top of the page (usage: $ make new art)
 .PHONY: new n
@@ -142,9 +154,9 @@ new n:
 	$(eval FLAGS += -DNEW_ARTICLE)
 	@:
 
-#:debug/dbg/db/d	prints certain debug information that is usually hidden (usage: $ make dbg art)
-.PHONY: debug dbg db d
-debug dbg db d:
+#:debug/dbg/d	if something does not work, prints debuging information (for example: $ make dbg art)
+.PHONY: debug dbg d
+debug dbg d:
 	$(eval FLAGS += -DDEBUG)
 	@:
 
@@ -183,31 +195,31 @@ pkjs pjs js j: $(JAVASCRIPT)
 %_packed.js: packer.sed %_packer.sed %_src.js
 	sed -f $< -f $(word 2, $^) $(lastword $^) | head -c -1 > $@
 
-$(REFS_MONO): rootu.m4 config.m4 refs/mono.m4
+$(REFS_MONO): rootu.m4 countu.m4 config.m4 refs/mono.m4
 	m4 $^ $(SOURCE) > $@
 
-refs_%.m4: rootu.m4 config.m4 lang_%.m4 lang.m4 refs.m4
+refs_%.m4: rootu.m4 countu.m4 config.m4 lang_%.m4 lang.m4 refs.m4
 	m4 -DLANG_CODE='$*' -DFILE_LIST='$(FILE_LIST)' $^ $(SOURCE) | sed -f refs.sed > $@
 
-c_%.mk: rootu.m4 refs_%.m4 lang.m4 mk/c.m4
+c_%.mk: rootu.m4 countu.m4 refs_%.m4 lang.m4 mk/c.m4
 	m4 -DLANG_CODE='$*' -DFILE_LIST='$(FILE_LIST)' -DREFS_FILES='$(REFS_LANG) $(REFS_MONO)' $^ > $@
 
-man_%.mk: rootu.m4 refs_%.m4 lang.m4 mk/man.m4
+man_%.mk: rootu.m4 countu.m4 refs_%.m4 lang.m4 mk/man.m4
 	m4 -DLANG_CODE='$*' -DFILE_LIST='$(FILE_LIST)' -DREFS_FILES='$(REFS_LANG) $(REFS_MONO)' $^ > $@
 
-tex_%.mk: rootu.m4 refs_%.m4 lang.m4 mk/tex.m4
+tex_%.mk: rootu.m4 countu.m4 refs_%.m4 lang.m4 mk/tex.m4
 	m4 -DLANG_CODE='$*' -DFILE_LIST='$(FILE_LIST)' -DREFS_FILES='$(REFS_LANG) $(REFS_MONO)' $^ > $@
 
-texi_%.mk: rootu.m4 refs_%.m4 lang.m4 mk/texi.m4
+texi_%.mk: rootu.m4 countu.m4 refs_%.m4 lang.m4 mk/texi.m4
 	m4 -DLANG_CODE='$*' -DFILE_LIST='$(FILE_LIST)' -DREFS_FILES='$(REFS_LANG) $(REFS_MONO)' $^ > $@
 
-txt_%.mk: rootu.m4 refs_%.m4 lang.m4 mk/txt.m4
+txt_%.mk: rootu.m4 countu.m4 refs_%.m4 lang.m4 mk/txt.m4
 	m4 -DLANG_CODE='$*' -DFILE_LIST='$(FILE_LIST)' -DREFS_FILES='$(REFS_LANG) $(REFS_MONO)' $^ > $@
 
-html_%.mk: rootu.m4 refs_%.m4 lang.m4 mk/html.m4
+html_%.mk: rootu.m4 countu.m4 refs_%.m4 lang.m4 mk/html.m4
 	m4 -DLANG_CODE='$*' -DFILE_LIST='$(FILE_LIST)' -DREFS_FILES='$(REFS_LANG) $(REFS_MONO)' -DJAVASCRIPT='$(JAVASCRIPT)' $^ > $@
 
-fhtml_%.mk: rootu.m4 refs_%.m4 lang.m4 mk/fhtml.m4
+fhtml_%.mk: rootu.m4 countu.m4 refs_%.m4 lang.m4 mk/fhtml.m4
 	m4 -DLANG_CODE='$*' -DFILE_LIST='$(FILE_LIST)' -DREFS_FILES='$(REFS_LANG) $(REFS_MONO)' -DJAVASCRIPT='$(JAVASCRIPT)' $^ > $@
 
 git.m4: $(shell git ls-tree -r --name-only HEAD $(MONITORED))
