@@ -1,110 +1,71 @@
 __AUTHOR(⟦Josef Kubin⟧, ⟦2020,05,19⟧)
-___DESCR(⟦processes the command line with a list of files⟧)
-__REASON(⟦to estimate the total number of words and characters⟧)
+___DESCR(⟦processes the command with a possible list of files⟧)
+__REASON(⟦converts the command line to plain text to estimate the total number of words and characters⟧)
 
-# CMDBARE(⟦⟦cmd⟧, ⟦file.1⟧, ⟦file.2⟧, …, ⟦file.n⟧⟧)
-# CMDBARE(⟦⟦cmd -o a,b,c -DMACRO⟧, ⟦file.1,⟦-o x,y,z⟧⟧, ⟦file.2,⟦-DFOO=bar⟧⟧, …, ⟦file.n,⟦2>&1⟧⟧⟧)
+# CMDFILES(⟦⟦cmd⟧⟧)
+# CMDFILES(⟦⟦cmd⟧, ⟦file.1⟧, ⟦file.2⟧, …, ⟦file.n⟧⟧)
+# CMDFILES(⟦⟦cmd⟧, ⟦file.1⟧, ⟦file.2⟧, …, ⟦file.n,⟦GT()⟧⟧, ⟦file.dst,⟦2GT()AMP()1⟧⟧⟧)
+#
+# the following macros generate the same code (however they are not the same)
+# CMDFILES(⟦⟦cmd -p a⟦,⟧b⟦,⟧c -DMACRO⟧, ⟦file.1,⟦-w x,y,z⟧⟧, ⟦file.2,⟦-DFOO=bar⟧⟧, …, ⟦file.n,⟦2GT()AMP()1⟧⟧⟧)
+# CMDFILES(⟦⟦cmd ⟦-p a,b,c -DMACRO⟧⟧, ⟦file.1,⟦-w x,y,z⟧⟧, ⟦file.2,⟦-DFOO=bar⟧⟧, …, ⟦file.n,⟦2GT()AMP()1⟧⟧⟧)
+# CMDFILES(⟦⟦⟦cmd -p a,b,c -DMACRO⟧⟧, ⟦file.1,⟦-w x,y,z⟧⟧, ⟦file.2,⟦-DFOO=bar⟧⟧, …, ⟦file.n,⟦2GT()AMP()1⟧⟧⟧)
+# CMDFILES(⟦⟦cmd,⟦-p a,b,c -DMACRO⟧⟧, ⟦file.1,⟦-w x,y,z⟧⟧, ⟦file.2,⟦-DFOO=bar⟧⟧, …, ⟦file.n,⟦2GT()AMP()1⟧⟧⟧)
 # …
-# CMDFILES(⟦⟦cmd⟧, ⟦file1.src⟧, ⟦file2.src⟧, …, ⟦file.dst⟧⟧)
-# CMDFILES(⟦⟦cmd -o a,b,c -DMACRO⟧, ⟦file1.src,⟦-o x,y,z⟧⟧, ⟦file2.src,⟦-DFOO=bar⟧⟧, …, ⟦file.dst,⟦2>&1⟧⟧⟧)
+# the root command line:
+# CMDFILES_ROOT(⟦⟦cmd⟧, ⟦file.1⟧, ⟦file.2⟧, …, ⟦file.n⟧⟧)
 # …
-# Or the root command line:
-# CMDBARE_ROOT(⟦⟦cmd⟧, ⟦file.1⟧, ⟦file.2⟧, …, ⟦file.n⟧⟧)
-# CMDFILES_ROOT(⟦⟦cmd⟧, ⟦file1.src⟧, ⟦file2.src⟧, …, ⟦file.dst⟧⟧)
 
 # A → β
 define(⟦CMDFILES⟧, ⟦
 
+	# prints the user prompt
 	divert(CURRQU)dnl
 PRMT() dnl
 divert(-1)
 
-	COMMAND_WITH_INPUT_FILES_AND_OUTPUT_FILE(⟧defn(⟦EXPAND_LAST_ARG⟧)⟦)
+	COMMAND_WITH_LIST_OF_FILES(⟧defn(⟦EXPAND_LAST_ARG⟧)⟦)
 ⟧)
 
 # A → β
 define(⟦CMDFILES_ROOT⟧, ⟦
 
+	# prints the root prompt
 	divert(CURRQU)dnl
 PRMT_ROOT() dnl
 divert(-1)
 
-	COMMAND_WITH_INPUT_FILES_AND_OUTPUT_FILE(⟧defn(⟦EXPAND_LAST_ARG⟧)⟦)
+	COMMAND_WITH_LIST_OF_FILES(⟧defn(⟦EXPAND_LAST_ARG⟧)⟦)
 ⟧)
 
 # A → β
-define(⟦COMMAND_WITH_INPUT_FILES_AND_OUTPUT_FILE⟧, ⟦
+define(⟦COMMAND_WITH_LIST_OF_FILES⟧, ⟦
 
-	ifelse(eval(⟦$# > 2⟧), ⟦1⟧, ⟦⟧, ⟦
-
-		ROOT_ERROR(⟦the command ‘$1’ requires at least 2 files (input and output): ‘$@’⟧)
-	⟧)
-
+	# prints the command with possible attribute
 	divert(CURRQU)dnl
-$1 dnl print the first item (a command)
+ARG1($1)⟦⟧ifelse(SARG2($1), ⟦⟧, ⟦⟧, ⟦ ARG2($1)⟧)⟦⟧dnl print the first item (a command)
 divert(-1)
 
-	INPUT_FILES_AND_OUTPUT_FILE(shift($@))
-⟧)
+	ifelse(⟦$#⟧, ⟦1⟧, ⟦
 
-# A → β
-define(⟦INPUT_FILES_AND_OUTPUT_FILE⟧, ⟦
+		# if only the command is specified, appends two blank lines
+		divert(CURRQU)
 
-	divert(CURRQU)dnl
-ifelse(⟦$#⟧, ⟦1⟧, ⟦> ⟧)patsubst(SARG1($1), ⟦.*/⟧)⟦⟧ifelse(SARG2($1), ⟦⟧, ⟦⟧, ⟦ ARG2($1)⟧)⟦⟧ifelse(⟦$#⟧, ⟦1⟧, ⟦
-
-⟧, ⟦ ⟧)⟦⟧dnl
 divert(-1)
+	⟧, ⟦
 
-	ifelse(⟦$#⟧, ⟦1⟧, ⟦⟧, ⟦
-
-		# right recursive loop
-		$0(shift($@))
+		LIST_OF_FILES_AFTER_COMMAND(shift($@))
 	⟧)
 ⟧)
 
 # A → β
-define(⟦CMDBARE⟧, ⟦
+define(⟦LIST_OF_FILES_AFTER_COMMAND⟧, ⟦
 
+	# lists files with possible attributes, after the last file appends two blank lines
 	divert(CURRQU)dnl
-PRMT() dnl
-divert(-1)
+ patsubst(SARG1($1), ⟦.*/⟧)⟦⟧ifelse(SARG2($1), ⟦⟧, ⟦⟧, ⟦ ARG2($1)⟧)⟦⟧ifelse(⟦$#⟧, ⟦1⟧, ⟦
 
-	COMMAND_AND_VARIOUS_FILES(⟧defn(⟦EXPAND_LAST_ARG⟧)⟦)
-⟧)
-
-# A → β
-define(⟦CMDBARE_ROOT⟧, ⟦
-
-	divert(CURRQU)dnl
-PRMT_ROOT() dnl
-divert(-1)
-
-	COMMAND_AND_VARIOUS_FILES(⟧defn(⟦EXPAND_LAST_ARG⟧)⟦)
-⟧)
-
-# A → β
-define(⟦COMMAND_AND_VARIOUS_FILES⟧, ⟦
-
-	ifelse(eval(⟦$# > 1⟧), ⟦1⟧, ⟦⟧, ⟦
-
-		ROOT_ERROR(⟦the command ‘$1’ requires at least 1 file⟧)
-	⟧)
-
-	divert(CURRQU)dnl
-$1 dnl print the first item (a command)
-divert(-1)
-
-	VARIOUS_FILES_AFTER_COMMAND(shift($@))
-⟧)
-
-# A → β
-define(⟦VARIOUS_FILES_AFTER_COMMAND⟧, ⟦
-
-	divert(CURRQU)dnl
-patsubst(SARG1($1), ⟦.*/⟧)⟦⟧ifelse(SARG2($1), ⟦⟧, ⟦⟧, ⟦ ARG2($1)⟧)⟦⟧ifelse(⟦$#⟧, ⟦1⟧, ⟦
-
-⟧, ⟦ ⟧)⟦⟧dnl
+⟧)dnl
 divert(-1)
 
 	ifelse(⟦$#⟧, ⟦1⟧, ⟦⟧, ⟦
