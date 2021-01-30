@@ -4,7 +4,7 @@ __AUTHOR(⟦Josef Kubin⟧, ⟦2019,12,23⟧)
 ___DESCR(⟦converts inline and block-level elements into a plain text file for checking jargon and typos⟧)
 __REASON(⟦plain text file for spell checking and for suggestions from other people (text can be easily edited)⟧)
 
-# extracts `the text' from the MACRO(⟦…⟧, ⟦the text⟧, ⟦⟦…⟧⟧)
+# extracts `the text' from A_MACRO(⟦…⟧, ⟦the text⟧, ⟦⟦…⟧⟧)
 # β
 pushdef(⟦TITLE_ATTR⟧, ⟦
 
