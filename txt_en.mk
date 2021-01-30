@@ -47,12 +47,12 @@ all-txt-en aten: $(TEXT_en) $(GZIPPED_TEXT_en) $(XZIPPED_TEXT_en)
 clean-txt-en clten cten:
 	$(RM) $(TEXT_en) $(GZIPPED_TEXT_en) $(XZIPPED_TEXT_en)
 
-all_en.txt: rootu.m4 config.m4 lang.m4 ver.m4 lang_en.m4 git.m4 refs_cs.m4 refs_en.m4 refs_mono.m4 incl.m4 txt/file.m4 txt/cmd.m4 txt/queues.m4 txt/ref.m4 txt/link.m4 txt/txt.m4 intro.mc fundamentals.mc
+all_en.txt: rootu.m4 countu.m4 config.m4 lang.m4 ver.m4 lang_en.m4 git.m4 refs_cs.m4 refs_en.m4 refs_mono.m4 incl.m4 txt/textdata.m4 txt/cmdfiles.m4 txt/queues.m4 txt/ref.m4 txt/link.m4 txt/txt.m4 intro.mc fundamentals.mc
 	m4 -DLANG_CODE='en' -DFILE_LIST='intro.mc,fundamentals.mc' -DPRINT_HEADER -DLINE_NUMBERS $(FLAGS) $^ | sed -f txt/esc_to_txt.sed > $@
 
-generating-code-in-m4-introduction.txt: rootu.m4 config.m4 lang.m4 ver.m4 lang_en.m4 git.m4 refs_cs.m4 refs_en.m4 refs_mono.m4 incl.m4 init.m4 txt/file.m4 txt/cmd.m4 txt/queues.m4 txt/ref.m4 txt/link.m4 txt/txt.m4 intro.mc
+generating-code-in-m4-introduction.txt: rootu.m4 countu.m4 config.m4 lang.m4 ver.m4 lang_en.m4 git.m4 refs_cs.m4 refs_en.m4 refs_mono.m4 incl.m4 init.m4 txt/textdata.m4 txt/cmdfiles.m4 txt/queues.m4 txt/ref.m4 txt/link.m4 txt/txt.m4 intro.mc
 	m4 -DLANG_CODE='en' -DARTICLE_PATH='generating-code-in-m4-introduction' -DFILE_LIST='intro.mc,fundamentals.mc' -DLINE_NUMBERS $(FLAGS) $^ | sed -f txt/esc_to_txt.sed > $@
 
-generating-code-in-m4-fundamentals.txt: rootu.m4 config.m4 lang.m4 ver.m4 lang_en.m4 git.m4 refs_cs.m4 refs_en.m4 refs_mono.m4 incl.m4 init.m4 txt/file.m4 txt/cmd.m4 txt/queues.m4 txt/ref.m4 txt/link.m4 txt/txt.m4 fundamentals.mc
+generating-code-in-m4-fundamentals.txt: rootu.m4 countu.m4 config.m4 lang.m4 ver.m4 lang_en.m4 git.m4 refs_cs.m4 refs_en.m4 refs_mono.m4 incl.m4 init.m4 txt/textdata.m4 txt/cmdfiles.m4 txt/queues.m4 txt/ref.m4 txt/link.m4 txt/txt.m4 fundamentals.mc
 	m4 -DLANG_CODE='en' -DARTICLE_PATH='generating-code-in-m4-fundamentals' -DFILE_LIST='intro.mc,fundamentals.mc' -DLINE_NUMBERS $(FLAGS) $^ | sed -f txt/esc_to_txt.sed > $@
 

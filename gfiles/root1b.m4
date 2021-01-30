@@ -9,7 +9,10 @@ ___USAGE(⟦m4 rootb.m4 stem.m4 branch.m4 sub_branch.m4 leaf.m4 data.mc > output
 define([DONTE], [ifelse([$#], [0], [[$0]],
 [DO NOT EDIT! This file is generated automatically!])])
 
-# adds a left/right unpaired symbol bypassing the non-terminal control
+# adds a single Left/Right unpaired control symbol:
+# LL() → [
+# RR() → ]
+#
 define([LL], [ifelse([$#], [0], [[$0]], [changequote[dnl]
 changequote([,])])])
 define([RR], [ifelse([$#], [0], [[$0]], [changequote`'dnl[

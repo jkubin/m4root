@@ -13,16 +13,19 @@ ___USAGE(⟦m4 rootq.m4 stem.m4 branch.m4 sub_branch.m4 leaf.m4 data.mc > output
 define(`DONTE', `ifelse(`$#', `0', ``$0'',
 `DO NOT EDIT! This file is generated automatically!')')
 
-# number of arguments (loops)
+# adds a single Left/Right unpaired control symbol:
+# LL() → `
+# RR() → '
+#
+define(`LL', `ifelse(`$#', `0', ``$0'', `changequote([,])`dnl'
+changequote`'')')
+define(`RR', `ifelse(`$#', `0', ``$0'', `changequote([,])dnl`
+'changequote`'')')
+
+# adds number of arguments (used for loops)
 define(`NAR', `$#')
 
-# expands n-th argument if the macro has parentheses
-# A(`$1', `$2', …, `$n') → $1 | $2 | $3 | $4 → β
-define(`FST', `ifelse(`$#', `0', ``$0'', `$1')')
-define(`SND', `ifelse(`$#', `0', ``$0'', `$2')')
-define(`TRD', `ifelse(`$#', `0', ``$0'', `$3')')
-
-# similar to previous (use Vim shortcuts Ctrl-a or Ctrl-x to change ARGn)
+# expands n-th argument (use Vim shortcuts Ctrl-a or Ctrl-x to change ARGn)
 define(`ARG1',	`$1')
 define(`ARG2',	`$2')
 define(`ARG3',	`$3')
@@ -36,16 +39,10 @@ define(`SARG3',	``$3'')
 # (`paYr' is not a word from the dictionary)
 define(`PAYR', ``$@'')
 
-# adds a left/right unpaired symbol bypassing the non-terminal control
-define(`LL', `ifelse(`$#', `0', ``$0'', `changequote([,])`dnl'
-changequote`'')')
-define(`RR', `ifelse(`$#', `0', ``$0'', `changequote([,])dnl`
-'changequote`'')')
-
-# 'prints warning to stderr if something will be problematic
+# 'prints a warning to stderr if something will be problematic
 define(`ROOT_WARNING', `errprint(__file__:__line__`: warning: $1
 ')')
 
-# aborts script if something goes wrong and prints the reason to stderr
+# aborts a script if something goes wrong and prints the reason to stderr
 define(`ROOT_ERROR', `errprint(__file__:__line__`: error: $1
 ')m4exit(1)')

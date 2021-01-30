@@ -1,7 +1,7 @@
 # vim:wrap:spell:spelllang=en
 # DO NOT EDIT! This file is generated automatically!
-# generated: 20210124-11:16:45
-# total number of files: 99
+# generated: 20210130-21:13:13
+# total number of files: 106
 #
 # To update, run:
 # ~]$ make doc
@@ -16,7 +16,7 @@ Usage: m4 rootb.m4 rulerb.m4 …
 ---
 File #2: gfiles/rootb.m4
 Author: Josef Kubin
-Started: 15 October 2018
+Started: 30 January 2021
 Note: https://github.com/jkubin/m4root
 Description: the most general (root) rules for all scripts
 Reason: script decomposition; NO repeated information anywhere else
@@ -29,580 +29,624 @@ Description: minimal root script for simple projects
 Reason: root script as small as possible
 Usage: m4 rootb.m4 stem.m4 branch.m4 sub_branch.m4 leaf.m4 data.mc > output.file
 ---
-File #4: js/select_src.js
+File #4: gfiles/countb.m4
+Author: Josef Kubin
+Started: 30 January 2021
+Description: macros for automatic increment/decrement counters
+Reason: painless generation of sequence numbers in scripts
+Usage: m4 rootb.m4 countb.m4 … data.mc > output.file
+---
+File #5: js/select_src.js
 Author: Josef Kubin
 Started: 24 December 2020
-Description: selects source code and put it into clipboard (Linux)
-Reason: easily code selection in one mouse click
+Description: selects the source code and inserts it into X11 (Linux) selection buffer
+Reason: selects the code with a single mouse click
 ---
-File #5: js/info_src.js
+File #6: js/info_src.js
 Author: Josef Kubin
 Started: 4 May 2020
 Description: copy additional file information to other element
 Reason: data selected by mouse
 ---
-File #6: js/hgl_src.js
+File #7: js/hgl_src.js
 Author: Josef Kubin
 Started: 2 May 2020
 Description: auxiliary JavaScript to highlight lines behind the source code
 Reason: the source code is easier to understand when highlighted by JavaScript
 ---
-File #7: doc.m4
+File #8: txt/esc_to_txt.sed
+Author: Josef Kubin
+Started: 19 May 2020
+Description: transforms C esc sequences to ASCII
+Reason: post processing after M4 scripts
+---
+File #9: txt/chr_to_esc.sed
+Author: Josef Kubin
+Started: 19 May 2020
+Description: the script modifies input source code for M4 processing
+Reason: problematic characters must be hidden
+---
+File #10: txt/cmd.m4
+Author: Josef Kubin
+Started: 19 May 2020
+Description: processes the command with a possible list of files
+Reason: converts the command line to plain text to estimate the total number of words and characters
+---
+File #11: txt/ref.m4
+Author: Josef Kubin
+Started: 16 May 2020
+Description: automaton for generating text references
+Reason: two nodes to generate references
+---
+File #12: txt/queues.m4
+Author: Josef Kubin
+Started: 16 May 2020
+Description: definitions of indexes for output queues
+Reason: each target generation file format has a specific list of queues
+---
+File #13: txt/file.m4
+Author: Josef Kubin
+Started: 16 May 2020
+Description: inserts a source file or just a snippet
+Reason: inserts a file as a plain text to estimate the total number of words and characters
+---
+File #14: txt/txt.m4
+Author: Josef Kubin
+Started: 11 May 2020
+Description: generates a plain text file from (possibly multiple) source files
+Reason: the total number of words and characters that would be printed
+---
+File #15: txt/link.m4
+Author: Josef Kubin
+Started: 24 May 2020
+Description: generates text link
+Reason: copies captions to text
+---
+File #16: doc.m4
 Author: Josef Kubin
 Started: 20 January 2020
-Description: extracts headers from all source files and creates a brief documentation
-Reason: a solution for cryptic short filenames
+Description: extracts headers from all source files and creates short documentation
+Reason: solution for cryptic short filenames
 Usage: m4 doc.m4 file1.m4 file2.sed file3.abc …
 ---
-File #8: lang_cs.m4
+File #17: lang_cs.m4
 Author: Josef Kubin
 Started: 11 July 2019
 Description: the file contains language-specific words
 Reason: multilingual targets
 ---
-File #9: messages/Makefile
+File #18: messages/Makefile
 Author: Josef Kubin
 Started: 17 November 2019
 Description: the examples show how to generate messages into various target formats requiring modification of special characters
 Reason: different target files with specially modified characters for each file
 Usage: make h && make
 ---
-File #10: preproc/Makefile
+File #19: preproc/Makefile
 Author: Josef Kubin
 Started: 18 November 2019
 Description: generic examples how to use M4 as a preprocessor
 Reason: M4 as a preprocessor
 Usage: make h && make
 ---
-File #11: if20/kiosk_preproc.m4
+File #20: if20/kiosk_preproc.m4
 Author: Josef Kubin
 Started: 5 February 2020
 Usage: m4 kiosk_preproc.m4 symbols.mc
 ---
-File #12: if20/Makefile
+File #21: if20/Makefile
 Author: Josef Kubin
 Started: 5 February 2020
 Usage: make h
 ---
-File #13: .vim/templates/skeleton.m4
+File #22: .vim/templates/skeleton.m4
 Author: Your Name
 Usage: m4 rootb.m4 skeletonVIM_FILE_NAME
 ---
-File #14: refs.m4
+File #23: refs.m4
 Author: Josef Kubin
 Started: 11 December 2019
 Description: tests a logic flow (CHAPTER → SECT1 → SECT2 → SECT3) and generates references for anchors
 Reason: extracts all IDs from files and creates associative pair
 ---
-File #15: hello_world/Makefile
+File #24: hello_world/Makefile
 Author: Josef Kubin
 Started: 24 August 2019
 Description: examples generate several hello world source files
 Reason: how to generate files for different computer languages
 Usage: make h && make
 ---
-File #16: gfiles/quotation_marks_vim.sed
+File #25: gfiles/quotation_marks_vim.sed
 Author: Josef Kubin
 Started: 27 October 2019
 Description: converts vim iabbrev file for square brackets to iabbrev file for original quotation marks
 Reason: keeps consistent 1:1 iabbrev vim file for square brackets with quotation marks
 ---
-File #17: gfiles/nonprintable_chars.sed
+File #26: gfiles/nonprintable_chars.sed
 Author: Josef Kubin
 Started: 22 September 2019
 Description: converts the root file for square brackets to the root file for nonprintable characters
 Reason: root file for nonprintable characters
 ---
-File #18: gfiles/utf8_chars_skel.sed
+File #27: gfiles/utf8_chars_skel.sed
 Author: Josef Kubin
 Started: 27 October 2019
 Description: converts skeleton file for square brackets to skeleton file for UTF-8 characters
 Reason: skeleton file for UTF-8 characters
 ---
-File #19: gfiles/quotation_marks.sed
+File #28: gfiles/quotation_marks.sed
 Author: Josef Kubin
 Started: 22 September 2019
 Description: converts the root file for square brackets to the root file for original quotation marks
 Reason: root file for original quotation marks
 ---
-File #20: gfiles/nonprintable_chars_skel.sed
+File #29: gfiles/nonprintable_chars_skel.sed
 Author: Josef Kubin
 Started: 27 October 2019
 Description: converts skeleton file for square brackets to skeleton file for nonprintable characters
 Reason: skeleton file for nonprintable characters
 ---
-File #21: gfiles/utf8_chars_vim.sed
+File #30: gfiles/utf8_chars_vim.sed
 Author: Josef Kubin
 Started: 27 October 2019
 Description: converts vim iabbrev file for square brackets to iabbrev file for UTF-8 characters
 Reason: keeps consistent 1:1 iabbrev vim file for square brackets with UTF-8 characters
 ---
-File #22: gfiles/quotation_marks_skel.sed
+File #31: gfiles/quotation_marks_skel.sed
 Author: Josef Kubin
 Started: 22 November 2019
 Description: converts skeleton file for square brackets to skeleton file for quotation marks
 Reason: skeleton file for quotation marks
 ---
-File #23: gfiles/utf8_chars.sed
+File #32: gfiles/utf8_chars.sed
 Author: Josef Kubin
 Started: 22 September 2019
 Description: converts the root file for square brackets to the root file for UTF-8 characters
 Reason: root file for UTF-8 characters
 ---
-File #24: gfiles/nonprintable_chars_vim.sed
+File #33: gfiles/nonprintable_chars_vim.sed
 Author: Josef Kubin
 Started: 27 October 2019
 Description: converts vim iabbrev file for square brackets to iabbrev file for nonprintable characters
 Reason: keeps consistent 1:1 iabbrev vim file for square brackets with nonprintable characters
 ---
-File #25: gfiles/quotation_marks_old.sed
+File #34: gfiles/quotation_marks_old.sed
 Author: Josef Kubin
 Started: 22 September 2019
 Description: converts the root file for square brackets to the root file for original quotation marks
 Reason: root file for original quotation marks
 ---
-File #26: gfiles/nonprintable_chars_old.sed
+File #35: gfiles/nonprintable_chars_old.sed
 Author: Josef Kubin
 Started: 22 September 2019
 Description: converts the root file for square brackets to the root file for nonprintable characters
 Reason: root file for nonprintable characters
 ---
-File #27: gfiles/Makefile
+File #36: gfiles/Makefile
 Author: Josef Kubin
 Started: 26 October 2019
 Description: maintains consistent files with square bracket files
 Reason: one hand-written file to generate additional files
 Usage: make h && make
 ---
-File #28: gfiles/utf8_chars_old.sed
+File #37: gfiles/utf8_chars_old.sed
 Author: Josef Kubin
 Started: 22 September 2019
 Description: converts the root file for square brackets to the root file for UTF-8 characters
 Reason: root file for UTF-8 characters
 ---
-File #29: refs_mono.m4
+File #38: refs_mono.m4
 Author: Josef Kubin
 Started: 1 April 2020
 Description: (generated) an associative memory for linking files
 Reason: a simple hash database for used files
 ---
-File #30: js/js.m4
+File #39: js/js.m4
 Author: Josef Kubin
 Started: 8 March 2020
 Description: here are the processed parts of the JavaScript-s which are composed into the final script
 Reason: code decomposition to simplify difficult things
 ---
-File #31: js/packer.sed
+File #40: js/packer.sed
 Author: Josef Kubin
 Started: 22 March 2020
 Description: removes unnecessary data from a JavaScript code; replaces long_self_descriptive_funny_variables with single letters
 Reason: common code to pack all JavaScript-s
 ---
-File #32: js/hgl_packer.sed
+File #41: js/hgl_packer.sed
 Author: Josef Kubin
 Started: 9 May 2020
 Description: replaces the local long_self_descriptive_funny_variables with single letters
 Reason: the script packs local method variables
 ---
-File #33: js/info_packer.sed
+File #42: js/info_packer.sed
 Author: Josef Kubin
 Started: 9 May 2020
 Description: replaces the local long_self_descriptive_funny_variables with single letters
 Reason: the script packs local method variables
 ---
-File #34: js/select_packer.sed
+File #43: js/select_packer.sed
 Author: Josef Kubin
 Started: 24 December 2020
 Description: replaces the local long_self_descriptive_funny_variables with single letters
 Reason: the script packs local method variables
 ---
-File #35: tmp/refs.m4
+File #44: tmp/refs.m4
 Author: Josef Kubin
 Started: 11 December 2019
 Description: tests logic flow (CHAPTER → SECT1 → SECT2) and generates references for anchors
 Reason: extracts all IDs from files and create associative pair
 ---
-File #36: tmp/refs.m4
+File #45: tmp/refs.m4
 Author: Josef Kubin
 Started: 11 December 2019
 Description: (this is a generated file) associative memory to linking references, contains captions and ID
 Reason: linking links and simple database
 ---
-File #37: tmp/refs_mono.m4
+File #46: tmp/refs_mono.m4
 Author: Josef Kubin
 Started: 1 April 2020
 Description: (this is a generated file) associative memory for linking files
 Reason: simple hash database for files
 ---
-File #38: tmp/git.m4
+File #47: tmp/git.m4
 Author: Josef Kubin
 Started: 8 March 2020
 Description: extracts important data from the git repository to create M4 macros
 Reason: subsequent faster code processing
 ---
-File #39: tmp/hgl_spec.m4
-Author: Josef Kubin
-Started: 13 April 2020
-Description: CSS logic to highlight keywords
-Reason: complex things easily
----
-File #40: tmp/refs_cs.m4
-Author: Josef Kubin
-Started: 11 December 2019
-Description: (this is a generated file) associative memory to linking references, contains captions and ID
-Reason: linking links and simple database
----
-File #41: tmp/style.m4
-Author: Josef Kubin
-Started: 24 December 2019
-Description: creates a style sheet in the reserved namespace
-Reason: the style sheet contains only the things that are actually used
----
-File #42: tmp/automata.m4
-Author: Josef Kubin
-Started: 21 January 2021
-Description: Push-Down Automata (PDA)
-Reason: example of using m4 keyword pushdef() for modeling Push-Down Automata (PDA)
----
-File #43: tmp/refs_en.m4
-Author: Josef Kubin
-Started: 11 December 2019
-Description: (this is a generated file) associative memory to linking references, contains captions and ID
-Reason: linking links and simple database
----
-File #44: tmp/automata_spatne.m4
-Author: Josef Kubin
-Started: 21 January 2021
-Description: Push-Down Automata (PDA)
-Reason: example of using m4 keyword pushdef() for modeling Push-Down Automata (PDA)
----
-File #45: tmp/publish.sed
-Author: Josef Kubin
-Started: 22 December 2019
-Description: convert problematic multi-byte UTF-8 characters (CMS refuses them) to HTML entities
-Reason: converts multi-byte UTF-8 characters to HTML entities for Content Management System
----
-File #46: tmp/hgl.m4
-Author: Josef Kubin
-Started: 4 April 2020
----
-File #47: ver.m4
-Author: Josef Kubin
-Started: 22 December 2019
-Description: the project is in constant development; to avoid frustrating innocent users a version number is used
-Reason: stops source.mc processing if the major version number is different
----
-File #48: refs.sed
-Author: Josef Kubin
-Started: 30 March 2020
-Description: converts strings for anchors/files to a plain-text-string format
-Reason: generate references at the lightning speed
----
-File #49: lang.m4
-Author: Josef Kubin
-Started: 30 December 2019
-Description: converts LANG_CODE to numeric index and selects desired language item
-Reason: selects item from multilingual list
----
-File #50: text/esc_to_txt.sed
-Author: Josef Kubin
-Started: 19 May 2020
-Description: transforms C esc sequences to ASCII
-Reason: post processing after M4 scripts
----
-File #51: text/chr_to_esc.sed
-Author: Josef Kubin
-Started: 19 May 2020
-Description: the script modifies input source code for M4 processing
-Reason: problematic characters must be hidden
----
-File #52: text/cmd.m4
-Author: Josef Kubin
-Started: 19 May 2020
-Description: command line with a list of input files, the last file is an output file
-Reason: estimate the total number of words and characters
----
-File #53: text/text.m4
-Author: Josef Kubin
-Started: 11 May 2020
-Description: generates a plain text file from (possibly multiple) source files
-Reason: the total number of words and characters that would be printed
----
-File #54: text/ref.m4
-Author: Josef Kubin
-Started: 16 May 2020
-Description: automaton for generating text references
-Reason: two nodes to generate references
----
-File #55: text/queues.m4
-Author: Josef Kubin
-Started: 16 May 2020
-Description: definitions of indexes for output queues
-Reason: each target generation file format has a specific list of queues
----
-File #56: text/file.m4
-Author: Josef Kubin
-Started: 16 May 2020
-Description: inserts (snippet of) a source file
-Reason: estimate the total number of words and characters
----
-File #57: text/link.m4
-Author: Josef Kubin
-Started: 24 May 2020
-Description: generates text link
-Reason: copies captions to text
----
-File #58: test.m4
-Author: Josef Kubin
-Started: 18 July 2019
-Description: testing laboratory for new features
-Reason: M4 script development
----
-File #59: html/index.m4
-Author: Josef Kubin
-Started: 27 December 2019
-Description: creates a html file for article development
-Reason: development and preview of html file before publishing
----
-File #60: html/nav.m4
-Author: Josef Kubin
-Started: 1 December 2019
-Description: navigation logic for HTML page; table of content; all parts of the series
-Reason: common script for preview and publish
----
-File #61: html/chr_to_esc.sed
-Author: Josef Kubin
-Started: 1 September 2019
-Description: the script modifies input source code for use in M4 source code and for resulting HTML page
-Reason: problematic characters in source code must be processed first
----
-File #62: html/preview.m4
-Author: Josef Kubin
-Started: 11 July 2019
-Description: creates a preview of the html page for article development
-Reason: development and preview of html file
----
-File #63: html/css.m4
-Author: Josef Kubin
-Started: 24 December 2019
-Description: the resulting style sheet is embedded in the resulting web page or can be extracted into a separated file
-Reason: here are the main CSS rules; a subset will be selected into the final style sheet
----
-File #64: html/cmd.m4
+File #48: tmp/cmd.m4
 Author: Josef Kubin
 Started: 26 April 2020
 Description: command line with a list of input files, the last file is an output file
 Reason: generates HTML code from the command line
 ---
-File #65: html/queues.m4
+File #49: tmp/cmd_bloated.m4
 Author: Josef Kubin
-Started: 11 July 2019
-Description: definitions of indexes for output queues
-Reason: each target generation file format has a specific list of queues
+Started: 26 April 2020
+Description: processes the command line with a list of files
+Reason: generates an appropriate HTML code
 ---
-File #66: html/style.m4
+File #50: tmp/refs_mono_old.m4
 Author: Josef Kubin
-Started: 24 December 2019
-Description: combine selectors and creates a style sheet (in the reserved namespace)
-Reason: the resulting CSS file contains only the things that are actually used
+Started: 1 April 2020
+Description: (generated) an associative memory for linking files
+Reason: a simple hash database for used files
 ---
-File #67: html/block.m4
+File #51: tmp/hgl_spec.m4
 Author: Josef Kubin
-Started: 29 December 2019
-Description: basic set of block-level elements and unpaired tags with a subset of global attributes
-Reason: definition of HTML5 block-level elements and unpaired tags
+Started: 13 April 2020
+Description: CSS logic to highlight keywords
+Reason: complex things easily
 ---
-File #68: html/publish.m4
+File #52: tmp/refs_cs.m4
 Author: Josef Kubin
-Started: 12 December 2019
-Description: creates the final file for Content Management System (copy and paste)
-Reason: template for Content Management System
+Started: 11 December 2019
+Description: (this is a generated file) associative memory to linking references, contains captions and ID
+Reason: linking links and simple database
 ---
-File #69: html/file.m4
+File #53: tmp/file_old.m4
 Author: Josef Kubin
 Started: 15 December 2019
 Description: processes a source file inserted to HTML; converts forbidden characters; sets string highlighting
 Reason: source file (possibly snippet) suitable for HTML
 ---
-File #70: html/ent.m4
+File #54: tmp/style.m4
+Author: Josef Kubin
+Started: 24 December 2019
+Description: creates a style sheet in the reserved namespace
+Reason: the style sheet contains only the things that are actually used
+---
+File #55: tmp/cmd_old_txt.m4
+Author: Josef Kubin
+Started: 19 May 2020
+Description: command line with a list of input files, the last file is an output file
+Reason: estimate the total number of words and characters
+---
+File #56: tmp/automata.m4
+Author: Josef Kubin
+Started: 21 January 2021
+Description: Push-Down Automata (PDA)
+Reason: example of using m4 keyword pushdef() for modeling Push-Down Automata (PDA)
+---
+File #57: tmp/refs_en.m4
+Author: Josef Kubin
+Started: 11 December 2019
+Description: (this is a generated file) associative memory to linking references, contains captions and ID
+Reason: linking links and simple database
+---
+File #58: tmp/automata_spatne.m4
+Author: Josef Kubin
+Started: 21 January 2021
+Description: Push-Down Automata (PDA)
+Reason: example of using m4 keyword pushdef() for modeling Push-Down Automata (PDA)
+---
+File #59: tmp/publish.sed
+Author: Josef Kubin
+Started: 22 December 2019
+Description: convert problematic multi-byte UTF-8 characters (CMS refuses them) to HTML entities
+Reason: converts multi-byte UTF-8 characters to HTML entities for Content Management System
+---
+File #60: tmp/hgl.m4
+Author: Josef Kubin
+Started: 4 April 2020
+---
+File #61: ver.m4
+Author: Josef Kubin
+Started: 22 December 2019
+Description: the project is in constant development; to avoid frustrating innocent users a version number is used
+Reason: stops source.mc processing if the major version number is different
+---
+File #62: refs.sed
+Author: Josef Kubin
+Started: 30 March 2020
+Description: converts strings for anchors/files to a plain-text-string format
+Reason: generate references at the lightning speed
+---
+File #63: lang.m4
+Author: Josef Kubin
+Started: 30 December 2019
+Description: converts LANG_CODE to numeric index and returns the required language item
+Reason: selects item from multilingual list
+---
+File #64: test.m4
+Author: Josef Kubin
+Started: 18 July 2019
+Description: testing laboratory for new features
+Reason: M4 script development
+---
+File #65: html/index.m4
+Author: Josef Kubin
+Started: 27 December 2019
+Description: creates a html file for article development
+Reason: development and preview of html file before publishing
+---
+File #66: html/nav.m4
+Author: Josef Kubin
+Started: 1 December 2019
+Description: navigation logic for HTML page; table of content; all parts of the series
+Reason: common script for preview and publish
+---
+File #67: html/chr_to_esc.sed
+Author: Josef Kubin
+Started: 1 September 2019
+Description: the script modifies input source code for use in M4 source code and for resulting HTML page
+Reason: problematic characters in source code must be processed first
+---
+File #68: html/preview.m4
+Author: Josef Kubin
+Started: 11 July 2019
+Description: creates a preview of the html page for article development
+Reason: development and preview of html file
+---
+File #69: html/css.m4
+Author: Josef Kubin
+Started: 24 December 2019
+Description: the resulting style sheet is embedded in the resulting web page or can be extracted into a separated file
+Reason: here are the main CSS rules; a subset will be selected into the final style sheet
+---
+File #70: html/cmd.m4
+Author: Josef Kubin
+Started: 26 April 2020
+Description: processes the command line with a list of files
+Reason: converts command line to HTML code
+---
+File #71: html/queues.m4
+Author: Josef Kubin
+Started: 11 July 2019
+Description: definitions of indexes for output queues
+Reason: each target generation file format has a specific list of queues
+---
+File #72: html/style.m4
+Author: Josef Kubin
+Started: 24 December 2019
+Description: combine selectors and creates a style sheet (in the reserved namespace)
+Reason: the resulting CSS file contains only the things that are actually used
+---
+File #73: html/block.m4
+Author: Josef Kubin
+Started: 29 December 2019
+Description: basic set of block-level elements and unpaired tags with a subset of global attributes
+Reason: definition of HTML5 block-level elements and unpaired tags
+---
+File #74: html/publish.m4
+Author: Josef Kubin
+Started: 12 December 2019
+Description: creates the final file for Content Management System (copy and paste)
+Reason: template for Content Management System
+---
+File #75: html/file.m4
+Author: Josef Kubin
+Started: 15 December 2019
+Description: processes a source file for HTML; converts forbidden characters; sets string highlighting using REGEX
+Reason: inserts a source file or just a snippet for HTML
+---
+File #76: html/ent.m4
 Author: Josef Kubin
 Started: 14 January 2020
 Description: solution for html entities which must be hidden (+ special characters)
 Reason: html entities and special characters
 ---
-File #71: html/esc_to_ent.sed
+File #77: html/esc_to_ent.sed
 Author: Josef Kubin
 Started: 9 January 2020
 Description: transforms esc sequences to HTML entities or to ASCII
 Reason: post processing after M4 scripts
 ---
-File #72: html/inline.m4
+File #78: html/inline.m4
 Author: Josef Kubin
 Started: 28 December 2019
 Description: inline elements and unpaired tags with a subset of global attributes
 Reason: definition of HTML5 inline elements and unpaired tags
 ---
-File #73: html/publish.sed
+File #79: html/publish.sed
 Author: Josef Kubin
 Started: 22 December 2019
 Description: converts problematic multi-byte UTF-8 characters (CMS refuses them) to HTML entities
 Reason: the final processing of the generated HTML
 ---
-File #74: lang_en.m4
+File #80: lang_en.m4
 Author: Josef Kubin
 Started: 11 July 2019
 Description: the file contains language-specific words
 Reason: multilingual targets
 ---
-File #75: git.sh
+File #81: git.sh
 Author: Josef Kubin
 Started: 8 March 2020
 Description: generates a simple associative file database for the resulting generated code
 Reason: fast code generation using associative memory
 ---
-File #76: loops/test.m4
+File #82: nsp.m4
+Author: Josef Kubin
+Started: 25 January 2021
+Description: lists the current namespace settings
+Reason: helps create associative memory for files
+Usage: m4 root0u.m4 config.m4 nsp.m4
+---
+File #83: loops/test.m4
 Author: Josef Kubin
 Started: 18 July 2019
 Description: testing laboratory for new features
 Reason: M4 script development
 ---
-File #77: loops/nested.m4
+File #84: loops/nested.m4
 Author: Josef Kubin
 Started: 18 July 2019
 Description: testing laboratory for new features
 Reason: M4 script development
 ---
-File #78: init.m4
+File #85: init.m4
 Author: Josef Kubin
 Started: 31 May 2020
-Description: initialization code of each target
+Description: initialization code for each target
 Reason: reduces code duplication
 ---
-File #79: c/c.m4
+File #86: c/c.m4
 Author: Josef Kubin
 Started: 28 December 2020
 Description: an example, how to generate a C source code from an article
 Reason: how to work with automata and queues
 ---
-File #80: c/ref.m4
+File #87: c/ref.m4
 Author: Josef Kubin
 Started: 16 May 2020
 Description: automaton for generating text references
 Reason: two nodes to generate references
 ---
-File #81: c/queues.m4
+File #88: c/queues.m4
 Author: Josef Kubin
 Started: 16 May 2020
 Description: definitions of indexes for output queues
 Reason: a specific list of queues for output code
 ---
-File #82: c/link.m4
+File #89: c/link.m4
 Author: Josef Kubin
 Started: 24 May 2020
-Description: generates text link
-Reason: copies captions to text
+Description: copies target captions to the text
+Reason: dereferences the linked text
 ---
-File #83: refs_cs.m4
+File #90: refs_cs.m4
 Author: Josef Kubin
 Started: 11 December 2019
 Description: (generated) an associative memory for linking references, contains captions and ID
 Reason: simple hash database for linking references
 ---
-File #84: spell.m4
+File #91: spell.m4
 Author: Josef Kubin
 Started: 23 December 2019
 Description: converts inline and block-level elements into a plain text file for checking jargon and typos
 Reason: plain text file for spell checking and for suggestions from other people (text can be easily edited)
 ---
-File #85: asm/Makefile
+File #92: asm/Makefile
 Author: Josef Kubin
 Started: 13 October 2019
 Description: keeps two ASM files consistent for both Intel and AT&T notation; uses a local .vimrc file with iabbrev-s
 Reason: two ASM files are generated from one source file
 Usage: make h && make
 ---
-File #86: file_refs.m4
+File #93: file_refs.m4
 Author: Josef Kubin
 Started: 1 April 2020
 Description: (this is a generated file) associative memory for linking files
 Reason: simple hash database for files
 ---
-File #87: automata/pda.m4
+File #94: automata/pda.m4
 Author: Josef Kubin
 Started: 21 January 2021
 Description: example of using Push-Down Automata (PDA)
 Reason: how to remember a previous state of an automaton
 Usage: m4 rootu.m4 pda.m4
 ---
-File #88: refs_en.m4
+File #95: refs_en.m4
 Author: Josef Kubin
 Started: 11 December 2019
 Description: (generated) an associative memory for linking references, contains captions and ID
 Reason: simple hash database for linking references
 ---
-File #89: mk/fhtml.m4
+File #96: mk/fhtml.m4
 Author: Josef Kubin
 Started: 5 January 2020
 Description: the script generates experimental additional rules extending the handwritten Makefile to generate HTML files
 Reason: additional rules by configuration from command line; the rules utilise M4 frozen files to generate HTML files
 ---
-File #90: mk/text.m4
-Author: Josef Kubin
-Started: 19 May 2020
-Description: generates additional rules extending the handwritten Makefile to generate txt files
-Reason: additional rules to generate txt files
----
-File #91: mk/html.m4
+File #97: mk/html.m4
 Author: Josef Kubin
 Started: 1 September 2019
 Description: the script generates additional rules extending the handwritten Makefile to generate HTML files
 Reason: additional rules by configuration from command line to generate HTML files
 ---
-File #92: mk/c.m4
+File #98: mk/c.m4
 Author: Josef Kubin
 Started: 29 December 2020
 Description: generates additional rules extending the handwritten Makefile to generate c files
 Reason: a simple script to generate Makefile to generate c files
 ---
-File #93: mk/texi.m4
+File #99: mk/texi.m4
 Author: Josef Kubin
 Started: 19 May 2020
 Description: the script generates additional rules extending the handwritten Makefile to generate texi files
 Reason: additional rules by configuration from command line to generate texi files
 ---
-File #94: mk/man.m4
+File #100: mk/man.m4
 Author: Josef Kubin
 Started: 19 May 2020
 Description: the script generates additional rules extending the handwritten Makefile to generate man files
 Reason: additional rules by configuration from command line to generate man files
 ---
-File #95: mk/xml.m4
+File #101: mk/xml.m4
 Author: Josef Kubin
 Started: 11 January 2020
 Description: the script creates rules for Makefile to generate XML files
 Reason: generated XML files
 ---
-File #96: config.m4
+File #102: mk/txt.m4
+Author: Josef Kubin
+Started: 19 May 2020
+Description: generates additional rules extending the handwritten Makefile to generate txt files
+Reason: additional rules to generate txt files
+---
+File #103: config.m4
 Author: Josef Kubin
 Started: 9 December 2019
 Description: global configuration file for all generated files
 Reason: one file to configure everything
 ---
-File #97: Makefile
+File #104: Makefile
 Author: Josef Kubin
 Started: 9 October 2019
 Description: this handwritten Makefile automatically generates additional rules to generate target files
 Reason: learning M4 using the examples in this series
 Usage: make h && make && make
 ---
-File #98: incl.m4
+File #105: incl.m4
 Author: Josef Kubin
 Started: 10 December 2019
 Description: repeated text patterns for ALL parts should be written here; modified files from the include keyword are invisible for make
 Reason: no include keyword; Note: this is M4 not C!
 ---
-File #99: refs/mono.m4
+File #106: refs/mono.m4
 Author: Josef Kubin
 Started: 29 March 2020
-Description: references to monolingual macros
-Reason: breakdown of references
+Description: generates references from all monolingual macros
+Reason: no duplicate monolingual references in language-specific files

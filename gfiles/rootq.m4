@@ -4,7 +4,7 @@ dnl DO NOT EDIT! This file is generated automatically!
 dnl
 divert(-1)
 
-__AUTHOR(⟦Josef Kubin⟧, ⟦2018,10,15⟧, ⟦https://github.com/jkubin/m4root⟧)
+__AUTHOR(⟦Josef Kubin⟧, ⟦2021,01,30⟧, ⟦https://github.com/jkubin/m4root⟧)
 ___DESCR(⟦the most general (root) rules for all scripts⟧)
 __REASON(⟦script decomposition; NO repeated information anywhere else⟧)
 ___USAGE(⟦m4 root.m4 stem.m4 branch.m4 sub_branch.m4 leaf.m4 data.mc > output.file⟧)
@@ -43,7 +43,10 @@ ___USAGE(⟦m4 root.m4 stem.m4 branch.m4 sub_branch.m4 leaf.m4 data.mc > output.
 define(`DONTE', `ifelse(`$#', `0', ``$0'',
 `DO NOT EDIT! This file is generated automatically!')')
 
-# expands to a left/right unpaired symbol to bypass quotation marks control
+# adds an unpaired quote symbol Left/Right:
+# LL() → `
+# RR() → '
+#
 define(`LL', `ifelse(`$#', `0', ``$0'', `changequote([,])`dnl'
 changequote`'')')
 define(`RR', `ifelse(`$#', `0', ``$0'', `changequote([,])dnl`
@@ -92,7 +95,7 @@ define(`EXPAND_LAST_BUT_ONE', `define(`#', $decr($#))indir(`#', $@)')
 
 # selects the last but one (there must be at least two arguments)
 # A(`$1', `$2', …, `$n') → $decr($#) → `$(n-1)'
-define(`SELECT_LAST_BUT_ONE', `define(`#', PAYR($decr($#)))indir(`#', $@)')
+define(`SELECT_LAST_BUT_ONE', `define(`#', LL()$decr($#)`'RR())indir(`#', $@)')
 
 # prints an informative message to stderr
 define(`ROOT_INFO', `errprint(__file__:__line__`: info: $1
@@ -105,39 +108,3 @@ define(`ROOT_WARNING', `errprint(__file__:__line__`: warning: $1
 # aborts a script if something goes wrong and prints the reason to stderr
 define(`ROOT_ERROR', `errprint(__file__:__line__`: error: $1
 ')m4exit(1)')
-
-#       counters are automata
-#      ______      ___________
-# --->/ INIT \--->/ INCREMENT \---.
-#     \______/    \_DECREMENT_/<--'
-#
-
-# tests automaton if it is initialized
-# β₁
-define(`TEST_ATM', `
-
-	ifelse(`$#', `0', `
-
-		ROOT_ERROR(`$0(…) must be initialized')
-	')
-')
-
-# β₁β₂
-define(`COUNT_UP', defn(`TEST_ATM')`
-
-	# the INIT node defines a unique symbol as the internal counter value
-	define(`$0_val', `$1')
-
-	# transition to the INCREMENT node
-	define(`$0', `$0_val`'define(`$0_val', incr($0_val))')
-')
-
-# β₁β₂
-define(`COUNT_DOWN', defn(`TEST_ATM')`
-
-	# the INIT node defines a unique symbol as the internal counter value
-	define(`$0_val', `$1')
-
-	# transition to the DECREMENT node
-	define(`$0', `$0_val`'define(`$0_val', decr($0_val))')
-')

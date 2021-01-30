@@ -1,16 +1,16 @@
 # DO NOT EDIT! This file is generated automatically!
 #
-# This is a simple associative file database.
+# this is a simple associative file database
 #
-# define(⟦./path/to/file⟧, ⟦⟦git commit hash⟧, ⟦git abbreviated commit hash⟧, ⟦git author date⟧, ⟦abbreviated sha1sum⟧, ⟦size [B]⟧, ⟦file type⟧⟧)
+# define(⟦./path/to/file⟧, ⟦⟦anchor id⟧, ⟦git commit hash⟧, ⟦git abbreviated commit hash⟧, ⟦git author date⟧, ⟦abbreviated sha1sum⟧, ⟦size [B]⟧, ⟦file type⟧⟧)
 #
-define(⟦./generovani-kodu-v-m4-uvod.c⟧, ⟦⟦ec09bd43fad2b69f8b45f4b9fd5ecf65a826fc8d⟧, ⟦ec09bd4⟧, ⟦20210124 11:14:19⟧, ⟦b697b35⟧, ⟦27002⟧, ⟦regular file⟧⟧)
-define(⟦./generovani-kodu-v-m4-zaklady.c⟧, ⟦⟦ec09bd43fad2b69f8b45f4b9fd5ecf65a826fc8d⟧, ⟦ec09bd4⟧, ⟦20210124 11:14:19⟧, ⟦8244823⟧, ⟦595⟧, ⟦regular file⟧⟧)
-define(⟦./generovani-kodu-v-m4-uvod/spell.txt⟧, ⟦⟦ec09bd43fad2b69f8b45f4b9fd5ecf65a826fc8d⟧, ⟦ec09bd4⟧, ⟦20210124 11:14:19⟧, ⟦12e7094⟧, ⟦30711⟧, ⟦regular file⟧⟧)
-define(⟦./generovani-kodu-v-m4-zaklady/spell.txt⟧, ⟦⟦ec09bd43fad2b69f8b45f4b9fd5ecf65a826fc8d⟧, ⟦ec09bd4⟧, ⟦20210124 11:14:19⟧, ⟦7642836⟧, ⟦527⟧, ⟦regular file⟧⟧)
-define(⟦./generovani-kodu-v-m4-uvod/preview.html⟧, ⟦⟦ec09bd43fad2b69f8b45f4b9fd5ecf65a826fc8d⟧, ⟦ec09bd4⟧, ⟦20210124 11:14:19⟧, ⟦0434932⟧, ⟦154611⟧, ⟦regular file⟧⟧)
-define(⟦./generovani-kodu-v-m4-zaklady/preview.html⟧, ⟦⟦ec09bd43fad2b69f8b45f4b9fd5ecf65a826fc8d⟧, ⟦ec09bd4⟧, ⟦20210124 11:14:19⟧, ⟦9610dd5⟧, ⟦6114⟧, ⟦regular file⟧⟧)
-define(⟦./generovani-kodu-v-m4-uvod/index.html⟧, ⟦⟦ec09bd43fad2b69f8b45f4b9fd5ecf65a826fc8d⟧, ⟦ec09bd4⟧, ⟦20210124 11:14:19⟧, ⟦dadefaa⟧, ⟦153166⟧, ⟦regular file⟧⟧)
-define(⟦./generovani-kodu-v-m4-zaklady/index.html⟧, ⟦⟦ec09bd43fad2b69f8b45f4b9fd5ecf65a826fc8d⟧, ⟦ec09bd4⟧, ⟦20210124 11:14:19⟧, ⟦96c1b0d⟧, ⟦4675⟧, ⟦regular file⟧⟧)
-define(⟦./generovani-kodu-v-m4-uvod.txt⟧, ⟦⟦ec09bd43fad2b69f8b45f4b9fd5ecf65a826fc8d⟧, ⟦ec09bd4⟧, ⟦20210124 11:14:19⟧, ⟦dede566⟧, ⟦58258⟧, ⟦regular file⟧⟧)
-define(⟦./generovani-kodu-v-m4-zaklady.txt⟧, ⟦⟦ec09bd43fad2b69f8b45f4b9fd5ecf65a826fc8d⟧, ⟦ec09bd4⟧, ⟦20210124 11:14:19⟧, ⟦a79cbac⟧, ⟦347⟧, ⟦regular file⟧⟧)
+define(⟦./generovani-kodu-v-m4-uvod/spell.txt⟧, ⟦⟦m4-generovani-kodu-v-m4-uvod_spell-txt⟧, ⟦8a094dbcb2c900d241f8bfc9dc88accff5b83b3e⟧, ⟦8a094db⟧, ⟦20210130 21:12:33⟧, ⟦62f8c54⟧, ⟦30477⟧, ⟦regular file⟧⟧)
+define(⟦./generovani-kodu-v-m4-zaklady/spell.txt⟧, ⟦⟦m4-generovani-kodu-v-m4-zaklady_spell-txt⟧, ⟦8a094dbcb2c900d241f8bfc9dc88accff5b83b3e⟧, ⟦8a094db⟧, ⟦20210130 21:12:33⟧, ⟦468c262⟧, ⟦527⟧, ⟦regular file⟧⟧)
+define(⟦./generovani-kodu-v-m4-uvod/preview.html⟧, ⟦⟦m4-generovani-kodu-v-m4-uvod_preview-html⟧, ⟦8a094dbcb2c900d241f8bfc9dc88accff5b83b3e⟧, ⟦8a094db⟧, ⟦20210130 21:12:33⟧, ⟦0251aa7⟧, ⟦153860⟧, ⟦regular file⟧⟧)
+define(⟦./generovani-kodu-v-m4-zaklady/preview.html⟧, ⟦⟦m4-generovani-kodu-v-m4-zaklady_preview-html⟧, ⟦8a094dbcb2c900d241f8bfc9dc88accff5b83b3e⟧, ⟦8a094db⟧, ⟦20210130 21:12:33⟧, ⟦1b568f1⟧, ⟦5806⟧, ⟦regular file⟧⟧)
+define(⟦./generovani-kodu-v-m4-uvod/index.html⟧, ⟦⟦m4-generovani-kodu-v-m4-uvod_index-html⟧, ⟦8a094dbcb2c900d241f8bfc9dc88accff5b83b3e⟧, ⟦8a094db⟧, ⟦20210130 21:12:33⟧, ⟦471b829⟧, ⟦152528⟧, ⟦regular file⟧⟧)
+define(⟦./generovani-kodu-v-m4-zaklady/index.html⟧, ⟦⟦m4-generovani-kodu-v-m4-zaklady_index-html⟧, ⟦8a094dbcb2c900d241f8bfc9dc88accff5b83b3e⟧, ⟦8a094db⟧, ⟦20210130 21:12:33⟧, ⟦7300c6d⟧, ⟦4483⟧, ⟦regular file⟧⟧)
+define(⟦./generovani-kodu-v-m4-uvod.c⟧, ⟦⟦m4-generovani-kodu-v-m4-uvod-c⟧, ⟦8a094dbcb2c900d241f8bfc9dc88accff5b83b3e⟧, ⟦8a094db⟧, ⟦20210130 21:12:33⟧, ⟦837a874⟧, ⟦27002⟧, ⟦regular file⟧⟧)
+define(⟦./generovani-kodu-v-m4-zaklady.c⟧, ⟦⟦m4-generovani-kodu-v-m4-zaklady-c⟧, ⟦8a094dbcb2c900d241f8bfc9dc88accff5b83b3e⟧, ⟦8a094db⟧, ⟦20210130 21:12:33⟧, ⟦8cb4b3e⟧, ⟦595⟧, ⟦regular file⟧⟧)
+define(⟦./generovani-kodu-v-m4-uvod.txt⟧, ⟦⟦m4-generovani-kodu-v-m4-uvod-txt⟧, ⟦8a094dbcb2c900d241f8bfc9dc88accff5b83b3e⟧, ⟦8a094db⟧, ⟦20210130 21:12:33⟧, ⟦30cb03c⟧, ⟦58166⟧, ⟦regular file⟧⟧)
+define(⟦./generovani-kodu-v-m4-zaklady.txt⟧, ⟦⟦m4-generovani-kodu-v-m4-zaklady-txt⟧, ⟦8a094dbcb2c900d241f8bfc9dc88accff5b83b3e⟧, ⟦8a094db⟧, ⟦20210130 21:12:33⟧, ⟦b1ae263⟧, ⟦347⟧, ⟦regular file⟧⟧)

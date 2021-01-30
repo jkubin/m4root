@@ -3,7 +3,10 @@ divert(-1)changequote([,])
 # LOUD alert for unsuspecting users (note: `donte' is not a word from the dictionary)
 define([DONTE], [DO NOT EDIT! This file is generated automatically!])
 
-# expands to a left/right unpaired symbol bypassing the non-terminal expansion control
+# adds a single Left/Right unpaired control symbol:
+# LL → [
+# RR → ]
+#
 define([LL], [changequote[dnl]
 changequote([,])])
 define([RR], [changequote`'dnl[

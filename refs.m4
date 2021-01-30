@@ -17,8 +17,8 @@ define(⟦SEL_WORDS⟧,		QUEUE_INDEX)
 
 # create aliases to existing macros
 # A → β
-define(⟦LUTF⟧, defn(⟦LL⟧))
-define(⟦RUTF⟧, defn(⟦RR⟧))
+define(⟦LL_ALIAS⟧, defn(⟦LL⟧))
+define(⟦RR_ALIAS⟧, defn(⟦RR⟧))
 
 # re-define problematic macros used in captions
 # A → β
@@ -199,10 +199,10 @@ define(⟦#.$2.$3⟧, ⟦$4⟧)⟧
 define(⟦PREPARE_FOR_EXTERNAL_REGEX⟧, ⟦
 
 	divert(ANCHORS)dnl
-anch⟦define(⟦$1⟧, ⟧LUTF()
+anch⟦define(⟦$1⟧, ⟧LL_ALIAS()
 translit(⟦$2⟧, ⟦!"#$%&`'*+/:;<=>?@[\]^{}|~⟧,
                ⟦xzhdpmbasunwvfegqtlkrcijoy⟧)
-RUTF()⟦)⟧
+RR_ALIAS()⟦)⟧
 divert(-1)
 ⟧)
 
@@ -302,7 +302,7 @@ divert(ANCHORS)dnl
 divert(SEL_WORDS)dnl
 
 # A → β
-⟦define(⟧LUTF()LANG_CODE⟦⟧_OTHER_LANG⟧, LUTF()ARG1(LANG_CODE)_LANG⟧)
+⟦define(⟧LL_ALIAS()LANG_CODE⟦⟧_OTHER_LANG⟧, LL_ALIAS()ARG1(LANG_CODE)_LANG⟧)
 divert(-1)
 
 # A → β
