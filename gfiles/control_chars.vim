@@ -34,7 +34,7 @@ iabbrev <buffer> <unique> ll ⟦⟧LL()<c-r>=Eatchar('.')<cr>
 "iabbrev <buffer> <unique> lqq `'LQ()<c-r>=Eatchar('.')<cr>
 "iabbrev <buffer> <unique> lu LU()<c-r>=Eatchar('.')<cr>
 "iabbrev <buffer> <unique> luu ⟦⟧LU()<c-r>=Eatchar('.')<cr>
-iabbrev <buffer> <unique> pp ⟦⟧%%%<left><c-o>T⟦<c-r>=Eatchar('\s')<cr>
+iabbrev <buffer> <unique> pp ⟦⟧<left><c-r>=Eatchar('\s')<cr>
 iabbrev <buffer> <unique> PP ⟦<c-r>-⟧<esc>
 "iabbrev <buffer> <unique> rbb ⟦⟧RB()<c-r>=Eatchar('.')<cr>
 "iabbrev <buffer> <unique> rb RB()<c-r>=Eatchar('.')<cr>

@@ -12,8 +12,8 @@ iabbrev <buffer> <unique> ac ACRONYM(⟦<c-r>"⟧, ⟦⟧)<c-o>T⟦<c-r>=Eatchar
 iabbrev <buffer> <unique> am ⟦⟧AMP()<c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> ap <c-l><cr>APPENDIX(⟦⟦<cr><cr>⟧,dnl ↓ lang_en<cr>⟦<cr>%%%<cr>⟧⟧)<left><c-o>%<c-o>0<down><c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> apo ⟦⟧AP()<c-r>=Eatchar('.')<cr>
-iabbrev <buffer> <unique> arw ARTICLE_WRAP(⟦<cr><cr><cr><cr>⟧)dnl ARTICLE_WRAP<up><up><c-r>=Eatchar('.')<cr>
-iabbrev <buffer> <unique> asw ASIDE_WRAP(⟦<cr><cr><cr><cr>⟧)dnl ASIDE_WRAP<up><up><c-r>=Eatchar('.')<cr>
+iabbrev <buffer> <unique> arw ARTICLE_WRAP(⟦<cr><cr><cr><cr>⟧)# ARTICLE_WRAP<up><up><c-r>=Eatchar('.')<cr>
+iabbrev <buffer> <unique> asw ASIDE_WRAP(⟦<cr><cr><cr><cr>⟧)# ASIDE_WRAP<up><up><c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> bb BOLD(⟦<c-r>"⟧)<esc>
 iabbrev <buffer> <unique> bh BRIDGEHEAD(⟦⟦<cr><cr>⟧,dnl ↓ lang_en<cr>⟦<cr>%%%<cr>⟧⟧)<left><c-o>%<c-o>0<down><c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> bo BOLD(⟦<c-r>"⟧)<esc>
@@ -43,11 +43,11 @@ iabbrev <buffer> <unique> cod CODE(⟦<c-r>"⟧)<esc>
 iabbrev <buffer> <unique> com COMMENT(⟦⟦<cr><cr>⟧⟧)<up><c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> cp CSS_PARENT(⟦⟧, ⟦⟧, ⟦<cr>%%%<cr>⟧)<left><c-o>%<right><right><c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> del DELETED(⟦<c-r>"⟧)<esc>
-iabbrev <buffer> <unique> dew DETAILS_WRAP(⟦<cr><cr><cr><cr>⟧)dnl DETAILS_WRAP<up><up><c-r>=Eatchar('.')<cr>
-iabbrev <buffer> <unique> diw DIV_WRAP(⟦<cr><cr><cr><cr>⟧)dnl DIV_WRAP<up><up><c-r>=Eatchar('.')<cr>
+iabbrev <buffer> <unique> dew DETAILS_WRAP(⟦<cr><cr><cr><cr>⟧)# DETAILS_WRAP<up><up><c-r>=Eatchar('.')<cr>
+iabbrev <buffer> <unique> diw DIV_WRAP(⟦<cr><cr><cr><cr>⟧)# DIV_WRAP<up><up><c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> dld DESCRIPTION_LIST_DESC(⟦⟦<cr><cr>⟧,dnl ↓ lang_en<cr>⟦<cr>%%%<cr>⟧⟧)<left><c-o>%<c-o>0<down><c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> dlt DESCRIPTION_LIST_TERM(⟦⟦<cr><cr>⟧,dnl ↓ lang_en<cr>⟦<cr>%%%<cr>⟧⟧)<left><c-o>%<c-o>0<down><c-r>=Eatchar('.')<cr>
-iabbrev <buffer> <unique> dlw DESCRIPTION_LIST_WRAP(⟦<cr><cr><cr><cr>⟧)dnl DESCRIPTION_LIST_WRAP<up><up><c-r>=Eatchar('.')<cr>
+iabbrev <buffer> <unique> dlw DESCRIPTION_LIST_WRAP(⟦<cr><cr><cr><cr>⟧)# DESCRIPTION_LIST_WRAP<up><up><c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> dq ⟦⟧DQ()<c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> dv DIV(⟦⟦<cr><cr>⟧,dnl ↓ lang_en<cr>⟦<cr>%%%<cr>⟧⟧)<left><c-o>%<c-o>0<down><c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> emp EMPHASIS(⟦<c-r>"⟧)<esc>
@@ -57,47 +57,47 @@ iabbrev <buffer> <unique> exp EXPLAIN(⟦<c-r>"⟧, ⟦⟧)<left><left><c-r>=Eat
 iabbrev <buffer> <unique> fig FIGCAPTION(⟦⟦<cr><cr>⟧,dnl ↓ lang_en<cr>⟦<cr>%%%<cr>⟧⟧)<left><c-o>%<c-o>0<down><c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> ftn ⟦⟧FOOTNOTE(⟦⟧, ⟦%%%⟧)<c-o>T(<right><c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> ftnn ⟦⟧FOOTNOTE(⟦⟧)<left><left><c-r>=Eatchar('.')<cr>
-iabbrev <buffer> <unique> fw FIGURE_WRAP(⟦<cr><cr><cr><cr>⟧)dnl FIGURE_WRAP<up><up><c-r>=Eatchar('.')<cr>
+iabbrev <buffer> <unique> fw FIGURE_WRAP(⟦<cr><cr><cr><cr>⟧)# FIGURE_WRAP<up><up><c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> gr GRAY(⟦<c-r>"⟧)<esc>
 iabbrev <buffer> <unique> gt ⟦⟧GT()<c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> hc HCODE(⟦<c-r>"⟧, ⟦⟦⟦%%%⟧, ⟦%%%⟧⟧%%%⟧)<left><c-o>%;;<c-r>=Eatchar('.')<cr>
-iabbrev <buffer> <unique> hew HEADER_WRAP(⟦<cr><cr><cr><cr>⟧)dnl HEADER_WRAP<up><up><c-r>=Eatchar('.')<cr>
+iabbrev <buffer> <unique> hew HEADER_WRAP(⟦<cr><cr><cr><cr>⟧)# HEADER_WRAP<up><up><c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> hh s/<c-o>m`/HH(%%%)/%%%<c-o>``<right><c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> hr HORIZONTAL_RULE()<c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> hx HEXPLAIN(⟦<c-r>"⟧, ⟦⟦⟦%%%⟧, ⟦%%%⟧⟧%%%⟧)<left><c-o>%;;<c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> ifi INSERT_FILE(⟦⟧)<left><left><c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> ifm INSERT_FILE_MLH(⟦⟧)<left><left><c-r>=Eatchar('.')<cr>
 "iabbrev <buffer> <unique> ii LI(⟦<c-r>"⟧)<esc>
-iabbrev <buffer> <unique> im IMAGEDATA(⟦⟧,dnl ← id<cr>⟦%%%⟧,dnl ← title<cr>⟦⟧,dnl ← class<cr>⟦⟧,dnl ← style<cr>⟦⟧,dnl ← anything<cr>⟦%%%, %%%⟧,dnl ← local_img, server_img<cr>⟦⟦<cr>%%%<cr>⟧,dnl ↓ lang_en<cr>⟦<cr>%%%<cr>⟧⟧)dnl IMAGEDATA<c-o>F)<c-o>%<right><right><c-r>=Eatchar('.')<cr>
+iabbrev <buffer> <unique> im IMAGEDATA(⟦⟧,dnl ← id<cr>⟦%%%⟧,dnl ← title<cr>⟦⟧,dnl ← class<cr>⟦⟧,dnl ← style<cr>⟦⟧,dnl ← anything<cr>⟦%%%, %%%⟧,dnl ← local_img, server_img<cr>⟦⟦<cr>%%%<cr>⟧,dnl ↓ lang_en<cr>⟦<cr>%%%<cr>⟧⟧)# IMAGEDATA<c-o>F)<c-o>%<right><right><c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> inf INFO(, defn(⟦WORD_INFORMATION⟧), ⟦⟦<cr><cr>⟧,dnl ↓ lang_en<cr>⟦<cr>%%%<cr>⟧⟧)<left><c-o>%<c-o>0<down><c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> ins INSERTED(⟦<c-r>"⟧)<esc>
 iabbrev <buffer> <unique> ita ITALIC(⟦<c-r>"⟧)<esc>
-iabbrev <buffer> <unique> itl ITEMIZEDLIST_WRAP(⟦<cr><cr><cr><cr>⟧)dnl ITEMIZEDLIST_WRAP<up><up><c-r>=Eatchar('.')<cr>
+iabbrev <buffer> <unique> itl ITEMIZEDLIST_WRAP(⟦<cr><cr><cr><cr>⟧)# ITEMIZEDLIST_WRAP<up><up><c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> itt ITALIC(⟦<c-r>"⟧)<esc>
-iabbrev <buffer> <unique> itw ITEMIZEDLIST_WRAP(⟦<cr><cr><cr><cr>⟧)dnl ITEMIZEDLIST_WRAP<up><up><c-r>=Eatchar('.')<cr>
+iabbrev <buffer> <unique> itw ITEMIZEDLIST_WRAP(⟦<cr><cr><cr><cr>⟧)# ITEMIZEDLIST_WRAP<up><up><c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> lan LANG(⟦<c-r>"⟧, ⟦⟧)<left><left><c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> lar LANG_RE(⟦<c-r>"⟧, ⟦⟧)<left><left><c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> larr LANG_RE2(⟦<c-r>"⟧, ⟦⟧)<left><left><c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> ,. , ⟦⟦⟦%%%⟧, ⟦%%%⟧⟧%%%⟧<left><c-o>%;;<c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> ,/ , ⟦⟦%%%⟧, ⟦%%%⟧⟧<left><c-o>%;;<c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> lii LI(⟦<c-r>"⟧)<esc>
-iabbrev <buffer> <unique> lit LISTITEM(⟦⟦<cr><cr>⟧,dnl ↓ lang_en<cr>⟦<cr>%%%<cr>⟧⟧)dnl LISTITEM<up><up><up><up><c-r>=Eatchar('.')<cr>
+iabbrev <buffer> <unique> lit LISTITEM(⟦⟦<cr><cr>⟧,dnl ↓ lang_en<cr>⟦<cr>%%%<cr>⟧⟧)# LISTITEM<up><up><up><up><c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> lnk LINK(⟦<c-r>"⟧, ⟦⟧)<c-o>T⟦<c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> lr LANG_RE(⟦<c-r>"⟧, ⟦⟧)<left><left><c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> lrr LANG_RE2(⟦<c-r>"⟧, ⟦⟧)<left><left><c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> lt ⟦⟧LT()<c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> mar MARK(⟦<c-r>"⟧)<esc>
-iabbrev <buffer> <unique> maw MAIN_WRAP(⟦<cr><cr><cr><cr>⟧)dnl MAIN_WRAP<up><up><c-r>=Eatchar('.')<cr>
+iabbrev <buffer> <unique> maw MAIN_WRAP(⟦<cr><cr><cr><cr>⟧)# MAIN_WRAP<up><up><c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> met METER(⟦60%⟧,,,,, ⟦value="0.6"⟧)<c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> mM MM(⟦<c-r>"⟧, )<left><c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> nav NAV(⟦⟦<cr><cr>⟧,dnl ↓ lang_en<cr>⟦<cr>%%%<cr>⟧⟧)<left><c-o>%<c-o>0<down><c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> nb ⟦⟧NB()<esc>
 iabbrev <buffer> <unique> nt NOTE(, defn(⟦WORD_NOTE⟧), ⟦⟦<cr><cr>⟧,dnl ↓ lang_en<cr>⟦<cr>%%%<cr>⟧⟧)<left><c-o>%<c-o>0<down><c-r>=Eatchar('.')<cr>
-iabbrev <buffer> <unique> ntw NOTE_WRAP(, defn(⟦WORD_NOTE⟧), ⟦<cr><cr><cr><cr>⟧)dnl NOTE_WRAP<up><up><c-r>=Eatchar('.')<cr>
-iabbrev <buffer> <unique> oll ORDEREDLIST_WRAP(⟦<cr><cr><cr><cr>⟧)dnl ORDEREDLIST_WRAP<up><up><c-r>=Eatchar('.')<cr>
+iabbrev <buffer> <unique> ntw NOTE_WRAP(, defn(⟦WORD_NOTE⟧), ⟦<cr><cr><cr><cr>⟧)# NOTE_WRAP<up><up><c-r>=Eatchar('.')<cr>
+iabbrev <buffer> <unique> oll ORDEREDLIST_WRAP(⟦<cr><cr><cr><cr>⟧)# ORDEREDLIST_WRAP<up><up><c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> ol OL(⟦<cr><cr>⟧)<up><c-r>=Eatchar('.')<cr>
-iabbrev <buffer> <unique> olw ORDEREDLIST_WRAP(⟦<cr><cr><cr><cr>⟧)dnl ORDEREDLIST_WRAP<up><up><c-r>=Eatchar('.')<cr>
-iabbrev <buffer> <unique> ow ORDEREDLIST_WRAP(⟦<cr><cr><cr><cr>⟧)dnl ORDEREDLIST_WRAP<up><up><c-r>=Eatchar('.')<cr>
+iabbrev <buffer> <unique> olw ORDEREDLIST_WRAP(⟦<cr><cr><cr><cr>⟧)# ORDEREDLIST_WRAP<up><up><c-r>=Eatchar('.')<cr>
+iabbrev <buffer> <unique> ow ORDEREDLIST_WRAP(⟦<cr><cr><cr><cr>⟧)# ORDEREDLIST_WRAP<up><up><c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> pa PARA(⟦⟦<cr><cr>⟧,dnl ↓ lang_en<cr>⟦<cr>%%%<cr>⟧⟧)<left><c-o>%<c-o>0<down><c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> par PARA(⟦⟦<cr><cr>⟧,dnl ↓ lang_en<cr>⟦<cr>%%%<cr>⟧⟧)<left><c-o>%<c-o>0<down><c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> pe PERSON(⟦<c-r>"⟧)<esc>
@@ -107,7 +107,7 @@ iabbrev <buffer> <unique> prmt PRMT()
 iabbrev <buffer> <unique> prog PROGRESS(⟦⟧,,,,, ⟦value="22" max="100"⟧)<c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> proo PRMT_ROOT()
 iabbrev <buffer> <unique> proot PRMT_ROOT()
-iabbrev <buffer> <unique> pr PROGRAMLISTING(⟦<cr><cr>⟧)dnl PROGRAMLISTING
+iabbrev <buffer> <unique> pr PROGRAMLISTING(⟦<cr><cr>⟧)# PROGRAMLISTING
 iabbrev <buffer> <unique> qc „<c-r>"“<esc>
 "iabbrev <buffer> <unique> qc Quote Czech
 iabbrev <buffer> <unique> qe “<c-r>"”<esc>
@@ -131,10 +131,10 @@ iabbrev <buffer> <unique> stt STRIKETHROUGH(⟦<c-r>"⟧)<esc>
 iabbrev <buffer> <unique> subs SUBSCRIPT(⟦<c-r>"⟧)<esc>
 iabbrev <buffer> <unique> sum SUMMARY(⟦⟦<cr><cr>⟧,dnl ↓ lang_en<cr>⟦<cr>%%%<cr>⟧⟧)<left><c-o>%<c-o>0<down><c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> sup SUPERSCRIPT(⟦<c-r>"⟧)<esc>
-iabbrev <buffer> <unique> sw SECTION_WRAP(⟦<cr><cr><cr><cr>⟧)dnl SECTION_WRAP<up><up><c-r>=Eatchar('.')<cr>
+iabbrev <buffer> <unique> sw SECTION_WRAP(⟦<cr><cr><cr><cr>⟧)# SECTION_WRAP<up><up><c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> til TILE_BOX(⟦⟦<cr><cr>⟧,dnl ↓ lang_en<cr>⟦<cr>%%%<cr>⟧⟧)<left><c-o>%<c-o>0<down><c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> tto TOOLTIP(⟦<c-r>"⟧, ⟦⟧)<c-o>T⟦<c-r>=Eatchar('.')<cr>
-iabbrev <buffer> <unique> tx TEXTDATA(⟦⟧, ⟦%%%⟧, ⟦%%%⟧)<left><c-o>%<right><right><c-r>=Eatchar('.')<cr>
+iabbrev <buffer> <unique> tx TEXTDATA(⟦⟦⟧, ⟦%%%⟧⟧)<left><c-o>%<right><right><right><c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> ul UL(⟦<cr><cr>⟧)<up><c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> un UNDERLINE(⟦<c-r>"⟧)<esc>
 iabbrev <buffer> <unique> uu ULINK(⟦<c-r>"⟧, ⟦⟧)<left><left><c-r>=Eatchar('.')<cr>
@@ -148,13 +148,13 @@ iabbrev <buffer> <unique> xs XSPAN(⟦<c-r>"⟧, ⟦%%%⟧, ⟦%%%⟧)<left><c-o
 
 iabbrev <buffer> <unique> enh ENTRY_HEAD(⟦⟦<cr><cr>⟧,dnl ↓ lang_en<cr>⟦<cr>%%%<cr>⟧⟧)<left><c-o>%<c-o>0<down><c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> ent ENTRY(⟦⟦<cr><cr>⟧,dnl ↓ lang_en<cr>⟦<cr>%%%<cr>⟧⟧)<left><c-o>%<c-o>0<down><c-r>=Eatchar('.')<cr>
-iabbrev <buffer> <unique> rw ROW_WRAP(⟦<cr><cr><cr><cr>⟧)dnl ROW_WRAP<up><up><c-r>=Eatchar('.')<cr>
-iabbrev <buffer> <unique> tbw TBODY_WRAP(⟦<cr><cr><cr><cr>⟧)dnl TBODY_WRAP<up><up><c-r>=Eatchar('.')<cr>
-iabbrev <buffer> <unique> tcg TABLE_COLGROUP_WRAP(⟦<cr><cr><cr><cr>⟧)dnl TABLE_COLGROUP_WRAP<up><up><c-r>=Eatchar('.')<cr>
+iabbrev <buffer> <unique> rw ROW_WRAP(⟦<cr><cr><cr><cr>⟧)# ROW_WRAP<up><up><c-r>=Eatchar('.')<cr>
+iabbrev <buffer> <unique> tbw TBODY_WRAP(⟦<cr><cr><cr><cr>⟧)# TBODY_WRAP<up><up><c-r>=Eatchar('.')<cr>
+iabbrev <buffer> <unique> tcg TABLE_COLGROUP_WRAP(⟦<cr><cr><cr><cr>⟧)# TABLE_COLGROUP_WRAP<up><up><c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> tco TABLE_COL(⟦⟧,dnl ← id<cr>⟦⟧,dnl ← title<cr>⟦⟧,dnl ← class<cr>⟦⟧,dnl ← style<cr>⟦span="2"⟧,dnl ← anything<cr>)<up><c-o>f2<esc>
-iabbrev <buffer> <unique> tcw TABLE_COLGROUP_WRAP(⟦<cr><cr><cr><cr>⟧)dnl TABLE_COLGROUP_WRAP<up><up><c-r>=Eatchar('.')<cr>
-iabbrev <buffer> <unique> tfw TFOOT_WRAP(⟦<cr><cr><cr><cr>⟧)dnl TFOOT_WRAP<up><up><c-r>=Eatchar('.')<cr>
-iabbrev <buffer> <unique> thw THEAD_WRAP(⟦<cr><cr><cr><cr>⟧)dnl THEAD_WRAP<up><up><c-r>=Eatchar('.')<cr>
+iabbrev <buffer> <unique> tcw TABLE_COLGROUP_WRAP(⟦<cr><cr><cr><cr>⟧)# TABLE_COLGROUP_WRAP<up><up><c-r>=Eatchar('.')<cr>
+iabbrev <buffer> <unique> tfw TFOOT_WRAP(⟦<cr><cr><cr><cr>⟧)# TFOOT_WRAP<up><up><c-r>=Eatchar('.')<cr>
+iabbrev <buffer> <unique> thw THEAD_WRAP(⟦<cr><cr><cr><cr>⟧)# THEAD_WRAP<up><up><c-r>=Eatchar('.')<cr>
 iabbrev <buffer> <unique> tti TTITLE(⟦⟦<cr><cr>⟧,dnl ↓ lang_en<cr>⟦<cr>%%%<cr>⟧⟧)<left><c-o>%<c-o>0<down><c-r>=Eatchar('.')<cr>
-iabbrev <buffer> <unique> tw TABLE_WRAP(⟦<cr><cr><cr><cr>⟧)dnl TABLE_WRAP<up><up><c-r>=Eatchar('.')<cr>
+iabbrev <buffer> <unique> tw TABLE_WRAP(⟦<cr><cr><cr><cr>⟧)# TABLE_WRAP<up><up><c-r>=Eatchar('.')<cr>
 
