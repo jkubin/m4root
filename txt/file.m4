@@ -1,17 +1,50 @@
 __AUTHOR(⟦Josef Kubin⟧, ⟦2020,05,16⟧)
-___DESCR(⟦inserts (snippet of) a source file⟧)
-__REASON(⟦estimate the total number of words and characters⟧)
+___DESCR(⟦inserts a source file or just a snippet⟧)
+__REASON(⟦inserts a file as a plain text to estimate the total number of words and characters⟧)
 
+# Usage:
+# inserts the file as is
+# TEXTDATA(⟦⟦path/file.src⟧⟧)
+#
+# inserts the file as is with a possible ID if inserted multiple times
+# TEXTDATA(⟦⟦path/file.src,ID⟧⟧)
+# TEXTDATA(⟦⟦path/file.src,1⟧⟧)
+# TEXTDATA(⟦⟦path/file.src,2⟧⟧)
+# TEXTDATA(⟦⟦path/file.src,foo⟧⟧)
+# …
+#
 # A → β
 # β
 define(⟦TEXTDATA⟧, ⟦
 
-	ifelse(eval(⟦$# > 0 && $# < 5⟧), ⟦1⟧, ⟦⟧, ⟦
+	TEXTDATA_LAST_ARG(⟧defn(⟦EXPAND_LAST_ARG⟧)⟦)
 
-		ROOT_ERROR(⟦‘$0($@)’ wrong number of arguments⟧)
+	# prints git hash and the file name
+	divert(CURRQU)dnl
+SARG3(GIT_CSV) defn(⟦#FILE⟧)
+esyscmd(defn(⟦COMMAND_FOR_TEXTDATA⟧))
+divert(-1)
+
+	# tests the return value of the command
+	ifelse(sysval, ⟦0⟧, ⟦⟧, ⟦
+
+		# displays a complete failed command
+		ROOT_ERROR(⟦‘$0($@)’ → $ ⟧defn(⟦COMMAND_FOR_TEXTDATA⟧))
 	⟧)
 
-	# the first is file name, the second is ID (not used here)
+	# prints the resulting command used
+	ifdef(⟦DEBUG⟧, ⟦errprint(__file__:__line__: defn(⟦COMMAND_FOR_TEXTDATA⟧)
+)⟧)
+⟧)
+
+# A → β
+define(⟦TEXTDATA_MLH⟧, defn(⟦TEXTDATA⟧))
+
+# A → β
+define(⟦TEXTDATA_LAST_ARG⟧, ⟦
+
+	# 1st file name
+	# 2nd ID (not used here)
 	define(⟦#FILE⟧, SARG1($1))
 
 	# finds a git record from a hash database
@@ -22,37 +55,29 @@ define(⟦TEXTDATA⟧, ⟦
 		ROOT_ERROR(⟦git record for ‘⟧defn(⟦#FILE⟧)⟦’ not found, regenerate git database⟧)
 	⟧)
 
-	divert(CURRQU)dnl
-SARG3(GIT_CSV) defn(⟦#FILE⟧)
-TEXTDATA_PROCESS_RAW_DATA(defn(⟦#FILE⟧), ⟦$3⟧, $4)dnl	prepare command
-esyscmd(defn(⟦COMMAND_FOR_TEXTDATA⟧))
-divert(-1)
-
-	# test return value from sed; show the failed sed command
-	ifelse(sysval, ⟦0⟧, ⟦⟧, ⟦
-
-		ROOT_ERROR(⟦‘$0($@)’ → $ ⟧defn(⟦COMMAND_FOR_TEXTDATA⟧))
-	⟧)
-
-	ifdef(⟦DEBUG⟧, ⟦errprint(__file__:__line__: defn(⟦COMMAND_FOR_TEXTDATA⟧)
-)⟧)
+	# 1st file name
+	# 2nd start line
+	# 3rd end line
+	TEXTDATA_SET_PARAMS(defn(⟦#FILE⟧), ⟦$3⟧, ⟦$4⟧)
 ⟧)
-
-# A → β
-define(⟦TEXTDATA_MLH⟧, defn(⟦TEXTDATA⟧))
 
 # A → β
 # β
-define(⟦TEXTDATA_PROCESS_RAW_DATA⟧, ⟦dnl
-TEXTDATA_SET_PARAMETERS(
-	⟦$1⟧,
-	⟦$2⟧,
-	ifelse(⟦$3⟧, ⟦⟧, ⟦1⟧, ⟦⟦$3⟧⟧),
-	ifelse(⟦$4⟧, ⟦⟧, ⟦0⟧, ⟦$4⟧, ⟦$⟧, ⟦0⟧, ⟦⟦$4⟧⟧),
-	ifelse(⟦$4⟧, ⟦⟧, ⟦⟧, ⟦$4⟧, ⟦$⟧, ⟦⟧, ⟦⟦    …\n⟧⟧))dnl
+define(⟦TEXTDATA_SET_PARAMS⟧, ⟦
+
+	TEXTDATA_CREATE_COMMAND(
+⟦$1⟧,dnl file name
+ifelse(⟦$2⟧, ⟦⟧, ⟦1⟧, ⟦⟦$2⟧⟧),dnl starting file line: ⟦⟧ or ⟦NUM⟧
+ifelse(⟦$3⟧, ⟦⟧, ⟦0⟧, ⟦$3⟧, ⟦$⟧, ⟦0⟧, ⟦⟦$3⟧⟧),dnl ending file line: ⟦⟧ or ⟦NUM⟧
+ifelse(⟦$2⟧, ⟦⟧, ⟦⟧, ⟦$2⟧, ⟦1⟧, ⟦⟧, ⟦ifdef(⟦LINE_NUMBERS⟧, ⟦    ⟧)⟦…\n⟧⟧),dnl prints starting three dots if the file is not from the beginning
+ifelse(⟦$3⟧, ⟦⟧, ⟦⟧, ⟦$3⟧, ⟦$⟧, ⟦⟧, ⟦ifdef(⟦LINE_NUMBERS⟧, ⟦    ⟧)⟦…\n⟧⟧)dnl prints ending three dots if the file is not to the EOF
+)
+
 ⟧)
 
 # A → β
-define(⟦TEXTDATA_SET_PARAMETERS⟧, ⟦dnl
-define(⟦COMMAND_FOR_TEXTDATA⟧, ⟦awk -e 'NR==$3,NR==$4{' -f txt/chr_to_esc.awk -e '⟧ifdef(⟦LINE_NUMBERS⟧, ⟦⟦printf "%3d ", NR;⟧⟧)⟦print}BEGIN{printf "⟦"}END{printf "$5⟧"}' $1⟧)dnl
+define(⟦TEXTDATA_CREATE_COMMAND⟧, ⟦
+
+	define(⟦COMMAND_FOR_TEXTDATA⟧,
+	⟦awk -e 'NR==$2,NR==$3{' -f txt/chr_to_esc.awk -e '⟧ifdef(⟦LINE_NUMBERS⟧, ⟦⟦printf "%3d ", NR;⟧⟧)⟦print}BEGIN{printf "⟦$4"}END{printf "$5⟧"}' $1⟧)
 ⟧)
