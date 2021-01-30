@@ -1,8 +1,8 @@
 /* vim:cc=81
  *
  * __AUTHOR(⟦Josef Kubin⟧, ⟦2020,12,24⟧)
- * ___DESCR(⟦selects source code and puts it into X11 selection clipboard (Linux)⟧)
- * __REASON(⟦makes it easy to select a code with a single mouse click⟧)
+ * ___DESCR(⟦selects the source code and inserts it into X11 (Linux) selection buffer⟧)
+ * __REASON(⟦selects the code with a single mouse click⟧)
  *
  * /!\ keep all variable names consistent with the file html/js_packer.sed
  * because lengthy JavaScript is eventually packed to a smaller one-line script
