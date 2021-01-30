@@ -4,7 +4,7 @@ __AUTHOR(⟦Josef Kubin⟧, ⟦2019,12,23⟧)
 ___DESCR(⟦converts inline and block-level elements into a plain text file for checking jargon and typos⟧)
 __REASON(⟦plain text file for spell checking and for suggestions from other people (text can be easily edited)⟧)
 
-# extracts MACRO(⟦…⟧, ⟦the text⟧, …) if defined (`the text' is a title)
+# extracts `the text' from the MACRO(⟦…⟧, ⟦the text⟧, ⟦⟦…⟧⟧)
 # β
 pushdef(⟦TITLE_ATTR⟧, ⟦
 
@@ -40,7 +40,7 @@ pushdef(⟦PRINT_ITEM_PEREX⟧, ⟦
 	divert(0)dnl
 ⟦#⟧ number of characters in perex (200 ±10 is recommended): esyscmd(⟦wc -m << EOF⟧
 patsubst(defn(⟦SELITM⟧), ⟦\<dnl\>\|[#,]⟧, ⟦⟦\&⟧⟧)
-⟦EOF⟧)dnl
+⟦EOF⟧)dnl end of an external command
 __line__
 SELITM
 
@@ -57,7 +57,7 @@ define(⟦PART⟧, ⟦
 #
 ⟦#⟧ DONTE()
 #
-⟦#⟧ __SOURCE(PAYR(__file__), SARG1(esyscmd(⟦date '+⟦⟦%Y%m%d-%R:%S⟧⟧,'⟧)), SARG1(esyscmd(⟦git log -1 --format='⟦⟦%h⟧⟧,' ⟧__file__)), SARG1(esyscmd(⟦git log -1 --format='⟦⟦%h⟧⟧,'⟧)))
+⟦#⟧ __SOURCE(LL()__file__⟦⟧RR(), SARG1(esyscmd(⟦date '+⟦⟦%Y%m%d-%R:%S⟧⟧,'⟧)), SARG1(esyscmd(⟦git log -1 --format='⟦⟦%h⟧⟧,' ⟧__file__)), SARG1(esyscmd(⟦git log -1 --format='⟦⟦%h⟧⟧,'⟧)))
 
 divert(1)dnl
 ---
@@ -95,7 +95,8 @@ define(⟦LINK⟧, ⟦pushdef(⟦CURRQU⟧, divnum)divert(-1)
 	# find caption in the associative array
 	pushdef(⟦CAPT⟧, defn(defn(⟦PREF⟧).capt.⟦$1⟧))
 
-	ifelse(defn(⟦CAPT⟧), ⟦⟧, ⟦
+	ifelse(
+		defn(⟦CAPT⟧), ⟦⟧, ⟦
 
 			# CAPT in refs not found, use the first LINK argument
 			define(⟦CAPT⟧, ⟦$1⟧)
@@ -222,7 +223,7 @@ define(⟦GRAY⟧,		defn(⟦BOLD⟧))
 define(⟦PERSON⟧,	defn(⟦BOLD⟧))
 define(⟦XCODE⟧,		defn(⟦CODE⟧))
 
-# HTML5 block-level elements
+# HTML5 block-level elements and other macros
 
 # A → β
 define(⟦ADDRESS_WRAP⟧,		defn(⟦TITLE_ATTR⟧, ⟦EXPAND_LAST_ARG⟧))
@@ -232,16 +233,18 @@ define(⟦ASIDE_WRAP⟧,		defn(⟦TITLE_ATTR⟧, ⟦EXPAND_LAST_ARG⟧))
 define(⟦BLOCKQUOTE⟧,		defn(⟦PRINT_ITEM⟧))
 define(⟦BRIDGEHEAD⟧,		defn(⟦PRINT_ITEM⟧))
 define(⟦CHAPTER⟧,		defn(⟦PRINT_ITEM⟧))
-define(⟦CMDSYNOPSIS⟧, 		defn(⟦TITLE_ATTR⟧))
+define(⟦CMDFILES_ROOT⟧, 		defn(⟦TITLE_ATTR⟧))
+define(⟦CMDFILES⟧, 		defn(⟦TITLE_ATTR⟧))
 define(⟦CMDSYNOPSIS_ROOT⟧, 		defn(⟦TITLE_ATTR⟧))
+define(⟦CMDSYNOPSIS⟧, 		defn(⟦TITLE_ATTR⟧))
 define(⟦DESCRIPTION_LIST_DESC⟧,		defn(⟦PRINT_ITEM⟧))
 define(⟦DESCRIPTION_LIST_TERM⟧,		defn(⟦PRINT_ITEM⟧))
 define(⟦DESCRIPTION_LIST_WRAP⟧,		defn(⟦TITLE_ATTR⟧, ⟦EXPAND_LAST_ARG⟧))
 define(⟦DETAILS_WRAP⟧,		defn(⟦TITLE_ATTR⟧, ⟦EXPAND_LAST_ARG⟧))
-define(⟦DIV⟧,			defn(⟦PRINT_ITEM⟧))
 define(⟦DIV_WRAP⟧,		defn(⟦TITLE_ATTR⟧, ⟦EXPAND_LAST_ARG⟧))
-define(⟦ENTRY⟧,			defn(⟦PRINT_ITEM⟧))
+define(⟦DIV⟧,			defn(⟦PRINT_ITEM⟧))
 define(⟦ENTRY_HEAD⟧,		defn(⟦PRINT_ITEM⟧))
+define(⟦ENTRY⟧,			defn(⟦PRINT_ITEM⟧))
 define(⟦EXCL⟧,			defn(⟦PRINT_ITEM⟧))
 define(⟦FIGCAPTION⟧,		defn(⟦PRINT_ITEM⟧))
 define(⟦FIGURE_WRAP⟧,		defn(⟦TITLE_ATTR⟧, ⟦EXPAND_LAST_ARG⟧))
@@ -254,8 +257,8 @@ define(⟦ITEMIZEDLIST_WRAP⟧,		defn(⟦TITLE_ATTR⟧, ⟦EXPAND_LAST_ARG⟧))
 define(⟦LISTITEM⟧,		defn(⟦PRINT_ITEM⟧))
 define(⟦MAIN_WRAP⟧,		defn(⟦TITLE_ATTR⟧, ⟦EXPAND_LAST_ARG⟧))
 define(⟦NAV⟧,			defn(⟦PRINT_ITEM⟧))
-define(⟦NOTE⟧,			defn(⟦PRINT_ITEM⟧))
 define(⟦NOTE_WRAP⟧,		defn(⟦TITLE_ATTR⟧, ⟦EXPAND_LAST_ARG⟧))
+define(⟦NOTE⟧,			defn(⟦PRINT_ITEM⟧))
 define(⟦ORDEREDLIST_WRAP⟧,		defn(⟦TITLE_ATTR⟧, ⟦EXPAND_LAST_ARG⟧))
 define(⟦PARA⟧,			defn(⟦PRINT_ITEM⟧))
 define(⟦PARTINTRO⟧,		defn(⟦PRINT_ITEM_PEREX⟧))
@@ -269,30 +272,13 @@ define(⟦SUMMARY⟧,		defn(⟦PRINT_ITEM⟧))
 define(⟦TABLE_COLGROUP_WRAP⟧,		defn(⟦TITLE_ATTR⟧, ⟦EXPAND_LAST_ARG⟧))
 define(⟦TABLE_WRAP⟧,		defn(⟦TITLE_ATTR⟧, ⟦EXPAND_LAST_ARG⟧))
 define(⟦TBODY_WRAP⟧,		defn(⟦TITLE_ATTR⟧, ⟦EXPAND_LAST_ARG⟧))
+define(⟦TEXTDATA_MLH⟧, 		defn(⟦TITLE_ATTR⟧))
+define(⟦TEXTDATA⟧, 		defn(⟦TITLE_ATTR⟧))
 define(⟦TFOOT_WRAP⟧,		defn(⟦TITLE_ATTR⟧, ⟦EXPAND_LAST_ARG⟧))
 define(⟦THEAD_WRAP⟧,		defn(⟦TITLE_ATTR⟧, ⟦EXPAND_LAST_ARG⟧))
 define(⟦TILE_BOX⟧,		defn(⟦PRINT_ITEM⟧))
 define(⟦TTITLE⟧,		defn(⟦PRINT_ITEM⟧))
 define(⟦WARN⟧,			defn(⟦PRINT_ITEM⟧))
-
-# A → β
-# β
-define(⟦TEXTDATA⟧, ⟦
-
-	ifelse(
-		⟦$#⟧, ⟦1⟧, ⟦⟧,
-		⟦$2⟧, ⟦⟧, ⟦⟧, ⟦
-
-		divert(0)dnl
-__line__
-⟦[$2]⟧
-
-divert(-1)
-	⟧)
-⟧)
-
-# A → β
-define(⟦TEXTDATA_MLH⟧, defn(⟦TEXTDATA⟧))
 
 popdef(
 
